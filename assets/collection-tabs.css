@@ -1,0 +1,137 @@
+.f-collection-tabs {
+  --layout-column-gap: 2.2rem;
+}
+@media (min-width: 768px) {
+  .f-collection-tabs {
+    --layout-column-gap: 5rem;
+  }
+}
+@media (min-width: 1280px) {
+  .f-collection-tabs {
+    --layout-column-gap: 10rem;
+  }
+}
+.f-collection-tabs .f-collection-tab__content {
+  padding: var(--layout-column-gap, 0) 0 0;
+}
+@media (min-width: 1024px) {
+  .f-collection-tabs .f-collection-tab__content .section__header {
+    padding-bottom: 3rem;
+  }
+}
+@media (min-width: 768px) {
+  .f-collection-tabs--image-left .f-collection-tab__content {
+    padding: 0;
+    padding-inline-start: var(--layout-column-gap, 0);
+  }
+}
+@media (min-width: 1024px) {
+  .f-collection-tabs--image-left .f-collection-tab__content {
+    padding-inline-end: 5rem;
+  }
+}
+@media (min-width: 768px) {
+  .f-collection-tabs--image-right .f-collection-tab__content {
+    padding: 0;
+    padding-inline-end: var(--layout-column-gap, 0);
+  }
+}
+@media (min-width: 1024px) {
+  .f-collection-tabs--image-right .f-collection-tab__content {
+    padding-inline-start: 5rem;
+  }
+}
+.f-collection-tabs .collapsible__item {
+  position: relative;
+  display: block;
+  border-bottom: 0;
+  padding: 2rem 0;
+}
+.f-collection-tabs .collapsible__item:before, .f-collection-tabs .collapsible__item:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  inset-inline-start: 0;
+  height: 1px;
+  background: var(--color-text-body);
+}
+.f-collection-tabs .collapsible__item:before {
+  width: 100%;
+  opacity: 0.2;
+}
+.f-collection-tabs .collapsible__item:after {
+  width: 0;
+}
+.f-collection-tabs .collapsible__item.is-expanded:after {
+  transition: width var(--autoplay-duration, 0) linear;
+  width: 100%;
+}
+.f-collection-tabs collection-tabs[data-autoplay=false] .collapsible__item:after {
+  width: 100%;
+  opacity: 0;
+  transition: all 0.3s linear;
+}
+.f-collection-tabs collection-tabs[data-autoplay=false] .collapsible__item.is-selected:after {
+  opacity: 1;
+}
+.f-collection-tabs .block-collection-tab:first-child .collapsible__item {
+  padding-top: 0;
+}
+.f-collection-tabs .collapsible__content-inner {
+  padding-block: 0 1rem;
+  padding-inline: 4rem 5rem;
+}
+.f-collection-tabs .collapsible__button {
+  border: 0;
+  padding-block: 1rem;
+  padding-inline: 0 5rem;
+  min-height: 6rem;
+}
+.f-collection-tabs .collapsible__button-icon {
+  min-width: 28px;
+  margin-block: 0;
+  margin-inline: 0 1.2rem;
+  flex-shrink: 0;
+}
+.f-collection-tabs .collapsible__button-text {
+  flex-grow: 1;
+  margin: 0 !important;
+}
+.f-collection-tabs .collapsible__button-wrap {
+  position: relative;
+}
+.f-collection-tabs .collection-tab__link {
+  --btn-icon-width: 4rem;
+  --btn-rounded: 50%;
+  position: absolute;
+  inset-inline-end: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  border-color: rgba(var(--color-foreground), 0.2);
+  flex-shrink: 0;
+  z-index: 0;
+}
+.f-collection-tab__images {
+  position: relative;
+  min-height: 100%;
+  overflow: hidden;
+}
+.f-collection-tab__image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s linear;
+}
+.f-collection-tab__image.is-active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .f-collection-tabs .collection-tab__link::before {
+    display: none;
+  }
+}

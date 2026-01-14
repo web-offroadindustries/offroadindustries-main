@@ -1,0 +1,174 @@
+{%- capture size_chart_button -%}
+    <modal-opener class="open-size-chart no-js-hidden" data-modal="#PopupModal-SizeChart-{{ section.id }}">
+        <button class="btn--link text-sm" aria-label="{{ 'products.product.open_size_chart' | t }}">
+            <span>{{ 'products.product.open_size_chart' | t }}</span>
+        </button>
+    </modal-opener>
+{%- endcapture -%}
+<div
+  class="variant-picker"
+  data-variant-picker
+  data-product-id="{{ product.id }}"
+  data-section="{{ section.id }}"
+  data-product-handle="{{ product.handle }}"
+  data-product-url="{{ product.url }}"
+  data-max-options="{{ product.options_with_values.size }}"
+>
+  {%- unless product.has_only_default_variant -%}
+    <variant-picker class="no-js-hidden" id="variant-picker-{{ section.id }}" data-update-url="{{ update_browser_history }}">
+      {%- for option in product.options_with_values -%}
+        {% liquid
+          assign option_label = option.name
+          assign option_name_downcase = option.name | downcase
+          assign size_title_downcase = size_title | downcase
+          assign is_size = false
+          if size_title_downcase contains option_name_downcase
+            assign is_size = true
+          endif
+
+          assign swatch_count = option.values | map: 'swatch' | compact | size
+
+          assign type_picker = picker_type
+          if settings.color_swatches_enable
+            if settings.color_swatches_trigger != blank and picker_type == 'button'
+              assign color_swatches_trigger = settings.color_swatches_trigger | downcase | split: ','
+              assign has_color = color_swatches_trigger | where: option_name_downcase | first
+              if has_color != blank
+                assign type_picker = 'color'
+              else
+                assign type_picker = 'button'
+              endif
+            endif
+            
+            if swatch_count > 0
+              if picker_type == 'dropdown'
+                assign type_picker = 'swatch_dropdown'
+              elsif settings.vp_swatch_type == 'shopify'
+                assign type_picker = 'swatch'
+              elsif settings.vp_swatch_type == 'variant_image' or settings.vp_swatch_type == 'custom'
+                assign type_picker = 'color'
+              endif
+            endif
+          endif
+        %}
+        
+        <div class="variant-picker__field-wrapper">
+          {% case type_picker %}
+            {% when 'dropdown', 'swatch_dropdown' %}
+              <div class="variant-picker__field" data-picker-field="select" data-option-name="{{ option.name }}">
+                <div class="variant-picker__input variant-picker__input--dropdown">
+                  <label class="form-label" for="Option-{{ section.id }}-{{ forloop.index0 }}">
+                    <span class="font-semibold">{{ option_label }}:</span>
+                    {% if show_selected_value %}
+                      <span class="selected-value">{{ option.selected_value }}</span>
+                    {% endif %}
+                  </label>
+                  <select
+                    class="form-control"
+                    id="Option-{{ section.id }}-{{ forloop.index0 }}"
+                    class="form-control"
+                    name="options[{{ option.name | escape }}]"
+                    form="{{ product_form_id }}"
+                  >
+                    {%- render 'product-variant-options',
+                      product: product,
+                      option: option,
+                      block: block,
+                      picker_type: type_picker
+                    -%}
+                  </select>
+                </div>
+              </div>
+            {% when 'color', 'swatch' %}
+              <div class="variant-picker__field" data-picker-field="radio" data-option-name="{{ option.name }}">
+                <div class="js variant-picker__input variant-picker__color">
+                  <label class="form__label">
+                    <span class="font-semibold">{{ option_label }}:</span>
+                    {% if show_selected_value %}
+                      <span class="selected-value">{{ option.selected_value }}</span>
+                    {% endif %}
+                  </label>
+                  <div class="variant-picker__option-values">
+                    {%- render 'product-variant-options',
+                      product: product,
+                      option: option,
+                      block: block,
+                      picker_type: type_picker,
+                      color_schema: color_schema
+                    -%}
+                  </div>
+                </div>
+              </div>
+            {% else %}
+              <div class="variant-picker__field" data-picker-field="radio" data-option-name="{{ option.name }}">
+                <div class="js variant-picker__input variant-picker__button">
+                  <label class="form__label">
+                    <span class="font-semibold">{{ option_label }}:</span>
+                    {% if show_selected_value %}
+                      <span class="selected-value">{{ option.selected_value }}</span>
+                    {% endif %}
+                  </label>
+                  <div class="variant-picker__option-values">
+                    {%- render 'product-variant-options',
+                      product: product,
+                      option: option,
+                      block: block,
+                      picker_type: type_picker
+                    -%}
+                  </div>
+                </div>
+              </div>
+          {% endcase %}
+          {%- if is_size and show_size_chart -%}
+            {{- size_chart_button -}}
+          {%- endif -%}
+          {% if is_size %}
+            <button
+              class="open-size-chart open-foxkit-sizechart btn btn--with-icon btn--plain foxkit-hidden"
+              aria-label="{{ 'products.product.open_size_chart' | t }}"
+            >
+              <span
+                ><u>{{ 'products.product.open_size_chart' | t }}</u></span
+              >
+            </button>
+          {% endif %}
+        </div>
+      {%- endfor -%}
+      <script type="application/json" data-selected-variant>
+        {{ product.selected_or_first_available_variant | json }}
+      </script>
+    </variant-picker>
+  {%- endunless -%}
+  <noscript class="variant-picker__noscript-wrapper-{{ section.id }}">
+    <div class="form-field variant-picker__input{% if product.has_only_default_variant %} hidden{% endif %}">
+      <label
+        class="form-label"
+        for="Variants-{{ section.id }}"
+      >
+        {{- 'products.product.product_variants' | t -}}
+      </label>
+      <select
+        name="id"
+        id="Variants-{{ section.id }}"
+        class="form-control"
+        form="{{ product_form_id }}"
+      >
+        {%- for variant in product.variants -%}
+          <option
+            {% if variant == product.selected_or_first_available_variant %}
+              selected="selected"
+            {% endif %}
+            {% if variant.available == false %}
+              disabled
+            {% endif %}
+            value="{{ variant.id }}"
+          >
+            {{ variant.title }}
+            {%- if variant.available == false %} - {{ 'products.product.sold_out' | t }}{% endif %}
+            - {{ variant.price | money | strip_html }}
+          </option>
+        {%- endfor -%}
+      </select>
+    </div>
+  </noscript>
+</div>

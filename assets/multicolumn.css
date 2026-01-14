@@ -1,0 +1,49 @@
+.multicolumn-card__info.has-image {
+  margin-top: var(--image-spacing, 2.4rem);
+}
+.multicolumn-card__info .btn {
+  margin-top: 3.2rem;
+}
+.multicolumn-card__info .rte:not(:first-child) {
+  margin-top: var(--description-spacing, 1.2rem);
+}
+.multicolumn-card__image {
+  max-width: 100%;
+  display: inline-block;
+  min-width: var(--image-width);
+}
+.multicolumn-card__image .f-image--placeholder {
+  display: inline-block;
+}
+.multicolumn-card--horizontal {
+  --description-spacing: 0.4rem;
+}
+.multicolumn-card--horizontal .multicolumn-card__inner {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.multicolumn-card--horizontal .multicolumn-card__info {
+  margin-top: 0;
+}
+.multicolumn-card--horizontal .multicolumn-card__image {
+  margin-inline-end: 1.2rem;
+}
+.multicolumn-card--image-x-small {
+  --image-width: 2.8rem;
+}
+.multicolumn-card--image-small {
+  --image-width: 4.4rem;
+}
+.multicolumn-card--image-medium {
+  --image-width: 6rem;
+}
+.multicolumn-card--image-large {
+  --image-width: 7.2rem;
+}
+.multicolumn-card--image-x-large {
+  --image-width: 8.4rem;
+}
+.multicolumn-card--image-fullwidth {
+  --image-width: 100%;
+}

@@ -1,0 +1,357 @@
+{%- liquid
+  assign menu_id = section.settings.main_menu | default: 'main-menu'
+  assign dropdown_container = section.settings.container | default: 'container'
+  assign enable_mega_menu = section.settings.enable_mega_menu
+
+  assign menu_links = linklists[menu_id].links
+  assign menu_length = menu_links.size
+  if menu_part != blank
+    assign menu_length_modulo = menu_length | modulo: 2
+    assign split_index = menu_length | divided_by: 2
+    unless menu_length_modulo == 0
+      assign split_index = split_index | plus: 1
+    endunless
+  endif
+
+  assign space_class = ''
+  if menu_length >= 5
+    assign space_class = ' f-site-nav--space-md'
+  endif
+  if menu_length >= 8
+    assign space_class = ' f-site-nav--space-sm'
+  endif
+  if menu_length > 10
+    assign space_class = ' f-site-nav--space-xs'
+  endif
+
+  assign is_hover = false
+  if section.settings.dropdown_menu_trigger == 'hover'
+    assign is_hover = true
+  endif
+-%}
+{%- unless menu_id and menu_links.size == 0 -%}
+  <site-nav class="f-site-nav lg-down:hidden{{ space_class }}">
+    <ul class="f-site-nav__list flex flex-wrap h-full list-none" role="list">
+      {%- for link in menu_links -%}
+        {%- liquid
+          if menu_part == 'last' and forloop.index <= split_index
+            continue
+          endif
+          assign li_class = 'f-site-nav__item'
+          assign is_mega_item = true
+          assign three_level = false
+          assign has_mega_item = false
+          if link.links != blank
+            if link.levels == 2
+              assign three_level = true
+              assign is_mega_item = enable_mega_menu
+            endif
+          endif
+          assign title_handle = link.title | handleize
+          assign column = 6
+        -%}
+
+        {%- for block in section.blocks -%}
+          {%- liquid
+            assign menu_title = block.settings.heading | handleize
+            if menu_title == blank or menu_title != title_handle
+              continue
+            endif
+          -%}
+          {%- if menu_title == title_handle and enable_mega_menu -%}
+            {%- liquid
+              assign has_mega_item = true
+              assign column = block.settings.columns
+              if block.settings.container != 'inherit'
+                assign dropdown_container = block.settings.container
+              endif
+            -%}
+            {%- case block.type -%}
+              {%- when 'banner' -%}
+                {%- capture block_type -%}
+                  {%- liquid
+                    assign image = block.settings.image
+                  -%}
+                  {%- if image != blank -%}
+                    {%- liquid
+                      assign image_wrap_tag = 'div'
+                      if block.settings.link != blank
+                        assign image_wrap_tag = 'a'
+                      endif
+                    -%}
+                    <div
+                      id="Banner-{{ block.id }}"
+                      class="f-site-nav__mega-addon f-site-nav__mega-addon--banner"
+                      style="--banner-width: {{ block.settings.banner_width }}px"
+                    >
+                      <{{ image_wrap_tag }}
+                        {% if block.settings.link != blank %}
+                          href="{{ block.settings.link }}"
+                          target="_blank"
+                        {% endif %}
+                      >
+                        <responsive-image
+                          class="f-image"
+                          data-image-loading
+                          style="--aspect-ratio: {{ image.aspect_ratio }}"
+                        >
+                          <img
+                            srcset="
+                              {%- if image.width >= 165 -%}{{ image | image_url: width: 165 }} 165w,{%- endif -%}
+                              {%- if image.width >= 360 -%}{{ image | image_url: width: 360 }} 360w,{%- endif -%}
+                              {%- if image.width >= 533 -%}{{ image | image_url: width: 533 }} 533w,{%- endif -%}
+                              {%- if image.width >= 720 -%}{{ image | image_url: width: 720 }} 720w,{%- endif -%}
+                              {%- if image.width >= 940 -%}{{ image | image_url: width: 940 }} 940w,{%- endif -%}
+                              {%- if image.width >= 1066 -%}{{ image | image_url: width: 1066 }} 1066w,{%- endif -%}
+                              {{ image | image_url }} {{ image.width }}w
+                            "
+                            src="{{ image | image_url: width: 533 }}"
+                            sizes="(min-width: {{ settings.container_width }}px) {{ settings.container_width | minus: 130 | divided_by: 4 }}px, (min-width: 990px) calc((100vw - 130px) / 4), (min-width: 750px) calc((100vw - 120px) / 3), calc((100vw - 35px) / 2)"
+                            alt="{{ image.alt | escape }}"
+                            loading="lazy"
+                            width="{{ image.width }}"
+                            height="{{ image.height }}"
+                          >
+                        </responsive-image>
+                      </{{ image_wrap_tag }}>
+                    </div>
+                  {%- endif -%}
+                {%- endcapture -%}
+              {%- when 'product' -%}
+                {%- capture block_type -%}
+                  {%- liquid
+                    assign product_ids = 'product_1,product_2,product_3,product_4,product_5,product_6' | split: ','
+                    assign addon_column = block.settings.addon_column
+                  -%}
+                  <div
+                    id="Products-list-{{ block.id }}"
+                    class="f-site-nav__mega-addon f-site-nav__mega-addon--product w-full"
+                    style="--max-width: {{ addon_column }}%;"
+                  >
+                    <div class="w-full f-grid f-site-nav__mega-addon--wrapper" style="gap: 2rem;">
+                      {%- for product_id in product_ids -%}
+                        {% if block.settings[product_id] == blank %}{% continue %}{% endif %}
+                        <div class="f-column">
+                          {% render 'product-card',
+                            product: block.settings[product_id],
+                            show_vendor: false,
+                            show_product_option: false
+                          %}
+                        </div>
+                      {%- endfor -%}
+                    </div>
+                  </div>
+                {%- endcapture -%}
+              {%- when 'collection' -%}
+                {%- capture block_type -%}
+                  {%- liquid
+                    assign collection_ids = 'collection_1,collection_2,collection_3,collection_4,collection_5,collection_6' | split: ','
+                    assign addon_column = block.settings.addon_column
+                    assign card_style = block.settings.card_style
+                    assign text_color = block.settings.text_color
+                    assign text_alignment = 'center'
+                    assign show_count = true
+                    assign image_ratio = 'adapt'
+                  -%}
+                  <div
+                    id="Collections-list-{{ block.id }}"
+                    class="f-site-nav__mega-addon f-site-nav__mega-addon--collection w-full"
+                    style="--max-width: {{ addon_column }}%;"
+                  >
+                    <div class="w-full f-grid f-site-nav__mega-addon--wrapper" style="gap: 3rem;">
+                      {%- for collection_id in collection_ids -%}
+                        {% if block.settings[collection_id] == blank %}{% continue %}{% endif %}
+                        {% render 'collection-card',
+                          collection: block.settings[collection_id],
+                          card_style: card_style,
+                          text_color: text_color,
+                          text_alignment: text_alignment,
+                          image_ratio: image_ratio,
+                          show_count: show_count
+                        %}
+                      {%- endfor -%}
+                    </div>
+                  </div>
+                {%- endcapture -%}
+              {%- when 'custom' -%}
+                {%- capture block_type -%}
+                  {%- liquid
+                    assign collection_ids = 'image_1,image_2,image_3,image_4,image_5' | split: ','
+                    assign addon_column = block.settings.addon_column
+                  -%}
+                  <div
+                    id="Image-list-{{ block.id }}"
+                    class="f-site-nav__mega-addon f-site-nav__mega-addon--collection w-full"
+                    style="--max-width: {{ addon_column }}%;"
+                  >
+                    <div class="w-full f-grid f-site-nav__mega-addon--wrapper" style="gap: 3rem;">
+                      {%- for i in (1..6) -%}
+                        {%- liquid
+                          assign image_id = 'image_' | append: i
+                          assign title_id = 'title_' | append: i
+                          assign desc_id = 'description_' | append: i
+                          assign link_id = 'url_' | append: i
+                          assign button_label_id = 'button_label_' | append: i
+                          assign button_style_id = 'button_style_' | append: i
+                          assign content_position_id = 'content_position_' | append: i
+                          assign heading_size_id = 'heading_size_' | append: i
+                          assign color_scheme_id = 'color_scheme_' | append: i
+                          assign image = block.settings[image_id]
+                          assign title = block.settings[title_id]
+                          assign description = block.settings[desc_id]
+                          assign button_label = block.settings[button_label_id]
+                          assign button_style = block.settings[button_style_id]
+                          assign content_position = block.settings[content_position_id]
+                          assign heading_size = block.settings[heading_size_id]
+                          assign color_scheme = block.settings[color_scheme_id]
+                          if image and link and title
+                            render 'custom-card', title: title, description: description, image: image, link: block.settings[link_id], color_scheme: color_scheme, heading_size: heading_size, button_label: button_label, button_style: button_style, content_position: content_position
+                          endif
+                        -%}
+                      {%- endfor -%}
+                    </div>
+                  </div>
+                {%- endcapture -%}
+              {%- else -%}
+                {%- capture block_type %}{% endcapture -%}
+            {%- endcase -%}
+          {%- endif -%}
+        {%- endfor -%}
+        {%- liquid
+          if three_level != true and has_mega_item == false
+            assign is_mega_item = false
+          endif
+
+          if link.active
+            assign li_class = li_class | append: ' f-site-nav__item--current'
+          endif
+
+          if link.links != blank
+            assign li_class = li_class | append: ' f-site-nav__item--has-child'
+          endif
+
+          if is_mega_item and has_mega_item
+            assign li_class = li_class | append: ' f-site-nav__item--mega'
+          endif
+
+          assign has_dropdown = false
+          if link.links != blank
+            assign has_dropdown = true
+          elsif has_mega_item and block_type != blank
+            assign has_dropdown = true
+          endif
+
+          assign dropdown_html = ''
+        -%}
+        {%- if link.links != blank -%}
+          {%- liquid
+            unless is_mega_item and has_mega_item
+              assign dropdown_container = 'w-full'
+            endunless
+          -%}
+          {%- capture dropdown_html -%}
+            <div
+              class="f-site-nav__dropdown f-site-nav__dropdown--level2 color-{{ section.settings.menu_dropdown_color_schema }}{% if is_mega_item and has_mega_item %} no-js-hidden f-site-nav__dropdown--mega{% endif %}"
+              tabindex="-1"
+            >
+              <div class="{{ dropdown_container }}">
+                <div class="f-site-nav__dropdown-inner flex flex-wrap justify-center">
+                  <ul
+                    class="list-none w-full{% if is_mega_item and has_mega_item %} f-grid f-grid-{{- column -}}-cols{% endif %}"
+                    role="list"
+                    tabindex="-1"
+                  >
+                    {% for childlink in link.links %}
+                      <li class="f-site-nav__sub-item{% if childlink.links != blank %} f-site-nav__sub-item--has-child{% endif %}">
+                        <a
+                          href="{{ childlink.url }}"
+                          class="f-site-nav__sub-link focus-inset no-js-hidden"
+                          ><span>{{ childlink.title }}</span>
+                          {% if childlink.links != blank %}
+                            <span class="f-site-nav__arrow">
+                              {% comment %} theme-check-disable {% endcomment %}
+                              {{ 'icon-arrow-down-small.svg' | inline_asset_content }}
+                              {% comment %} theme-check-enable {% endcomment %}
+                            </span>
+                          {% endif %}
+                        </a>
+                        {% if childlink.links != blank %}
+                          <div
+                            id="HeaderMenu-SubMenuList-{{ forloop.index }}"
+                            class="f-site-nav__dropdown f-site-nav__dropdown--level3 {% unless is_mega_item and has_mega_item %} f-site-nav__dropdown--normal color-{{ section.settings.menu_dropdown_color_schema }}{% endunless %}"
+                            tabindex="-1"
+                          >
+                            <ul class="list-none" role="list" tabindex="-1">
+                              {% for grandlink in childlink.links %}
+                                <li class="f-site-nav__sub-item f-site-nav__sub-item--level3">
+                                  <a
+                                    href="{{ grandlink.url }}"
+                                    class="f-site-nav__sub-link focus-inset"
+                                  >
+                                    <span>{{ grandlink.title }}</span>
+                                  </a>
+                                </li>
+                              {% endfor %}
+                            </ul>
+                          </div>
+                        {% endif %}
+                      </li>
+                    {% endfor %}
+                  </ul>
+                  {% if has_mega_item == true and block_type != blank %}
+                    {{- block_type -}}
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+          {%- endcapture -%}
+        {%- elsif has_mega_item and block_type != blank -%}
+          {%- capture dropdown_html -%}
+            <div
+              class="f-site-nav__dropdown f-site-nav__dropdown--level2 color-{{ section.settings.menu_dropdown_color_schema }}{% if is_mega_item and has_mega_item %} no-js-hidden f-site-nav__dropdown--mega{% endif %}"
+              tabindex="-1"
+            >
+              <div class="{{ dropdown_container }}">
+                <div class="f-site-nav__dropdown-inner flex flex-wrap justify-center">
+                  {{- block_type -}}
+                </div>
+              </div>
+            </div>
+          {%- endcapture -%}
+        {%- endif -%}
+        <li class="{{ li_class }}" data-index="{{ forloop.index0 }}">
+          {%- if is_hover or has_dropdown == false -%}
+            <a href="{{ link.url }}" class="f-site-nav__link focus-inset">
+              <span>{{- link.title -}}</span>
+              {%- if has_dropdown -%}
+                <span class="f-site-nav__arrow{% if is_mega_item and has_mega_item %} no-js-hidden{% endif %}">
+                  {% comment %} theme-check-disable {% endcomment %}
+                  {{ 'icon-arrow-down-small.svg' | inline_asset_content }}
+                  {% comment %} theme-check-enable {% endcomment %}
+                </span>
+              {%- endif -%}
+            </a>
+            {{ dropdown_html }}
+          {%- else -%}
+            <header-menu>
+              <details id="Details-menu-drawer-menu-item-{{ forloop.index0 }}">
+                <summary class="f-site-nav__link focus-inset">
+                  <span>{{- link.title -}}</span>
+                  <span class="f-site-nav__arrow{% if is_mega_item and has_mega_item %} no-js-hidden{% endif %}">
+                    {% comment %} theme-check-disable {% endcomment %}
+                    {{ 'icon-arrow-down-small.svg' | inline_asset_content }}
+                    {% comment %} theme-check-enable {% endcomment %}
+                  </span>
+                </summary>
+                {{ dropdown_html }}
+              </details>
+            </header-menu>
+          {%- endif -%}
+        </li>
+        {%- if menu_part == 'first' and forloop.index >= split_index -%}
+          {%- break -%}
+        {%- endif -%}
+      {%- endfor -%}
+    </ul>
+  </site-nav>
+{%- endunless -%}

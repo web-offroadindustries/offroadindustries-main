@@ -1,0 +1,139 @@
+{
+  "sections": {
+    "30a56383-5d1c-459a-9293-c2f96ce20c74": {
+      "type": "breadcrumb",
+      "settings": {
+        "brc_container": "container",
+        "brc_text_alignment": "center",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "collage_tabs_zqCD7V": {
+      "type": "collage-tabs",
+      "blocks": {
+        "tab_3ERj9g": {
+          "type": "tab",
+          "settings": {
+            "content_color_schema": "",
+            "navigation_title": "Tab 1",
+            "heading": "New York Boutique",
+            "highlight_style": "none",
+            "enable_highlight_text_color": false,
+            "heading_size": "h1",
+            "heading_color": "",
+            "subheading": "LONDON",
+            "description": "<p>4b/39 James St, Fortitude Valley QLD 4006</p><p>+391 (0)35 2568</p><p>Mon-Sat: 10am-8pm</p>",
+            "text_alignment": "left",
+            "button_label": "Get Direction",
+            "button_style": "btn--underline"
+          }
+        }
+      },
+      "block_order": [
+        "tab_3ERj9g"
+      ],
+      "custom_css": [
+        ".f-collage-tab--content {--tab-content-px: 8rem;}"
+      ],
+      "settings": {
+        "container": "container",
+        "color_schema": "",
+        "desktop_navigation_alignment": "center",
+        "desktop_image_position": "left",
+        "desktop_image_width": 50,
+        "image_aspect_ratio": "adapt",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "show_section_divider": false,
+        "divider_width": "container",
+        "custom_id": "",
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    },
+    "form": {
+      "type": "contact-form",
+      "blocks": {
+        "8a1d85d7-2430-41e0-bb31-8d20e342d1de": {
+          "type": "name",
+          "settings": {
+            "label": "Name",
+            "placeholder": "Name",
+            "field_width": "1/2",
+            "hide_label": true,
+            "required": false
+          }
+        },
+        "565061aa-197f-4276-b9da-2c541b1812f9": {
+          "type": "phone",
+          "settings": {
+            "label": "Phone number",
+            "placeholder": "Phone",
+            "field_width": "1/2",
+            "hide_label": true,
+            "required": false
+          }
+        },
+        "21a662e3-f906-405a-ab49-e293e94acda6": {
+          "type": "email",
+          "settings": {
+            "label": "Email",
+            "placeholder": "Email",
+            "field_width": "full",
+            "hide_label": true
+          }
+        },
+        "3d980acc-c8a3-45b3-9c2c-69e05bbc14b5": {
+          "type": "message",
+          "settings": {
+            "label": "Message",
+            "placeholder": "Your Message",
+            "hide_label": true
+          }
+        }
+      },
+      "block_order": [
+        "8a1d85d7-2430-41e0-bb31-8d20e342d1de",
+        "565061aa-197f-4276-b9da-2c541b1812f9",
+        "21a662e3-f906-405a-ab49-e293e94acda6",
+        "3d980acc-c8a3-45b3-9c2c-69e05bbc14b5"
+      ],
+      "settings": {
+        "container": "container",
+        "color_schema": "background-1",
+        "section_header_padding_bottom": "medium",
+        "section_header_content_spacing": "medium",
+        "heading": "Get In Touch",
+        "highlight_style": "none",
+        "enable_highlight_text_color": false,
+        "heading_size": "h2",
+        "heading_color": "",
+        "description": "",
+        "form_design": "design-1",
+        "form_width": 770,
+        "form_alignment": "center",
+        "button_label": "Submit now",
+        "button_style": "btn--primary",
+        "padding_top": 100,
+        "padding_bottom": 100,
+        "show_section_divider": false,
+        "divider_width": "container",
+        "custom_id": "",
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    }
+  },
+  "order": [
+    "30a56383-5d1c-459a-9293-c2f96ce20c74",
+    "collage_tabs_zqCD7V",
+    "main",
+    "form"
+  ]
+}

@@ -1,0 +1,234 @@
+{
+  "type": "footer",
+  "name": "t:sections.footer.name",
+  "sections": {
+    "footer": {
+      "type": "footer",
+      "blocks": {
+        "d2718812-c414-4fef-a2cc-7a964ed73dbe": {
+          "type": "newsletter",
+          "settings": {
+            "heading": "JOIN THE GUSTO",
+            "heading_size": "h6",
+            "subheading": "<p>Subscribe for store updates and discounts.</p>",
+            "description": "<p>By subscribing you agree to the <a href=\"/policies/terms-of-service\" title=\"Terms of Service\">Terms of Use</a> & <a href=\"/policies/privacy-policy\" title=\"Privacy Policy\">Privacy Policy.</a></p>",
+            "email_placeholder": "Enter your email",
+            "hide_label": true,
+            "form_width": 420,
+            "width": 48,
+            "open_default_collapsible_tab": true,
+            "show_divider": false
+          }
+        },
+        "3ca4a887-a88e-43f9-9422-843cb335bfa6": {
+          "type": "link_list",
+          "settings": {
+            "heading": "PRESETS",
+            "heading_size": "h6",
+            "width": 13,
+            "open_default_collapsible_tab": false,
+            "show_divider": true
+          }
+        },
+        "footer-0": {
+          "type": "link_list",
+          "settings": {
+            "heading": "ABOUT",
+            "heading_size": "h6",
+            "width": 13,
+            "open_default_collapsible_tab": false,
+            "show_divider": true
+          }
+        },
+        "link_list_ePTXrh": {
+          "type": "link_list",
+          "settings": {
+            "heading": "LINKS",
+            "heading_size": "h6",
+            "width": 13,
+            "open_default_collapsible_tab": false,
+            "show_divider": true
+          }
+        },
+        "8ea5fbcc-a81e-48ae-a337-2436b19c38af": {
+          "type": "link_list",
+          "settings": {
+            "heading": "SHOP",
+            "heading_size": "h6",
+            "width": 13,
+            "open_default_collapsible_tab": false,
+            "show_divider": true
+          }
+        },
+        "logo_8tjEnj": {
+          "type": "logo",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "d2718812-c414-4fef-a2cc-7a964ed73dbe",
+        "3ca4a887-a88e-43f9-9422-843cb335bfa6",
+        "footer-0",
+        "link_list_ePTXrh",
+        "8ea5fbcc-a81e-48ae-a337-2436b19c38af",
+        "logo_8tjEnj"
+      ],
+      "custom_css": [],
+      "settings": {
+        "container": "container",
+        "color_schema": "inverse",
+        "show_copyright": true,
+        "show_divider": false,
+        "enable_follow_on_shop": true,
+        "show_social": true,
+        "icon_size": "extra-medium",
+        "enable_country_selector": true,
+        "enable_language_selector": true,
+        "show_payments": true,
+        "bottom_menu": "footer-bottom-menu",
+        "animations": "inherit"
+      }
+    },
+    "mobile-sticky-bar": {
+      "type": "mobile-sticky-bar",
+      "blocks": {
+        "4acf3659-eeb5-464a-9dc4-15252f4335a7": {
+          "type": "home",
+          "settings": {
+            "text": "Home"
+          }
+        },
+        "03ac099f-69b1-4080-8b50-0fe8050a3ae0": {
+          "type": "products",
+          "settings": {
+            "text": "Products"
+          }
+        },
+        "9c24f1f1-363e-46a6-9b67-3cc0d81b8193": {
+          "type": "search",
+          "settings": {
+            "text": "Search"
+          }
+        },
+        "b3855247-b926-4ad2-9034-696dea29c5a3": {
+          "type": "cart",
+          "settings": {
+            "text": "Cart"
+          }
+        }
+      },
+      "block_order": [
+        "4acf3659-eeb5-464a-9dc4-15252f4335a7",
+        "03ac099f-69b1-4080-8b50-0fe8050a3ae0",
+        "9c24f1f1-363e-46a6-9b67-3cc0d81b8193",
+        "b3855247-b926-4ad2-9034-696dea29c5a3"
+      ],
+      "disabled": true,
+      "settings": {
+        "enable_sticky_bar": true,
+        "show_text": true
+      }
+    },
+    "popup": {
+      "type": "popup",
+      "blocks": {
+        "image": {
+          "type": "image",
+          "settings": {
+            "image_position": "left"
+          }
+        },
+        "popup-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "Get 10% off <br>be in the know",
+            "text_size": "large"
+          }
+        },
+        "popup-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Add details about your popup information to encourage successful action.</p>"
+          }
+        },
+        "popup-2": {
+          "type": "form",
+          "settings": {
+            "design": "design-2",
+            "button_label": "Get 10% off"
+          }
+        },
+        "social_kVJHnJ": {
+          "type": "social",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "image",
+        "popup-0",
+        "popup-1",
+        "popup-2",
+        "social_kVJHnJ"
+      ],
+      "settings": {
+        "design_mode": false,
+        "enable": true,
+        "show_for_homepage_only": true,
+        "show_for_visitors_only": true,
+        "trigger_open": "delay",
+        "repeat_open": "every_day",
+        "alignment": "left",
+        "width": 870,
+        "show_teaser": false,
+        "teaser_button_text": "Newsletter",
+        "teaser_popup_bg": "#1437aa",
+        "teaser_popup_text": "#ffffff"
+      }
+    },
+    "age-verifier-popup": {
+      "type": "age-verifier-popup",
+      "blocks": {
+        "age-vefirifer-popup-1": {
+          "type": "heading",
+          "settings": {
+            "heading": "Confirm your age",
+            "heading_size": "h1"
+          }
+        },
+        "age-vefirifer-popup-2": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Are you 18 years old or older?</p>"
+          }
+        },
+        "age-vefirifer-popup-3": {
+          "type": "buttons",
+          "settings": {
+            "decline_button": "No, I'm not",
+            "approve_button": "Yes, I am"
+          }
+        }
+      },
+      "block_order": [
+        "age-vefirifer-popup-1",
+        "age-vefirifer-popup-2",
+        "age-vefirifer-popup-3"
+      ],
+      "disabled": true,
+      "settings": {
+        "design_mode": false,
+        "enable": false,
+        "bg_blur": true,
+        "decline_heading": "Come back when you're older",
+        "decline_content": "<p>Sorry, the content of this store can't be seen by a younger audience. Come back when you're older.</p>",
+        "return_button": "Oops, I entered incorrectly"
+      }
+    }
+  },
+  "order": [
+    "footer",
+    "mobile-sticky-bar",
+    "popup",
+    "age-verifier-popup"
+  ]
+}

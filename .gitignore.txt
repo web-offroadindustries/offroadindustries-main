@@ -1,0 +1,21 @@
+# Shopify theme (avoid committing store-specific generated config)
+config/settings_data.json
+config/settings_data_backup.json
+config.yml
+
+# OS / Editor junk
+.DS_Store
+Thumbs.db
+
+# Shopify CLI
+.shopify/
+
+# Node (if you use build tools)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# Env files / secrets
+.env
+.env.*

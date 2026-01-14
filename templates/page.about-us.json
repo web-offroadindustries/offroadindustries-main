@@ -1,0 +1,360 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    },
+    "165398933407f6a999": {
+      "type": "hero",
+      "blocks": {
+        "19bfd1d9-9bcd-4730-850f-5b8b7041edf7": {
+          "type": "subtitle",
+          "settings": {
+            "subtitle": "about us"
+          }
+        },
+        "1653989334c238046c-0": {
+          "type": "title",
+          "settings": {
+            "title": "We built Revelry on those <em>same principles</em>",
+            "highlight_style": "none",
+            "enable_highlight_text_color": false,
+            "heading_size": "h-xl",
+            "heading_color": "#e1ea7a"
+          }
+        }
+      },
+      "block_order": [
+        "19bfd1d9-9bcd-4730-850f-5b8b7041edf7",
+        "1653989334c238046c-0"
+      ],
+      "custom_css": [
+        ".f-hero_heading {width: 100%; max-width: 60rem;}"
+      ],
+      "settings": {
+        "container": "container-full",
+        "image_overlay_opacity": 30,
+        "hero_height": "adapt",
+        "content_in_container": false,
+        "content_position": "center",
+        "text_alignment": "center",
+        "text_color": "#ffffff",
+        "hero_height_mobile": "large",
+        "content_position_mobile": "center",
+        "show_text_below": false,
+        "text_alignment_mobile": "center",
+        "custom_id": "",
+        "custom_class": "",
+        "animations": "inherit",
+        "enable_bg_zoom_effect": true
+      }
+    },
+    "85213c3e-b8a3-4321-ad5a-ac358fb6c3ef": {
+      "type": "multicolumn",
+      "blocks": {
+        "template--16355052519585__85213c3e-b8a3-4321-ad5a-ac358fb6c3ef-column-3": {
+          "type": "column",
+          "settings": {
+            "image_link": "",
+            "title": "Polyester Fabric",
+            "heading_size": "h5",
+            "text": "<p>100% rubberwood. <br/>Upholstered armchair in bouclé </p>",
+            "button_text": "",
+            "button_link": "",
+            "button_style": "btn--underline"
+          }
+        },
+        "2aebbff7-acf0-49a0-a3f2-692579da7819": {
+          "type": "column",
+          "settings": {
+            "image_link": "",
+            "title": "Recycled Nylon Fabric",
+            "heading_size": "h5",
+            "text": "<p>80% recycled.<br/>Soft-touch upholstery.</p>",
+            "button_text": "",
+            "button_link": "",
+            "button_style": "btn--underline"
+          }
+        },
+        "91c09da7-840f-4777-b6b1-1f43ac75b9cb": {
+          "type": "column",
+          "settings": {
+            "image_link": "",
+            "title": "Transported By Sea",
+            "heading_size": "h5",
+            "text": "<p>Eco-friendly <br/>shipping. Lower emissions.</p>",
+            "button_text": "",
+            "button_link": "",
+            "button_style": "btn--underline"
+          }
+        },
+        "column_X7Faaf": {
+          "type": "column",
+          "settings": {
+            "image_link": "",
+            "title": "Packaging",
+            "heading_size": "h5",
+            "text": "<p>100% recyclable.<br/> Minimal waste design.</p>",
+            "button_text": "",
+            "button_link": "",
+            "button_style": "btn--underline"
+          }
+        }
+      },
+      "block_order": [
+        "template--16355052519585__85213c3e-b8a3-4321-ad5a-ac358fb6c3ef-column-3",
+        "2aebbff7-acf0-49a0-a3f2-692579da7819",
+        "91c09da7-840f-4777-b6b1-1f43ac75b9cb",
+        "column_X7Faaf"
+      ],
+      "custom_css": [],
+      "settings": {
+        "container": "container-fluid",
+        "color_schema": "",
+        "section_header_padding_bottom": "large",
+        "section_header_content_spacing": "medium",
+        "heading": "A Better Way of Living",
+        "highlight_style": "none",
+        "enable_highlight_text_color": false,
+        "heading_size": "h1",
+        "heading_color": "",
+        "subheading": "",
+        "description": "<p>We believe in considering the impact of the choices we make every day and view those choices as an opportunity to <br/>better ourselves. Our purpose is to Inspire a Better way of Living by creating conscious products that last through<br/> time. By marrying innovation with eco-friendly processes, we strive to help shape a cleaner, healthier, and more <br/>mindful world where human progress is in harmony with the planet's.</p>",
+        "layout": "vertical",
+        "text_alignment": "center",
+        "image_width": "large",
+        "columns": 4,
+        "column_gap": "extra-large",
+        "row_gap": "medium",
+        "enable_swipe_mobile": true,
+        "column_mobile": "1",
+        "padding_top": 100,
+        "padding_bottom": 0,
+        "show_section_divider": false,
+        "divider_width": "container",
+        "custom_id": "",
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "aaba9aaa-8548-4b62-aa06-920711ea97d2": {
+      "type": "custom-content",
+      "blocks": {
+        "template--16355052683425__aaba9aaa-8548-4b62-aa06-920711ea97d2-image-1": {
+          "type": "image",
+          "settings": {
+            "link": "",
+            "width": "50%",
+            "alignment": "center",
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        },
+        "template--16355052683425__aaba9aaa-8548-4b62-aa06-920711ea97d2-text-1": {
+          "type": "text",
+          "settings": {
+            "color_scheme": "",
+            "title": "What <em>We Make</em>",
+            "heading_size": "h-xl",
+            "subheading": "",
+            "text": "<p>Each piece embodies our commitment to environmental responsibility by repurposing materials that would otherwise go to waste. By utilizing reclaimed cotton, we not only reduce our carbon footprint but also contribute to a circular economy, where resources are reused and recycled. With every purchase, you're not just investing in quality activewear; you're making a conscious choice to support a greener, more sustainable future for fashion.</p>",
+            "alignment": "center",
+            "align_text": "left",
+            "padding_left": 130,
+            "padding_right": 100,
+            "align_content_container": "none",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "btn--primary",
+            "width": "50%",
+            "mobile_color_scheme": "",
+            "mobile_padding_left": 0,
+            "mobile_padding_right": 0,
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        }
+      },
+      "block_order": [
+        "template--16355052683425__aaba9aaa-8548-4b62-aa06-920711ea97d2-image-1",
+        "template--16355052683425__aaba9aaa-8548-4b62-aa06-920711ea97d2-text-1"
+      ],
+      "custom_css": [],
+      "settings": {
+        "container": "container",
+        "color_schema": "",
+        "section_header_padding_bottom": "medium",
+        "section_header_content_spacing": "medium",
+        "heading": "",
+        "highlight_style": "none",
+        "enable_highlight_text_color": false,
+        "heading_size": "h2",
+        "heading_color": "",
+        "subheading": "",
+        "description": "",
+        "column_gap": "none",
+        "row_gap": "medium",
+        "enable_swipe_mobile": false,
+        "column_mobile": "1",
+        "padding_top": 100,
+        "padding_bottom": 0,
+        "show_section_divider": false,
+        "divider_width": "container",
+        "custom_id": "",
+        "custom_class": ""
+      }
+    },
+    "8d965403-dcf1-4e92-ab8e-2d963fbbe5a8": {
+      "type": "custom-content",
+      "blocks": {
+        "65607c3d-a6ed-4941-985a-79acd33625c7": {
+          "type": "text",
+          "settings": {
+            "color_scheme": "",
+            "title": "Who <em>We Are</em>",
+            "heading_size": "h-xl",
+            "subheading": "",
+            "text": "<p>Through strategic alliances with sustainable suppliers and grassroots organizations, each product reflects a shared commitment to social and environmental responsibility. By wearing our workout wear, you're not only embracing a healthier lifestyle but also aligning yourself with a community dedicated to driving positive change. Together, we're building a future where fashion is synonymous with sustainability, and every purchase supports our collective journey towards a better world.</p>",
+            "alignment": "center",
+            "align_text": "left",
+            "padding_left": 100,
+            "padding_right": 130,
+            "align_content_container": "none",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "btn--primary",
+            "width": "50%",
+            "mobile_color_scheme": "",
+            "mobile_padding_left": 0,
+            "mobile_padding_right": 0,
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        },
+        "f6b396c8-cdf4-482d-ae3e-eb657ca8529e": {
+          "type": "image",
+          "settings": {
+            "link": "",
+            "width": "50%",
+            "alignment": "center",
+            "block_custom_class": "mobile-order-first",
+            "animations": "inherit"
+          }
+        }
+      },
+      "block_order": [
+        "65607c3d-a6ed-4941-985a-79acd33625c7",
+        "f6b396c8-cdf4-482d-ae3e-eb657ca8529e"
+      ],
+      "custom_css": [],
+      "settings": {
+        "container": "container",
+        "color_schema": "",
+        "section_header_padding_bottom": "medium",
+        "section_header_content_spacing": "medium",
+        "heading": "",
+        "highlight_style": "none",
+        "enable_highlight_text_color": false,
+        "heading_size": "h2",
+        "heading_color": "",
+        "subheading": "",
+        "description": "",
+        "column_gap": "small",
+        "row_gap": "medium",
+        "enable_swipe_mobile": false,
+        "column_mobile": "1",
+        "padding_top": 100,
+        "padding_bottom": 0,
+        "show_section_divider": false,
+        "divider_width": "container",
+        "custom_id": "",
+        "custom_class": ""
+      }
+    },
+    "b9a09ce1-0384-4aac-8a69-af32bf73a5e8": {
+      "type": "collage-tabs",
+      "blocks": {
+        "template--16355052454049__b9a09ce1-0384-4aac-8a69-af32bf73a5e8-tab-1": {
+          "type": "tab",
+          "settings": {
+            "content_color_schema": "background-2",
+            "navigation_title": "Technology",
+            "heading": "Carbon <em>Filter</em>",
+            "highlight_style": "none",
+            "enable_highlight_text_color": false,
+            "heading_size": "h-xl",
+            "heading_color": "",
+            "subheading": "TECHNOLOGY",
+            "description": "<p>Each bag has a nylon or cotton canvas exterior that has a heavy duty rubber backing. The rubber backing, that is invisible from the outside, works as our first line of </p>",
+            "text_alignment": "center",
+            "button_label": "LEARN MORE",
+            "button_style": "btn--primary"
+          }
+        },
+        "59815ce6-09b7-4ef6-804b-cdbf0fd26541": {
+          "type": "tab",
+          "settings": {
+            "content_color_schema": "",
+            "navigation_title": "Layers",
+            "heading": "Rubber <em>Backed</em>",
+            "highlight_style": "none",
+            "enable_highlight_text_color": false,
+            "heading_size": "h-xl",
+            "heading_color": "",
+            "subheading": "LAYERS",
+            "description": "<p>Each bag features a nylon or cotton canvas exterior with a durable rubber backing. This hidden layer provides an extra shield, effectively containing odors for added protection.</p>",
+            "text_alignment": "center",
+            "button_label": "LEARN MORE",
+            "button_style": "btn--primary"
+          }
+        },
+        "4acf4fb0-bbd3-4e80-ae56-0ce52c4ddeaf": {
+          "type": "tab",
+          "settings": {
+            "content_color_schema": "",
+            "navigation_title": "Fabrics",
+            "heading": "Water <em>Resistant</em>",
+            "highlight_style": "none",
+            "enable_highlight_text_color": false,
+            "heading_size": "h-xl",
+            "heading_color": "",
+            "subheading": "FABRICS",
+            "description": "<p>Crafted with nylon or cotton canvas and a durable rubber backing, each bag repels water while discreetly containing odors for reliable everyday protection.</p>",
+            "text_alignment": "center",
+            "button_label": "LEARN MORE",
+            "button_style": "btn--primary"
+          }
+        }
+      },
+      "block_order": [
+        "template--16355052454049__b9a09ce1-0384-4aac-8a69-af32bf73a5e8-tab-1",
+        "59815ce6-09b7-4ef6-804b-cdbf0fd26541",
+        "4acf4fb0-bbd3-4e80-ae56-0ce52c4ddeaf"
+      ],
+      "settings": {
+        "container": "container",
+        "color_schema": "",
+        "desktop_navigation_alignment": "center",
+        "desktop_image_position": "left",
+        "desktop_image_width": 50,
+        "image_aspect_ratio": "adapt",
+        "padding_top": 100,
+        "padding_bottom": 100,
+        "show_section_divider": false,
+        "divider_width": "container",
+        "custom_id": "",
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "165398933407f6a999",
+    "85213c3e-b8a3-4321-ad5a-ac358fb6c3ef",
+    "aaba9aaa-8548-4b62-aa06-920711ea97d2",
+    "8d965403-dcf1-4e92-ab8e-2d963fbbe5a8",
+    "b9a09ce1-0384-4aac-8a69-af32bf73a5e8"
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "sections": {
+    "762ed68f-22de-484d-b4d2-afde294775b0": {
+      "type": "breadcrumb",
+      "settings": {
+        "brc_container": "container",
+        "brc_text_alignment": "center",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "df76fe26-74fb-4b82-ae64-dd5a28fbe65c": {
+      "type": "rich-text",
+      "blocks": {
+        "4b2c9fb3-a8fe-4d0a-8af2-59b1b04b3549": {
+          "type": "heading",
+          "settings": {
+            "heading": "{{ blog.title }}",
+            "highlight_style": "none",
+            "enable_highlight_text_color": false,
+            "heading_size": "h-xl",
+            "heading_color": ""
+          }
+        },
+        "template--17157701173474__df76fe26-74fb-4b82-ae64-dd5a28fbe65c-text-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>The latest trends in eco-friendly workout wear, tips for living a more <br/>sustainable lifestyle, and stories of women.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "4b2c9fb3-a8fe-4d0a-8af2-59b1b04b3549",
+        "template--17157701173474__df76fe26-74fb-4b82-ae64-dd5a28fbe65c-text-1"
+      ],
+      "custom_css": [
+        ".rich-text__text {--text-blocks-gap: 1.2rem;}"
+      ],
+      "settings": {
+        "container": "container",
+        "color_schema": "",
+        "text_alignment": "center",
+        "padding_top": 36,
+        "padding_bottom": 60,
+        "show_section_divider": false,
+        "divider_width": "container",
+        "custom_id": "",
+        "custom_class": "mobile-remove-br",
+        "animations": "inherit"
+      }
+    },
+    "main": {
+      "type": "main-blog",
+      "custom_css": [],
+      "settings": {
+        "container": "container",
+        "show_title": false,
+        "posts_to_show": 9,
+        "posts_per_row": 3,
+        "column_gap": "medium",
+        "row_gap": "large",
+        "article_image_aspect_ratio": "adapt",
+        "article_heading_size": "h3",
+        "show_date": true,
+        "show_excerpt": true,
+        "show_readmore": true,
+        "padding_top": 0,
+        "padding_bottom": 100
+      }
+    }
+  },
+  "order": [
+    "762ed68f-22de-484d-b4d2-afde294775b0",
+    "df76fe26-74fb-4b82-ae64-dd5a28fbe65c",
+    "main"
+  ]
+}
