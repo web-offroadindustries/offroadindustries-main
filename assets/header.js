@@ -216,6 +216,51 @@ class SiteNav extends HTMLElement {
     }
     this.initLegacyMegaMenus();
   }
+  initLegacyMegaMenus() {
+    const sources = document.querySelectorAll(
+      ".mega-menu-container[data-mega-menu-parent]:not([data-legacy-moved])"
+    );
+    if (!sources.length) return;
+
+    const navItems = Array.from(this.querySelectorAll(".f-site-nav__item"));
+
+    sources.forEach((menuEl) => {
+      const parent = (menuEl.getAttribute("data-mega-menu-parent") || "").trim();
+      if (!parent) return;
+
+      const matchItem = navItems.find((li) => {
+        const labelEl =
+          li.querySelector("summary") ||
+          li.querySelector(".f-site-nav__link") ||
+          li.querySelector("a");
+        const text = (labelEl?.textContent || "").trim();
+        return text === parent;
+      });
+
+      if (!matchItem) return;
+
+      matchItem.classList.add("f-site-nav__item--mega");
+
+      const details = matchItem.querySelector("details");
+      if (!details) return;
+
+      const existing = details.querySelector(".f-site-nav__dropdown");
+      if (existing && existing !== menuEl) existing.remove();
+
+      // Move the mega menu markup into the nav item so Gusto's header.js can control it
+      menuEl.setAttribute("data-legacy-moved", "true");
+
+      const summary = details.querySelector("summary");
+      if (summary) {
+        summary.insertAdjacentElement("afterend", menuEl);
+      } else {
+        details.appendChild(menuEl);
+      }
+    });
+
+    // refresh megaItems list for hover behavior
+    this.megaItems = this.querySelectorAll(".f-site-nav__item--mega");
+  }
 
   onMenuItemEnter(evt) {
     clearTimeout(this.timeoutLeave);
