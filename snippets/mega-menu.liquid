@@ -1,0 +1,107 @@
+{%- liquid
+  assign parent_title = section.settings.parent | strip
+  if parent_title == blank
+    break
+  endif
+
+  assign section_type = section_type | default: 'mega-menu'
+-%}
+
+<div
+  class="f-site-nav__dropdown mega-menu-container {{ section_type }}"
+  data-mega-menu-parent="{{ parent_title | escape }}"
+>
+  <div class="dropdown mega-menu">
+    <div class="dropdown_content">
+      {%- for block in section.blocks -%}
+        <div class="dropdown_column" {{ block.shopify_attributes }}>
+          {%- if block.settings.richtext_top != blank -%}
+            <div class="mega-menu__richtext">
+              {{ block.settings.richtext_top }}
+            </div>
+          {%- endif -%}
+
+          {%- if block.settings.image_top != blank -%}
+            <div class="mega-menu__image-caption-link">
+              {%- if block.settings.image_link_top != blank -%}
+                <a href="{{ block.settings.image_link_top }}">
+              {%- endif -%}
+
+              <img
+                src="{{ block.settings.image_top | image_url: width: 600 }}"
+                alt="{{ block.settings.image_top.alt | escape }}"
+                loading="lazy"
+              >
+
+              {%- if block.settings.image_link_top != blank -%}
+                </a>
+              {%- endif -%}
+
+              {%- if block.settings.image_caption_top != blank -%}
+                <p class="mega-menu__image-caption">{{ block.settings.image_caption_top }}</p>
+              {%- endif -%}
+            </div>
+          {%- endif -%}
+
+          {%- for i in (1..4) -%}
+            {%- assign menu_handle = block.settings["menu_" | append: i] -%}
+            {%- assign menu_link = block.settings["menu_" | append: i | append: "_link"] -%}
+
+            {%- if menu_handle != blank -%}
+              {%- assign menu_obj = linklists[menu_handle] -%}
+              {%- if menu_obj == blank -%}{%- assign menu_obj = menus[menu_handle] -%}{%- endif -%}
+
+              {%- if menu_obj != blank -%}
+                <div class="dropdown_column__menu">
+                  <ul class="dropdown_title">
+                    <li>
+                      {%- if menu_link != blank -%}
+                        <a href="{{ menu_link }}">{{ menu_obj.title }}</a>
+                      {%- else -%}
+                        {{ menu_obj.title }}
+                      {%- endif -%}
+                    </li>
+                  </ul>
+
+                  <ul class="dropdown_item">
+                    {%- for l in menu_obj.links -%}
+                      <li><a href="{{ l.url }}">{{ l.title }}</a></li>
+                    {%- endfor -%}
+                  </ul>
+                </div>
+              {%- endif -%}
+            {%- endif -%}
+          {%- endfor -%}
+
+          {%- if block.settings.image_bottom != blank -%}
+            <div class="mega-menu__image-caption-link">
+              {%- if block.settings.image_link_bottom != blank -%}
+                <a href="{{ block.settings.image_link_bottom }}">
+              {%- endif -%}
+
+              <img
+                src="{{ block.settings.image_bottom | image_url: width: 600 }}"
+                alt="{{ block.settings.image_bottom.alt | escape }}"
+                loading="lazy"
+              >
+
+              {%- if block.settings.image_link_bottom != blank -%}
+                </a>
+              {%- endif -%}
+
+              {%- if block.settings.image_caption_bottom != blank -%}
+                <p class="mega-menu__image-caption">{{ block.settings.image_caption_bottom }}</p>
+              {%- endif -%}
+            </div>
+          {%- endif -%}
+
+          {%- if block.settings.richtext_bottom != blank -%}
+            <div class="mega-menu__richtext">
+              {{ block.settings.richtext_bottom }}
+            </div>
+          {%- endif -%}
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
