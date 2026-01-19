@@ -43,35 +43,40 @@
             </div>
           {%- endif -%}
 
-          {%- for i in (1..4) -%}
-            {%- assign menu_handle = block.settings["menu_" | append: i] -%}
-            {%- assign menu_link = block.settings["menu_" | append: i | append: "_link"] -%}
+        {%- for i in (1..4) -%}
+        {%- assign menu_key = 'menu_' | append: i -%}
+        {%- assign menu_link_key = menu_key | append: '_link' -%}
 
-            {%- if menu_handle != blank -%}
-              {%- assign menu_obj = linklists[menu_handle] -%}
-              {%- if menu_obj == blank -%}{%- assign menu_obj = menus[menu_handle] -%}{%- endif -%}
+        {%- assign menu_handle = block.settings[menu_key] -%}
+        {%- assign menu_link = block.settings[menu_link_key] -%}
 
-              {%- if menu_obj != blank -%}
-                <div class="dropdown_column__menu">
-                  <ul class="dropdown_title">
-                    <li>
-                      {%- if menu_link != blank -%}
-                        <a href="{{ menu_link }}">{{ menu_obj.title }}</a>
-                      {%- else -%}
-                        {{ menu_obj.title }}
-                      {%- endif -%}
-                    </li>
-                  </ul>
-
-                  <ul class="dropdown_item">
-                    {%- for l in menu_obj.links -%}
-                      <li><a href="{{ l.url }}">{{ l.title }}</a></li>
-                    {%- endfor -%}
-                  </ul>
-                </div>
-              {%- endif -%}
+        {%- if menu_handle != blank -%}
+            {%- assign menu_obj = linklists[menu_handle] -%}
+            {%- if menu_obj == blank -%}
+            {%- assign menu_obj = menus[menu_handle] -%}
             {%- endif -%}
-          {%- endfor -%}
+
+            {%- if menu_obj != blank -%}
+            <div class="dropdown_column__menu">
+                <ul class="dropdown_title">
+                <li>
+                    {%- if menu_link != blank -%}
+                    <a href="{{ menu_link }}">{{ menu_obj.title }}</a>
+                    {%- else -%}
+                    {{ menu_obj.title }}
+                    {%- endif -%}
+                </li>
+                </ul>
+
+                <ul class="dropdown_item">
+                {%- for l in menu_obj.links -%}
+                    <li><a href="{{ l.url }}">{{ l.title }}</a></li>
+                {%- endfor -%}
+                </ul>
+            </div>
+            {%- endif -%}
+        {%- endif -%}
+        {%- endfor -%}
 
           {%- if block.settings.image_bottom != blank -%}
             <div class="mega-menu__image-caption-link">
