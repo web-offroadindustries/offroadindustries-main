@@ -214,6 +214,7 @@ class SiteNav extends HTMLElement {
           );
         });
     }
+    this.initLegacyMegaMenus();
   }
 
   onMenuItemEnter(evt) {
