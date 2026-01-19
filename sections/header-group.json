@@ -52,7 +52,7 @@
         "logo_width": 90,
         "logo_mobile_width": 90,
         "main_menu": "main-menu-v2",
-        "mobile_menu": "main-menu",
+        "mobile_menu": "main-menu-v2",
         "menu_dropdown_color_schema": "",
         "dropdown_menu_trigger": "hover",
         "enable_mega_menu": true,
