@@ -197,45 +197,25 @@ class SiteNav extends HTMLElement {
   }
 
   connectedCallback() {
-    this.header = this.closest(".site-header");
-    this.classes = { itemActive: "f-menu__item-active" };
+    this.header =
+      this.closest("header.site-header") ||
+      this.closest(".site-header") ||
+      null;
 
+    this.classes = { itemActive: "f-menu__item-active" };
     this.timeoutEnter = null;
     this.timeoutLeave = null;
 
     this.isHover =
       this.header && this.header.classList.contains("show-dropdown-menu-on-hover");
 
-    // 1) Move legacy mega menu sections into the correct <li>
+    // Run now + run again shortly after (theme editor + async sections can render late)
     this.initLegacyMegaMenus();
+    requestAnimationFrame(() => this.initLegacyMegaMenus());
+    setTimeout(() => this.initLegacyMegaMenus(), 300);
 
-    // 2) Re-query after moving
-    this.megaItems = Array.from(this.querySelectorAll(".f-site-nav__item--mega"));
-
-    // 3) Bind hover behavior (only when theme is set to hover)
-    if (this.isHover) {
-      this.megaItems.forEach((li) => {
-        if (li.dataset.megaBound === "1") return;
-        li.dataset.megaBound = "1";
-
-        li.addEventListener("mouseenter", this._boundEnter);
-        li.addEventListener("mouseleave", this._boundLeave);
-
-        // Keep dropdown open if mouse enters dropdown area (prevents “gap close” issues)
-        const dropdown = li.querySelector(".f-site-nav__dropdown");
-        if (dropdown && dropdown.dataset.dropdownBound !== "1") {
-          dropdown.dataset.dropdownBound = "1";
-
-          dropdown.addEventListener("mouseenter", () => {
-            clearTimeout(this.timeoutLeave);
-          });
-
-          dropdown.addEventListener("mouseleave", () => {
-            this.scheduleClose(li);
-          });
-        }
-      });
-    }
+    // Bind hover behavior
+    this.bindMegaItems();
   }
 
   normalizeText(str) {
@@ -265,18 +245,19 @@ class SiteNav extends HTMLElement {
 
       if (!matchItem) return;
 
-      matchItem.classList.add(
-        "f-site-nav__item--mega",
-        "f-site-nav__item--has-child"
-      );
+      // Ensure the legacy mega menu behaves like a dropdown in Gusto
+      matchItem.classList.add("f-site-nav__item--mega", "f-site-nav__item--has-child");
 
-      // If there is an existing dropdown (from normal menu), remove it
+      // Remove normal dropdown if it exists (prevents overlapping dropdowns)
       const existing = matchItem.querySelector(".f-site-nav__dropdown");
       if (existing && existing !== menuEl) existing.remove();
 
+      // Make sure it can be measured and styled
+      menuEl.style.display = "block";
+      menuEl.setAttribute("tabindex", "-1");
       menuEl.setAttribute("data-legacy-moved", "true");
 
-      // Insert menu right after the clickable label inside the <li>
+      // Insert directly after the clickable label so it's a true descendant
       const details = matchItem.querySelector("details");
       if (details) {
         const summary = details.querySelector("summary");
@@ -289,6 +270,37 @@ class SiteNav extends HTMLElement {
         else matchItem.appendChild(menuEl);
       }
     });
+
+    // Re-bind after moving (important)
+    this.bindMegaItems();
+  }
+
+  bindMegaItems() {
+    if (!this.isHover) return;
+
+    this.megaItems = Array.from(this.querySelectorAll(".f-site-nav__item--mega"));
+
+    this.megaItems.forEach((li) => {
+      if (li.dataset.megaBound === "1") return;
+      li.dataset.megaBound = "1";
+
+      li.addEventListener("mouseenter", this._boundEnter);
+      li.addEventListener("mouseleave", this._boundLeave);
+
+      // Prevent close when hovering inside dropdown
+      const dropdown = li.querySelector(".mega-menu-container");
+      if (dropdown && dropdown.dataset.dropdownBound !== "1") {
+        dropdown.dataset.dropdownBound = "1";
+
+        dropdown.addEventListener("mouseenter", () => {
+          clearTimeout(this.timeoutLeave);
+        });
+
+        dropdown.addEventListener("mouseleave", () => {
+          this.scheduleClose(li);
+        });
+      }
+    });
   }
 
   onMenuItemEnter(evt) {
@@ -297,14 +309,16 @@ class SiteNav extends HTMLElement {
     const li = evt.currentTarget;
     if (!li) return;
 
-    if (!li.classList.contains(this.classes.itemActive)) {
-      this.megaItems.forEach((item) => item.classList.remove(this.classes.itemActive));
+    // Close other mega items
+    this.megaItems.forEach((item) => item.classList.remove(this.classes.itemActive));
+
+    const dropdown = li.querySelector(".mega-menu-container");
+    if (!dropdown) return;
+
+    // Activate header backdrop if available
+    if (this.header && typeof this.header.handleMegaItemActive === "function") {
+      this.header.handleMegaItemActive(dropdown);
     }
-
-    const dropdown = li.querySelector(".f-site-nav__dropdown");
-    if (!dropdown || !this.header) return;
-
-    this.header.handleMegaItemActive(dropdown);
 
     this.timeoutEnter = setTimeout(() => {
       li.classList.add(this.classes.itemActive);
@@ -312,15 +326,16 @@ class SiteNav extends HTMLElement {
   }
 
   scheduleClose(li) {
-    if (!li || !this.header) return;
+    if (!li) return;
 
     clearTimeout(this.timeoutEnter);
 
-    // IMPORTANT: do NOT deactivate immediately.
-    // This prevents the dropdown from disappearing while moving mouse down.
     this.timeoutLeave = setTimeout(() => {
       li.classList.remove(this.classes.itemActive);
-      this.header.handleMegaItemDeactive();
+
+      if (this.header && typeof this.header.handleMegaItemDeactive === "function") {
+        this.header.handleMegaItemDeactive();
+      }
     }, 180);
   }
 
@@ -331,12 +346,14 @@ class SiteNav extends HTMLElement {
 
   closeMegaDropdowns() {
     clearTimeout(this.timeoutEnter);
+    clearTimeout(this.timeoutLeave);
 
-    this.megaItems.forEach((li) => li.classList.remove(this.classes.itemActive));
+    this.megaItems &&
+      this.megaItems.forEach((li) => li.classList.remove(this.classes.itemActive));
 
-    this.timeoutLeave = setTimeout(() => {
-      this.header && this.header.handleMegaItemDeactive();
-    }, 160);
+    if (this.header && typeof this.header.handleMegaItemDeactive === "function") {
+      this.header.handleMegaItemDeactive();
+    }
   }
 
   disconnectedCallback() {
@@ -350,3 +367,4 @@ class SiteNav extends HTMLElement {
   }
 }
 customElements.define("site-nav", SiteNav);
+
