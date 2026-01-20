@@ -8,17 +8,25 @@ class BasicHeader extends HTMLElement {
   }
 
   connectedCallback() {
-    this.classes = {
-      active: "f-header__mega-active",
-      headerScheme: this.dataset.headerColorScheme,
-      dropdownScheme: this.dataset.dropdownColorScheme,
-    };
+    this.header = this.closest(".site-header");
+    this.classes = { itemActive: "f-menu__item-active" };
 
-    this.grandLinks = this.querySelectorAll(".f-site-nav__sub-item--has-child");
-    this.grandLinks &&
-      this.grandLinks.forEach((item) => {
-        this.handleGrandLinksPosition(item);
+    this.initLegacyMegaMenus();
+
+    this.megaItems = this.querySelectorAll(".f-site-nav__item--mega");
+
+    this.timeoutEnter = null;
+    this.timeoutLeave = null;
+    this.isHover = this.header && this.header.classList.contains("show-dropdown-menu-on-hover");
+
+    if (this.isHover) {
+      this.megaItems.forEach((megaItem) => {
+        if (megaItem.dataset.megaBound === "1") return;
+        megaItem.dataset.megaBound = "1";
+        megaItem.addEventListener("mouseenter", (evt) => this.onMenuItemEnter(evt));
+        megaItem.addEventListener("mouseleave", (evt) => this.onMenuItemLeave(evt));
       });
+    }
   }
 
   handleMegaItemActive(dropdown) {
@@ -238,8 +246,7 @@ class SiteNav extends HTMLElement {
           li.querySelector("summary") ||
           li.querySelector(".f-site-nav__link") ||
           li.querySelector("a");
-        const text = (labelEl?.textContent || "").trim();
-        return text === parent;
+        return ((labelEl?.textContent || "").trim() === parent);
       });
 
       if (!matchItem) return;
