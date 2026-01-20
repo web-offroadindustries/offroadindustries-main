@@ -184,7 +184,7 @@
         "enable_slider": true,
         "show_nav": true,
         "show_dots": false,
-        "pcard_image_ratio": "",
+        "pcard_image_ratio": "1/1",
         "show_vendor": false,
         "button_label": "",
         "button_style": "btn--primary",
