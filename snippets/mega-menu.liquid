@@ -19,6 +19,7 @@
     --mm-bg-g: {{ c | color_extract: 'green' }};
     --mm-bg-b: {{ c | color_extract: 'blue' }};
     --mm-bg-opacity: {{ o }};
+    --mm-text-color: {{ section.settings.mm_text_color }};
     {%- if section.settings.mm_bg_image != blank -%}
       --mm-bg-image: url({{ section.settings.mm_bg_image | image_url: width: 2400 }});
     {%- endif -%}
