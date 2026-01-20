@@ -354,16 +354,24 @@ body:not(.header-pinned) .header-scrolled .header {
 
 /* Mega Menu Styling */
 /* Legacy Mega Menu (ported from old theme) */
-.mega-menu-container { display: none; }
+.mega-menu-container { 
+  display: none;
+  z-index: 9999;
+}
 .mega-menu-container[data-legacy-moved="true"] { display: block; }
 
-.mega-menu-container .dropdown { width: 100%; }
+.mega-menu-container .dropdown { 
+  width: 100%; 
+  position: static !important;
+  width: auto !important;
+}
 .mega-menu-container .dropdown_content {
   display: flex;
   flex-direction: row;
   width: 100%;
   margin: 0 auto;
   flex-wrap: nowrap;
+  gap: 20px;
 }
 .f-site-nav__item.f-menu__item-active > .mega-menu-container {
   display: block;
