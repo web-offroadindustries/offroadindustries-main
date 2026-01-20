@@ -352,19 +352,53 @@ body:not(.header-pinned) .header-scrolled .header {
   }
 }
 
-/* Mega Menu Styling */
-/* Legacy Mega Menu (ported from old theme) */
-.mega-menu-container { 
-  display: none;
-  z-index: 9999;
-}
-.mega-menu-container[data-legacy-moved="true"] { display: block; }
+/* ================================
+   Legacy Mega Menu (ported)
+   ================================ */
 
-.mega-menu-container .dropdown { 
-  width: 100%; 
-  position: static !important;
-  width: auto !important;
+/* Make sure the container is measurable (NOT display:none), and can be hovered */
+.mega-menu-container {
+  display: block !important;
+
+  /* Put it above the page and below the header */
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: var(--f-header-height, 80px);
+
+  z-index: 9999;
+
+  background: var(--color-header-bg);
+  color: var(--color-header-text);
+
+  /* Hidden state (still measurable) */
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(8px);
+
+  transition: opacity 0.18s ease, transform 0.18s ease, visibility 0s linear 0.18s;
+
+  /* If menu is tall, allow scroll */
+  max-height: calc(100vh - var(--f-header-height, 80px));
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
 }
+
+/* Show state:
+   IMPORTANT: use the correct class name: f-menu__item-active (NOT item_active)
+*/
+.f-site-nav__item.f-menu__item-active > .mega-menu-container,
+.f-site-nav__item--mega:hover > .mega-menu-container,
+.f-site-nav__item--mega:focus-within > .mega-menu-container {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0);
+  transition: opacity 0.18s ease, transform 0.18s ease, visibility 0s;
+}
+
+/* Layout inside legacy mega menu */
 .mega-menu-container .dropdown_content {
   display: flex;
   flex-direction: row;
@@ -372,9 +406,7 @@ body:not(.header-pinned) .header-scrolled .header {
   margin: 0 auto;
   flex-wrap: nowrap;
   gap: 20px;
-}
-.f-site-nav__item.f-menu__item-active > .mega-menu-container {
-  display: block;
+  padding: 20px;
 }
 
 .mega-menu-container .dropdown_column {
@@ -383,26 +415,54 @@ body:not(.header-pinned) .header-scrolled .header {
   vertical-align: top;
 }
 
-.mega-menu-container img { max-width: 100%; height: auto; display: block; }
+.mega-menu-container img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
 
 .mega-menu__richtext,
-.mega-menu__image-caption-link { padding: 0 5px; }
+.mega-menu__image-caption-link {
+  padding: 0 5px;
+}
 
-.mega-menu__image-caption-link { text-align: center; margin-bottom: 10px; }
-.mega-menu__image-caption { margin: 10px 0; }
+.mega-menu__image-caption-link {
+  text-align: center;
+  margin-bottom: 10px;
+}
 
-.dropdown_column ul { margin: 0; padding: 0; list-style: none; }
+.mega-menu__image-caption {
+  margin: 10px 0;
+}
+
+.dropdown_column ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
 .dropdown_column ul.dropdown_title {
   border-bottom: 1px solid currentColor;
   padding-bottom: 10px;
 }
-.dropdown_column__menu + .dropdown_column__menu { margin-top: 10px; }
+
+.dropdown_column__menu + .dropdown_column__menu {
+  margin-top: 10px;
+}
 
 /* Responsive */
 @media (max-width: 990px) {
-  .mega-menu-container .dropdown_content { flex-wrap: wrap; }
-  .mega-menu-container .dropdown_column { width: 50%; }
+  .mega-menu-container .dropdown_content {
+    flex-wrap: wrap;
+  }
+  .mega-menu-container .dropdown_column {
+    width: 50%;
+  }
 }
+
 @media (max-width: 640px) {
-  .mega-menu-container .dropdown_column { width: 100%; }
+  .mega-menu-container .dropdown_column {
+    width: 100%;
+  }
 }
+
