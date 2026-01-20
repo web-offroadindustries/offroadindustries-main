@@ -8,12 +8,16 @@ class BasicHeader extends HTMLElement {
   }
 
   connectedCallback() {
+    // IMPORTANT: make sure this.header exists (StickyHeader uses it)
+    this.header = this.closest(".site-header") || this;
+
     this.classes = {
       active: "f-header__mega-active",
       headerScheme: this.dataset.headerColorScheme,
       dropdownScheme: this.dataset.dropdownColorScheme,
     };
 
+    // Fix level-3 submenu positioning (theme behavior)
     this.grandLinks = this.querySelectorAll(".f-site-nav__sub-item--has-child");
     this.grandLinks &&
       this.grandLinks.forEach((item) => {
@@ -27,7 +31,6 @@ class BasicHeader extends HTMLElement {
     const rect = dropdown.getBoundingClientRect();
     this.style.setProperty("--f-dropdown-height", Math.ceil(rect.height) + "px");
 
-    // Switch header scheme while dropdown is open
     this.classList.remove(this.classes.headerScheme);
     this.classList.add(this.classes.active, this.classes.dropdownScheme);
 
@@ -49,16 +52,19 @@ class BasicHeader extends HTMLElement {
 
   handleGrandLinksPosition(target) {
     const dropdownLV3 = target.querySelector(".f-site-nav__dropdown");
-    if (dropdownLV3) {
-      const rect = dropdownLV3.getBoundingClientRect();
-      dropdownLV3.classList.remove("f-site-nav__dropdown-reversed");
-      if (
-        (!FoxThemeSettings.isRTL &&
-          document.documentElement.clientWidth < rect.x + rect.width + 10) ||
-        (FoxThemeSettings.isRTL && rect.x < 10)
-      ) {
-        dropdownLV3.classList.add("f-site-nav__dropdown-reversed");
-      }
+    if (!dropdownLV3) return;
+
+    const rect = dropdownLV3.getBoundingClientRect();
+    dropdownLV3.classList.remove("f-site-nav__dropdown-reversed");
+
+    // Guard in case FoxThemeSettings isn't available on some pages
+    const isRTL = typeof FoxThemeSettings !== "undefined" && FoxThemeSettings.isRTL;
+
+    if (
+      (!isRTL && document.documentElement.clientWidth < rect.x + rect.width + 10) ||
+      (isRTL && rect.x < 10)
+    ) {
+      dropdownLV3.classList.add("f-site-nav__dropdown-reversed");
     }
   }
 }
@@ -67,22 +73,20 @@ customElements.define("basic-header", BasicHeader, { extends: "header" });
 class StickyHeader extends BasicHeader {
   constructor() {
     super();
-
-    this.stickyClasses = {
-      pinned: "header-pinned",
-    };
+    this.stickyClasses = { pinned: "header-pinned" };
   }
 
   connectedCallback() {
     super.connectedCallback();
 
-    this.headerSection.classList.add("header-sticky");
+    this.headerSection && this.headerSection.classList.add("header-sticky");
     this.stickyType = this.dataset.stickyType;
     this.currentScrollTop = 0;
 
-    this.headerBounds = this.headerSection
-      .querySelector(".header")
-      .getBoundingClientRect();
+    const headerInner = this.headerSection?.querySelector(".header");
+    this.headerBounds = headerInner
+      ? headerInner.getBoundingClientRect()
+      : { top: 0, height: this.clientHeight };
 
     this.onScrollHandler = this._onScroll.bind(this);
     this._onScroll();
@@ -100,6 +104,7 @@ class StickyHeader extends BasicHeader {
   _onScroll() {
     const scrollTop = window.scrollY;
     const headerSection = this.headerSection;
+    if (!headerSection) return;
 
     const headerBoundsTop = this.offsetTop + this.headerBounds.height;
     const headerBoundsBottom =
@@ -128,6 +133,7 @@ class StickyHeader extends BasicHeader {
   }
 
   _closeMenuDisclosure() {
+    // this.header is guaranteed by BasicHeader.connectedCallback()
     this.disclosures =
       this.disclosures || this.header.querySelectorAll("header-menu");
     this.disclosures.forEach((disclosure) => disclosure.close());
@@ -145,16 +151,19 @@ class HeaderMenu extends DetailsDisclosure {
 
   connectedCallback() {
     this.header = this.closest(".site-header");
-    this.classes = {
-      itemActive: "f-menu__item-active",
-    };
-    this.header.timeoutEnter = null;
-    this.header.timeoutLeave = null;
+    this.classes = { itemActive: "f-menu__item-active" };
+
+    if (this.header) {
+      this.header.timeoutEnter = null;
+      this.header.timeoutLeave = null;
+    }
   }
 
   onToggle(evt) {
     const { target } = evt;
     const li = target.closest(".f-site-nav__item");
+    if (!li || !this.header) return;
+
     const isOpen = this.mainDetailsToggle.open;
     const isMega = li.classList.contains("f-site-nav__item--mega");
 
@@ -183,6 +192,8 @@ customElements.define("header-menu", HeaderMenu);
 class SiteNav extends HTMLElement {
   constructor() {
     super();
+    this._boundEnter = this.onMenuItemEnter.bind(this);
+    this._boundLeave = this.onMenuItemLeave.bind(this);
   }
 
   connectedCallback() {
@@ -195,25 +206,40 @@ class SiteNav extends HTMLElement {
     this.isHover =
       this.header && this.header.classList.contains("show-dropdown-menu-on-hover");
 
-    // ✅ Run legacy injection multiple times because header-group sections can render AFTER <site-nav>
-    const boot = () => {
-      this.initLegacyMegaMenus();
-      this.megaItems = this.querySelectorAll(".f-site-nav__item--mega");
+    // 1) Move legacy mega menu sections into the correct <li>
+    this.initLegacyMegaMenus();
 
-      if (this.isHover) {
-        this.megaItems.forEach((megaItem) => {
-          if (megaItem.dataset.megaBound === "1") return;
-          megaItem.dataset.megaBound = "1";
+    // 2) Re-query after moving
+    this.megaItems = Array.from(this.querySelectorAll(".f-site-nav__item--mega"));
 
-          megaItem.addEventListener("mouseenter", (evt) => this.onMenuItemEnter(evt));
-          megaItem.addEventListener("mouseleave", (evt) => this.onMenuItemLeave(evt));
-        });
-      }
-    };
+    // 3) Bind hover behavior (only when theme is set to hover)
+    if (this.isHover) {
+      this.megaItems.forEach((li) => {
+        if (li.dataset.megaBound === "1") return;
+        li.dataset.megaBound = "1";
 
-    boot();
-    requestAnimationFrame(boot);
-    setTimeout(boot, 300);
+        li.addEventListener("mouseenter", this._boundEnter);
+        li.addEventListener("mouseleave", this._boundLeave);
+
+        // Keep dropdown open if mouse enters dropdown area (prevents “gap close” issues)
+        const dropdown = li.querySelector(".f-site-nav__dropdown");
+        if (dropdown && dropdown.dataset.dropdownBound !== "1") {
+          dropdown.dataset.dropdownBound = "1";
+
+          dropdown.addEventListener("mouseenter", () => {
+            clearTimeout(this.timeoutLeave);
+          });
+
+          dropdown.addEventListener("mouseleave", () => {
+            this.scheduleClose(li);
+          });
+        }
+      });
+    }
+  }
+
+  normalizeText(str) {
+    return (str || "").replace(/\s+/g, " ").trim().toLowerCase();
   }
 
   initLegacyMegaMenus() {
@@ -225,7 +251,8 @@ class SiteNav extends HTMLElement {
     const navItems = Array.from(this.querySelectorAll(".f-site-nav__item"));
 
     sources.forEach((menuEl) => {
-      const parent = (menuEl.getAttribute("data-mega-menu-parent") || "").trim();
+      const parentRaw = (menuEl.getAttribute("data-mega-menu-parent") || "").trim();
+      const parent = this.normalizeText(parentRaw);
       if (!parent) return;
 
       const matchItem = navItems.find((li) => {
@@ -233,31 +260,23 @@ class SiteNav extends HTMLElement {
           li.querySelector("summary") ||
           li.querySelector(".f-site-nav__link") ||
           li.querySelector("a");
-        return ((labelEl?.textContent || "").trim() === parent);
+        return this.normalizeText(labelEl?.textContent) === parent;
       });
 
       if (!matchItem) return;
 
-      // Mark it as mega so theme hover logic applies
-      matchItem.classList.add("f-site-nav__item--mega", "f-site-nav__item--has-child");
-
-      // Ensure the dropdown has the expected class for Gusto behavior
-      // (If your snippet wrapper already has f-site-nav__dropdown, this is safe)
-      if (!menuEl.classList.contains("f-site-nav__dropdown")) {
-        menuEl.classList.add("f-site-nav__dropdown");
-      }
-
-      const existing = matchItem.querySelector(
-        ".f-site-nav__dropdown.mega-menu-container[data-legacy-moved='true']"
+      matchItem.classList.add(
+        "f-site-nav__item--mega",
+        "f-site-nav__item--has-child"
       );
-      if (existing) return; // already injected
 
-      // Remove any existing dropdown inside this item (optional; prevents duplicates)
-      const existingAny = matchItem.querySelector(".f-site-nav__dropdown");
-      if (existingAny && existingAny !== menuEl) existingAny.remove();
+      // If there is an existing dropdown (from normal menu), remove it
+      const existing = matchItem.querySelector(".f-site-nav__dropdown");
+      if (existing && existing !== menuEl) existing.remove();
 
       menuEl.setAttribute("data-legacy-moved", "true");
 
+      // Insert menu right after the clickable label inside the <li>
       const details = matchItem.querySelector("details");
       if (details) {
         const summary = details.querySelector("summary");
@@ -275,58 +294,59 @@ class SiteNav extends HTMLElement {
   onMenuItemEnter(evt) {
     clearTimeout(this.timeoutLeave);
 
-    const { target } = evt;
+    const li = evt.currentTarget;
+    if (!li) return;
 
-    // Close other mega items immediately when entering a new one
-    if (!target.classList.contains(this.classes.itemActive)) {
-      this.megaItems &&
-        this.megaItems.forEach((megaItem) => {
-          megaItem.classList.remove(this.classes.itemActive);
-        });
+    if (!li.classList.contains(this.classes.itemActive)) {
+      this.megaItems.forEach((item) => item.classList.remove(this.classes.itemActive));
     }
 
-    const dropdown = target.querySelector(".f-site-nav__dropdown");
+    const dropdown = li.querySelector(".f-site-nav__dropdown");
+    if (!dropdown || !this.header) return;
 
-    if (dropdown) {
-      this.header.handleMegaItemActive(dropdown);
+    this.header.handleMegaItemActive(dropdown);
 
-      // Small delay helps prevent flicker when moving mouse to dropdown content
-      this.timeoutEnter = setTimeout(() => {
-        target.classList.add(this.classes.itemActive);
-      }, 50);
-    }
+    this.timeoutEnter = setTimeout(() => {
+      li.classList.add(this.classes.itemActive);
+    }, 10);
   }
 
-  onMenuItemLeave(evt) {
-    const { target } = evt;
+  scheduleClose(li) {
+    if (!li || !this.header) return;
 
     clearTimeout(this.timeoutEnter);
 
-    // Delay close so user can move into dropdown content without it disappearing instantly
+    // IMPORTANT: do NOT deactivate immediately.
+    // This prevents the dropdown from disappearing while moving mouse down.
     this.timeoutLeave = setTimeout(() => {
+      li.classList.remove(this.classes.itemActive);
       this.header.handleMegaItemDeactive();
-      target.classList.remove(this.classes.itemActive);
-    }, 200);
+    }, 180);
+  }
+
+  onMenuItemLeave(evt) {
+    const li = evt.currentTarget;
+    this.scheduleClose(li);
   }
 
   closeMegaDropdowns() {
     clearTimeout(this.timeoutEnter);
-    clearTimeout(this.timeoutLeave);
 
-    this.megaItems &&
-      this.megaItems.forEach((megaItem) => {
-        megaItem.classList.remove(this.classes.itemActive);
-      });
+    this.megaItems.forEach((li) => li.classList.remove(this.classes.itemActive));
 
-    this.header.handleMegaItemDeactive();
+    this.timeoutLeave = setTimeout(() => {
+      this.header && this.header.handleMegaItemDeactive();
+    }, 160);
   }
 
   disconnectedCallback() {
-    this.megaItems &&
-      this.megaItems.forEach((megaItem) => {
-        megaItem.removeEventListener("mouseenter", this.onMenuItemEnter);
-        megaItem.removeEventListener("mouseleave", this.onMenuItemLeave);
-      });
+    if (!this.megaItems) return;
+
+    this.megaItems.forEach((li) => {
+      li.removeEventListener("mouseenter", this._boundEnter);
+      li.removeEventListener("mouseleave", this._boundLeave);
+      li.dataset.megaBound = "";
+    });
   }
 }
 customElements.define("site-nav", SiteNav);
