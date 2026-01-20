@@ -365,6 +365,9 @@ body:not(.header-pinned) .header-scrolled .header {
   margin: 0 auto;
   flex-wrap: nowrap;
 }
+.f-site-nav__item.f-menu__item-active > .mega-menu-container {
+  display: block;
+}
 
 .mega-menu-container .dropdown_column {
   width: 100%;
