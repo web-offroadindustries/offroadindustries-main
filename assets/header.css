@@ -359,35 +359,45 @@ body:not(.header-pinned) .header-scrolled .header {
 /* Make sure the container is measurable (NOT display:none), and can be hovered */
 .mega-menu-container {
   display: block !important;
-
-  /* Put it above the page and below the header */
   position: fixed;
   left: 0;
   right: 0;
   top: var(--f-header-height, 80px);
-
   z-index: 9999;
-
-  background: var(--color-header-bg);
+  /* background: var(--color-header-bg); */
   color: var(--color-header-text);
-
-  /* Hidden state (still measurable) */
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
   transform: translateY(8px);
-
   transition: opacity 0.18s ease, transform 0.18s ease, visibility 0s linear 0.18s;
-
-  /* If menu is tall, allow scroll */
   max-height: calc(100vh - var(--f-header-height, 80px));
   overflow: auto;
   -webkit-overflow-scrolling: touch;
+
+  background-image: var(--mm-bg-image, none);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  isolation: isolate;
+}
+.mega-menu-container::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(
+    var(--mm-bg-r, 0),
+    var(--mm-bg-g, 0),
+    var(--mm-bg-b, 0),
+    var(--mm-bg-opacity, 0.85)
+  );
+  z-index: -1;
+}
+.mega-menu-container > * {
+  position: relative;
+  z-index: 1;
 }
 
-/* Show state:
-   IMPORTANT: use the correct class name: f-menu__item-active (NOT item_active)
-*/
 .f-site-nav__item.f-menu__item-active > .mega-menu-container,
 .f-site-nav__item--mega:hover > .mega-menu-container,
 .f-site-nav__item--mega:focus-within > .mega-menu-container {
