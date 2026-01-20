@@ -9,7 +9,31 @@
   "presets": [{ "name": "Mega menu 1" }],
   "max_blocks": 5,
   "settings": [
-    { "type": "text", "id": "parent", "label": "Link title", "info": "The mega menu will appear below this parent link" }
+    { "type": "text", "id": "parent", "label": "Link title", "info": "The mega menu will appear below this parent link" },
+    {
+      "type": "header",
+      "content": "Mega menu background"
+    },
+    {
+      "type": "color",
+      "id": "mm_bg_color",
+      "label": "Background overlay color",
+      "default": "#0b0b0b"
+    },
+    {
+      "type": "range",
+      "id": "mm_bg_opacity",
+      "label": "Background overlay opacity (%)",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 85
+    },
+    {
+      "type": "image_picker",
+      "id": "mm_bg_image",
+      "label": "Background image (optional)"
+    }
   ],
   "blocks": [
     {
