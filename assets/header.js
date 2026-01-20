@@ -22,15 +22,15 @@ class BasicHeader extends HTMLElement {
   }
 
   handleMegaItemActive(dropdown) {
-    // Calculate backdrop height.
-    const rect = dropdown.getBoundingClientRect();
-    this.style.setProperty(
-      "--f-dropdown-height",
-      Math.ceil(rect.height) + "px"
-    );
+    if (!dropdown) return;
 
+    const rect = dropdown.getBoundingClientRect();
+    this.style.setProperty("--f-dropdown-height", Math.ceil(rect.height) + "px");
+
+    // Switch header scheme while dropdown is open
     this.classList.remove(this.classes.headerScheme);
     this.classList.add(this.classes.active, this.classes.dropdownScheme);
+
     document.documentElement.style.setProperty(
       "--f-header-height",
       this.clientHeight + "px"
@@ -40,6 +40,7 @@ class BasicHeader extends HTMLElement {
   handleMegaItemDeactive() {
     this.classList.remove(this.classes.active, this.classes.dropdownScheme);
     this.classList.add(this.classes.headerScheme);
+
     document.documentElement.style.setProperty(
       "--f-header-height",
       this.clientHeight + "px"
@@ -100,13 +101,10 @@ class StickyHeader extends BasicHeader {
     const scrollTop = window.scrollY;
     const headerSection = this.headerSection;
 
-    // Avoid layout thrashing by caching values
     const headerBoundsTop = this.offsetTop + this.headerBounds.height;
-
     const headerBoundsBottom =
       this.headerBounds.top + this.headerBounds.height + 100;
 
-    // Utilize batch CSS classes and updates
     requestAnimationFrame(() => {
       if (scrollTop > headerBoundsTop) {
         headerSection.classList.add("header-scrolled");
@@ -114,11 +112,7 @@ class StickyHeader extends BasicHeader {
         if (this.isAlwaysSticky) {
           document.body.classList.add(this.stickyClasses.pinned);
         } else {
-          // Sticky on scroll up.
-          if (
-            scrollTop < this.currentScrollTop ||
-            scrollTop < headerBoundsBottom
-          ) {
+          if (scrollTop < this.currentScrollTop || scrollTop < headerBoundsBottom) {
             document.body.classList.add(this.stickyClasses.pinned);
           } else {
             document.body.classList.remove(this.stickyClasses.pinned);
@@ -201,24 +195,25 @@ class SiteNav extends HTMLElement {
     this.isHover =
       this.header && this.header.classList.contains("show-dropdown-menu-on-hover");
 
-    this.initLegacyMegaMenus();
+    // ✅ Run legacy injection multiple times because header-group sections can render AFTER <site-nav>
+    const boot = () => {
+      this.initLegacyMegaMenus();
+      this.megaItems = this.querySelectorAll(".f-site-nav__item--mega");
 
-    this.megaItems = this.querySelectorAll(".f-site-nav__item--mega");
-
-    if (this.isHover) {
-      this.megaItems &&
-        this.megaItems.forEach((megaItem, index) => {
+      if (this.isHover) {
+        this.megaItems.forEach((megaItem) => {
           if (megaItem.dataset.megaBound === "1") return;
           megaItem.dataset.megaBound = "1";
 
-          megaItem.addEventListener("mouseenter", (evt) =>
-            this.onMenuItemEnter(evt, index)
-          );
-          megaItem.addEventListener("mouseleave", (evt) =>
-            this.onMenuItemLeave(evt, index)
-          );
+          megaItem.addEventListener("mouseenter", (evt) => this.onMenuItemEnter(evt));
+          megaItem.addEventListener("mouseleave", (evt) => this.onMenuItemLeave(evt));
         });
-    }
+      }
+    };
+
+    boot();
+    requestAnimationFrame(boot);
+    setTimeout(boot, 300);
   }
 
   initLegacyMegaMenus() {
@@ -243,10 +238,23 @@ class SiteNav extends HTMLElement {
 
       if (!matchItem) return;
 
+      // Mark it as mega so theme hover logic applies
       matchItem.classList.add("f-site-nav__item--mega", "f-site-nav__item--has-child");
 
-      const existing = matchItem.querySelector(".f-site-nav__dropdown");
-      if (existing && existing !== menuEl) existing.remove();
+      // Ensure the dropdown has the expected class for Gusto behavior
+      // (If your snippet wrapper already has f-site-nav__dropdown, this is safe)
+      if (!menuEl.classList.contains("f-site-nav__dropdown")) {
+        menuEl.classList.add("f-site-nav__dropdown");
+      }
+
+      const existing = matchItem.querySelector(
+        ".f-site-nav__dropdown.mega-menu-container[data-legacy-moved='true']"
+      );
+      if (existing) return; // already injected
+
+      // Remove any existing dropdown inside this item (optional; prevents duplicates)
+      const existingAny = matchItem.querySelector(".f-site-nav__dropdown");
+      if (existingAny && existingAny !== menuEl) existingAny.remove();
 
       menuEl.setAttribute("data-legacy-moved", "true");
 
@@ -269,9 +277,7 @@ class SiteNav extends HTMLElement {
 
     const { target } = evt;
 
-    /**
-     * If hover from prev item to sibling items then need to close prev sub menu immediately.
-     */
+    // Close other mega items immediately when entering a new one
     if (!target.classList.contains(this.classes.itemActive)) {
       this.megaItems &&
         this.megaItems.forEach((megaItem) => {
@@ -284,9 +290,10 @@ class SiteNav extends HTMLElement {
     if (dropdown) {
       this.header.handleMegaItemActive(dropdown);
 
+      // Small delay helps prevent flicker when moving mouse to dropdown content
       this.timeoutEnter = setTimeout(() => {
         target.classList.add(this.classes.itemActive);
-      });
+      }, 50);
     }
   }
 
@@ -294,34 +301,31 @@ class SiteNav extends HTMLElement {
     const { target } = evt;
 
     clearTimeout(this.timeoutEnter);
-    
-    this.header.handleMegaItemDeactive();
 
+    // Delay close so user can move into dropdown content without it disappearing instantly
     this.timeoutLeave = setTimeout(() => {
+      this.header.handleMegaItemDeactive();
       target.classList.remove(this.classes.itemActive);
-    });
+    }, 200);
   }
 
   closeMegaDropdowns() {
     clearTimeout(this.timeoutEnter);
+    clearTimeout(this.timeoutLeave);
+
     this.megaItems &&
       this.megaItems.forEach((megaItem) => {
         megaItem.classList.remove(this.classes.itemActive);
       });
-    this.timeoutLeave = setTimeout(() => {
-      this.header.handleMegaItemDeactive();
-    });
+
+    this.header.handleMegaItemDeactive();
   }
 
   disconnectedCallback() {
     this.megaItems &&
-      this.megaItems.forEach((megaItem, index) => {
-        megaItem.removeEventListener("mouseenter", (evt) =>
-          this.onMenuItemEnter(evt, index)
-        );
-        megaItem.removeEventListener("mouseleave", (evt) =>
-          this.onMenuItemLeave(evt, index)
-        );
+      this.megaItems.forEach((megaItem) => {
+        megaItem.removeEventListener("mouseenter", this.onMenuItemEnter);
+        megaItem.removeEventListener("mouseleave", this.onMenuItemLeave);
       });
   }
 }
