@@ -12,6 +12,54 @@
     "1653903038c126b831": {
       "type": "slideshow",
       "blocks": {
+        "slide_39hWWW": {
+          "type": "slide",
+          "settings": {
+            "background": "shopify://shop_images/Desktop_Slider_Banner_1920x1080px.png",
+            "image_overlay_opacity": 0,
+            "content_position": "center",
+            "text_alignment": "center",
+            "text_color": "#000000",
+            "title": "",
+            "heading_size": "h2",
+            "heading_color": "",
+            "subheading": "",
+            "description": "",
+            "desc_size": "text-desc-base",
+            "button_text_1": "",
+            "button_link_1": "",
+            "button_style_1": "btn--primary",
+            "button_size_1": "",
+            "button_text_2": "",
+            "button_link_2": "",
+            "button_style_2": "btn--primary",
+            "button_size_2": ""
+          }
+        },
+        "slide_TmbWTM": {
+          "type": "slide",
+          "settings": {
+            "background": "shopify://shop_images/Desktop_Slider_Banner_2_1920x1080px.png",
+            "image_overlay_opacity": 0,
+            "content_position": "center",
+            "text_alignment": "center",
+            "text_color": "#000000",
+            "title": "",
+            "heading_size": "h2",
+            "heading_color": "",
+            "subheading": "",
+            "description": "",
+            "desc_size": "text-desc-base",
+            "button_text_1": "",
+            "button_link_1": "",
+            "button_style_1": "btn--primary",
+            "button_size_1": "",
+            "button_text_2": "",
+            "button_link_2": "",
+            "button_style_2": "btn--primary",
+            "button_size_2": ""
+          }
+        },
         "41d2f781-470b-477f-896a-873df5080966": {
           "type": "slide",
           "settings": {
@@ -20,13 +68,13 @@
             "content_position": "center-bottom",
             "text_alignment": "center",
             "text_color": "#ffffff",
-            "title": "Taking the Cooler <em>up the Coast</em>",
+            "title": "",
             "heading_size": "h-xl",
             "heading_color": "#e1ea7a",
-            "subheading": "New Arrivals",
+            "subheading": "",
             "description": "",
             "desc_size": "text-desc-base",
-            "button_text_1": "Shop now",
+            "button_text_1": "",
             "button_link_1": "",
             "button_style_1": "btn--white",
             "button_size_1": "",
@@ -44,36 +92,13 @@
             "content_position": "center-bottom",
             "text_alignment": "center",
             "text_color": "#ffffff",
-            "title": "Packing light for <em>every journey</em>",
+            "title": "",
             "heading_size": "h-xl",
             "heading_color": "#e1ea7a",
-            "subheading": "New Arrivals",
+            "subheading": "",
             "description": "",
             "desc_size": "text-desc-base",
-            "button_text_1": "Shop now",
-            "button_link_1": "",
-            "button_style_1": "btn--white",
-            "button_size_1": "",
-            "button_text_2": "",
-            "button_link_2": "",
-            "button_style_2": "btn--primary",
-            "button_size_2": ""
-          }
-        },
-        "slide_AnnriB": {
-          "type": "slide",
-          "settings": {
-            "image_overlay_opacity": 0,
-            "content_position": "center-bottom",
-            "text_alignment": "center",
-            "text_color": "#ffffff",
-            "title": "Built to explore, <em>ready to go</em>",
-            "heading_size": "h-xl",
-            "heading_color": "#e1ea7a",
-            "subheading": "New Arrivals",
-            "description": "",
-            "desc_size": "text-desc-base",
-            "button_text_1": "Shop now",
+            "button_text_1": "",
             "button_link_1": "",
             "button_style_1": "btn--white",
             "button_size_1": "",
@@ -85,9 +110,10 @@
         }
       },
       "block_order": [
+        "slide_39hWWW",
+        "slide_TmbWTM",
         "41d2f781-470b-477f-896a-873df5080966",
-        "slide_MDYDqF",
-        "slide_AnnriB"
+        "slide_MDYDqF"
       ],
       "custom_css": [
         "@media (min-width: 768px) {.f-slideshow__content {max-width: 42rem; }}"
@@ -107,7 +133,7 @@
         "accessibility_info": "Slideshow about our brand",
         "custom_id": "",
         "custom_class": "",
-        "enable_bg_zoom_effect": true
+        "enable_bg_zoom_effect": false
       }
     },
     "16539046323b76eb29": {
@@ -116,22 +142,22 @@
         "16539046325056e830-0": {
           "type": "tab",
           "settings": {
-            "title": "",
-            "collection": "amp-research-power-steps-bed-steps-bed-guard-australia"
+            "title": "Windboosters",
+            "collection": "avs-weather-shields"
           }
         },
         "16539046325056e830-1": {
           "type": "tab",
           "settings": {
-            "title": "",
-            "collection": ""
+            "title": "AMP Research",
+            "collection": "amp-research-by-real-truck"
           }
         },
         "057c3cd6-53c8-4e07-b3d6-bd5d4fdb542d": {
           "type": "tab",
           "settings": {
-            "title": "",
-            "collection": ""
+            "title": "BAJA Suspensions",
+            "collection": "baja-suspension-kits"
           }
         }
       },
