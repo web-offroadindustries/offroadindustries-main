@@ -112,11 +112,74 @@
             "image_link_bottom": "",
             "richtext_bottom": ""
           }
+        },
+        "column_4BaYXJ": {
+          "type": "column",
+          "settings": {
+            "richtext_top": "<p>Ram</p>",
+            "image_top": "shopify://shop_images/dodge-ram-rebel-1500-trx_1800x1800_0ce02a9b-9e79-46b0-8c66-5f58ee143be9.png",
+            "image_caption_top": "",
+            "image_link_top": "",
+            "menu_1": "ram-1500",
+            "menu_1_link": "",
+            "menu_2": "ram-2500-3500",
+            "menu_2_link": "",
+            "menu_3": "",
+            "menu_3_link": "",
+            "menu_4": "",
+            "menu_4_link": "",
+            "image_caption_bottom": "",
+            "image_link_bottom": "",
+            "richtext_bottom": ""
+          }
+        },
+        "column_hThWhU": {
+          "type": "column",
+          "settings": {
+            "richtext_top": "<p>GMC</p>",
+            "image_top": "shopify://shop_images/gmc-hd-phantom-winch-front-bumper-studio-8.png",
+            "image_caption_top": "",
+            "image_link_top": "",
+            "menu_1": "gmc",
+            "menu_1_link": "",
+            "menu_2": "",
+            "menu_2_link": "",
+            "menu_3": "",
+            "menu_3_link": "",
+            "menu_4": "",
+            "menu_4_link": "",
+            "image_caption_bottom": "",
+            "image_link_bottom": "",
+            "richtext_bottom": ""
+          }
+        },
+        "column_YYJffD": {
+          "type": "column",
+          "settings": {
+            "richtext_top": "<p>Toyota</p>",
+            "image_top": "shopify://shop_images/4th-gen-toyota-tundra-winch-front-bumper-stealth-fighter_1800x1800_49541ff7-4fd2-432b-89e5-dbe39398aa87.png",
+            "image_caption_top": "",
+            "image_link_top": "",
+            "menu_1": "toyota-tundra",
+            "menu_1_link": "",
+            "menu_2": "",
+            "menu_2_link": "",
+            "menu_3": "",
+            "menu_3_link": "",
+            "menu_4": "",
+            "menu_4_link": "",
+            "image_caption_bottom": "",
+            "image_link_bottom": "",
+            "richtext_bottom": ""
+          }
         }
       },
       "block_order": [
         "column_HWRJFD",
-        "column_iALanF"
+        "column_iALanF",
+        "column_4BaYXJ",
+        "column_hThWhU",
+        "column_YYJffD"
       ],
       "name": "Mega menu 1",
       "settings": {
