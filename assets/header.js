@@ -8,25 +8,17 @@ class BasicHeader extends HTMLElement {
   }
 
   connectedCallback() {
-    this.header = this.closest(".site-header");
-    this.classes = { itemActive: "f-menu__item-active" };
+    this.classes = {
+      active: "f-header__mega-active",
+      headerScheme: this.dataset.headerColorScheme,
+      dropdownScheme: this.dataset.dropdownColorScheme,
+    };
 
-    this.initLegacyMegaMenus();
-
-    this.megaItems = this.querySelectorAll(".f-site-nav__item--mega");
-
-    this.timeoutEnter = null;
-    this.timeoutLeave = null;
-    this.isHover = this.header && this.header.classList.contains("show-dropdown-menu-on-hover");
-
-    if (this.isHover) {
-      this.megaItems.forEach((megaItem) => {
-        if (megaItem.dataset.megaBound === "1") return;
-        megaItem.dataset.megaBound = "1";
-        megaItem.addEventListener("mouseenter", (evt) => this.onMenuItemEnter(evt));
-        megaItem.addEventListener("mouseleave", (evt) => this.onMenuItemLeave(evt));
+    this.grandLinks = this.querySelectorAll(".f-site-nav__sub-item--has-child");
+    this.grandLinks &&
+      this.grandLinks.forEach((item) => {
+        this.handleGrandLinksPosition(item);
       });
-    }
   }
 
   handleMegaItemActive(dropdown) {
