@@ -365,7 +365,7 @@ body:not(.header-pinned) .header-scrolled .header {
   top: var(--f-header-height, 80px);
   z-index: 9999;
   /* background: var(--color-header-bg); */
-  color: var(--color-header-text);
+  color: var(--mm-text-color, #fff);
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
@@ -397,7 +397,12 @@ body:not(.header-pinned) .header-scrolled .header {
   position: relative;
   z-index: 1;
 }
-
+.mega-menu-container a {
+  color: var(--mm-text-color, #fff);
+}
+/* .mega-menu-container a:hover {
+  opacity: 0.85;
+} */
 .f-site-nav__item.f-menu__item-active > .mega-menu-container,
 .f-site-nav__item--mega:hover > .mega-menu-container,
 .f-site-nav__item--mega:focus-within > .mega-menu-container {
