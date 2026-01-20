@@ -193,19 +193,24 @@ class SiteNav extends HTMLElement {
 
   connectedCallback() {
     this.header = this.closest(".site-header");
-    this.classes = {
-      itemActive: "f-menu__item-active",
-    };
+    this.classes = { itemActive: "f-menu__item-active" };
 
-    this.megaItems = this.querySelectorAll(".f-site-nav__item--mega");
     this.timeoutEnter = null;
     this.timeoutLeave = null;
+
     this.isHover =
-      this.header &&
-      this.header.classList.contains("show-dropdown-menu-on-hover");
+      this.header && this.header.classList.contains("show-dropdown-menu-on-hover");
+
+    this.initLegacyMegaMenus();
+
+    this.megaItems = this.querySelectorAll(".f-site-nav__item--mega");
+
     if (this.isHover) {
       this.megaItems &&
         this.megaItems.forEach((megaItem, index) => {
+          if (megaItem.dataset.megaBound === "1") return;
+          megaItem.dataset.megaBound = "1";
+
           megaItem.addEventListener("mouseenter", (evt) =>
             this.onMenuItemEnter(evt, index)
           );
@@ -214,8 +219,8 @@ class SiteNav extends HTMLElement {
           );
         });
     }
-    this.initLegacyMegaMenus();
   }
+
   initLegacyMegaMenus() {
     const sources = document.querySelectorAll(
       ".mega-menu-container[data-mega-menu-parent]:not([data-legacy-moved])"
@@ -239,27 +244,25 @@ class SiteNav extends HTMLElement {
 
       if (!matchItem) return;
 
-      matchItem.classList.add("f-site-nav__item--mega");
+      matchItem.classList.add("f-site-nav__item--mega", "f-site-nav__item--has-child");
 
-      const details = matchItem.querySelector("details");
-      if (!details) return;
-
-      const existing = details.querySelector(".f-site-nav__dropdown");
+      const existing = matchItem.querySelector(".f-site-nav__dropdown");
       if (existing && existing !== menuEl) existing.remove();
 
-      // Move the mega menu markup into the nav item so Gusto's header.js can control it
       menuEl.setAttribute("data-legacy-moved", "true");
 
-      const summary = details.querySelector("summary");
-      if (summary) {
-        summary.insertAdjacentElement("afterend", menuEl);
+      const details = matchItem.querySelector("details");
+      if (details) {
+        const summary = details.querySelector("summary");
+        if (summary) summary.insertAdjacentElement("afterend", menuEl);
+        else details.appendChild(menuEl);
       } else {
-        details.appendChild(menuEl);
+        const linkEl =
+          matchItem.querySelector(".f-site-nav__link") || matchItem.querySelector("a");
+        if (linkEl) linkEl.insertAdjacentElement("afterend", menuEl);
+        else matchItem.appendChild(menuEl);
       }
     });
-
-    // refresh megaItems list for hover behavior
-    this.megaItems = this.querySelectorAll(".f-site-nav__item--mega");
   }
 
   onMenuItemEnter(evt) {
