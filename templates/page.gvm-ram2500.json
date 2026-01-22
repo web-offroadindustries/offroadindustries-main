@@ -363,7 +363,7 @@
       "name": "Compare / Specification",
       "settings": {
         "heading": "GVM Upgrade Comparison",
-        "details_heading": "Details",
+        "details_heading": "",
         "anchor_id": "compare-Ranger",
         "layout_width": "fixed",
         "container_width": "1200",
