@@ -1,0 +1,201 @@
+{%- liquid
+  assign bg = section.settings.bg_color
+  assign text = section.settings.text_color
+  assign hover = section.settings.hover_color
+  assign radius = section.settings.radius
+  assign gap = section.settings.gap
+  assign pad_y = section.settings.pad_y
+  assign pad_x = section.settings.pad_x
+  assign offset = section.settings.offset
+  assign duration = section.settings.duration
+-%}
+
+<div
+  class="jump-links"
+  style="
+    --jl-bg: {{ bg }};
+    --jl-text: {{ text }};
+    --jl-hover: {{ hover }};
+    --jl-radius: {{ radius }}px;
+    --jl-gap: {{ gap }}px;
+    --jl-pad-y: {{ pad_y }}px;
+    --jl-pad-x: {{ pad_x }}px;
+  "
+  data-jump-links
+  data-offset="{{ offset }}"
+  data-duration="{{ duration }}"
+>
+  <div class="jump-links__inner page-width">
+    {%- if section.settings.heading != blank -%}
+      <div class="jump-links__heading">{{ section.settings.heading }}</div>
+    {%- endif -%}
+
+    <div class="jump-links__items" role="navigation" aria-label="Jump links">
+      {%- for block in section.blocks -%}
+        {%- assign target_id = block.settings.target_id | strip -%}
+        {%- if target_id != blank and block.settings.label != blank -%}
+          <a
+            class="jump-links__item"
+            href="#{{ target_id | escape }}"
+            data-target-id="{{ target_id | escape }}"
+            {{ block.shopify_attributes }}
+          >
+            {{ block.settings.label }}
+          </a>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+<style>
+  .jump-links {
+    background: var(--jl-bg);
+    color: var(--jl-text);
+    position: relative;
+    z-index: 2;
+  }
+  .jump-links__inner {
+    padding-top: 14px;
+    padding-bottom: 14px;
+  }
+  .jump-links__heading {
+    margin-bottom: 10px;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+  }
+  .jump-links__items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--jl-gap);
+    align-items: center;
+  }
+  .jump-links__item {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--jl-pad-y) var(--jl-pad-x);
+    border-radius: var(--jl-radius);
+    color: var(--jl-text);
+    text-decoration: none;
+    border: 1px solid rgba(0,0,0,.12);
+    background: rgba(255,255,255,.0);
+    transition: transform .15s ease, background .15s ease, color .15s ease, border-color .15s ease;
+    will-change: transform;
+  }
+  .jump-links__item:hover {
+    color: var(--jl-hover);
+    transform: translateY(-1px);
+    border-color: rgba(0,0,0,.2);
+  }
+</style>
+
+<script>
+  (function () {
+    const root = document.currentScript?.previousElementSibling?.previousElementSibling?.previousElementSibling;
+    const container = root?.matches?.('[data-jump-links]') ? root : document.querySelector('[data-jump-links]');
+    if (!container || container.dataset.bound === "1") return;
+    container.dataset.bound = "1";
+
+    const OFFSET = parseInt(container.dataset.offset || "0", 10);
+    const DURATION = parseInt(container.dataset.duration || "650", 10);
+
+    function getStickyHeaderOffset() {
+      const header =
+        document.querySelector(".site-header") ||
+        document.querySelector(".header") ||
+        document.querySelector("[data-header]");
+
+      const h = header ? Math.ceil(header.getBoundingClientRect().height) : 0;
+      return h + OFFSET;
+    }
+
+    function easeInOutCubic(t) {
+      return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+    }
+
+    function smoothScrollTo(targetY, duration) {
+      const startY = window.pageYOffset || document.documentElement.scrollTop || 0;
+      const diff = targetY - startY;
+      const startTime = performance.now();
+
+      function step(now) {
+        const elapsed = now - startTime;
+        const t = Math.min(1, elapsed / duration);
+        const eased = easeInOutCubic(t);
+        window.scrollTo(0, startY + diff * eased);
+        if (t < 1) requestAnimationFrame(step);
+      }
+
+      requestAnimationFrame(step);
+    }
+
+    function scrollToId(id) {
+      const el = document.getElementById(id);
+      if (!el) return;
+
+      const rect = el.getBoundingClientRect();
+      const top = (window.pageYOffset || document.documentElement.scrollTop || 0) + rect.top;
+      const targetY = Math.max(0, top - getStickyHeaderOffset());
+      smoothScrollTo(targetY, DURATION);
+
+      history.replaceState(null, "", "#" + encodeURIComponent(id));
+    }
+
+    container.addEventListener("click", function (e) {
+      const link = e.target.closest("[data-target-id]");
+      if (!link) return;
+
+      e.preventDefault();
+      const id = link.getAttribute("data-target-id");
+      if (id) scrollToId(id);
+    });
+
+    window.addEventListener("load", function () {
+      const hash = (location.hash || "").replace("#", "");
+      if (!hash) return;
+      setTimeout(() => scrollToId(decodeURIComponent(hash)), 120);
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Jump links",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading (optional)", "default": "Jump to:" },
+
+    { "type": "color", "id": "bg_color", "label": "Background color", "default": "#ffffff" },
+    { "type": "color", "id": "text_color", "label": "Text color", "default": "#111111" },
+    { "type": "color", "id": "hover_color", "label": "Hover text color", "default": "#111111" },
+
+    { "type": "range", "id": "radius", "label": "Button radius", "min": 0, "max": 30, "step": 1, "default": 10 },
+    { "type": "range", "id": "gap", "label": "Item gap", "min": 4, "max": 30, "step": 1, "default": 10 },
+    { "type": "range", "id": "pad_y", "label": "Padding (Y)", "min": 6, "max": 20, "step": 1, "default": 10 },
+    { "type": "range", "id": "pad_x", "label": "Padding (X)", "min": 10, "max": 30, "step": 1, "default": 16 },
+
+    { "type": "range", "id": "offset", "label": "Extra offset below sticky header (px)", "min": 0, "max": 120, "step": 2, "default": 10 },
+    { "type": "range", "id": "duration", "label": "Scroll duration (ms)", "min": 300, "max": 1400, "step": 50, "default": 650 }
+  ],
+  "blocks": [
+    {
+      "type": "link",
+      "name": "Jump link",
+      "settings": [
+        { "type": "text", "id": "label", "label": "Link label", "default": "GVM Upgrade Options" },
+        { "type": "text", "id": "target_id", "label": "Target section ID (no #)", "default": "GVM-Upgrade-Options" }
+      ]
+    }
+  ],
+  "max_blocks": 12,
+  "presets": [
+    {
+      "name": "Jump links (smooth scroll)",
+      "blocks": [
+        { "type": "link" },
+        { "type": "link", "settings": { "label": "FAQs", "target_id": "FAQs" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
