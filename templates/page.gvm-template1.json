@@ -177,7 +177,7 @@
         "color_schema": "",
         "text_alignment": "left",
         "padding_top": 40,
-        "padding_bottom": 40,
+        "padding_bottom": 0,
         "show_section_divider": false,
         "divider_width": "container",
         "custom_id": "gvmpackages",
@@ -185,95 +185,228 @@
         "animations": "inherit"
       }
     },
-    "layered_images_dFrAzV": {
-      "type": "layered-images",
+    "image_with_text_WcaAiR": {
+      "type": "image-with-text",
       "blocks": {
-        "row_zw8UF3": {
-          "type": "row",
+        "subheading_JVKNjL": {
+          "type": "subheading",
           "settings": {
-            "image": "shopify://shop_images/stage_1_5300_GVM_RAM_2500.jpg",
+            "subheading": "Stage 1: $10,500 - Installed & Engineered"
+          }
+        },
+        "heading_f9G7kD": {
+          "type": "heading",
+          "settings": {
             "heading": "STAGE 1 : 5300 GVM",
             "highlight_style": "none",
             "enable_highlight_text_color": false,
-            "heading_size": "h0",
-            "heading_color": "",
-            "subheading": "Stage 1: $10,500 - Installed & Engineered",
-            "description": "<ul><li><strong>Fox 2.5 HTO Performance Series Suspension</strong></li><li><strong>ORI 50mm Front and Rear Coils</strong></li><li><strong>SSM Federally Approved GVM</strong></li><li><strong>Category Changes from NB1 to NB2</strong></li><li><strong>4459 Upgraded 5300 GVM</strong></li></ul>",
-            "button_label": "",
-            "button_link": "",
-            "button_style": "btn--primary",
-            "button_size": ""
+            "heading_size": "h2"
           }
         },
-        "row_f3YeV7": {
-          "type": "row",
+        "text_fRRw7g": {
+          "type": "text",
           "settings": {
-            "image": "shopify://shop_images/stage_2_5300_GVM_RAM_2500.jpg",
-            "heading": "STAGE 2 : 5300 GVM",
-            "highlight_style": "none",
-            "enable_highlight_text_color": false,
-            "heading_size": "h0",
-            "heading_color": "",
-            "subheading": "Stage 2: $15,000 - Installed & Engineered",
-            "description": "<ul><li><strong>Fox 2.5 Performance Elite Suspension</strong></li><li><strong>ORI 50mm Front and Rear Coils</strong></li><li><strong>SSM Federally Approved GVM</strong></li><li><strong>Category Change from NB1 to NB2</strong></li><li><strong>4495 Upgraded to 5300 GVM</strong></li></ul>",
-            "button_label": "",
-            "button_link": "",
-            "button_style": "btn--primary",
-            "button_size": ""
-          }
-        },
-        "row_pkgCFQ": {
-          "type": "row",
-          "settings": {
-            "image": "shopify://shop_images/stage_3_5300_GVM_RAM_2500.jpg",
-            "heading": "STAGE 3 : 5300 GVM",
-            "highlight_style": "none",
-            "enable_highlight_text_color": false,
-            "heading_size": "h0",
-            "heading_color": "",
-            "subheading": "Stage 3: $17,499 - Installed & Engineered",
-            "description": "<ul><li><strong>3\" BDS Radius Suspension Package</strong></li><li><strong>Fox 2.5 Performance Elite Suspension</strong></li><li><strong>BDS Front Coils and Rear Coils</strong></li><li><strong>SSM Federally Approved GVM</strong></li><li><strong>Category Change NB1 to NB2 .</strong></li><li><strong>4495 Upgraded 5300 GVM</strong></li></ul>",
-            "button_label": "",
-            "button_link": "",
-            "button_style": "btn--primary",
-            "button_size": ""
-          }
-        },
-        "row_6gwybL": {
-          "type": "row",
-          "settings": {
-            "image": "shopify://shop_images/stage_4_5300_GVM_RAM_2500.jpg",
-            "heading": "STAGE 4 : 5500 GVM",
-            "highlight_style": "none",
-            "enable_highlight_text_color": false,
-            "heading_size": "h0",
-            "heading_color": "",
-            "subheading": "Stage 4: $15,000 - Installed & Engineered",
-            "description": "<ul><li><strong>Fox 2.5 Performance Elite Suspension</strong></li><li><strong>ORI 50mm Front and Rear Coils</strong></li><li><strong>SSM Federally Approved GVM</strong></li><li><strong>Engineered for 35x12.5x18 or 15x12.5x20</strong></li><li><strong>Category Change NB1 to NB2 .</strong></li><li><strong>4495 Upgraded 5550 GVM</strong></li></ul>",
-            "button_label": "",
-            "button_link": "",
-            "button_style": "btn--primary",
-            "button_size": ""
+            "text": "<ul><li>Fox 2.5 HTO Performance Series Suspension</li><li>ORI 50mm Front and Rear Coils</li><li>SSM Federally Approved GVM</li><li>Category Changes from NB1 to NB2</li><li>4459 Upgraded 5300 GVM</li></ul>"
           }
         }
       },
       "block_order": [
-        "row_zw8UF3",
-        "row_f3YeV7",
-        "row_pkgCFQ",
-        "row_6gwybL"
+        "subheading_JVKNjL",
+        "heading_f9G7kD",
+        "text_fRRw7g"
       ],
-      "name": "t:sections.layered-images.name",
+      "name": "t:sections.image-with-text.presets.name",
       "settings": {
+        "container": "container",
         "color_schema": "",
-        "image_aspect_ratio": "adapt",
+        "image": "shopify://shop_images/stage_1_5300_GVM_RAM_2500.jpg",
+        "image_width": "50%",
+        "image_position": "left",
         "vertical_alignment": "center",
+        "column_gap": "medium",
+        "row_gap": "medium",
+        "padding_left": 0,
+        "padding_right": 0,
+        "align_content_container": "none",
+        "mobile_padding_left": 15,
+        "mobile_padding_right": 15,
         "padding_top": 40,
         "padding_bottom": 40,
+        "padding_top_mobile": 60,
+        "padding_bottom_mobile": 60,
         "show_section_divider": false,
         "divider_width": "container",
         "custom_id": "",
-        "custom_class": ""
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "image_with_text_pR9RXR": {
+      "type": "image-with-text",
+      "blocks": {
+        "subheading_nNBqbG": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "Stage 2: $15,000 - Installed & Engineered"
+          }
+        },
+        "heading_dHpa9y": {
+          "type": "heading",
+          "settings": {
+            "heading": "STAGE 2 : 5300 GVM",
+            "highlight_style": "none",
+            "enable_highlight_text_color": false,
+            "heading_size": "h2"
+          }
+        },
+        "text_eiTTm6": {
+          "type": "text",
+          "settings": {
+            "text": "<ul><li>Fox 2.5 Performance Elite Suspension</li><li>ORI 50mm Front and Rear Coils</li><li>SSM Federally Approved GVM</li><li>Category Change from NB1 to NB2</li><li>4495 Upgraded to 5300 GVM</li></ul>"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_nNBqbG",
+        "heading_dHpa9y",
+        "text_eiTTm6"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "container": "container",
+        "color_schema": "",
+        "image": "shopify://shop_images/stage_2_5300_GVM_RAM_2500.jpg",
+        "image_width": "50%",
+        "image_position": "right",
+        "vertical_alignment": "center",
+        "column_gap": "medium",
+        "row_gap": "medium",
+        "padding_left": 0,
+        "padding_right": 0,
+        "align_content_container": "none",
+        "mobile_padding_left": 15,
+        "mobile_padding_right": 15,
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "padding_top_mobile": 60,
+        "padding_bottom_mobile": 60,
+        "show_section_divider": false,
+        "divider_width": "container",
+        "custom_id": "",
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "image_with_text_M8ykcj": {
+      "type": "image-with-text",
+      "blocks": {
+        "subheading_p3JeNT": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "Stage 3: $17,499 - Installed & Engineered"
+          }
+        },
+        "heading_KMefdY": {
+          "type": "heading",
+          "settings": {
+            "heading": "STAGE 3 : 5300 GVM",
+            "highlight_style": "none",
+            "enable_highlight_text_color": false,
+            "heading_size": "h2"
+          }
+        },
+        "text_aVwiWh": {
+          "type": "text",
+          "settings": {
+            "text": "<ul><li>3\" BDS Radius Suspension Package</li><li>Fox 2.5 Performance Elite Suspension</li><li>BDS Front Coils and Rear Coils</li><li>SSM Federally Approved GVM</li><li>Category Change NB1 to NB2 .</li><li>4495 Upgraded 5300 GVM</li></ul>"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_p3JeNT",
+        "heading_KMefdY",
+        "text_aVwiWh"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "container": "container",
+        "color_schema": "",
+        "image": "shopify://shop_images/stage_3_5300_GVM_RAM_2500.jpg",
+        "image_width": "50%",
+        "image_position": "left",
+        "vertical_alignment": "center",
+        "column_gap": "medium",
+        "row_gap": "medium",
+        "padding_left": 0,
+        "padding_right": 0,
+        "align_content_container": "none",
+        "mobile_padding_left": 15,
+        "mobile_padding_right": 15,
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "padding_top_mobile": 60,
+        "padding_bottom_mobile": 60,
+        "show_section_divider": false,
+        "divider_width": "container",
+        "custom_id": "",
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "image_with_text_pcJYGC": {
+      "type": "image-with-text",
+      "blocks": {
+        "subheading_UXFBYE": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "Stage 4: $15,000 - Installed & Engineered"
+          }
+        },
+        "heading_wfcybN": {
+          "type": "heading",
+          "settings": {
+            "heading": "STAGE 4 : 5500 GVM",
+            "highlight_style": "none",
+            "enable_highlight_text_color": false,
+            "heading_size": "h2"
+          }
+        },
+        "text_giGN6b": {
+          "type": "text",
+          "settings": {
+            "text": "<ul><li>Fox 2.5 Performance Elite Suspension</li><li>ORI 50mm Front and Rear Coils</li><li>SSM Federally Approved GVM</li><li>Engineered for 35x12.5x18 or 15x12.5x20</li><li>Category Change NB1 to NB2 .</li><li>4495 Upgraded 5550 GVM</li></ul>"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_UXFBYE",
+        "heading_wfcybN",
+        "text_giGN6b"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "container": "container",
+        "color_schema": "",
+        "image": "shopify://shop_images/stage_4_5300_GVM_RAM_2500.jpg",
+        "image_width": "50%",
+        "image_position": "right",
+        "vertical_alignment": "center",
+        "column_gap": "medium",
+        "row_gap": "medium",
+        "padding_left": 0,
+        "padding_right": 0,
+        "align_content_container": "none",
+        "mobile_padding_left": 15,
+        "mobile_padding_right": 15,
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "padding_top_mobile": 60,
+        "padding_bottom_mobile": 60,
+        "show_section_divider": false,
+        "divider_width": "container",
+        "custom_id": "",
+        "custom_class": "",
+        "animations": "inherit"
       }
     },
     "rich_text_rnLAPH": {
@@ -305,99 +438,6 @@
         "custom_id": "gvmspecification",
         "custom_class": "",
         "animations": "inherit"
-      }
-    },
-    "comparison_specification_Yj66cU": {
-      "type": "comparison-specification",
-      "blocks": {
-        "column_UrhFQm": {
-          "type": "column",
-          "settings": {
-            "title": "Factory"
-          }
-        },
-        "column_AGJUKG": {
-          "type": "column",
-          "settings": {
-            "title": "3.65T LTZ"
-          }
-        },
-        "column_UqMjfq": {
-          "type": "column",
-          "settings": {
-            "title": "3.65T ZR2"
-          }
-        },
-        "column_TBiCG7": {
-          "type": "column",
-          "settings": {
-            "title": "3.85T"
-          }
-        },
-        "row_mjczpG": {
-          "type": "row",
-          "settings": {
-            "label": "GVM",
-            "value_1": "3,300kg",
-            "value_2": "3,650kg",
-            "value_3": "3,650kg",
-            "value_4": "3,850kg",
-            "value_5": "",
-            "value_6": ""
-          }
-        },
-        "row_QymHQQ": {
-          "type": "row",
-          "settings": {
-            "label": "Payload",
-            "value_1": "757kg",
-            "value_2": "1,107kg",
-            "value_3": "1,067kg",
-            "value_4": "1,294kg",
-            "value_5": "",
-            "value_6": ""
-          }
-        },
-        "row_gq488F": {
-          "type": "row",
-          "settings": {
-            "label": "Requires Wheel/Tyre Upgrade",
-            "value_1": "✓",
-            "value_2": "✗",
-            "value_3": "✗",
-            "value_4": "✓",
-            "value_5": "",
-            "value_6": ""
-          }
-        }
-      },
-      "block_order": [
-        "column_UrhFQm",
-        "column_AGJUKG",
-        "column_UqMjfq",
-        "column_TBiCG7",
-        "row_mjczpG",
-        "row_QymHQQ",
-        "row_gq488F"
-      ],
-      "name": "Compare / Specification",
-      "settings": {
-        "heading": "GVM Upgrade Comparison",
-        "details_heading": "",
-        "anchor_id": "compare-Ranger",
-        "layout_width": "fixed",
-        "container_width": "1200",
-        "text_color": "#111111",
-        "border_color": "#dddddd",
-        "bg_color": "#ffffff",
-        "bg_opacity": 0,
-        "header_bg_color": "#ffffff",
-        "header_text_color": "#111111",
-        "row_bg_color": "#ffffff",
-        "row_alt_bg_color": "#ffffff",
-        "radius": 0,
-        "padding_top": 20,
-        "padding_bottom": 20
       }
     },
     "rich_text_4AxLyp": {
@@ -642,9 +682,11 @@
     "jump_links_UeawGp",
     "rich_text_GbXVUF",
     "rich_text_PtmRiF",
-    "layered_images_dFrAzV",
+    "image_with_text_WcaAiR",
+    "image_with_text_pR9RXR",
+    "image_with_text_M8ykcj",
+    "image_with_text_pcJYGC",
     "rich_text_rnLAPH",
-    "comparison_specification_Yj66cU",
     "rich_text_4AxLyp",
     "gallery_images_VzpKEk",
     "featured_collection_Np9bwe",
