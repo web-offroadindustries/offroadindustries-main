@@ -44,7 +44,7 @@
         <!-- Header Row -->
         <div class="gvm-compare__row gvm-compare__row--head">
           <div class="gvm-compare__cell gvm-compare__cell--label gvm-compare__cell--head">
-            {{ section.settings.details_heading | default: 'DETAILS' }}
+            {{ section.settings.details_heading }}
           </div>
 
           {%- for i in (1..6) -%}
