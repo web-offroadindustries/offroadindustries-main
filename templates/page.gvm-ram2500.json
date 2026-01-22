@@ -519,7 +519,7 @@
         "layout": "grid",
         "metro_item_color_schema": "",
         "enable_slider": true,
-        "show_nav": false,
+        "show_nav": true,
         "show_dots": false,
         "enable_swipe_mobile": true,
         "column_mobile": "1",
