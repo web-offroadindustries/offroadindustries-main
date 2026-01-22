@@ -538,107 +538,6 @@
         "animations": "inherit"
       }
     },
-    "gallery_images_VzpKEk": {
-      "type": "gallery-images",
-      "blocks": {
-        "image_WiJAgE": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/CHEVROLET-SILVERADO-1500-4PLAY-WHEELS-4P63-G3-22X12-35X12.5X22-NITTO-TIRES-KRIETZ-CUSTOMS-2.png",
-            "text": "",
-            "text_size": "medium",
-            "link": ""
-          }
-        },
-        "image_448a9T": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/peak-2024-lexus-gx550-trail-kit-1peak-suspension800-001-006-007-428597.png",
-            "text": "",
-            "text_size": "medium",
-            "link": ""
-          }
-        },
-        "image_8jw9qF": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/CHEVROLET-SILVERADO-4PLAY-WHEELS-RIMS-4P63-22X10-285X50X22-TOYO-TIRES-5-scaled.png",
-            "text": "",
-            "text_size": "medium",
-            "link": ""
-          }
-        },
-        "image_tJEhUV": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/bushwacker-extend-style-flare-gmc-denali-at4-2500bushwacker40988-02-653385.jpg",
-            "text": "",
-            "text_size": "medium",
-            "link": ""
-          }
-        },
-        "image_c8rUMM": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/addoffroad-toyota-tundra-stealth-center-mount-front-bumper-22addictive-desert-designsf760343070103-4731419.png",
-            "text": "",
-            "text_size": "medium",
-            "link": ""
-          }
-        },
-        "image_HhGgUK": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/CHEVROLET-SILVERADO-4PLAY-WHEELS-RIMS-4P63-22X10-285X50X22-TOYO-TIRES-7-scaled.png",
-            "text": "",
-            "text_size": "medium",
-            "link": ""
-          }
-        }
-      },
-      "block_order": [
-        "image_WiJAgE",
-        "image_448a9T",
-        "image_8jw9qF",
-        "image_tJEhUV",
-        "image_c8rUMM",
-        "image_HhGgUK"
-      ],
-      "name": "t:sections.gallery-images.presets.name",
-      "settings": {
-        "container": "container",
-        "color_schema": "",
-        "section_header_padding_bottom": "medium",
-        "section_header_content_spacing": "medium",
-        "heading": "",
-        "highlight_style": "none",
-        "enable_highlight_text_color": false,
-        "heading_size": "h2",
-        "heading_color": "",
-        "subheading": "",
-        "description": "",
-        "button_label": "",
-        "button_link": "",
-        "button_style": "btn--primary",
-        "image_ratio": "1/1",
-        "columns": 4,
-        "column_gap": "small",
-        "layout": "grid",
-        "metro_item_color_schema": "",
-        "enable_slider": true,
-        "show_nav": true,
-        "show_dots": false,
-        "enable_swipe_mobile": true,
-        "column_mobile": "1",
-        "padding_top": 0,
-        "padding_bottom": 10,
-        "show_section_divider": false,
-        "divider_width": "container",
-        "custom_id": "",
-        "custom_class": "",
-        "animations": "inherit"
-      }
-    },
     "featured_collection_Np9bwe": {
       "type": "featured-collection",
       "name": "t:sections.featured-collection.name",
@@ -662,7 +561,7 @@
         "row_gap": "medium",
         "pcard_image_ratio": "",
         "show_vendor": false,
-        "enable_slider": true,
+        "enable_slider": false,
         "show_nav": true,
         "show_dots": false,
         "show_all_button_on_top": false,
@@ -756,7 +655,6 @@
     "rich_text_rnLAPH",
     "gvm_comparison_FfmTMw",
     "rich_text_4AxLyp",
-    "gallery_images_VzpKEk",
     "featured_collection_Np9bwe",
     "contact_form_bfPpbR"
   ]
