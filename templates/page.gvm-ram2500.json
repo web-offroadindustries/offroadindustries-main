@@ -64,6 +64,38 @@
         "enable_bg_zoom_effect": false
       }
     },
+    "jump_links_UeawGp": {
+      "type": "jump-links",
+      "blocks": {
+        "link_y9rErk": {
+          "type": "link",
+          "settings": {
+            "label": "GVM Upgrade Options",
+            "target_id": "GVM-Upgrade-Options"
+          }
+        },
+        "link_C8imG8": {
+          "type": "link",
+          "settings": {
+            "label": "FAQs",
+            "target_id": "FAQs"
+          }
+        }
+      },
+      "block_order": [
+        "link_y9rErk",
+        "link_C8imG8"
+      ],
+      "name": "Jump links",
+      "settings": {
+        "bg_color": "#ffffff",
+        "text_color": "#111111",
+        "hover_color": "#111111",
+        "pad_y": 10,
+        "offset": 0,
+        "duration": 650
+      }
+    },
     "rich_text_GbXVUF": {
       "type": "rich-text",
       "blocks": {
@@ -106,6 +138,7 @@
   "order": [
     "main",
     "slideshow_CtnG98",
+    "jump_links_UeawGp",
     "rich_text_GbXVUF"
   ]
 }
