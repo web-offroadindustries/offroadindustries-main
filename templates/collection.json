@@ -170,7 +170,7 @@
         "filter_group_heading_size": "h6",
         "show_results_count": true,
         "filter_color_type": "list",
-        "paginate_type": "number",
+        "paginate_type": "infinite",
         "padding_top": 0,
         "padding_bottom": 100
       }
