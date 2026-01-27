@@ -57,21 +57,27 @@
 
     e.preventDefault();
 
-    // Try to pull variant title from button dataset (and fallback)
+    // inside document.addEventListener('click', ...)
     const productForm = trigger.closest('form');
-    let variantTitle = trigger.dataset.variantTitle || '';
 
-    // If theme has selects, build a readable variant title
-    if (!variantTitle && productForm) {
-      const optionSelects = productForm.querySelectorAll('select[name^="options["], input[name^="options["]:checked');
-      if (optionSelects.length) {
-        const parts = [];
-        optionSelects.forEach(el => {
-          if (el.tagName === 'SELECT') parts.push(el.options[el.selectedIndex]?.text || '');
-          else parts.push(el.value || '');
-        });
-        variantTitle = parts.filter(Boolean).join(' / ');
-      }
+    // Get current variant ID from product form
+    let variantId = trigger.dataset.variantId || '';
+    if (productForm) {
+      const idInput = productForm.querySelector('input[name="id"]');
+      if (idInput) variantId = idInput.value;
+    }
+
+    // Get variant title from ProductData JSON (most reliable)
+    let variantTitle = '';
+    if (variantId) {
+      try {
+        const pd = document.getElementById('ProductData');
+        if (pd && pd.textContent) {
+          const productData = JSON.parse(pd.textContent);
+          const v = (productData.variants || []).find(x => String(x.id) === String(variantId));
+          if (v) variantTitle = v.title || '';
+        }
+      } catch (e) {}
     }
 
     openModal({
