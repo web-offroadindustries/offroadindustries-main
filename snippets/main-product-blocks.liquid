@@ -707,7 +707,7 @@
                           assign quantity_rule_soldout = true
                         endif
                       -%}
-                      
+
                       {%- liquid
                         assign so_type = ''
                         for t in product.tags
@@ -773,7 +773,7 @@
                       {%- endif -%}
 
                     {% endif %}
-                    {%- if show_dynamic_checkout -%}
+                    {%- if show_dynamic_checkout and so_type == '' -%}
                       <div class="f-product-form__button-dynamic">
                         {{ form | payment_button }}
                       </div>
