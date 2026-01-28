@@ -121,11 +121,6 @@
     },
     "content_for_index": [],
     "blocks": {
-      "2878693861365564508": {
-        "type": "shopify://apps/easysearch-ymm/blocks/easysearch-embed-garage/6d82686b-b68a-4b5e-98e3-e07b2b53d810",
-        "disabled": false,
-        "settings": {}
-      },
       "11599650373883811531": {
         "type": "shopify://apps/easysearch-ymm/blocks/easysearch-embed-widgets/6d82686b-b68a-4b5e-98e3-e07b2b53d810",
         "disabled": false,
@@ -135,6 +130,11 @@
           "placement_ft_selector": "",
           "insert_method": "prepend"
         }
+      },
+      "2878693861365564508": {
+        "type": "shopify://apps/easysearch-ymm/blocks/easysearch-embed-garage/6d82686b-b68a-4b5e-98e3-e07b2b53d810",
+        "disabled": true,
+        "settings": {}
       }
     },
     "color_schemes": {
