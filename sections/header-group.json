@@ -1,1 +1,109 @@
-{"type":"header","name":"t:sections.header.name","sections":{"announcement-bar":{"type":"announcement-bar","blocks":{"93951327-4430-4ac4-8eb4-785e1fda430e":{"type":"announcement","settings":{"text":"<p>Welcome to the NEW ORI website<\/p>","link":"","homepage_only":false,"hide_on_page":"","show_on_mobile":true,"show_on_tablet":true,"show_on_desktop":true}}},"block_order":["93951327-4430-4ac4-8eb4-785e1fda430e"],"custom_css":[],"settings":{"color_schema":"accent","show_close_button":false,"enable_carousel":false,"autoplay":true,"autorotate_speed":5}},"header":{"type":"header","settings":{"color_schema":"accent","layout":"design-1","container":"container-fluid","sticky_header":true,"sticky_type":"on-scroll-up","transparent_header":false,"logo":"shopify:\/\/shop_images\/ORI_Teal_SMALL_4f1a73a1-2c8a-4cbf-95a1-a4165c060141.png","logo_width":90,"logo_mobile_width":90,"main_menu":"main-menu","mobile_menu":"main-menu","menu_dropdown_color_schema":"","dropdown_menu_trigger":"hover","enable_mega_menu":true,"show_search":true,"show_cart":true,"show_account":true,"show_country_selector":false,"show_language_selector":false,"logo_mobile_position":"left","mobile_show_search":true,"mobile_show_cart":true,"mobile_show_account":true,"mobile_show_social":true,"padding_top":13,"padding_bottom":13}}},"order":["announcement-bar","header"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "type": "header",
+  "name": "t:sections.header.name",
+  "sections": {
+    "announcement-bar": {
+      "type": "announcement-bar",
+      "blocks": {
+        "93951327-4430-4ac4-8eb4-785e1fda430e": {
+          "type": "announcement",
+          "settings": {
+            "text": "<p>Welcome to the NEW ORI website</p>",
+            "link": "",
+            "homepage_only": false,
+            "hide_on_page": "",
+            "show_on_mobile": true,
+            "show_on_tablet": true,
+            "show_on_desktop": true
+          }
+        }
+      },
+      "block_order": [
+        "93951327-4430-4ac4-8eb4-785e1fda430e"
+      ],
+      "custom_css": [],
+      "settings": {
+        "color_schema": "accent",
+        "show_close_button": false,
+        "enable_carousel": false,
+        "autoplay": true,
+        "autorotate_speed": 5
+      }
+    },
+    "header": {
+      "type": "header",
+      "settings": {
+        "color_schema": "accent",
+        "layout": "design-1",
+        "container": "container-fluid",
+        "sticky_header": true,
+        "sticky_type": "on-scroll-up",
+        "transparent_header": false,
+        "logo": "shopify://shop_images/ORI_Teal_SMALL_4f1a73a1-2c8a-4cbf-95a1-a4165c060141.png",
+        "logo_width": 90,
+        "logo_mobile_width": 90,
+        "main_menu": "main-menu",
+        "mobile_menu": "main-menu",
+        "menu_dropdown_color_schema": "",
+        "dropdown_menu_trigger": "hover",
+        "enable_mega_menu": true,
+        "show_search": true,
+        "show_cart": true,
+        "show_account": true,
+        "show_country_selector": false,
+        "show_language_selector": false,
+        "logo_mobile_position": "left",
+        "mobile_show_search": true,
+        "mobile_show_cart": true,
+        "mobile_show_account": true,
+        "mobile_show_social": true,
+        "padding_top": 13,
+        "padding_bottom": 13
+      }
+    },
+    "1769566758a2714af8": {
+      "type": "apps",
+      "blocks": {
+        "easysearch_ymm_easysearch_widget_XwzhV3": {
+          "type": "shopify://apps/easysearch-ymm/blocks/easysearch-widget/6d82686b-b68a-4b5e-98e3-e07b2b53d810",
+          "settings": {
+            "show_at": "section",
+            "placement_selector": "",
+            "insert_method": "prepend",
+            "padding_top": 0,
+            "padding_bottom": 0
+          }
+        }
+      },
+      "block_order": [
+        "easysearch_ymm_easysearch_widget_XwzhV3"
+      ],
+      "settings": {
+        "container": "container",
+        "color_schema": "",
+        "heading": "",
+        "highlight_style": "none",
+        "enable_highlight_text_color": false,
+        "heading_size": "h2",
+        "heading_color": "",
+        "description": "",
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    }
+  },
+  "order": [
+    "announcement-bar",
+    "header",
+    "1769566758a2714af8"
+  ]
+}
