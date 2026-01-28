@@ -535,6 +535,7 @@ body:not(.header-pinned) .header-scrolled .header {
   gap: 12px;
   box-shadow: 0 10px 26px rgba(0,0,0,0.35);
   transition: transform 160ms ease, background 160ms ease;
+  cursor: pointer;
 }
 
 .mega-menu__brand:hover {
