@@ -26,50 +26,37 @@
           "settings": {
             "collection": "addictive-desert-designs",
             "image": "shopify://shop_images/ICONS_FOR_WEBSITE_ADD.png",
-            "title": ""
+            "title": "ADD OFFROAD"
           }
         },
         "featured_collection_9YmMzV": {
           "type": "featured_collection",
           "settings": {
             "collection": "bds-suspension-australian-distributor",
-            "title": ""
-          }
-        },
-        "template--16355052454049__0f7b029a-fe5e-4827-8f2c-450067a56576-featured_collection-8": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "",
-            "title": ""
-          }
-        },
-        "template--16355052454049__0f7b029a-fe5e-4827-8f2c-450067a56576-featured_collection-7": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "",
-            "title": "Kit Bags"
+            "image": "shopify://shop_images/ICONS_FOR_WEBSITE_BDS.png",
+            "title": "BDS"
           }
         },
         "featured_collection_dHUPkm": {
           "type": "featured_collection",
           "settings": {
-            "collection": "",
-            "title": ""
+            "collection": "fox-suspension",
+            "image": "shopify://shop_images/ICONS_FOR_WEBSITE_FOX.png",
+            "title": "FOX"
           }
         },
         "7ea9e8bd-d38d-462d-9994-4f8d40095a57": {
           "type": "featured_collection",
           "settings": {
-            "collection": "",
-            "title": ""
+            "collection": "bushwacker",
+            "image": "shopify://shop_images/ICONS_FOR_WEBSITE_BUSHWACKER.png",
+            "title": "BUSHWACKER"
           }
         }
       },
       "block_order": [
         "template--16355052454049__0f7b029a-fe5e-4827-8f2c-450067a56576-featured_collection-6",
         "featured_collection_9YmMzV",
-        "template--16355052454049__0f7b029a-fe5e-4827-8f2c-450067a56576-featured_collection-8",
-        "template--16355052454049__0f7b029a-fe5e-4827-8f2c-450067a56576-featured_collection-7",
         "featured_collection_dHUPkm",
         "7ea9e8bd-d38d-462d-9994-4f8d40095a57"
       ],
@@ -79,7 +66,7 @@
       "settings": {
         "container": "container",
         "color_schema": "",
-        "section_header_padding_bottom": "medium",
+        "section_header_padding_bottom": "small",
         "section_header_content_spacing": "medium",
         "header_layout": "vertical",
         "heading": "",
@@ -94,7 +81,7 @@
         "card_style": "5",
         "text_alignment": "center",
         "text_color": "#222222",
-        "image_ratio": "1/1",
+        "image_ratio": "adapt",
         "show_count": false,
         "inline_count": false,
         "columns": 9,
