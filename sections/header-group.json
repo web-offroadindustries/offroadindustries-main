@@ -184,8 +184,11 @@
       "name": "Mega menu 1",
       "settings": {
         "parent": "American Trucks",
+        "mm_layout": "brands",
+        "mm_align": "center",
         "mm_bg_color": "#0b0b0b",
-        "mm_bg_opacity": 96
+        "mm_bg_opacity": 96,
+        "mm_text_color": "#ffffff"
       }
     },
     "mega_menu_2_TJKFn4": {
@@ -303,12 +306,65 @@
       "settings": {
         "parent": "Shop by Vehicle :"
       }
+    },
+    "mega_menu_1_3iAP83": {
+      "type": "mega-menu-1",
+      "blocks": {
+        "brand_tile_AAfQaG": {
+          "type": "brand_tile",
+          "settings": {
+            "logo": "shopify://shop_images/ICONS_FOR_WEBSITE_ADD.png",
+            "label": "ADDS Offroad",
+            "link": ""
+          }
+        },
+        "brand_tile_J8Aq38": {
+          "type": "brand_tile",
+          "settings": {
+            "logo": "shopify://shop_images/ICONS_FOR_WEBSITE_BDS.png",
+            "label": "BDS",
+            "link": ""
+          }
+        },
+        "brand_tile_RxmGkn": {
+          "type": "brand_tile",
+          "settings": {
+            "logo": "shopify://shop_images/ICONS_FOR_WEBSITE_FOX.png",
+            "label": "FOX",
+            "link": ""
+          }
+        },
+        "brand_tile_dhptpq": {
+          "type": "brand_tile",
+          "settings": {
+            "logo": "shopify://shop_images/ICONS_FOR_WEBSITE_BUSHWACKER.png",
+            "label": "Bushwacker",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "brand_tile_AAfQaG",
+        "brand_tile_J8Aq38",
+        "brand_tile_RxmGkn",
+        "brand_tile_dhptpq"
+      ],
+      "name": "Mega menu 1",
+      "settings": {
+        "parent": "Brands",
+        "mm_layout": "brands",
+        "mm_align": "center",
+        "mm_bg_color": "#0b0b0b",
+        "mm_bg_opacity": 85,
+        "mm_text_color": "#ffffff"
+      }
     }
   },
   "order": [
     "announcement-bar",
     "header",
     "mega_menu_1_ihdkiL",
-    "mega_menu_2_TJKFn4"
+    "mega_menu_2_TJKFn4",
+    "mega_menu_1_3iAP83"
   ]
 }
