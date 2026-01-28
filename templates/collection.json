@@ -24,14 +24,15 @@
         "template--16355052454049__0f7b029a-fe5e-4827-8f2c-450067a56576-featured_collection-6": {
           "type": "featured_collection",
           "settings": {
-            "collection": "",
+            "collection": "addictive-desert-designs",
+            "image": "shopify://shop_images/ICONS_FOR_WEBSITE_ADD.png",
             "title": ""
           }
         },
         "featured_collection_9YmMzV": {
           "type": "featured_collection",
           "settings": {
-            "collection": "",
+            "collection": "bds-suspension-australian-distributor",
             "title": ""
           }
         },
