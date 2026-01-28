@@ -184,7 +184,7 @@
       "name": "Mega menu 1",
       "settings": {
         "parent": "American Trucks",
-        "mm_layout": "brands",
+        "mm_layout": "columns",
         "mm_align": "center",
         "mm_bg_color": "#0b0b0b",
         "mm_bg_opacity": 96,
