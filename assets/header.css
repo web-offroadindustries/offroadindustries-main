@@ -481,3 +481,105 @@ body:not(.header-pinned) .header-scrolled .header {
   }
 }
 
+/* ===== Brand Tiles Mega Menu ===== */
+.mega-menu-container {
+  color: var(--mm-text-color);
+  background-image: var(--mm-bg-image, none);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.mega-menu-container::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(var(--mm-bg-r), var(--mm-bg-g), var(--mm-bg-b), var(--mm-bg-opacity));
+  z-index: 0;
+}
+
+.mega-menu-container .dropdown.mega-menu,
+.mega-menu-container .dropdown_content {
+  position: relative;
+  z-index: 1;
+}
+
+/* Only for brands layout */
+.mega-menu-container--brands .dropdown_content {
+  width: 100%;
+}
+
+.mega-menu__brands {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 28px;
+  padding: 30px 0 40px;
+}
+
+.mega-menu__brands--left { justify-content: flex-start; }
+.mega-menu__brands--center { justify-content: center; }
+.mega-menu__brands--right { justify-content: flex-end; }
+
+.mega-menu__brand {
+  width: 180px;
+  background: rgba(0, 0, 0, 0.55);
+  border-radius: 14px;
+  padding: 18px 16px;
+  text-decoration: none;
+  color: var(--mm-text-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 10px 26px rgba(0,0,0,0.35);
+  transition: transform 160ms ease, background 160ms ease;
+}
+
+.mega-menu__brand:hover {
+  transform: translateY(-2px);
+  background: rgba(0, 0, 0, 0.65);
+}
+
+.mega-menu__brand-logo {
+  width: 150px;
+  height: 95px;
+  background: #ffffff;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px;
+}
+
+.mega-menu__brand-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.mega-menu__brand-name {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  text-align: center;
+}
+
+/* Mobile: swipe horizontally instead of stacking */
+@media (max-width: 768px) {
+  .mega-menu__brands {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 14px;
+    gap: 18px;
+  }
+  .mega-menu__brand {
+    flex: 0 0 170px;
+  }
+  .mega-menu__brands::-webkit-scrollbar { display: none; }
+  .mega-menu__brands { scrollbar-width: none; }
+}
