@@ -61,7 +61,8 @@
         "7ea9e8bd-d38d-462d-9994-4f8d40095a57"
       ],
       "custom_css": [
-        ".collection-list {--swiper-column-width: 37vw;}"
+        ".collection-list {--swiper-column-width: 37vw;}",
+        ".collection-card__image-wrapper {border: 1px solid #000;}"
       ],
       "settings": {
         "container": "container",
