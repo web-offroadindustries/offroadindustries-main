@@ -7,13 +7,36 @@
   "class": "shopify-section--mega-menu",
   "enabled_on": { "groups": ["header"] },
   "presets": [{ "name": "Mega menu 1" }],
-  "max_blocks": 5,
+  "max_blocks": 50,
   "settings": [
-    { "type": "text", "id": "parent", "label": "Link title", "info": "The mega menu will appear below this parent link" },
     {
-      "type": "header",
-      "content": "Mega menu background"
+      "type": "text",
+      "id": "parent",
+      "label": "Link title",
+      "info": "The mega menu will appear below this parent link (must match exactly)."
     },
+    {
+      "type": "select",
+      "id": "mm_layout",
+      "label": "Mega menu layout",
+      "default": "brands",
+      "options": [
+        { "value": "brands", "label": "Brand tiles (logo + name + link)" },
+        { "value": "columns", "label": "Columns (menus + content)" }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "mm_align",
+      "label": "Content alignment",
+      "default": "center",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "right", "label": "Right" }
+      ]
+    },
+    { "type": "header", "content": "Mega menu background" },
     {
       "type": "color",
       "id": "mm_bg_color",
@@ -42,6 +65,15 @@
     }
   ],
   "blocks": [
+    {
+      "type": "brand_tile",
+      "name": "Brand tile",
+      "settings": [
+        { "type": "image_picker", "id": "logo", "label": "Brand logo" },
+        { "type": "text", "id": "label", "label": "Brand name" },
+        { "type": "url", "id": "link", "label": "Brand URL" }
+      ]
+    },
     {
       "type": "column",
       "name": "Column",
