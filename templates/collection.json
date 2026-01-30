@@ -240,7 +240,7 @@
       "settings": {
         "container": "container",
         "color_schema": "",
-        "image": "shopify://shop_images/bushwacker-extend-a-fender-flares-ram-2500-3500-2014-2018bushwacker50918-02-9465374.png",
+        "image": "shopify://shop_images/Ranger-PX2-Remote-Starter-1.png",
         "image_width": "50%",
         "image_position": "right",
         "vertical_alignment": "center",
@@ -289,9 +289,58 @@
       "settings": {
         "container": "container",
         "color_schema": "",
-        "image": "shopify://shop_images/bushwacker-extend-a-fender-flares-ram-2500-3500-2014-2018bushwacker50918-02-9465374.png",
+        "image": "shopify://shop_images/Ranger-PX2-Remote-Starter-1.png",
         "image_width": "50%",
         "image_position": "left",
+        "vertical_alignment": "center",
+        "column_gap": "medium",
+        "row_gap": "medium",
+        "padding_left": 0,
+        "padding_right": 0,
+        "align_content_container": "none",
+        "mobile_padding_left": 15,
+        "mobile_padding_right": 15,
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "padding_top_mobile": 60,
+        "padding_bottom_mobile": 60,
+        "show_section_divider": false,
+        "divider_width": "container",
+        "custom_id": "",
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "image_with_text_fwypK6": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_b4fGTq": {
+          "type": "heading",
+          "settings": {
+            "heading": "Image with text",
+            "highlight_style": "none",
+            "enable_highlight_text_color": false,
+            "heading_size": "h2"
+          }
+        },
+        "text_xw7weL": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_b4fGTq",
+        "text_xw7weL"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "container": "container",
+        "color_schema": "",
+        "image": "shopify://shop_images/ori-gen-2-roller-shutter-chev-silverado-2500hd-gmc-denali-2500hd-2020oriori-2500hd-roll-3220349.jpg",
+        "image_width": "50%",
+        "image_position": "right",
         "vertical_alignment": "center",
         "column_gap": "medium",
         "row_gap": "medium",
@@ -319,6 +368,7 @@
     "product-grid",
     "image_with_text_f3GGDf",
     "image_with_text_Vdhrfg",
-    "image_with_text_gtyjKM"
+    "image_with_text_gtyjKM",
+    "image_with_text_fwypK6"
   ]
 }
