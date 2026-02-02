@@ -188,7 +188,7 @@
         "enable_slider": true,
         "show_nav": true,
         "show_dots": false,
-        "pcard_image_ratio": "",
+        "pcard_image_ratio": "1/1",
         "show_vendor": false,
         "button_label": "",
         "button_style": "btn--primary",
@@ -250,7 +250,7 @@
         "text_9Mzcdj"
       ],
       "settings": {
-        "container": "container",
+        "container": "container-full",
         "color_schema": "inverse",
         "padding_top": 60,
         "padding_bottom": 60,
@@ -1288,7 +1288,7 @@
         "template--16355052454049__b9a09ce1-0384-4aac-8a69-af32bf73a5e8-tab-1"
       ],
       "settings": {
-        "container": "container",
+        "container": "container-full",
         "color_schema": "",
         "tab_heading_size": "h4",
         "desktop_navigation_alignment": "center",
@@ -1296,7 +1296,7 @@
         "desktop_image_width": 50,
         "image_aspect_ratio": "adapt",
         "padding_top": 0,
-        "padding_bottom": 100,
+        "padding_bottom": 0,
         "show_section_divider": false,
         "divider_width": "container",
         "custom_id": "",
