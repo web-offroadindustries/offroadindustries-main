@@ -258,6 +258,7 @@
         "testimonial_wCBziQ",
         "testimonial_3fiTKr"
       ],
+      "disabled": true,
       "settings": {
         "container": "container",
         "color_schema": "scheme-7",
@@ -554,6 +555,7 @@
         "announcement_rVDhn4",
         "divider_VyRtkM"
       ],
+      "disabled": true,
       "settings": {
         "container": "container-full",
         "color_schema": "",
@@ -624,6 +626,7 @@
         "text_CDfQbC",
         "button_NpYePP"
       ],
+      "disabled": true,
       "settings": {
         "container": "container-full",
         "image_overlay_opacity": 20,
@@ -640,6 +643,35 @@
         "custom_class": "",
         "animations": "inherit",
         "enable_bg_zoom_effect": true
+      }
+    },
+    "product_recently_viewed_HJFP7d": {
+      "type": "product-recently-viewed",
+      "name": "t:sections.product-recently-viewed.name",
+      "settings": {
+        "section_header_padding_bottom": "medium",
+        "section_header_content_spacing": "medium",
+        "heading": "Recently viewed products",
+        "highlight_style": "none",
+        "enable_highlight_text_color": false,
+        "heading_size": "h2",
+        "heading_color": "",
+        "description": "",
+        "container": "container",
+        "color_schema": "",
+        "columns": 4,
+        "column_gap": "medium",
+        "row_gap": "medium",
+        "enable_slider": true,
+        "show_nav": true,
+        "show_dots": false,
+        "enable_swipe_mobile": true,
+        "column_mobile": "1",
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "show_section_divider": false,
+        "divider_width": "container",
+        "animations": "inherit"
       }
     },
     "product-recommendations": {
@@ -680,6 +712,7 @@
     "custom-content_UCYVAU",
     "scrolling_promotion_iqVp4T",
     "hero_8BNkhD",
+    "product_recently_viewed_HJFP7d",
     "product-recommendations"
   ]
 }
