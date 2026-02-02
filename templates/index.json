@@ -1137,6 +1137,7 @@
         "press_r9PBjY",
         "press_G7RyTq"
       ],
+      "disabled": true,
       "settings": {
         "container": "container-narrow",
         "color_schema": "",
@@ -1253,7 +1254,7 @@
         "column_mobile": "1",
         "padding_top": 80,
         "padding_bottom": 80,
-        "show_section_divider": true,
+        "show_section_divider": false,
         "divider_width": "container",
         "custom_id": "",
         "custom_class": "",
