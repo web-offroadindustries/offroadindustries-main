@@ -112,7 +112,7 @@
           "type": "collapsible_tab",
           "settings": {
             "icon": "none",
-            "heading": "",
+            "heading": "CORE FEATURES",
             "content": "",
             "liquid": "{{product.description}}",
             "page": "",
@@ -170,11 +170,11 @@
       ],
       "settings": {
         "container": "container",
-        "show_breadcrumb": false,
+        "show_breadcrumb": true,
         "enable_sticky_info": true,
-        "media_layout": "carousel",
+        "media_layout": "grid-mix",
         "media_size": "medium",
-        "mobile_thumbnails": "show",
+        "mobile_thumbnails": "hide",
         "enable_image_zoom": true,
         "enable_video_looping": false,
         "show_featured_media": false
