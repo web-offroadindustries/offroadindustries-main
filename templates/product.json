@@ -112,7 +112,7 @@
           "type": "collapsible_tab",
           "settings": {
             "icon": "none",
-            "heading": "CORE FEATURES",
+            "heading": "",
             "content": "",
             "liquid": "{{product.description}}",
             "page": "",
