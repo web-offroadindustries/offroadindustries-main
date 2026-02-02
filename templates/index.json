@@ -726,6 +726,7 @@
         "image_with_text_DKJpNL",
         "image_card_FyJ7iw"
       ],
+      "disabled": true,
       "custom_css": [
         "@media (min-width: 768px) {.section__header--text {max-width: 57rem; margin-inline: auto; }}"
       ],
@@ -952,7 +953,7 @@
         "image_overlay_opacity": 20,
         "hero_height": "adapt",
         "content_in_container": false,
-        "content_position": "center",
+        "content_position": "center-bottom",
         "text_alignment": "center",
         "text_color": "#ffffff",
         "hero_height_mobile": "adapt",
