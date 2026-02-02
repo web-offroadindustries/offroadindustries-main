@@ -172,9 +172,9 @@
         "container": "container",
         "show_breadcrumb": true,
         "enable_sticky_info": true,
-        "media_layout": "grid-mix",
+        "media_layout": "carousel",
         "media_size": "medium",
-        "mobile_thumbnails": "hide",
+        "mobile_thumbnails": "show",
         "enable_image_zoom": true,
         "enable_video_looping": false,
         "show_featured_media": false
