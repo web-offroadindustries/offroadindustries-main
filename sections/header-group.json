@@ -370,6 +370,30 @@
             "label": "Rough Country",
             "link": ""
           }
+        },
+        "brand_tile_PUxx3E": {
+          "type": "brand_tile",
+          "settings": {
+            "logo": "shopify://shop_images/avs-aeroskin-bonnet-protector-ford-f250f350avs377135-260341.png",
+            "label": "AVS",
+            "link": ""
+          }
+        },
+        "brand_tile_kPNDNG": {
+          "type": "brand_tile",
+          "settings": {
+            "logo": "shopify://shop_images/huskyliners-logo-fullcolor-24206_4x_68ee4016-c4a6-4e86-b15e-f8f048d6e1d0.png",
+            "label": "Husky Liners",
+            "link": ""
+          }
+        },
+        "brand_tile_ETKzBB": {
+          "type": "brand_tile",
+          "settings": {
+            "logo": "shopify://shop_images/2-23516_baja-designs-logo-pull-baja-designs-logo-vector.png",
+            "label": "Baja Designs",
+            "link": ""
+          }
         }
       },
       "block_order": [
@@ -379,7 +403,10 @@
         "brand_tile_dhptpq",
         "brand_tile_fRD7rd",
         "brand_tile_6E7i3J",
-        "brand_tile_aUAQM7"
+        "brand_tile_aUAQM7",
+        "brand_tile_PUxx3E",
+        "brand_tile_kPNDNG",
+        "brand_tile_ETKzBB"
       ],
       "name": "Mega menu 1",
       "settings": {
