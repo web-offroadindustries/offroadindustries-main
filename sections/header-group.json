@@ -43,10 +43,10 @@
       "type": "header",
       "settings": {
         "color_schema": "accent",
-        "layout": "design-1",
+        "layout": "design-4",
         "container": "container-fluid",
         "sticky_header": true,
-        "sticky_type": "on-scroll-up",
+        "sticky_type": "always",
         "transparent_header": false,
         "logo": "shopify://shop_images/ORI_Teal_SMALL_4f1a73a1-2c8a-4cbf-95a1-a4165c060141.png",
         "logo_width": 90,
