@@ -69,10 +69,307 @@
         "padding_top": 13,
         "padding_bottom": 13
       }
+    },
+    "mega_menu_1_ihdkiL": {
+      "type": "mega-menu-1",
+      "blocks": {
+        "column_HWRJFD": {
+          "type": "column",
+          "settings": {
+            "richtext_top": "<p>Chevrolet</p>",
+            "image_top": "shopify://shop_images/2024-Chevy-Silverado-2500-Phantom-Winch-Front-Bumper-3.png",
+            "image_caption_top": "",
+            "image_link_top": "shopify://collections/chevrolet-silverado-1500",
+            "menu_1": "chevrolet",
+            "menu_1_link": "",
+            "menu_2": "chevrolet-silverado-2500-3500hd",
+            "menu_2_link": "",
+            "menu_3": "",
+            "menu_3_link": "",
+            "menu_4": "",
+            "menu_4_link": "",
+            "image_caption_bottom": "",
+            "image_link_bottom": "",
+            "richtext_bottom": ""
+          }
+        },
+        "column_iALanF": {
+          "type": "column",
+          "settings": {
+            "richtext_top": "<p>Ford</p>",
+            "image_top": "shopify://shop_images/2023-Ford-F-250-350-Phantom-Winch-Front-Bumper-Studio-3_1800x1800_1.png",
+            "image_caption_top": "",
+            "image_link_top": "",
+            "menu_1": "ford-f150",
+            "menu_1_link": "",
+            "menu_2": "ford-f250-f350-f450",
+            "menu_2_link": "",
+            "menu_3": "",
+            "menu_3_link": "",
+            "menu_4": "",
+            "menu_4_link": "",
+            "image_caption_bottom": "",
+            "image_link_bottom": "",
+            "richtext_bottom": ""
+          }
+        },
+        "column_4BaYXJ": {
+          "type": "column",
+          "settings": {
+            "richtext_top": "<p>Ram</p>",
+            "image_top": "shopify://shop_images/dodge-ram-rebel-1500-trx_1800x1800_0ce02a9b-9e79-46b0-8c66-5f58ee143be9.png",
+            "image_caption_top": "",
+            "image_link_top": "",
+            "menu_1": "ram-1500",
+            "menu_1_link": "",
+            "menu_2": "ram-2500-3500",
+            "menu_2_link": "",
+            "menu_3": "",
+            "menu_3_link": "",
+            "menu_4": "",
+            "menu_4_link": "",
+            "image_caption_bottom": "",
+            "image_link_bottom": "",
+            "richtext_bottom": ""
+          }
+        },
+        "column_hThWhU": {
+          "type": "column",
+          "settings": {
+            "richtext_top": "<p>GMC</p>",
+            "image_top": "shopify://shop_images/gmc-hd-phantom-winch-front-bumper-studio-8.png",
+            "image_caption_top": "",
+            "image_link_top": "",
+            "menu_1": "gmc",
+            "menu_1_link": "",
+            "menu_2": "",
+            "menu_2_link": "",
+            "menu_3": "",
+            "menu_3_link": "",
+            "menu_4": "",
+            "menu_4_link": "",
+            "image_caption_bottom": "",
+            "image_link_bottom": "",
+            "richtext_bottom": ""
+          }
+        },
+        "column_YYJffD": {
+          "type": "column",
+          "settings": {
+            "richtext_top": "<p>Toyota</p>",
+            "image_top": "shopify://shop_images/4th-gen-toyota-tundra-winch-front-bumper-stealth-fighter_1800x1800_49541ff7-4fd2-432b-89e5-dbe39398aa87.png",
+            "image_caption_top": "",
+            "image_link_top": "",
+            "menu_1": "toyota-tundra",
+            "menu_1_link": "",
+            "menu_2": "",
+            "menu_2_link": "",
+            "menu_3": "",
+            "menu_3_link": "",
+            "menu_4": "",
+            "menu_4_link": "",
+            "image_caption_bottom": "",
+            "image_link_bottom": "",
+            "richtext_bottom": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_HWRJFD",
+        "column_iALanF",
+        "column_4BaYXJ",
+        "column_hThWhU",
+        "column_YYJffD"
+      ],
+      "name": "Mega menu 1",
+      "settings": {
+        "parent": "American Trucks",
+        "mm_layout": "columns",
+        "mm_align": "center",
+        "mm_bg_color": "#0b0b0b",
+        "mm_bg_opacity": 96,
+        "mm_text_color": "#ffffff"
+      }
+    },
+    "mega_menu_1_9eGFTp": {
+      "type": "mega-menu-1",
+      "blocks": {
+        "column_k8rcRg": {
+          "type": "column",
+          "settings": {
+            "richtext_top": "<p>Shop Toyota Vehicles in Australia</p>",
+            "image_top": "shopify://shop_images/LC250-web-banner-white.png",
+            "image_caption_top": "",
+            "image_link_top": "",
+            "menu_1": "toyota",
+            "menu_1_link": "",
+            "menu_2": "",
+            "menu_2_link": "shopify://collections/toyota-landcruiser-250-series",
+            "menu_3": "",
+            "menu_3_link": "shopify://collections/toyota-landcruiser-79-series",
+            "menu_4": "",
+            "menu_4_link": "shopify://collections/toyota-hilux",
+            "image_caption_bottom": "",
+            "image_link_bottom": "",
+            "richtext_bottom": ""
+          }
+        },
+        "column_G4cWtM": {
+          "type": "column",
+          "settings": {
+            "richtext_top": "<p>Ford Australia Vehicles</p>",
+            "image_top": "shopify://shop_images/Ford-Ranger-Raptor-Phantom-Front-Bumper-Installed-1_1800x1800_22b9fbbe-eb88-42f1-9908-e35a70db276b.png",
+            "image_caption_top": "",
+            "image_link_top": "",
+            "menu_1": "ford-australia-vehicles",
+            "menu_1_link": "",
+            "menu_2": "",
+            "menu_2_link": "",
+            "menu_3": "",
+            "menu_3_link": "",
+            "menu_4": "",
+            "menu_4_link": "",
+            "image_caption_bottom": "",
+            "image_link_bottom": "",
+            "richtext_bottom": ""
+          }
+        },
+        "column_mhC97N": {
+          "type": "column",
+          "settings": {
+            "richtext_top": "<p>Ineos Grenadier</p>",
+            "image_top": "shopify://shop_images/inneos-banner.png",
+            "image_caption_top": "",
+            "image_link_top": "",
+            "menu_1": "inneos-grenadier",
+            "menu_1_link": "",
+            "menu_2": "",
+            "menu_2_link": "",
+            "menu_3": "",
+            "menu_3_link": "",
+            "menu_4": "",
+            "menu_4_link": "",
+            "image_caption_bottom": "",
+            "image_link_bottom": "",
+            "richtext_bottom": ""
+          }
+        },
+        "column_Rtki3R": {
+          "type": "column",
+          "settings": {
+            "richtext_top": "<p>Lexus</p>",
+            "image_top": "shopify://shop_images/LEXUS_550_-_Banner.png",
+            "image_caption_top": "",
+            "image_link_top": "",
+            "menu_1": "lexus",
+            "menu_1_link": "",
+            "menu_2": "",
+            "menu_2_link": "",
+            "menu_3": "",
+            "menu_3_link": "",
+            "menu_4": "",
+            "menu_4_link": "",
+            "image_caption_bottom": "",
+            "image_link_bottom": "",
+            "richtext_bottom": ""
+          }
+        },
+        "column_YU6rrD": {
+          "type": "column",
+          "settings": {
+            "richtext_top": "<p>Jeep</p>",
+            "image_top": "shopify://shop_images/FOX_Jeep_banner.png",
+            "image_caption_top": "",
+            "image_link_top": "",
+            "menu_1": "",
+            "menu_1_link": "",
+            "menu_2": "",
+            "menu_2_link": "",
+            "menu_3": "",
+            "menu_3_link": "",
+            "menu_4": "",
+            "menu_4_link": "",
+            "image_caption_bottom": "",
+            "image_link_bottom": "",
+            "richtext_bottom": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_k8rcRg",
+        "column_G4cWtM",
+        "column_mhC97N",
+        "column_Rtki3R",
+        "column_YU6rrD"
+      ],
+      "name": "Mega menu 1",
+      "settings": {
+        "parent": "Shop by Vehicle :",
+        "mm_layout": "columns",
+        "mm_align": "center",
+        "mm_bg_color": "#0b0b0b",
+        "mm_bg_opacity": 85,
+        "mm_text_color": "#ffffff"
+      }
+    },
+    "mega_menu_1_3iAP83": {
+      "type": "mega-menu-1",
+      "blocks": {
+        "brand_tile_AAfQaG": {
+          "type": "brand_tile",
+          "settings": {
+            "logo": "shopify://shop_images/ICONS_FOR_WEBSITE_ADD.png",
+            "label": "ADDS Offroad",
+            "link": ""
+          }
+        },
+        "brand_tile_J8Aq38": {
+          "type": "brand_tile",
+          "settings": {
+            "logo": "shopify://shop_images/ICONS_FOR_WEBSITE_BDS.png",
+            "label": "BDS",
+            "link": ""
+          }
+        },
+        "brand_tile_RxmGkn": {
+          "type": "brand_tile",
+          "settings": {
+            "logo": "shopify://shop_images/ICONS_FOR_WEBSITE_FOX.png",
+            "label": "FOX",
+            "link": ""
+          }
+        },
+        "brand_tile_dhptpq": {
+          "type": "brand_tile",
+          "settings": {
+            "logo": "shopify://shop_images/ICONS_FOR_WEBSITE_BUSHWACKER.png",
+            "label": "Bushwacker",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "brand_tile_AAfQaG",
+        "brand_tile_J8Aq38",
+        "brand_tile_RxmGkn",
+        "brand_tile_dhptpq"
+      ],
+      "name": "Mega menu 1",
+      "settings": {
+        "parent": "Brands",
+        "mm_layout": "brands",
+        "mm_align": "center",
+        "mm_bg_color": "#0b0b0b",
+        "mm_bg_opacity": 85,
+        "mm_text_color": "#ffffff"
+      }
     }
   },
   "order": [
     "announcement-bar",
-    "header"
+    "header",
+    "mega_menu_1_ihdkiL",
+    "mega_menu_1_9eGFTp",
+    "mega_menu_1_3iAP83"
   ]
 }

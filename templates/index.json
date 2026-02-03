@@ -12,10 +12,58 @@
     "1653903038c126b831": {
       "type": "slideshow",
       "blocks": {
-        "41d2f781-470b-477f-896a-873df5080966": {
+        "slide_39hWWW": {
+          "type": "slide",
+          "settings": {
+            "background": "shopify://shop_images/Desktop_Slider_Banner_1920x1080px.png",
+            "image_overlay_opacity": 0,
+            "content_position": "center",
+            "text_alignment": "center",
+            "text_color": "#000000",
+            "title": "",
+            "heading_size": "h2",
+            "heading_color": "",
+            "subheading": "",
+            "description": "",
+            "desc_size": "text-desc-base",
+            "button_text_1": "",
+            "button_link_1": "",
+            "button_style_1": "btn--primary",
+            "button_size_1": "",
+            "button_text_2": "",
+            "button_link_2": "",
+            "button_style_2": "btn--primary",
+            "button_size_2": ""
+          }
+        },
+        "slide_TmbWTM": {
           "type": "slide",
           "settings": {
             "background": "shopify://shop_images/Desktop_Slider_Banner_2_1920x1080px.png",
+            "image_overlay_opacity": 0,
+            "content_position": "center",
+            "text_alignment": "center",
+            "text_color": "#000000",
+            "title": "",
+            "heading_size": "h2",
+            "heading_color": "",
+            "subheading": "",
+            "description": "",
+            "desc_size": "text-desc-base",
+            "button_text_1": "",
+            "button_link_1": "",
+            "button_style_1": "btn--primary",
+            "button_size_1": "",
+            "button_text_2": "",
+            "button_link_2": "",
+            "button_style_2": "btn--primary",
+            "button_size_2": ""
+          }
+        },
+        "41d2f781-470b-477f-896a-873df5080966": {
+          "type": "slide",
+          "settings": {
+            "background": "shopify://shop_images/addoffroad-2024-chevy-silverado-25003500-phantom-winch-front-baraddictive-desert-designsf820335070103-9687516.png",
             "image_overlay_opacity": 0,
             "content_position": "center-bottom",
             "text_alignment": "center",
@@ -39,7 +87,7 @@
         "slide_MDYDqF": {
           "type": "slide",
           "settings": {
-            "background": "shopify://shop_images/Desktop_Slider_Banner_1920x1080px.png",
+            "background": "shopify://shop_images/bds-6-inch-lift-kit-fox-25-performance-elite-coil-over-ford-f150-21-25bdsbds1585fpe-445081.jpg",
             "image_overlay_opacity": 0,
             "content_position": "center-bottom",
             "text_alignment": "center",
@@ -59,35 +107,13 @@
             "button_style_2": "btn--primary",
             "button_size_2": ""
           }
-        },
-        "slide_AnnriB": {
-          "type": "slide",
-          "settings": {
-            "image_overlay_opacity": 0,
-            "content_position": "center-bottom",
-            "text_alignment": "center",
-            "text_color": "#ffffff",
-            "title": "Built to explore, <em>ready to go</em>",
-            "heading_size": "h-xl",
-            "heading_color": "#e1ea7a",
-            "subheading": "New Arrivals",
-            "description": "",
-            "desc_size": "text-desc-base",
-            "button_text_1": "Shop now",
-            "button_link_1": "",
-            "button_style_1": "btn--white",
-            "button_size_1": "",
-            "button_text_2": "",
-            "button_link_2": "",
-            "button_style_2": "btn--primary",
-            "button_size_2": ""
-          }
         }
       },
       "block_order": [
+        "slide_39hWWW",
+        "slide_TmbWTM",
         "41d2f781-470b-477f-896a-873df5080966",
-        "slide_MDYDqF",
-        "slide_AnnriB"
+        "slide_MDYDqF"
       ],
       "custom_css": [
         "@media (min-width: 768px) {.f-slideshow__content {max-width: 42rem; }}"
@@ -95,49 +121,19 @@
       "settings": {
         "container": "container-full",
         "slideshow_height": "adapt",
-        "show_dots": true,
-        "show_nav": true,
-        "autoplay": false,
+        "show_dots": false,
+        "show_nav": false,
+        "autoplay": true,
         "autorotate_speed": 5,
         "pagination_background": "none",
         "controls_position": "center",
         "pagination_style": "dots",
-        "show_text_below": false,
+        "show_text_below": true,
         "text_alignment_mobile": "center",
         "accessibility_info": "Slideshow about our brand",
         "custom_id": "",
         "custom_class": "",
-        "enable_bg_zoom_effect": true
-      }
-    },
-    "17700261477f01dc32": {
-      "type": "apps",
-      "blocks": {
-        "easysearch_ymm_easysearch_widget_UBeLVG": {
-          "type": "shopify://apps/easysearch-ymm/blocks/easysearch-widget/6d82686b-b68a-4b5e-98e3-e07b2b53d810",
-          "settings": {
-            "show_at": "section",
-            "placement_selector": "",
-            "insert_method": "prepend",
-            "padding_top": 0,
-            "padding_bottom": 0
-          }
-        }
-      },
-      "block_order": [
-        "easysearch_ymm_easysearch_widget_UBeLVG"
-      ],
-      "settings": {
-        "container": "container",
-        "color_schema": "",
-        "heading": "",
-        "highlight_style": "none",
-        "enable_highlight_text_color": false,
-        "heading_size": "h2",
-        "heading_color": "",
-        "description": "",
-        "padding_top": 40,
-        "padding_bottom": 40
+        "enable_bg_zoom_effect": false
       }
     },
     "16539046323b76eb29": {
@@ -146,22 +142,22 @@
         "16539046325056e830-0": {
           "type": "tab",
           "settings": {
-            "title": "",
-            "collection": "amp-research-power-steps-bed-steps-bed-guard-australia"
+            "title": "AVS Weather Shield",
+            "collection": "avs-weather-shields"
           }
         },
         "16539046325056e830-1": {
           "type": "tab",
           "settings": {
-            "title": "",
-            "collection": ""
+            "title": "AMP Research",
+            "collection": "amp-research-by-real-truck"
           }
         },
         "057c3cd6-53c8-4e07-b3d6-bd5d4fdb542d": {
           "type": "tab",
           "settings": {
-            "title": "",
-            "collection": ""
+            "title": "BAJA Suspensions",
+            "collection": "baja-suspension-kits"
           }
         }
       },
@@ -194,8 +190,8 @@
         "button_style": "btn--primary",
         "enable_swipe_mobile": true,
         "column_mobile": "1",
-        "padding_top": 0,
-        "padding_bottom": 40,
+        "padding_top": 100,
+        "padding_bottom": 100,
         "show_section_divider": false,
         "divider_width": "container",
         "custom_id": "",
@@ -250,7 +246,7 @@
         "text_9Mzcdj"
       ],
       "settings": {
-        "container": "container-full",
+        "container": "container",
         "color_schema": "inverse",
         "padding_top": 60,
         "padding_bottom": 60,
@@ -280,7 +276,8 @@
         "collection_gmGTjc": {
           "type": "collection",
           "settings": {
-            "collection": "",
+            "collection": "avs-bonnet-protectors",
+            "image": "shopify://shop_images/avs-aeroskin-bonnet-protector-ford-f250f350avs377135-260341.png",
             "heading": "Bonnet Protectors",
             "heading_size": "h-xl",
             "subheading": "Durable Paddle Carry Bag",
@@ -293,7 +290,8 @@
         "collection_EYPHHA": {
           "type": "collection",
           "settings": {
-            "collection": "",
+            "collection": "fox-suspension",
+            "image": "shopify://shop_images/bds-65-inch-lift-kit-fox-performance-elite-chevy-silverado-or-gmc-sierra-2500hd3500hd-20-24bdsbds1823fpe-175440.jpg",
             "heading": "Suspension Packages",
             "heading_size": "h-xl",
             "subheading": "Comfortable Carry Backpack Design",
@@ -306,7 +304,7 @@
         "collection_NxRnMT": {
           "type": "collection",
           "settings": {
-            "collection": "",
+            "collection": "ori-electric-roller-shutter",
             "heading": "Electric Steps",
             "heading_size": "h-xl",
             "subheading": "Convenient Everyday Bag",
@@ -468,6 +466,7 @@
           "settings": {
             "layout": "layout1",
             "text_color": "#ffffff",
+            "image": "shopify://shop_images/ori-new-ford-ranger-raptor-electric-steps-2022-2024ori201-288876.jpg",
             "image_ratio": "adapt",
             "image_overlay_opacity": 20,
             "sub_heading": "New Arrivals",
@@ -492,6 +491,7 @@
           "settings": {
             "layout": "layout1",
             "text_color": "#ffffff",
+            "image": "shopify://shop_images/WEB_3.png",
             "image_ratio": "adapt",
             "image_overlay_opacity": 20,
             "sub_heading": "New arrivals",
@@ -516,6 +516,7 @@
         "a78e8e17-7fe7-4d2d-a45d-a306e46a61ed",
         "e78b72ab-bab7-47d9-86ba-57eb15d55d2f"
       ],
+      "disabled": true,
       "custom_css": [],
       "settings": {
         "container": "container",
@@ -549,7 +550,8 @@
       "settings": {
         "container": "container",
         "color_schema": "scheme-7",
-        "collection": "",
+        "collection": "bds-suspension-australian-distributor",
+        "image": "shopify://shop_images/bds-65-inch-lift-kit-fox-performance-elite-chevy-silverado-or-gmc-sierra-2500hd3500hd-20-24bdsbds1823fpe-175440.jpg",
         "enable_sticky_column": true,
         "section_header_padding_bottom": "large",
         "heading": "Designed to make <em>you feel good.</em>",
@@ -584,8 +586,8 @@
         "template--16355052454049__8d9edff7-a12e-496b-b515-7b16d0a18ca0-collection-1": {
           "type": "collection",
           "settings": {
-            "collection": "",
-            "heading": "Proof Backpacks",
+            "collection": "bushwacker",
+            "heading": "Buhwacker",
             "heading_size": "h3",
             "text": "<p>Backpacks are popular for school, work, travel, and outdoor activities due to their convenience and hands-free design.</p>"
           }
@@ -593,8 +595,9 @@
         "template--16355052454049__8d9edff7-a12e-496b-b515-7b16d0a18ca0-collection-2": {
           "type": "collection",
           "settings": {
-            "collection": "",
-            "heading": "Proof Kits",
+            "collection": "factor-55-australia",
+            "image": "shopify://shop_images/bds-225-inch-lift-kit-fox-30-internal-bypass-factory-race-series-toyota-tundra-22-24bdsbds838frs-432859.png",
+            "heading": "Factor 55",
             "heading_size": "h3",
             "text": "<p>Each kit includes all the materials, patterns, and instructions necessary to craft a unique and practical bag for any occasion.</p>"
           }
@@ -602,8 +605,9 @@
         "template--16355052454049__8d9edff7-a12e-496b-b515-7b16d0a18ca0-collection-3": {
           "type": "collection",
           "settings": {
-            "collection": "",
-            "heading": "Proof Bin Bag",
+            "collection": "fox-suspension",
+            "image": "shopify://shop_images/3_10.png",
+            "heading": "Fox Suspension",
             "heading_size": "h3",
             "text": "<p>Bag coolers are portable, insulated bags designed to keep food and drinks cold while on the go.</p>"
           }
@@ -685,9 +689,10 @@
         "image_with_text_DKJpNL": {
           "type": "image_with_text",
           "settings": {
+            "image": "shopify://shop_images/WEB_3.png",
             "image_ratio": "adapt",
             "sub_heading": "",
-            "heading": "Focus on Summer",
+            "heading": "Upper Control Arm Kit",
             "highlight_style": "none",
             "enable_highlight_text_color": false,
             "heading_size": "h3",
@@ -705,6 +710,7 @@
           "settings": {
             "layout": "layout5",
             "text_color": "#ffffff",
+            "image": "shopify://shop_images/addictive-desert-designs-ram-1500-trx-stealth-fighter-front-baraddictive-desert-designsf620153030103-292961.png",
             "image_ratio": "3/4",
             "image_overlay_opacity": 0,
             "sub_heading": "",
@@ -726,7 +732,6 @@
         "image_with_text_DKJpNL",
         "image_card_FyJ7iw"
       ],
-      "disabled": true,
       "custom_css": [
         "@media (min-width: 768px) {.section__header--text {max-width: 57rem; margin-inline: auto; }}"
       ],
@@ -757,6 +762,7 @@
         "image_CMHfbV": {
           "type": "image",
           "settings": {
+            "image": "shopify://shop_images/download_3.jpg",
             "image_height": 80,
             "image_link": "",
             "use_custom_spacing": true,
@@ -794,6 +800,7 @@
         "image_cqXJGB": {
           "type": "image",
           "settings": {
+            "image": "shopify://shop_images/ADD-OFFROAD-21-FORD-RAPTOR-Phantom-Rear-Bumper-Installation-Guide-1.png",
             "image_height": 80,
             "image_link": "",
             "use_custom_spacing": true,
@@ -806,7 +813,7 @@
         "announcement_kcKcYP": {
           "type": "announcement",
           "settings": {
-            "text": "Shop Fender Flares",
+            "text": "Active Desert Designs Offroad",
             "font_family": "heading",
             "text_size": 34,
             "text_link": "",
@@ -831,6 +838,7 @@
         "image_xj6yaA": {
           "type": "image",
           "settings": {
+            "image": "shopify://shop_images/huskyliners-logo-fullcolor-24206_4x_68ee4016-c4a6-4e86-b15e-f8f048d6e1d0.png",
             "image_height": 80,
             "image_link": "",
             "use_custom_spacing": true,
@@ -843,7 +851,7 @@
         "announcement_rVDhn4": {
           "type": "announcement",
           "settings": {
-            "text": "Shop Electric Steps",
+            "text": "Husky Liners",
             "font_family": "heading",
             "text_size": 34,
             "text_link": "",
@@ -953,7 +961,7 @@
         "image_overlay_opacity": 20,
         "hero_height": "adapt",
         "content_in_container": false,
-        "content_position": "center-bottom",
+        "content_position": "center",
         "text_alignment": "center",
         "text_color": "#ffffff",
         "hero_height_mobile": "adapt",
@@ -1228,6 +1236,7 @@
         "template--16355052454049__7f5e49cb-0847-4d85-9f7f-7e61d00abbe5-column-3",
         "template--16355052454049__7f5e49cb-0847-4d85-9f7f-7e61d00abbe5-column-4"
       ],
+      "disabled": true,
       "custom_css": [
         ".multicolumn-card__info .rte {margin-top: 0.8rem;}"
       ],
@@ -1254,7 +1263,7 @@
         "column_mobile": "1",
         "padding_top": 80,
         "padding_bottom": 80,
-        "show_section_divider": false,
+        "show_section_divider": true,
         "divider_width": "container",
         "custom_id": "",
         "custom_class": "",
@@ -1269,6 +1278,7 @@
           "settings": {
             "content_color_schema": "",
             "navigation_title": "Carbon Filter",
+            "image": "shopify://shop_images/banks-ram-air-cold-air-intake-w-massive-oileddry-filter-super-tube-air-mass-control-moduleoffroad-industries42266-794466.png",
             "heading": "Carbon <em>Filter</em>",
             "highlight_style": "none",
             "enable_highlight_text_color": false,
@@ -1288,14 +1298,14 @@
         "template--16355052454049__b9a09ce1-0384-4aac-8a69-af32bf73a5e8-tab-1"
       ],
       "settings": {
-        "container": "container-full",
+        "container": "container",
         "color_schema": "",
         "tab_heading_size": "h4",
         "desktop_navigation_alignment": "center",
         "desktop_image_position": "left",
         "desktop_image_width": 50,
         "image_aspect_ratio": "adapt",
-        "padding_top": 0,
+        "padding_top": 50,
         "padding_bottom": 0,
         "show_section_divider": false,
         "divider_width": "container",
@@ -1307,7 +1317,6 @@
   },
   "order": [
     "1653903038c126b831",
-    "17700261477f01dc32",
     "16539046323b76eb29",
     "promotion_banner_QiTDwF",
     "collections_showcase_cKz9hB",
