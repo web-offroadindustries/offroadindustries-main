@@ -25,16 +25,42 @@
             "show_on_tablet": true,
             "show_on_desktop": true
           }
+        },
+        "announcement_WajFFF": {
+          "type": "announcement",
+          "settings": {
+            "text": "<p>Checkout our New Arrivals</p>",
+            "link": "shopify://collections/all-products",
+            "homepage_only": false,
+            "hide_on_page": "",
+            "show_on_mobile": true,
+            "show_on_tablet": true,
+            "show_on_desktop": true
+          }
+        },
+        "announcement_LFh8gF": {
+          "type": "announcement",
+          "settings": {
+            "text": "<p>Sales 20% Off</p>",
+            "link": "",
+            "homepage_only": true,
+            "hide_on_page": "",
+            "show_on_mobile": true,
+            "show_on_tablet": true,
+            "show_on_desktop": true
+          }
         }
       },
       "block_order": [
-        "93951327-4430-4ac4-8eb4-785e1fda430e"
+        "93951327-4430-4ac4-8eb4-785e1fda430e",
+        "announcement_WajFFF",
+        "announcement_LFh8gF"
       ],
       "custom_css": [],
       "settings": {
-        "color_schema": "accent",
+        "color_schema": "inverse",
         "show_close_button": false,
-        "enable_carousel": false,
+        "enable_carousel": true,
         "autoplay": true,
         "autorotate_speed": 5
       }
