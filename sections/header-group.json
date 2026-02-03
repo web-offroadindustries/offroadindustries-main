@@ -346,13 +346,40 @@
             "label": "Bushwacker",
             "link": ""
           }
+        },
+        "brand_tile_fRD7rd": {
+          "type": "brand_tile",
+          "settings": {
+            "logo": "shopify://shop_images/ORI_Teal_SMALL_4f1a73a1-2c8a-4cbf-95a1-a4165c060141.png",
+            "label": "ORI",
+            "link": ""
+          }
+        },
+        "brand_tile_6E7i3J": {
+          "type": "brand_tile",
+          "settings": {
+            "logo": "shopify://shop_images/cognito-3-inch-elite-fox-elite-25-reservoir-shocks-for-19-23-silverado-1500cognito210-p1006-727384.jpg",
+            "label": "Cognito",
+            "link": ""
+          }
+        },
+        "brand_tile_aUAQM7": {
+          "type": "brand_tile",
+          "settings": {
+            "logo": "shopify://shop_images/roughy-country-3-suspension-kit-ds-ram-1500-2012-2023rough-country31240-905614.jpg",
+            "label": "Rough Country",
+            "link": ""
+          }
         }
       },
       "block_order": [
         "brand_tile_AAfQaG",
         "brand_tile_J8Aq38",
         "brand_tile_RxmGkn",
-        "brand_tile_dhptpq"
+        "brand_tile_dhptpq",
+        "brand_tile_fRD7rd",
+        "brand_tile_6E7i3J",
+        "brand_tile_aUAQM7"
       ],
       "name": "Mega menu 1",
       "settings": {
