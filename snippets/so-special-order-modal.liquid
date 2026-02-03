@@ -1,0 +1,54 @@
+{%- comment -%}
+  Special/Pre-Order Modal + Contact Form
+  Uses Shopify built-in contact form (form 'contact')
+{%- endcomment -%}
+
+<div id="so-modal" class="so-modal" aria-hidden="true">
+  <div class="so-modal__overlay" data-so-close></div>
+
+  <div class="so-modal__panel" role="dialog" aria-modal="true" aria-labelledby="so-modal-title">
+    <button type="button" class="so-modal__close" aria-label="Close" data-so-close>&times;</button>
+
+    <h2 id="so-modal-title" class="so-modal__title">Special Order</h2>
+    <p class="so-modal__subtitle">Fill out the form below and we’ll get back to you.</p>
+
+    {% form 'contact', id: 'so-contact-form', class: 'so-form' %}
+      {%- if form.posted_successfully? -%}
+        <p class="so-form__success">Thanks! Your request has been sent.</p>
+      {%- endif -%}
+
+      {%- if form.errors -%}
+        <div class="so-form__errors">
+          {{ form.errors | default_errors }}
+        </div>
+      {%- endif -%}
+
+      <input type="hidden" name="contact[order_type]" id="so_order_type" value="">
+      <input type="hidden" name="contact[product]" id="so_product" value="">
+      <input type="hidden" name="contact[variant]" id="so_variant" value="">
+      <input type="hidden" name="contact[product_url]" id="so_product_url" value="">
+
+      <div class="so-form__row">
+        <label class="so-form__label" for="so_name">Name</label>
+        <input class="so-form__input" id="so_name" type="text" name="contact[name]" autocomplete="name" required>
+      </div>
+
+      <div class="so-form__row">
+        <label class="so-form__label" for="so_email">Email</label>
+        <input class="so-form__input" id="so_email" type="email" name="contact[email]" autocomplete="email" required>
+      </div>
+
+      <div class="so-form__row">
+        <label class="so-form__label" for="so_phone">Phone (optional)</label>
+        <input class="so-form__input" id="so_phone" type="tel" name="contact[phone]" autocomplete="tel">
+      </div>
+
+      <div class="so-form__row">
+        <label class="so-form__label" for="so_message">Message</label>
+        <textarea class="so-form__textarea" id="so_message" name="contact[body]" rows="5" required></textarea>
+      </div>
+
+      <button class="so-form__submit" type="submit">Send request</button>
+    {% endform %}
+  </div>
+</div>

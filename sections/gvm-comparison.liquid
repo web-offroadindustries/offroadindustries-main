@@ -1,0 +1,369 @@
+{% comment %}
+  Section: GVM Comparison / Specification (Desktop table + Mobile swipe cards)
+  - Desktop: bottom borders only (no outer border)
+  - Mobile: horizontally swipeable cards (one per column)
+{% endcomment %}
+
+{%- liquid
+  assign cols = section.settings.columns | plus: 0
+  if cols < 2
+    assign cols = 2
+  endif
+  if cols > 6
+    assign cols = 6
+  endif
+
+  assign container_width = section.settings.container_width | default: '1200px'
+  assign anchor_id = section.settings.anchor_id | strip
+-%}
+
+<section
+  class="gvm-compare gvm-compare--{{ section.id }}"
+  {% if anchor_id != blank %}id="{{ anchor_id | escape }}"{% endif %}
+  style="
+    --gvm-max-width: {{ container_width }};
+    --gvm-text: {{ section.settings.text_color }};
+    --gvm-line: {{ section.settings.line_color }};
+    --gvm-heading: {{ section.settings.heading_color }};
+    --gvm-card-bg: {{ section.settings.mobile_card_bg }};
+    --gvm-card-text: {{ section.settings.mobile_card_text }};
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+  "
+>
+  <div class="gvm-compare__container">
+    {% if section.settings.heading != blank %}
+      <h2 class="gvm-compare__heading">{{ section.settings.heading }}</h2>
+    {% endif %}
+
+    {%- comment -%}
+      DESKTOP TABLE
+    {%- endcomment -%}
+    <div class="gvm-compare__desktop" data-cols="{{ cols }}">
+      <div class="gvm-compare__table" style="--gvm-cols: {{ cols }};">
+        <!-- Header Row -->
+        <div class="gvm-compare__row gvm-compare__row--head">
+          <div class="gvm-compare__cell gvm-compare__cell--label gvm-compare__cell--head">
+            {{ section.settings.details_heading }}
+          </div>
+
+          {%- for i in (1..6) -%}
+            {%- if i <= cols -%}
+              {%- assign key = 'col_title_' | append: i -%}
+              <div class="gvm-compare__cell gvm-compare__cell--head">
+                {{ section.settings[key] }}
+              </div>
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+
+        <!-- Body Rows -->
+        {%- for block in section.blocks -%}
+          {%- case block.type -%}
+
+            {%- when 'divider' -%}
+              <div class="gvm-compare__divider" {{ block.shopify_attributes }}></div>
+
+            {%- when 'row' -%}
+              {%- liquid
+                assign label = block.settings.label | strip
+              -%}
+              <div class="gvm-compare__row" {{ block.shopify_attributes }}>
+                <div class="gvm-compare__cell gvm-compare__cell--label">
+                  {% if label != blank %}
+                    {{ label | newline_to_br }}
+                  {% endif %}
+                </div>
+
+                {%- for i in (1..6) -%}
+                  {%- if i <= cols -%}
+                    {%- assign vkey = 'value_' | append: i -%}
+                    {%- assign raw = block.settings[vkey] | default: '' -%}
+                    {%- assign val = raw | strip -%}
+                    <div class="gvm-compare__cell">
+                      {% render 'gvm-compare-value', value: val %}
+                    </div>
+                  {%- endif -%}
+                {%- endfor -%}
+              </div>
+
+          {%- endcase -%}
+        {%- endfor -%}
+      </div>
+    </div>
+
+    {%- comment -%}
+      MOBILE SWIPE CARDS
+    {%- endcomment -%}
+    <div class="gvm-compare__mobile" data-cols="{{ cols }}">
+      <div class="gvm-compare__mobile-track" aria-label="Comparison swipe cards">
+        {%- for i in (1..6) -%}
+          {%- if i <= cols -%}
+            {%- assign key = 'col_title_' | append: i -%}
+            {%- assign col_title = section.settings[key] | strip -%}
+
+            <article class="gvm-compare__card" aria-label="{{ col_title | escape }}">
+              <h3 class="gvm-compare__card-title">
+                {{ col_title }}
+              </h3>
+
+              <div class="gvm-compare__card-body">
+                {%- for block in section.blocks -%}
+                  {%- case block.type -%}
+
+                    {%- when 'divider' -%}
+                      <div class="gvm-compare__card-divider"></div>
+
+                    {%- when 'row' -%}
+                      {%- assign label = block.settings.label | strip -%}
+                      {%- assign vkey = 'value_' | append: i -%}
+                      {%- assign raw = block.settings[vkey] | default: '' -%}
+                      {%- assign val = raw | strip -%}
+
+                      <div class="gvm-compare__card-row">
+                        <div class="gvm-compare__card-label">
+                          {{ label | newline_to_br }}
+                        </div>
+                        <div class="gvm-compare__card-value">
+                          {% render 'gvm-compare-value', value: val %}
+                        </div>
+                      </div>
+
+                  {%- endcase -%}
+                {%- endfor -%}
+              </div>
+            </article>
+
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    </div>
+
+  </div>
+</section>
+
+{% style %}
+  .gvm-compare {
+    color: var(--gvm-text);
+  }
+
+  .gvm-compare__container {
+    max-width: var(--gvm-max-width);
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .gvm-compare__heading {
+    margin: 0 0 24px;
+    font-size: 34px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--gvm-heading);
+  }
+
+  /* Desktop */
+  .gvm-compare__desktop { display: block; }
+  .gvm-compare__mobile { display: none; }
+
+  .gvm-compare__table {
+    width: 100%;
+  }
+
+  /* Row as CSS grid: 1 label column + N value columns */
+  .gvm-compare__row {
+    display: grid;
+    grid-template-columns: 240px repeat(var(--gvm-cols), minmax(140px, 1fr));
+    column-gap: 40px;
+    padding: 18px 0;
+    border-bottom: 1px solid var(--gvm-line); /* ONLY bottom borders */
+  }
+
+  .gvm-compare__row--head {
+    padding-top: 0;
+    padding-bottom: 14px;
+  }
+
+  .gvm-compare__cell {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  .gvm-compare__cell--head {
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    font-size: 13px;
+  }
+
+  .gvm-compare__cell--label {
+    font-weight: 600;
+  }
+
+  .gvm-compare__divider {
+    height: 26px;
+    border-bottom: 1px solid var(--gvm-line);
+  }
+
+  /* Value rendering */
+  .gvm-compare__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    line-height: 1;
+    transform: translateY(1px);
+  }
+  .gvm-compare__icon--check { color: #6b7b2a; } /* olive-ish like ref */
+  .gvm-compare__icon--cross { color: currentColor; }
+
+  /* MOBILE swipe cards */
+  @media (max-width: 989px) {
+    .gvm-compare__desktop { display: none; }
+    .gvm-compare__mobile { display: block; }
+
+    .gvm-compare__mobile-track {
+      display: flex;
+      gap: 16px;
+      overflow-x: auto;
+      padding: 6px 2px 2px;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .gvm-compare__mobile-track::-webkit-scrollbar { display: none; }
+    .gvm-compare__mobile-track { scrollbar-width: none; }
+
+    .gvm-compare__card {
+      flex: 0 0 85%;
+      max-width: 520px;
+      background: var(--gvm-card-bg);
+      color: var(--gvm-card-text);
+      border-radius: 0; /* reference looks sharp */
+      padding: 24px 18px;
+      scroll-snap-align: start;
+    }
+
+    .gvm-compare__card-title {
+      margin: 0 0 18px;
+      font-size: 34px;
+      line-height: 1.15;
+      font-weight: 500;
+      letter-spacing: 0.01em;
+    }
+
+    .gvm-compare__card-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      padding: 12px 0;
+    }
+
+    .gvm-compare__card-label {
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 1.35;
+    }
+
+    .gvm-compare__card-value {
+      font-size: 14px;
+      line-height: 1.35;
+      text-align: left;
+    }
+
+    .gvm-compare__card-divider {
+      height: 14px;
+      border-bottom: 1px solid rgba(0,0,0,0.25);
+      margin: 10px 0 4px;
+    }
+  }
+{% endstyle %}
+
+{% comment %}
+  Snippet-like render helper (embedded below if snippet doesn't exist)
+  We'll create a local fallback via capture + include.
+{% endcomment %}
+
+{% unless content_for_header contains 'gvm-compare-value' %}
+  {%- comment -%}
+    If you prefer, create a snippet file: snippets/gvm-compare-value.liquid
+    and paste the snippet below. If not, this section still works because
+    Shopify will ignore render if snippet missing (but you SHOULD create it).
+  {%- endcomment -%}
+{% endunless %}
+
+{% schema %}
+{
+  "name": "GVM Comparison",
+  "settings": [
+    { "type": "text", "id": "anchor_id", "label": "Anchor ID (optional)", "default": "compare" },
+
+    { "type": "text", "id": "heading", "label": "Heading", "default": "GVM Upgrade Comparison" },
+    { "type": "text", "id": "details_heading", "label": "Details column heading", "default": "DETAILS" },
+
+    {
+      "type": "select",
+      "id": "columns",
+      "label": "Number of comparison columns",
+      "default": "4",
+      "options": [
+        { "value": "2", "label": "2" },
+        { "value": "3", "label": "3" },
+        { "value": "4", "label": "4" },
+        { "value": "5", "label": "5" },
+        { "value": "6", "label": "6" }
+      ]
+    },
+
+    { "type": "text", "id": "col_title_1", "label": "Column 1 title", "default": "FACTORY" },
+    { "type": "text", "id": "col_title_2", "label": "Column 2 title", "default": "3.65T LTZ" },
+    { "type": "text", "id": "col_title_3", "label": "Column 3 title", "default": "3.65T ZR2" },
+    { "type": "text", "id": "col_title_4", "label": "Column 4 title", "default": "3.85T" },
+    { "type": "text", "id": "col_title_5", "label": "Column 5 title", "default": "4.2T" },
+    { "type": "text", "id": "col_title_6", "label": "Column 6 title", "default": "4.49T" },
+
+    { "type": "text", "id": "container_width", "label": "Container width (e.g. 1200px or 100%)", "default": "1200px" },
+
+    { "type": "color", "id": "heading_color", "label": "Heading color", "default": "#111111" },
+    { "type": "color", "id": "text_color", "label": "Desktop text color", "default": "#111111" },
+    { "type": "color", "id": "line_color", "label": "Desktop line color", "default": "#111111" },
+
+    { "type": "color", "id": "mobile_card_bg", "label": "Mobile card background", "default": "#f5f3ee" },
+    { "type": "color", "id": "mobile_card_text", "label": "Mobile card text", "default": "#111111" },
+
+    { "type": "range", "id": "padding_top", "label": "Padding top", "min": 0, "max": 120, "step": 4, "default": 40 },
+    { "type": "range", "id": "padding_bottom", "label": "Padding bottom", "min": 0, "max": 120, "step": 4, "default": 40 }
+  ],
+  "blocks": [
+    {
+      "type": "row",
+      "name": "Row",
+      "settings": [
+        { "type": "textarea", "id": "label", "label": "Left label (DETAILS)", "default": "GVM" },
+
+        { "type": "textarea", "id": "value_1", "label": "Value (Column 1)", "default": "3,300kg" },
+        { "type": "textarea", "id": "value_2", "label": "Value (Column 2)", "default": "3,650kg" },
+        { "type": "textarea", "id": "value_3", "label": "Value (Column 3)", "default": "3,650kg" },
+        { "type": "textarea", "id": "value_4", "label": "Value (Column 4)", "default": "3,850kg" },
+        { "type": "textarea", "id": "value_5", "label": "Value (Column 5)" },
+        { "type": "textarea", "id": "value_6", "label": "Value (Column 6)" }
+      ]
+    },
+    {
+      "type": "divider",
+      "name": "Divider",
+      "settings": []
+    }
+  ],
+  "presets": [
+    {
+      "name": "GVM Comparison",
+      "blocks": [
+        { "type": "row" },
+        { "type": "row", "settings": { "label": "Payload", "value_1": "757kg", "value_2": "1,107kg", "value_3": "1,067kg", "value_4": "1,294kg" } },
+        { "type": "row", "settings": { "label": "Requires Wheel/Tyre Upgrade", "value_1": "x", "value_2": "x", "value_3": "x", "value_4": "x" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
+

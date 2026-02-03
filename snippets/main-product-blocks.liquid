@@ -707,31 +707,73 @@
                           assign quantity_rule_soldout = true
                         endif
                       -%}
-                      <button
-                        id="ProductSubmitButton-{{ section.id }}"
-                        type="submit"
-                        name="add"
-                        class="f-product-form__submit btn {% if show_dynamic_checkout and product.selling_plan_groups == empty %}btn--secondary{% else %}btn--primary{% endif %}"
-                        {% if product.selected_or_first_available_variant.available == false
-                          or quantity_rule_soldout
-                          or product.selected_or_first_available_variant == null
-                        %}
-                          disabled
-                        {% endif %}
-                      >
-                        <span>
-                          {%- if product.selected_or_first_available_variant.available -%}
-                            {{ 'products.product.add_to_cart' | t }}
-                          {%- else -%}
-                            {{ 'products.product.sold_out' | t }}
-                          {%- endif -%}
-                        </span>
-                        {% comment %} theme-check-disable {% endcomment %}
-                        {{ 'icon-spinner.svg' | inline_asset_content }}
-                        {% comment %} theme-check-enable {% endcomment %}
-                      </button>
+
+                      {%- liquid
+                        assign so_type = ''
+                        for t in product.tags
+                          assign td = t | downcase | strip
+                          if td == 'pre-order' or td == 'preorder' or td == 'pre order'
+                            assign so_type = 'pre'
+                          elsif td == 'special order' or td == 'special-order'
+                            if so_type == ''
+                              assign so_type = 'special'
+                            endif
+                          endif
+                        endfor
+                      -%}
+
+                      {%- if so_type != '' -%}
+                        <button
+                          id="ProductSubmitButton-{{ section.id }}"
+                          type="button"
+                          class="f-product-form__submit btn {% if show_dynamic_checkout and product.selling_plan_groups == empty %}btn--secondary{% else %}btn--primary{% endif %}"
+                          data-so-trigger
+                          data-order-type="{{ so_type }}"
+                          data-product-title="{{ product.title | escape }}"
+                          data-product-url="{{ shop.url }}{{ product.url }}"
+                          data-variant-id="{{ product.selected_or_first_available_variant.id }}"
+                        >
+                          <span>
+                            {%- if so_type == 'pre' -%}Pre-Order{%- else -%}Special Order{%- endif -%}
+                          </span>
+                        </button>
+                      {%- else -%}
+                        {%- liquid
+                          assign check_against_inventory = true
+                          if product.selected_or_first_available_variant.inventory_management != 'shopify' or product.selected_or_first_available_variant.inventory_policy == 'continue'
+                            assign check_against_inventory = false
+                          endif
+                          if product.selected_or_first_available_variant.quantity_rule.min > product.selected_or_first_available_variant.inventory_quantity and check_against_inventory
+                            assign quantity_rule_soldout = true
+                          endif
+                        -%}
+                        <button
+                          id="ProductSubmitButton-{{ section.id }}"
+                          type="submit"
+                          name="add"
+                          class="f-product-form__submit btn {% if show_dynamic_checkout and product.selling_plan_groups == empty %}btn--secondary{% else %}btn--primary{% endif %}"
+                          {% if product.selected_or_first_available_variant.available == false
+                            or quantity_rule_soldout
+                            or product.selected_or_first_available_variant == null
+                          %}
+                            disabled
+                          {% endif %}
+                        >
+                          <span>
+                            {%- if product.selected_or_first_available_variant.available -%}
+                              {{ 'products.product.add_to_cart' | t }}
+                            {%- else -%}
+                              {{ 'products.product.sold_out' | t }}
+                            {%- endif -%}
+                          </span>
+                          {% comment %} theme-check-disable {% endcomment %}
+                          {{ 'icon-spinner.svg' | inline_asset_content }}
+                          {% comment %} theme-check-enable {% endcomment %}
+                        </button>
+                      {%- endif -%}
+
                     {% endif %}
-                    {%- if show_dynamic_checkout -%}
+                    {%- if show_dynamic_checkout and so_type == '' -%}
                       <div class="f-product-form__button-dynamic">
                         {{ form | payment_button }}
                       </div>
@@ -1035,3 +1077,4 @@
     </div>
   {%- endfor -%}
 </div>
+
