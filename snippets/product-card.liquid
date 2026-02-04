@@ -396,11 +396,20 @@
       <h3 class="product-card__title text-product-title {{ product_title_class }}">
         {{- product.title -}}
       </h3>
+
+      {%- assign card_variant = product.selected_or_first_available_variant -%}
+      {%- if card_variant.sku != blank -%}
+        <div class="product-card__sku" style="margin-top:4px; font-size:12px; opacity:0.8;">
+          SKU: {{ card_variant.sku }}
+        </div>
+      {%- endif -%}
+
       {% if settings.pcard_show_review_badge %}
         <div class="product-card__reviews">
           {%- render 'product-rating', product: product -%}
         </div>
       {% endif %}
+
       {% render 'price',
         product: product,
         alignment: settings.pcard_content_alignment
