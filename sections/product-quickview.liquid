@@ -97,11 +97,22 @@
                     price_class: 'f-price--large text-lg sm:text-xl'
                   -%}
                 </div>
-                {%- if shop.taxes_included -%}
+
+                {% comment %} {%- if shop.taxes_included -%}
                   <div class="f-product-single__block-tax text-subtext">
                     {{- 'products.product.include_taxes' | t -}}
                   </div>
+                {%- endif -%} {% endcomment %}
+
+                {% comment %} Displaying SKU {% endcomment %}
+                {%- assign current_variant = product.selected_or_first_available_variant -%}
+                {%- if current_variant.sku != blank -%}
+                  <div class="product-sku" style="margin-top: 6px; font-size: 14px; opacity: 0.85;">
+                    <span class="product-sku__label">SKU:</span>
+                    <span class="product-sku__value" data-product-sku>{{ current_variant.sku }}</span>
+                  </div>
                 {%- endif -%}
+
               </div>
               {% unless subtitle == blank %}
                 <div class="f-product-single__block f-product-single__block--subtitle">
