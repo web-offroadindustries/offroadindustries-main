@@ -133,7 +133,7 @@
       },
       "2878693861365564508": {
         "type": "shopify://apps/easysearch-ymm/blocks/easysearch-embed-garage/6d82686b-b68a-4b5e-98e3-e07b2b53d810",
-        "disabled": true,
+        "disabled": false,
         "settings": {}
       }
     },
