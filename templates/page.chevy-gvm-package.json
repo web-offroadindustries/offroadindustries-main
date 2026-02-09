@@ -523,7 +523,7 @@
             "value_6": "4500 KG"
           }
         },
-        "row_zPKiUF": {
+        "row_YVwraj": {
           "type": "row",
           "settings": {
             "label": "Gross Combined Mass (GCM)",
@@ -535,31 +535,148 @@
             "value_6": "8750 KG LTZ\n8450 KG ZR2"
           }
         },
-        "row_CFGrEw": {
+        "row_zPKiUF": {
           "type": "row",
           "settings": {
-            "label": "Requires Wheel/Tyre Upgrade",
-            "value_1": "x",
-            "value_2": "x",
-            "value_3": "x",
-            "value_4": "x",
-            "value_5": "x",
-            "value_6": "x"
+            "label": "Kerb Weight",
+            "value_1": "2543 KG",
+            "value_2": "2573 KG",
+            "value_3": "2563 KG",
+            "value_4": "2578 KG",
+            "value_5": "2578 KG",
+            "value_6": "2578 KG"
+          }
+        },
+        "row_wywcAp": {
+          "type": "row",
+          "settings": {
+            "label": "Payload (bases on kerb weight)",
+            "value_1": "757 KG",
+            "value_2": "1077 KG",
+            "value_3": "1087 KG",
+            "value_4": "1272 KG",
+            "value_5": "1672 KG",
+            "value_6": "1672 KG"
+          }
+        },
+        "row_VPhYR9": {
+          "type": "row",
+          "settings": {
+            "label": "Payload Increase (%)",
+            "value_1": "0%",
+            "value_2": "42.28%",
+            "value_3": "43.59%",
+            "value_4": "68.03%",
+            "value_5": "120.87%",
+            "value_6": "120.87%"
+          }
+        },
+        "row_bcXE8T": {
+          "type": "row",
+          "settings": {
+            "label": "Front Axle Capacity",
+            "value_1": "1724 KG",
+            "value_2": "1724 KG",
+            "value_3": "1724 KG",
+            "value_4": "1724 KG",
+            "value_5": "1770 KG",
+            "value_6": "1770 KG"
+          }
+        },
+        "row_YJQHKH": {
+          "type": "row",
+          "settings": {
+            "label": "Rear Axle Capacity",
+            "value_1": "1724 KG",
+            "value_2": "1926 KG",
+            "value_3": "1926 KG",
+            "value_4": "2126 KG",
+            "value_5": "2480 KG",
+            "value_6": "2480 KG"
+          }
+        },
+        "row_pqzEiz": {
+          "type": "row",
+          "settings": {
+            "label": "Wheel Offsets",
+            "value_1": "28",
+            "value_2": "28",
+            "value_3": "28",
+            "value_4": "28",
+            "value_5": "Zero +12",
+            "value_6": "Zero +12"
+          }
+        },
+        "row_NrDzqV": {
+          "type": "row",
+          "settings": {
+            "label": "Wheel Load Rating",
+            "value_1": "862 KG",
+            "value_2": "963 KG",
+            "value_3": "963 KG",
+            "value_4": "1063 KG",
+            "value_5": "1250 KG",
+            "value_6": "1250 KG"
+          }
+        },
+        "row_aDFEfG": {
+          "type": "row",
+          "settings": {
+            "label": "Tyre Load Rating",
+            "value_1": "862 KG",
+            "value_2": "963 KG",
+            "value_3": "963 KG",
+            "value_4": "1063 KG",
+            "value_5": "1250 KG",
+            "value_6": "1250 KG"
+          }
+        },
+        "row_Ei9mfn": {
+          "type": "row",
+          "settings": {
+            "label": "Requires Wheel/ Tyre Upgrade",
+            "value_1": "OEM",
+            "value_2": "N/A",
+            "value_3": "N/A",
+            "value_4": "N/A",
+            "value_5": "✔",
+            "value_6": "✔"
+          }
+        },
+        "row_VrmHhK": {
+          "type": "row",
+          "settings": {
+            "label": "Maximum Tyre Size",
+            "value_1": "275/60 R20",
+            "value_2": "275/60 R20",
+            "value_3": "LT275/70R18",
+            "value_4": "275/60 R20\nLT275/70R18",
+            "value_5": "295/70 R18\n35x12.5R18",
+            "value_6": "295/70 R18\n35x12.5R18"
           }
         }
       },
       "block_order": [
         "row_M4PVnC",
         "row_7JDfxb",
+        "row_YVwraj",
         "row_zPKiUF",
-        "row_CFGrEw"
+        "row_wywcAp",
+        "row_VPhYR9",
+        "row_bcXE8T",
+        "row_YJQHKH",
+        "row_pqzEiz",
+        "row_NrDzqV",
+        "row_aDFEfG",
+        "row_Ei9mfn",
+        "row_VrmHhK"
       ],
       "name": "GVM Comparison",
       "settings": {
         "anchor_id": "compare",
         "heading": "",
         "details_heading": "Factory",
-        "columns": "4",
+        "columns": "6",
         "col_title_1": "OEM",
         "col_title_2": "Stage 1",
         "col_title_3": "Stage 2",
