@@ -20,7 +20,7 @@
         "slide_bW6A4P": {
           "type": "slide",
           "settings": {
-            "background": "shopify://shop_images/RAM2500_2019_B3in_02_9c243ac6-b893-4cc3-83fd-01f221a46cbf.png",
+            "background": "shopify://shop_images/2022-FOX-Silverado-highres-51-edit_1_2000x_03b81062-95b8-4b8c-b13a-e7a0aeaa50eb.webp",
             "image_overlay_opacity": 45,
             "content_position": "center",
             "text_alignment": "center",
@@ -122,8 +122,8 @@
         "heading_XhCLHT": {
           "type": "heading",
           "settings": {
-            "heading": "RAM 2500HD",
-            "highlight_style": "underline",
+            "heading": "CHEVROLET SILVERADO 1500 LTZ",
+            "highlight_style": "none",
             "enable_highlight_text_color": true,
             "heading_size": "h1",
             "heading_color": "#1d5904"
