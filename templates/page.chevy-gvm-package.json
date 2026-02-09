@@ -84,8 +84,8 @@
         "link_8FKHCp": {
           "type": "link",
           "settings": {
-            "label": "GVM Tires",
-            "target_id": "gvmtires"
+            "label": "Suspension Collection",
+            "target_id": "suspensioncollection"
           }
         },
         "link_KmD9dx": {
@@ -683,7 +683,7 @@
         "col_title_4": "Stage 3",
         "col_title_5": "Stage 4",
         "col_title_6": "Stage 5",
-        "container_width": "1200px",
+        "container_width": "90%",
         "heading_color": "#111111",
         "text_color": "#111111",
         "line_color": "#111111",
@@ -693,13 +693,197 @@
         "padding_bottom": 40
       }
     },
+    "gvm_comparison_RXeVcA": {
+      "type": "gvm-comparison",
+      "blocks": {
+        "row_PLrREz": {
+          "type": "row",
+          "settings": {
+            "label": "Fox 2.5 PS Coilovers (Front)",
+            "value_1": "987-02-004",
+            "value_2": "✔",
+            "value_3": "",
+            "value_4": "",
+            "value_5": "",
+            "value_6": ""
+          }
+        },
+        "row_QWetUx": {
+          "type": "row",
+          "settings": {
+            "label": "Fox 2.5 PS Shocks (Rear)",
+            "value_1": "987-24-028",
+            "value_2": "✔",
+            "value_3": "",
+            "value_4": "",
+            "value_5": "",
+            "value_6": ""
+          }
+        },
+        "row_dAdUVr": {
+          "type": "row",
+          "settings": {
+            "label": "Fox 2.5 PE DSC Coilovers (Front)",
+            "value_1": "883-06-162",
+            "value_2": "",
+            "value_3": "",
+            "value_4": "✔",
+            "value_5": "✔",
+            "value_6": ""
+          }
+        },
+        "row_VhLrHW": {
+          "type": "row",
+          "settings": {
+            "label": "Fox 2.5 PE DSC Shocks (Rear)",
+            "value_1": "883-26-087",
+            "value_2": "",
+            "value_3": "",
+            "value_4": "✔",
+            "value_5": "✔",
+            "value_6": ""
+          }
+        },
+        "row_Xm7nMe": {
+          "type": "row",
+          "settings": {
+            "label": "Fox 3.0 Bypass Race Series (Front)",
+            "value_1": "883-06-175",
+            "value_2": "",
+            "value_3": "",
+            "value_4": "",
+            "value_5": "",
+            "value_6": "✔"
+          }
+        },
+        "row_PyCLYV": {
+          "type": "row",
+          "settings": {
+            "label": "Fox 3.0 Bypass Race Series (Rear)",
+            "value_1": "883-26-105",
+            "value_2": "",
+            "value_3": "",
+            "value_4": "",
+            "value_5": "",
+            "value_6": "✔"
+          }
+        },
+        "row_MQ9Uxh": {
+          "type": "row",
+          "settings": {
+            "label": "ORI 200kg Leaf Spring Pack",
+            "value_1": "ORI-CHV-200KG",
+            "value_2": "✔",
+            "value_3": "✔",
+            "value_4": "✔",
+            "value_5": "✔",
+            "value_6": "✔"
+          }
+        },
+        "row_ViUDYJ": {
+          "type": "row",
+          "settings": {
+            "label": "ORI 400kg Leaf Spring Pack",
+            "value_1": "ORI-CHV-400KG",
+            "value_2": "",
+            "value_3": "",
+            "value_4": "",
+            "value_5": "✔",
+            "value_6": "✔"
+          }
+        },
+        "row_YaJzWt": {
+          "type": "row",
+          "settings": {
+            "label": "BDS Control Arms",
+            "value_1": "BDS121260",
+            "value_2": "✔",
+            "value_3": "✔",
+            "value_4": "✔",
+            "value_5": "✔",
+            "value_6": "✔"
+          }
+        },
+        "row_MDY7qw": {
+          "type": "row",
+          "settings": {
+            "label": "Retain Factory Multimatic Suspension",
+            "value_1": "",
+            "value_2": "✔",
+            "value_3": "",
+            "value_4": "",
+            "value_5": "",
+            "value_6": ""
+          }
+        },
+        "row_KnhHzc": {
+          "type": "row",
+          "settings": {
+            "label": "Lift Height",
+            "value_1": "",
+            "value_2": "3.5\"",
+            "value_3": "2\"",
+            "value_4": "3.5\"",
+            "value_5": "3.5\"",
+            "value_6": "3.5\""
+          }
+        },
+        "row_nNQibi": {
+          "type": "row",
+          "settings": {
+            "label": "Load-Rated Wheels Required",
+            "value_1": "",
+            "value_2": "",
+            "value_3": "",
+            "value_4": "",
+            "value_5": "✔",
+            "value_6": "✔"
+          }
+        }
+      },
+      "block_order": [
+        "row_PLrREz",
+        "row_QWetUx",
+        "row_dAdUVr",
+        "row_VhLrHW",
+        "row_Xm7nMe",
+        "row_PyCLYV",
+        "row_MQ9Uxh",
+        "row_ViUDYJ",
+        "row_YaJzWt",
+        "row_MDY7qw",
+        "row_KnhHzc",
+        "row_nNQibi"
+      ],
+      "name": "GVM Comparison",
+      "settings": {
+        "anchor_id": "compare1",
+        "heading": "",
+        "details_heading": "Item",
+        "columns": "4",
+        "col_title_1": "Part Number",
+        "col_title_2": "Stage 1",
+        "col_title_3": "Stage 2",
+        "col_title_4": "Stage 3",
+        "col_title_5": "Stage 4",
+        "col_title_6": "Stage 5",
+        "container_width": "90%",
+        "heading_color": "#111111",
+        "text_color": "#111111",
+        "line_color": "#111111",
+        "mobile_card_bg": "#f5f3ee",
+        "mobile_card_text": "#111111",
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    },
     "rich_text_4AxLyp": {
       "type": "rich-text",
       "blocks": {
         "heading_PHJcdq": {
           "type": "heading",
           "settings": {
-            "heading": "GVM TIRES",
+            "heading": "Ori's Suspension Collection",
             "highlight_style": "underline",
             "enable_highlight_text_color": true,
             "heading_size": "h1",
@@ -719,41 +903,76 @@
         "padding_bottom": 40,
         "show_section_divider": false,
         "divider_width": "container",
-        "custom_id": "gvmtires",
+        "custom_id": "suspensioncollection",
         "custom_class": "",
         "animations": "inherit"
       }
     },
-    "featured_collection_Np9bwe": {
-      "type": "featured-collection",
-      "name": "t:sections.featured-collection.name",
+    "logo_list_8XphYi": {
+      "type": "logo-list",
+      "blocks": {
+        "logo_cpKqVD": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/ICONS_FOR_WEBSITE_FOX.png",
+            "image_from_url": "",
+            "image_link": "",
+            "image_width": 80
+          }
+        },
+        "logo_HXcdg3": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/ICONS_FOR_WEBSITE_BDS.png",
+            "image_from_url": "",
+            "image_link": "",
+            "image_width": 80
+          }
+        },
+        "logo_kg3grH": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/ICONS_FOR_WEBSITE_BUSHWACKER.png",
+            "image_from_url": "",
+            "image_link": "",
+            "image_width": 80
+          }
+        },
+        "logo_mVCjy7": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/peak_final-copy-small.jpg",
+            "image_from_url": "",
+            "image_link": "",
+            "image_width": 80
+          }
+        }
+      },
+      "block_order": [
+        "logo_cpKqVD",
+        "logo_HXcdg3",
+        "logo_kg3grH",
+        "logo_mVCjy7"
+      ],
+      "name": "t:sections.logo-list.presets.name",
       "settings": {
         "container": "container",
         "color_schema": "",
         "section_header_padding_bottom": "medium",
-        "section_header_content_spacing": "small",
-        "header_layout": "vertical",
+        "section_header_content_spacing": "medium",
         "heading": "",
         "highlight_style": "none",
         "enable_highlight_text_color": false,
         "heading_size": "h2",
         "heading_color": "",
-        "subheading": "",
         "description": "",
-        "collection": "4-play-wheels",
-        "limit": 8,
         "columns": 4,
-        "column_gap": "small",
+        "column_gap": "medium",
         "row_gap": "medium",
-        "pcard_image_ratio": "",
-        "show_vendor": false,
-        "enable_slider": false,
-        "show_nav": true,
+        "enable_slider": true,
+        "show_nav": false,
         "show_dots": false,
-        "show_all_button_on_top": false,
-        "button_label": "",
-        "button_style": "btn--primary",
-        "enable_swipe_mobile": true,
+        "enable_swipe_mobile": false,
         "column_mobile": "1",
         "padding_top": 0,
         "padding_bottom": 40,
@@ -841,8 +1060,9 @@
     "image_with_text_8GKk7C",
     "rich_text_rnLAPH",
     "gvm_comparison_FfmTMw",
+    "gvm_comparison_RXeVcA",
     "rich_text_4AxLyp",
-    "featured_collection_Np9bwe",
+    "logo_list_8XphYi",
     "contact_form_bfPpbR"
   ]
 }
