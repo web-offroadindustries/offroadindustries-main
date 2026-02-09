@@ -21,7 +21,7 @@
           "type": "slide",
           "settings": {
             "background": "shopify://shop_images/2022-FOX-Silverado-highres-51-edit_1_2000x_03b81062-95b8-4b8c-b13a-e7a0aeaa50eb.webp",
-            "image_overlay_opacity": 45,
+            "image_overlay_opacity": 0,
             "content_position": "center",
             "text_alignment": "center",
             "text_color": "#000000",
