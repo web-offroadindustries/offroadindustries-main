@@ -132,7 +132,7 @@
         "text_CfcJd4": {
           "type": "text",
           "settings": {
-            "text": "<p>We're excited to offer a GVM package from Offroad Industries that can transform your Ram 2500HD. This upgrade enhances your vehicle's overall engineering, including the ability to fit bigger tires.</p><p>We understand that many RAM Australia-delivered RAM 2500s are currently in the NB1 Category, and we have an excellent solution to upgrade your vehicle. We can elevate your Ram 2500HD to either a 5300GVM or even a 5550GVM. This substantial upgrade is achieved through the integration of top-of-the-line suspension components from Fox & BDS, ensuring superior performance and durability.</p><p>As a federally approved second-stage manufacturer, we have the authority to upgrade your vehicle's GVM on the federal database.</p>"
+            "text": "<p>We're excited to announce our industry-leading GVM SSM Federally Approved kits, specifically designed to upgrade your Chevrolet Silverado 1500 LTZ & ZR2.</p><p>Our custom solutions feature high-performance Fox Suspension, reliable BDS components, and specialized ORI Leaf Packs. We've also conducted in-depth GCM testing to maximize the performance of your GVM Package and ensure your brake towing capacity remains unaffected.<br/>We have developed multiple packages to suit your specific requirements. We believe USA Trucks deserve USA-made products, and our ORI team has authorised installers Australia-wide.</p>"
           }
         }
       },
@@ -146,7 +146,7 @@
         "color_schema": "",
         "text_alignment": "left",
         "padding_top": 40,
-        "padding_bottom": 40,
+        "padding_bottom": 0,
         "show_section_divider": false,
         "divider_width": "container",
         "custom_id": "",
@@ -191,13 +191,13 @@
         "subheading_JVKNjL": {
           "type": "subheading",
           "settings": {
-            "subheading": "Stage 1: $10,500 - Installed & Engineered"
+            "subheading": "Stage 1: $11,500 - Installed & Engineered"
           }
         },
         "heading_f9G7kD": {
           "type": "heading",
           "settings": {
-            "heading": "STAGE 1 : 5300 GVM",
+            "heading": "STAGE 1 : 3650 GVM",
             "highlight_style": "none",
             "enable_highlight_text_color": false,
             "heading_size": "h2"
@@ -206,7 +206,7 @@
         "text_fRRw7g": {
           "type": "text",
           "settings": {
-            "text": "<ul><li>Fox 2.5 HTO Performance Series Suspension</li><li>ORI 50mm Front and Rear Coils</li><li>SSM Federally Approved GVM</li><li>Category Changes from NB1 to NB2</li><li>4459 Upgraded 5300 GVM</li></ul>"
+            "text": "<ul><li>Fox 2.5 Performance Series Suspension</li><li>BDS Upper Control Arms</li><li>ORI 200KG Leaf Packs</li><li>EO Wheels & Tyres Approved</li><li>Federally Approved GVM & GCM</li><li>Increase your payload to 1077KG</li></ul>"
           }
         }
       },
@@ -219,7 +219,7 @@
       "settings": {
         "container": "container",
         "color_schema": "",
-        "image": "shopify://shop_images/stage_1_5300_GVM_RAM_2500.jpg",
+        "image": "shopify://shop_images/10_1600x_5b0eb0d7-dcbe-4585-a241-1ca77eda1264.webp",
         "image_width": "50%",
         "image_position": "left",
         "vertical_alignment": "center",
@@ -247,13 +247,13 @@
         "subheading_nNBqbG": {
           "type": "subheading",
           "settings": {
-            "subheading": "Stage 2: $15,000 - Installed & Engineered"
+            "subheading": "Stage 2: $7,800 - Installed & Engineered"
           }
         },
         "heading_dHpa9y": {
           "type": "heading",
           "settings": {
-            "heading": "STAGE 2 : 5300 GVM",
+            "heading": "STAGE 2 : 3650 GVM",
             "highlight_style": "none",
             "enable_highlight_text_color": false,
             "heading_size": "h2"
@@ -262,7 +262,7 @@
         "text_eiTTm6": {
           "type": "text",
           "settings": {
-            "text": "<ul><li>Fox 2.5 Performance Elite Suspension</li><li>ORI 50mm Front and Rear Coils</li><li>SSM Federally Approved GVM</li><li>Category Change from NB1 to NB2</li><li>4495 Upgraded to 5300 GVM</li></ul>"
+            "text": "<ul><li>Retain the Factory Multimatic Suspension</li><li>BDS Upper Control Arms</li><li>ORI 200KG Leaf Packs</li><li>OE Wheels & Tyres Approved</li><li>Federally Approved GVM & GCM</li><li>Increase Payload to 1087KG</li></ul>"
           }
         }
       },
@@ -275,7 +275,7 @@
       "settings": {
         "container": "container",
         "color_schema": "",
-        "image": "shopify://shop_images/stage_2_5300_GVM_RAM_2500.jpg",
+        "image": "shopify://shop_images/stage2-3650-gvm.webp",
         "image_width": "50%",
         "image_position": "right",
         "vertical_alignment": "center",
@@ -303,7 +303,7 @@
         "subheading_p3JeNT": {
           "type": "subheading",
           "settings": {
-            "subheading": "Stage 3: $17,499 - Installed & Engineered"
+            "subheading": "Stage 3: $15,999 - Installed & Engineered"
           }
         },
         "heading_KMefdY": {
@@ -318,7 +318,7 @@
         "text_aVwiWh": {
           "type": "text",
           "settings": {
-            "text": "<ul><li>3\" BDS Radius Suspension Package</li><li>Fox 2.5 Performance Elite Suspension</li><li>BDS Front Coils and Rear Coils</li><li>SSM Federally Approved GVM</li><li>Category Change NB1 to NB2 .</li><li>4495 Upgraded 5300 GVM</li></ul>"
+            "text": "<ul><li>Fox 2.5 Performance Elite Suspension</li><li>BDS Upper Control Arms</li><li>ORI 200KG Leaf Packs</li><li>OE Wheels & Tyres Approved</li><li>Federally Approved GVM & GCM</li><li>Increase Payload to 1272KG</li></ul>"
           }
         }
       },
@@ -331,7 +331,7 @@
       "settings": {
         "container": "container",
         "color_schema": "",
-        "image": "shopify://shop_images/stage_3_5300_GVM_RAM_2500.jpg",
+        "image": "shopify://shop_images/stage3-3650-gvm.webp",
         "image_width": "50%",
         "image_position": "left",
         "vertical_alignment": "center",
@@ -359,13 +359,13 @@
         "subheading_UXFBYE": {
           "type": "subheading",
           "settings": {
-            "subheading": "Stage 4: $15,000 - Installed & Engineered"
+            "subheading": "Stage 4: $16,999 - Installed & Engineered"
           }
         },
         "heading_wfcybN": {
           "type": "heading",
           "settings": {
-            "heading": "STAGE 4 : 5500 GVM",
+            "heading": "STAGE 4 : 4250 GVM",
             "highlight_style": "none",
             "enable_highlight_text_color": false,
             "heading_size": "h2"
@@ -374,7 +374,7 @@
         "text_giGN6b": {
           "type": "text",
           "settings": {
-            "text": "<ul><li>Fox 2.5 Performance Elite Suspension</li><li>ORI 50mm Front and Rear Coils</li><li>SSM Federally Approved GVM</li><li>Engineered for 35x12.5x18 or 15x12.5x20</li><li>Category Change NB1 to NB2 .</li><li>4495 Upgraded 5550 GVM</li></ul>"
+            "text": "<ul><li>Fox 2.5 Performance Elite Suspension</li><li>BDS Upper Control Arms</li><li>ORI 200kg or 400KG Leaf Packs</li><li>Engineered for 35\" Tyres</li><li>Federally Approved GVM & GCM</li><li>Increase your payload to 1672kg to meet tax purposes.</li></ul>"
           }
         }
       },
@@ -387,9 +387,65 @@
       "settings": {
         "container": "container",
         "color_schema": "",
-        "image": "shopify://shop_images/stage_4_5300_GVM_RAM_2500.jpg",
+        "image": "shopify://shop_images/stage-4-4250-gvm.webp",
         "image_width": "50%",
         "image_position": "right",
+        "vertical_alignment": "center",
+        "column_gap": "medium",
+        "row_gap": "medium",
+        "padding_left": 0,
+        "padding_right": 0,
+        "align_content_container": "none",
+        "mobile_padding_left": 15,
+        "mobile_padding_right": 15,
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "padding_top_mobile": 60,
+        "padding_bottom_mobile": 60,
+        "show_section_divider": false,
+        "divider_width": "container",
+        "custom_id": "",
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "image_with_text_8GKk7C": {
+      "type": "image-with-text",
+      "blocks": {
+        "subheading_drUinH": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "Stage 5: $26,999 - Installed & Engineered"
+          }
+        },
+        "heading_FGMkek": {
+          "type": "heading",
+          "settings": {
+            "heading": "STAGE 5 : 4250 GVM",
+            "highlight_style": "none",
+            "enable_highlight_text_color": false,
+            "heading_size": "h2"
+          }
+        },
+        "text_AHtUHA": {
+          "type": "text",
+          "settings": {
+            "text": "<ul><li>Fox 3.0 Factory Bypass Suspension</li><li>Upgraded to BDS Control Arms</li><li>ORI 200kg or 400KG Leaf Packs</li><li>Engineered for 35\" Tyres</li><li>Federally Approved GVM & GCM</li><li>Increase your payload to 1672KG</li></ul>"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_drUinH",
+        "heading_FGMkek",
+        "text_AHtUHA"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "container": "container",
+        "color_schema": "",
+        "image": "shopify://shop_images/stage-5-4250-gvm.webp",
+        "image_width": "50%",
+        "image_position": "left",
         "vertical_alignment": "center",
         "column_gap": "medium",
         "row_gap": "medium",
@@ -415,7 +471,7 @@
         "heading_YjLxhA": {
           "type": "heading",
           "settings": {
-            "heading": "GVM SPECIFICATIONS",
+            "heading": "ABOUT CHEVROLET SILVERADO 1500 LTZ",
             "highlight_style": "underline",
             "enable_highlight_text_color": true,
             "heading_size": "h1",
@@ -446,25 +502,37 @@
         "row_M4PVnC": {
           "type": "row",
           "settings": {
-            "label": "GVM",
-            "value_1": "3,300kg",
-            "value_2": "3,650kg",
-            "value_3": "3,650kg",
-            "value_4": "3,850kg",
-            "value_5": "",
-            "value_6": ""
+            "label": "Gross Vehicle Mass (GVM)",
+            "value_1": "3300 KG",
+            "value_2": "3,650 KG",
+            "value_3": "3,650 KG",
+            "value_4": "3,850 KG",
+            "value_5": "4250 KG",
+            "value_6": "4250 KG"
           }
         },
         "row_7JDfxb": {
           "type": "row",
           "settings": {
-            "label": "Payload",
-            "value_1": "757kg",
-            "value_2": "1,107kg",
-            "value_3": "1,067kg",
-            "value_4": "1,294kg",
-            "value_5": "",
-            "value_6": ""
+            "label": "Braked Towing Capacity (BTC)",
+            "value_1": "4500 KG",
+            "value_2": "4500 KG",
+            "value_3": "4200 KG",
+            "value_4": "4500 KG",
+            "value_5": "4500 KG",
+            "value_6": "4500 KG"
+          }
+        },
+        "row_zPKiUF": {
+          "type": "row",
+          "settings": {
+            "label": "Gross Combined Mass (GCM)",
+            "value_1": "7160 KG",
+            "value_2": "8150 KG",
+            "value_3": "7850 KG",
+            "value_4": "8350 KG LTZ\n8050 KG ZR2",
+            "value_5": "8750 KG LTZ\n8450 KG ZR2",
+            "value_6": "8750 KG LTZ\n8450 KG ZR2"
           }
         },
         "row_CFGrEw": {
@@ -475,28 +543,29 @@
             "value_2": "x",
             "value_3": "x",
             "value_4": "x",
-            "value_5": "",
-            "value_6": ""
+            "value_5": "x",
+            "value_6": "x"
           }
         }
       },
       "block_order": [
         "row_M4PVnC",
         "row_7JDfxb",
+        "row_zPKiUF",
         "row_CFGrEw"
       ],
       "name": "GVM Comparison",
       "settings": {
         "anchor_id": "compare",
         "heading": "",
-        "details_heading": "",
+        "details_heading": "Factory",
         "columns": "4",
-        "col_title_1": "FACTORY",
-        "col_title_2": "3.65T LTZ",
-        "col_title_3": "3.65T ZR2",
-        "col_title_4": "3.85T",
-        "col_title_5": "4.2T",
-        "col_title_6": "4.49T",
+        "col_title_1": "OEM",
+        "col_title_2": "Stage 1",
+        "col_title_3": "Stage 2",
+        "col_title_4": "Stage 3",
+        "col_title_5": "Stage 4",
+        "col_title_6": "Stage 5",
         "container_width": "1200px",
         "heading_color": "#111111",
         "text_color": "#111111",
@@ -652,6 +721,7 @@
     "image_with_text_pR9RXR",
     "image_with_text_M8ykcj",
     "image_with_text_pcJYGC",
+    "image_with_text_8GKk7C",
     "rich_text_rnLAPH",
     "gvm_comparison_FfmTMw",
     "rich_text_4AxLyp",
