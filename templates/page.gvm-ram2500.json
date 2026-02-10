@@ -429,6 +429,42 @@
             "value_5": "1600 KG",
             "value_6": "1600 KG"
           }
+        },
+        "row_Bt3FKj": {
+          "type": "row",
+          "settings": {
+            "label": "Tyre Load Rating",
+            "value_1": "",
+            "value_2": "1600",
+            "value_3": "1600",
+            "value_4": "1600",
+            "value_5": "1650",
+            "value_6": "1650"
+          }
+        },
+        "row_JTemGx": {
+          "type": "row",
+          "settings": {
+            "label": "Requires Wheel/ Tyre Upgrade",
+            "value_1": "",
+            "value_2": "NA",
+            "value_3": "NA",
+            "value_4": "NA",
+            "value_5": "YES",
+            "value_6": "YES"
+          }
+        },
+        "row_X4PTEK": {
+          "type": "row",
+          "settings": {
+            "label": "Maximum Tyre Size",
+            "value_1": "",
+            "value_2": "35x12.5xR18 | 35x12.5xR20",
+            "value_3": "35x12.5xR18 | 35x12.5xR20",
+            "value_4": "35x12.5xR18 | 35x12.5xR20",
+            "value_5": "35x12.5xR18 | 35x12.5xR20",
+            "value_6": "35x12.5xR18 | 35x12.5xR20"
+          }
         }
       },
       "block_order": [
@@ -441,7 +477,10 @@
         "row_yxURR8",
         "row_XrjbQh",
         "row_6PJMmp",
-        "row_jqQfWz"
+        "row_jqQfWz",
+        "row_Bt3FKj",
+        "row_JTemGx",
+        "row_X4PTEK"
       ],
       "name": "GVM Comparison",
       "settings": {
@@ -463,100 +502,6 @@
         "mobile_card_text": "#111111",
         "padding_top": 40,
         "padding_bottom": 40
-      }
-    },
-    "comparison_specification_Yj66cU": {
-      "type": "comparison-specification",
-      "blocks": {
-        "column_UrhFQm": {
-          "type": "column",
-          "settings": {
-            "title": "Factory"
-          }
-        },
-        "column_AGJUKG": {
-          "type": "column",
-          "settings": {
-            "title": "3.65T LTZ"
-          }
-        },
-        "column_UqMjfq": {
-          "type": "column",
-          "settings": {
-            "title": "3.65T ZR2"
-          }
-        },
-        "column_TBiCG7": {
-          "type": "column",
-          "settings": {
-            "title": "3.85T"
-          }
-        },
-        "row_mjczpG": {
-          "type": "row",
-          "settings": {
-            "label": "GVM",
-            "value_1": "3,300kg",
-            "value_2": "3,650kg",
-            "value_3": "3,650kg",
-            "value_4": "3,850kg",
-            "value_5": "",
-            "value_6": ""
-          }
-        },
-        "row_QymHQQ": {
-          "type": "row",
-          "settings": {
-            "label": "Payload",
-            "value_1": "757kg",
-            "value_2": "1,107kg",
-            "value_3": "1,067kg",
-            "value_4": "1,294kg",
-            "value_5": "",
-            "value_6": ""
-          }
-        },
-        "row_gq488F": {
-          "type": "row",
-          "settings": {
-            "label": "Requires Wheel/Tyre Upgrade",
-            "value_1": "✓",
-            "value_2": "✗",
-            "value_3": "✗",
-            "value_4": "✓",
-            "value_5": "",
-            "value_6": ""
-          }
-        }
-      },
-      "block_order": [
-        "column_UrhFQm",
-        "column_AGJUKG",
-        "column_UqMjfq",
-        "column_TBiCG7",
-        "row_mjczpG",
-        "row_QymHQQ",
-        "row_gq488F"
-      ],
-      "disabled": true,
-      "name": "Compare / Specification",
-      "settings": {
-        "heading": "",
-        "details_heading": "",
-        "anchor_id": "compare-Ranger",
-        "layout_width": "fixed",
-        "container_width": "1200",
-        "text_color": "#111111",
-        "border_color": "#dddddd",
-        "bg_color": "#ffffff",
-        "bg_opacity": 0,
-        "header_bg_color": "#ffffff",
-        "header_text_color": "#111111",
-        "row_bg_color": "#ffffff",
-        "row_alt_bg_color": "#ffffff",
-        "radius": 0,
-        "padding_top": 20,
-        "padding_bottom": 20
       }
     },
     "rich_text_4AxLyp": {
@@ -804,7 +749,6 @@
     "layered_images_dFrAzV",
     "rich_text_rnLAPH",
     "gvm_comparison_WHp4pL",
-    "comparison_specification_Yj66cU",
     "rich_text_4AxLyp",
     "gallery_images_VzpKEk",
     "featured_collection_Np9bwe",
