@@ -345,12 +345,103 @@
             "value_5": "12695 KG",
             "value_6": "12695 KG"
           }
+        },
+        "row_QK8Yr6": {
+          "type": "row",
+          "settings": {
+            "label": "Kerb Weight",
+            "value_1": "3609 KG",
+            "value_2": "3620 KG",
+            "value_3": "3639 KG",
+            "value_4": "3645 KG",
+            "value_5": "3639 KG",
+            "value_6": "3645 KG"
+          }
+        },
+        "row_X4HKwp": {
+          "type": "row",
+          "settings": {
+            "label": "Payload (bases on kerb weight) FROM NB1",
+            "value_1": "886 KG",
+            "value_2": "1680 KG",
+            "value_3": "1661 KG",
+            "value_4": "1655 KG",
+            "value_5": "1914 KG",
+            "value_6": "1905 KG"
+          }
+        },
+        "row_NBEPN6": {
+          "type": "row",
+          "settings": {
+            "label": "Payload Increase (%)",
+            "value_1": "",
+            "value_2": "90%",
+            "value_3": "87.50%",
+            "value_4": "86.80%",
+            "value_5": "116.10%",
+            "value_6": "115.01 %"
+          }
+        },
+        "row_yxURR8": {
+          "type": "row",
+          "settings": {
+            "label": "Front Axle Capacity",
+            "value_1": "2722 KG",
+            "value_2": "2720 KG",
+            "value_3": "2720 KG",
+            "value_4": "2720 KG",
+            "value_5": "2720 KG",
+            "value_6": "2720 KG"
+          }
+        },
+        "row_XrjbQh": {
+          "type": "row",
+          "settings": {
+            "label": "Rear Axle Capacity",
+            "value_1": "2740 KG",
+            "value_2": "2840 KG",
+            "value_3": "2840 KG",
+            "value_4": "2840 KG",
+            "value_5": "2840 KG",
+            "value_6": "2840 KG"
+          }
+        },
+        "row_6PJMmp": {
+          "type": "row",
+          "settings": {
+            "label": "Wheel Offsets",
+            "value_1": "POS 47",
+            "value_2": "Pos 12 / 18",
+            "value_3": "Pos 12 / 18",
+            "value_4": "Pos 12 / 18",
+            "value_5": "Pos 12 / 18",
+            "value_6": "Pos 12 / 18"
+          }
+        },
+        "row_jqQfWz": {
+          "type": "row",
+          "settings": {
+            "label": "Wheel Load Rating",
+            "value_1": "1587 KG",
+            "value_2": "1600 KG",
+            "value_3": "1600 KG",
+            "value_4": "1600 KG",
+            "value_5": "1600 KG",
+            "value_6": "1600 KG"
+          }
         }
       },
       "block_order": [
         "row_GrPqDK",
         "row_8htPEx",
-        "row_pPmNqE"
+        "row_pPmNqE",
+        "row_QK8Yr6",
+        "row_X4HKwp",
+        "row_NBEPN6",
+        "row_yxURR8",
+        "row_XrjbQh",
+        "row_6PJMmp",
+        "row_jqQfWz"
       ],
       "name": "GVM Comparison",
       "settings": {
