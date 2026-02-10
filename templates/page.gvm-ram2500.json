@@ -504,6 +504,125 @@
         "padding_bottom": 40
       }
     },
+    "gvm_comparison_wMcwBL": {
+      "type": "gvm-comparison",
+      "blocks": {
+        "row_xNXAyg": {
+          "type": "row",
+          "settings": {
+            "label": "Fox 2.5 HTO Performance Series (Front)",
+            "value_1": "987-24-004",
+            "value_2": "✓",
+            "value_3": "",
+            "value_4": "",
+            "value_5": "",
+            "value_6": ""
+          }
+        },
+        "row_WngFrw": {
+          "type": "row",
+          "settings": {
+            "label": "Fox 2.5 HTO Performance Series (Rear)",
+            "value_1": "987-24-005",
+            "value_2": "✓",
+            "value_3": "",
+            "value_4": "",
+            "value_5": "",
+            "value_6": ""
+          }
+        },
+        "row_ALGEFA": {
+          "type": "row",
+          "settings": {
+            "label": "Fox 2.5 Performance Elite Series (Front)",
+            "value_1": "883-26-062",
+            "value_2": "",
+            "value_3": "✓",
+            "value_4": "✓",
+            "value_5": "✓",
+            "value_6": "✓"
+          }
+        },
+        "row_cTGH4i": {
+          "type": "row",
+          "settings": {
+            "label": "Fox 2.5 Performance Elite Series (Rear)",
+            "value_1": "883-26-065",
+            "value_2": "",
+            "value_3": "✓",
+            "value_4": "✓",
+            "value_5": "✓",
+            "value_6": "✓"
+          }
+        },
+        "row_jUhbFU": {
+          "type": "row",
+          "settings": {
+            "label": "ORI Front Coils",
+            "value_1": "KDFR-400H",
+            "value_2": "✓",
+            "value_3": "✓",
+            "value_4": "",
+            "value_5": "✓",
+            "value_6": "✓"
+          }
+        },
+        "row_9aAhdP": {
+          "type": "row",
+          "settings": {
+            "label": "ORI Front Coils",
+            "value_1": "KDRR-401HH",
+            "value_2": "✓",
+            "value_3": "✓",
+            "value_4": "✓",
+            "value_5": "✓",
+            "value_6": "✓"
+          }
+        },
+        "row_HeBeca": {
+          "type": "row",
+          "settings": {
+            "label": "BDS 3\" Radius Arm Kit",
+            "value_1": "BDS1653FPE",
+            "value_2": "",
+            "value_3": "",
+            "value_4": "✓",
+            "value_5": "",
+            "value_6": ""
+          }
+        }
+      },
+      "block_order": [
+        "row_xNXAyg",
+        "row_WngFrw",
+        "row_ALGEFA",
+        "row_cTGH4i",
+        "row_jUhbFU",
+        "row_9aAhdP",
+        "row_HeBeca"
+      ],
+      "name": "GVM Comparison",
+      "settings": {
+        "anchor_id": "compareitems",
+        "heading": "",
+        "details_heading": "Item",
+        "columns": "6",
+        "col_title_1": "Part Number",
+        "col_title_2": "Stage 1",
+        "col_title_3": "Stage 2",
+        "col_title_4": "Stage 3",
+        "col_title_5": "Stage 4",
+        "col_title_6": "Stage 5",
+        "container_width": "1200px",
+        "heading_color": "#111111",
+        "text_color": "#111111",
+        "line_color": "#111111",
+        "mobile_card_bg": "#f5f3ee",
+        "mobile_card_text": "#111111",
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    },
     "rich_text_4AxLyp": {
       "type": "rich-text",
       "blocks": {
@@ -749,6 +868,7 @@
     "layered_images_dFrAzV",
     "rich_text_rnLAPH",
     "gvm_comparison_WHp4pL",
+    "gvm_comparison_wMcwBL",
     "rich_text_4AxLyp",
     "gallery_images_VzpKEk",
     "featured_collection_Np9bwe",
