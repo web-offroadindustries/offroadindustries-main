@@ -307,6 +307,73 @@
         "animations": "inherit"
       }
     },
+    "gvm_comparison_WHp4pL": {
+      "type": "gvm-comparison",
+      "blocks": {
+        "row_GrPqDK": {
+          "type": "row",
+          "settings": {
+            "label": "Gross Vehicle Mass (GVM)",
+            "value_1": "4495 NB1",
+            "value_2": "5300 KG",
+            "value_3": "5300 KG",
+            "value_4": "5300 KG",
+            "value_5": "5550 KG",
+            "value_6": "5550 KG"
+          }
+        },
+        "row_8htPEx": {
+          "type": "row",
+          "settings": {
+            "label": "Braked Towing Capacity (BTC)",
+            "value_1": "4500 KG",
+            "value_2": "4500 KG",
+            "value_3": "4500 KG",
+            "value_4": "4500 KG",
+            "value_5": "4500 KG",
+            "value_6": "4500 KG"
+          }
+        },
+        "row_pPmNqE": {
+          "type": "row",
+          "settings": {
+            "label": "Gross Combined Mass (GCM)",
+            "value_1": "12695 KG",
+            "value_2": "12695 KG",
+            "value_3": "12695 KG",
+            "value_4": "12695 KG",
+            "value_5": "12695 KG",
+            "value_6": "12695 KG"
+          }
+        }
+      },
+      "block_order": [
+        "row_GrPqDK",
+        "row_8htPEx",
+        "row_pPmNqE"
+      ],
+      "name": "GVM Comparison",
+      "settings": {
+        "anchor_id": "compare",
+        "heading": "GVM Upgrade Comparison",
+        "details_heading": "",
+        "columns": "6",
+        "col_title_1": "OEM",
+        "col_title_2": "Stage 1",
+        "col_title_3": "Stage 2",
+        "col_title_4": "Stage 3",
+        "col_title_5": "Stage 4",
+        "col_title_6": "Stage 5",
+        "container_width": "1200px",
+        "heading_color": "#111111",
+        "text_color": "#111111",
+        "line_color": "#111111",
+        "mobile_card_bg": "#f5f3ee",
+        "mobile_card_text": "#111111",
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    },
     "comparison_specification_Yj66cU": {
       "type": "comparison-specification",
       "blocks": {
@@ -380,9 +447,10 @@
         "row_QymHQQ",
         "row_gq488F"
       ],
+      "disabled": true,
       "name": "Compare / Specification",
       "settings": {
-        "heading": "GVM Upgrade Comparison",
+        "heading": "",
         "details_heading": "",
         "anchor_id": "compare-Ranger",
         "layout_width": "fixed",
@@ -644,6 +712,7 @@
     "rich_text_PtmRiF",
     "layered_images_dFrAzV",
     "rich_text_rnLAPH",
+    "gvm_comparison_WHp4pL",
     "comparison_specification_Yj66cU",
     "rich_text_4AxLyp",
     "gallery_images_VzpKEk",
