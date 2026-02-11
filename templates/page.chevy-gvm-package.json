@@ -253,7 +253,7 @@
         "heading_dHpa9y": {
           "type": "heading",
           "settings": {
-            "heading": "STAGE 2 : 3650 GVM",
+            "heading": "<strong>Stage 2: The Performance Level-Up (3650kg GVM + GCM up to 7850Kg)</strong>",
             "highlight_style": "none",
             "enable_highlight_text_color": false,
             "heading_size": "h2"
@@ -262,7 +262,7 @@
         "text_eiTTm6": {
           "type": "text",
           "settings": {
-            "text": "<ul><li>Retain the Factory Multimatic Suspension</li><li>BDS Upper Control Arms</li><li>ORI 200KG Leaf Packs</li><li>OE Wheels & Tyres Approved</li><li>Federally Approved GVM & GCM</li><li>Increase Payload to 1087KG</li></ul>"
+            "text": "<p><em>Increased strength without the cost of replacing all your suspension + legal one tonne payload.</em></p><ul><li><strong>GVM Increase:</strong> 3650kg.</li><li><strong>Key Features:</strong> Adds <strong>BDS Upper Control Arms</strong> and a leveling kit (or 2\" lift options) retains the factory Multimatic Suspension</li><li><strong>Best For:</strong> Chevy Silverado ZR2 owners only need to clear the \"one-tonne\" mark for tax purposes (FBT compliance) or carry extra tools/gear legally.<br/></li></ul><p></p><p><strong>Benefit:</strong> Enhanced front-end strength and wheel travel, making it far more capable on corrugated outback roads.<br/><br/></p>"
           }
         }
       },
@@ -309,7 +309,7 @@
         "heading_KMefdY": {
           "type": "heading",
           "settings": {
-            "heading": "STAGE 3 : 5300 GVM",
+            "heading": "<strong>Stage 3: The Ultimate Tourer (3850kg GVM + GCM up to 8350kg)</strong>",
             "highlight_style": "none",
             "enable_highlight_text_color": false,
             "heading_size": "h2"
@@ -318,7 +318,7 @@
         "text_aVwiWh": {
           "type": "text",
           "settings": {
-            "text": "<ul><li>Fox 2.5 Performance Elite Suspension</li><li>BDS Upper Control Arms</li><li>ORI 200KG Leaf Packs</li><li>OE Wheels & Tyres Approved</li><li>Federally Approved GVM & GCM</li><li>Increase Payload to 1272KG</li></ul>"
+            "text": "<p><em>Engineered for the ultimate suspension, </em></p><ul><li><strong>GVM Increase:</strong> 3850kg (approx. 1272kg payload). GCM Increase 8050 KG ZR2 or 8350 LTZ</li><li><strong>Key Features:</strong> Premium <strong>Fox 2.5 DSC (Dual Speed Compression)</strong> adjustable shocks.</li><li><strong>Best For:</strong> Heavy-duty touring. If you have a, bull bar, and a heavy tow ball weight from a large caravan, this is your sweet spot without having to upgrade your wheel and tyre package.<br/></li></ul><p></p><p><strong>Benefit:</strong> The DSC adjustability allows you to \"dial in\" your ride—stiffen it for the highway and soften it for the tracks at the turn of a knob. Fox’s premium shocks setup for the Chevy Silverado 1500.<br/><br/></p>"
           }
         }
       },
@@ -365,7 +365,7 @@
         "heading_wfcybN": {
           "type": "heading",
           "settings": {
-            "heading": "STAGE 4 : 4250 GVM",
+            "heading": "<strong>Stage 4: The Heavy Hauler (4250kg GVM + GCM 8750Kg)</strong>",
             "highlight_style": "none",
             "enable_highlight_text_color": false,
             "heading_size": "h2"
@@ -374,7 +374,7 @@
         "text_giGN6b": {
           "type": "text",
           "settings": {
-            "text": "<ul><li>Fox 2.5 Performance Elite Suspension</li><li>BDS Upper Control Arms</li><li>ORI 200kg or 400KG Leaf Packs</li><li>Engineered for 35\" Tyres</li><li>Federally Approved GVM & GCM</li><li>Increase your payload to 1672kg to meet tax purposes.</li></ul>"
+            "text": "<p><em>Maximum legal capacity for the most demanding builds. Ideal for Tray Canopy builds</em></p><ul><li><strong>GVM Increase:</strong> 4250kg (approx. 1672kg payload) upto <strong>GCM Increase</strong> rating  8750kg * ZR2 8450kg.</li><li><strong>Key Features:</strong> Fox 2.5 Performance Elite suspension, ORI 400kg leaf packs, and <strong>required load-rated wheels/tyres</strong>.</li><li><strong>Best For:</strong> Fully built rigs with rear drawer systems, rooftop tents, and long-range tanks or the ultimate tourer with Tray and Canopies fitted.</li><li><strong>Benefit:</strong> Massive payload increase that transforms the Silverado into a true heavy-duty platform while retaining 4.5T braking towing capacity.</li></ul>"
           }
         }
       },
@@ -421,7 +421,7 @@
         "heading_FGMkek": {
           "type": "heading",
           "settings": {
-            "heading": "STAGE 5 : 4250 GVM",
+            "heading": "<strong>Stage 5: The \"No Compromise\" Build (4250kg GVM + GCM 8750Kg)</strong>",
             "highlight_style": "none",
             "enable_highlight_text_color": false,
             "heading_size": "h2"
@@ -430,7 +430,7 @@
         "text_AHtUHA": {
           "type": "text",
           "settings": {
-            "text": "<ul><li>Fox 3.0 Factory Bypass Suspension</li><li>Upgraded to BDS Control Arms</li><li>ORI 200kg or 400KG Leaf Packs</li><li>Engineered for 35\" Tyres</li><li>Federally Approved GVM & GCM</li><li>Increase your payload to 1672KG</li></ul>"
+            "text": "<p><em>The pinnacle of Silverado suspension engineering.</em></p><ul><li><strong>GVM Increase:</strong> 4250kg.</li><li><strong>Key Features:</strong> <strong>Fox 3.0 Internal Bypass Race Series Shocks</strong> (front and rear).</li><li><strong>Best For:</strong> The enthusiast who wants it all—maximum legal payload combined with race-bred suspension technology.<br/></li></ul><p><strong><br/>Benefit:</strong> The 3.0 Bypass shocks offer unparalleled heat dissipation and damping control. It’s the ultimate \"go-anywhere\" setup that remains legally compliant across Australia.<br/><br/></p>"
           }
         }
       },
