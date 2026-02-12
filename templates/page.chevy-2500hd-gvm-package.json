@@ -675,7 +675,7 @@
       "settings": {
         "anchor_id": "compare",
         "heading": "",
-        "details_heading": "Factory",
+        "details_heading": "",
         "columns": "6",
         "col_title_1": "OEM",
         "col_title_2": "Stage 1",
