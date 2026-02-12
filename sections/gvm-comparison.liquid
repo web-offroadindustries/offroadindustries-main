@@ -117,12 +117,10 @@
     color: var(--gvm-heading);
   }
 
-  /* Desktop grid table */
   .gvm-compare__table {
     width: 100%;
   }
 
-  /* Row as CSS grid: 1 label column + N value columns */
   .gvm-compare__row {
     display: grid;
     grid-template-columns: 240px repeat(var(--gvm-cols), minmax(140px, 1fr));
@@ -157,7 +155,6 @@
     border-bottom: 1px solid var(--gvm-line);
   }
 
-  /* Value rendering */
   .gvm-compare__icon {
     display: inline-flex;
     align-items: center;
@@ -173,12 +170,9 @@
      MOBILE: stacked cards
   ========================= */
   @media (max-width: 989px) {
-    /* Hide header row */
     .gvm-compare__row--head {
-      display: none;
+      display: none !important;
     }
-
-    /* Each row becomes a card */
     .gvm-compare__row {
       display: block;
       padding: 0;
@@ -190,8 +184,6 @@
       color: var(--gvm-card-text);
       box-shadow: 0 1px 2px rgba(0,0,0,0.06);
     }
-
-    /* Optional: divider becomes spacing only */
     .gvm-compare__divider {
       height: 10px;
       border: 0;
@@ -203,16 +195,12 @@
       border: 0;
       white-space: normal;
     }
-
-    /* First column = card header */
     .gvm-compare__cell--rowhead {
       background: rgba(0,0,0,0.06);
       font-weight: 800;
       font-size: 15px;
       padding: 12px 14px;
     }
-
-    /* Value cells become label/value rows */
     .gvm-compare__cell--val {
       display: flex;
       justify-content: space-between;
@@ -231,11 +219,6 @@
     }
   }
 {% endstyle %}
-
-{% comment %}
-  Snippet-like render helper (embedded below if snippet doesn't exist)
-  We'll create a local fallback via capture + include.
-{% endcomment %}
 
 {% unless content_for_header contains 'gvm-compare-value' %}
   {%- comment -%}
