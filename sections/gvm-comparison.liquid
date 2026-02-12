@@ -2,15 +2,19 @@
   Section: GVM Comparison / Specification
   - Desktop: table-style grid with bottom borders only (no outer border)
   - Mobile: STACKED cards (no horizontal scrolling)
+  - Updated to support up to 7 comparison columns
 {% endcomment %}
 
 {%- liquid
+  assign max_cols = 7
   assign cols = section.settings.columns | plus: 0
+
   if cols < 2
     assign cols = 2
   endif
-  if cols > 6
-    assign cols = 6
+
+  if cols > max_cols
+    assign cols = max_cols
   endif
 
   assign container_width = section.settings.container_width | default: '1200px'
@@ -36,14 +40,14 @@
       <h2 class="gvm-compare__heading">{{ section.settings.heading }}</h2>
     {% endif %}
 
-    <div class="gvm-compare__table" style="--gvm-cols: {{ cols }};">
+    <div class="gvm-compare__table" data-cols="{{ cols }}" style="--gvm-cols: {{ cols }};">
       <!-- Header Row (hidden on mobile via CSS) -->
       <div class="gvm-compare__row gvm-compare__row--head">
         <div class="gvm-compare__cell gvm-compare__cell--label gvm-compare__cell--head">
           {{ section.settings.details_heading }}
         </div>
 
-        {%- for i in (1..6) -%}
+        {%- for i in (1..7) -%}
           {%- if i <= cols -%}
             {%- assign key = 'col_title_' | append: i -%}
             <div class="gvm-compare__cell gvm-compare__cell--head">
@@ -72,7 +76,7 @@
                 {% endif %}
               </div>
 
-              {%- for i in (1..6) -%}
+              {%- for i in (1..7) -%}
                 {%- if i <= cols -%}
                   {%- assign tkey = 'col_title_' | append: i -%}
                   {%- assign col_title = section.settings[tkey] | strip -%}
@@ -99,9 +103,7 @@
 </section>
 
 {% style %}
-  .gvm-compare {
-    color: var(--gvm-text);
-  }
+  .gvm-compare { color: var(--gvm-text); }
 
   .gvm-compare__container {
     max-width: var(--gvm-max-width);
@@ -117,16 +119,22 @@
     color: var(--gvm-heading);
   }
 
-  .gvm-compare__table {
-    width: 100%;
-  }
+  .gvm-compare__table { width: 100%; }
 
+  /* Default desktop grid */
   .gvm-compare__row {
     display: grid;
     grid-template-columns: 240px repeat(var(--gvm-cols), minmax(140px, 1fr));
     column-gap: 40px;
     padding: 18px 0;
-    border-bottom: 1px solid var(--gvm-line); /* ONLY bottom borders */
+    border-bottom: 1px solid var(--gvm-line);
+  }
+
+  /* Tighten spacing when many columns to reduce overflow */
+  .gvm-compare__table[data-cols="6"] .gvm-compare__row,
+  .gvm-compare__table[data-cols="7"] .gvm-compare__row {
+    grid-template-columns: 220px repeat(var(--gvm-cols), minmax(110px, 1fr));
+    column-gap: 24px;
   }
 
   .gvm-compare__row--head {
@@ -146,9 +154,7 @@
     font-size: 13px;
   }
 
-  .gvm-compare__cell--label {
-    font-weight: 600;
-  }
+  .gvm-compare__cell--label { font-weight: 600; }
 
   .gvm-compare__divider {
     height: 26px;
@@ -170,9 +176,8 @@
      MOBILE: stacked cards
   ========================= */
   @media (max-width: 989px) {
-    .gvm-compare__row--head {
-      display: none !important;
-    }
+    .gvm-compare__row--head { display: none !important; }
+
     .gvm-compare__row {
       display: block;
       padding: 0;
@@ -184,6 +189,7 @@
       color: var(--gvm-card-text);
       box-shadow: 0 1px 2px rgba(0,0,0,0.06);
     }
+
     .gvm-compare__divider {
       height: 10px;
       border: 0;
@@ -195,12 +201,14 @@
       border: 0;
       white-space: normal;
     }
+
     .gvm-compare__cell--rowhead {
       background: rgba(0,0,0,0.06);
       font-weight: 800;
       font-size: 15px;
       padding: 12px 14px;
     }
+
     .gvm-compare__cell--val {
       display: flex;
       justify-content: space-between;
@@ -219,14 +227,6 @@
     }
   }
 {% endstyle %}
-
-{% unless content_for_header contains 'gvm-compare-value' %}
-  {%- comment -%}
-    If you prefer, create a snippet file: snippets/gvm-compare-value.liquid
-    and paste the snippet below. If not, this section still works because
-    Shopify will ignore render if snippet missing (but you SHOULD create it).
-  {%- endcomment -%}
-{% endunless %}
 
 {% schema %}
 {
@@ -247,7 +247,8 @@
         { "value": "3", "label": "3" },
         { "value": "4", "label": "4" },
         { "value": "5", "label": "5" },
-        { "value": "6", "label": "6" }
+        { "value": "6", "label": "6" },
+        { "value": "7", "label": "7" }
       ]
     },
 
@@ -257,6 +258,7 @@
     { "type": "text", "id": "col_title_4", "label": "Column 4 title", "default": "3.85T" },
     { "type": "text", "id": "col_title_5", "label": "Column 5 title", "default": "4.2T" },
     { "type": "text", "id": "col_title_6", "label": "Column 6 title", "default": "4.49T" },
+    { "type": "text", "id": "col_title_7", "label": "Column 7 title", "default": "STAGE 6" },
 
     { "type": "text", "id": "container_width", "label": "Container width (e.g. 1200px or 100%)", "default": "1200px" },
 
@@ -282,7 +284,8 @@
         { "type": "textarea", "id": "value_3", "label": "Value (Column 3)", "default": "3,650kg" },
         { "type": "textarea", "id": "value_4", "label": "Value (Column 4)", "default": "3,850kg" },
         { "type": "textarea", "id": "value_5", "label": "Value (Column 5)" },
-        { "type": "textarea", "id": "value_6", "label": "Value (Column 6)" }
+        { "type": "textarea", "id": "value_6", "label": "Value (Column 6)" },
+        { "type": "textarea", "id": "value_7", "label": "Value (Column 7)" }
       ]
     },
     {
