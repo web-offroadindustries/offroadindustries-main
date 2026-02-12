@@ -675,7 +675,7 @@
       "settings": {
         "anchor_id": "compare",
         "heading": "",
-        "details_heading": "Factory",
+        "details_heading": "",
         "columns": "6",
         "col_title_1": "OEM",
         "col_title_2": "Stage 1",
@@ -873,7 +873,7 @@
         "line_color": "#111111",
         "mobile_card_bg": "#f5f3ee",
         "mobile_card_text": "#111111",
-        "padding_top": 0,
+        "padding_top": 20,
         "padding_bottom": 40
       }
     },
