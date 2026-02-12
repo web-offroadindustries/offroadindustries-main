@@ -503,12 +503,12 @@
           "type": "row",
           "settings": {
             "label": "Gross Vehicle Mass (GVM)",
-            "value_1": "3300 KG",
-            "value_2": "3,650 KG",
-            "value_3": "3,650 KG",
-            "value_4": "3,850 KG",
-            "value_5": "4250 KG",
-            "value_6": "4250 KG"
+            "value_1": "4495 KG NB1",
+            "value_2": "5300 KG",
+            "value_3": "5300 KG",
+            "value_4": "5300 KG",
+            "value_5": "5550 KG",
+            "value_6": "5550 KG"
           }
         },
         "row_7JDfxb": {
@@ -517,7 +517,7 @@
             "label": "Braked Towing Capacity (BTC)",
             "value_1": "4500 KG",
             "value_2": "4500 KG",
-            "value_3": "4200 KG",
+            "value_3": "4500 KG",
             "value_4": "4500 KG",
             "value_5": "4500 KG",
             "value_6": "4500 KG"
@@ -527,36 +527,36 @@
           "type": "row",
           "settings": {
             "label": "Gross Combined Mass (GCM)",
-            "value_1": "7160 KG",
-            "value_2": "8150 KG",
-            "value_3": "7850 KG",
-            "value_4": "8350 KG LTZ\n8050 KG ZR2",
-            "value_5": "8750 KG LTZ\n8450 KG ZR2",
-            "value_6": "8750 KG LTZ\n8450 KG ZR2"
+            "value_1": "12 695 KG",
+            "value_2": "12474 KG",
+            "value_3": "12474 KG",
+            "value_4": "12474 KG",
+            "value_5": "12474 KG",
+            "value_6": "12474 KG"
           }
         },
         "row_zPKiUF": {
           "type": "row",
           "settings": {
             "label": "Kerb Weight",
-            "value_1": "2543 KG",
-            "value_2": "2573 KG",
-            "value_3": "2563 KG",
-            "value_4": "2578 KG",
-            "value_5": "2578 KG",
-            "value_6": "2578 KG"
+            "value_1": "3609 KG",
+            "value_2": "3620 KG",
+            "value_3": "3639 KG",
+            "value_4": "3645 KG",
+            "value_5": "3639 KG",
+            "value_6": "3645 KG"
           }
         },
         "row_wywcAp": {
           "type": "row",
           "settings": {
-            "label": "Payload (bases on kerb weight)",
-            "value_1": "757 KG",
-            "value_2": "1077 KG",
-            "value_3": "1087 KG",
-            "value_4": "1272 KG",
-            "value_5": "1672 KG",
-            "value_6": "1672 KG"
+            "label": "Payload (bases on kerb weight) FROM NB1",
+            "value_1": "886 KG",
+            "value_2": "1680 KG",
+            "value_3": "1661 KG",
+            "value_4": "1655 KG",
+            "value_5": "1914 KG",
+            "value_6": "1905 KG"
           }
         },
         "row_VPhYR9": {
@@ -675,7 +675,7 @@
       "settings": {
         "anchor_id": "compare",
         "heading": "",
-        "details_heading": "Factory",
+        "details_heading": "",
         "columns": "6",
         "col_title_1": "OEM",
         "col_title_2": "Stage 1",
