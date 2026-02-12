@@ -1,7 +1,7 @@
 {% comment %}
-  Section: GVM Comparison / Specification (Desktop table + Mobile swipe cards)
-  - Desktop: bottom borders only (no outer border)
-  - Mobile: horizontally swipeable cards (one per column)
+  Section: GVM Comparison / Specification
+  - Desktop: table-style grid with bottom borders only (no outer border)
+  - Mobile: STACKED cards (no horizontal scrolling)
 {% endcomment %}
 
 {%- liquid
@@ -36,107 +36,63 @@
       <h2 class="gvm-compare__heading">{{ section.settings.heading }}</h2>
     {% endif %}
 
-    {%- comment -%}
-      DESKTOP TABLE
-    {%- endcomment -%}
-    <div class="gvm-compare__desktop" data-cols="{{ cols }}">
-      <div class="gvm-compare__table" style="--gvm-cols: {{ cols }};">
-        <!-- Header Row -->
-        <div class="gvm-compare__row gvm-compare__row--head">
-          <div class="gvm-compare__cell gvm-compare__cell--label gvm-compare__cell--head">
-            {{ section.settings.details_heading }}
-          </div>
-
-          {%- for i in (1..6) -%}
-            {%- if i <= cols -%}
-              {%- assign key = 'col_title_' | append: i -%}
-              <div class="gvm-compare__cell gvm-compare__cell--head">
-                {{ section.settings[key] }}
-              </div>
-            {%- endif -%}
-          {%- endfor -%}
+    <div class="gvm-compare__table" style="--gvm-cols: {{ cols }};">
+      <!-- Header Row (hidden on mobile via CSS) -->
+      <div class="gvm-compare__row gvm-compare__row--head">
+        <div class="gvm-compare__cell gvm-compare__cell--label gvm-compare__cell--head">
+          {{ section.settings.details_heading }}
         </div>
 
-        <!-- Body Rows -->
-        {%- for block in section.blocks -%}
-          {%- case block.type -%}
-
-            {%- when 'divider' -%}
-              <div class="gvm-compare__divider" {{ block.shopify_attributes }}></div>
-
-            {%- when 'row' -%}
-              {%- liquid
-                assign label = block.settings.label | strip
-              -%}
-              <div class="gvm-compare__row" {{ block.shopify_attributes }}>
-                <div class="gvm-compare__cell gvm-compare__cell--label">
-                  {% if label != blank %}
-                    {{ label | newline_to_br }}
-                  {% endif %}
-                </div>
-
-                {%- for i in (1..6) -%}
-                  {%- if i <= cols -%}
-                    {%- assign vkey = 'value_' | append: i -%}
-                    {%- assign raw = block.settings[vkey] | default: '' -%}
-                    {%- assign val = raw | strip -%}
-                    <div class="gvm-compare__cell">
-                      {% render 'gvm-compare-value', value: val %}
-                    </div>
-                  {%- endif -%}
-                {%- endfor -%}
-              </div>
-
-          {%- endcase -%}
-        {%- endfor -%}
-      </div>
-    </div>
-
-    {%- comment -%}
-      MOBILE SWIPE CARDS
-    {%- endcomment -%}
-    <div class="gvm-compare__mobile" data-cols="{{ cols }}">
-      <div class="gvm-compare__mobile-track" aria-label="Comparison swipe cards">
         {%- for i in (1..6) -%}
           {%- if i <= cols -%}
             {%- assign key = 'col_title_' | append: i -%}
-            {%- assign col_title = section.settings[key] | strip -%}
-
-            <article class="gvm-compare__card" aria-label="{{ col_title | escape }}">
-              <h3 class="gvm-compare__card-title">
-                {{ col_title }}
-              </h3>
-
-              <div class="gvm-compare__card-body">
-                {%- for block in section.blocks -%}
-                  {%- case block.type -%}
-
-                    {%- when 'divider' -%}
-                      <div class="gvm-compare__card-divider"></div>
-
-                    {%- when 'row' -%}
-                      {%- assign label = block.settings.label | strip -%}
-                      {%- assign vkey = 'value_' | append: i -%}
-                      {%- assign raw = block.settings[vkey] | default: '' -%}
-                      {%- assign val = raw | strip -%}
-
-                      <div class="gvm-compare__card-row">
-                        <div class="gvm-compare__card-label">
-                          {{ label | newline_to_br }}
-                        </div>
-                        <div class="gvm-compare__card-value">
-                          {% render 'gvm-compare-value', value: val %}
-                        </div>
-                      </div>
-
-                  {%- endcase -%}
-                {%- endfor -%}
-              </div>
-            </article>
-
+            <div class="gvm-compare__cell gvm-compare__cell--head">
+              {{ section.settings[key] }}
+            </div>
           {%- endif -%}
         {%- endfor -%}
       </div>
+
+      <!-- Body Rows -->
+      {%- for block in section.blocks -%}
+        {%- case block.type -%}
+
+          {%- when 'divider' -%}
+            <div class="gvm-compare__divider" {{ block.shopify_attributes }}></div>
+
+          {%- when 'row' -%}
+            {%- liquid
+              assign label = block.settings.label | strip
+            -%}
+            <div class="gvm-compare__row" {{ block.shopify_attributes }}>
+              <!-- Row label becomes the "card header" on mobile -->
+              <div class="gvm-compare__cell gvm-compare__cell--label gvm-compare__cell--rowhead">
+                {% if label != blank %}
+                  {{ label | newline_to_br }}
+                {% endif %}
+              </div>
+
+              {%- for i in (1..6) -%}
+                {%- if i <= cols -%}
+                  {%- assign tkey = 'col_title_' | append: i -%}
+                  {%- assign col_title = section.settings[tkey] | strip -%}
+                  {%- if col_title == blank -%}
+                    {%- assign col_title = 'Column ' | append: i -%}
+                  {%- endif -%}
+
+                  {%- assign vkey = 'value_' | append: i -%}
+                  {%- assign raw = block.settings[vkey] | default: '' -%}
+                  {%- assign val = raw | strip -%}
+
+                  <div class="gvm-compare__cell gvm-compare__cell--val" data-label="{{ col_title | escape }}">
+                    {% render 'gvm-compare-value', value: val %}
+                  </div>
+                {%- endif -%}
+              {%- endfor -%}
+            </div>
+
+        {%- endcase -%}
+      {%- endfor -%}
     </div>
 
   </div>
@@ -161,10 +117,7 @@
     color: var(--gvm-heading);
   }
 
-  /* Desktop */
-  .gvm-compare__desktop { display: block; }
-  .gvm-compare__mobile { display: none; }
-
+  /* Desktop grid table */
   .gvm-compare__table {
     width: 100%;
   }
@@ -213,67 +166,68 @@
     line-height: 1;
     transform: translateY(1px);
   }
-  .gvm-compare__icon--check { color: #6b7b2a; } /* olive-ish like ref */
+  .gvm-compare__icon--check { color: #6b7b2a; }
   .gvm-compare__icon--cross { color: currentColor; }
 
-  /* MOBILE swipe cards */
+  /* =========================
+     MOBILE: stacked cards
+  ========================= */
   @media (max-width: 989px) {
-    .gvm-compare__desktop { display: none; }
-    .gvm-compare__mobile { display: block; }
-
-    .gvm-compare__mobile-track {
-      display: flex;
-      gap: 16px;
-      overflow-x: auto;
-      padding: 6px 2px 2px;
-      scroll-snap-type: x mandatory;
-      -webkit-overflow-scrolling: touch;
+    /* Hide header row */
+    .gvm-compare__row--head {
+      display: none;
     }
 
-    .gvm-compare__mobile-track::-webkit-scrollbar { display: none; }
-    .gvm-compare__mobile-track { scrollbar-width: none; }
-
-    .gvm-compare__card {
-      flex: 0 0 85%;
-      max-width: 520px;
+    /* Each row becomes a card */
+    .gvm-compare__row {
+      display: block;
+      padding: 0;
+      margin: 0 0 14px;
+      border: 1px solid rgba(0,0,0,0.15);
+      border-radius: 12px;
+      overflow: hidden;
       background: var(--gvm-card-bg);
       color: var(--gvm-card-text);
-      border-radius: 0; /* reference looks sharp */
-      padding: 24px 18px;
-      scroll-snap-align: start;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.06);
     }
 
-    .gvm-compare__card-title {
-      margin: 0 0 18px;
-      font-size: 34px;
-      line-height: 1.15;
-      font-weight: 500;
-      letter-spacing: 0.01em;
+    /* Optional: divider becomes spacing only */
+    .gvm-compare__divider {
+      height: 10px;
+      border: 0;
     }
 
-    .gvm-compare__card-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
-      padding: 12px 0;
-    }
-
-    .gvm-compare__card-label {
-      font-weight: 700;
+    .gvm-compare__cell {
+      padding: 10px 14px;
       font-size: 14px;
-      line-height: 1.35;
+      border: 0;
+      white-space: normal;
     }
 
-    .gvm-compare__card-value {
-      font-size: 14px;
-      line-height: 1.35;
+    /* First column = card header */
+    .gvm-compare__cell--rowhead {
+      background: rgba(0,0,0,0.06);
+      font-weight: 800;
+      font-size: 15px;
+      padding: 12px 14px;
+    }
+
+    /* Value cells become label/value rows */
+    .gvm-compare__cell--val {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+      border-top: 1px solid rgba(0,0,0,0.12);
+      text-align: right;
+    }
+
+    .gvm-compare__cell--val::before {
+      content: attr(data-label);
+      font-weight: 600;
+      color: rgba(0,0,0,0.72);
+      min-width: 110px;
       text-align: left;
-    }
-
-    .gvm-compare__card-divider {
-      height: 14px;
-      border-bottom: 1px solid rgba(0,0,0,0.25);
-      margin: 10px 0 4px;
     }
   }
 {% endstyle %}
@@ -366,4 +320,3 @@
   ]
 }
 {% endschema %}
-
