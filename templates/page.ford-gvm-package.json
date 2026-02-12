@@ -574,50 +574,50 @@
             "label": "Braked Towing Capacity (BTC)",
             "value_1": "4500 KG",
             "value_2": "4500 KG",
-            "value_3": "4200 KG",
+            "value_3": "4500 KG",
             "value_4": "4500 KG",
             "value_5": "4500 KG",
             "value_6": "4500 KG",
-            "value_7": ""
+            "value_7": "4500 KG"
           }
         },
         "row_YVwraj": {
           "type": "row",
           "settings": {
             "label": "Gross Combined Mass (GCM)",
-            "value_1": "7160 KG",
-            "value_2": "8150 KG",
-            "value_3": "7850 KG",
-            "value_4": "8350 KG LTZ\n8050 KG ZR2",
-            "value_5": "8750 KG LTZ\n8450 KG ZR2",
-            "value_6": "8750 KG LTZ\n8450 KG ZR2",
-            "value_7": ""
+            "value_1": "7720 KG",
+            "value_2": "8200 KG",
+            "value_3": "8200 KG",
+            "value_4": "8800 KG",
+            "value_5": "8800 KG",
+            "value_6": "8000 KG",
+            "value_7": "7800 KG"
           }
         },
         "row_zPKiUF": {
           "type": "row",
           "settings": {
             "label": "Kerb Weight",
-            "value_1": "2543 KG",
-            "value_2": "2573 KG",
-            "value_3": "2563 KG",
-            "value_4": "2578 KG",
-            "value_5": "2578 KG",
-            "value_6": "2578 KG",
-            "value_7": ""
+            "value_1": "2451 KG",
+            "value_2": "2476 KG",
+            "value_3": "2481 KG",
+            "value_4": "2481 KG",
+            "value_5": "2481 kg",
+            "value_6": "2491 kg",
+            "value_7": "2491 kg"
           }
         },
         "row_wywcAp": {
           "type": "row",
           "settings": {
             "label": "Payload (bases on kerb weight)",
-            "value_1": "757 KG",
-            "value_2": "1077 KG",
-            "value_3": "1087 KG",
-            "value_4": "1272 KG",
-            "value_5": "1672 KG",
-            "value_6": "1672 KG",
-            "value_7": ""
+            "value_1": "769 KG",
+            "value_2": "1224 KG",
+            "value_3": "1219 KG",
+            "value_4": "1819 KG",
+            "value_5": "1819 KG",
+            "value_6": "1509 KG",
+            "value_7": "1209 KG"
           }
         },
         "row_VPhYR9": {
@@ -625,90 +625,90 @@
           "settings": {
             "label": "Payload Increase (%)",
             "value_1": "0%",
-            "value_2": "42.28%",
-            "value_3": "43.59%",
-            "value_4": "68.03%",
-            "value_5": "120.87%",
-            "value_6": "120.87%",
-            "value_7": ""
+            "value_2": "59.18%",
+            "value_3": "58.52 %",
+            "value_4": "136.54%",
+            "value_5": "136.54%",
+            "value_6": "96.22%",
+            "value_7": "57.52 %"
           }
         },
         "row_bcXE8T": {
           "type": "row",
           "settings": {
             "label": "Front Axle Capacity",
-            "value_1": "1724 KG",
-            "value_2": "1724 KG",
-            "value_3": "1724 KG",
-            "value_4": "1724 KG",
-            "value_5": "1770 KG",
-            "value_6": "1770 KG",
-            "value_7": ""
+            "value_1": "1565 KG",
+            "value_2": "1700 KG",
+            "value_3": "1700 KG",
+            "value_4": "1850 KG",
+            "value_5": "1850 KG",
+            "value_6": "1700 KG",
+            "value_7": "1700 KG"
           }
         },
         "row_YJQHKH": {
           "type": "row",
           "settings": {
             "label": "Rear Axle Capacity",
-            "value_1": "1724 KG",
-            "value_2": "1926 KG",
-            "value_3": "1926 KG",
-            "value_4": "2126 KG",
-            "value_5": "2480 KG",
-            "value_6": "2480 KG",
-            "value_7": ""
+            "value_1": "1565 KG",
+            "value_2": "2000 KG",
+            "value_3": "2000 KG",
+            "value_4": "2450 KG",
+            "value_5": "2450 KG",
+            "value_6": "2300 KG",
+            "value_7": "2000 KG"
           }
         },
         "row_pqzEiz": {
           "type": "row",
           "settings": {
             "label": "Wheel Offsets",
-            "value_1": "28",
-            "value_2": "28",
-            "value_3": "28",
-            "value_4": "28",
-            "value_5": "Zero +12",
-            "value_6": "Zero +12",
-            "value_7": ""
+            "value_1": "44",
+            "value_2": "44",
+            "value_3": "44",
+            "value_4": "35 30 25 18 12 0",
+            "value_5": "35 30 25 18 12 0",
+            "value_6": "Pos 18 12 0",
+            "value_7": "Pos 18 12 0"
           }
         },
         "row_NrDzqV": {
           "type": "row",
           "settings": {
             "label": "Wheel Load Rating",
-            "value_1": "862 KG",
-            "value_2": "963 KG",
-            "value_3": "963 KG",
-            "value_4": "1063 KG",
-            "value_5": "1250 KG",
-            "value_6": "1250 KG",
-            "value_7": ""
+            "value_1": "1050 KG",
+            "value_2": "1050 KG",
+            "value_3": "1074.5 KG",
+            "value_4": "1200 KG",
+            "value_5": "1200 KG",
+            "value_6": "1200 KG",
+            "value_7": "1074.5 KG"
           }
         },
         "row_aDFEfG": {
           "type": "row",
           "settings": {
             "label": "Tyre Load Rating",
-            "value_1": "862 KG",
-            "value_2": "963 KG",
-            "value_3": "963 KG",
-            "value_4": "1063 KG",
-            "value_5": "1250 KG",
-            "value_6": "1250 KG",
-            "value_7": ""
+            "value_1": "1050 KG",
+            "value_2": "1050 KG",
+            "value_3": "1074.5 KG",
+            "value_4": "1200 KG",
+            "value_5": "1200 KG",
+            "value_6": "1200 KG",
+            "value_7": "1074.5 KG"
           }
         },
         "row_Ei9mfn": {
           "type": "row",
           "settings": {
             "label": "Requires Wheel/ Tyre Upgrade",
-            "value_1": "OEM",
+            "value_1": "N/A",
             "value_2": "N/A",
             "value_3": "N/A",
-            "value_4": "N/A",
+            "value_4": "✔",
             "value_5": "✔",
             "value_6": "✔",
-            "value_7": ""
+            "value_7": "✔"
           }
         },
         "row_VrmHhK": {
@@ -717,11 +717,11 @@
             "label": "Maximum Tyre Size",
             "value_1": "275/60 R20",
             "value_2": "275/60 R20",
-            "value_3": "LT275/70R18",
-            "value_4": "275/60 R20\nLT275/70R18",
-            "value_5": "295/70 R18\n35x12.5R18",
-            "value_6": "295/70 R18\n35x12.5R18",
-            "value_7": ""
+            "value_3": "275/60 R20",
+            "value_4": "35x12.5x18",
+            "value_5": "",
+            "value_6": "35x12.5x18",
+            "value_7": "37x13.5x18"
           }
         }
       },
