@@ -617,16 +617,17 @@
           "type": "collection",
           "settings": {
             "collection": "bushwacker",
-            "heading": "Buhwacker",
-            "heading_size": "h3",
-            "text": "<p>Backpacks are popular for school, work, travel, and outdoor activities due to their convenience and hands-free design.</p>"
+            "image": "shopify://shop_images/bushwacker-chevy-silverado-2500hd-extend-flares-2020-2025bushwacker40163-02-620750.jpg",
+            "heading": "Husky Fender",
+            "heading_size": "h5",
+            "text": "<p>Dont be caught with wheel poke check out our range of Fender flares for your favourite american truck.</p>"
           }
         },
         "template--16355052454049__8d9edff7-a12e-496b-b515-7b16d0a18ca0-collection-2": {
           "type": "collection",
           "settings": {
             "collection": "amp-research-by-real-truck",
-            "image": "shopify://shop_images/bds-225-inch-lift-kit-fox-30-internal-bypass-factory-race-series-toyota-tundra-22-24bdsbds838frs-432859.png",
+            "image": "shopify://shop_images/amp-research-powerstep-vision-ram-2500-19amp-research96239-01a-197874.webp",
             "heading": "AMP research",
             "heading_size": "h5",
             "text": "<p>AMP USA Steps for USA trucks in Australia by ORI.</p>"
@@ -638,8 +639,8 @@
             "collection": "fox-suspension",
             "image": "shopify://shop_images/3_10.png",
             "heading": "Fox Suspension",
-            "heading_size": "h3",
-            "text": "<p>Bag coolers are portable, insulated bags designed to keep food and drinks cold while on the go.</p>"
+            "heading_size": "h5",
+            "text": "<p>Looking for the ultimate suspension, Fox shocks in Australia.</p>"
           }
         }
       },
