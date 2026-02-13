@@ -704,7 +704,7 @@
         "mobile_card_bg": "#f5f3ee",
         "mobile_card_text": "#111111",
         "padding_top": 0,
-        "padding_bottom": 0
+        "padding_bottom": 20
       }
     },
     "gvm_comparison_RXeVcA": {
@@ -713,8 +713,8 @@
         "row_PLrREz": {
           "type": "row",
           "settings": {
-            "label": "Fox 2.5 PS Coilovers (Front)",
-            "value_1": "987-02-004",
+            "label": "Fox 2.5 Performance Elite Series 2.5 Coil-Over",
+            "value_1": "883-06-240",
             "value_2": "✔",
             "value_3": "",
             "value_4": "",
@@ -726,8 +726,8 @@
         "row_QWetUx": {
           "type": "row",
           "settings": {
-            "label": "Fox 2.5 PS Shocks (Rear)",
-            "value_1": "987-24-028",
+            "label": "Fox Performance Elite Series 2.5 Reservoir Shock",
+            "value_1": "883-26-155",
             "value_2": "✔",
             "value_3": "",
             "value_4": "",
@@ -739,12 +739,12 @@
         "row_dAdUVr": {
           "type": "row",
           "settings": {
-            "label": "Fox 2.5 PE DSC Coilovers (Front)",
-            "value_1": "883-06-162",
+            "label": "Fox Race Series 3.0 Bypass Coil-over",
+            "value_1": "883-06-231",
             "value_2": "",
-            "value_3": "",
-            "value_4": "✔",
-            "value_5": "✔",
+            "value_3": "✔",
+            "value_4": "",
+            "value_5": "",
             "value_6": "",
             "value_7": ""
           }
@@ -752,12 +752,12 @@
         "row_VhLrHW": {
           "type": "row",
           "settings": {
-            "label": "Fox 2.5 PE DSC Shocks (Rear)",
-            "value_1": "883-26-087",
+            "label": "Fox Race 3.0 Bypass Rear Shock",
+            "value_1": "883-26-147",
             "value_2": "",
-            "value_3": "",
-            "value_4": "✔",
-            "value_5": "✔",
+            "value_3": "✔",
+            "value_4": "",
+            "value_5": "",
             "value_6": "",
             "value_7": ""
           }
@@ -765,104 +765,78 @@
         "row_Xm7nMe": {
           "type": "row",
           "settings": {
-            "label": "Fox 3.0 Bypass Race Series (Front)",
-            "value_1": "883-06-175",
-            "value_2": "",
-            "value_3": "",
-            "value_4": "",
-            "value_5": "",
-            "value_6": "✔",
-            "value_7": ""
-          }
-        },
-        "row_PyCLYV": {
-          "type": "row",
-          "settings": {
-            "label": "Fox 3.0 Bypass Race Series (Rear)",
-            "value_1": "883-26-105",
-            "value_2": "",
-            "value_3": "",
-            "value_4": "",
-            "value_5": "",
-            "value_6": "✔",
-            "value_7": ""
-          }
-        },
-        "row_MQ9Uxh": {
-          "type": "row",
-          "settings": {
-            "label": "ORI 200kg Leaf Spring Pack",
-            "value_1": "ORI-CHV-200KG",
+            "label": "Upper Control Arms Baja Kits",
+            "value_1": "BJK8311001",
             "value_2": "✔",
             "value_3": "✔",
-            "value_4": "✔",
-            "value_5": "✔",
-            "value_6": "✔",
-            "value_7": ""
-          }
-        },
-        "row_ViUDYJ": {
-          "type": "row",
-          "settings": {
-            "label": "ORI 400kg Leaf Spring Pack",
-            "value_1": "ORI-CHV-400KG",
-            "value_2": "",
-            "value_3": "",
-            "value_4": "",
-            "value_5": "✔",
-            "value_6": "✔",
-            "value_7": ""
-          }
-        },
-        "row_YaJzWt": {
-          "type": "row",
-          "settings": {
-            "label": "BDS Control Arms",
-            "value_1": "BDS121260",
-            "value_2": "✔",
-            "value_3": "✔",
-            "value_4": "✔",
-            "value_5": "✔",
-            "value_6": "✔",
-            "value_7": ""
-          }
-        },
-        "row_MDY7qw": {
-          "type": "row",
-          "settings": {
-            "label": "Retain Factory Multimatic Suspension",
-            "value_1": "",
-            "value_2": "✔",
-            "value_3": "",
             "value_4": "",
             "value_5": "",
             "value_6": "",
             "value_7": ""
           }
         },
-        "row_KnhHzc": {
+        "row_PyCLYV": {
           "type": "row",
           "settings": {
-            "label": "Lift Height",
-            "value_1": "",
-            "value_2": "3.5\"",
-            "value_3": "2\"",
-            "value_4": "3.5\"",
-            "value_5": "3.5\"",
-            "value_6": "3.5\"",
+            "label": "Rear Adjustable Panhard",
+            "value_1": "ORI-PH-LC300",
+            "value_2": "✔",
+            "value_3": "✔",
+            "value_4": "",
+            "value_5": "",
+            "value_6": "",
             "value_7": ""
           }
         },
-        "row_nNQibi": {
+        "row_MQ9Uxh": {
           "type": "row",
           "settings": {
-            "label": "Load-Rated Wheels Required",
-            "value_1": "",
-            "value_2": "",
-            "value_3": "",
+            "label": "LED Autolamps Cat 6 Indicators",
+            "value_1": "77ACM2",
+            "value_2": "✔",
+            "value_3": "✔",
             "value_4": "",
-            "value_5": "✔",
-            "value_6": "✔",
+            "value_5": "",
+            "value_6": "",
+            "value_7": ""
+          }
+        },
+        "row_ViUDYJ": {
+          "type": "row",
+          "settings": {
+            "label": "ORI Coil Packs",
+            "value_1": "KTRR-141HD",
+            "value_2": "✔",
+            "value_3": "✔",
+            "value_4": "",
+            "value_5": "",
+            "value_6": "",
+            "value_7": ""
+          }
+        },
+        "row_YaJzWt": {
+          "type": "row",
+          "settings": {
+            "label": "ORI Billet Support Brace",
+            "value_1": "ORI-Billet-coilhat",
+            "value_2": "✔",
+            "value_3": "✔",
+            "value_4": "",
+            "value_5": "",
+            "value_6": "",
+            "value_7": ""
+          }
+        },
+        "row_MDY7qw": {
+          "type": "row",
+          "settings": {
+            "label": "Reverse Light",
+            "value_1": "ORI-LED",
+            "value_2": "✔",
+            "value_3": "✔",
+            "value_4": "",
+            "value_5": "",
+            "value_6": "",
             "value_7": ""
           }
         }
@@ -877,16 +851,14 @@
         "row_MQ9Uxh",
         "row_ViUDYJ",
         "row_YaJzWt",
-        "row_MDY7qw",
-        "row_KnhHzc",
-        "row_nNQibi"
+        "row_MDY7qw"
       ],
       "name": "GVM Comparison",
       "settings": {
         "anchor_id": "compare1",
         "heading": "",
         "details_heading": "Item",
-        "columns": "6",
+        "columns": "3",
         "col_title_1": "Part Number",
         "col_title_2": "Stage 1",
         "col_title_3": "Stage 2",
