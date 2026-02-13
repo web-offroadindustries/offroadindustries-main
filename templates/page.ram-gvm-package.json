@@ -508,7 +508,8 @@
             "value_3": "5300 KG",
             "value_4": "5300 KG",
             "value_5": "5550 KG",
-            "value_6": "5550 KG"
+            "value_6": "5550 KG",
+            "value_7": ""
           }
         },
         "row_7JDfxb": {
@@ -520,7 +521,8 @@
             "value_3": "4500 KG",
             "value_4": "4500 KG",
             "value_5": "4500 KG",
-            "value_6": "4500 KG"
+            "value_6": "4500 KG",
+            "value_7": ""
           }
         },
         "row_YVwraj": {
@@ -532,7 +534,8 @@
             "value_3": "12474 KG",
             "value_4": "12474 KG",
             "value_5": "12474 KG",
-            "value_6": "12474 KG"
+            "value_6": "12474 KG",
+            "value_7": ""
           }
         },
         "row_zPKiUF": {
@@ -544,7 +547,8 @@
             "value_3": "3639 KG",
             "value_4": "3645 KG",
             "value_5": "3639 KG",
-            "value_6": "3645 KG"
+            "value_6": "3645 KG",
+            "value_7": ""
           }
         },
         "row_wywcAp": {
@@ -556,7 +560,8 @@
             "value_3": "1661 KG",
             "value_4": "1655 KG",
             "value_5": "1914 KG",
-            "value_6": "1905 KG"
+            "value_6": "1905 KG",
+            "value_7": ""
           }
         },
         "row_VPhYR9": {
@@ -568,7 +573,8 @@
             "value_3": "87.50%",
             "value_4": "86.80%",
             "value_5": "116.10%",
-            "value_6": "115.01 %"
+            "value_6": "115.01 %",
+            "value_7": ""
           }
         },
         "row_bcXE8T": {
@@ -580,7 +586,8 @@
             "value_3": "2720 KG",
             "value_4": "2720 KG",
             "value_5": "2720 KG",
-            "value_6": "2720 KG"
+            "value_6": "2720 KG",
+            "value_7": ""
           }
         },
         "row_YJQHKH": {
@@ -592,7 +599,8 @@
             "value_3": "2840 KG",
             "value_4": "2840 KG",
             "value_5": "2840 KG",
-            "value_6": "2840 KG"
+            "value_6": "2840 KG",
+            "value_7": ""
           }
         },
         "row_pqzEiz": {
@@ -604,7 +612,8 @@
             "value_3": "Pos 12 / 18",
             "value_4": "Pos 12 / 18",
             "value_5": "Pos 12 / 18",
-            "value_6": "Pos 12 / 18"
+            "value_6": "Pos 12 / 18",
+            "value_7": ""
           }
         },
         "row_NrDzqV": {
@@ -616,7 +625,8 @@
             "value_3": "1600 KG",
             "value_4": "1600 KG",
             "value_5": "1600 KG",
-            "value_6": "1600 KG"
+            "value_6": "1600 KG",
+            "value_7": ""
           }
         },
         "row_aDFEfG": {
@@ -628,7 +638,8 @@
             "value_3": "1600 KG",
             "value_4": "1600 KG",
             "value_5": "1650 KG",
-            "value_6": "1650 KG"
+            "value_6": "1650 KG",
+            "value_7": ""
           }
         },
         "row_Ei9mfn": {
@@ -640,7 +651,8 @@
             "value_3": "NA",
             "value_4": "NA",
             "value_5": "Yes",
-            "value_6": "Yes"
+            "value_6": "Yes",
+            "value_7": ""
           }
         },
         "row_VrmHhK": {
@@ -652,7 +664,8 @@
             "value_3": "35x12.5xR18 | 35x12.5xR20",
             "value_4": "35x12.5xR18 | 35x12.5xR20",
             "value_5": "35x12.5xR18 | 35x12.5xR20",
-            "value_6": "35x12.5xR18 | 35x12.5xR20"
+            "value_6": "35x12.5xR18 | 35x12.5xR20",
+            "value_7": ""
           }
         }
       },
@@ -683,6 +696,7 @@
         "col_title_4": "Stage 3",
         "col_title_5": "Stage 4",
         "col_title_6": "Stage 5",
+        "col_title_7": "STAGE 6",
         "container_width": "90%",
         "heading_color": "#111111",
         "text_color": "#111111",
@@ -705,7 +719,8 @@
             "value_3": "2\"",
             "value_4": "3\"",
             "value_5": "2\"",
-            "value_6": "3\""
+            "value_6": "3\"",
+            "value_7": ""
           }
         },
         "row_QWetUx": {
@@ -713,11 +728,12 @@
           "settings": {
             "label": "Fox 2.5 HTO Performance Series (Front)",
             "value_1": "987-24-004",
-            "value_2": "✓",
+            "value_2": "✔",
             "value_3": "",
             "value_4": "",
             "value_5": "",
-            "value_6": ""
+            "value_6": "",
+            "value_7": ""
           }
         },
         "row_dAdUVr": {
@@ -725,11 +741,12 @@
           "settings": {
             "label": "Fox 2.5 HTO Performance Series (Rear)",
             "value_1": "987-24-005",
-            "value_2": "✓",
+            "value_2": "✔",
             "value_3": "",
             "value_4": "",
             "value_5": "",
-            "value_6": ""
+            "value_6": "",
+            "value_7": ""
           }
         },
         "row_VhLrHW": {
@@ -738,10 +755,11 @@
             "label": "Fox 2.5  Performance Elite Series (Front)",
             "value_1": "883-26-062",
             "value_2": "",
-            "value_3": "✓",
+            "value_3": "✔",
             "value_4": "✔",
             "value_5": "✔",
-            "value_6": "✓"
+            "value_6": "✔",
+            "value_7": ""
           }
         },
         "row_Xm7nMe": {
@@ -750,10 +768,11 @@
             "label": "Fox 2.5 Performance Elite Series (Rear)",
             "value_1": "883-26-065",
             "value_2": "",
-            "value_3": "✓",
-            "value_4": "✓",
-            "value_5": "✓",
-            "value_6": "✔"
+            "value_3": "✔",
+            "value_4": "✔",
+            "value_5": "✔",
+            "value_6": "✔",
+            "value_7": ""
           }
         },
         "row_PyCLYV": {
@@ -761,11 +780,12 @@
           "settings": {
             "label": "ORI Front Coils",
             "value_1": "KDFR-400H",
-            "value_2": "✓",
-            "value_3": "✓",
-            "value_4": "✓",
-            "value_5": "✓",
-            "value_6": "✔"
+            "value_2": "✔",
+            "value_3": "✔",
+            "value_4": "✔",
+            "value_5": "✔",
+            "value_6": "✔",
+            "value_7": ""
           }
         },
         "row_MQ9Uxh": {
@@ -777,7 +797,8 @@
             "value_3": "✔",
             "value_4": "✔",
             "value_5": "✔",
-            "value_6": "✔"
+            "value_6": "✔",
+            "value_7": ""
           }
         },
         "row_ViUDYJ": {
@@ -787,9 +808,10 @@
             "value_1": "BDS1653FPE",
             "value_2": "",
             "value_3": "",
-            "value_4": "✓",
+            "value_4": "✔",
             "value_5": "",
-            "value_6": "✔"
+            "value_6": "✔",
+            "value_7": ""
           }
         }
       },
@@ -815,6 +837,7 @@
         "col_title_4": "Stage 3",
         "col_title_5": "Stage 4",
         "col_title_6": "Stage 5",
+        "col_title_7": "STAGE 6",
         "container_width": "90%",
         "heading_color": "#111111",
         "text_color": "#111111",
