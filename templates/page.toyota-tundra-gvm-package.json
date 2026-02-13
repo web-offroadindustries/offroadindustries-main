@@ -766,12 +766,12 @@
         "row_VhLrHW": {
           "type": "row",
           "settings": {
-            "label": "Fox 2.5 PE DSC Shocks (Rear)",
-            "value_1": "883-26-087",
-            "value_2": "",
+            "label": "Fox 2.5 Performance Elite Rear Shock",
+            "value_1": "883-26-139",
+            "value_2": "✔",
             "value_3": "",
             "value_4": "✔",
-            "value_5": "✔",
+            "value_5": "",
             "value_6": "",
             "value_7": ""
           }
@@ -779,12 +779,12 @@
         "row_Xm7nMe": {
           "type": "row",
           "settings": {
-            "label": "Fox 3.0 Bypass Race Series (Front)",
-            "value_1": "883-06-175",
+            "label": "Fox 3.0 Factory Race Coil-over",
+            "value_1": "883-06-219",
             "value_2": "",
-            "value_3": "",
+            "value_3": "✔",
             "value_4": "",
-            "value_5": "",
+            "value_5": "✔",
             "value_6": "✔",
             "value_7": ""
           }
@@ -792,12 +792,12 @@
         "row_PyCLYV": {
           "type": "row",
           "settings": {
-            "label": "Fox 3.0 Bypass Race Series (Rear)",
-            "value_1": "883-26-105",
+            "label": "Fox 3.0 Factory Rear Bypass Shock",
+            "value_1": "883-26-142",
             "value_2": "",
-            "value_3": "",
+            "value_3": "✔",
             "value_4": "",
-            "value_5": "",
+            "value_5": "✔",
             "value_6": "✔",
             "value_7": ""
           }
@@ -805,10 +805,10 @@
         "row_MQ9Uxh": {
           "type": "row",
           "settings": {
-            "label": "ORI 200kg Leaf Spring Pack",
-            "value_1": "ORI-CHV-200KG",
-            "value_2": "✔",
-            "value_3": "✔",
+            "label": "Husky Extenda Flare (Optional for 35\" Tyres)",
+            "value_1": "2803926",
+            "value_2": "",
+            "value_3": "",
             "value_4": "✔",
             "value_5": "✔",
             "value_6": "✔",
@@ -818,63 +818,11 @@
         "row_ViUDYJ": {
           "type": "row",
           "settings": {
-            "label": "ORI 400kg Leaf Spring Pack",
-            "value_1": "ORI-CHV-400KG",
-            "value_2": "",
-            "value_3": "",
-            "value_4": "",
-            "value_5": "✔",
-            "value_6": "✔",
-            "value_7": ""
-          }
-        },
-        "row_YaJzWt": {
-          "type": "row",
-          "settings": {
-            "label": "BDS Control Arms",
-            "value_1": "BDS121260",
+            "label": "ORI Coil Pack",
+            "value_1": "KTRR-141H (100- 250 KG)\nKTRR-141HHD (300- 500 KG)",
             "value_2": "✔",
             "value_3": "✔",
             "value_4": "✔",
-            "value_5": "✔",
-            "value_6": "✔",
-            "value_7": ""
-          }
-        },
-        "row_MDY7qw": {
-          "type": "row",
-          "settings": {
-            "label": "Retain Factory Multimatic Suspension",
-            "value_1": "",
-            "value_2": "✔",
-            "value_3": "",
-            "value_4": "",
-            "value_5": "",
-            "value_6": "",
-            "value_7": ""
-          }
-        },
-        "row_KnhHzc": {
-          "type": "row",
-          "settings": {
-            "label": "Lift Height",
-            "value_1": "",
-            "value_2": "3.5\"",
-            "value_3": "2\"",
-            "value_4": "3.5\"",
-            "value_5": "3.5\"",
-            "value_6": "3.5\"",
-            "value_7": ""
-          }
-        },
-        "row_nNQibi": {
-          "type": "row",
-          "settings": {
-            "label": "Load-Rated Wheels Required",
-            "value_1": "",
-            "value_2": "",
-            "value_3": "",
-            "value_4": "",
             "value_5": "✔",
             "value_6": "✔",
             "value_7": ""
@@ -889,11 +837,7 @@
         "row_Xm7nMe",
         "row_PyCLYV",
         "row_MQ9Uxh",
-        "row_ViUDYJ",
-        "row_YaJzWt",
-        "row_MDY7qw",
-        "row_KnhHzc",
-        "row_nNQibi"
+        "row_ViUDYJ"
       ],
       "name": "GVM Comparison",
       "settings": {
