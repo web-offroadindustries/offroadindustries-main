@@ -721,7 +721,7 @@
             "value_4": "35x12.5x18",
             "value_5": "",
             "value_6": "35x12.5x18",
-            "value_7": "37x13.5x18"
+            "value_7": "37x13.5x18\n37x13.5x20"
           }
         }
       },
@@ -766,6 +766,19 @@
     "gvm_comparison_RXeVcA": {
       "type": "gvm-comparison",
       "blocks": {
+        "row_7hT48B": {
+          "type": "row",
+          "settings": {
+            "label": "GVM",
+            "value_1": "3,300kg",
+            "value_2": "3,650kg",
+            "value_3": "3,650kg",
+            "value_4": "3,850kg",
+            "value_5": "",
+            "value_6": "",
+            "value_7": ""
+          }
+        },
         "row_PLrREz": {
           "type": "row",
           "settings": {
@@ -924,6 +937,7 @@
         }
       },
       "block_order": [
+        "row_7hT48B",
         "row_PLrREz",
         "row_QWetUx",
         "row_dAdUVr",
