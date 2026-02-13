@@ -277,7 +277,7 @@
       ],
       "settings": {
         "container": "container-full",
-        "color_schema": "inverse",
+        "color_schema": "accent",
         "padding_top": 40,
         "padding_bottom": 40,
         "show_section_divider": false,
@@ -625,10 +625,10 @@
         "template--16355052454049__8d9edff7-a12e-496b-b515-7b16d0a18ca0-collection-2": {
           "type": "collection",
           "settings": {
-            "collection": "factor-55-australia",
+            "collection": "amp-research-by-real-truck",
             "image": "shopify://shop_images/bds-225-inch-lift-kit-fox-30-internal-bypass-factory-race-series-toyota-tundra-22-24bdsbds838frs-432859.png",
-            "heading": "Factor 55",
-            "heading_size": "h3",
+            "heading": "AMP research",
+            "heading_size": "h5",
             "text": "<p>Each kit includes all the materials, patterns, and instructions necessary to craft a unique and practical bag for any occasion.</p>"
           }
         },
