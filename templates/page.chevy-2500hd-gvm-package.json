@@ -706,6 +706,22 @@
             "value_9": "Yes",
             "value_10": ""
           }
+        },
+        "row_zxBAzG": {
+          "type": "row",
+          "settings": {
+            "label": "Maximum Tyre Size",
+            "value_1": "",
+            "value_2": "35x12.5xR18 | 35x12.5xR20",
+            "value_3": "35x12.5xR18 | 35x12.5xR20\n37x12.5xR18 | 37x12.5r20",
+            "value_4": "35x12.5xR18 | 35x12.5xR20\n37x12.5xR18 | 37x12.5r20",
+            "value_5": "35x12.5xR18 | 35x12.5xR20\n37x12.5xR18 | 37x12.5r20",
+            "value_6": "35x12.5xR18 | 35x12.5xR20\n37x12.5xR18 | 37x12.5r20",
+            "value_7": "35x12.5xR18 | 35x12.5xR20\n37x12.5xR18 | 37x12.5r20",
+            "value_8": "35x12.5xR18 | 35x12.5xR20\n37x12.5xR18 | 37x12.5r20",
+            "value_9": "35x12.5xR18 | 35x12.5xR20\n37x12.5xR18 | 37x12.5r20",
+            "value_10": ""
+          }
         }
       },
       "block_order": [
@@ -721,7 +737,8 @@
         "row_NrDzqV",
         "row_aDFEfG",
         "row_Ei9mfn",
-        "row_VrmHhK"
+        "row_VrmHhK",
+        "row_zxBAzG"
       ],
       "name": "GVM Comparison",
       "settings": {
@@ -755,8 +772,8 @@
         "row_PLrREz": {
           "type": "row",
           "settings": {
-            "label": "Fox 2.5 PS Coilovers (Front)",
-            "value_1": "987-02-004",
+            "label": "Fox 2.5 HTO Performance Series (Front)",
+            "value_1": "987-24-010",
             "value_2": "✔",
             "value_3": "",
             "value_4": "",
@@ -771,8 +788,8 @@
         "row_QWetUx": {
           "type": "row",
           "settings": {
-            "label": "Fox 2.5 PS Shocks (Rear)",
-            "value_1": "987-24-028",
+            "label": "Fox 2.5 HTO Performance Series (Rear)",
+            "value_1": "987-24-009",
             "value_2": "✔",
             "value_3": "",
             "value_4": "",
@@ -787,12 +804,12 @@
         "row_dAdUVr": {
           "type": "row",
           "settings": {
-            "label": "Fox 2.5 PE DSC Coilovers (Front)",
-            "value_1": "883-06-162",
+            "label": "Fox 2.5  Performance Elite Series (Front)",
+            "value_1": "883-26-084",
             "value_2": "",
             "value_3": "",
-            "value_4": "✔",
-            "value_5": "✔",
+            "value_4": "",
+            "value_5": "",
             "value_6": "",
             "value_7": "",
             "value_8": "",
@@ -803,10 +820,10 @@
         "row_VhLrHW": {
           "type": "row",
           "settings": {
-            "label": "Fox 2.5 PE DSC Shocks (Rear)",
-            "value_1": "883-26-087",
+            "label": "Fox 2.5 Performance Elite Series (Rear)",
+            "value_1": "883-26-085",
             "value_2": "",
-            "value_3": "",
+            "value_3": "✔",
             "value_4": "✔",
             "value_5": "✔",
             "value_6": "",
@@ -819,13 +836,13 @@
         "row_Xm7nMe": {
           "type": "row",
           "settings": {
-            "label": "Fox 3.0 Bypass Race Series (Front)",
-            "value_1": "883-06-175",
+            "label": "Fox 2.5 Peformance Elite Coilover (Front)",
+            "value_1": "884-06-337",
             "value_2": "",
             "value_3": "",
-            "value_4": "",
-            "value_5": "",
-            "value_6": "✔",
+            "value_4": "✔",
+            "value_5": "✔",
+            "value_6": "",
             "value_7": "",
             "value_8": "",
             "value_9": "",
@@ -835,14 +852,14 @@
         "row_PyCLYV": {
           "type": "row",
           "settings": {
-            "label": "Fox 3.0 Bypass Race Series (Rear)",
-            "value_1": "883-26-105",
+            "label": "Fox 2.5  Performance Elite Series (Front)",
+            "value_1": "884-26-030",
             "value_2": "",
             "value_3": "",
             "value_4": "",
             "value_5": "",
             "value_6": "✔",
-            "value_7": "",
+            "value_7": "✔",
             "value_8": "",
             "value_9": "",
             "value_10": ""
@@ -851,87 +868,87 @@
         "row_MQ9Uxh": {
           "type": "row",
           "settings": {
-            "label": "ORI 200kg Leaf Spring Pack",
-            "value_1": "ORI-CHV-200KG",
-            "value_2": "✔",
-            "value_3": "✔",
-            "value_4": "✔",
-            "value_5": "✔",
+            "label": "Fox 2.5 Performance Elite Series (Rear)",
+            "value_1": "884-26-031",
+            "value_2": "",
+            "value_3": "",
+            "value_4": "",
+            "value_5": "",
             "value_6": "✔",
-            "value_7": "",
-            "value_8": "",
-            "value_9": "",
+            "value_7": "✔",
+            "value_8": "✔",
+            "value_9": "✔",
             "value_10": ""
           }
         },
         "row_ViUDYJ": {
           "type": "row",
           "settings": {
-            "label": "ORI 400kg Leaf Spring Pack",
-            "value_1": "ORI-CHV-400KG",
+            "label": "Fox 2.5 Peformance Elite Coilover (Front)",
+            "value_1": "884-06-339",
             "value_2": "",
             "value_3": "",
             "value_4": "",
-            "value_5": "✔",
-            "value_6": "✔",
+            "value_5": "",
+            "value_6": "",
             "value_7": "",
-            "value_8": "",
-            "value_9": "",
+            "value_8": "✔",
+            "value_9": "✔",
             "value_10": ""
           }
         },
         "row_YaJzWt": {
           "type": "row",
           "settings": {
-            "label": "BDS Control Arms",
-            "value_1": "BDS121260",
+            "label": "BDS Control Arm",
+            "value_1": "BDS121304",
             "value_2": "✔",
             "value_3": "✔",
             "value_4": "✔",
-            "value_5": "✔",
+            "value_5": "",
             "value_6": "✔",
-            "value_7": "",
-            "value_8": "",
-            "value_9": "",
+            "value_7": "✔",
+            "value_8": "✔",
+            "value_9": "✔",
             "value_10": ""
           }
         },
         "row_MDY7qw": {
           "type": "row",
           "settings": {
-            "label": "Retain Factory Multimatic Suspension",
-            "value_1": "",
+            "label": "Husky Extenda Flare",
+            "value_1": "2804986",
             "value_2": "✔",
-            "value_3": "",
-            "value_4": "",
-            "value_5": "",
-            "value_6": "",
-            "value_7": "",
-            "value_8": "",
-            "value_9": "",
+            "value_3": "✔",
+            "value_4": "✔",
+            "value_5": "✔",
+            "value_6": "✔",
+            "value_7": "✔",
+            "value_8": "✔",
+            "value_9": "✔",
             "value_10": ""
           }
         },
         "row_KnhHzc": {
           "type": "row",
           "settings": {
-            "label": "Lift Height",
-            "value_1": "",
-            "value_2": "3.5\"",
-            "value_3": "2\"",
-            "value_4": "3.5\"",
-            "value_5": "3.5\"",
-            "value_6": "3.5\"",
-            "value_7": "",
-            "value_8": "",
-            "value_9": "",
+            "label": "500 KG ORI Rear Leaf Packs",
+            "value_1": "ORI-CHVHD-500KG",
+            "value_2": "✔",
+            "value_3": "✔",
+            "value_4": "✔",
+            "value_5": "✔",
+            "value_6": "✔",
+            "value_7": "✔",
+            "value_8": "✔",
+            "value_9": "✔",
             "value_10": ""
           }
         },
         "row_nNQibi": {
           "type": "row",
           "settings": {
-            "label": "Load-Rated Wheels Required",
+            "label": "Kelderman 4 Link Air Bag Setup",
             "value_1": "",
             "value_2": "",
             "value_3": "",
@@ -940,7 +957,55 @@
             "value_6": "✔",
             "value_7": "",
             "value_8": "",
-            "value_9": "",
+            "value_9": "✔",
+            "value_10": ""
+          }
+        },
+        "row_YMC4Cg": {
+          "type": "row",
+          "settings": {
+            "label": "ORI MUD Flaps Kit",
+            "value_1": "",
+            "value_2": "✔",
+            "value_3": "✔",
+            "value_4": "✔",
+            "value_5": "✔",
+            "value_6": "✔",
+            "value_7": "✔",
+            "value_8": "✔",
+            "value_9": "✔",
+            "value_10": ""
+          }
+        },
+        "row_nkM7rU": {
+          "type": "row",
+          "settings": {
+            "label": "ORI ADR Compliance Lights",
+            "value_1": "",
+            "value_2": "✔",
+            "value_3": "✔",
+            "value_4": "✔",
+            "value_5": "✔",
+            "value_6": "✔",
+            "value_7": "✔",
+            "value_8": "✔",
+            "value_9": "✔",
+            "value_10": ""
+          }
+        },
+        "row_ft3LzT": {
+          "type": "row",
+          "settings": {
+            "label": "Kit Numbe",
+            "value_1": "",
+            "value_2": "CHV-2500-Stage1",
+            "value_3": "CHV-2500-Stage2",
+            "value_4": "CHV-2500-Stage3",
+            "value_5": "CHV-2500-Stage3-K",
+            "value_6": "CHV-2500-Stage4",
+            "value_7": "CHV-2500-Stage5",
+            "value_8": "CHV-2500-Stage6",
+            "value_9": "CHV-2500-Stage6-K",
             "value_10": ""
           }
         }
@@ -957,7 +1022,10 @@
         "row_YaJzWt",
         "row_MDY7qw",
         "row_KnhHzc",
-        "row_nNQibi"
+        "row_nNQibi",
+        "row_YMC4Cg",
+        "row_nkM7rU",
+        "row_ft3LzT"
       ],
       "name": "GVM Comparison",
       "settings": {
@@ -969,11 +1037,11 @@
         "col_title_2": "Stage 1",
         "col_title_3": "Stage 2",
         "col_title_4": "Stage 3",
-        "col_title_5": "Stage 4",
-        "col_title_6": "Stage 5",
-        "col_title_7": "STAGE 6",
-        "col_title_8": "STAGE 7",
-        "col_title_9": "STAGE 8",
+        "col_title_5": "Stage 3.5",
+        "col_title_6": "Stage 4",
+        "col_title_7": "STAGE 5",
+        "col_title_8": "STAGE 6",
+        "col_title_9": "STAGE 6.5",
         "col_title_10": "STAGE 9",
         "container_width": "90%",
         "heading_color": "#111111",
