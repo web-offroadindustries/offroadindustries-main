@@ -2,11 +2,11 @@
   Section: GVM Comparison / Specification
   - Desktop: table-style grid with bottom borders only (no outer border)
   - Mobile: STACKED cards (no horizontal scrolling)
-  - Updated to support up to 7 comparison columns
+  - Updated to support up to 10 comparison columns
 {% endcomment %}
 
 {%- liquid
-  assign max_cols = 7
+  assign max_cols = 10
   assign cols = section.settings.columns | plus: 0
 
   if cols < 2
@@ -47,7 +47,7 @@
           {{ section.settings.details_heading }}
         </div>
 
-        {%- for i in (1..7) -%}
+        {%- for i in (1..10) -%}
           {%- if i <= cols -%}
             {%- assign key = 'col_title_' | append: i -%}
             <div class="gvm-compare__cell gvm-compare__cell--head">
@@ -76,7 +76,7 @@
                 {% endif %}
               </div>
 
-              {%- for i in (1..7) -%}
+              {%- for i in (1..10) -%}
                 {%- if i <= cols -%}
                   {%- assign tkey = 'col_title_' | append: i -%}
                   {%- assign col_title = section.settings[tkey] | strip -%}
@@ -130,21 +130,28 @@
     border-bottom: 1px solid var(--gvm-line);
   }
 
-  /* Tighten spacing when many columns to reduce overflow */
+  /* Tighten desktop spacing as columns increase (prevents ugly overflow/squish) */
   .gvm-compare__table[data-cols="6"] .gvm-compare__row,
   .gvm-compare__table[data-cols="7"] .gvm-compare__row {
     grid-template-columns: 220px repeat(var(--gvm-cols), minmax(110px, 1fr));
     column-gap: 24px;
   }
 
-  .gvm-compare__row--head {
-    padding-top: 0;
-    padding-bottom: 14px;
+  .gvm-compare__table[data-cols="8"] .gvm-compare__row,
+  .gvm-compare__table[data-cols="9"] .gvm-compare__row,
+  .gvm-compare__table[data-cols="10"] .gvm-compare__row {
+    grid-template-columns: 200px repeat(var(--gvm-cols), minmax(95px, 1fr));
+    column-gap: 18px;
   }
 
-  .gvm-compare__cell {
-    font-size: 16px;
-    line-height: 1.5;
+  .gvm-compare__row--head { padding-top: 0; padding-bottom: 14px; }
+
+  .gvm-compare__cell { font-size: 16px; line-height: 1.5; }
+
+  .gvm-compare__table[data-cols="8"] .gvm-compare__cell,
+  .gvm-compare__table[data-cols="9"] .gvm-compare__cell,
+  .gvm-compare__table[data-cols="10"] .gvm-compare__cell {
+    font-size: 15px;
   }
 
   .gvm-compare__cell--head {
@@ -152,6 +159,10 @@
     text-transform: uppercase;
     letter-spacing: 0.02em;
     font-size: 13px;
+  }
+
+  .gvm-compare__table[data-cols="10"] .gvm-compare__cell--head {
+    font-size: 12px;
   }
 
   .gvm-compare__cell--label { font-weight: 600; }
@@ -190,10 +201,7 @@
       box-shadow: 0 1px 2px rgba(0,0,0,0.06);
     }
 
-    .gvm-compare__divider {
-      height: 10px;
-      border: 0;
-    }
+    .gvm-compare__divider { height: 10px; border: 0; }
 
     .gvm-compare__cell {
       padding: 10px 14px;
@@ -248,17 +256,23 @@
         { "value": "4", "label": "4" },
         { "value": "5", "label": "5" },
         { "value": "6", "label": "6" },
-        { "value": "7", "label": "7" }
+        { "value": "7", "label": "7" },
+        { "value": "8", "label": "8" },
+        { "value": "9", "label": "9" },
+        { "value": "10", "label": "10" }
       ]
     },
 
     { "type": "text", "id": "col_title_1", "label": "Column 1 title", "default": "FACTORY" },
-    { "type": "text", "id": "col_title_2", "label": "Column 2 title", "default": "3.65T LTZ" },
-    { "type": "text", "id": "col_title_3", "label": "Column 3 title", "default": "3.65T ZR2" },
-    { "type": "text", "id": "col_title_4", "label": "Column 4 title", "default": "3.85T" },
-    { "type": "text", "id": "col_title_5", "label": "Column 5 title", "default": "4.2T" },
-    { "type": "text", "id": "col_title_6", "label": "Column 6 title", "default": "4.49T" },
+    { "type": "text", "id": "col_title_2", "label": "Column 2 title", "default": "STAGE 1" },
+    { "type": "text", "id": "col_title_3", "label": "Column 3 title", "default": "STAGE 2" },
+    { "type": "text", "id": "col_title_4", "label": "Column 4 title", "default": "STAGE 3" },
+    { "type": "text", "id": "col_title_5", "label": "Column 5 title", "default": "STAGE 4" },
+    { "type": "text", "id": "col_title_6", "label": "Column 6 title", "default": "STAGE 5" },
     { "type": "text", "id": "col_title_7", "label": "Column 7 title", "default": "STAGE 6" },
+    { "type": "text", "id": "col_title_8", "label": "Column 8 title", "default": "STAGE 7" },
+    { "type": "text", "id": "col_title_9", "label": "Column 9 title", "default": "STAGE 8" },
+    { "type": "text", "id": "col_title_10", "label": "Column 10 title", "default": "STAGE 9" },
 
     { "type": "text", "id": "container_width", "label": "Container width (e.g. 1200px or 100%)", "default": "1200px" },
 
@@ -285,7 +299,10 @@
         { "type": "textarea", "id": "value_4", "label": "Value (Column 4)", "default": "3,850kg" },
         { "type": "textarea", "id": "value_5", "label": "Value (Column 5)" },
         { "type": "textarea", "id": "value_6", "label": "Value (Column 6)" },
-        { "type": "textarea", "id": "value_7", "label": "Value (Column 7)" }
+        { "type": "textarea", "id": "value_7", "label": "Value (Column 7)" },
+        { "type": "textarea", "id": "value_8", "label": "Value (Column 8)" },
+        { "type": "textarea", "id": "value_9", "label": "Value (Column 9)" },
+        { "type": "textarea", "id": "value_10", "label": "Value (Column 10)" }
       ]
     },
     {
@@ -298,9 +315,7 @@
     {
       "name": "GVM Comparison",
       "blocks": [
-        { "type": "row" },
-        { "type": "row", "settings": { "label": "Payload", "value_1": "757kg", "value_2": "1,107kg", "value_3": "1,067kg", "value_4": "1,294kg" } },
-        { "type": "row", "settings": { "label": "Requires Wheel/Tyre Upgrade", "value_1": "x", "value_2": "x", "value_3": "x", "value_4": "x" } }
+        { "type": "row" }
       ]
     }
   ]
