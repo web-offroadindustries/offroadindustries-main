@@ -115,7 +115,8 @@
           "type": "banner",
           "settings": {
             "collection": "",
-            "image": "{{ block.settings.collection.metafields.custom.banner_image.value }}"
+            "image": "{{ block.settings.collection.metafields.custom.banner_image.value }}",
+            "image_mobile": "{{ block.settings.collection.metafields.custom.banner_image.value }}"
           }
         }
       },
