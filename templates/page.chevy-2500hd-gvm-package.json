@@ -967,9 +967,76 @@
         "padding_bottom": 40,
         "show_section_divider": false,
         "divider_width": "container",
-        "custom_id": "suspensioncollection",
+        "custom_id": "approved-wheels",
         "custom_class": "",
         "animations": "inherit"
+      }
+    },
+    "wheel_comparison_grid_qGx6nc": {
+      "type": "wheel-comparison-grid",
+      "blocks": {
+        "row_3UKHgU": {
+          "type": "row",
+          "settings": {
+            "label": "DESCRIPTION",
+            "use_as_title": true,
+            "value_1": "MR305NV",
+            "value_2": "MR709 HD Bead Grip",
+            "value_3": "MR709 HD Bead Grip",
+            "value_4": "",
+            "value_5": "",
+            "value_6": ""
+          }
+        },
+        "row_wKR3CU": {
+          "type": "row",
+          "settings": {
+            "label": "COLOUR",
+            "use_as_title": false,
+            "value_1": "Double Black Matte Black Titanium Machines",
+            "value_2": "Matte Black & Machined",
+            "value_3": "Machined",
+            "value_4": "",
+            "value_5": "",
+            "value_6": ""
+          }
+        },
+        "row_rCcK78": {
+          "type": "row",
+          "settings": {
+            "label": "OFFSET",
+            "use_as_title": false,
+            "value_1": "+18 +12 Zero, - 12",
+            "value_2": "Pos 12",
+            "value_3": "Pos 12",
+            "value_4": "",
+            "value_5": "",
+            "value_6": ""
+          }
+        }
+      },
+      "block_order": [
+        "row_3UKHgU",
+        "row_wKR3CU",
+        "row_rCcK78"
+      ],
+      "name": "Wheel Comparison",
+      "settings": {
+        "anchor_id": "",
+        "heading": "",
+        "columns": "3",
+        "image_1": "shopify://shop_images/MR305NV-wheel.webp",
+        "image_2": "shopify://shop_images/MR709-black.webp",
+        "image_3": "shopify://shop_images/MR709-white.webp",
+        "label_col_width": 260,
+        "container_width": "1200px",
+        "text_color": "#111111",
+        "label_color": "#111111",
+        "line_color": "#d0d0d0",
+        "mobile_card_bg": "#ffffff",
+        "mobile_card_text": "#111111",
+        "padding_top": 40,
+        "padding_bottom": 40
       }
     },
     "rich_text_ni9bQW": {
@@ -1155,6 +1222,7 @@
     "gvm_comparison_FfmTMw",
     "gvm_comparison_RXeVcA",
     "rich_text_4AxLyp",
+    "wheel_comparison_grid_qGx6nc",
     "rich_text_ni9bQW",
     "logo_list_8XphYi",
     "contact_form_bfPpbR"
