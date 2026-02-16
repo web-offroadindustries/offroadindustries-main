@@ -108,6 +108,57 @@
         "animations": "inherit"
       }
     },
+    "slideshow_zBKFne": {
+      "type": "slideshow",
+      "blocks": {
+        "slide_TDWPqa": {
+          "type": "slide",
+          "settings": {
+            "background": "{{ collection.metafields.custom.banner_image.value }}",
+            "mb_background": "{{ collection.metafields.custom.banner_image.value }}",
+            "image_overlay_opacity": 45,
+            "content_position": "center",
+            "text_alignment": "center",
+            "text_color": "#000000",
+            "title": "{{ collection.title }}",
+            "heading_size": "h2",
+            "heading_color": "#ffffff",
+            "subheading": "",
+            "description": "",
+            "desc_size": "text-desc-base",
+            "button_text_1": "",
+            "button_link_1": "",
+            "button_style_1": "btn--primary",
+            "button_size_1": "",
+            "button_text_2": "",
+            "button_link_2": "",
+            "button_style_2": "btn--primary",
+            "button_size_2": ""
+          }
+        }
+      },
+      "block_order": [
+        "slide_TDWPqa"
+      ],
+      "name": "t:sections.slideshow.name",
+      "settings": {
+        "container": "container-full",
+        "slideshow_height": "medium",
+        "show_dots": false,
+        "show_nav": false,
+        "autoplay": false,
+        "autorotate_speed": 3,
+        "pagination_background": "light",
+        "controls_position": "center",
+        "pagination_style": "dots",
+        "show_text_below": false,
+        "text_alignment_mobile": "center",
+        "accessibility_info": "Slideshow about our brand",
+        "custom_id": "",
+        "custom_class": "",
+        "enable_bg_zoom_effect": false
+      }
+    },
     "banner": {
       "type": "main-collection-banner",
       "blocks": {
@@ -123,6 +174,7 @@
       "block_order": [
         "banner_KxQ3Hw"
       ],
+      "disabled": true,
       "custom_css": [],
       "settings": {
         "container": "container-full",
@@ -131,7 +183,7 @@
         "heading_size": "h0",
         "show_breadcrumb": false,
         "show_desc": false,
-        "show_collection_image": true,
+        "show_collection_image": false,
         "image_height": "adapt",
         "image_position": "use_image_as_background",
         "image_overlay_opacity": 45,
@@ -420,6 +472,7 @@
   "order": [
     "breadcrumb_Ewh9RB",
     "collection-list",
+    "slideshow_zBKFne",
     "banner",
     "rich_text_h7jx7H",
     "product-grid",
