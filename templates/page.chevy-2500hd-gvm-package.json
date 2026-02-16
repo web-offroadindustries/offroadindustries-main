@@ -84,8 +84,8 @@
         "link_8FKHCp": {
           "type": "link",
           "settings": {
-            "label": "Suspension Collection",
-            "target_id": "suspensioncollection"
+            "label": "Approved Wheels",
+            "target_id": "approved-wheels"
           }
         },
         "link_KmD9dx": {
