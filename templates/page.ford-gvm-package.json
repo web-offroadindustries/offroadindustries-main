@@ -122,7 +122,7 @@
         "heading_XhCLHT": {
           "type": "heading",
           "settings": {
-            "heading": "FORD F150, XLT, LARIAT, PLATINUM SWB & LWB",
+            "heading": "Ford F150, XLT, Lariat, Platinum SWB & LWB",
             "highlight_style": "none",
             "enable_highlight_text_color": true,
             "heading_size": "h1",
@@ -132,7 +132,7 @@
         "text_CfcJd4": {
           "type": "text",
           "settings": {
-            "text": "<p>We are thrilled to announce our industry-leading GVM SSM Federally Approved kits, specifically designed to upgrade Ford F150, XLT, Lariat, and Platinum models delivered in Australia.<br/><br/>Our custom solutions feature high-performance Fox Suspension, reliable BDS components, and specialized ORI Leaf Packs. We have also conducted in-depth GCM testing to maximize the performance of your GVM Package and ensure your brake towing capacity remains unaffected.<br/><br/>We have developed multiple packages to suit your specific requirements. We believe USA trucks deserve USA-made products, and our ORI team has authorised installers Australia-wide.</p><p>We can do GVM & GCM upgrades pre and post rego want to know more information ask us on 0483 930 639</p><p><strong>VTA-064837</strong></p>"
+            "text": "<h1><strong>Unleash Your F-150’s True Potential: Premium GVM Upgrade Packages</strong></h1><p>The Ford F-150 is an absolute powerhouse, but if you're loading it up with a canopy, towing a heavy caravan, or outfitting it for remote touring, you'll hit the factory payload limits fast.</p><p>Don't let stock suspension hold you back. Our <strong>Ford F-150 GVM Upgrade Packages</strong> combine industry-leading <strong>FOX Racing Shocks</strong> with bomb-proof <strong>BDS Suspension components</strong> to drastically increase your legal carrying capacity without sacrificing ride quality. In fact, it's going to ride better than ever.</p><h3><strong>Why Choose a ORI GVM Package?</strong></h3><p>When you increase your vehicle's mass, you need suspension that can handle the extra kinetic energy. We don't just add stiffer springs; we engineer a complete suspension overhaul.</p><ul><li><strong>FOX Racing Shocks:</strong> Race-proven damping technology. FOX shocks offer massive fluid capacities and advanced valving to eliminate suspension fade, manage heavy loads, and provide a plush ride whether you're on the highway or the corrugated tracks of the Outback.</li><li><strong>BDS Suspension Components:</strong> Renowned for their \"No Fine Print\" lifetime warranty, BDS provides heavy-duty Upper Control Arms (UCAs), track bars, and lift components that correct your truck's geometry. This ensures perfect alignment, reduced wear, and maximum wheel articulation.</li><li><strong>Fully Engineered & Compliant:</strong> Drive with peace of mind. Our packages are fully engineered to meet rigorous Australian standards, ensuring your GVM upgrade is legal, safe, and insurance-approved.</li></ul><p><strong>GVM Federal Compliance (The \"Gold Standard\")</strong><em>Drive anywhere in Australia with total peace of mind. No defects, no state-border issues.</em></p><ul><li><strong>Federally Approved (VTA-064837):</strong> Certified under the Federal <strong>Vehicle Type Approval</strong> system.<br/></li><li><strong>Pre-Rego \"Second Stage of Manufacture\" (SSM):</strong> Your vehicle is legally manufactured with this higher GVM <em>before</em> it gets number plates.<br/></li><li><strong>Nationally Legal:</strong> Recognised in all states and territories immediately—no need for new engineering inspections if you move or travel interstate.<br/></li><li><strong>Resale Value Protection:</strong> The upgrade is listed on the vehicle's federal compliance plate, preserving resale value compared to aftermarket modifications.<br/></li></ul><p><strong>GCM Upgrade & 4.5T Towing (LS16 Certified) LS16 Engineering Compliance:</strong> Fully tested to meet the strict <strong>LS16 standard</strong> for Gross Combination Mass (GCM) upgrades. This rigorous code ensures your chassis, driveline, and suspension are engineered to survive the stress of pulling 4.5 tonnes without structural failure, this can be done PRE & POST rego.</p>"
           }
         }
       },
@@ -160,7 +160,7 @@
         "heading_mpxUJy": {
           "type": "heading",
           "settings": {
-            "heading": "ORI PROPOSED GVM PACKAGES",
+            "heading": "ORI GVM Package Ford F150",
             "highlight_style": "underline",
             "enable_highlight_text_color": true,
             "heading_size": "h1",
@@ -191,7 +191,7 @@
         "subheading_JVKNjL": {
           "type": "subheading",
           "settings": {
-            "subheading": "Stage 1: $11,500 Installed & Engineered"
+            "subheading": "Stage 1: $11,999 Installed & Engineered"
           }
         },
         "heading_f9G7kD": {
@@ -219,7 +219,7 @@
       "settings": {
         "container": "container",
         "color_schema": "",
-        "image": "shopify://shop_images/stage1-3700-gvm.webp",
+        "image": "shopify://shop_images/stage1-3700-ford150.webp",
         "image_width": "50%",
         "image_position": "left",
         "vertical_alignment": "center",
@@ -247,7 +247,7 @@
         "subheading_nNBqbG": {
           "type": "subheading",
           "settings": {
-            "subheading": "Stage 2: $15,599 Installed & Engineered"
+            "subheading": "Stage 2: $15,499 Installed & Engineered"
           }
         },
         "heading_dHpa9y": {
@@ -275,7 +275,7 @@
       "settings": {
         "container": "container",
         "color_schema": "",
-        "image": "shopify://shop_images/stage2-3700-gvm.webp",
+        "image": "shopify://shop_images/stage2-3700-ford150.webp",
         "image_width": "50%",
         "image_position": "right",
         "vertical_alignment": "center",
@@ -318,7 +318,7 @@
         "text_aVwiWh": {
           "type": "text",
           "settings": {
-            "text": "<ul><li>Fox 2.5 Performance Series Suspension</li><li>BDS Upper Control Arms\\</li><li>ORI 200KG or 400KG leaf packs</li><li>Load Rated Wheels & Tyres required</li><li>Federally Approved GVM & GCM</li><li>Increase Payload to 1819KG</li></ul>"
+            "text": "<ul><li>Fox 2.5 Performance Series Suspension</li><li>BDS Upper Control Arms</li><li>ORI 200KG or 400KG leaf packs</li><li>Load Rated Wheels & Tyres required</li><li>Federally Approved GVM & GCM</li><li>Increase Payload to 1819KG</li></ul>"
           }
         }
       },
@@ -331,7 +331,7 @@
       "settings": {
         "container": "container",
         "color_schema": "",
-        "image": "shopify://shop_images/stage3-4300-gvm.webp",
+        "image": "shopify://shop_images/stage3-4300-ford150.webp",
         "image_width": "50%",
         "image_position": "left",
         "vertical_alignment": "center",
@@ -387,7 +387,7 @@
       "settings": {
         "container": "container",
         "color_schema": "",
-        "image": "shopify://shop_images/stage4-4300-gvm.webp",
+        "image": "shopify://shop_images/stage4-4300-ford150.webp",
         "image_width": "50%",
         "image_position": "right",
         "vertical_alignment": "center",
@@ -565,7 +565,10 @@
             "value_4": "4300 KG",
             "value_5": "4300 KG",
             "value_6": "4000 KG",
-            "value_7": "3700 KG"
+            "value_7": "3700 KG",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
           }
         },
         "row_7JDfxb": {
@@ -578,7 +581,10 @@
             "value_4": "4500 KG",
             "value_5": "4500 KG",
             "value_6": "4500 KG",
-            "value_7": "4500 KG"
+            "value_7": "4500 KG",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
           }
         },
         "row_YVwraj": {
@@ -591,7 +597,10 @@
             "value_4": "8800 KG",
             "value_5": "8800 KG",
             "value_6": "8000 KG",
-            "value_7": "7800 KG"
+            "value_7": "7800 KG",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
           }
         },
         "row_zPKiUF": {
@@ -604,7 +613,10 @@
             "value_4": "2481 KG",
             "value_5": "2481 kg",
             "value_6": "2491 kg",
-            "value_7": "2491 kg"
+            "value_7": "2491 kg",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
           }
         },
         "row_wywcAp": {
@@ -617,7 +629,10 @@
             "value_4": "1819 KG",
             "value_5": "1819 KG",
             "value_6": "1509 KG",
-            "value_7": "1209 KG"
+            "value_7": "1209 KG",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
           }
         },
         "row_VPhYR9": {
@@ -630,7 +645,10 @@
             "value_4": "136.54%",
             "value_5": "136.54%",
             "value_6": "96.22%",
-            "value_7": "57.52 %"
+            "value_7": "57.52 %",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
           }
         },
         "row_bcXE8T": {
@@ -643,7 +661,10 @@
             "value_4": "1850 KG",
             "value_5": "1850 KG",
             "value_6": "1700 KG",
-            "value_7": "1700 KG"
+            "value_7": "1700 KG",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
           }
         },
         "row_YJQHKH": {
@@ -656,7 +677,10 @@
             "value_4": "2450 KG",
             "value_5": "2450 KG",
             "value_6": "2300 KG",
-            "value_7": "2000 KG"
+            "value_7": "2000 KG",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
           }
         },
         "row_pqzEiz": {
@@ -669,7 +693,10 @@
             "value_4": "35 30 25 18 12 0",
             "value_5": "35 30 25 18 12 0",
             "value_6": "Pos 18 12 0",
-            "value_7": "Pos 18 12 0"
+            "value_7": "Pos 18 12 0",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
           }
         },
         "row_NrDzqV": {
@@ -682,7 +709,10 @@
             "value_4": "1200 KG",
             "value_5": "1200 KG",
             "value_6": "1200 KG",
-            "value_7": "1074.5 KG"
+            "value_7": "1074.5 KG",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
           }
         },
         "row_aDFEfG": {
@@ -695,7 +725,10 @@
             "value_4": "1200 KG",
             "value_5": "1200 KG",
             "value_6": "1200 KG",
-            "value_7": "1074.5 KG"
+            "value_7": "1074.5 KG",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
           }
         },
         "row_Ei9mfn": {
@@ -708,7 +741,10 @@
             "value_4": "✔",
             "value_5": "✔",
             "value_6": "✔",
-            "value_7": "✔"
+            "value_7": "✔",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
           }
         },
         "row_VrmHhK": {
@@ -721,7 +757,10 @@
             "value_4": "35x12.5x18",
             "value_5": "",
             "value_6": "35x12.5x18",
-            "value_7": "37x13.5x18\n37x13.5x20"
+            "value_7": "37x13.5x18\n37x13.5x20",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
           }
         }
       },
@@ -753,6 +792,9 @@
         "col_title_5": "Stage 4",
         "col_title_6": "Stage 5",
         "col_title_7": "STAGE 6",
+        "col_title_8": "STAGE 7",
+        "col_title_9": "STAGE 8",
+        "col_title_10": "STAGE 9",
         "container_width": "90%",
         "heading_color": "#111111",
         "text_color": "#111111",
@@ -776,7 +818,10 @@
             "value_4": "2\"",
             "value_5": "2.5",
             "value_6": "4\"",
-            "value_7": "6\""
+            "value_7": "6\"",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
           }
         },
         "row_PLrREz": {
@@ -789,7 +834,10 @@
             "value_4": "",
             "value_5": "",
             "value_6": "",
-            "value_7": ""
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
           }
         },
         "row_QWetUx": {
@@ -802,7 +850,10 @@
             "value_4": "",
             "value_5": "",
             "value_6": "",
-            "value_7": ""
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
           }
         },
         "row_dAdUVr": {
@@ -815,7 +866,10 @@
             "value_4": "✔",
             "value_5": "",
             "value_6": "",
-            "value_7": ""
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
           }
         },
         "row_VhLrHW": {
@@ -828,7 +882,10 @@
             "value_4": "✔",
             "value_5": "",
             "value_6": "",
-            "value_7": ""
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
           }
         },
         "row_Xm7nMe": {
@@ -841,7 +898,10 @@
             "value_4": "",
             "value_5": "✔",
             "value_6": "",
-            "value_7": ""
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
           }
         },
         "row_PyCLYV": {
@@ -854,7 +914,10 @@
             "value_4": "",
             "value_5": "✔",
             "value_6": "",
-            "value_7": ""
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
           }
         },
         "row_MQ9Uxh": {
@@ -867,7 +930,10 @@
             "value_4": "✔",
             "value_5": "✔",
             "value_6": "✔",
-            "value_7": "✔"
+            "value_7": "✔",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
           }
         },
         "row_ViUDYJ": {
@@ -880,7 +946,10 @@
             "value_4": "",
             "value_5": "",
             "value_6": "✔",
-            "value_7": ""
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
           }
         },
         "row_YaJzWt": {
@@ -893,7 +962,10 @@
             "value_4": "",
             "value_5": "",
             "value_6": "",
-            "value_7": "✔"
+            "value_7": "✔",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
           }
         },
         "row_MDY7qw": {
@@ -906,7 +978,10 @@
             "value_4": "✔",
             "value_5": "✔",
             "value_6": "✔",
-            "value_7": "✔"
+            "value_7": "✔",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
           }
         },
         "row_KnhHzc": {
@@ -919,7 +994,10 @@
             "value_4": "o",
             "value_5": "o",
             "value_6": "✔",
-            "value_7": "✔"
+            "value_7": "✔",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
           }
         },
         "row_nNQibi": {
@@ -932,7 +1010,10 @@
             "value_4": "✔",
             "value_5": "✔",
             "value_6": "✔",
-            "value_7": "✔"
+            "value_7": "✔",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
           }
         },
         "row_bXbzAJ": {
@@ -945,7 +1026,10 @@
             "value_4": "✔",
             "value_5": "✔",
             "value_6": "✔",
-            "value_7": ""
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
           }
         }
       },
@@ -978,6 +1062,9 @@
         "col_title_5": "Stage 4",
         "col_title_6": "Stage 5",
         "col_title_7": "STAGE 6",
+        "col_title_8": "STAGE 7",
+        "col_title_9": "STAGE 8",
+        "col_title_10": "STAGE 9",
         "container_width": "90%",
         "heading_color": "#111111",
         "text_color": "#111111",
