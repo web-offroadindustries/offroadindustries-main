@@ -201,7 +201,7 @@
         "text_Cc9PEV": {
           "type": "text",
           "settings": {
-            "text": "<p>{{ collection.metafields.custom.long_description.value }}</p>"
+            "text": "{{ collection.metafields.custom.collection_summary | metafield_tag }}"
           }
         }
       },
