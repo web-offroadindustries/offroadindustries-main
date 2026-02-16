@@ -114,7 +114,8 @@
         "banner_KxQ3Hw": {
           "type": "banner",
           "settings": {
-            "collection": ""
+            "collection": "",
+            "image": "{{ block.settings.collection.metafields.custom.banner_image.value }}"
           }
         }
       },
@@ -130,7 +131,7 @@
         "show_breadcrumb": false,
         "show_desc": false,
         "show_collection_image": true,
-        "image_height": "large",
+        "image_height": "adapt",
         "image_position": "use_image_as_background",
         "image_overlay_opacity": 45,
         "padding_top": 0,
