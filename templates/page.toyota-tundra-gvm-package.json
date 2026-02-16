@@ -20,7 +20,7 @@
         "slide_bW6A4P": {
           "type": "slide",
           "settings": {
-            "background": "shopify://shop_images/2022-FOX-Silverado-highres-51-edit_1_2000x_03b81062-95b8-4b8c-b13a-e7a0aeaa50eb.webp",
+            "background": "shopify://shop_images/2022-FOX-FRS-Tundra-highres-55_0e247fb6-6ecb-49f1-852c-a2d22b8391ed.png",
             "image_overlay_opacity": 0,
             "content_position": "center",
             "text_alignment": "center",
@@ -122,7 +122,7 @@
         "heading_XhCLHT": {
           "type": "heading",
           "settings": {
-            "heading": "<strong>Unleash the Full Potential of Your Chevy Silverado 1500</strong>",
+            "heading": "Ori Toyota Tundra GVM Upgrades",
             "highlight_style": "none",
             "enable_highlight_text_color": true,
             "heading_size": "h1",
@@ -132,7 +132,7 @@
         "text_CfcJd4": {
           "type": "text",
           "settings": {
-            "text": "<p>Stop worrying about weight limits and start adventuring with confidence. <strong>Offroad Industries (ORI)</strong> offers the most comprehensive, Federally Approved GVM (Gross Vehicle Mass) upgrades for the Chevy Silverado 1500 (LTZ, Trail Boss, and ZR2). </p><p>By bundling the <strong>ORI GVM Packages & </strong> <strong>GCM testing</strong> and the combination of <strong>LS16 certification</strong>, you are offering a legal \"Super-Truck\" status. The <strong>LS16 code</strong> is the secret sauce here: it’s the specific modification code for <strong>Gross Combination Mass Re-rating</strong>, ensuring the truck, the gear, and the massive 4.5T trailer are all 100% legal together for either PRE or Post Rego</p><p>Whether you’re a weekend explorer, a tradie with a heavy load, or a serious tourer towing a 4.5T caravan, our staged packages transform your truck’s legality, safety, and performance.</p>"
+            "text": "<p>If you've recently purchased a Toyota Tundra from Toyota Australia, Offroad Industries has an ideal solution to enhance your truck's capabilities. Our Federally Approved 3850 GVM package is designed to boost your vehicle's performance. Additionally, our team is actively developing an even higher-rated GVM option, targeting 4200 or 4300, so please keep an eye out for upcoming updates.</p><p>Our upgrade features the legendary Fox Performance Elite suspension paired with premium, USA-made BDS components. This combination ensures your truck delivers an exceptional driving experience, handling rough terrain with ease while benefiting from durable, high-quality parts built to last. </p><p>We have also conducted in-depth GCM testing to maximize the performance of your GVM Package and ensure your brake towing capacity remains unaffected.</p>"
           }
         }
       },
@@ -160,7 +160,7 @@
         "heading_mpxUJy": {
           "type": "heading",
           "settings": {
-            "heading": "ORI PROPOSED GVM PACKAGES",
+            "heading": "ORI Federally Approved Packages",
             "highlight_style": "underline",
             "enable_highlight_text_color": true,
             "heading_size": "h1",
@@ -191,13 +191,13 @@
         "subheading_JVKNjL": {
           "type": "subheading",
           "settings": {
-            "subheading": "Stage 1: $11,500 - Installed & Engineered"
+            "subheading": "Stage 1: $15,499 Installed & Engineered"
           }
         },
         "heading_f9G7kD": {
           "type": "heading",
           "settings": {
-            "heading": "<strong>Stage 1: The Weekender Family Getaway (3650kg GVM + GCM 8150kg )</strong>",
+            "heading": "<strong>Stage 1 : 3650 GVM</strong>",
             "highlight_style": "none",
             "enable_highlight_text_color": false,
             "heading_size": "h2"
@@ -206,7 +206,7 @@
         "text_fRRw7g": {
           "type": "text",
           "settings": {
-            "text": "<p><em>The perfect entry point for those needing a legal payload boost without a major lift.</em></p><ul><li><strong>GVM Increase:</strong> Up to 3650kg (approx. 1077kg payload).</li><li><strong>Key Features:</strong> Fox 2.5 Performance Series shocks and ORI 200kg heavy-duty leaf packs matched with heavy duty BDS control arms.</li><li><strong>Best For:</strong> Daily drivers and light towing where you need to clear the \"one-tonne\" mark for tax purposes (FBT compliance) or carry extra tools/gear legally.</li><li><strong>Benefit:</strong> Maintains a lifted stance with premium usa made shocks,  while significantly improving stability under load without the need of purchasing load rated wheels.</li></ul>"
+            "text": "<ul><li>Fox 2.5 Performance Elite Suspension</li><li>BDS Upper Control Arms</li><li>ORI Coil Packs</li><li>Federally Approved GVM & GCM</li><li>Payload Increase 1028KG</li></ul>"
           }
         }
       },
@@ -219,7 +219,7 @@
       "settings": {
         "container": "container",
         "color_schema": "",
-        "image": "shopify://shop_images/10_1600x_5b0eb0d7-dcbe-4585-a241-1ca77eda1264.webp",
+        "image": "shopify://shop_images/stage1-3850-tundra.webp",
         "image_width": "50%",
         "image_position": "left",
         "vertical_alignment": "center",
@@ -247,13 +247,13 @@
         "subheading_nNBqbG": {
           "type": "subheading",
           "settings": {
-            "subheading": "Stage 2: $7,800 - Installed & Engineered"
+            "subheading": "Stage 2: $22,499 Installed & Engineered"
           }
         },
         "heading_dHpa9y": {
           "type": "heading",
           "settings": {
-            "heading": "<strong>Stage 2: The Performance Level-Up (3650kg GVM + GCM up to 7850Kg)</strong>",
+            "heading": "<strong>Stage 2 : 3850 GVM</strong>",
             "highlight_style": "none",
             "enable_highlight_text_color": false,
             "heading_size": "h2"
@@ -262,7 +262,7 @@
         "text_eiTTm6": {
           "type": "text",
           "settings": {
-            "text": "<p><em>Increased strength without the cost of replacing all your suspension + legal one tonne payload.</em></p><ul><li><strong>GVM Increase:</strong> 3650kg.</li><li><strong>Key Features:</strong> Adds <strong>BDS Upper Control Arms</strong> and a leveling kit (or 2\" lift options) retains the factory Multimatic Suspension</li><li><strong>Best For:</strong> Chevy Silverado ZR2 owners only need to clear the \"one-tonne\" mark for tax purposes (FBT compliance) or carry extra tools/gear legally.<br/></li></ul><p></p><p><strong>Benefit:</strong> Enhanced front-end strength and wheel travel, making it far more capable on corrugated outback roads.<br/><br/></p>"
+            "text": "<ul><li>Fox 3.0 Factory Bypass Suspension</li><li>BDS  Upper Control Arms</li><li>ORI Coil Packs</li><li>Federally Approved GVM & GCM</li><li>Payload Increase 1028KG</li></ul>"
           }
         }
       },
@@ -275,177 +275,9 @@
       "settings": {
         "container": "container",
         "color_schema": "",
-        "image": "shopify://shop_images/stage2-3650-gvm.webp",
+        "image": "shopify://shop_images/stage2-3850-tundra.webp",
         "image_width": "50%",
         "image_position": "right",
-        "vertical_alignment": "center",
-        "column_gap": "medium",
-        "row_gap": "medium",
-        "padding_left": 0,
-        "padding_right": 0,
-        "align_content_container": "none",
-        "mobile_padding_left": 15,
-        "mobile_padding_right": 15,
-        "padding_top": 40,
-        "padding_bottom": 40,
-        "padding_top_mobile": 60,
-        "padding_bottom_mobile": 60,
-        "show_section_divider": false,
-        "divider_width": "container",
-        "custom_id": "",
-        "custom_class": "",
-        "animations": "inherit"
-      }
-    },
-    "image_with_text_M8ykcj": {
-      "type": "image-with-text",
-      "blocks": {
-        "subheading_p3JeNT": {
-          "type": "subheading",
-          "settings": {
-            "subheading": "Stage 3: $15,999 - Installed & Engineered"
-          }
-        },
-        "heading_KMefdY": {
-          "type": "heading",
-          "settings": {
-            "heading": "<strong>Stage 3: The Ultimate Tourer (3850kg GVM + GCM up to 8350kg)</strong>",
-            "highlight_style": "none",
-            "enable_highlight_text_color": false,
-            "heading_size": "h2"
-          }
-        },
-        "text_aVwiWh": {
-          "type": "text",
-          "settings": {
-            "text": "<p><em>Engineered for the ultimate suspension, </em></p><ul><li><strong>GVM Increase:</strong> 3850kg (approx. 1272kg payload). GCM Increase 8050 KG ZR2 or 8350 LTZ</li><li><strong>Key Features:</strong> Premium <strong>Fox 2.5 DSC (Dual Speed Compression)</strong> adjustable shocks.</li><li><strong>Best For:</strong> Heavy-duty touring. If you have a, bull bar, and a heavy tow ball weight from a large caravan, this is your sweet spot without having to upgrade your wheel and tyre package.<br/></li></ul><p></p><p><strong>Benefit:</strong> The DSC adjustability allows you to \"dial in\" your ride—stiffen it for the highway and soften it for the tracks at the turn of a knob. Fox’s premium shocks setup for the Chevy Silverado 1500.<br/><br/></p>"
-          }
-        }
-      },
-      "block_order": [
-        "subheading_p3JeNT",
-        "heading_KMefdY",
-        "text_aVwiWh"
-      ],
-      "name": "t:sections.image-with-text.presets.name",
-      "settings": {
-        "container": "container",
-        "color_schema": "",
-        "image": "shopify://shop_images/stage3-3650-gvm.webp",
-        "image_width": "50%",
-        "image_position": "left",
-        "vertical_alignment": "center",
-        "column_gap": "medium",
-        "row_gap": "medium",
-        "padding_left": 0,
-        "padding_right": 0,
-        "align_content_container": "none",
-        "mobile_padding_left": 15,
-        "mobile_padding_right": 15,
-        "padding_top": 40,
-        "padding_bottom": 40,
-        "padding_top_mobile": 60,
-        "padding_bottom_mobile": 60,
-        "show_section_divider": false,
-        "divider_width": "container",
-        "custom_id": "",
-        "custom_class": "",
-        "animations": "inherit"
-      }
-    },
-    "image_with_text_pcJYGC": {
-      "type": "image-with-text",
-      "blocks": {
-        "subheading_UXFBYE": {
-          "type": "subheading",
-          "settings": {
-            "subheading": "Stage 4: $16,999 - Installed & Engineered"
-          }
-        },
-        "heading_wfcybN": {
-          "type": "heading",
-          "settings": {
-            "heading": "<strong>Stage 4: The Heavy Hauler (4250kg GVM + GCM 8750Kg)</strong>",
-            "highlight_style": "none",
-            "enable_highlight_text_color": false,
-            "heading_size": "h2"
-          }
-        },
-        "text_giGN6b": {
-          "type": "text",
-          "settings": {
-            "text": "<p><em>Maximum legal capacity for the most demanding builds. Ideal for Tray Canopy builds</em></p><ul><li><strong>GVM Increase:</strong> 4250kg (approx. 1672kg payload) upto <strong>GCM Increase</strong> rating  8750kg * ZR2 8450kg.</li><li><strong>Key Features:</strong> Fox 2.5 Performance Elite suspension, ORI 400kg leaf packs, and <strong>required load-rated wheels/tyres</strong>.</li><li><strong>Best For:</strong> Fully built rigs with rear drawer systems, rooftop tents, and long-range tanks or the ultimate tourer with Tray and Canopies fitted.</li><li><strong>Benefit:</strong> Massive payload increase that transforms the Silverado into a true heavy-duty platform while retaining 4.5T braking towing capacity.</li></ul>"
-          }
-        }
-      },
-      "block_order": [
-        "subheading_UXFBYE",
-        "heading_wfcybN",
-        "text_giGN6b"
-      ],
-      "name": "t:sections.image-with-text.presets.name",
-      "settings": {
-        "container": "container",
-        "color_schema": "",
-        "image": "shopify://shop_images/stage-4-4250-gvm.webp",
-        "image_width": "50%",
-        "image_position": "right",
-        "vertical_alignment": "center",
-        "column_gap": "medium",
-        "row_gap": "medium",
-        "padding_left": 0,
-        "padding_right": 0,
-        "align_content_container": "none",
-        "mobile_padding_left": 15,
-        "mobile_padding_right": 15,
-        "padding_top": 40,
-        "padding_bottom": 40,
-        "padding_top_mobile": 60,
-        "padding_bottom_mobile": 60,
-        "show_section_divider": false,
-        "divider_width": "container",
-        "custom_id": "",
-        "custom_class": "",
-        "animations": "inherit"
-      }
-    },
-    "image_with_text_8GKk7C": {
-      "type": "image-with-text",
-      "blocks": {
-        "subheading_drUinH": {
-          "type": "subheading",
-          "settings": {
-            "subheading": "Stage 5: $26,999 - Installed & Engineered"
-          }
-        },
-        "heading_FGMkek": {
-          "type": "heading",
-          "settings": {
-            "heading": "<strong>Stage 5: The \"No Compromise\" Build (4250kg GVM + GCM 8750Kg)</strong>",
-            "highlight_style": "none",
-            "enable_highlight_text_color": false,
-            "heading_size": "h2"
-          }
-        },
-        "text_AHtUHA": {
-          "type": "text",
-          "settings": {
-            "text": "<p><em>The pinnacle of Silverado suspension engineering.</em></p><ul><li><strong>GVM Increase:</strong> 4250kg.</li><li><strong>Key Features:</strong> <strong>Fox 3.0 Internal Bypass Race Series Shocks</strong> (front and rear).</li><li><strong>Best For:</strong> The enthusiast who wants it all—maximum legal payload combined with race-bred suspension technology.<br/></li></ul><p><strong><br/>Benefit:</strong> The 3.0 Bypass shocks offer unparalleled heat dissipation and damping control. It’s the ultimate \"go-anywhere\" setup that remains legally compliant across Australia.<br/><br/></p>"
-          }
-        }
-      },
-      "block_order": [
-        "subheading_drUinH",
-        "heading_FGMkek",
-        "text_AHtUHA"
-      ],
-      "name": "t:sections.image-with-text.presets.name",
-      "settings": {
-        "container": "container",
-        "color_schema": "",
-        "image": "shopify://shop_images/stage-5-4250-gvm.webp",
-        "image_width": "50%",
-        "image_position": "left",
         "vertical_alignment": "center",
         "column_gap": "medium",
         "row_gap": "medium",
@@ -471,7 +303,7 @@
         "heading_YjLxhA": {
           "type": "heading",
           "settings": {
-            "heading": "ABOUT CHEVROLET SILVERADO 1500 LTZ",
+            "heading": "Toyota Tundra Limited & Platinum GVM Specifications",
             "highlight_style": "underline",
             "enable_highlight_text_color": true,
             "heading_size": "h1",
@@ -509,7 +341,10 @@
             "value_4": "4300kg",
             "value_5": "4300kg",
             "value_6": "",
-            "value_7": ""
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
           }
         },
         "row_7JDfxb": {
@@ -522,7 +357,10 @@
             "value_4": "4500 KG",
             "value_5": "4500 KG",
             "value_6": "4500 KG",
-            "value_7": ""
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
           }
         },
         "row_YVwraj": {
@@ -535,7 +373,10 @@
             "value_4": "8800kg",
             "value_5": "8800kg",
             "value_6": "",
-            "value_7": ""
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
           }
         },
         "row_zPKiUF": {
@@ -548,7 +389,10 @@
             "value_4": "Limited 2822 KG\nPlatinum 2864 KG",
             "value_5": "Limited 2822 KG\nPlatinum 2864 KG",
             "value_6": "",
-            "value_7": ""
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
           }
         },
         "row_wywcAp": {
@@ -561,7 +405,10 @@
             "value_4": "",
             "value_5": "",
             "value_6": "",
-            "value_7": ""
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
           }
         },
         "row_VPhYR9": {
@@ -574,7 +421,10 @@
             "value_4": "",
             "value_5": "",
             "value_6": "",
-            "value_7": ""
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
           }
         },
         "row_bcXE8T": {
@@ -587,7 +437,10 @@
             "value_4": "1850 KG",
             "value_5": "1850 kg",
             "value_6": "",
-            "value_7": ""
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
           }
         },
         "row_YJQHKH": {
@@ -600,7 +453,10 @@
             "value_4": "2450 kg",
             "value_5": "2450 kg",
             "value_6": "",
-            "value_7": ""
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
           }
         },
         "row_pqzEiz": {
@@ -613,7 +469,10 @@
             "value_4": "Pos 40, 35, 25, 18",
             "value_5": "Pos 40, 35, 25, 18",
             "value_6": "",
-            "value_7": ""
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
           }
         },
         "row_NrDzqV": {
@@ -626,7 +485,10 @@
             "value_4": "1225 KG",
             "value_5": "1225 KG",
             "value_6": "",
-            "value_7": ""
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
           }
         },
         "row_aDFEfG": {
@@ -639,7 +501,10 @@
             "value_4": "1063 KG",
             "value_5": "1250 KG",
             "value_6": "1250 KG",
-            "value_7": ""
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
           }
         },
         "row_Ei9mfn": {
@@ -652,7 +517,10 @@
             "value_4": "",
             "value_5": "",
             "value_6": "",
-            "value_7": ""
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
           }
         },
         "row_VrmHhK": {
@@ -665,7 +533,10 @@
             "value_4": "Yes",
             "value_5": "Yes",
             "value_6": "",
-            "value_7": ""
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
           }
         },
         "row_mVkpD4": {
@@ -678,7 +549,10 @@
             "value_4": "35x12.5x17\n35x12.5x18\n35x12.5x20",
             "value_5": "35x12.5x17\n35x12.5x18\n35x12.5x20",
             "value_6": "",
-            "value_7": ""
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
           }
         }
       },
@@ -711,6 +585,9 @@
         "col_title_5": "Stage 4",
         "col_title_6": "Stage 5",
         "col_title_7": "STAGE 6",
+        "col_title_8": "STAGE 7",
+        "col_title_9": "STAGE 8",
+        "col_title_10": "STAGE 9",
         "container_width": "90%",
         "heading_color": "#111111",
         "text_color": "#111111",
@@ -734,7 +611,10 @@
             "value_4": "3\"",
             "value_5": "2.25\"",
             "value_6": "",
-            "value_7": ""
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
           }
         },
         "row_QWetUx": {
@@ -747,7 +627,10 @@
             "value_4": "✔",
             "value_5": "✔",
             "value_6": "",
-            "value_7": ""
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
           }
         },
         "row_dAdUVr": {
@@ -760,7 +643,10 @@
             "value_4": "✔",
             "value_5": "",
             "value_6": "",
-            "value_7": ""
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
           }
         },
         "row_VhLrHW": {
@@ -773,7 +659,10 @@
             "value_4": "✔",
             "value_5": "",
             "value_6": "",
-            "value_7": ""
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
           }
         },
         "row_Xm7nMe": {
@@ -786,7 +675,10 @@
             "value_4": "",
             "value_5": "✔",
             "value_6": "✔",
-            "value_7": ""
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
           }
         },
         "row_PyCLYV": {
@@ -799,7 +691,10 @@
             "value_4": "",
             "value_5": "✔",
             "value_6": "✔",
-            "value_7": ""
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
           }
         },
         "row_MQ9Uxh": {
@@ -812,7 +707,10 @@
             "value_4": "✔",
             "value_5": "✔",
             "value_6": "✔",
-            "value_7": ""
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
           }
         },
         "row_ViUDYJ": {
@@ -825,7 +723,10 @@
             "value_4": "✔",
             "value_5": "✔",
             "value_6": "✔",
-            "value_7": ""
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
           }
         }
       },
@@ -852,6 +753,9 @@
         "col_title_5": "Stage 4",
         "col_title_6": "Stage 5",
         "col_title_7": "STAGE 6",
+        "col_title_8": "STAGE 7",
+        "col_title_9": "STAGE 8",
+        "col_title_10": "STAGE 9",
         "container_width": "90%",
         "heading_color": "#111111",
         "text_color": "#111111",
@@ -1040,9 +944,6 @@
     "rich_text_PtmRiF",
     "image_with_text_WcaAiR",
     "image_with_text_pR9RXR",
-    "image_with_text_M8ykcj",
-    "image_with_text_pcJYGC",
-    "image_with_text_8GKk7C",
     "rich_text_rnLAPH",
     "gvm_comparison_FfmTMw",
     "gvm_comparison_RXeVcA",
