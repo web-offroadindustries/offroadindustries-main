@@ -81,11 +81,18 @@
             "target_id": "gvmspecification"
           }
         },
-        "link_8FKHCp": {
+        "link_AGYMRH": {
           "type": "link",
           "settings": {
             "label": "Approved Wheels",
             "target_id": "approved-wheels"
+          }
+        },
+        "link_8FKHCp": {
+          "type": "link",
+          "settings": {
+            "label": "Suspension Collection",
+            "target_id": "suspensioncollection"
           }
         },
         "link_KmD9dx": {
@@ -99,6 +106,7 @@
       "block_order": [
         "link_C8imG8",
         "link_y9rErk",
+        "link_AGYMRH",
         "link_8FKHCp",
         "link_KmD9dx"
       ],
