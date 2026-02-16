@@ -122,7 +122,7 @@
         "heading_XhCLHT": {
           "type": "heading",
           "settings": {
-            "heading": "CHEVROLET SILVERADO 1500 LTZ",
+            "heading": "Chevrolet Silverado 2500HD LTZ GVM",
             "highlight_style": "none",
             "enable_highlight_text_color": true,
             "heading_size": "h1",
@@ -132,7 +132,7 @@
         "text_CfcJd4": {
           "type": "text",
           "settings": {
-            "text": "<p>We're excited to announce our industry-leading GVM SSM Federally Approved kits, specifically designed to upgrade your Chevrolet Silverado 1500 LTZ & ZR2.</p><p>Our custom solutions feature high-performance Fox Suspension, reliable BDS components, and specialized ORI Leaf Packs. We've also conducted in-depth GCM testing to maximize the performance of your GVM Package and ensure your brake towing capacity remains unaffected.<br/>We have developed multiple packages to suit your specific requirements. We believe USA Trucks deserve USA-made products, and our ORI team has authorised installers Australia-wide.</p>"
+            "text": "<p><strong>Federal Compliance: The Gold Standard in GVM Upgrades</strong>Experience total peace of mind on Australian roads with a fully federally approved GVM upgrade. Eliminate the risk of defects and navigate state borders without bureaucratic friction.</p><p><strong>Federally Certified Engineering:</strong> Operating under <strong>Offroad Industries (ORI)</strong> Vehicle Type Approvals (<strong>VTA-065187</strong> & <strong>VTA-065796</strong>), we provide a seamless pathway to upgrade your vehicle from <strong>NB1 to NB2</strong>, or facilitate an NB2-to-NB2 enhancement.<br/></p><p><strong>Second Stage of Manufacture (SSM):</strong> By installing this upgrade prior to first registration, your vehicle is legally manufactured to a higher Gross Vehicle Mass specification before it ever wears number plates.<br/></p><p><strong>True National Recognition:</strong> Unlike state-based modifications, this federal approval is recognised instantly across all Australian states and territories—negating the need for re-engineering if you travel or relocate interstate.<br/></p><p><strong>Protect Your Investment:</strong> As a federally codified change listed on your vehicle’s compliance plate, this upgrade protects your vehicle’s resale value far better than standard aftermarket modifications.</p>"
           }
         }
       },
@@ -160,7 +160,7 @@
         "heading_mpxUJy": {
           "type": "heading",
           "settings": {
-            "heading": "ORI PROPOSED GVM PACKAGES",
+            "heading": "ORI FEDERALLY APPROVED GVM PACKAGES",
             "highlight_style": "underline",
             "enable_highlight_text_color": true,
             "heading_size": "h1",
@@ -191,13 +191,13 @@
         "subheading_JVKNjL": {
           "type": "subheading",
           "settings": {
-            "subheading": "Stage 1: $11,500 - Installed & Engineered"
+            "subheading": "Stage 1: $16,500 - Installed & Engineered"
           }
         },
         "heading_f9G7kD": {
           "type": "heading",
           "settings": {
-            "heading": "STAGE 1 : 3650 GVM",
+            "heading": "STAGE 1 : 550 GVM",
             "highlight_style": "none",
             "enable_highlight_text_color": false,
             "heading_size": "h2"
@@ -206,7 +206,7 @@
         "text_fRRw7g": {
           "type": "text",
           "settings": {
-            "text": "<ul><li>Fox 2.5 Performance Series Suspension</li><li>BDS Upper Control Arms</li><li>ORI 200KG Leaf Packs</li><li>EO Wheels & Tyres Approved</li><li>Federally Approved GVM & GCM</li><li>Increase your payload to 1077KG</li></ul>"
+            "text": "<ul><li>SSM Federally Approved</li><li>PRE REGONB1 Compliance Vehicles</li><li>Upgrade from NB1 to NB2 4495 kg → 5500 kg</li><li>3\" Lift with Fox 2.5 HTO & BDS Control Arms</li><li>Bushwacker Flares</li><li>Engineered for 35x12.5x20 or 35x12.5x18 tyres</li><li>ORI 300 KG Rated Leaf Packs</li></ul>"
           }
         }
       },
@@ -219,7 +219,7 @@
       "settings": {
         "container": "container",
         "color_schema": "",
-        "image": "shopify://shop_images/10_1600x_5b0eb0d7-dcbe-4585-a241-1ca77eda1264.webp",
+        "image": "shopify://shop_images/stage1-5500-gvm.webp",
         "image_width": "50%",
         "image_position": "left",
         "vertical_alignment": "center",
@@ -247,13 +247,13 @@
         "subheading_nNBqbG": {
           "type": "subheading",
           "settings": {
-            "subheading": "Stage 2: $7,800 - Installed & Engineered"
+            "subheading": "Stage 2: $22,500 - Installed & Engineered"
           }
         },
         "heading_dHpa9y": {
           "type": "heading",
           "settings": {
-            "heading": "STAGE 2 : 3650 GVM",
+            "heading": "STAGE 2 : 5900 GVM",
             "highlight_style": "none",
             "enable_highlight_text_color": false,
             "heading_size": "h2"
@@ -262,7 +262,7 @@
         "text_eiTTm6": {
           "type": "text",
           "settings": {
-            "text": "<ul><li>Retain the Factory Multimatic Suspension</li><li>BDS Upper Control Arms</li><li>ORI 200KG Leaf Packs</li><li>OE Wheels & Tyres Approved</li><li>Federally Approved GVM & GCM</li><li>Increase Payload to 1087KG</li></ul>"
+            "text": "<ul><li>SSM Federally Approved</li><li>PRE REGO</li><li>NB1 Compliance Vehicles</li><li>Upgrade from NB1 to NB2 4495 kg → 5900 kg</li><li>3\" Lift with FOX 2.5 DSC • Performance Elite Series Shocks</li><li>BDS control arms</li><li>Bushwacker Flares</li><li>Engineered for 35x12.5x18 or 35x12.5x20.</li><li>ORI 500 KG Rated Leaf Packs.</li></ul>"
           }
         }
       },
@@ -275,7 +275,7 @@
       "settings": {
         "container": "container",
         "color_schema": "",
-        "image": "shopify://shop_images/stage2-3650-gvm.webp",
+        "image": "shopify://shop_images/stage2-5900-gvm.webp",
         "image_width": "50%",
         "image_position": "right",
         "vertical_alignment": "center",
@@ -303,13 +303,13 @@
         "subheading_p3JeNT": {
           "type": "subheading",
           "settings": {
-            "subheading": "Stage 3: $15,999 - Installed & Engineered"
+            "subheading": "Stage 3: $27,500 - Installed & Engineered"
           }
         },
         "heading_KMefdY": {
           "type": "heading",
           "settings": {
-            "heading": "STAGE 3 : 5300 GVM",
+            "heading": "STAGE 3 : 5900 GVM",
             "highlight_style": "none",
             "enable_highlight_text_color": false,
             "heading_size": "h2"
@@ -318,7 +318,7 @@
         "text_aVwiWh": {
           "type": "text",
           "settings": {
-            "text": "<ul><li>Fox 2.5 Performance Elite Suspension</li><li>BDS Upper Control Arms</li><li>ORI 200KG Leaf Packs</li><li>OE Wheels & Tyres Approved</li><li>Federally Approved GVM & GCM</li><li>Increase Payload to 1272KG</li></ul>"
+            "text": "<ul><li>SSM Federally Approved</li><li>PRE REGO</li><li>NB1 Compliance Vehicles</li><li>Upgrade from NB1 to NB2 4495 kg → 5900 kg</li><li>3\" Lift BDS Coil-over Conversion</li><li>FOX 2.5 DSC Performance Elite Series Shocks</li><li>BDS control arms</li><li>Bushwacker Flares</li><li>Engineered for 35x12.5x18 or 35x12.5x20.</li><li>ORI 500 KG Rated Leaf Packs.</li></ul>"
           }
         }
       },
@@ -331,119 +331,7 @@
       "settings": {
         "container": "container",
         "color_schema": "",
-        "image": "shopify://shop_images/stage3-3650-gvm.webp",
-        "image_width": "50%",
-        "image_position": "left",
-        "vertical_alignment": "center",
-        "column_gap": "medium",
-        "row_gap": "medium",
-        "padding_left": 0,
-        "padding_right": 0,
-        "align_content_container": "none",
-        "mobile_padding_left": 15,
-        "mobile_padding_right": 15,
-        "padding_top": 40,
-        "padding_bottom": 40,
-        "padding_top_mobile": 60,
-        "padding_bottom_mobile": 60,
-        "show_section_divider": false,
-        "divider_width": "container",
-        "custom_id": "",
-        "custom_class": "",
-        "animations": "inherit"
-      }
-    },
-    "image_with_text_pcJYGC": {
-      "type": "image-with-text",
-      "blocks": {
-        "subheading_UXFBYE": {
-          "type": "subheading",
-          "settings": {
-            "subheading": "Stage 4: $16,999 - Installed & Engineered"
-          }
-        },
-        "heading_wfcybN": {
-          "type": "heading",
-          "settings": {
-            "heading": "STAGE 4 : 4250 GVM",
-            "highlight_style": "none",
-            "enable_highlight_text_color": false,
-            "heading_size": "h2"
-          }
-        },
-        "text_giGN6b": {
-          "type": "text",
-          "settings": {
-            "text": "<ul><li>Fox 2.5 Performance Elite Suspension</li><li>BDS Upper Control Arms</li><li>ORI 200kg or 400KG Leaf Packs</li><li>Engineered for 35\" Tyres</li><li>Federally Approved GVM & GCM</li><li>Increase your payload to 1672kg to meet tax purposes.</li></ul>"
-          }
-        }
-      },
-      "block_order": [
-        "subheading_UXFBYE",
-        "heading_wfcybN",
-        "text_giGN6b"
-      ],
-      "name": "t:sections.image-with-text.presets.name",
-      "settings": {
-        "container": "container",
-        "color_schema": "",
-        "image": "shopify://shop_images/stage-4-4250-gvm.webp",
-        "image_width": "50%",
-        "image_position": "right",
-        "vertical_alignment": "center",
-        "column_gap": "medium",
-        "row_gap": "medium",
-        "padding_left": 0,
-        "padding_right": 0,
-        "align_content_container": "none",
-        "mobile_padding_left": 15,
-        "mobile_padding_right": 15,
-        "padding_top": 40,
-        "padding_bottom": 40,
-        "padding_top_mobile": 60,
-        "padding_bottom_mobile": 60,
-        "show_section_divider": false,
-        "divider_width": "container",
-        "custom_id": "",
-        "custom_class": "",
-        "animations": "inherit"
-      }
-    },
-    "image_with_text_8GKk7C": {
-      "type": "image-with-text",
-      "blocks": {
-        "subheading_drUinH": {
-          "type": "subheading",
-          "settings": {
-            "subheading": "Stage 5: $26,999 - Installed & Engineered"
-          }
-        },
-        "heading_FGMkek": {
-          "type": "heading",
-          "settings": {
-            "heading": "STAGE 5 : 4250 GVM",
-            "highlight_style": "none",
-            "enable_highlight_text_color": false,
-            "heading_size": "h2"
-          }
-        },
-        "text_AHtUHA": {
-          "type": "text",
-          "settings": {
-            "text": "<ul><li>Fox 3.0 Factory Bypass Suspension</li><li>Upgraded to BDS Control Arms</li><li>ORI 200kg or 400KG Leaf Packs</li><li>Engineered for 35\" Tyres</li><li>Federally Approved GVM & GCM</li><li>Increase your payload to 1672KG</li></ul>"
-          }
-        }
-      },
-      "block_order": [
-        "subheading_drUinH",
-        "heading_FGMkek",
-        "text_AHtUHA"
-      ],
-      "name": "t:sections.image-with-text.presets.name",
-      "settings": {
-        "container": "container",
-        "color_schema": "",
-        "image": "shopify://shop_images/stage-5-4250-gvm.webp",
+        "image": "shopify://shop_images/stage3-5900-gvm.webp",
         "image_width": "50%",
         "image_position": "left",
         "vertical_alignment": "center",
@@ -471,7 +359,7 @@
         "heading_YjLxhA": {
           "type": "heading",
           "settings": {
-            "heading": "ABOUT CHEVROLET SILVERADO 1500 LTZ",
+            "heading": "About Chevrolet Silverado 2500 LTZ GVM Specifications",
             "highlight_style": "underline",
             "enable_highlight_text_color": true,
             "heading_size": "h1",
@@ -1059,7 +947,7 @@
         "heading_PHJcdq": {
           "type": "heading",
           "settings": {
-            "heading": "Ori's Suspension Collection",
+            "heading": "Approved Method Wheels",
             "highlight_style": "underline",
             "enable_highlight_text_color": true,
             "heading_size": "h1",
@@ -1069,6 +957,37 @@
       },
       "block_order": [
         "heading_PHJcdq"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "container": "container",
+        "color_schema": "",
+        "text_alignment": "left",
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "show_section_divider": false,
+        "divider_width": "container",
+        "custom_id": "suspensioncollection",
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "rich_text_ni9bQW": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_fRrLKd": {
+          "type": "heading",
+          "settings": {
+            "heading": "Ori's Suspension Collection",
+            "highlight_style": "underline",
+            "enable_highlight_text_color": true,
+            "heading_size": "h1",
+            "heading_color": "#1d5904"
+          }
+        }
+      },
+      "block_order": [
+        "heading_fRrLKd"
       ],
       "name": "t:sections.rich-text.presets.name",
       "settings": {
@@ -1232,12 +1151,11 @@
     "image_with_text_WcaAiR",
     "image_with_text_pR9RXR",
     "image_with_text_M8ykcj",
-    "image_with_text_pcJYGC",
-    "image_with_text_8GKk7C",
     "rich_text_rnLAPH",
     "gvm_comparison_FfmTMw",
     "gvm_comparison_RXeVcA",
     "rich_text_4AxLyp",
+    "rich_text_ni9bQW",
     "logo_list_8XphYi",
     "contact_form_bfPpbR"
   ]
