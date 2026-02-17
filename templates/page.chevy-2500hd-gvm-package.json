@@ -205,7 +205,7 @@
         "heading_f9G7kD": {
           "type": "heading",
           "settings": {
-            "heading": "STAGE 1 : 550 GVM",
+            "heading": "STAGE 1 : 5500 GVM",
             "highlight_style": "none",
             "enable_highlight_text_color": false,
             "heading_size": "h2"
@@ -227,7 +227,7 @@
       "settings": {
         "container": "container",
         "color_schema": "",
-        "image": "shopify://shop_images/stage1-5500-gvm.webp",
+        "image": "shopify://shop_images/stage_1_5500_gvm_SILVERADO_2500HD.jpg",
         "image_width": "50%",
         "image_position": "left",
         "vertical_alignment": "center",
@@ -283,7 +283,7 @@
       "settings": {
         "container": "container",
         "color_schema": "",
-        "image": "shopify://shop_images/stage2-5900-gvm.webp",
+        "image": "shopify://shop_images/stage_2_5900_gvm_SILVERADO_2500HD.jpg",
         "image_width": "50%",
         "image_position": "right",
         "vertical_alignment": "center",
@@ -339,7 +339,7 @@
       "settings": {
         "container": "container",
         "color_schema": "",
-        "image": "shopify://shop_images/stage3-5900-gvm.webp",
+        "image": "shopify://shop_images/stage_3_5900_gvm_SILVERADO_2500HD.jpg",
         "image_width": "50%",
         "image_position": "left",
         "vertical_alignment": "center",
