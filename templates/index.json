@@ -39,7 +39,8 @@
         "slide_TmbWTM": {
           "type": "slide",
           "settings": {
-            "background": "shopify://shop_images/Desktop_Slider_Banner_2_1920x1080px.png",
+            "background": "shopify://shop_images/Desktop-Slider-Banner-2-1920x1080px_silverado-2500.png",
+            "mb_background": "shopify://shop_images/Desktop-Slider-Banner-2-1920x1080px_silverado-2500.png",
             "image_overlay_opacity": 0,
             "content_position": "center",
             "text_alignment": "center",
