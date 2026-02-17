@@ -61,30 +61,6 @@
             "button_size_2": ""
           }
         },
-        "41d2f781-470b-477f-896a-873df5080966": {
-          "type": "slide",
-          "settings": {
-            "background": "shopify://shop_images/Desktop-Slider-Banner-1920x1080px_1500.png",
-            "image_overlay_opacity": 0,
-            "content_position": "center-bottom",
-            "text_alignment": "center",
-            "text_color": "#ffffff",
-            "title": "",
-            "heading_size": "h-xl",
-            "heading_color": "#e1ea7a",
-            "subheading": "",
-            "description": "",
-            "desc_size": "text-desc-base",
-            "button_text_1": "",
-            "button_link_1": "",
-            "button_style_1": "btn--white",
-            "button_size_1": "",
-            "button_text_2": "",
-            "button_link_2": "",
-            "button_style_2": "btn--primary",
-            "button_size_2": ""
-          }
-        },
         "slide_MDYDqF": {
           "type": "slide",
           "settings": {
@@ -113,7 +89,6 @@
       "block_order": [
         "slide_39hWWW",
         "slide_TmbWTM",
-        "41d2f781-470b-477f-896a-873df5080966",
         "slide_MDYDqF"
       ],
       "custom_css": [
@@ -197,6 +172,7 @@
         "16539046325056e830-1",
         "057c3cd6-53c8-4e07-b3d6-bd5d4fdb542d"
       ],
+      "disabled": true,
       "settings": {
         "container": "container",
         "color_schema": "background-1",
@@ -221,6 +197,79 @@
         "button_style": "btn--primary",
         "enable_swipe_mobile": true,
         "column_mobile": "1",
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "show_section_divider": false,
+        "divider_width": "container",
+        "custom_id": "",
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "uneven_image_cards_bkLjJt": {
+      "type": "uneven-image-cards",
+      "blocks": {
+        "image_with_text_DKJpNL": {
+          "type": "image_with_text",
+          "settings": {
+            "image": "shopify://shop_images/WEB_3.png",
+            "image_ratio": "adapt",
+            "sub_heading": "",
+            "heading": "Upper Control Arm Kit",
+            "highlight_style": "none",
+            "enable_highlight_text_color": false,
+            "heading_size": "h3",
+            "heading_color": "",
+            "description": "",
+            "button_label": "Shop Now",
+            "button_link": "",
+            "button_style": "btn--underline",
+            "text_alignment": "left",
+            "content_spacing": "small"
+          }
+        },
+        "image_card_FyJ7iw": {
+          "type": "image_card",
+          "settings": {
+            "layout": "layout4",
+            "text_color": "#ffffff",
+            "image": "shopify://shop_images/addictive-desert-designs-ram-1500-trx-stealth-fighter-front-baraddictive-desert-designsf620153030103-292961.png",
+            "image_ratio": "3/4",
+            "image_overlay_opacity": 0,
+            "sub_heading": "",
+            "heading": "Where Style Meets Comfort",
+            "highlight_style": "none",
+            "enable_highlight_text_color": false,
+            "heading_size": "h1",
+            "heading_color": "",
+            "description": "",
+            "button_label": "Shop Now",
+            "button_link": "",
+            "button_style": "btn--underline",
+            "vertical_content_padding": 56,
+            "vertical_content_padding_mobile": 40
+          }
+        }
+      },
+      "block_order": [
+        "image_with_text_DKJpNL",
+        "image_card_FyJ7iw"
+      ],
+      "custom_css": [
+        "@media (min-width: 768px) {.section__header--text {max-width: 57rem; margin-inline: auto; }}"
+      ],
+      "settings": {
+        "color_schema": "",
+        "section_header_padding_bottom": "small",
+        "section_header_content_spacing": "small",
+        "heading": "ORI GVM packages",
+        "highlight_style": "none",
+        "enable_highlight_text_color": false,
+        "heading_size": "h-xl",
+        "heading_color": "",
+        "subheading": "The Lookbook",
+        "description": "",
+        "vertical_alignment": "center",
         "padding_top": 40,
         "padding_bottom": 40,
         "show_section_divider": false,
@@ -276,6 +325,7 @@
         "text_wkgDeN",
         "text_9Mzcdj"
       ],
+      "disabled": true,
       "settings": {
         "container": "container-full",
         "color_schema": "accent",
@@ -352,6 +402,7 @@
         "collection_EYPHHA",
         "collection_NxRnMT"
       ],
+      "disabled": true,
       "settings": {
         "container": "container",
         "color_schema": "",
@@ -442,6 +493,7 @@
         "featured_collection_dHUPkm",
         "7ea9e8bd-d38d-462d-9994-4f8d40095a57"
       ],
+      "disabled": true,
       "custom_css": [
         ".collection-list {--swiper-column-width: 37vw;}"
       ],
@@ -575,6 +627,7 @@
     },
     "favorite_collection_bNc9Xt": {
       "type": "favorite-collection",
+      "disabled": true,
       "custom_css": [
         "@media (min-width: 768px) {.section__header--text {max-width: 47rem; }}"
       ],
@@ -650,6 +703,7 @@
         "template--16355052454049__8d9edff7-a12e-496b-b515-7b16d0a18ca0-collection-2",
         "template--16355052454049__8d9edff7-a12e-496b-b515-7b16d0a18ca0-collection-3"
       ],
+      "disabled": true,
       "custom_css": [],
       "settings": {
         "container": "container",
@@ -678,6 +732,7 @@
     },
     "16539055556d053ca4": {
       "type": "featured-collection",
+      "disabled": true,
       "settings": {
         "container": "container",
         "color_schema": "background-1",
@@ -706,79 +761,6 @@
         "button_style": "btn--underline",
         "enable_swipe_mobile": true,
         "column_mobile": "1",
-        "padding_top": 40,
-        "padding_bottom": 40,
-        "show_section_divider": false,
-        "divider_width": "container",
-        "custom_id": "",
-        "custom_class": "",
-        "animations": "inherit"
-      }
-    },
-    "uneven_image_cards_bkLjJt": {
-      "type": "uneven-image-cards",
-      "blocks": {
-        "image_with_text_DKJpNL": {
-          "type": "image_with_text",
-          "settings": {
-            "image": "shopify://shop_images/WEB_3.png",
-            "image_ratio": "adapt",
-            "sub_heading": "",
-            "heading": "Upper Control Arm Kit",
-            "highlight_style": "none",
-            "enable_highlight_text_color": false,
-            "heading_size": "h3",
-            "heading_color": "",
-            "description": "",
-            "button_label": "Shop Now",
-            "button_link": "",
-            "button_style": "btn--underline",
-            "text_alignment": "left",
-            "content_spacing": "small"
-          }
-        },
-        "image_card_FyJ7iw": {
-          "type": "image_card",
-          "settings": {
-            "layout": "layout4",
-            "text_color": "#ffffff",
-            "image": "shopify://shop_images/addictive-desert-designs-ram-1500-trx-stealth-fighter-front-baraddictive-desert-designsf620153030103-292961.png",
-            "image_ratio": "3/4",
-            "image_overlay_opacity": 0,
-            "sub_heading": "",
-            "heading": "Where Style Meets Comfort",
-            "highlight_style": "none",
-            "enable_highlight_text_color": false,
-            "heading_size": "h1",
-            "heading_color": "",
-            "description": "",
-            "button_label": "Shop Now",
-            "button_link": "",
-            "button_style": "btn--underline",
-            "vertical_content_padding": 56,
-            "vertical_content_padding_mobile": 40
-          }
-        }
-      },
-      "block_order": [
-        "image_with_text_DKJpNL",
-        "image_card_FyJ7iw"
-      ],
-      "custom_css": [
-        "@media (min-width: 768px) {.section__header--text {max-width: 57rem; margin-inline: auto; }}"
-      ],
-      "settings": {
-        "color_schema": "",
-        "section_header_padding_bottom": "small",
-        "section_header_content_spacing": "small",
-        "heading": "Discover our world of <em>substance & style</em>",
-        "highlight_style": "none",
-        "enable_highlight_text_color": false,
-        "heading_size": "h-xl",
-        "heading_color": "",
-        "subheading": "The Lookbook",
-        "description": "",
-        "vertical_alignment": "center",
         "padding_top": 40,
         "padding_bottom": 40,
         "show_section_divider": false,
@@ -989,7 +971,8 @@
       ],
       "settings": {
         "container": "container-full",
-        "image": "shopify://shop_images/2024-Chevy-Silverado-2500-Phantom-Winch-Front-Bumper-3.png",
+        "image": "shopify://shop_images/chevy-2500HD-blue.png",
+        "image_mobile": "shopify://shop_images/chevy-2500HD-blue.png",
         "image_overlay_opacity": 20,
         "hero_height": "adapt",
         "content_in_container": false,
@@ -1307,6 +1290,7 @@
       "blocks": {
         "template--16355052454049__b9a09ce1-0384-4aac-8a69-af32bf73a5e8-tab-1": {
           "type": "tab",
+          "disabled": true,
           "settings": {
             "content_color_schema": "scheme-5",
             "navigation_title": "New to ORI - BANK Products",
@@ -1351,6 +1335,7 @@
     "1653903038c126b831",
     "1770092251a8cb32bd",
     "16539046323b76eb29",
+    "uneven_image_cards_bkLjJt",
     "promotion_banner_QiTDwF",
     "collections_showcase_cKz9hB",
     "0f7b029a-fe5e-4827-8f2c-450067a56576",
@@ -1358,7 +1343,6 @@
     "favorite_collection_bNc9Xt",
     "8d9edff7-a12e-496b-b515-7b16d0a18ca0",
     "16539055556d053ca4",
-    "uneven_image_cards_bkLjJt",
     "scrolling_promotion_iqVp4T",
     "hero_8BNkhD",
     "products_bundle_jFkhY9",
