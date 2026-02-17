@@ -219,7 +219,7 @@
       "settings": {
         "container": "container",
         "color_schema": "",
-        "image": "shopify://shop_images/stage1-3700-ford150.webp",
+        "image": "shopify://shop_images/stage_1_3700_GVM_F150.jpg",
         "image_width": "50%",
         "image_position": "left",
         "vertical_alignment": "center",
@@ -275,7 +275,7 @@
       "settings": {
         "container": "container",
         "color_schema": "",
-        "image": "shopify://shop_images/stage2-3700-ford150.webp",
+        "image": "shopify://shop_images/stage_2_3700_GVM_F150.jpg",
         "image_width": "50%",
         "image_position": "right",
         "vertical_alignment": "center",
@@ -331,7 +331,7 @@
       "settings": {
         "container": "container",
         "color_schema": "",
-        "image": "shopify://shop_images/stage3-4300-ford150.webp",
+        "image": "shopify://shop_images/stage_3_4300_GVM_F150.jpg",
         "image_width": "50%",
         "image_position": "left",
         "vertical_alignment": "center",
@@ -387,7 +387,7 @@
       "settings": {
         "container": "container",
         "color_schema": "",
-        "image": "shopify://shop_images/stage4-4300-ford150.webp",
+        "image": "shopify://shop_images/stage_4_4300_GVM_F150.jpg",
         "image_width": "50%",
         "image_position": "right",
         "vertical_alignment": "center",
@@ -443,7 +443,7 @@
       "settings": {
         "container": "container",
         "color_schema": "",
-        "image": "shopify://shop_images/stage5-4000-gvm.webp",
+        "image": "shopify://shop_images/stage_5_4300_GVM_F150.jpg",
         "image_width": "50%",
         "image_position": "left",
         "vertical_alignment": "center",
@@ -499,7 +499,7 @@
       "settings": {
         "container": "container",
         "color_schema": "",
-        "image": "shopify://shop_images/stage6-3700-gvm.webp",
+        "image": "shopify://shop_images/stage_6_4300_GVM_F150.jpg",
         "image_width": "50%",
         "image_position": "right",
         "vertical_alignment": "center",
