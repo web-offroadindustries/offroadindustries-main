@@ -909,7 +909,7 @@
         "row_ft3LzT": {
           "type": "row",
           "settings": {
-            "label": "Kit Numbe",
+            "label": "Kit Number",
             "value_1": "",
             "value_2": "CHV-2500-Stage1",
             "value_3": "CHV-2500-Stage2",
