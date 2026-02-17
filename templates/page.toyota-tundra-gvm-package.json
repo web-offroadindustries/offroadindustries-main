@@ -400,10 +400,10 @@
           "settings": {
             "label": "Payload (bases on kerb weight)",
             "value_1": "758 KG",
-            "value_2": "1028 KG",
-            "value_3": "1028 KG",
-            "value_4": "",
-            "value_5": "",
+            "value_2": "Limited 1028 KG\nPlatinum 986 KG",
+            "value_3": "Limited 1028 KG\nPlatinum 986 KG",
+            "value_4": "Limited 1478 KG\nPlatinum 1436 KG",
+            "value_5": "Limited 1478 KG\nPlatinum 1436 KG",
             "value_6": "",
             "value_7": "",
             "value_8": "",
@@ -418,8 +418,8 @@
             "value_1": "",
             "value_2": "36%",
             "value_3": "36%",
-            "value_4": "",
-            "value_5": "",
+            "value_4": "95%",
+            "value_5": "95%",
             "value_6": "",
             "value_7": "",
             "value_8": "",
@@ -432,7 +432,7 @@
           "settings": {
             "label": "Front Axle Capacity",
             "value_1": "1850 KG",
-            "value_2": "1850 KG",
+            "value_2": "",
             "value_3": "1850 KG",
             "value_4": "1850 KG",
             "value_5": "1850 kg",
@@ -463,7 +463,7 @@
           "type": "row",
           "settings": {
             "label": "Wheel Offsets",
-            "value_1": "+ 60 Offset",
+            "value_1": "",
             "value_2": "OE Wheels",
             "value_3": "OE Wheels",
             "value_4": "Pos 40, 35, 25, 18",
@@ -479,7 +479,7 @@
           "type": "row",
           "settings": {
             "label": "Wheel Load Rating",
-            "value_1": "1000 KG",
+            "value_1": "",
             "value_2": "OE",
             "value_3": "OE",
             "value_4": "1225 KG",
@@ -495,12 +495,12 @@
           "type": "row",
           "settings": {
             "label": "Tyre Load Rating",
-            "value_1": "862 KG",
-            "value_2": "963 KG",
-            "value_3": "963 KG",
-            "value_4": "1063 KG",
-            "value_5": "1250 KG",
-            "value_6": "1250 KG",
+            "value_1": "",
+            "value_2": "OE Tyres",
+            "value_3": "OE Tyres",
+            "value_4": "1250 kg",
+            "value_5": "1250 kg",
+            "value_6": "",
             "value_7": "",
             "value_8": "",
             "value_9": "",
@@ -510,24 +510,8 @@
         "row_Ei9mfn": {
           "type": "row",
           "settings": {
-            "label": "Tyre Load Rating",
-            "value_1": "1000 KG",
-            "value_2": "OE Tyres",
-            "value_3": "OE Tyres",
-            "value_4": "",
-            "value_5": "",
-            "value_6": "",
-            "value_7": "",
-            "value_8": "",
-            "value_9": "",
-            "value_10": ""
-          }
-        },
-        "row_VrmHhK": {
-          "type": "row",
-          "settings": {
             "label": "Requires Wheel/ Tyre Upgrade",
-            "value_1": "OE",
+            "value_1": "",
             "value_2": "NA",
             "value_3": "NA",
             "value_4": "Yes",
@@ -539,7 +523,7 @@
             "value_10": ""
           }
         },
-        "row_mVkpD4": {
+        "row_VrmHhK": {
           "type": "row",
           "settings": {
             "label": "Maximum Tyre Size",
@@ -569,8 +553,7 @@
         "row_NrDzqV",
         "row_aDFEfG",
         "row_Ei9mfn",
-        "row_VrmHhK",
-        "row_mVkpD4"
+        "row_VrmHhK"
       ],
       "name": "GVM Comparison",
       "settings": {
@@ -728,6 +711,54 @@
             "value_9": "",
             "value_10": ""
           }
+        },
+        "row_DDNBEa": {
+          "type": "row",
+          "settings": {
+            "label": "Speedo Calibration Tool",
+            "value_1": "ORI-Speedo-Tool",
+            "value_2": "",
+            "value_3": "",
+            "value_4": "✔",
+            "value_5": "✔",
+            "value_6": "",
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
+          }
+        },
+        "row_eqP6qp": {
+          "type": "row",
+          "settings": {
+            "label": "ORI Mud Flap Solution Kit",
+            "value_1": "ORI-Tun-Mudflap",
+            "value_2": "",
+            "value_3": "",
+            "value_4": "✔",
+            "value_5": "✔",
+            "value_6": "",
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
+          }
+        },
+        "row_fQkXVY": {
+          "type": "row",
+          "settings": {
+            "label": "GVM Part Number",
+            "value_1": "",
+            "value_2": "Tundra-Stage1",
+            "value_3": "Tundra-Stage2",
+            "value_4": "Tundra-Stage3",
+            "value_5": "Tundra-Stage4",
+            "value_6": "",
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
+          }
         }
       },
       "block_order": [
@@ -738,7 +769,10 @@
         "row_Xm7nMe",
         "row_PyCLYV",
         "row_MQ9Uxh",
-        "row_ViUDYJ"
+        "row_ViUDYJ",
+        "row_DDNBEa",
+        "row_eqP6qp",
+        "row_fQkXVY"
       ],
       "name": "GVM Comparison",
       "settings": {
