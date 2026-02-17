@@ -122,7 +122,7 @@
         "heading_XhCLHT": {
           "type": "heading",
           "settings": {
-            "heading": "CHEVROLET SILVERADO 1500 LTZ",
+            "heading": "RAM 2500HD",
             "highlight_style": "none",
             "enable_highlight_text_color": true,
             "heading_size": "h1",
@@ -132,7 +132,7 @@
         "text_CfcJd4": {
           "type": "text",
           "settings": {
-            "text": "<p>We're excited to announce our industry-leading GVM SSM Federally Approved kits, specifically designed to upgrade your Chevrolet Silverado 1500 LTZ & ZR2.</p><p>Our custom solutions feature high-performance Fox Suspension, reliable BDS components, and specialized ORI Leaf Packs. We've also conducted in-depth GCM testing to maximize the performance of your GVM Package and ensure your brake towing capacity remains unaffected.<br/>We have developed multiple packages to suit your specific requirements. We believe USA Trucks deserve USA-made products, and our ORI team has authorised installers Australia-wide.</p>"
+            "text": "<p>We're excited to offer a GVM package from Offroad Industries that can transform your Ram 2500HD. This upgrade enhances your vehicle's overall engineering, including the ability to fit bigger tyres.</p><p>We understand that many RAM Australia-delivered RAM 2500s are currently in the NB1 Category, and we have an excellent solution to upgrade your vehicle. We can elevate your Ram 2500HD to either a 5300GVM or even a 5550GVM. This substantial upgrade is achieved through the integration of top-of-the-line suspension components from Fox & BDS, ensuring superior performance and durability.</p><p>As a federally approved second-stage manufacturer, we have the authority to upgrade your vehicle's GVM on the federal database.</p><p>Ram Australia Trucks only 2019 - 2024<br/></p>"
           }
         }
       },
@@ -160,7 +160,7 @@
         "heading_mpxUJy": {
           "type": "heading",
           "settings": {
-            "heading": "ORI PROPOSED GVM PACKAGES",
+            "heading": "Ori Proposed GVM Packages",
             "highlight_style": "underline",
             "enable_highlight_text_color": true,
             "heading_size": "h1",
@@ -191,13 +191,13 @@
         "subheading_JVKNjL": {
           "type": "subheading",
           "settings": {
-            "subheading": "Stage 1: $11,500 - Installed & Engineered"
+            "subheading": "Stage 1: $10,500 - Installed & Engineered"
           }
         },
         "heading_f9G7kD": {
           "type": "heading",
           "settings": {
-            "heading": "STAGE 1 : 3650 GVM",
+            "heading": "STAGE 1 : 5300 GVM",
             "highlight_style": "none",
             "enable_highlight_text_color": false,
             "heading_size": "h2"
@@ -206,7 +206,7 @@
         "text_fRRw7g": {
           "type": "text",
           "settings": {
-            "text": "<ul><li>Fox 2.5 Performance Series Suspension</li><li>BDS Upper Control Arms</li><li>ORI 200KG Leaf Packs</li><li>EO Wheels & Tyres Approved</li><li>Federally Approved GVM & GCM</li><li>Increase your payload to 1077KG</li></ul>"
+            "text": "<ul><li>Fox 2.5 HTO Performance Series Suspension</li><li>ORI 50mm Front and Rear Coils</li><li>SSM Federally Approved GVM</li><li>Category Changes from NB1 to NB2</li><li>4459 Upgraded 5300 GVM</li></ul>"
           }
         }
       },
@@ -219,7 +219,7 @@
       "settings": {
         "container": "container",
         "color_schema": "",
-        "image": "shopify://shop_images/10_1600x_5b0eb0d7-dcbe-4585-a241-1ca77eda1264.webp",
+        "image": "shopify://shop_images/stage1-5300-ram.webp",
         "image_width": "50%",
         "image_position": "left",
         "vertical_alignment": "center",
@@ -247,13 +247,13 @@
         "subheading_nNBqbG": {
           "type": "subheading",
           "settings": {
-            "subheading": "Stage 2: $7,800 - Installed & Engineered"
+            "subheading": "Stage 2: $15,000 - Installed & Engineered"
           }
         },
         "heading_dHpa9y": {
           "type": "heading",
           "settings": {
-            "heading": "STAGE 2 : 3650 GVM",
+            "heading": "STAGE 2 : 5300 GVM",
             "highlight_style": "none",
             "enable_highlight_text_color": false,
             "heading_size": "h2"
@@ -262,7 +262,7 @@
         "text_eiTTm6": {
           "type": "text",
           "settings": {
-            "text": "<ul><li>Retain the Factory Multimatic Suspension</li><li>BDS Upper Control Arms</li><li>ORI 200KG Leaf Packs</li><li>OE Wheels & Tyres Approved</li><li>Federally Approved GVM & GCM</li><li>Increase Payload to 1087KG</li></ul>"
+            "text": "<ul><li>Fox 2.5 Performance Elite Suspension</li><li>ORI 50mm Front and Rear Coils</li><li>SSM Federally Approved GVM</li><li>Category Change from NB1 to NB2</li><li>4495 Upgraded to 5300 GVM</li></ul>"
           }
         }
       },
@@ -275,7 +275,7 @@
       "settings": {
         "container": "container",
         "color_schema": "",
-        "image": "shopify://shop_images/stage2-3650-gvm.webp",
+        "image": "shopify://shop_images/stage2-5300-ram.webp",
         "image_width": "50%",
         "image_position": "right",
         "vertical_alignment": "center",
@@ -303,7 +303,7 @@
         "subheading_p3JeNT": {
           "type": "subheading",
           "settings": {
-            "subheading": "Stage 3: $15,999 - Installed & Engineered"
+            "subheading": "Stage 3: $17,499 - Installed & Engineered"
           }
         },
         "heading_KMefdY": {
@@ -318,7 +318,7 @@
         "text_aVwiWh": {
           "type": "text",
           "settings": {
-            "text": "<ul><li>Fox 2.5 Performance Elite Suspension</li><li>BDS Upper Control Arms</li><li>ORI 200KG Leaf Packs</li><li>OE Wheels & Tyres Approved</li><li>Federally Approved GVM & GCM</li><li>Increase Payload to 1272KG</li></ul>"
+            "text": "<ul><li>3\" BDS Radius Suspension Package</li><li>Fox 2.5 Performance Elite Suspension</li><li>BDS Front Coils and Rear Coils</li><li>SSM Federally Approved GVM</li><li>Category Change NB1 to NB2 .</li><li>4495 Upgraded 5300 GVM</li></ul>"
           }
         }
       },
@@ -331,7 +331,7 @@
       "settings": {
         "container": "container",
         "color_schema": "",
-        "image": "shopify://shop_images/stage3-3650-gvm.webp",
+        "image": "shopify://shop_images/stage3-5300-ram.webp",
         "image_width": "50%",
         "image_position": "left",
         "vertical_alignment": "center",
@@ -359,13 +359,13 @@
         "subheading_UXFBYE": {
           "type": "subheading",
           "settings": {
-            "subheading": "Stage 4: $16,999 - Installed & Engineered"
+            "subheading": "Stage 4: $15,000 - Installed & Engineered"
           }
         },
         "heading_wfcybN": {
           "type": "heading",
           "settings": {
-            "heading": "STAGE 4 : 4250 GVM",
+            "heading": "STAGE 4 : 5550 GVM",
             "highlight_style": "none",
             "enable_highlight_text_color": false,
             "heading_size": "h2"
@@ -374,7 +374,7 @@
         "text_giGN6b": {
           "type": "text",
           "settings": {
-            "text": "<ul><li>Fox 2.5 Performance Elite Suspension</li><li>BDS Upper Control Arms</li><li>ORI 200kg or 400KG Leaf Packs</li><li>Engineered for 35\" Tyres</li><li>Federally Approved GVM & GCM</li><li>Increase your payload to 1672kg to meet tax purposes.</li></ul>"
+            "text": "<ul><li>Fox 2.5 Performance Elite Suspension</li><li>ORI 50mm Front and Rear Coils</li><li>SSM Federally Approved GVM</li><li>Engineered for 35x12.5x18 or 15x12.5x20</li><li>Category Change NB1 to NB2 .</li><li>4495 Upgraded 5550 GVM</li></ul>"
           }
         }
       },
@@ -387,7 +387,7 @@
       "settings": {
         "container": "container",
         "color_schema": "",
-        "image": "shopify://shop_images/stage-4-4250-gvm.webp",
+        "image": "shopify://shop_images/stage4-5550-ram.webp",
         "image_width": "50%",
         "image_position": "right",
         "vertical_alignment": "center",
@@ -415,13 +415,13 @@
         "subheading_drUinH": {
           "type": "subheading",
           "settings": {
-            "subheading": "Stage 5: $26,999 - Installed & Engineered"
+            "subheading": "Stage 5: $17,499 - Installed & Engineered"
           }
         },
         "heading_FGMkek": {
           "type": "heading",
           "settings": {
-            "heading": "STAGE 5 : 4250 GVM",
+            "heading": "STAGE 5 : 5550 GVM",
             "highlight_style": "none",
             "enable_highlight_text_color": false,
             "heading_size": "h2"
@@ -430,7 +430,7 @@
         "text_AHtUHA": {
           "type": "text",
           "settings": {
-            "text": "<ul><li>Fox 3.0 Factory Bypass Suspension</li><li>Upgraded to BDS Control Arms</li><li>ORI 200kg or 400KG Leaf Packs</li><li>Engineered for 35\" Tyres</li><li>Federally Approved GVM & GCM</li><li>Increase your payload to 1672KG</li></ul>"
+            "text": "<ul><li>3\" BDS Radius Suspension Package</li><li>Fox 2.5 Performance Elite Suspension</li><li>BDS Front Coils and Rear Coils</li><li>SSM Federally Approved GVM</li><li>Engineered for 35x12.5x18 or 35x12.5x20</li><li>Category Change NB1 to NB2 .</li><li>4495 Upgraded 5550 GVM</li></ul>"
           }
         }
       },
@@ -443,7 +443,7 @@
       "settings": {
         "container": "container",
         "color_schema": "",
-        "image": "shopify://shop_images/stage-5-4250-gvm.webp",
+        "image": "shopify://shop_images/stage5-5550-ram.webp",
         "image_width": "50%",
         "image_position": "left",
         "vertical_alignment": "center",
@@ -458,6 +458,33 @@
         "padding_bottom": 40,
         "padding_top_mobile": 60,
         "padding_bottom_mobile": 60,
+        "show_section_divider": false,
+        "divider_width": "container",
+        "custom_id": "",
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "rich_text_GiVh3x": {
+      "type": "rich-text",
+      "blocks": {
+        "text_xCfegj": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>Note</strong><em>: Pricing does not include freight or post-rego sign-off fee. Our GVM program only applies to RAM Australia Converted vehicle that are NB1 Complained</em></p>"
+          }
+        }
+      },
+      "block_order": [
+        "text_xCfegj"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "container": "container",
+        "color_schema": "",
+        "text_alignment": "center",
+        "padding_top": 40,
+        "padding_bottom": 40,
         "show_section_divider": false,
         "divider_width": "container",
         "custom_id": "",
@@ -509,7 +536,10 @@
             "value_4": "5300 KG",
             "value_5": "5550 KG",
             "value_6": "5550 KG",
-            "value_7": ""
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
           }
         },
         "row_7JDfxb": {
@@ -522,7 +552,10 @@
             "value_4": "4500 KG",
             "value_5": "4500 KG",
             "value_6": "4500 KG",
-            "value_7": ""
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
           }
         },
         "row_YVwraj": {
@@ -535,7 +568,10 @@
             "value_4": "12474 KG",
             "value_5": "12474 KG",
             "value_6": "12474 KG",
-            "value_7": ""
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
           }
         },
         "row_zPKiUF": {
@@ -548,7 +584,10 @@
             "value_4": "3645 KG",
             "value_5": "3639 KG",
             "value_6": "3645 KG",
-            "value_7": ""
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
           }
         },
         "row_wywcAp": {
@@ -561,7 +600,10 @@
             "value_4": "1655 KG",
             "value_5": "1914 KG",
             "value_6": "1905 KG",
-            "value_7": ""
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
           }
         },
         "row_VPhYR9": {
@@ -574,7 +616,10 @@
             "value_4": "86.80%",
             "value_5": "116.10%",
             "value_6": "115.01 %",
-            "value_7": ""
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
           }
         },
         "row_bcXE8T": {
@@ -587,7 +632,10 @@
             "value_4": "2720 KG",
             "value_5": "2720 KG",
             "value_6": "2720 KG",
-            "value_7": ""
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
           }
         },
         "row_YJQHKH": {
@@ -600,7 +648,10 @@
             "value_4": "2840 KG",
             "value_5": "2840 KG",
             "value_6": "2840 KG",
-            "value_7": ""
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
           }
         },
         "row_pqzEiz": {
@@ -613,7 +664,10 @@
             "value_4": "Pos 12 / 18",
             "value_5": "Pos 12 / 18",
             "value_6": "Pos 12 / 18",
-            "value_7": ""
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
           }
         },
         "row_NrDzqV": {
@@ -626,7 +680,10 @@
             "value_4": "1600 KG",
             "value_5": "1600 KG",
             "value_6": "1600 KG",
-            "value_7": ""
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
           }
         },
         "row_aDFEfG": {
@@ -639,7 +696,10 @@
             "value_4": "1600 KG",
             "value_5": "1650 KG",
             "value_6": "1650 KG",
-            "value_7": ""
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
           }
         },
         "row_Ei9mfn": {
@@ -652,7 +712,10 @@
             "value_4": "NA",
             "value_5": "Yes",
             "value_6": "Yes",
-            "value_7": ""
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
           }
         },
         "row_VrmHhK": {
@@ -665,7 +728,10 @@
             "value_4": "35x12.5xR18 | 35x12.5xR20",
             "value_5": "35x12.5xR18 | 35x12.5xR20",
             "value_6": "35x12.5xR18 | 35x12.5xR20",
-            "value_7": ""
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
           }
         }
       },
@@ -697,6 +763,9 @@
         "col_title_5": "Stage 4",
         "col_title_6": "Stage 5",
         "col_title_7": "STAGE 6",
+        "col_title_8": "STAGE 7",
+        "col_title_9": "STAGE 8",
+        "col_title_10": "STAGE 9",
         "container_width": "90%",
         "heading_color": "#111111",
         "text_color": "#111111",
@@ -720,7 +789,10 @@
             "value_4": "3\"",
             "value_5": "2\"",
             "value_6": "3\"",
-            "value_7": ""
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
           }
         },
         "row_QWetUx": {
@@ -733,7 +805,10 @@
             "value_4": "",
             "value_5": "",
             "value_6": "",
-            "value_7": ""
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
           }
         },
         "row_dAdUVr": {
@@ -746,7 +821,10 @@
             "value_4": "",
             "value_5": "",
             "value_6": "",
-            "value_7": ""
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
           }
         },
         "row_VhLrHW": {
@@ -759,7 +837,10 @@
             "value_4": "✔",
             "value_5": "✔",
             "value_6": "✔",
-            "value_7": ""
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
           }
         },
         "row_Xm7nMe": {
@@ -772,7 +853,10 @@
             "value_4": "✔",
             "value_5": "✔",
             "value_6": "✔",
-            "value_7": ""
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
           }
         },
         "row_PyCLYV": {
@@ -785,7 +869,10 @@
             "value_4": "✔",
             "value_5": "✔",
             "value_6": "✔",
-            "value_7": ""
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
           }
         },
         "row_MQ9Uxh": {
@@ -798,7 +885,10 @@
             "value_4": "✔",
             "value_5": "✔",
             "value_6": "✔",
-            "value_7": ""
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
           }
         },
         "row_ViUDYJ": {
@@ -811,7 +901,10 @@
             "value_4": "✔",
             "value_5": "",
             "value_6": "✔",
-            "value_7": ""
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
           }
         }
       },
@@ -838,6 +931,9 @@
         "col_title_5": "Stage 4",
         "col_title_6": "Stage 5",
         "col_title_7": "STAGE 6",
+        "col_title_8": "STAGE 7",
+        "col_title_9": "STAGE 8",
+        "col_title_10": "STAGE 9",
         "container_width": "90%",
         "heading_color": "#111111",
         "text_color": "#111111",
@@ -1029,6 +1125,7 @@
     "image_with_text_M8ykcj",
     "image_with_text_pcJYGC",
     "image_with_text_8GKk7C",
+    "rich_text_GiVh3x",
     "rich_text_rnLAPH",
     "gvm_comparison_FfmTMw",
     "gvm_comparison_RXeVcA",
