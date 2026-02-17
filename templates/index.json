@@ -63,6 +63,7 @@
         },
         "slide_MDYDqF": {
           "type": "slide",
+          "disabled": true,
           "settings": {
             "background": "shopify://shop_images/bds-6-inch-lift-kit-fox-25-performance-elite-coil-over-ford-f150-21-25bdsbds1585fpe-445081.jpg",
             "image_overlay_opacity": 0,
