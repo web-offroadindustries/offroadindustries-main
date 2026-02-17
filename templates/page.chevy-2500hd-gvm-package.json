@@ -395,6 +395,22 @@
     "gvm_comparison_FfmTMw": {
       "type": "gvm-comparison",
       "blocks": {
+        "row_Xb8MP6": {
+          "type": "row",
+          "settings": {
+            "label": "Lift Size",
+            "value_1": "",
+            "value_2": "3\"",
+            "value_3": "3\"",
+            "value_4": "3\"",
+            "value_5": "3\"",
+            "value_6": "5\"",
+            "value_7": "6.5\"",
+            "value_8": "6.5\"",
+            "value_9": "",
+            "value_10": ""
+          }
+        },
         "row_M4PVnC": {
           "type": "row",
           "settings": {
@@ -621,6 +637,7 @@
         }
       },
       "block_order": [
+        "row_Xb8MP6",
         "row_M4PVnC",
         "row_7JDfxb",
         "row_YVwraj",
