@@ -117,7 +117,7 @@
             "background": "{{ collection.metafields.custom.banner_image.value }}",
             "mb_background": "{{ collection.metafields.custom.banner_image.value }}",
             "image_overlay_opacity": 45,
-            "content_position": "center",
+            "content_position": "center-bottom",
             "text_alignment": "center",
             "text_color": "#000000",
             "title": "{{ collection.title }}",
