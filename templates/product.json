@@ -183,6 +183,87 @@
         "show_featured_media": false
       }
     },
+    "product_tabs_guidelines_TQcX4n": {
+      "type": "product-tabs-guidelines",
+      "blocks": {
+        "tab_PUiU4K": {
+          "type": "tab",
+          "settings": {
+            "title": "Overview",
+            "content_type": "product_description",
+            "metafield_namespace": "custom",
+            "metafield_key": "",
+            "page": "",
+            "custom_richtext": ""
+          }
+        },
+        "tab_7tUDwQ": {
+          "type": "tab",
+          "settings": {
+            "title": "Important Notes",
+            "content_type": "metafield",
+            "metafield_namespace": "custom",
+            "metafield_key": "important_notes",
+            "page": "",
+            "custom_richtext": ""
+          }
+        },
+        "tab_64wqRr": {
+          "type": "tab",
+          "settings": {
+            "title": "Installation",
+            "content_type": "metafield",
+            "metafield_namespace": "custom",
+            "metafield_key": "installation",
+            "page": "",
+            "custom_richtext": ""
+          }
+        },
+        "tab_W49wwi": {
+          "type": "tab",
+          "settings": {
+            "title": "Specification",
+            "content_type": "metafield",
+            "metafield_namespace": "custom",
+            "metafield_key": "specification",
+            "page": "",
+            "custom_richtext": ""
+          }
+        },
+        "tab_yxkMd9": {
+          "type": "tab",
+          "settings": {
+            "title": "Fitment",
+            "content_type": "metafield",
+            "metafield_namespace": "custom",
+            "metafield_key": "fitment",
+            "page": "",
+            "custom_richtext": ""
+          }
+        },
+        "tab_hgYm8Y": {
+          "type": "tab",
+          "settings": {
+            "title": "Reviews",
+            "content_type": "reviews_anchor",
+            "metafield_namespace": "custom",
+            "metafield_key": "",
+            "page": "",
+            "custom_richtext": ""
+          }
+        }
+      },
+      "block_order": [
+        "tab_PUiU4K",
+        "tab_7tUDwQ",
+        "tab_64wqRr",
+        "tab_W49wwi",
+        "tab_yxkMd9",
+        "tab_hgYm8Y"
+      ],
+      "name": "Product tabs (Guidelines)",
+      "settings": {}
+    },
     "testimonials_M3YzxW": {
       "type": "testimonials",
       "blocks": {
@@ -710,6 +791,7 @@
   },
   "order": [
     "main",
+    "product_tabs_guidelines_TQcX4n",
     "testimonials_M3YzxW",
     "custom-content_4G1N4M",
     "custom-content_UCYVAU",
