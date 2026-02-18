@@ -110,6 +110,7 @@
         },
         "908a44f0-bbe4-489c-b0cc-24ecac65eb39": {
           "type": "collapsible_tab",
+          "disabled": true,
           "settings": {
             "icon": "none",
             "heading": "CORE FEATURES",
@@ -121,6 +122,7 @@
         },
         "60d9ffa5-fa86-4cbd-bb6d-eccb996a0dac": {
           "type": "collapsible_tab",
+          "disabled": true,
           "settings": {
             "icon": "none",
             "heading": "SIZE & SPECS",
@@ -132,6 +134,7 @@
         },
         "e5fb761c-c969-4e02-bd9e-c3ae00403491": {
           "type": "collapsible_tab",
+          "disabled": true,
           "settings": {
             "icon": "none",
             "heading": "SHIPPING & RETURNS",
