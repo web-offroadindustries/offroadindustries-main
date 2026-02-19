@@ -699,13 +699,29 @@
         "row_ViUDYJ": {
           "type": "row",
           "settings": {
-            "label": "ORI Coil Pack",
-            "value_1": "KTRR-141H (100- 250 KG)\nKTRR-141HHD (300- 500 KG)",
+            "label": "Rear Coil Options",
+            "value_1": "KTRR-141H 100- 250 KG",
             "value_2": "✔",
             "value_3": "✔",
+            "value_4": "",
+            "value_5": "",
+            "value_6": "",
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
+          }
+        },
+        "row_pMzpPk": {
+          "type": "row",
+          "settings": {
+            "label": "",
+            "value_1": "KTRR-141HHD 300- 500 KG",
+            "value_2": "",
+            "value_3": "",
             "value_4": "✔",
             "value_5": "✔",
-            "value_6": "✔",
+            "value_6": "",
             "value_7": "",
             "value_8": "",
             "value_9": "",
@@ -770,6 +786,7 @@
         "row_PyCLYV",
         "row_MQ9Uxh",
         "row_ViUDYJ",
+        "row_pMzpPk",
         "row_DDNBEa",
         "row_eqP6qp",
         "row_fQkXVY"
