@@ -76,10 +76,115 @@
         "custom_class": "",
         "animations": "inherit"
       }
+    },
+    "contact_form_v2_acGaKb": {
+      "type": "contact-form-v2",
+      "blocks": {
+        "info_item_3PnibJ": {
+          "type": "info_item",
+          "settings": {
+            "icon": "phone",
+            "label": "Phone",
+            "value": "+0483 930 639",
+            "link": "tel:+0483930639"
+          }
+        },
+        "info_item_y9WLgK": {
+          "type": "info_item",
+          "settings": {
+            "icon": "email",
+            "label": "Email",
+            "value": "sales@offroadindustries.com.au",
+            "link": "mailto:sales@offroadindustries.com.au"
+          }
+        },
+        "info_item_wpg3Tw": {
+          "type": "info_item",
+          "settings": {
+            "icon": "pin",
+            "label": "Address",
+            "value": "3 Montefiore Street Fairfield VIC 3078 Australia",
+            "link": "tel:+10000000000"
+          }
+        },
+        "info_item_KTq9MF": {
+          "type": "info_item",
+          "settings": {
+            "icon": "clock",
+            "label": "Business Hours",
+            "value": "Monday to Friday: 9:00AM – 4:00PM",
+            "link": "tel:+10000000000"
+          }
+        },
+        "field_name_3z7tgY": {
+          "type": "field_name",
+          "settings": {
+            "label": "Name",
+            "placeholder": "Your name",
+            "required": true,
+            "width": "full"
+          }
+        },
+        "field_email_LpETVM": {
+          "type": "field_email",
+          "settings": {
+            "label": "Email",
+            "placeholder": "you@email.com",
+            "required": true,
+            "width": "full"
+          }
+        },
+        "field_phone_HiUU8Q": {
+          "type": "field_phone",
+          "settings": {
+            "label": "Phone",
+            "placeholder": "Optional",
+            "required": false,
+            "width": "full"
+          }
+        },
+        "field_message_bGVtar": {
+          "type": "field_message",
+          "settings": {
+            "label": "Message",
+            "placeholder": "How can we help?",
+            "required": true,
+            "width": "full"
+          }
+        }
+      },
+      "block_order": [
+        "info_item_3PnibJ",
+        "info_item_y9WLgK",
+        "info_item_wpg3Tw",
+        "info_item_KTq9MF",
+        "field_name_3z7tgY",
+        "field_email_LpETVM",
+        "field_phone_HiUU8Q",
+        "field_message_bGVtar"
+      ],
+      "name": "Contact Form v2",
+      "settings": {
+        "heading": "Questions? We’re Here\nto Help",
+        "body": "<p>Add your intro text here.</p>",
+        "form_title": "Send us a message",
+        "button_label": "Submit",
+        "success_message": "Thanks! We received your message and will get back to you soon.",
+        "desktop_layout": "content_left",
+        "mobile_layout": "content_first",
+        "fields_columns_desktop": "1",
+        "max_width": 1200,
+        "bg_color": "#ffffff",
+        "form_bg": "#e6e6e6",
+        "accent": "#56BDC2",
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
     }
   },
   "order": [
     "main",
-    "contact_form_Rwxdpd"
+    "contact_form_Rwxdpd",
+    "contact_form_v2_acGaKb"
   ]
 }
