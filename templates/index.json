@@ -113,13 +113,67 @@
         "enable_bg_zoom_effect": false
       }
     },
+    "rich_text_QeDWUE": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_DBjqEL": {
+          "type": "heading",
+          "settings": {
+            "heading": "The Best Gear from the USA, Now Backed by Outback Kitters.",
+            "highlight_style": "none",
+            "enable_highlight_text_color": false,
+            "heading_size": "h0",
+            "heading_color": ""
+          }
+        },
+        "text_MEwfJT": {
+          "type": "text",
+          "settings": {
+            "text": "<p>A new chapter begins for premium accessories from America’s leading brands — built for <strong>RAM, Silverado, F-Truck, Tundra, and GMC</strong> owners who demand more.</p><p><strong>America’s Garage</strong> is now <strong>powered by </strong><a href=\"https://outbackkitters.com/\" target=\"_blank\" title=\"https://outbackkitters.com\"><strong>Outback Kitters</strong></a>, Australia’s dedicated team bringing world-class American vehicle accessories to our shores. We don’t just import boxes — we bring the full experience.</p><p>Products are <strong>test-fitted, proven, and supported locally</strong>, backed by real stock on hand, expert advice, and the knowledge that it works in Aussie conditions.</p><p>This is <strong>value-added distribution done right</strong> — by enthusiasts, for enthusiasts.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_DBjqEL",
+        "text_MEwfJT"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "container": "container",
+        "color_schema": "",
+        "text_alignment": "center",
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "show_section_divider": false,
+        "divider_width": "container",
+        "custom_id": "",
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
     "1770092251a8cb32bd": {
       "type": "apps",
       "blocks": {
+        "tinyseo_heading_one_block_dgpt3L": {
+          "type": "shopify://apps/tinyseo/blocks/heading-one-block/0605268f-f7c4-4e95-b560-e43df7d59ae4",
+          "settings": {
+            "heading_one": "Choose Your OFFRoad Vehicle",
+            "text_align": "center",
+            "font_size": 36,
+            "font_weight": "normal",
+            "line_height": 36,
+            "color": "#000000",
+            "margin_top": 20,
+            "margin_right": 5,
+            "margin_bottom": 20,
+            "margin_left": 5,
+            "custom_css": ""
+          }
+        },
         "easysearch_ymm_easysearch_widget_3eeiFK": {
           "type": "shopify://apps/easysearch-ymm/blocks/easysearch-widget/6d82686b-b68a-4b5e-98e3-e07b2b53d810",
           "settings": {
-            "show_at": "section",
+            "show_at": "custom",
             "placement_selector": "",
             "insert_method": "prepend",
             "padding_top": 0,
@@ -128,11 +182,12 @@
         }
       },
       "block_order": [
+        "tinyseo_heading_one_block_dgpt3L",
         "easysearch_ymm_easysearch_widget_3eeiFK"
       ],
       "settings": {
         "container": "container",
-        "color_schema": "",
+        "color_schema": "scheme-10",
         "heading": "",
         "highlight_style": "none",
         "enable_highlight_text_color": false,
@@ -1330,10 +1385,92 @@
         "custom_class": "",
         "animations": "inherit"
       }
+    },
+    "gallery_images_8azUNe": {
+      "type": "gallery-images",
+      "blocks": {
+        "image_YhdxdT": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/addoffroad-2023-2025-chevy-silverado-1500-stealth-fighter-front-bumperaddictive-desert-designsf140152980103-752888.png",
+            "text": "CHEVY 1500",
+            "text_size": "medium",
+            "link": "https://aysdtu397j8pocfp-1656516.shopifypreview.com/pages/2025-2026-christmas-period-shut-down?view=chevy-gvm-package"
+          }
+        },
+        "image_3thxtK": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/chevy-2500HD-blue_8a91ee46-7053-487f-b610-c962f5083b36.png",
+            "text": "CHEVY 2500",
+            "text_size": "medium",
+            "link": "https://aysdtu397j8pocfp-1656516.shopifypreview.com/pages/2025-2026-christmas-period-shut-down?view=chevy-2500hd-gvm-package"
+          }
+        },
+        "image_3tTV6W": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/F-150-Raptor-ADD-Edge-Front-Bumper-Outdoor-4.webp",
+            "text": "FORD150",
+            "text_size": "medium",
+            "link": "https://aysdtu397j8pocfp-1656516.shopifypreview.com/pages/2025-2026-christmas-period-shut-down?view=ford-gvm-package"
+          }
+        },
+        "image_ckVmkG": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/bushwacker-extend-a-fender-flares-ram-2500-3500-2014-2018bushwacker50918-02-8107838.png",
+            "text": "RAM",
+            "text_size": "medium",
+            "link": "https://aysdtu397j8pocfp-1656516.shopifypreview.com/pages/2025-2026-christmas-period-shut-down?view=ram-gvm-package"
+          }
+        }
+      },
+      "block_order": [
+        "image_YhdxdT",
+        "image_3thxtK",
+        "image_3tTV6W",
+        "image_ckVmkG"
+      ],
+      "name": "t:sections.gallery-images.presets.name",
+      "settings": {
+        "container": "container",
+        "color_schema": "",
+        "section_header_padding_bottom": "medium",
+        "section_header_content_spacing": "medium",
+        "heading": "GVM Packages",
+        "highlight_style": "none",
+        "enable_highlight_text_color": false,
+        "heading_size": "h2",
+        "heading_color": "",
+        "subheading": "",
+        "description": "",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "btn--primary",
+        "image_ratio": "1/1",
+        "columns": 4,
+        "column_gap": "medium",
+        "layout": "grid",
+        "metro_item_color_schema": "",
+        "enable_slider": false,
+        "show_nav": false,
+        "show_dots": false,
+        "enable_swipe_mobile": false,
+        "column_mobile": "1",
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "show_section_divider": false,
+        "divider_width": "container",
+        "custom_id": "",
+        "custom_class": "",
+        "animations": "inherit"
+      }
     }
   },
   "order": [
     "1653903038c126b831",
+    "rich_text_QeDWUE",
     "1770092251a8cb32bd",
     "16539046323b76eb29",
     "uneven_image_cards_bkLjJt",
@@ -1349,6 +1486,7 @@
     "products_bundle_jFkhY9",
     "press_cqLPj3",
     "7f5e49cb-0847-4d85-9f7f-7e61d00abbe5",
-    "b9a09ce1-0384-4aac-8a69-af32bf73a5e8"
+    "b9a09ce1-0384-4aac-8a69-af32bf73a5e8",
+    "gallery_images_8azUNe"
   ]
 }
