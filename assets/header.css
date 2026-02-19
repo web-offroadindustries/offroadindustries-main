@@ -551,7 +551,6 @@ body:not(.header-pinned) .header-scrolled .header {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 14px;
 }
 
 .mega-menu__brand-logo img {
