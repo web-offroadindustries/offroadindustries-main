@@ -41,7 +41,7 @@
         "announcement_LFh8gF": {
           "type": "announcement",
           "settings": {
-            "text": "<p>Sales 20% Off</p>",
+            "text": "<p>Welcome to the New ORI Website</p>",
             "link": "",
             "homepage_only": true,
             "hide_on_page": "",
@@ -344,7 +344,7 @@
         "brand_tile_AAfQaG": {
           "type": "brand_tile",
           "settings": {
-            "logo": "shopify://shop_images/ICONS_FOR_WEBSITE_ADD.png",
+            "logo": "shopify://shop_images/420_x_420px_MEGA_MENU_ICON__ADD.jpg",
             "label": "ADDS Offroad",
             "link": ""
           }
@@ -352,7 +352,7 @@
         "brand_tile_J8Aq38": {
           "type": "brand_tile",
           "settings": {
-            "logo": "shopify://shop_images/ICONS_FOR_WEBSITE_BDS.png",
+            "logo": "shopify://shop_images/420_x_420px_MEGA_MENU_ICON__BDS.jpg",
             "label": "BDS",
             "link": ""
           }
@@ -360,7 +360,7 @@
         "brand_tile_RxmGkn": {
           "type": "brand_tile",
           "settings": {
-            "logo": "shopify://shop_images/ICONS_FOR_WEBSITE_FOX.png",
+            "logo": "shopify://shop_images/420_x_420px_MEGA_MENU_ICON__FOX.jpg",
             "label": "FOX",
             "link": ""
           }
@@ -376,7 +376,7 @@
         "brand_tile_fRD7rd": {
           "type": "brand_tile",
           "settings": {
-            "logo": "shopify://shop_images/ORI_Teal_SMALL_4f1a73a1-2c8a-4cbf-95a1-a4165c060141.png",
+            "logo": "shopify://shop_images/420_x_420px_MEGA_MENU_ICON__ORI.jpg",
             "label": "ORI",
             "link": ""
           }
@@ -384,31 +384,31 @@
         "brand_tile_6E7i3J": {
           "type": "brand_tile",
           "settings": {
-            "logo": "shopify://shop_images/cognito-3-inch-elite-fox-elite-25-reservoir-shocks-for-19-23-silverado-1500cognito210-p1006-727384.jpg",
-            "label": "Cognito",
+            "logo": "shopify://shop_images/420_x_420px_MEGA_MENU_ICON__AFE.jpg",
+            "label": "AFE Power",
             "link": ""
           }
         },
         "brand_tile_aUAQM7": {
           "type": "brand_tile",
           "settings": {
-            "logo": "shopify://shop_images/roughy-country-3-suspension-kit-ds-ram-1500-2012-2023rough-country31240-905614.jpg",
-            "label": "Rough Country",
+            "logo": "shopify://shop_images/420_x_420px_MEGA_MENU_ICON__TITAN.jpg",
+            "label": "Titan Fuel Tanks",
             "link": ""
           }
         },
         "brand_tile_PUxx3E": {
           "type": "brand_tile",
           "settings": {
-            "logo": "shopify://shop_images/avs-aeroskin-bonnet-protector-ford-f250f350avs377135-260341.png",
-            "label": "AVS",
+            "logo": "shopify://shop_images/420_x_420px_MEGA_MENU_ICON__BAJA_DESIGNS.jpg",
+            "label": "Baja Designs",
             "link": ""
           }
         },
         "brand_tile_kPNDNG": {
           "type": "brand_tile",
           "settings": {
-            "logo": "shopify://shop_images/huskyliners-logo-fullcolor-24206_4x_68ee4016-c4a6-4e86-b15e-f8f048d6e1d0.png",
+            "logo": "shopify://shop_images/420_x_420px_MEGA_MENU_ICON__HUSKY_LINERS.jpg",
             "label": "Husky Liners",
             "link": ""
           }
@@ -416,8 +416,72 @@
         "brand_tile_ETKzBB": {
           "type": "brand_tile",
           "settings": {
-            "logo": "shopify://shop_images/2-23516_baja-designs-logo-pull-baja-designs-logo-vector.png",
-            "label": "Baja Designs",
+            "logo": "shopify://shop_images/420_x_420px_MEGA_MENU_ICON__BAJAKITS.jpg",
+            "label": "Baja Kits",
+            "link": ""
+          }
+        },
+        "brand_tile_VHTWwJ": {
+          "type": "brand_tile",
+          "settings": {
+            "logo": "shopify://shop_images/420_x_420px_MEGA_MENU_ICON__CARLI.jpg",
+            "label": "Candie",
+            "link": ""
+          }
+        },
+        "brand_tile_LCyyeG": {
+          "type": "brand_tile",
+          "settings": {
+            "logo": "shopify://shop_images/420_x_420px_MEGA_MENU_ICON__ZONE_OFFROAD.jpg",
+            "label": "Zone Offroad",
+            "link": ""
+          }
+        },
+        "brand_tile_gfUcU8": {
+          "type": "brand_tile",
+          "settings": {
+            "logo": "shopify://shop_images/420_x_420px_MEGA_MENU_ICON__BANKS_POWER.jpg",
+            "label": "Banks",
+            "link": ""
+          }
+        },
+        "brand_tile_tGDCAa": {
+          "type": "brand_tile",
+          "settings": {
+            "logo": "shopify://shop_images/420_x_420px_MEGA_MENU_ICON__AMP.jpg",
+            "label": "AMP Step Store",
+            "link": ""
+          }
+        },
+        "brand_tile_A6PM9U": {
+          "type": "brand_tile",
+          "settings": {
+            "logo": "shopify://shop_images/420_x_420px_MEGA_MENU_ICON__SWITCH_PRO.jpg",
+            "label": "Switch Pros",
+            "link": ""
+          }
+        },
+        "brand_tile_GYTbxr": {
+          "type": "brand_tile",
+          "settings": {
+            "logo": "shopify://shop_images/420_x_420px_MEGA_MENU_ICON__ROUGH_COUNTRY.jpg",
+            "label": "RC",
+            "link": ""
+          }
+        },
+        "brand_tile_PdEck9": {
+          "type": "brand_tile",
+          "settings": {
+            "logo": "shopify://shop_images/420_x_420px_MEGA_MENU_ICON__PEAK.jpg",
+            "label": "Peak",
+            "link": ""
+          }
+        },
+        "brand_tile_qxy76A": {
+          "type": "brand_tile",
+          "settings": {
+            "logo": "shopify://shop_images/420_x_420px_MEGA_MENU_ICON__METHOD.jpg",
+            "label": "Method Race Wheels",
             "link": ""
           }
         }
@@ -432,7 +496,15 @@
         "brand_tile_aUAQM7",
         "brand_tile_PUxx3E",
         "brand_tile_kPNDNG",
-        "brand_tile_ETKzBB"
+        "brand_tile_ETKzBB",
+        "brand_tile_VHTWwJ",
+        "brand_tile_LCyyeG",
+        "brand_tile_gfUcU8",
+        "brand_tile_tGDCAa",
+        "brand_tile_A6PM9U",
+        "brand_tile_GYTbxr",
+        "brand_tile_PdEck9",
+        "brand_tile_qxy76A"
       ],
       "name": "Mega menu 1",
       "settings": {
