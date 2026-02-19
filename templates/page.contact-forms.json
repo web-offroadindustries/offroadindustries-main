@@ -11,116 +11,63 @@
   "sections": {
     "main": {
       "type": "main-page",
+      "disabled": true,
       "settings": {}
     },
-    "multicolumn_AcQKEk": {
-      "type": "multicolumn",
+    "contact_form_Rwxdpd": {
+      "type": "contact-form",
       "blocks": {
-        "column_ECe8a7": {
-          "type": "column",
+        "name_W7UEKY": {
+          "type": "name",
           "settings": {
-            "show_image": true,
-            "image": "shopify://shop_images/image_-_2026-02-17T205945.442.png",
-            "image_link": "",
-            "title": "Ford F150 GVM & GCM Packages",
-            "heading_size": "h3",
-            "text": "<p>Click here to learn more about ORI GVM GCM packages for the Ford F150</p>",
-            "text_size": "medium",
-            "button_text": "",
-            "button_link": "",
-            "button_style": "btn--underline"
+            "label": "Name",
+            "placeholder": "Enter your name",
+            "field_width": "full",
+            "hide_label": true,
+            "required": false
           }
         },
-        "column_T8hQry": {
-          "type": "column",
+        "email_rLGDNK": {
+          "type": "email",
           "settings": {
-            "show_image": true,
-            "image": "shopify://shop_images/image_-_2026-02-17T210005.244.png",
-            "image_link": "",
-            "title": "Column",
-            "heading_size": "h3",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
-            "text_size": "medium",
-            "button_text": "",
-            "button_link": "",
-            "button_style": "btn--underline"
+            "label": "Email",
+            "placeholder": "Enter your email",
+            "field_width": "full",
+            "hide_label": true
           }
         },
-        "column_Bey9dh": {
-          "type": "column",
+        "message_4B9HcD": {
+          "type": "message",
           "settings": {
-            "show_image": true,
-            "image": "shopify://shop_images/image_-_2026-02-17T205900.998.png",
-            "image_link": "",
-            "title": "Column",
-            "heading_size": "h3",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
-            "text_size": "medium",
-            "button_text": "",
-            "button_link": "",
-            "button_style": "btn--underline"
-          }
-        },
-        "column_nNUN6a": {
-          "type": "column",
-          "settings": {
-            "show_image": true,
-            "image": "shopify://shop_images/image_-_2026-02-17T205935.011.png",
-            "image_link": "",
-            "title": "Column",
-            "heading_size": "h3",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
-            "text_size": "medium",
-            "button_text": "",
-            "button_link": "",
-            "button_style": "btn--underline"
-          }
-        },
-        "column_mfLAKJ": {
-          "type": "column",
-          "settings": {
-            "show_image": true,
-            "image": "shopify://shop_images/image_-_2026-02-17T205922.034.png",
-            "image_link": "",
-            "title": "Column",
-            "heading_size": "h3",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
-            "text_size": "medium",
-            "button_text": "",
-            "button_link": "",
-            "button_style": "btn--underline"
+            "label": "Message",
+            "placeholder": "Enter your message",
+            "hide_label": true
           }
         }
       },
       "block_order": [
-        "column_ECe8a7",
-        "column_T8hQry",
-        "column_Bey9dh",
-        "column_nNUN6a",
-        "column_mfLAKJ"
+        "name_W7UEKY",
+        "email_rLGDNK",
+        "message_4B9HcD"
       ],
-      "name": "t:sections.multicolumn.name",
+      "name": "t:sections.contact-form.presets.name",
       "settings": {
         "container": "container",
         "color_schema": "",
         "section_header_padding_bottom": "medium",
         "section_header_content_spacing": "medium",
-        "heading": "",
+        "heading": "Contact form",
         "highlight_style": "none",
         "enable_highlight_text_color": false,
         "heading_size": "h2",
         "heading_color": "",
         "subheading": "",
         "description": "",
-        "layout": "vertical",
-        "text_alignment": "center",
-        "image_width": "fullwidth",
-        "custom_image_width": 80,
-        "columns": 4,
-        "column_gap": "medium",
-        "row_gap": "medium",
-        "enable_swipe_mobile": false,
-        "column_mobile": "1",
+        "form_design": "design-1",
+        "form_width": 500,
+        "form_alignment": "center",
+        "button_label": "Send",
+        "button_style": "btn--primary",
         "padding_top": 40,
         "padding_bottom": 40,
         "show_section_divider": false,
@@ -133,6 +80,6 @@
   },
   "order": [
     "main",
-    "multicolumn_AcQKEk"
+    "contact_form_Rwxdpd"
   ]
 }
