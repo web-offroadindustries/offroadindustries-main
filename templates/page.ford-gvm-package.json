@@ -892,7 +892,7 @@
           "type": "row",
           "settings": {
             "label": "Fox 3.0 Bypass Race Series Shock Coilover (Front)",
-            "value_1": "",
+            "value_1": "883-06-191",
             "value_2": "",
             "value_3": "",
             "value_4": "",
@@ -908,7 +908,7 @@
           "type": "row",
           "settings": {
             "label": "Fox 3.0 Bypass Race Series Shock  (Rear)",
-            "value_1": "",
+            "value_1": "883-26-121",
             "value_2": "",
             "value_3": "",
             "value_4": "",
@@ -940,7 +940,7 @@
           "type": "row",
           "settings": {
             "label": "BDS 4\" Suspension Kit with Fox 2.5 Performance Elite",
-            "value_1": "",
+            "value_1": "BDS1584FPE",
             "value_2": "",
             "value_3": "",
             "value_4": "",
@@ -956,7 +956,7 @@
           "type": "row",
           "settings": {
             "label": "BDS 6\" Suspension Kit with Fox 2.5 Performance Elite",
-            "value_1": "",
+            "value_1": "BDS1585FPE",
             "value_2": "",
             "value_3": "",
             "value_4": "",
@@ -972,7 +972,7 @@
           "type": "row",
           "settings": {
             "label": "LED Autolamps Cat 6 Indicators *Required on SWB",
-            "value_1": "",
+            "value_1": "77ACM2",
             "value_2": "✔",
             "value_3": "✔",
             "value_4": "✔",
@@ -1031,6 +1031,22 @@
             "value_9": "",
             "value_10": ""
           }
+        },
+        "row_Yqf3i3": {
+          "type": "row",
+          "settings": {
+            "label": "ORI Mud Flaps & Brackets",
+            "value_1": "ORI-MUD-BRK",
+            "value_2": "",
+            "value_3": "",
+            "value_4": "✔",
+            "value_5": "✔",
+            "value_6": "✔",
+            "value_7": "✔",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
+          }
         }
       },
       "block_order": [
@@ -1047,7 +1063,8 @@
         "row_MDY7qw",
         "row_KnhHzc",
         "row_nNQibi",
-        "row_bXbzAJ"
+        "row_bXbzAJ",
+        "row_Yqf3i3"
       ],
       "name": "GVM Comparison",
       "settings": {
