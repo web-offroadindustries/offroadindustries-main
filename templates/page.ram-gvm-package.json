@@ -906,6 +906,22 @@
             "value_9": "",
             "value_10": ""
           }
+        },
+        "row_KKTrkb": {
+          "type": "row",
+          "settings": {
+            "label": "Husky Extenda Flare",
+            "value_1": "2805931",
+            "value_2": "",
+            "value_3": "",
+            "value_4": "✔",
+            "value_5": "✔",
+            "value_6": "✔",
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
+          }
         }
       },
       "block_order": [
@@ -916,7 +932,8 @@
         "row_Xm7nMe",
         "row_PyCLYV",
         "row_MQ9Uxh",
-        "row_ViUDYJ"
+        "row_ViUDYJ",
+        "row_KKTrkb"
       ],
       "name": "GVM Comparison",
       "settings": {
