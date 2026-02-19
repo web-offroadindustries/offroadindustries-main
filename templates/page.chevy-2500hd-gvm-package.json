@@ -720,7 +720,7 @@
             "label": "Fox 2.5  Performance Elite Series (Front)",
             "value_1": "883-26-084",
             "value_2": "",
-            "value_3": "",
+            "value_3": "✔",
             "value_4": "",
             "value_5": "",
             "value_6": "",
@@ -861,13 +861,29 @@
         "row_nNQibi": {
           "type": "row",
           "settings": {
-            "label": "Kelderman 4 Link Air Bag Setup",
-            "value_1": "",
+            "label": "Kelderman 4 Link Rear Air 0-3\"",
+            "value_1": "KLM-10006647",
             "value_2": "",
             "value_3": "",
             "value_4": "",
             "value_5": "✔",
-            "value_6": "✔",
+            "value_6": "",
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
+          }
+        },
+        "row_q477DL": {
+          "type": "row",
+          "settings": {
+            "label": "Kelderman 4 Link Rear Air 5-6\"",
+            "value_1": "KLM-10031845",
+            "value_2": "",
+            "value_3": "",
+            "value_4": "",
+            "value_5": "",
+            "value_6": "",
             "value_7": "",
             "value_8": "",
             "value_9": "✔",
@@ -878,7 +894,7 @@
           "type": "row",
           "settings": {
             "label": "ORI MUD Flaps Kit",
-            "value_1": "",
+            "value_1": "CHV-2500-FLR-BRK",
             "value_2": "✔",
             "value_3": "✔",
             "value_4": "✔",
@@ -894,7 +910,7 @@
           "type": "row",
           "settings": {
             "label": "ORI ADR Compliance Lights",
-            "value_1": "",
+            "value_1": "ORI-LED-Comp",
             "value_2": "✔",
             "value_3": "✔",
             "value_4": "✔",
@@ -909,16 +925,16 @@
         "row_ft3LzT": {
           "type": "row",
           "settings": {
-            "label": "Kit Number",
+            "label": "GVM Part Number",
             "value_1": "",
-            "value_2": "CHV-2500-Stage1",
-            "value_3": "CHV-2500-Stage2",
-            "value_4": "CHV-2500-Stage3",
-            "value_5": "CHV-2500-Stage3-K",
-            "value_6": "CHV-2500-Stage4",
-            "value_7": "CHV-2500-Stage5",
-            "value_8": "CHV-2500-Stage6",
-            "value_9": "CHV-2500-Stage6-K",
+            "value_2": "CHV-2500-Stage1-GVM",
+            "value_3": "CHV-2500-Stage2-GVM",
+            "value_4": "CHV-2500-Stage3-GVM",
+            "value_5": "CHV-2500-Stage3-GVM-K",
+            "value_6": "CHV-2500-Stage4-GVM",
+            "value_7": "CHV-2500-Stage5-GVM",
+            "value_8": "CHV-2500-Stage6-GVM",
+            "value_9": "CHV-2500-Stage6-GVM-K",
             "value_10": ""
           }
         }
@@ -936,6 +952,7 @@
         "row_MDY7qw",
         "row_KnhHzc",
         "row_nNQibi",
+        "row_q477DL",
         "row_YMC4Cg",
         "row_nkM7rU",
         "row_ft3LzT"
