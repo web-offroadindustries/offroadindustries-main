@@ -901,8 +901,8 @@
           "settings": {
             "label": "Retain Factory Multimatic Suspension",
             "value_1": "",
-            "value_2": "✔",
-            "value_3": "",
+            "value_2": "",
+            "value_3": "✔",
             "value_4": "",
             "value_5": "",
             "value_6": "",
@@ -943,6 +943,22 @@
             "value_9": "",
             "value_10": ""
           }
+        },
+        "row_d7teba": {
+          "type": "row",
+          "settings": {
+            "label": "GVM Part Numbers",
+            "value_1": "",
+            "value_2": "CHV-1500-Stage1-GVM",
+            "value_3": "CHV-1500-Stage2-GVM",
+            "value_4": "CHV-1500-Stage3-GVM",
+            "value_5": "CHV-1500-Stage4-GVM-200\nCHV-1500-Stage4-GVM-400",
+            "value_6": "CHV-1500-Stage5-GVM-200\nCHV-1500-Stage5-GVM-400",
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
+          }
         }
       },
       "block_order": [
@@ -957,7 +973,8 @@
         "row_YaJzWt",
         "row_MDY7qw",
         "row_KnhHzc",
-        "row_nNQibi"
+        "row_nNQibi",
+        "row_d7teba"
       ],
       "name": "GVM Comparison",
       "settings": {
