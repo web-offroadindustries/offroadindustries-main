@@ -137,6 +137,7 @@
         "heading_DBjqEL",
         "text_MEwfJT"
       ],
+      "disabled": true,
       "name": "t:sections.rich-text.presets.name",
       "settings": {
         "container": "container",
