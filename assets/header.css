@@ -602,6 +602,11 @@ body:not(.header-pinned) .header-scrolled .header {
   gap: 26px;
   justify-content: flex-start;
 }
+@media (max-width: 768px) {
+  .site-header--design-6 .site-header__top-v6{
+    justify-content: space-between;
+  }
+}
 
 .site-header--design-6 .site-header__top-left-v6{
   flex: 0 0 auto;
