@@ -641,6 +641,98 @@
         "animations": "inherit"
       }
     },
+    "collapsible_tabs_UDrTRf": {
+      "type": "collapsible-tabs",
+      "blocks": {
+        "content_aq3BG8": {
+          "type": "content",
+          "settings": {
+            "icon": "none",
+            "title": "What is a GVM upgrade and why do I need one?",
+            "content": "<p>Gross Vehicle Mass (GVM) is the maximum your Silverado can legally weigh when fully loaded—including the truck, passengers, fuel, accessories (like bull bars and canopies), and tow ball weight. If you are towing heavy or building a touring rig, the factory payload gets eaten up fast. Our GVM upgrades legally increase this limit so you can carry your gear without voiding your insurance or risking hefty fines.</p>",
+            "custom_liquid": "",
+            "content_page": "",
+            "open": false
+          }
+        },
+        "content_97RYwd": {
+          "type": "content",
+          "settings": {
+            "icon": "none",
+            "title": "What does \"Pre-Rego\" and \"SSM Approval\" mean?",
+            "content": "<p>SSM stands for Second Stage of Manufacture. When we upgrade your truck <em>before</em> it is registered for the very first time (Pre-Rego), the federal government recognizes ORI as the secondary manufacturer. This means your massive lift, larger tyres, and upgraded GVM are baked into the truck's federal compliance plate. It is 100% legal to drive and insure in every state and territory in Australia.<br/><br/></p>",
+            "custom_liquid": "",
+            "content_page": "",
+            "open": false
+          }
+        },
+        "content_k7yrdM": {
+          "type": "content",
+          "settings": {
+            "icon": "none",
+            "title": "Will upgrading my GVM reduce my towing capacity?",
+            "content": "<p>Not with an ORI package. Some GVM upgrades force you to sacrifice towing capacity to carry more weight in the tub. Our Silverado 2500HD packages retain your factory 12,474kg GCM (Gross Combination Mass), meaning you keep your full 4.5T braked towing capacity while maximizing your truck's payload.</p>",
+            "custom_liquid": "",
+            "content_page": "",
+            "open": false
+          }
+        },
+        "content_xFACmJ": {
+          "type": "content",
+          "settings": {
+            "icon": "none",
+            "title": "What does the NB1 to NB2 category upgrade mean?",
+            "content": "<p>By federal standards, NB1 vehicles are \"Light Goods Vehicles\" (under 4.5 tonnes). Our SSM packages legally reclassify your Silverado 2500HD as an NB2 \"Medium Goods Vehicle\" (over 4.5 tonnes). This reclassification is the secret to legally unlocking that massive 5500kg–6000kg GVM.</p>",
+            "custom_liquid": "",
+            "content_page": "",
+            "open": false
+          }
+        },
+        "content_rQQeBN": {
+          "type": "content",
+          "settings": {
+            "icon": "none",
+            "title": "Are 35-inch and 37-inch tyres actually legal on these builds?",
+            "content": "<p>Yes! If done Pre-Rego through our Stage 4, 5, 6, or 6.5 SSM packages, the larger tyre sizes are federally engineered and certified as part of the build. No state-based engineering headaches—just turn the key and drive your monster truck legally anywhere in the country.</p>",
+            "custom_liquid": "",
+            "content_page": "",
+            "open": false
+          }
+        }
+      },
+      "block_order": [
+        "content_aq3BG8",
+        "content_97RYwd",
+        "content_k7yrdM",
+        "content_xFACmJ",
+        "content_rQQeBN"
+      ],
+      "name": "Collapsible tabs",
+      "settings": {
+        "container": "container",
+        "color_schema": "",
+        "section_header_padding_bottom": "medium",
+        "section_header_content_spacing": "medium",
+        "heading": "<strong>Frequently Asked Questions (FAQs)</strong>",
+        "highlight_style": "none",
+        "enable_highlight_text_color": false,
+        "heading_size": "h2",
+        "heading_color": "",
+        "subheading": "",
+        "description": "",
+        "item_heading_font": "body",
+        "item_heading_size": "h6",
+        "column_gap": "medium",
+        "content_width": "full",
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "show_section_divider": false,
+        "divider_width": "container",
+        "custom_id": "faqs",
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
     "rich_text_rnLAPH": {
       "type": "rich-text",
       "blocks": {
@@ -1545,6 +1637,7 @@
     "image_with_text_giCQLF",
     "image_with_text_zgLfNt",
     "image_with_text_9MGF8c",
+    "collapsible_tabs_UDrTRf",
     "rich_text_rnLAPH",
     "gvm_comparison_FfmTMw",
     "gvm_comparison_RXeVcA",
