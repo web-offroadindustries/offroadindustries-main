@@ -6,6 +6,8 @@
   assign show_country_selector = section.settings.show_country_selector
   assign mobile_show_search = section.settings.mobile_show_search
   assign mobile_show_cart = section.settings.mobile_show_cart
+  assign hide_desktop_search = hide_desktop_search | default: false
+
   comment
     assign mobile_show_account = section.settings.mobile_show_account
   endcomment
@@ -72,7 +74,11 @@
       assign search_form_class = 'lg:hidden'
     endif
   %}
-  {% render 'header__search', section: section, search_form_class: search_form_class, color_schema: color_schema %}
+  
+  {% unless hide_desktop_search %}
+    {% render 'header__search', section: section, search_form_class: search_form_class, color_schema: color_schema %}
+  {% endunless %}
+
   {% if shop.customer_accounts_enabled and show_account %}
     <div class="site-header__element hidden md:block">
       {% render 'user-links', block: block, link_class: 'site-header__link', color_schema: color_schema %}
