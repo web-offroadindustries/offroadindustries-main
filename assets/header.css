@@ -659,13 +659,10 @@ body:not(.header-pinned) .header-scrolled .header {
 
 /* Design 6 – make search smaller via settings */
 .site-header--design-6 .site-header__top-search-v6{
-  /* flex: 0 0 auto;
+  flex: 0 0 auto;
   margin-left: auto;
-  max-width: var(--v6-search-max, 620px); */
-  flex: 0 1 var(--v6-search-max, 620px);
   max-width: var(--v6-search-max, 620px);
-  width: 100%;
-  margin-left: auto;
+  
 }
 
 .site-header--design-6 .header-v6-search__input{
