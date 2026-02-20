@@ -114,7 +114,7 @@
         "slide_TDWPqa": {
           "type": "slide",
           "settings": {
-            "background": "{{ collection.metafields.custom.banner_image.value }}",
+            "background": "shopify://shop_images/silverado-prerunner.png",
             "mb_background": "{{ collection.metafields.custom.banner_image.value }}",
             "image_overlay_opacity": 45,
             "content_position": "center-bottom",
