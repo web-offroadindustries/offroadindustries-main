@@ -96,7 +96,12 @@
         "padding_bottom": 0,
         "show_help_block": true,
         "help_label": "Need Help?",
-        "help_phone": "0483 939 770"
+        "help_phone": "0483 930 639",
+        "v6_search_max_width": 620,
+        "v6_search_height": 52,
+        "v6_search_font_size": 18,
+        "v6_help_label_size": 20,
+        "v6_help_phone_size": 30
       }
     },
     "mega_menu_1_ihdkiL": {
