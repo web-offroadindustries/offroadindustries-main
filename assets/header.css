@@ -594,7 +594,6 @@ body:not(.header-pinned) .header-scrolled .header {
 .site-header--design-6 .site-header__inner--v6{
   display: flex;
   flex-direction: column;
-  row-gap: 22px;
 }
 
 .site-header--design-6 .site-header__top-v6{
