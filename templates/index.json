@@ -991,30 +991,30 @@
         "subtitle_3GEAxk": {
           "type": "subtitle",
           "settings": {
-            "subtitle": "Urban Explorer"
+            "subtitle": ""
           }
         },
         "title_ymPcbc": {
           "type": "title",
           "settings": {
-            "title": "Discover Your <em>Companion</em>",
+            "title": "Addoffroad Exclusive or ORI",
             "highlight_style": "none",
             "enable_highlight_text_color": false,
             "heading_size": "h-xl",
-            "heading_color": "#e1ea7a"
+            "heading_color": "#7aeae7"
           }
         },
         "text_CDfQbC": {
           "type": "text",
           "settings": {
-            "text": "<p>We design bags with care, blending durability, function, <br/>and timeless style for every journey.</p>"
+            "text": ""
           }
         },
         "button_NpYePP": {
           "type": "button",
           "settings": {
             "button_label": "Shop Now",
-            "button_link": "",
+            "button_link": "shopify://collections/addictive-desert-designs",
             "button_style": "btn--white",
             "button_size": ""
           }
