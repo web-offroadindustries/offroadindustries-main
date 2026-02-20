@@ -69,7 +69,7 @@
       "type": "header",
       "settings": {
         "color_schema": "accent",
-        "layout": "design-4",
+        "layout": "design-6",
         "container": "container-fluid",
         "sticky_header": true,
         "sticky_type": "always",
@@ -93,7 +93,10 @@
         "mobile_show_account": false,
         "mobile_show_social": false,
         "padding_top": 0,
-        "padding_bottom": 0
+        "padding_bottom": 0,
+        "show_help_block": true,
+        "help_label": "Need Help?",
+        "help_phone": "0483 939 770"
       }
     },
     "mega_menu_1_ihdkiL": {
