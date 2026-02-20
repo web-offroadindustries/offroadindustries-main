@@ -122,7 +122,7 @@
         "heading_XhCLHT": {
           "type": "heading",
           "settings": {
-            "heading": "Ori Toyota Tundra GVM Upgrades",
+            "heading": "<strong>Toyota Tundra Unbound: Australia’s Premier GVM & GCM Legal Evolution.</strong>",
             "highlight_style": "none",
             "enable_highlight_text_color": true,
             "heading_size": "h1",
@@ -132,7 +132,7 @@
         "text_CfcJd4": {
           "type": "text",
           "settings": {
-            "text": "<p>If you've recently purchased a Toyota Tundra from Toyota Australia, Offroad Industries has an ideal solution to enhance your truck's capabilities. Our Federally Approved 3850 GVM package is designed to boost your vehicle's performance. Additionally, our team is actively developing an even higher-rated GVM option, targeting 4200 or 4300, so please keep an eye out for upcoming updates.</p><p>Our upgrade features the legendary Fox Performance Elite suspension paired with premium, USA-made BDS components. This combination ensures your truck delivers an exceptional driving experience, handling rough terrain with ease while benefiting from durable, high-quality parts built to last. </p><p>We have also conducted in-depth GCM testing to maximize the performance of your GVM Package and ensure your brake towing capacity remains unaffected.</p>"
+            "text": "<p>Stop worrying about weight limits and start adventuring with absolute confidence. <strong>Offroad Industries (ORI)</strong> offers Australia’s most comprehensive, <strong>Federally Approved GVM (Gross Vehicle Mass)</strong> upgrades for the Toyota Australia Tundra range—covering both the <strong>Limited</strong> and <strong>Platinum</strong> models.</p><p>By bundling our ORI GVM Packages with <strong>GCM testing and LS16 certification</strong>, we grant your truck true \"Super-Truck\" status. The <strong>LS16 code</strong> is our secret sauce: a specific engineering modification code for <strong>Gross Combination Mass Re-rating</strong>. This ensures your truck, your gear, and your 4.5T trailer are 100% legal together, whether registered <strong>Pre-Rego (Federal)</strong> or <strong>Post-Rego (State-based)</strong>.<br/><br/></p>"
           }
         }
       },
@@ -197,7 +197,7 @@
         "heading_f9G7kD": {
           "type": "heading",
           "settings": {
-            "heading": "<strong>Stage 1 : 3650 GVM</strong>",
+            "heading": "<strong>Stage 1: The Weekender Family Getaway</strong>",
             "highlight_style": "none",
             "enable_highlight_text_color": false,
             "heading_size": "h2"
@@ -206,7 +206,7 @@
         "text_fRRw7g": {
           "type": "text",
           "settings": {
-            "text": "<ul><li>Fox 2.5 Performance Elite Suspension</li><li>BDS Upper Control Arms</li><li>ORI Coil Packs</li><li>Federally Approved GVM & GCM</li><li>Payload Increase 1028KG</li></ul>"
+            "text": "<p><em>The perfect entry point for a legal payload boost without the need for aftermarket wheels.</em></p><ul><li><strong>GVM Rating:</strong> 3,850kg (Boosting payload to <strong>1,028kg</strong>) <strong>GCM Rating:</strong> 8,350kg (Retains full 4.5T towing)</li><li><strong>Key Features:</strong> Fox 2.5 Performance Elite suspension, ORI 150–300kg coil packs, and heavy-duty BDS Upper Control Arms & Diff Drop.</li><li><strong>Best For:</strong> Daily drivers and light touring. Ideal for owners needing to clear the <strong>\"one-tonne\" mark for FBT Tax Compliance</strong> while keeping their factory wheels.</li><li><strong>The Benefit:</strong> Achieve a lifted, aggressive stance with premium USA-made shocks. This setup significantly improves stability under load without the added expense of new wheels and tyres. The Fox adjustability allows you to \"dial in\" your ride—stiffen it for the highway and soften it for the tracks with the simple turn of a knob.</li></ul>"
           }
         }
       },
@@ -253,7 +253,7 @@
         "heading_dHpa9y": {
           "type": "heading",
           "settings": {
-            "heading": "<strong>Stage 2 : 3850 GVM</strong>",
+            "heading": "<strong>Stage 2: The Performance Level-Up</strong>",
             "highlight_style": "none",
             "enable_highlight_text_color": false,
             "heading_size": "h2"
@@ -262,7 +262,7 @@
         "text_eiTTm6": {
           "type": "text",
           "settings": {
-            "text": "<ul><li>Fox 3.0 Factory Bypass Suspension</li><li>BDS  Upper Control Arms</li><li>ORI Coil Packs</li><li>Federally Approved GVM & GCM</li><li>Payload Increase 1028KG</li></ul>"
+            "text": "<p><em>Going all out with Fox 3.0 Race-Bred technology while retaining your factory wheel and tyre setup.</em></p><ul><li><strong>GVM Rating:</strong> 3,850kg (Boosting payload to <strong>1,028kg</strong>) <strong>GCM Rating:</strong> 8,350kg (Retains full 4.5T towing)</li><li><strong>Key Features:</strong> Fox 3.0 Internal Bypass Race Series Shocks (Front & Rear), ORI coil package, BDS Upper Control Arms & Diff Drop.</li><li><strong>Best For:</strong> 4WD tourers who tackle long-distance corrugations and demand elite damping without upgrading wheels or tyres.</li><li><strong>The Benefit:</strong> Stepping up to the 3.0 platform provides massive oil volume and internal bypass technology. You get a plush, \"cloud-like\" ride on the road that transforms into a bottomless, race-ready suspension when the terrain gets technical.</li></ul>"
           }
         }
       },
@@ -276,6 +276,118 @@
         "container": "container",
         "color_schema": "",
         "image": "shopify://shop_images/stage2-3850-tundra.webp",
+        "image_width": "50%",
+        "image_position": "right",
+        "vertical_alignment": "center",
+        "column_gap": "medium",
+        "row_gap": "medium",
+        "padding_left": 0,
+        "padding_right": 0,
+        "align_content_container": "none",
+        "mobile_padding_left": 15,
+        "mobile_padding_right": 15,
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "padding_top_mobile": 60,
+        "padding_bottom_mobile": 60,
+        "show_section_divider": false,
+        "divider_width": "container",
+        "custom_id": "",
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "image_with_text_WzWKiJ": {
+      "type": "image-with-text",
+      "blocks": {
+        "subheading_6jjGGc": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "Stage 2: $22,499 Installed & Engineered"
+          }
+        },
+        "heading_mEVqDg": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>Stage 3: The Heavy Hauler</strong>",
+            "highlight_style": "none",
+            "enable_highlight_text_color": false,
+            "heading_size": "h2"
+          }
+        },
+        "text_6RrFdR": {
+          "type": "text",
+          "settings": {
+            "text": "<p><em>Maximum legal capacity for the most demanding builds. Ideal for Tray & Canopy conversions.</em></p><ul><li><strong>GVM Rating:</strong> 4,300kg (Approx. <strong>1,478kg payload</strong>) <strong>GCM Rating:</strong> 8,800kg (The ultimate legal combination)</li><li><strong>Key Features:</strong> Fox 2.5 Performance Elite suspension, ORI 500kg heavy-duty coil packs, load-rated wheels, and engineered 35” tyres.</li><li><strong>Best For:</strong> Fully built rigs with rear drawer systems, rooftop tents, long-range tanks, or heavy permanent canopies.</li><li><strong>The Benefit:</strong> A massive payload increase that transforms the Tundra into a true heavy-duty platform. This package solves the common \"overweight\" issue for fully kitted tourers while safely retaining its full 4.5T braked towing capacity.</li></ul>"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_6jjGGc",
+        "heading_mEVqDg",
+        "text_6RrFdR"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "container": "container",
+        "color_schema": "",
+        "image": "shopify://shop_images/placeholder-2800x1500.png",
+        "image_width": "50%",
+        "image_position": "left",
+        "vertical_alignment": "center",
+        "column_gap": "medium",
+        "row_gap": "medium",
+        "padding_left": 0,
+        "padding_right": 0,
+        "align_content_container": "none",
+        "mobile_padding_left": 15,
+        "mobile_padding_right": 15,
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "padding_top_mobile": 60,
+        "padding_bottom_mobile": 60,
+        "show_section_divider": false,
+        "divider_width": "container",
+        "custom_id": "",
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "image_with_text_PCycim": {
+      "type": "image-with-text",
+      "blocks": {
+        "subheading_GcgNcf": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "Stage 2: $22,499 Installed & Engineered"
+          }
+        },
+        "heading_3XdiUk": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>Stage 4: The \"No Compromise\" Build</strong>",
+            "highlight_style": "none",
+            "enable_highlight_text_color": false,
+            "heading_size": "h2"
+          }
+        },
+        "text_Mbr9Gf": {
+          "type": "text",
+          "settings": {
+            "text": "<p><em>The absolute peak of Toyota Tundra performance and legality in Australia.</em></p><ul><li><strong>GVM Rating:</strong> 4,300kg (Approx. <strong>1,478kg payload</strong>)</li><li><strong>GCM Rating:</strong> 8,800kg</li><li><strong>Key Features:</strong> Fox 3.0 Internal Bypass Race Series Shocks (Front & Rear), ORI heavy-duty coil package, and engineered 35” tyres.</li><li><strong>Best For:</strong> The enthusiast who demands race-bred technology combined with maximum legal payload.</li><li><strong>The Benefit:</strong> The Fox 3.0 Bypass shocks offer unparalleled heat dissipation and damping control. This is the ultimate \"go-anywhere\" setup that remains 100% legally compliant across Australia, even when fully loaded and towing the boat or caravan.</li></ul>"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_GcgNcf",
+        "heading_3XdiUk",
+        "text_Mbr9Gf"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "container": "container",
+        "color_schema": "",
+        "image": "shopify://shop_images/placeholder-2800x1500.png",
         "image_width": "50%",
         "image_position": "right",
         "vertical_alignment": "center",
@@ -995,6 +1107,8 @@
     "rich_text_PtmRiF",
     "image_with_text_WcaAiR",
     "image_with_text_pR9RXR",
+    "image_with_text_WzWKiJ",
+    "image_with_text_PCycim",
     "rich_text_rnLAPH",
     "gvm_comparison_FfmTMw",
     "gvm_comparison_RXeVcA",
