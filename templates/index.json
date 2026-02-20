@@ -1437,7 +1437,7 @@
       "settings": {
         "container": "container",
         "color_schema": "",
-        "section_header_padding_bottom": "medium",
+        "section_header_padding_bottom": "large",
         "section_header_content_spacing": "medium",
         "heading": "ORI GVM & GCM Packages",
         "highlight_style": "none",
