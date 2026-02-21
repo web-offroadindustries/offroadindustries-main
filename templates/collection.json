@@ -21,6 +21,14 @@
     "collection-list": {
       "type": "collection-list",
       "blocks": {
+        "featured_collection_hdNYYa": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "amp-research-power-steps-bed-steps-bed-guard-australia",
+            "image": "shopify://shop_images/420_x_420px_MEGA_MENU_ICON__AMP.jpg",
+            "title": "AMP Research"
+          }
+        },
         "featured_collection_pzr6VN": {
           "type": "featured_collection",
           "settings": {
@@ -70,6 +78,7 @@
         }
       },
       "block_order": [
+        "featured_collection_hdNYYa",
         "featured_collection_pzr6VN",
         "featured_collection_kiwQab",
         "template--16355052454049__0f7b029a-fe5e-4827-8f2c-450067a56576-featured_collection-6",
