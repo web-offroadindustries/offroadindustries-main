@@ -410,7 +410,7 @@
           "settings": {
             "logo": "shopify://shop_images/420_x_420px_MEGA_MENU_ICON__BAJA_DESIGNS.jpg",
             "label": "Baja Designs",
-            "link": ""
+            "link": "shopify://collections/baja-designs"
           }
         },
         "brand_tile_kPNDNG": {
