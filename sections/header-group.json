@@ -473,8 +473,8 @@
           "type": "brand_tile",
           "settings": {
             "logo": "shopify://shop_images/420_x_420px_MEGA_MENU_ICON__ROUGH_COUNTRY.jpg",
-            "label": "RC",
-            "link": ""
+            "label": "Rough Country",
+            "link": "shopify://collections/rough-country-1"
           }
         },
         "brand_tile_PdEck9": {
