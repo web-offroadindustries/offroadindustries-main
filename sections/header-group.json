@@ -457,8 +457,8 @@
           "type": "brand_tile",
           "settings": {
             "logo": "shopify://shop_images/420_x_420px_MEGA_MENU_ICON__AMP.jpg",
-            "label": "AMP Step Store",
-            "link": ""
+            "label": "AMP Power Steps",
+            "link": "shopify://collections/amp-research-by-real-truck"
           }
         },
         "brand_tile_A6PM9U": {
