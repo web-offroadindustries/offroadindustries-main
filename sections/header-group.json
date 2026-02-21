@@ -442,7 +442,7 @@
           "settings": {
             "logo": "shopify://shop_images/420_x_420px_MEGA_MENU_ICON__ZONE_OFFROAD.jpg",
             "label": "Zone Offroad",
-            "link": ""
+            "link": "shopify://collections/zone-offroad"
           }
         },
         "brand_tile_gfUcU8": {
