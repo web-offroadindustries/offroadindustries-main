@@ -21,6 +21,21 @@
     "collection-list": {
       "type": "collection-list",
       "blocks": {
+        "featured_collection_pzr6VN": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "ori",
+            "title": ""
+          }
+        },
+        "featured_collection_kiwQab": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "husky",
+            "image": "shopify://shop_images/420_x_420px_MEGA_MENU_ICON__HUSKY_LINERS.jpg",
+            "title": "Husky"
+          }
+        },
         "template--16355052454049__0f7b029a-fe5e-4827-8f2c-450067a56576-featured_collection-6": {
           "type": "featured_collection",
           "settings": {
@@ -55,6 +70,8 @@
         }
       },
       "block_order": [
+        "featured_collection_pzr6VN",
+        "featured_collection_kiwQab",
         "template--16355052454049__0f7b029a-fe5e-4827-8f2c-450067a56576-featured_collection-6",
         "featured_collection_9YmMzV",
         "featured_collection_dHUPkm",
