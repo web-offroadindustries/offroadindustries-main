@@ -32,7 +32,7 @@
         "3ca4a887-a88e-43f9-9422-843cb335bfa6": {
           "type": "link_list",
           "settings": {
-            "heading": "PRESETS",
+            "heading": "Important Information",
             "heading_size": "h6",
             "menu": "footer",
             "width": 13,
@@ -43,7 +43,7 @@
         "footer-0": {
           "type": "link_list",
           "settings": {
-            "heading": "ABOUT",
+            "heading": "ABOUT ORI",
             "heading_size": "h6",
             "menu": "footer",
             "width": 13,
@@ -54,7 +54,7 @@
         "link_list_ePTXrh": {
           "type": "link_list",
           "settings": {
-            "heading": "LINKS",
+            "heading": "Navigation",
             "heading_size": "h6",
             "menu": "footer",
             "width": 13,
@@ -65,7 +65,7 @@
         "8ea5fbcc-a81e-48ae-a337-2436b19c38af": {
           "type": "link_list",
           "settings": {
-            "heading": "SHOP",
+            "heading": "Account",
             "heading_size": "h6",
             "menu": "footer",
             "width": 13,
