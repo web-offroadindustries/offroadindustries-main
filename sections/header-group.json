@@ -434,7 +434,7 @@
           "settings": {
             "logo": "shopify://shop_images/420_x_420px_MEGA_MENU_ICON__CARLI.jpg",
             "label": "Carli",
-            "link": ""
+            "link": "shopify://collections/carli-suspension"
           }
         },
         "brand_tile_LCyyeG": {
@@ -450,7 +450,7 @@
           "settings": {
             "logo": "shopify://shop_images/420_x_420px_MEGA_MENU_ICON__BANKS_POWER.jpg",
             "label": "Banks",
-            "link": ""
+            "link": "shopify://collections/banks-power-cold-air-intakes"
           }
         },
         "brand_tile_tGDCAa": {
