@@ -353,8 +353,8 @@
           "type": "brand_tile",
           "settings": {
             "logo": "shopify://shop_images/420_x_420px_MEGA_MENU_ICON__ADD.jpg",
-            "label": "ADDS Offroad",
-            "link": ""
+            "label": "ADD Offroad",
+            "link": "shopify://collections/addictive-desert-designs"
           }
         },
         "brand_tile_J8Aq38": {
