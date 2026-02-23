@@ -172,9 +172,11 @@
                       %}
                     </{{ tag }}>
                   {%- else -%}
-                    <div class="f-image">
-                      {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
-                    </div>
+                    {%- if request.design_mode -%}
+                      <div class="f-image">
+                        {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+                      </div>
+                    {%- endif -%}
                   {%- endif -%}
                 </motion-element>
               {%- when 'text' -%}
