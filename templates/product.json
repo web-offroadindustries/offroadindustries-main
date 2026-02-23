@@ -205,7 +205,7 @@
             "metafield_namespace": "custom",
             "metafield_key": "important_notes",
             "page": "",
-            "custom_richtext": ""
+            "custom_richtext": "{{ metaobjects.product_detail_tabs[\"product-detail-tabs-qeotjeui\"].important_notes | metafield_tag }}"
           }
         },
         "tab_64wqRr": {
@@ -216,7 +216,7 @@
             "metafield_namespace": "custom",
             "metafield_key": "installation",
             "page": "",
-            "custom_richtext": ""
+            "custom_richtext": "{{ metaobjects.product_detail_tabs[\"product-detail-tabs-qeotjeui\"].installation | metafield_tag }}"
           }
         },
         "tab_W49wwi": {
@@ -227,7 +227,7 @@
             "metafield_namespace": "custom",
             "metafield_key": "specification",
             "page": "",
-            "custom_richtext": ""
+            "custom_richtext": "{{ metaobjects.product_detail_tabs[\"product-detail-tabs-qeotjeui\"].specification | metafield_tag }}"
           }
         },
         "tab_yxkMd9": {
@@ -238,7 +238,7 @@
             "metafield_namespace": "custom",
             "metafield_key": "fitment",
             "page": "",
-            "custom_richtext": ""
+            "custom_richtext": "{{ metaobjects.product_detail_tabs[\"product-detail-tabs-qeotjeui\"].fitment | metafield_tag }}"
           }
         },
         "tab_hgYm8Y": {
