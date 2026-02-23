@@ -223,7 +223,7 @@
           "type": "tab",
           "settings": {
             "title": "Specification",
-            "content_type": "metafield",
+            "content_type": "custom",
             "metafield_namespace": "custom",
             "metafield_key": "specification",
             "page": "",
@@ -234,7 +234,7 @@
           "type": "tab",
           "settings": {
             "title": "Fitment",
-            "content_type": "metafield",
+            "content_type": "custom",
             "metafield_namespace": "custom",
             "metafield_key": "fitment",
             "page": "",
