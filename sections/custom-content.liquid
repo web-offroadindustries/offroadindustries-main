@@ -9,16 +9,111 @@
   endunless
 
   assign container = section.settings.container
+  assign visible_blocks_count = 0
+  assign section_has_blocks_content = false
+  for block in section.blocks
+    assign block_has_content = false
+    case block.type
+      when 'image'
+        if block.settings.image != blank
+          assign block_has_content = true
+        endif
+      when 'text'
+        assign t_title_plain = block.settings.title | strip_html | strip
+        assign t_text_plain = block.settings.text | strip_html | strip
+        if t_title_plain == 'Talk about your brand'
+          assign t_title_plain = ''
+        endif
+        if t_text_plain contains 'Use this text to share information about your brand'
+          assign t_text_plain = ''
+        endif
+        if block.settings.subheading != blank or block.settings.button_label != blank or t_title_plain != blank or t_text_plain != blank
+          assign block_has_content = true
+        endif
+      when 'text_box'
+        assign tb_title_plain = block.settings.title | strip_html | strip
+        assign tb_text_plain = block.settings.text | strip_html | strip
+        if tb_title_plain == 'Talk about your brand'
+          assign tb_title_plain = ''
+        endif
+        if tb_text_plain contains 'Use this text to share information about your brand'
+          assign tb_text_plain = ''
+        endif
+        if block.settings.scrolling_promotion != blank or block.settings.subheading != blank or block.settings.button_label != blank or tb_title_plain != blank or tb_text_plain != blank
+          assign block_has_content = true
+        endif
+      when 'video'
+        if block.settings.video_type == 'shopify'
+          if block.settings.shopify_video != blank
+            assign block_has_content = true
+          endif
+        else
+          if block.settings.video_link != blank
+            assign block_has_content = true
+          endif
+        endif
+      when 'product'
+        if block.settings.product != blank and all_products[block.settings.product] != blank
+          assign block_has_content = true
+        endif
+      when 'article'
+        if block.settings.article != blank and articles[block.settings.article] != blank
+          assign block_has_content = true
+        endif
+      when 'lookbook'
+        if block.settings.image != blank
+          assign block_has_content = true
+        endif
+      when 'product_bundles'
+        if block.settings.product_1 != blank or block.settings.product_2 != blank or block.settings.product_3 != blank or block.settings.product_4 != blank or block.settings.product_5 != blank
+          assign block_has_content = true
+        endif
+      when 'countdown'
+        if block.settings.type == 'evergreen' or block.settings.time != blank
+          assign block_has_content = true
+        endif
+      when 'newsletter'
+        if block.settings.heading != blank or block.settings.description != blank
+          assign block_has_content = true
+        endif
+      when 'html'
+        if block.settings.code != blank
+          assign block_has_content = true
+        endif
+      when 'liquid'
+        if block.settings.liquid != blank
+          assign block_has_content = true
+        endif
+      when 'image_card'
+        if block.settings.image != blank or block.settings.heading != blank or block.settings.description != blank or block.settings.button_label != blank
+          assign block_has_content = true
+        endif
+      when 'product_list'
+        if block.settings.product_list != blank
+          assign block_has_content = true
+        endif
+      when 'image_comparsion'
+        if block.settings.before_image != blank or block.settings.after_image != blank or block.settings.before_image_mobile != blank or block.settings.after_image_mobile != blank
+          assign block_has_content = true
+        endif
+      else
+        assign block_has_content = true
+    endcase
+    if block_has_content
+      assign visible_blocks_count = visible_blocks_count | plus: 1
+      assign section_has_blocks_content = true
+    endif
+  endfor
 
   assign swipe_on_mobile = section.settings.enable_swipe_mobile
   assign swipe_on_tablet = false
   assign swipe_classes = ''
 
   if swipe_on_mobile
-    if section.blocks.size == 3
+    if visible_blocks_count == 3
       assign swipe_on_tablet = true
-    elsif section.blocks.size > 2
-      assign column_size_modulo = section.blocks.size | modulo: 2
+    elsif visible_blocks_count > 2
+      assign column_size_modulo = visible_blocks_count | modulo: 2
       if column_size_modulo > 0
         assign swipe_on_tablet = true
       endif
@@ -38,7 +133,7 @@
   endif
 
   capture styles
-    if section.blocks.size > 9
+    if visible_blocks_count > 9
       echo '--pagination-width: 4rem;'
     else
       echo '--pagination-width: 2.5rem;'
@@ -63,6 +158,7 @@
     assign section_motion_delay = section_motion_delay | plus: 50
   endif
 -%}
+{%- if request.design_mode or section_has_blocks_content -%}
 {% render 'divider',
   show_divider: section.settings.show_section_divider,
   divider_width: section.settings.divider_width
@@ -102,6 +198,114 @@
     <div class="f-flex flex-wrap f-grid--gap-{{ section.settings.column_gap }} f-grid--row-gap-{{ section.settings.row_gap }}{{ swipe_classes }}">
       {%- for block in section.blocks -%}
         {%- liquid
+          assign block_has_content = false
+
+          case block.type
+            when 'image'
+              if block.settings.image != blank
+                assign block_has_content = true
+              endif
+
+            when 'text'
+              assign t_title_plain = block.settings.title | strip_html | strip
+              assign t_text_plain = block.settings.text | strip_html | strip
+
+              if t_title_plain == 'Talk about your brand'
+                assign t_title_plain = ''
+              endif
+              if t_text_plain contains 'Use this text to share information about your brand'
+                assign t_text_plain = ''
+              endif
+
+              if block.settings.subheading != blank or block.settings.button_label != blank or t_title_plain != blank or t_text_plain != blank
+                assign block_has_content = true
+              endif
+
+            when 'text_box'
+              assign tb_title_plain = block.settings.title | strip_html | strip
+              assign tb_text_plain = block.settings.text | strip_html | strip
+
+              if tb_title_plain == 'Talk about your brand'
+                assign tb_title_plain = ''
+              endif
+              if tb_text_plain contains 'Use this text to share information about your brand'
+                assign tb_text_plain = ''
+              endif
+
+              if block.settings.scrolling_promotion != blank or block.settings.subheading != blank or block.settings.button_label != blank or tb_title_plain != blank or tb_text_plain != blank
+                assign block_has_content = true
+              endif
+
+            when 'video'
+              if block.settings.video_type == 'shopify'
+                if block.settings.shopify_video != blank
+                  assign block_has_content = true
+                endif
+              else
+                if block.settings.video_link != blank
+                  assign block_has_content = true
+                endif
+              endif
+
+            when 'product'
+              if block.settings.product != blank and all_products[block.settings.product] != blank
+                assign block_has_content = true
+              endif
+
+            when 'article'
+              if block.settings.article != blank and articles[block.settings.article] != blank
+                assign block_has_content = true
+              endif
+
+            when 'lookbook'
+              if block.settings.image != blank
+                assign block_has_content = true
+              endif
+
+            when 'product_bundles'
+              if block.settings.product_1 != blank or block.settings.product_2 != blank or block.settings.product_3 != blank or block.settings.product_4 != blank or block.settings.product_5 != blank
+                assign block_has_content = true
+              endif
+
+            when 'countdown'
+              if block.settings.type == 'evergreen' or block.settings.time != blank
+                assign block_has_content = true
+              endif
+
+            when 'newsletter'
+              if block.settings.heading != blank or block.settings.description != blank
+                assign block_has_content = true
+              endif
+
+            when 'html'
+              if block.settings.code != blank
+                assign block_has_content = true
+              endif
+
+            when 'liquid'
+              if block.settings.liquid != blank
+                assign block_has_content = true
+              endif
+
+            when 'image_card'
+              if block.settings.image != blank or block.settings.heading != blank or block.settings.description != blank or block.settings.button_label != blank
+                assign block_has_content = true
+              endif
+
+            when 'product_list'
+              if block.settings.product_list != blank
+                assign block_has_content = true
+              endif
+
+            when 'image_comparsion'
+              if block.settings.before_image != blank or block.settings.after_image != blank or block.settings.before_image_mobile != blank or block.settings.after_image_mobile != blank
+                assign block_has_content = true
+              endif
+
+            else
+              assign block_has_content = true
+          endcase
+
           assign vertical_alignment = block.settings.alignment | default: 'center'
 
           assign block_class = ''
@@ -138,6 +342,7 @@
           endif
           assign motion_delay = section_motion_delay
         -%}
+        {%- if request.design_mode or block_has_content -%}
         <div
           id="f-custom-block--{{ block.id }}"
           class="f-column {{ block_class }}"
@@ -1128,7 +1333,7 @@
                       data-calc-button-position="true"
                       data-is-paginate-counter="true"
                       data-products-container
-                      {% if section.blocks.size > 1 %}
+                      {% if visible_blocks_count > 1 %}
                         style="{{ styles }}"
                       {% endif %}
                     >
@@ -1362,10 +1567,12 @@
             {%- endcase -%}
           </div>
         </div>
+        {%- endif -%}
       {%- endfor -%}
     </div>
   </div>
 </div>
+{%- endif -%}
 
 {% schema %}
 {
