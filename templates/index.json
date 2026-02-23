@@ -830,6 +830,60 @@
     "scrolling_promotion_iqVp4T": {
       "type": "scrolling-promotion",
       "blocks": {
+        "image_V8QxeT": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/420_x_420px_MEGA_MENU_ICON__BDS.jpg",
+            "image_height": 120,
+            "image_link": "",
+            "use_custom_spacing": false,
+            "margin_left": 10,
+            "margin_right": 10,
+            "margin_left_mobile": 10,
+            "margin_right_mobile": 10
+          }
+        },
+        "announcement_dFJCAx": {
+          "type": "announcement",
+          "settings": {
+            "text": "BDSSuspension",
+            "font_family": "body",
+            "text_size": 30,
+            "text_link": "",
+            "use_custom_spacing": false,
+            "margin_left": 10,
+            "margin_right": 10,
+            "margin_left_mobile": 10,
+            "margin_right_mobile": 10
+          }
+        },
+        "image_JkfQc4": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/420_x_420px_MEGA_MENU_ICON__FOX.jpg",
+            "image_height": 120,
+            "image_link": "",
+            "use_custom_spacing": false,
+            "margin_left": 10,
+            "margin_right": 10,
+            "margin_left_mobile": 10,
+            "margin_right_mobile": 10
+          }
+        },
+        "announcement_7NbxBT": {
+          "type": "announcement",
+          "settings": {
+            "text": "Fox Suspension",
+            "font_family": "body",
+            "text_size": 30,
+            "text_link": "",
+            "use_custom_spacing": false,
+            "margin_left": 10,
+            "margin_right": 10,
+            "margin_left_mobile": 10,
+            "margin_right_mobile": 10
+          }
+        },
         "image_CMHfbV": {
           "type": "image",
           "settings": {
@@ -846,7 +900,7 @@
         "announcement_Ck9fgL": {
           "type": "announcement",
           "settings": {
-            "text": "Shop BDS Kits",
+            "text": "Baja Designs",
             "font_family": "heading",
             "text_size": 34,
             "text_link": "",
@@ -946,6 +1000,10 @@
         }
       },
       "block_order": [
+        "image_V8QxeT",
+        "announcement_dFJCAx",
+        "image_JkfQc4",
+        "announcement_7NbxBT",
         "image_CMHfbV",
         "announcement_Ck9fgL",
         "divider_qMNDMW",
