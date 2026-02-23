@@ -301,102 +301,147 @@
         "animations": "inherit"
       }
     },
-    "image_with_text_f3GGDf": {
-      "type": "image-with-text",
+    "custom_content_GQVPbH": {
+      "type": "custom-content",
       "blocks": {
-        "heading_9Ur4Ha": {
-          "type": "heading",
+        "image_4bQHdK": {
+          "type": "image",
           "settings": {
-            "heading": "Phantom Bar - Chevy Silverado 2500HD",
-            "highlight_style": "none",
-            "enable_highlight_text_color": false,
-            "heading_size": "h2"
+            "link": "",
+            "width": "50%",
+            "alignment": "center",
+            "block_custom_class": "",
+            "animations": "inherit"
           }
         },
-        "text_nmWDbJ": {
+        "text_YQ4Vnt": {
           "type": "text",
           "settings": {
-            "text": "<p>Addoffroad emphasizes sleek designs and a focus on super sharp lines and winch bar.</p>"
+            "color_scheme": "",
+            "title": "{{ collection.metafields.custom.collection_additional_information.value.collection_title_1.value }}",
+            "highlight_style": "none",
+            "enable_highlight_text_color": false,
+            "heading_size": "h2",
+            "heading_color": "",
+            "subheading": "",
+            "text": "{{ collection.metafields.custom.collection_additional_information.value.collection_description_1 | metafield_tag }}",
+            "alignment": "center",
+            "align_text": "left",
+            "padding_left": 0,
+            "padding_right": 0,
+            "align_content_container": "none",
+            "button_label": "{{ collection.metafields.custom.collection_additional_information.value.collection_button_label_1.value }}",
+            "button_link": "{{ collection.metafields.custom.collection_additional_information.value.collection_button_url_1.value }}",
+            "button_style": "btn--primary",
+            "width": "50%",
+            "mobile_color_scheme": "",
+            "mobile_padding_left": 15,
+            "mobile_padding_right": 15,
+            "block_custom_class": "",
+            "animations": "inherit"
           }
         }
       },
       "block_order": [
-        "heading_9Ur4Ha",
-        "text_nmWDbJ"
+        "image_4bQHdK",
+        "text_YQ4Vnt"
       ],
-      "name": "t:sections.image-with-text.presets.name",
+      "name": "t:sections.custom-content.presets.name",
       "settings": {
         "container": "container",
         "color_schema": "",
-        "image": "shopify://shop_images/addoffroad-2024-chevy-silverado-25003500-phantom-winch-front-baraddictive-desert-designsf820335070103-8818597.png",
-        "image_width": "50%",
-        "image_position": "left",
-        "vertical_alignment": "center",
+        "bg_image": "{{ collection.metafields.custom.collection_additional_information.value.collection_image_1.value }}",
+        "section_header_padding_bottom": "medium",
+        "section_header_content_spacing": "medium",
+        "heading": "",
+        "highlight_style": "none",
+        "enable_highlight_text_color": false,
+        "heading_size": "h2",
+        "heading_color": "",
+        "subheading": "",
+        "description": "",
         "column_gap": "medium",
         "row_gap": "medium",
-        "padding_left": 0,
-        "padding_right": 0,
-        "align_content_container": "none",
-        "mobile_padding_left": 15,
-        "mobile_padding_right": 15,
+        "enable_swipe_mobile": false,
+        "column_mobile": "1",
         "padding_top": 40,
         "padding_bottom": 40,
-        "padding_top_mobile": 60,
-        "padding_bottom_mobile": 60,
         "show_section_divider": false,
         "divider_width": "container",
         "custom_id": "",
-        "custom_class": "",
-        "animations": "inherit"
+        "custom_class": ""
       }
     },
-    "image_with_text_Vdhrfg": {
-      "type": "image-with-text",
+    "custom_content_9PAhjC": {
+      "type": "custom-content",
       "blocks": {
-        "heading_hRKKNU": {
-          "type": "heading",
-          "settings": {
-            "heading": "Stealth Fighter",
-            "highlight_style": "none",
-            "enable_highlight_text_color": false,
-            "heading_size": "h2"
-          }
-        },
-        "text_NMk7q9": {
+        "text_biRrQK": {
           "type": "text",
           "settings": {
-            "text": "<p>Addoffroad Stealth Fighter bar on this Chevy Silverado ZR2</p>"
+            "color_scheme": "",
+            "title": "{{ collection.metafields.custom.collection_additional_information.value.collection_title_2.value }}",
+            "highlight_style": "none",
+            "enable_highlight_text_color": false,
+            "heading_size": "h2",
+            "heading_color": "",
+            "subheading": "",
+            "text": "{{ collection.metafields.custom.collection_additional_information.value.collection_description_2 | metafield_tag }}",
+            "alignment": "center",
+            "align_text": "left",
+            "padding_left": 0,
+            "padding_right": 0,
+            "align_content_container": "none",
+            "button_label": "{{ collection.metafields.custom.collection_additional_information.value.collection_button_label_2.value }}",
+            "button_link": "{{ collection.metafields.custom.collection_additional_information.value.collection_button_url_2.value }}",
+            "button_style": "btn--primary",
+            "width": "50%",
+            "mobile_color_scheme": "",
+            "mobile_padding_left": 15,
+            "mobile_padding_right": 15,
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        },
+        "image_Xp7kFF": {
+          "type": "image",
+          "settings": {
+            "image": "{{ collection.metafields.custom.collection_additional_information.value.collection_image_2.value }}",
+            "link": "",
+            "width": "50%",
+            "alignment": "center",
+            "block_custom_class": "",
+            "animations": "inherit"
           }
         }
       },
       "block_order": [
-        "heading_hRKKNU",
-        "text_NMk7q9"
+        "text_biRrQK",
+        "image_Xp7kFF"
       ],
-      "name": "t:sections.image-with-text.presets.name",
+      "name": "t:sections.custom-content.presets.name",
       "settings": {
         "container": "container",
         "color_schema": "",
-        "image": "shopify://shop_images/IMG_1555_2.png",
-        "image_width": "50%",
-        "image_position": "right",
-        "vertical_alignment": "center",
+        "bg_image": "{{ collection.metafields.custom.collection_additional_information.value.collection_image_1.value }}",
+        "section_header_padding_bottom": "medium",
+        "section_header_content_spacing": "medium",
+        "heading": "",
+        "highlight_style": "none",
+        "enable_highlight_text_color": false,
+        "heading_size": "h2",
+        "heading_color": "",
+        "subheading": "",
+        "description": "",
         "column_gap": "medium",
         "row_gap": "medium",
-        "padding_left": 0,
-        "padding_right": 0,
-        "align_content_container": "none",
-        "mobile_padding_left": 15,
-        "mobile_padding_right": 15,
+        "enable_swipe_mobile": false,
+        "column_mobile": "1",
         "padding_top": 40,
         "padding_bottom": 40,
-        "padding_top_mobile": 60,
-        "padding_bottom_mobile": 60,
         "show_section_divider": false,
         "divider_width": "container",
         "custom_id": "",
-        "custom_class": "",
-        "animations": "inherit"
+        "custom_class": ""
       }
     },
     "177165700093d5a446": {
@@ -436,8 +481,8 @@
     "rich_text_h7jx7H",
     "product-grid",
     "rich_text_tbx497",
-    "image_with_text_f3GGDf",
-    "image_with_text_Vdhrfg",
+    "custom_content_GQVPbH",
+    "custom_content_9PAhjC",
     "177165700093d5a446"
   ]
 }
