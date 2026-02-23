@@ -201,7 +201,7 @@
           "type": "tab",
           "settings": {
             "title": "Important Notes",
-            "content_type": "metafield",
+            "content_type": "custom",
             "metafield_namespace": "custom",
             "metafield_key": "important_notes",
             "page": "",
@@ -212,7 +212,7 @@
           "type": "tab",
           "settings": {
             "title": "Installation",
-            "content_type": "metafield",
+            "content_type": "custom",
             "metafield_namespace": "custom",
             "metafield_key": "installation",
             "page": "",
