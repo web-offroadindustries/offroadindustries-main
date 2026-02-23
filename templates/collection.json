@@ -307,6 +307,7 @@
         "image_4bQHdK": {
           "type": "image",
           "settings": {
+            "image": "{{ collection.metafields.custom.collection_additional_information.value.collection_image_1.value }}",
             "link": "",
             "width": "50%",
             "alignment": "center",
@@ -350,7 +351,6 @@
       "settings": {
         "container": "container",
         "color_schema": "",
-        "bg_image": "{{ collection.metafields.custom.collection_additional_information.value.collection_image_1.value }}",
         "section_header_padding_bottom": "medium",
         "section_header_content_spacing": "medium",
         "heading": "",
@@ -422,7 +422,6 @@
       "settings": {
         "container": "container",
         "color_schema": "",
-        "bg_image": "{{ collection.metafields.custom.collection_additional_information.value.collection_image_1.value }}",
         "section_header_padding_bottom": "medium",
         "section_header_content_spacing": "medium",
         "heading": "",
