@@ -219,7 +219,7 @@
       "settings": {
         "container": "container",
         "color_schema": "",
-        "image": "shopify://shop_images/GVM_CHEVY_1500stage_1___3650_GVM_CHEVY_1500.jpg",
+        "image": "shopify://shop_images/stage_1___3650_GVM_CHEVY_1500.jpg",
         "image_width": "50%",
         "image_position": "left",
         "vertical_alignment": "center",
@@ -275,7 +275,7 @@
       "settings": {
         "container": "container",
         "color_schema": "",
-        "image": "shopify://shop_images/GVM_CHEVY_1500stage_2___3650_GVM_CHEVY_1500.jpg",
+        "image": "shopify://shop_images/stage_2___3650_GVM_CHEVY_1500.jpg",
         "image_width": "50%",
         "image_position": "right",
         "vertical_alignment": "center",
@@ -331,7 +331,7 @@
       "settings": {
         "container": "container",
         "color_schema": "",
-        "image": "shopify://shop_images/GVM_CHEVY_1500Stage_3___3850_GVM_CHEVY_1500.jpg",
+        "image": "shopify://shop_images/Stage_3___3850_GVM_CHEVY_1500.jpg",
         "image_width": "50%",
         "image_position": "left",
         "vertical_alignment": "center",
@@ -387,7 +387,7 @@
       "settings": {
         "container": "container",
         "color_schema": "",
-        "image": "shopify://shop_images/GVM_CHEVY_1500Stage_4___4250_GVM_CHEVY_1500.jpg",
+        "image": "shopify://shop_images/Stage_4___4250_GVM_CHEVY_1500.jpg",
         "image_width": "50%",
         "image_position": "right",
         "vertical_alignment": "center",
@@ -443,7 +443,7 @@
       "settings": {
         "container": "container",
         "color_schema": "",
-        "image": "shopify://shop_images/GVM_CHEVY_1500Stage_5___4250_GVM_CHEVY_1500.jpg",
+        "image": "shopify://shop_images/Stage_5___4250_GVM_CHEVY_1500.jpg",
         "image_width": "50%",
         "image_position": "left",
         "vertical_alignment": "center",
