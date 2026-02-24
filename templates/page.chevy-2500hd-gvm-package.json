@@ -227,7 +227,7 @@
       "settings": {
         "container": "container",
         "color_schema": "",
-        "image": "shopify://shop_images/stage_1_5500_gvm_SILVERADO_2500HD.jpg",
+        "image": "shopify://shop_images/stage_1_5500_gvm_SILVERADO_2500HD_5bad8c7c-3fec-49d1-8b52-133882677bf7.jpg",
         "image_width": "50%",
         "image_position": "left",
         "vertical_alignment": "center",
@@ -283,7 +283,7 @@
       "settings": {
         "container": "container",
         "color_schema": "",
-        "image": "shopify://shop_images/stage_2_5900_gvm_SILVERADO_2500HD.jpg",
+        "image": "shopify://shop_images/stage_2_5900_gvm_SILVERADO_2500HD_32690dd5-268c-464d-983d-96b273a88251.jpg",
         "image_width": "50%",
         "image_position": "right",
         "vertical_alignment": "center",
@@ -339,7 +339,7 @@
       "settings": {
         "container": "container",
         "color_schema": "",
-        "image": "shopify://shop_images/stage_3_5900_gvm_SILVERADO_2500HD.jpg",
+        "image": "shopify://shop_images/stage_3_5900_gvm_SILVERADO_2500HD_9a8d0eaf-b975-4a76-89f9-4333ea58792d.jpg",
         "image_width": "50%",
         "image_position": "left",
         "vertical_alignment": "center",
@@ -395,7 +395,7 @@
       "settings": {
         "container": "container",
         "color_schema": "",
-        "image": "shopify://shop_images/placeholder-2800x1500.png",
+        "image": "shopify://shop_images/stage_3.5_5900_gvm_SILVERADO_2500HD_copy.jpg",
         "image_width": "50%",
         "image_position": "right",
         "vertical_alignment": "center",
@@ -451,7 +451,7 @@
       "settings": {
         "container": "container",
         "color_schema": "",
-        "image": "shopify://shop_images/placeholder-2800x1500.png",
+        "image": "shopify://shop_images/stage_4_5900_gvm_SILVERADO_2500HD_copy.jpg",
         "image_width": "50%",
         "image_position": "left",
         "vertical_alignment": "center",
@@ -507,7 +507,7 @@
       "settings": {
         "container": "container",
         "color_schema": "",
-        "image": "shopify://shop_images/placeholder-2800x1500.png",
+        "image": "shopify://shop_images/stage_5_5900_gvm_SILVERADO_2500HD_copy_2.jpg",
         "image_width": "50%",
         "image_position": "right",
         "vertical_alignment": "center",
@@ -563,7 +563,7 @@
       "settings": {
         "container": "container",
         "color_schema": "",
-        "image": "shopify://shop_images/placeholder-2800x1500.png",
+        "image": "shopify://shop_images/stage_6_5900_gvm_SILVERADO_2500HD_copy_3.jpg",
         "image_width": "50%",
         "image_position": "left",
         "vertical_alignment": "center",
@@ -619,7 +619,7 @@
       "settings": {
         "container": "container",
         "color_schema": "",
-        "image": "shopify://shop_images/placeholder-2800x1500.png",
+        "image": "shopify://shop_images/stage_6.5_5900_gvm_SILVERADO_2500HD_copy_2.jpg",
         "image_width": "50%",
         "image_position": "right",
         "vertical_alignment": "center",
