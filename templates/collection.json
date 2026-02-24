@@ -140,7 +140,7 @@
         "slide_TDWPqa": {
           "type": "slide",
           "settings": {
-            "background": "shopify://shop_images/IMG_1555_2.png",
+            "background": "{{ collection.metafields.custom.banner_image.value }}",
             "mb_background": "{{ collection.image }}",
             "image_overlay_opacity": 45,
             "content_position": "center-bottom",
