@@ -857,6 +857,17 @@
             "margin_right_mobile": 10
           }
         },
+        "divider_ra8kGw": {
+          "type": "divider",
+          "settings": {
+            "width": 64,
+            "use_custom_spacing": false,
+            "margin_left": 10,
+            "margin_right": 10,
+            "margin_left_mobile": 10,
+            "margin_right_mobile": 10
+          }
+        },
         "image_JkfQc4": {
           "type": "image",
           "settings": {
@@ -884,12 +895,23 @@
             "margin_right_mobile": 10
           }
         },
+        "divider_HyyX8h": {
+          "type": "divider",
+          "settings": {
+            "width": 64,
+            "use_custom_spacing": false,
+            "margin_left": 10,
+            "margin_right": 10,
+            "margin_left_mobile": 10,
+            "margin_right_mobile": 10
+          }
+        },
         "image_CMHfbV": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/download_3.jpg",
+            "image": "shopify://shop_images/420_x_420px_MEGA_MENU_ICON__BAJA_DESIGNS.jpg",
             "image_height": 80,
-            "image_link": "",
+            "image_link": "shopify://collections/baja-designs",
             "use_custom_spacing": true,
             "margin_left": 0,
             "margin_right": 20,
@@ -1002,8 +1024,10 @@
       "block_order": [
         "image_V8QxeT",
         "announcement_dFJCAx",
+        "divider_ra8kGw",
         "image_JkfQc4",
         "announcement_7NbxBT",
+        "divider_HyyX8h",
         "image_CMHfbV",
         "announcement_Ck9fgL",
         "divider_qMNDMW",
