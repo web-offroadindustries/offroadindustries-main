@@ -835,7 +835,7 @@
           "settings": {
             "image": "shopify://shop_images/420_x_420px_MEGA_MENU_ICON__BDS.jpg",
             "image_height": 120,
-            "image_link": "",
+            "image_link": "shopify://collections/bds-suspension-australian-distributor",
             "use_custom_spacing": false,
             "margin_left": 10,
             "margin_right": 10,
