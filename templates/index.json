@@ -269,17 +269,17 @@
         "image_with_text_DKJpNL": {
           "type": "image_with_text",
           "settings": {
-            "image": "shopify://shop_images/silverado-2500-2020-2023.png",
+            "image": "shopify://shop_images/IMG_1555_2.png",
             "image_ratio": "adapt",
             "sub_heading": "Addoffroad Stealth Fighter",
-            "heading": "Chevy Silverado 2500HD 2020 - 2023",
+            "heading": "Chevy Silverado ZR2",
             "highlight_style": "drawer_line",
             "enable_highlight_text_color": false,
             "heading_size": "h3",
             "heading_color": "",
             "description": "",
             "button_label": "Shop Now",
-            "button_link": "shopify://products/add-offroad-chevy-silverado-2500hd-stealth-fighter-bull-bar-2020-2022",
+            "button_link": "shopify://products/addoffroad-stealth-fighter-bar-chevy-silverado-zr2",
             "button_style": "btn--secondary",
             "text_alignment": "center",
             "content_spacing": "small"
