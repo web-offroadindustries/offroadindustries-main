@@ -204,8 +204,8 @@
           "settings": {
             "title": "Important Notes",
             "content_type": "metafield",
-            "metafield_namespace": "custom",
-            "metafield_key": "important_notes",
+            "metafield_namespace": "custom.product_important_notes",
+            "metafield_key": "product_important_notes",
             "page": "",
             "custom_richtext": "",
             "custom_liquid": "",
