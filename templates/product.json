@@ -203,7 +203,7 @@
           "type": "tab",
           "settings": {
             "title": "Important Notes",
-            "content_type": "custom",
+            "content_type": "metafield",
             "metafield_namespace": "custom",
             "metafield_key": "important_notes",
             "page": "",
@@ -216,7 +216,7 @@
           "type": "tab",
           "settings": {
             "title": "Installation",
-            "content_type": "custom",
+            "content_type": "metafield",
             "metafield_namespace": "custom",
             "metafield_key": "installation",
             "page": "",
@@ -229,7 +229,7 @@
           "type": "tab",
           "settings": {
             "title": "Specification",
-            "content_type": "custom",
+            "content_type": "metafield",
             "metafield_namespace": "custom",
             "metafield_key": "specification",
             "page": "",
@@ -242,7 +242,7 @@
           "type": "tab",
           "settings": {
             "title": "Fitment",
-            "content_type": "custom",
+            "content_type": "metafield",
             "metafield_namespace": "custom",
             "metafield_key": "fitment",
             "page": "",
