@@ -194,7 +194,9 @@
             "metafield_namespace": "custom",
             "metafield_key": "",
             "page": "",
-            "custom_richtext": ""
+            "custom_richtext": "",
+            "custom_liquid": "",
+            "scroll_selector": ""
           }
         },
         "tab_7tUDwQ": {
@@ -205,7 +207,9 @@
             "metafield_namespace": "custom",
             "metafield_key": "important_notes",
             "page": "",
-            "custom_richtext": "{{ metaobjects.product_detail_tabs[\"product-detail-tabs-qeotjeui\"].important_notes | metafield_tag }}"
+            "custom_richtext": "",
+            "custom_liquid": "",
+            "scroll_selector": ""
           }
         },
         "tab_64wqRr": {
@@ -216,7 +220,9 @@
             "metafield_namespace": "custom",
             "metafield_key": "installation",
             "page": "",
-            "custom_richtext": "{{ metaobjects.product_detail_tabs[\"product-detail-tabs-qeotjeui\"].installation | metafield_tag }}"
+            "custom_richtext": "",
+            "custom_liquid": "",
+            "scroll_selector": ""
           }
         },
         "tab_W49wwi": {
@@ -227,7 +233,9 @@
             "metafield_namespace": "custom",
             "metafield_key": "specification",
             "page": "",
-            "custom_richtext": "{{ metaobjects.product_detail_tabs[\"product-detail-tabs-qeotjeui\"].specification | metafield_tag }}"
+            "custom_richtext": "",
+            "custom_liquid": "",
+            "scroll_selector": ""
           }
         },
         "tab_yxkMd9": {
@@ -238,7 +246,9 @@
             "metafield_namespace": "custom",
             "metafield_key": "fitment",
             "page": "",
-            "custom_richtext": "{{ metaobjects.product_detail_tabs[\"product-detail-tabs-qeotjeui\"].fitment | metafield_tag }}"
+            "custom_richtext": "",
+            "custom_liquid": "",
+            "scroll_selector": ""
           }
         },
         "tab_hgYm8Y": {
@@ -249,7 +259,9 @@
             "metafield_namespace": "custom",
             "metafield_key": "",
             "page": "",
-            "custom_richtext": ""
+            "custom_richtext": "",
+            "custom_liquid": "",
+            "scroll_selector": ""
           }
         }
       },
