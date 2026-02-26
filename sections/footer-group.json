@@ -42,6 +42,7 @@
         },
         "footer-0": {
           "type": "link_list",
+          "disabled": true,
           "settings": {
             "heading": "ABOUT ORI",
             "heading_size": "h6",
@@ -53,6 +54,7 @@
         },
         "link_list_ePTXrh": {
           "type": "link_list",
+          "disabled": true,
           "settings": {
             "heading": "Navigation",
             "heading_size": "h6",
@@ -64,6 +66,7 @@
         },
         "8ea5fbcc-a81e-48ae-a337-2436b19c38af": {
           "type": "link_list",
+          "disabled": true,
           "settings": {
             "heading": "Account",
             "heading_size": "h6",
