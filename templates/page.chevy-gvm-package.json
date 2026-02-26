@@ -1002,97 +1002,132 @@
         "padding_bottom": 40
       }
     },
-    "contact_form_v4_fEe6zU": {
-      "type": "contact-form-v4",
+    "contact_form_v2_3Vrk4Q": {
+      "type": "contact-form-v2",
       "blocks": {
-        "name_exnwzU": {
-          "type": "name",
+        "info_item_ibKtad": {
+          "type": "info_item",
+          "settings": {
+            "icon": "phone",
+            "label": "Phone",
+            "value": "+0483 930 639",
+            "link": "tel:+0483930639"
+          }
+        },
+        "info_item_qTG3D3": {
+          "type": "info_item",
+          "settings": {
+            "icon": "email",
+            "label": "Email",
+            "value": "sales@offroadindustries.com.au",
+            "link": "mailto:sales@offroadindustries.com.au"
+          }
+        },
+        "info_item_tj3eXx": {
+          "type": "info_item",
+          "settings": {
+            "icon": "pin",
+            "label": "Address",
+            "value": "3 Montefiore Street Fairfield VIC 3078 Australia",
+            "link": "tel:+10000000000"
+          }
+        },
+        "info_item_A9JNPW": {
+          "type": "info_item",
+          "settings": {
+            "icon": "clock",
+            "label": "Business Hours",
+            "value": "Monday to Friday: 9:00AM – 4:00PM",
+            "link": "tel:+10000000000"
+          }
+        },
+        "field_name_MJb4AA": {
+          "type": "field_name",
           "settings": {
             "label": "Name",
-            "placeholder": "Enter your name",
-            "field_width": "full",
-            "hide_label": true,
-            "required": false
+            "placeholder": "Your name",
+            "required": true,
+            "width": "full"
           }
         },
-        "email_dXpzDX": {
-          "type": "email",
+        "field_email_pw7Yfq": {
+          "type": "field_email",
           "settings": {
             "label": "Email",
-            "placeholder": "Enter your email",
-            "field_width": "full",
-            "hide_label": true
+            "placeholder": "you@email.com",
+            "required": true,
+            "width": "full"
           }
         },
-        "phone_7brAcE": {
-          "type": "phone",
+        "field_phone_WBJQ4H": {
+          "type": "field_phone",
           "settings": {
-            "label": "Phone number",
+            "label": "Phone Number",
             "placeholder": "Enter your phone number",
-            "field_width": "full",
-            "hide_label": true,
-            "required": false
+            "required": false,
+            "width": "full"
           }
         },
-        "rego_status_mUWXyz": {
-          "type": "rego_status",
+        "field_rego_status_PQffT3": {
+          "type": "field_rego_status",
           "settings": {
             "label": "Pre or Post rego",
             "field_name": "Pre or Post rego",
             "placeholder": "Select one",
             "options": "Pre rego, Post rego",
-            "field_width": "full",
-            "hide_label": true,
-            "required": false
+            "required": false,
+            "width": "full"
           }
         },
-        "location_VRYzmt": {
-          "type": "location",
+        "field_location_gqyDqj": {
+          "type": "field_location",
           "settings": {
             "label": "What is your location",
             "field_name": "Location",
             "placeholder": "What is your location?",
-            "field_width": "full",
-            "hide_label": true,
-            "required": false
+            "required": false,
+            "width": "full"
           }
         },
-        "message_TdyTk9": {
-          "type": "message",
+        "field_message_WmjLEP": {
+          "type": "field_message",
           "settings": {
             "label": "Message",
             "placeholder": "Which gvm Package do you want further information on?",
-            "hide_label": true
+            "required": true,
+            "width": "full"
           }
         }
       },
       "block_order": [
-        "name_exnwzU",
-        "email_dXpzDX",
-        "phone_7brAcE",
-        "rego_status_mUWXyz",
-        "location_VRYzmt",
-        "message_TdyTk9"
+        "info_item_ibKtad",
+        "info_item_qTG3D3",
+        "info_item_tj3eXx",
+        "info_item_A9JNPW",
+        "field_name_MJb4AA",
+        "field_email_pw7Yfq",
+        "field_phone_WBJQ4H",
+        "field_rego_status_PQffT3",
+        "field_location_gqyDqj",
+        "field_message_WmjLEP"
       ],
-      "name": "Contact form v4",
+      "name": "Contact Form v2",
       "settings": {
-        "container": "container",
-        "color_schema": "",
-        "heading": "Contact form",
-        "subheading": "",
-        "description": "",
-        "form_design": "design-1",
-        "form_width": 500,
-        "form_alignment": "center",
-        "button_label": "Send",
-        "button_style": "btn--primary",
+        "heading": "Questions? We’re Hereto Help",
+        "body": "<p>Add your intro text here.</p>",
+        "form_title": "Send us a message",
+        "form_banner_image": "shopify://shop_images/contact-form-banner.webp",
+        "button_label": "Submit",
+        "success_message": "Thanks! We received your message and will get back to you soon.",
+        "desktop_layout": "content_left",
+        "mobile_layout": "content_first",
+        "fields_columns_desktop": "1",
+        "max_width": 1200,
+        "bg_color": "#ffffff",
+        "form_bg": "#e6e6e6",
+        "accent": "#56BDC2",
         "padding_top": 40,
-        "padding_bottom": 40,
-        "show_section_divider": false,
-        "divider_width": "container",
-        "custom_id": "",
-        "custom_class": "",
-        "animations": "inherit"
+        "padding_bottom": 40
       }
     },
     "rich_text_4AxLyp": {
@@ -1216,7 +1251,7 @@
     "rich_text_rnLAPH",
     "gvm_comparison_FfmTMw",
     "gvm_comparison_RXeVcA",
-    "contact_form_v4_fEe6zU",
+    "contact_form_v2_3Vrk4Q",
     "rich_text_4AxLyp",
     "logo_list_8XphYi"
   ]
