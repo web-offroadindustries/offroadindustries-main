@@ -217,7 +217,7 @@
       ],
       "name": "Mega menu 1",
       "settings": {
-        "parent": "Shop by Vehicle :",
+        "parent": "American Trucks",
         "mm_layout": "columns",
         "mm_align": "center",
         "mm_bg_color": "#0b0b0b",
