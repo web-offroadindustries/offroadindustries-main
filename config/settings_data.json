@@ -135,6 +135,11 @@
         "type": "shopify://apps/easysearch-ymm/blocks/easysearch-embed-garage/6d82686b-b68a-4b5e-98e3-e07b2b53d810",
         "disabled": false,
         "settings": {}
+      },
+      "pagefly-page-builder": {
+        "type": "shopify://apps/pagefly-page-builder/blocks/app-embed/83e179f7-59a0-4589-8c66-c0dddf959200",
+        "disabled": false,
+        "settings": {}
       }
     },
     "color_schemes": {
