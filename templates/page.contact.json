@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "30a56383-5d1c-459a-9293-c2f96ce20c74": {
@@ -15,18 +24,20 @@
         "tab_3ERj9g": {
           "type": "tab",
           "settings": {
-            "content_color_schema": "",
+            "content_color_schema": "background-1",
             "navigation_title": "Tab 1",
-            "heading": "New York Boutique",
+            "heading": "Offroad Industries",
             "highlight_style": "none",
             "enable_highlight_text_color": false,
             "heading_size": "h1",
             "heading_color": "",
-            "subheading": "LONDON",
-            "description": "<p>4b/39 James St, Fortitude Valley QLD 4006</p><p>+391 (0)35 2568</p><p>Mon-Sat: 10am-8pm</p>",
+            "subheading": "",
+            "description": "<p>3 Montefiore St, Fairfield VIC 3078</p><p></p>",
             "text_alignment": "left",
             "button_label": "Get Direction",
-            "button_style": "btn--underline"
+            "button_link": "",
+            "button_style": "btn--underline",
+            "mobile_text_alignment": "inherit"
           }
         }
       },
@@ -39,6 +50,7 @@
       "settings": {
         "container": "container",
         "color_schema": "",
+        "tab_heading_size": "h4",
         "desktop_navigation_alignment": "center",
         "desktop_image_position": "left",
         "desktop_image_width": 50,
@@ -114,6 +126,7 @@
         "enable_highlight_text_color": false,
         "heading_size": "h2",
         "heading_color": "",
+        "subheading": "",
         "description": "",
         "form_design": "design-1",
         "form_width": 770,
