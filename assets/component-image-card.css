@@ -122,4 +122,5 @@
 }
 .f-image-card__action.btn--underline {
   color: currentColor;
+  padding: 5px 10px !important;
 }
