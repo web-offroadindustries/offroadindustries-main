@@ -104,127 +104,6 @@
         "v6_help_phone_size": 18
       }
     },
-    "mega_menu_1_ihdkiL": {
-      "type": "mega-menu-1",
-      "blocks": {
-        "column_HWRJFD": {
-          "type": "column",
-          "settings": {
-            "richtext_top": "<p>Chevrolet</p>",
-            "image_top": "shopify://shop_images/2024-Chevy-Silverado-2500-Phantom-Winch-Front-Bumper-3.png",
-            "image_caption_top": "",
-            "image_link_top": "shopify://collections/chevrolet-silverado-1500",
-            "menu_1": "chevrolet",
-            "menu_1_link": "",
-            "menu_2": "chevrolet-silverado-2500-3500hd",
-            "menu_2_link": "",
-            "menu_3": "",
-            "menu_3_link": "",
-            "menu_4": "",
-            "menu_4_link": "",
-            "image_caption_bottom": "",
-            "image_link_bottom": "",
-            "richtext_bottom": ""
-          }
-        },
-        "column_iALanF": {
-          "type": "column",
-          "settings": {
-            "richtext_top": "<p>Ford</p>",
-            "image_top": "shopify://shop_images/2023-Ford-F-250-350-Phantom-Winch-Front-Bumper-Studio-3_1800x1800_1.png",
-            "image_caption_top": "",
-            "image_link_top": "",
-            "menu_1": "ford-f150",
-            "menu_1_link": "",
-            "menu_2": "ford-f250-f350-f450",
-            "menu_2_link": "",
-            "menu_3": "",
-            "menu_3_link": "",
-            "menu_4": "",
-            "menu_4_link": "",
-            "image_caption_bottom": "",
-            "image_link_bottom": "",
-            "richtext_bottom": ""
-          }
-        },
-        "column_4BaYXJ": {
-          "type": "column",
-          "settings": {
-            "richtext_top": "<p>Ram</p>",
-            "image_top": "shopify://shop_images/dodge-ram-rebel-1500-trx_1800x1800_0ce02a9b-9e79-46b0-8c66-5f58ee143be9.png",
-            "image_caption_top": "",
-            "image_link_top": "",
-            "menu_1": "ram-1500",
-            "menu_1_link": "",
-            "menu_2": "ram-2500-3500",
-            "menu_2_link": "",
-            "menu_3": "",
-            "menu_3_link": "",
-            "menu_4": "",
-            "menu_4_link": "",
-            "image_caption_bottom": "",
-            "image_link_bottom": "",
-            "richtext_bottom": ""
-          }
-        },
-        "column_hThWhU": {
-          "type": "column",
-          "settings": {
-            "richtext_top": "<p>GMC</p>",
-            "image_top": "shopify://shop_images/gmc-hd-phantom-winch-front-bumper-studio-8.png",
-            "image_caption_top": "",
-            "image_link_top": "",
-            "menu_1": "gmc",
-            "menu_1_link": "",
-            "menu_2": "",
-            "menu_2_link": "",
-            "menu_3": "",
-            "menu_3_link": "",
-            "menu_4": "",
-            "menu_4_link": "",
-            "image_caption_bottom": "",
-            "image_link_bottom": "",
-            "richtext_bottom": ""
-          }
-        },
-        "column_YYJffD": {
-          "type": "column",
-          "settings": {
-            "richtext_top": "<p>Toyota</p>",
-            "image_top": "shopify://shop_images/4th-gen-toyota-tundra-winch-front-bumper-stealth-fighter_1800x1800_49541ff7-4fd2-432b-89e5-dbe39398aa87.png",
-            "image_caption_top": "",
-            "image_link_top": "",
-            "menu_1": "toyota-tundra",
-            "menu_1_link": "",
-            "menu_2": "",
-            "menu_2_link": "",
-            "menu_3": "",
-            "menu_3_link": "",
-            "menu_4": "",
-            "menu_4_link": "",
-            "image_caption_bottom": "",
-            "image_link_bottom": "",
-            "richtext_bottom": ""
-          }
-        }
-      },
-      "block_order": [
-        "column_HWRJFD",
-        "column_iALanF",
-        "column_4BaYXJ",
-        "column_hThWhU",
-        "column_YYJffD"
-      ],
-      "name": "Mega menu 1",
-      "settings": {
-        "parent": "American Trucks",
-        "mm_layout": "columns",
-        "mm_align": "center",
-        "mm_bg_color": "#0b0b0b",
-        "mm_bg_opacity": 96,
-        "mm_text_color": "#ffffff"
-      }
-    },
     "mega_menu_1_9eGFTp": {
       "type": "mega-menu-1",
       "blocks": {
@@ -528,7 +407,6 @@
   "order": [
     "announcement-bar",
     "header",
-    "mega_menu_1_ihdkiL",
     "mega_menu_1_9eGFTp",
     "mega_menu_1_3iAP83"
   ]
