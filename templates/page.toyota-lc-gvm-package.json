@@ -219,7 +219,7 @@
       "settings": {
         "container": "container",
         "color_schema": "",
-        "image": "shopify://shop_images/stage_1_4200_GVM_LC.jpg",
+        "image": "shopify://shop_images/stage_1_4200_GVM_LC_98b16727-5307-414d-92df-9c274a8e6b1a.jpg",
         "image_width": "50%",
         "image_position": "left",
         "vertical_alignment": "center",
@@ -275,7 +275,7 @@
       "settings": {
         "container": "container",
         "color_schema": "",
-        "image": "shopify://shop_images/stage_2_5300_GVM_LC.jpg",
+        "image": "shopify://shop_images/stage_2_5300_GVM_LC_fdd73d7d-1fc0-413d-8e73-9637b86160af.jpg",
         "image_width": "50%",
         "image_position": "right",
         "vertical_alignment": "center",
