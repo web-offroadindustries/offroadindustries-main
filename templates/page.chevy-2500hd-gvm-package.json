@@ -1453,6 +1453,69 @@
         "padding_bottom": 40
       }
     },
+    "contact_form_bfPpbR": {
+      "type": "contact-form",
+      "blocks": {
+        "name_krrkcK": {
+          "type": "name",
+          "settings": {
+            "label": "Name",
+            "placeholder": "Enter your name",
+            "field_width": "full",
+            "hide_label": true,
+            "required": false
+          }
+        },
+        "email_HTBpBg": {
+          "type": "email",
+          "settings": {
+            "label": "Email",
+            "placeholder": "Enter your email",
+            "field_width": "full",
+            "hide_label": true
+          }
+        },
+        "message_QYFk6j": {
+          "type": "message",
+          "settings": {
+            "label": "Message",
+            "placeholder": "Enter your message",
+            "hide_label": true
+          }
+        }
+      },
+      "block_order": [
+        "name_krrkcK",
+        "email_HTBpBg",
+        "message_QYFk6j"
+      ],
+      "name": "t:sections.contact-form.presets.name",
+      "settings": {
+        "container": "container",
+        "color_schema": "",
+        "section_header_padding_bottom": "medium",
+        "section_header_content_spacing": "medium",
+        "heading": "Contact form",
+        "highlight_style": "none",
+        "enable_highlight_text_color": false,
+        "heading_size": "h2",
+        "heading_color": "",
+        "subheading": "",
+        "description": "",
+        "form_design": "design-1",
+        "form_width": 500,
+        "form_alignment": "center",
+        "button_label": "Send",
+        "button_style": "btn--primary",
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "show_section_divider": false,
+        "divider_width": "container",
+        "custom_id": "gvmexperts",
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
     "rich_text_ni9bQW": {
       "type": "rich-text",
       "blocks": {
@@ -1558,69 +1621,6 @@
         "custom_class": "",
         "animations": "inherit"
       }
-    },
-    "contact_form_bfPpbR": {
-      "type": "contact-form",
-      "blocks": {
-        "name_krrkcK": {
-          "type": "name",
-          "settings": {
-            "label": "Name",
-            "placeholder": "Enter your name",
-            "field_width": "full",
-            "hide_label": true,
-            "required": false
-          }
-        },
-        "email_HTBpBg": {
-          "type": "email",
-          "settings": {
-            "label": "Email",
-            "placeholder": "Enter your email",
-            "field_width": "full",
-            "hide_label": true
-          }
-        },
-        "message_QYFk6j": {
-          "type": "message",
-          "settings": {
-            "label": "Message",
-            "placeholder": "Enter your message",
-            "hide_label": true
-          }
-        }
-      },
-      "block_order": [
-        "name_krrkcK",
-        "email_HTBpBg",
-        "message_QYFk6j"
-      ],
-      "name": "t:sections.contact-form.presets.name",
-      "settings": {
-        "container": "container",
-        "color_schema": "",
-        "section_header_padding_bottom": "medium",
-        "section_header_content_spacing": "medium",
-        "heading": "Contact form",
-        "highlight_style": "none",
-        "enable_highlight_text_color": false,
-        "heading_size": "h2",
-        "heading_color": "",
-        "subheading": "",
-        "description": "",
-        "form_design": "design-1",
-        "form_width": 500,
-        "form_alignment": "center",
-        "button_label": "Send",
-        "button_style": "btn--primary",
-        "padding_top": 40,
-        "padding_bottom": 40,
-        "show_section_divider": false,
-        "divider_width": "container",
-        "custom_id": "gvmexperts",
-        "custom_class": "",
-        "animations": "inherit"
-      }
     }
   },
   "order": [
@@ -1643,8 +1643,8 @@
     "gvm_comparison_RXeVcA",
     "rich_text_4AxLyp",
     "wheel_comparison_grid_qGx6nc",
+    "contact_form_bfPpbR",
     "rich_text_ni9bQW",
-    "logo_list_8XphYi",
-    "contact_form_bfPpbR"
+    "logo_list_8XphYi"
   ]
 }
