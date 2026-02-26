@@ -929,6 +929,99 @@
         "padding_bottom": 40
       }
     },
+    "contact_form_v4_3VcJeR": {
+      "type": "contact-form-v4",
+      "blocks": {
+        "name_PK3HdB": {
+          "type": "name",
+          "settings": {
+            "label": "Name",
+            "placeholder": "Enter your name",
+            "field_width": "full",
+            "hide_label": true,
+            "required": false
+          }
+        },
+        "email_VajCJ3": {
+          "type": "email",
+          "settings": {
+            "label": "Email",
+            "placeholder": "Enter your email",
+            "field_width": "full",
+            "hide_label": true
+          }
+        },
+        "phone_L44CfG": {
+          "type": "phone",
+          "settings": {
+            "label": "Phone number",
+            "placeholder": "Enter your phone number",
+            "field_width": "full",
+            "hide_label": true,
+            "required": false
+          }
+        },
+        "rego_status_wYBXXK": {
+          "type": "rego_status",
+          "settings": {
+            "label": "Pre or Post rego",
+            "field_name": "Pre or Post rego",
+            "placeholder": "Select one",
+            "options": "Pre rego, Post rego",
+            "field_width": "full",
+            "hide_label": true,
+            "required": false
+          }
+        },
+        "location_fJEea9": {
+          "type": "location",
+          "settings": {
+            "label": "What is your location",
+            "field_name": "Location",
+            "placeholder": "What is your location?",
+            "field_width": "full",
+            "hide_label": true,
+            "required": false
+          }
+        },
+        "message_RnLkxr": {
+          "type": "message",
+          "settings": {
+            "label": "Message",
+            "placeholder": "Which gvm Package do you want further information on?",
+            "hide_label": true
+          }
+        }
+      },
+      "block_order": [
+        "name_PK3HdB",
+        "email_VajCJ3",
+        "phone_L44CfG",
+        "rego_status_wYBXXK",
+        "location_fJEea9",
+        "message_RnLkxr"
+      ],
+      "name": "Contact form v4",
+      "settings": {
+        "container": "container",
+        "color_schema": "",
+        "heading": "Contact form",
+        "subheading": "",
+        "description": "",
+        "form_design": "design-1",
+        "form_width": 500,
+        "form_alignment": "center",
+        "button_label": "Send",
+        "button_style": "btn--primary",
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "show_section_divider": false,
+        "divider_width": "container",
+        "custom_id": "",
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
     "contact_form_v2_t9aepk": {
       "type": "contact-form-v2",
       "blocks": {
@@ -1038,6 +1131,7 @@
         "field_location_CQwzyj",
         "field_message_9bxGzF"
       ],
+      "disabled": true,
       "name": "Contact Form v2",
       "settings": {
         "heading": "Questions? We’re Hereto Help",
@@ -1052,7 +1146,7 @@
         "max_width": 1200,
         "bg_color": "#ffffff",
         "form_bg": "#e6e6e6",
-        "accent": "#56BDC2",
+        "accent": "#56bdc2",
         "padding_top": 40,
         "padding_bottom": 40
       }
@@ -1177,6 +1271,7 @@
     "rich_text_rnLAPH",
     "gvm_comparison_FfmTMw",
     "gvm_comparison_RXeVcA",
+    "contact_form_v4_3VcJeR",
     "contact_form_v2_t9aepk",
     "rich_text_4AxLyp",
     "logo_list_8XphYi"
