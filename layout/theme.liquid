@@ -253,5 +253,8 @@
     {%- if request.design_mode -%}
       <script src="{{ 'theme-editor.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
+
+    {% comment %} WebChat {% endcomment %}
+    <script defer src="https://connect.podium.com/widget.js#ORG_TOKEN=211a92b8-ab89-45c7-ba01-acab8089df3d" id="podium-widget" data-organization-api-token="211a92b8-ab89-45c7-ba01-acab8089df3d"></script>
   </body>
 </html>
