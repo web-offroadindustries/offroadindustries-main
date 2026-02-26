@@ -2,6 +2,9 @@
   Contact Form v2 (Blocks)
   - Left column: dynamic content + contact info blocks
   - Right column: Shopify contact form + field blocks (reorderable)
+  - Added: optional banner image on top of the form (only shows if image exists)
+  - Added: Pre/Post rego dropdown + Location field
+  - Updated: Message placeholder for GVM enquiry
 {% endcomment %}
 
 {% liquid
@@ -44,16 +47,11 @@
                 <div class="cfv2__info-row" {{ block.shopify_attributes }}>
                   <span class="cfv2__icon" aria-hidden="true">
                     {% case icon %}
-                      {% when 'phone' %}
-                        ☎
-                      {% when 'email' %}
-                        ✉
-                      {% when 'pin' %}
-                        ⌖
-                      {% when 'clock' %}
-                        ⏱
-                      {% else %}
-                        •
+                      {% when 'phone' %} ☎
+                      {% when 'email' %} ✉
+                      {% when 'pin' %} ⌖
+                      {% when 'clock' %} ⏱
+                      {% else %} •
                     {% endcase %}
                   </span>
 
@@ -79,6 +77,20 @@
 
       <!-- RIGHT FORM -->
       <div class="cfv2__form">
+        {% if section.settings.form_banner_image != blank %}
+          <div class="cfv2__banner" aria-hidden="true">
+            {{
+              section.settings.form_banner_image
+              | image_url: width: 1600
+              | image_tag:
+                loading: 'lazy',
+                widths: '600, 800, 1000, 1200, 1600',
+                sizes: '(min-width: 900px) 50vw, 100vw',
+                alt: section.settings.form_banner_image.alt
+            }}
+          </div>
+        {% endif %}
+
         {% if section.settings.form_title != blank %}
           <h3 class="cfv2__form-title">{{ section.settings.form_title }}</h3>
         {% endif %}
@@ -105,7 +117,7 @@
                   assign required = block.settings.required
                   assign label = block.settings.label
                   assign placeholder = block.settings.placeholder
-                  assign mf_name = block.settings.field_name
+                  assign field_name = block.settings.field_name
                 %}
 
                 <div class="cfv2__field {% if width == 'full' %}cfv2__field--full{% endif %}" {{ block.shopify_attributes }}>
@@ -136,7 +148,7 @@
                       >
 
                     {% when 'field_phone' %}
-                      <label class="cfv2__label" for="cfv2-phone-{{ block.id }}">{{ label | default: 'Phone' }}</label>
+                      <label class="cfv2__label" for="cfv2-phone-{{ block.id }}">{{ label | default: 'Phone number' }}</label>
                       <input
                         id="cfv2-phone-{{ block.id }}"
                         class="cfv2__input"
@@ -145,6 +157,39 @@
                         placeholder="{{ placeholder }}"
                         {% if required %}required{% endif %}
                         autocomplete="tel"
+                      >
+
+                    {% when 'field_rego_status' %}
+                      <label class="cfv2__label" for="cfv2-rego-{{ block.id }}">{{ label | default: 'Pre or Post rego' }}</label>
+                      <select
+                        id="cfv2-rego-{{ block.id }}"
+                        class="cfv2__select"
+                        name="contact[{{ field_name | default: label | default: 'Pre or Post rego' }}]"
+                        {% if required %}required{% endif %}
+                      >
+                        {% if placeholder != blank %}
+                          <option value="" selected disabled>{{ placeholder }}</option>
+                        {% endif %}
+
+                        {% assign opts = block.settings.options | split: ',' %}
+                        {% for opt in opts %}
+                          {% assign o = opt | strip %}
+                          {% if o != blank %}
+                            <option value="{{ o }}">{{ o }}</option>
+                          {% endif %}
+                        {% endfor %}
+                      </select>
+
+                    {% when 'field_location' %}
+                      <label class="cfv2__label" for="cfv2-location-{{ block.id }}">{{ label | default: 'What is your location' }}</label>
+                      <input
+                        id="cfv2-location-{{ block.id }}"
+                        class="cfv2__input"
+                        type="text"
+                        name="contact[{{ field_name | default: label | default: 'Location' }}]"
+                        placeholder="{{ placeholder }}"
+                        {% if required %}required{% endif %}
+                        autocomplete="address-level1"
                       >
 
                     {% when 'field_message' %}
@@ -164,7 +209,7 @@
                         id="cfv2-text-{{ block.id }}"
                         class="cfv2__input"
                         type="text"
-                        name="contact[{{ mf_name | default: label }}]"
+                        name="contact[{{ field_name | default: label }}]"
                         placeholder="{{ placeholder }}"
                         {% if required %}required{% endif %}
                       >
@@ -174,7 +219,7 @@
                       <textarea
                         id="cfv2-textarea-{{ block.id }}"
                         class="cfv2__textarea"
-                        name="contact[{{ mf_name | default: label }}]"
+                        name="contact[{{ field_name | default: label }}]"
                         placeholder="{{ placeholder }}"
                         rows="{{ block.settings.rows }}"
                         {% if required %}required{% endif %}
@@ -185,7 +230,7 @@
                       <select
                         id="cfv2-select-{{ block.id }}"
                         class="cfv2__select"
-                        name="contact[{{ mf_name | default: label }}]"
+                        name="contact[{{ field_name | default: label }}]"
                         {% if required %}required{% endif %}
                       >
                         {% assign opts = block.settings.options | split: ',' %}
@@ -201,7 +246,7 @@
                       <label class="cfv2__check">
                         <input
                           type="checkbox"
-                          name="contact[{{ mf_name | default: label }}]"
+                          name="contact[{{ field_name | default: label }}]"
                           value="Yes"
                           {% if required %}required{% endif %}
                         >
@@ -243,12 +288,22 @@
       align-items: start;
     }
 
-    #ContactV2-{{ section_id }} .cfv2__content{ }
     #ContactV2-{{ section_id }} .cfv2__form{
       background: {{ section.settings.form_bg }};
       padding: 24px;
       border: 1px solid rgba(0,0,0,.15);
       min-height: 320px;
+      overflow: hidden; /* for banner */
+    }
+
+    #ContactV2-{{ section_id }} .cfv2__banner{
+      margin: -24px -24px 16px;
+      overflow: hidden;
+    }
+    #ContactV2-{{ section_id }} .cfv2__banner img{
+      display:block;
+      width:100%;
+      height:auto;
     }
 
     #ContactV2-{{ section_id }} .cfv2__heading{
@@ -425,6 +480,9 @@
     { "type": "richtext", "id": "body", "label": "Body text", "default": "<p>Add your intro text here.</p>" },
 
     { "type": "text", "id": "form_title", "label": "Form title", "default": "Send us a message" },
+
+    { "type": "image_picker", "id": "form_banner_image", "label": "Form banner image (optional)" },
+
     { "type": "text", "id": "button_label", "label": "Button label", "default": "Submit" },
     { "type": "text", "id": "success_message", "label": "Success message", "default": "Thanks! We received your message and will get back to you soon." },
 
@@ -511,9 +569,32 @@
       ]}
     ]},
 
-    { "type": "field_phone", "name": "Field: Phone", "settings": [
-      { "type": "text", "id": "label", "label": "Label", "default": "Phone" },
-      { "type": "text", "id": "placeholder", "label": "Placeholder", "default": "Optional" },
+    { "type": "field_phone", "name": "Field: Phone number", "settings": [
+      { "type": "text", "id": "label", "label": "Label", "default": "Phone Number" },
+      { "type": "text", "id": "placeholder", "label": "Placeholder", "default": "Enter your phone number" },
+      { "type": "checkbox", "id": "required", "label": "Required", "default": false },
+      { "type": "select", "id": "width", "label": "Width", "default": "full", "options": [
+        { "value": "half", "label": "Half" },
+        { "value": "full", "label": "Full" }
+      ]}
+    ]},
+
+    { "type": "field_rego_status", "name": "Field: Pre or Post rego", "settings": [
+      { "type": "text", "id": "label", "label": "Label", "default": "Pre or Post rego" },
+      { "type": "text", "id": "field_name", "label": "Email field name (optional)", "default": "Pre or Post rego" },
+      { "type": "text", "id": "placeholder", "label": "Placeholder option", "default": "Select one" },
+      { "type": "text", "id": "options", "label": "Options (comma separated)", "default": "Pre rego, Post rego" },
+      { "type": "checkbox", "id": "required", "label": "Required", "default": false },
+      { "type": "select", "id": "width", "label": "Width", "default": "full", "options": [
+        { "value": "half", "label": "Half" },
+        { "value": "full", "label": "Full" }
+      ]}
+    ]},
+
+    { "type": "field_location", "name": "Field: Location", "settings": [
+      { "type": "text", "id": "label", "label": "Label", "default": "What is your location" },
+      { "type": "text", "id": "field_name", "label": "Email field name (optional)", "default": "Location" },
+      { "type": "text", "id": "placeholder", "label": "Placeholder", "default": "What is your location?" },
       { "type": "checkbox", "id": "required", "label": "Required", "default": false },
       { "type": "select", "id": "width", "label": "Width", "default": "full", "options": [
         { "value": "half", "label": "Half" },
@@ -523,7 +604,7 @@
 
     { "type": "field_message", "name": "Field: Message", "settings": [
       { "type": "text", "id": "label", "label": "Label", "default": "Message" },
-      { "type": "text", "id": "placeholder", "label": "Placeholder", "default": "How can we help?" },
+      { "type": "text", "id": "placeholder", "label": "Placeholder", "default": "Which gvm Package do you want further information on?" },
       { "type": "checkbox", "id": "required", "label": "Required", "default": true },
       { "type": "select", "id": "width", "label": "Width", "default": "full", "options": [
         { "value": "half", "label": "Half" },
@@ -587,6 +668,8 @@
         { "type": "field_name" },
         { "type": "field_email" },
         { "type": "field_phone" },
+        { "type": "field_rego_status" },
+        { "type": "field_location" },
         { "type": "field_message" }
       ]
     }
