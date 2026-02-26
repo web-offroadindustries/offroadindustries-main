@@ -1047,6 +1047,22 @@
             "value_9": "",
             "value_10": ""
           }
+        },
+        "row_XfcpgR": {
+          "type": "row",
+          "settings": {
+            "label": "GVM Part Numbers",
+            "value_1": "",
+            "value_2": "FRD-F150-Stage1-GVM",
+            "value_3": "FRD-F150-Stage2-GVM",
+            "value_4": "FRD-F150-Stage3-GVM-200\nFRD-F150-Stage3-GVM-400",
+            "value_5": "FRD-F150-Stage4-GVM-200\nFRD-F150-Stage4-GVM-400",
+            "value_6": "FRD-F150-Stage5-GVM-200\nFRD-F150-Stage5-GVM-400",
+            "value_7": "FRD-F150-Stage6-GVM",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
+          }
         }
       },
       "block_order": [
@@ -1064,7 +1080,8 @@
         "row_KnhHzc",
         "row_nNQibi",
         "row_bXbzAJ",
-        "row_Yqf3i3"
+        "row_Yqf3i3",
+        "row_XfcpgR"
       ],
       "name": "GVM Comparison",
       "settings": {
