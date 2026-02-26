@@ -15,6 +15,19 @@
 %}
 
 <section id="ContactV2-{{ section_id }}" class="cfv2">
+  {% if section.settings.form_banner_image != blank %}
+    <div class="cfv2__banner-top" aria-hidden="true">
+      {{
+        section.settings.form_banner_image
+        | image_url: width: 2000
+        | image_tag:
+          loading: 'lazy',
+          widths: '600, 800, 1000, 1200, 1600, 2000',
+          sizes: '100vw',
+          alt: section.settings.form_banner_image.alt
+      }}
+    </div>
+  {% endif %}
   <div class="cfv2__container">
     <div class="cfv2__grid
       {% if desktop_layout == 'form_left' %} cfv2__grid--desktop-reverse{% endif %}
@@ -77,20 +90,6 @@
 
       <!-- RIGHT FORM -->
       <div class="cfv2__form">
-        {% if section.settings.form_banner_image != blank %}
-          <div class="cfv2__banner" aria-hidden="true">
-            {{
-              section.settings.form_banner_image
-              | image_url: width: 1600
-              | image_tag:
-                loading: 'lazy',
-                widths: '600, 800, 1000, 1200, 1600',
-                sizes: '(min-width: 900px) 50vw, 100vw',
-                alt: section.settings.form_banner_image.alt
-            }}
-          </div>
-        {% endif %}
-
         {% if section.settings.form_title != blank %}
           <h3 class="cfv2__form-title">{{ section.settings.form_title }}</h3>
         {% endif %}
@@ -274,6 +273,16 @@
       background: {{ section.settings.bg_color }};
       color: #000;
     }
+    #ContactV2-{{ section_id }} .cfv2__banner-top{
+      width: 100%;
+      margin: 0 0 22px;
+    }
+
+    #ContactV2-{{ section_id }} .cfv2__banner-top img{
+      display: block;
+      width: 100%;
+      height: auto;
+    }
 
     #ContactV2-{{ section_id }} .cfv2__container{
       max-width: {{ section.settings.max_width }}px;
@@ -294,16 +303,6 @@
       border: 1px solid rgba(0,0,0,.15);
       min-height: 320px;
       overflow: hidden; /* for banner */
-    }
-
-    #ContactV2-{{ section_id }} .cfv2__banner{
-      margin: -24px -24px 16px;
-      overflow: hidden;
-    }
-    #ContactV2-{{ section_id }} .cfv2__banner img{
-      display:block;
-      width:100%;
-      height:auto;
     }
 
     #ContactV2-{{ section_id }} .cfv2__heading{
