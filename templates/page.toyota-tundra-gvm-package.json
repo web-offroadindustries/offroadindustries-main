@@ -929,6 +929,99 @@
         "padding_bottom": 40
       }
     },
+    "contact_form_v4_CDXNCB": {
+      "type": "contact-form-v4",
+      "blocks": {
+        "name_CFheGi": {
+          "type": "name",
+          "settings": {
+            "label": "Name",
+            "placeholder": "Enter your name",
+            "field_width": "full",
+            "hide_label": true,
+            "required": false
+          }
+        },
+        "email_GpMjfL": {
+          "type": "email",
+          "settings": {
+            "label": "Email",
+            "placeholder": "Enter your email",
+            "field_width": "full",
+            "hide_label": true
+          }
+        },
+        "phone_BeDaw9": {
+          "type": "phone",
+          "settings": {
+            "label": "Phone number",
+            "placeholder": "Enter your phone number",
+            "field_width": "full",
+            "hide_label": true,
+            "required": false
+          }
+        },
+        "rego_status_Q8GjkE": {
+          "type": "rego_status",
+          "settings": {
+            "label": "Pre or Post rego",
+            "field_name": "Pre or Post rego",
+            "placeholder": "Select one",
+            "options": "Pre rego, Post rego",
+            "field_width": "full",
+            "hide_label": true,
+            "required": false
+          }
+        },
+        "location_yjjRCR": {
+          "type": "location",
+          "settings": {
+            "label": "What is your location",
+            "field_name": "Location",
+            "placeholder": "What is your location?",
+            "field_width": "full",
+            "hide_label": true,
+            "required": false
+          }
+        },
+        "message_FHLmeA": {
+          "type": "message",
+          "settings": {
+            "label": "Message",
+            "placeholder": "Which gvm Package do you want further information on?",
+            "hide_label": true
+          }
+        }
+      },
+      "block_order": [
+        "name_CFheGi",
+        "email_GpMjfL",
+        "phone_BeDaw9",
+        "rego_status_Q8GjkE",
+        "location_yjjRCR",
+        "message_FHLmeA"
+      ],
+      "name": "Contact form v4",
+      "settings": {
+        "container": "container",
+        "color_schema": "",
+        "heading": "Contact form",
+        "subheading": "",
+        "description": "",
+        "form_design": "design-1",
+        "form_width": 500,
+        "form_alignment": "center",
+        "button_label": "Send",
+        "button_style": "btn--primary",
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "show_section_divider": false,
+        "divider_width": "container",
+        "custom_id": "",
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
     "rich_text_4AxLyp": {
       "type": "rich-text",
       "blocks": {
@@ -1034,69 +1127,6 @@
         "custom_class": "",
         "animations": "inherit"
       }
-    },
-    "contact_form_bfPpbR": {
-      "type": "contact-form",
-      "blocks": {
-        "name_krrkcK": {
-          "type": "name",
-          "settings": {
-            "label": "Name",
-            "placeholder": "Enter your name",
-            "field_width": "full",
-            "hide_label": true,
-            "required": false
-          }
-        },
-        "email_HTBpBg": {
-          "type": "email",
-          "settings": {
-            "label": "Email",
-            "placeholder": "Enter your email",
-            "field_width": "full",
-            "hide_label": true
-          }
-        },
-        "message_QYFk6j": {
-          "type": "message",
-          "settings": {
-            "label": "Message",
-            "placeholder": "Enter your message",
-            "hide_label": true
-          }
-        }
-      },
-      "block_order": [
-        "name_krrkcK",
-        "email_HTBpBg",
-        "message_QYFk6j"
-      ],
-      "name": "t:sections.contact-form.presets.name",
-      "settings": {
-        "container": "container",
-        "color_schema": "",
-        "section_header_padding_bottom": "medium",
-        "section_header_content_spacing": "medium",
-        "heading": "Contact form",
-        "highlight_style": "none",
-        "enable_highlight_text_color": false,
-        "heading_size": "h2",
-        "heading_color": "",
-        "subheading": "",
-        "description": "",
-        "form_design": "design-1",
-        "form_width": 500,
-        "form_alignment": "center",
-        "button_label": "Send",
-        "button_style": "btn--primary",
-        "padding_top": 40,
-        "padding_bottom": 40,
-        "show_section_divider": false,
-        "divider_width": "container",
-        "custom_id": "gvmexperts",
-        "custom_class": "",
-        "animations": "inherit"
-      }
     }
   },
   "order": [
@@ -1112,8 +1142,8 @@
     "rich_text_rnLAPH",
     "gvm_comparison_FfmTMw",
     "gvm_comparison_RXeVcA",
+    "contact_form_v4_CDXNCB",
     "rich_text_4AxLyp",
-    "logo_list_8XphYi",
-    "contact_form_bfPpbR"
+    "logo_list_8XphYi"
   ]
 }
