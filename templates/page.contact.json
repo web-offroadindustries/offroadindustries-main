@@ -26,6 +26,7 @@
           "settings": {
             "content_color_schema": "background-1",
             "navigation_title": "Tab 1",
+            "image": "shopify://shop_images/contact-form-banner.webp",
             "heading": "Offroad Industries",
             "highlight_style": "none",
             "enable_highlight_text_color": false,
