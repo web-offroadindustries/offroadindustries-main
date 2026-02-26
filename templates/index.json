@@ -1469,87 +1469,6 @@
         "animations": "inherit"
       }
     },
-    "gallery_images_8azUNe": {
-      "type": "gallery-images",
-      "blocks": {
-        "image_YhdxdT": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/image_-_2026-02-17T205945.442.png",
-            "text": "CHEVY 1500",
-            "text_size": "medium",
-            "link": "https://aysdtu397j8pocfp-1656516.shopifypreview.com/pages/2025-2026-christmas-period-shut-down?view=chevy-gvm-package"
-          }
-        },
-        "image_3thxtK": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/image_-_2026-02-17T210005.244.png",
-            "text": "CHEVY 2500",
-            "text_size": "medium",
-            "link": "https://aysdtu397j8pocfp-1656516.shopifypreview.com/pages/2025-2026-christmas-period-shut-down?view=chevy-2500hd-gvm-package"
-          }
-        },
-        "image_3tTV6W": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/image_-_2026-02-17T205935.011.png",
-            "text": "FORD150",
-            "text_size": "medium",
-            "link": "https://aysdtu397j8pocfp-1656516.shopifypreview.com/pages/2025-2026-christmas-period-shut-down?view=ford-gvm-package"
-          }
-        },
-        "image_ckVmkG": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/image_-_2026-02-17T205900.998.png",
-            "text": "RAM",
-            "text_size": "medium",
-            "link": "https://aysdtu397j8pocfp-1656516.shopifypreview.com/pages/2025-2026-christmas-period-shut-down?view=ram-gvm-package"
-          }
-        }
-      },
-      "block_order": [
-        "image_YhdxdT",
-        "image_3thxtK",
-        "image_3tTV6W",
-        "image_ckVmkG"
-      ],
-      "name": "t:sections.gallery-images.presets.name",
-      "settings": {
-        "container": "container",
-        "color_schema": "",
-        "section_header_padding_bottom": "large",
-        "section_header_content_spacing": "medium",
-        "heading": "ORI GVM & GCM Packages",
-        "highlight_style": "none",
-        "enable_highlight_text_color": false,
-        "heading_size": "h2",
-        "heading_color": "",
-        "subheading": "",
-        "description": "",
-        "button_label": "",
-        "button_link": "",
-        "button_style": "btn--primary",
-        "image_ratio": "1/1",
-        "columns": 4,
-        "column_gap": "medium",
-        "layout": "grid",
-        "metro_item_color_schema": "",
-        "enable_slider": false,
-        "show_nav": false,
-        "show_dots": false,
-        "enable_swipe_mobile": false,
-        "column_mobile": "1",
-        "padding_top": 40,
-        "padding_bottom": 40,
-        "show_section_divider": false,
-        "divider_width": "container",
-        "custom_id": "",
-        "custom_class": "",
-        "animations": "inherit"
-      }
-    },
     "contact_form_v3_yGfhUr": {
       "type": "contact-form-v3",
       "blocks": {
@@ -1642,7 +1561,6 @@
     "press_cqLPj3",
     "7f5e49cb-0847-4d85-9f7f-7e61d00abbe5",
     "b9a09ce1-0384-4aac-8a69-af32bf73a5e8",
-    "gallery_images_8azUNe",
     "contact_form_v3_yGfhUr"
   ]
 }
