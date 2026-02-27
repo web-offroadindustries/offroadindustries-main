@@ -369,28 +369,25 @@ class SiteNav extends HTMLElement {
 customElements.define("site-nav", SiteNav);
 
 (function () {
-  if (window.__legacyMegaMobileV2) return;
-  window.__legacyMegaMobileV2 = true;
+  if (window.__legacyMegaMobileV3) return;
+  window.__legacyMegaMobileV3 = true;
 
   const normalizeText = (str) =>
     (str || "").replace(/\s+/g, " ").trim().toLowerCase();
 
   function buildMobileAccordion(menuRoot) {
-    // Convert each menu group (title + list) to <details> accordion
+    // Turn each menu group into a <details> accordion (matches your mobile screenshot)
     menuRoot.querySelectorAll(".dropdown_column__menu").forEach((menu) => {
       const titleLi = menu.querySelector(".dropdown_title li");
       const titleLink = titleLi ? titleLi.querySelector("a") : null;
-
-      const titleHTML = titleLink
-        ? titleLink.outerHTML
-        : (titleLi ? titleLi.innerHTML : "");
+      const titleHTML = titleLink ? titleLink.outerHTML : (titleLi ? titleLi.innerHTML : "");
 
       const list = menu.querySelector(".dropdown_item");
       if (!list) return;
 
       const details = document.createElement("details");
       details.className = "mm-m-acc";
-      details.open = true; // open by default like your screenshot
+      details.open = true;
 
       const summary = document.createElement("summary");
       summary.innerHTML = `
@@ -406,41 +403,36 @@ customElements.define("site-nav", SiteNav);
     });
   }
 
-  function ensureMobileToggle(li) {
-    // If the theme already has a dropdown/toggle for this item, do nothing.
-    const hasThemeDropdown =
-      li.classList.contains("f-mobile-nav__item--has-child") &&
-      li.querySelector(".f-mobile-nav__dropdown");
+  function ensureThemeCollapsible(li) {
+    // Make it look/behave exactly like other mobile items
+    li.classList.add("f-mobile-nav__item--has-child");
+    li.setAttribute("data-menu-toggle-item", "");
 
-    if (hasThemeDropdown) return;
-
-    li.classList.add("mm-mobile-has-mega");
-
-    // Create our dropdown container
-    let dropdown = li.querySelector(".mm-mobile-dropdown");
-    if (!dropdown) {
-      dropdown = document.createElement("div");
-      dropdown.className = "f-mobile-nav__dropdown mm-mobile-dropdown";
-      li.appendChild(dropdown);
+    let tab = li.querySelector("collapsible-tab");
+    if (!tab) {
+      tab = document.createElement("collapsible-tab");
+      tab.className = "is-collapsed";
+      tab.innerHTML = `
+        <span class="f-mobile-nav__arrow" data-trigger aria-expanded="false">
+          <span class="no-js-hidden f-mobile-nav__arrow-icon">
+            <svg width="2" height="12" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M1 1.333v9.334" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+            <svg width="2" height="12" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M1 1.333v9.334" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+          </span>
+        </span>
+        <div class="f-mobile-nav__dropdown" data-content aria-hidden="true" style="height: 0px;"></div>
+      `;
+      li.appendChild(tab);
     }
 
-    // Create our toggle button
-    if (!li.querySelector(".mm-mobile-toggle")) {
-      li.style.position = "relative";
+    const dropdown =
+      tab.querySelector('.f-mobile-nav__dropdown[data-content]') ||
+      tab.querySelector('.f-mobile-nav__dropdown');
 
-      const btn = document.createElement("button");
-      btn.type = "button";
-      btn.className = "mm-mobile-toggle";
-      btn.setAttribute("aria-label", "Toggle menu");
-
-      btn.addEventListener("click", (e) => {
-        e.preventDefault();
-        e.stopPropagation();
-        li.classList.toggle("mm-mobile-open");
-      });
-
-      li.appendChild(btn);
-    }
+    return dropdown;
   }
 
   function injectMobileMegaMenus() {
@@ -474,23 +466,24 @@ customElements.define("site-nav", SiteNav);
       if (!li) return;
       if (li.dataset.mobileMegaInjected === "1") return;
 
-      // If the theme already has a dropdown, inject there.
-      let dropdown = li.querySelector(".f-mobile-nav__dropdown");
+      // If theme already provides collapsible dropdown, use it. Otherwise create it.
+      let dropdown =
+        li.querySelector('collapsible-tab .f-mobile-nav__dropdown[data-content]') ||
+        li.querySelector('collapsible-tab .f-mobile-nav__dropdown') ||
+        li.querySelector(".f-mobile-nav__dropdown");
 
-      // If not, we create our own toggle + dropdown (fixes American Trucks minimization)
       if (!dropdown) {
-        ensureMobileToggle(li);
-        dropdown = li.querySelector(".mm-mobile-dropdown");
+        dropdown = ensureThemeCollapsible(li);
       }
 
       if (!dropdown) return;
 
       const clone = src.cloneNode(true);
       clone.classList.add("mega-menu-container--mobile");
-      clone.setAttribute("data-legacy-moved", "true"); // prevents desktop mover from touching clone
+      clone.setAttribute("data-legacy-moved", "true");
       clone.style.display = "block";
 
-      // Only convert column menus into accordion (optional but matches your screenshot better)
+      // Convert column layout to accordion in mobile
       if (clone.classList.contains("mega-menu-container--columns")) {
         buildMobileAccordion(clone);
       }
@@ -498,6 +491,8 @@ customElements.define("site-nav", SiteNav);
       dropdown.innerHTML = "";
       dropdown.appendChild(clone);
 
+      // Mark for CSS targeting (remove menu item background; only container bg shows)
+      li.setAttribute("data-mobile-mega-injected", "1");
       li.dataset.mobileMegaInjected = "1";
     });
   }
@@ -507,7 +502,7 @@ customElements.define("site-nav", SiteNav);
     setTimeout(injectMobileMegaMenus, 300);
   });
 
-  // Run again when the drawer opens (some themes lazy-render drawer content)
+  // Re-run when drawer updates/opens
   const drawer = document.querySelector("#Drawer-MobileNav") || document.querySelector(".f-drawer-mobile-nav");
   if (drawer) {
     const mo = new MutationObserver(() => injectMobileMegaMenus());
