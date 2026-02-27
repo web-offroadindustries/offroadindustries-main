@@ -398,15 +398,11 @@
       </h3>
 
       {%- assign card_variant = product.selected_or_first_available_variant -%}
-      <div class="product-card__sku"
-          data-sku-wrap
-          style="margin-top:4px; font-size:12px; opacity:0.8; {% if card_variant.sku == blank %}display:none;{% endif %}">
-        SKU: <span data-sku-value>{{ card_variant.sku }}</span>
-      </div>
-
-      <script type="application/json" data-variants-json>
-        {{ product.variants | json }}
-      </script>
+      {%- if card_variant.sku != blank -%}
+        <div class="product-card__sku" style="margin-top:4px; font-size:12px; opacity:0.8;">
+          SKU: {{ card_variant.sku }}
+        </div>
+      {%- endif -%}
 
       {% if settings.pcard_show_review_badge %}
         <div class="product-card__reviews">
@@ -590,59 +586,3 @@
   {% endif %}
 </div>
 
-<script>
-  (function () {
-    if (window.__cardSkuUpdaterInit) return;
-    window.__cardSkuUpdaterInit = true;
-
-    function getVariantsFromCard(cardEl) {
-      const jsonEl = cardEl.querySelector('script[data-variants-json]');
-      if (!jsonEl) return null;
-      try { return JSON.parse(jsonEl.textContent || '[]'); } catch (e) { return null; }
-    }
-
-    function updateCardSku(cardEl, variantId) {
-      const wrap = cardEl.querySelector('[data-sku-wrap]');
-      const valEl = cardEl.querySelector('[data-sku-value]');
-      if (!wrap || !valEl) return;
-
-      const variants = getVariantsFromCard(cardEl);
-      if (!variants || !variantId) return;
-
-      const v = variants.find(x => String(x.id) === String(variantId));
-      const sku = v && v.sku ? String(v.sku) : '';
-
-      if (sku) {
-        valEl.textContent = sku;
-        wrap.style.display = '';
-      } else {
-        wrap.style.display = 'none';
-      }
-    }
-
-    // Event delegation: listens for any variant change inside product cards
-    document.addEventListener('change', function (e) {
-      const t = e.target;
-
-      // Common patterns: select[name="id"] OR variant pickers that update a hidden input[name="id"]
-      if (!t) return;
-
-      const cardEl = t.closest('.product-card, .card, .product-item, .f-product-card, [data-product-card]');
-      if (!cardEl) return;
-
-      let variantId = null;
-
-      // If the changed field is the variant id select
-      if (t.matches('select[name="id"]')) {
-        variantId = t.value;
-      } else {
-        // Otherwise, look for the hidden variant id input updated by theme scripts
-        const form = t.closest('form[action*="/cart/add"]') || cardEl.querySelector('form[action*="/cart/add"]');
-        const idInput = form ? form.querySelector('input[name="id"]') : cardEl.querySelector('input[name="id"]');
-        if (idInput) variantId = idInput.value;
-      }
-
-      updateCardSku(cardEl, variantId);
-    });
-  })();
-</script>
