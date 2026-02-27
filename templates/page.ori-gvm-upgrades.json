@@ -266,6 +266,134 @@
         "animations": "inherit"
       }
     },
+    "collapsible_tabs_ciD8kW": {
+      "type": "collapsible-tabs",
+      "blocks": {
+        "content_Q9xLHk": {
+          "type": "content",
+          "settings": {
+            "icon": "none",
+            "title": "What makes ORI GVM upgrades from Offroad Industries the best choice for American trucks in Australia?",
+            "content": "<p>While Toyota and Ford continue to dominate the popularity contest when it comes to Australia’s most-driven trucks, the ranks of American trucks aren’t far behind. To deliver the quality and compatibility that you need for everything from a <a href=\"https://www.offroadindustries.com.au/collections/chevy-silverado-22-24-zr2-ltz\">Chevrolet Silverado</a> to a <a href=\"https://www.offroadindustries.com.au/collections/ram-1500-dt-2019-2023\">RAM 1500DT</a>, we source USA-made GVM suspension upgrades and accessories from the top manufacturers in the States. </p><p>You want an exceptional fit and parts that are made for the unique conditions your truck will tackle - which is why all of our upgrades are tailored to specific models, ensuring optimal performance and compliance with Australian standards.</p>",
+            "custom_liquid": "",
+            "content_page": "",
+            "open": false
+          }
+        },
+        "content_xrHna8": {
+          "type": "content",
+          "settings": {
+            "icon": "none",
+            "title": "How do Fox suspension and BDS components enhance the performance of my truck with a GVM upgrade?",
+            "content": "<p>Across <a href=\"https://www.offroadindustries.com.au/collections/fox-suspension\">Fox Suspension</a> and <a href=\"https://www.offroadindustries.com.au/collections/bds-suspension\">BDS</a>, you’ll find a range of products that give you everything from better road clearance to more resilience against bumpy and rough driving conditions. From lift kits and suspension upgrades to coil overs and shocks, increasing your payload is just one of the many benefits you’ll experience. For starters, even when you’ve loaded up your tub with all your gear, you’ll still experience better handling and performance, with that increased ground clearance you know and love about upgrading your suspension. </p><p>Between Fox and BDS, you’ll get incredible ride quality and handling, paired with reliable and robust support for increased loads. Together, they ensure your truck maintains stability and comfort, even with heavy gear and tough conditions.</p>",
+            "custom_liquid": "",
+            "content_page": "",
+            "open": false
+          }
+        },
+        "content_BkcGGW": {
+          "type": "content",
+          "settings": {
+            "icon": "none",
+            "title": "What is the GVM testing process used by Offroad Industries, and how does it ensure the best upgrade results?",
+            "content": "<p>At Offroad Industries, we want our customers to be able to buy and upgrade with confidence, knowing that they’re not only getting better ground clearance and control from their <a href=\"https://www.offroadindustries.com.au/collections/suspension\">suspension</a> upgrades, but also improved safety and handling. As a result, we make sure that everything we put together for GVM upgrades is thoroughly tested. </p><p>This includes everything from ADR brake assessments and individual stress analyses, to ensure each upgrade meets and exceeds Australian safety and performance criteria. This stringent approach guarantees that your vehicle operates safely under increased load conditions. </p>",
+            "custom_liquid": "",
+            "content_page": "",
+            "open": false
+          }
+        },
+        "content_Qnr3j6": {
+          "type": "content",
+          "settings": {
+            "icon": "none",
+            "title": "How does Offroad Industries ensure their GVM upgrade kits comply with Australian Design Rules (ADR)?",
+            "content": "<p>We fully comply with the Australian Design Rules, with comprehensive and rigorous testing to ensure quality, longevity and safety. These tests can include computer modelling of load-bearing components and detailed track testing to verify handling and operational safety. </p>",
+            "custom_liquid": "",
+            "content_page": "",
+            "open": false
+          }
+        },
+        "content_eVHWQQ": {
+          "type": "content",
+          "settings": {
+            "icon": "none",
+            "title": "Can I use Fox Performance Series, Performance Elite, or Race Series shocks with the GVM upgrade?",
+            "content": "<p>Yes, many of Fox Suspension’s Performance Series, Performance Elite, and Race Series can be utilised in your GVM upgrade though which ones are included may vary depending on the make and model of your truck. Each offers slightly different features and benefits, allowing you to customise your suspension setup based on your specific driving needs and preferences. </p>",
+            "custom_liquid": "",
+            "content_page": "",
+            "open": false
+          }
+        },
+        "content_p66FxM": {
+          "type": "content",
+          "settings": {
+            "icon": "none",
+            "title": "How does the GVM upgrade improve my truck’s towing and payload capacity?",
+            "content": "<p>By enhancing the suspension system and reinforcing key components, ORI's GVM upgrades increase your truck's legal load capacity. This means you can safely carry heavier payloads and tow larger trailers without compromising vehicle integrity or safety, giving you better control and more potential with every drive.</p>",
+            "custom_liquid": "",
+            "content_page": "",
+            "open": false
+          }
+        },
+        "content_CNpm4F": {
+          "type": "content",
+          "settings": {
+            "icon": "none",
+            "title": "What role does the ORI Leaf Pack play in the GVM upgrade, and how does it contribute to overall vehicle performance?",
+            "content": "<p>The ORI Leaf Pack is designed to support increased rear axle loads, providing additional strength and stability. This enhancement ensures your truck maintains proper ride height and handling characteristics, even when fully loaded. We put together different packs for different vehicles, ensuring you get the best possible fit to maximise performance and stability. </p>",
+            "custom_liquid": "",
+            "content_page": "",
+            "open": false
+          }
+        },
+        "content_MCfBwj": {
+          "type": "content",
+          "settings": {
+            "icon": "none",
+            "title": "What are the trends in off-road vehicle modifications, and how does Offroad Industries’ GVM upgrade cater to these needs?",
+            "content": "<p>The current trends in off-road modifications emphasise practical, rugged, and tested components tailored for real adventures. ORI's GVM upgrades align with this trend by offering durable, performance-focused solutions that enhance your truck's capability and reliability in challenging terrains. </p>",
+            "custom_liquid": "",
+            "content_page": "",
+            "open": false
+          }
+        }
+      },
+      "block_order": [
+        "content_Q9xLHk",
+        "content_xrHna8",
+        "content_BkcGGW",
+        "content_Qnr3j6",
+        "content_eVHWQQ",
+        "content_p66FxM",
+        "content_CNpm4F",
+        "content_MCfBwj"
+      ],
+      "name": "Collapsible tabs",
+      "settings": {
+        "container": "container",
+        "color_schema": "",
+        "section_header_padding_bottom": "medium",
+        "section_header_content_spacing": "medium",
+        "heading": "FAQS",
+        "highlight_style": "none",
+        "enable_highlight_text_color": false,
+        "heading_size": "h2",
+        "heading_color": "",
+        "subheading": "",
+        "description": "",
+        "item_heading_font": "body",
+        "item_heading_size": "h4",
+        "column_gap": "medium",
+        "content_width": "full",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "show_section_divider": false,
+        "divider_width": "container",
+        "custom_id": "",
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
     "multicolumn_AcQKEk": {
       "type": "multicolumn",
       "blocks": {
@@ -390,6 +518,7 @@
     "slideshow_ByTqfK",
     "rich_text_k7z6De",
     "image_with_text_PrJRDF",
+    "collapsible_tabs_ciD8kW",
     "multicolumn_AcQKEk"
   ]
 }
