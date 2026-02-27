@@ -130,7 +130,7 @@
           {%- assign current_variant = product.selected_or_first_available_variant -%}
           {%- if current_variant.sku != blank -%}
             <div class="product-sku" style="margin-top: 6px; font-size: 14px; opacity: 0.85;">
-              <span class="product-sku__label">SKU:-</span>
+              <span class="product-sku__label">SKU:</span>
               <span class="product-sku__value" data-product-sku>{{ current_variant.sku }}</span>
             </div>
           {%- endif -%}
@@ -1088,3 +1088,50 @@
   {%- endfor -%}
 </div>
 
+<script type="application/json" id="ProductVariantsJson-{{ section.id }}">
+  {{ product.variants | json }}
+</script>
+
+<script>
+  (function () {
+    const root = document.getElementById('ProductVariantsJson-{{ section.id }}')?.closest('section') || document;
+    const skuEl = root.querySelector('[data-product-sku]');
+    const jsonEl = document.getElementById('ProductVariantsJson-{{ section.id }}');
+    if (!skuEl || !jsonEl) return;
+
+    let variants = [];
+    try { variants = JSON.parse(jsonEl.textContent || '[]'); } catch (e) { return; }
+
+    function updateSkuByVariantId(variantId) {
+      const v = variants.find(x => String(x.id) === String(variantId));
+      const sku = v && v.sku ? String(v.sku) : '';
+      if (sku) {
+        skuEl.textContent = sku;
+        skuEl.closest('.product-sku')?.style?.removeProperty('display');
+      } else {
+        skuEl.textContent = '';
+        skuEl.closest('.product-sku')?.style?.setProperty('display','none');
+      }
+    }
+
+    // Most themes keep the selected variant id in input[name="id"]
+    const form = root.querySelector('form[action*="/cart/add"]');
+    if (!form) return;
+
+    const idInput = form.querySelector('input[name="id"]');
+    if (!idInput) return;
+
+    // Initial sync
+    updateSkuByVariantId(idInput.value);
+
+    // Watch for changes to the hidden variant id input (covers dropdowns, swatches, radios, etc.)
+    const obs = new MutationObserver(() => updateSkuByVariantId(idInput.value));
+    obs.observe(idInput, { attributes: true, attributeFilter: ['value'] });
+
+    // Also handle direct change events (some themes use select[name="id"])
+    form.addEventListener('change', () => {
+      // Small delay in case the theme updates idInput after option change
+      setTimeout(() => updateSkuByVariantId(idInput.value), 0);
+    });
+  })();
+</script>
