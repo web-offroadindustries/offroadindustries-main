@@ -9,6 +9,28 @@
  */
 {
   "sections": {
+    "hero_JfeqW9": {
+      "type": "hero",
+      "name": "t:sections.hero.presets.name",
+      "settings": {
+        "container": "container-full",
+        "image": "shopify://shop_images/image_-_2026-02-27T145017.185.png",
+        "image_overlay_opacity": 0,
+        "hero_height": "large",
+        "content_in_container": false,
+        "content_position": "center",
+        "text_alignment": "center",
+        "text_color": "#FFFFFF",
+        "hero_height_mobile": "large",
+        "content_position_mobile": "center",
+        "show_text_below": true,
+        "text_alignment_mobile": "center",
+        "custom_id": "",
+        "custom_class": "",
+        "animations": "inherit",
+        "enable_bg_zoom_effect": true
+      }
+    },
     "main": {
       "type": "main-page",
       "settings": {}
@@ -133,6 +155,7 @@
     }
   },
   "order": [
+    "hero_JfeqW9",
     "main",
     "multicolumn_AcQKEk"
   ]
