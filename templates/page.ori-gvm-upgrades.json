@@ -189,6 +189,83 @@
         "enable_bg_zoom_effect": false
       }
     },
+    "rich_text_k7z6De": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_4qWJN6": {
+          "type": "heading",
+          "settings": {
+            "heading": "About ORI GVM Upgrades",
+            "highlight_style": "none",
+            "enable_highlight_text_color": false,
+            "heading_size": "h0",
+            "heading_color": ""
+          }
+        },
+        "text_7BUCdz": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Discover the power of GVM upgrades from American trucks with Offroad Industries. Our USA-made suspension components and industry-leading FOX and BDS suspension choices set us apart. Each vehicle undergoes rigorous ADR brake testing and individualized stress analysis to ensure the best possible upgrade results. Trust us to provide complete data and make the right choice with Fox Suspension - the leading brand in USA offroad suspension. Transform your truck into an unstoppable force with GVM upgrades from Offroad Industries.<br/><br/>FOX USA-made suspension components paired with top-of-the-line BDS suspension options give your vehicle the ultimate advantage. We go above and beyond in our GVM Testing program, that we meet and exceed all ADR requirments and only use industry leaders to provide high quality Strength analysis on OE and Aftermarket parts to guarantee the best possible upgrade results.<br/><br/>Take your offroading experience to new heights with ORI GVM Upgraes Fox Suspension, the trusted and renowned brand for USA offroad suspension.<br/></p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_4qWJN6",
+        "text_7BUCdz"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "container": "container",
+        "color_schema": "",
+        "text_alignment": "left",
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "show_section_divider": false,
+        "divider_width": "container",
+        "custom_id": "",
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "image_with_text_PrJRDF": {
+      "type": "image-with-text",
+      "blocks": {
+        "text_jx4dXH": {
+          "type": "text",
+          "settings": {
+            "text": "<ul><li>Made In the USA</li><li>Fox Performance Series, Performance Elite, & Race Series Shocks are fully rebuilable and servicable. </li><li>Authorized Fox service repair agents in Australia.</li><li>ORI is stocking spare parts & accessories for your FOX Suspension</li></ul>"
+          }
+        }
+      },
+      "block_order": [
+        "text_jx4dXH"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "container": "container",
+        "color_schema": "",
+        "image": "shopify://shop_images/420_x_420px_MEGA_MENU_ICON__FOX.jpg",
+        "image_width": "50%",
+        "image_position": "left",
+        "vertical_alignment": "center",
+        "column_gap": "none",
+        "row_gap": "none",
+        "padding_left": 0,
+        "padding_right": 0,
+        "align_content_container": "none",
+        "mobile_padding_left": 15,
+        "mobile_padding_right": 15,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_top_mobile": 10,
+        "padding_bottom_mobile": 10,
+        "show_section_divider": false,
+        "divider_width": "container",
+        "custom_id": "",
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
     "multicolumn_AcQKEk": {
       "type": "multicolumn",
       "blocks": {
@@ -311,6 +388,8 @@
   "order": [
     "main",
     "slideshow_ByTqfK",
+    "rich_text_k7z6De",
+    "image_with_text_PrJRDF",
     "multicolumn_AcQKEk"
   ]
 }
