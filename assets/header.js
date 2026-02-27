@@ -368,3 +368,91 @@ class SiteNav extends HTMLElement {
 }
 customElements.define("site-nav", SiteNav);
 
+(function () {
+  if (window.__legacyMegaMobileInit) return;
+  window.__legacyMegaMobileInit = true;
+
+  function normalizeText(str) {
+    return (str || "").replace(/\s+/g, " ").trim().toLowerCase();
+  }
+
+  function inject() {
+    const drawer =
+      document.querySelector("#Drawer-MobileNav") ||
+      document.querySelector(".f-drawer-mobile-nav") ||
+      document.querySelector("[data-drawer='mobile-nav']");
+
+    if (!drawer) return;
+
+    // Mobile nav container (your screenshot shows .f-mobile-nav__link inside)
+    const mobileNav =
+      drawer.querySelector("#Mobile-Nav") ||
+      drawer.querySelector(".f-mobile-nav") ||
+      drawer;
+
+    if (!mobileNav) return;
+
+    // Clone from existing mega menus (these already exist because desktop injection moved them)
+    const sources = document.querySelectorAll(".mega-menu-container[data-mega-menu-parent]");
+    if (!sources.length) return;
+
+    const mobileItems = Array.from(mobileNav.querySelectorAll(".f-mobile-nav__item"));
+    if (!mobileItems.length) return;
+
+    sources.forEach((src) => {
+      const parent = normalizeText(src.getAttribute("data-mega-menu-parent"));
+      if (!parent) return;
+
+      // Match by mobile menu text
+      const li = mobileItems.find((item) => {
+        const a = item.querySelector(".f-mobile-nav__link");
+        return normalizeText(a && a.textContent) === parent;
+      });
+      if (!li) return;
+      if (li.dataset.mobileMegaInjected === "1") return;
+
+      // Find existing dropdown area in the drawer item
+      // (some themes already output .f-mobile-nav__dropdown when it has children)
+      let dropdown =
+        li.querySelector(".f-mobile-nav__dropdown") ||
+        li.querySelector("[data-content]");
+
+      // If dropdown does not exist, create it (minimal, won’t break your + toggle)
+      if (!dropdown) {
+        dropdown = document.createElement("div");
+        dropdown.className = "f-mobile-nav__dropdown";
+        li.appendChild(dropdown);
+      }
+
+      // Clone + mark as moved so desktop binder won’t re-grab it
+      const clone = src.cloneNode(true);
+      clone.classList.add("mega-menu-container--mobile");
+      clone.setAttribute("data-legacy-moved", "true");
+      clone.style.display = "block";
+
+      // OPTIONAL: if you want the mobile look like your reference (stacked + accordion),
+      // we can transform the structure here later. For now it will show the same content.
+
+      dropdown.innerHTML = "";
+      dropdown.appendChild(clone);
+
+      li.dataset.mobileMegaInjected = "1";
+    });
+  }
+
+  // Run on load
+  document.addEventListener("DOMContentLoaded", () => {
+    inject();
+    setTimeout(inject, 300);
+  });
+
+  // Also run when the drawer opens (some themes render drawer content lazily)
+  const obsTarget =
+    document.querySelector("#Drawer-MobileNav") ||
+    document.querySelector(".f-drawer-mobile-nav");
+
+  if (obsTarget) {
+    const mo = new MutationObserver(() => inject());
+    mo.observe(obsTarget, { attributes: true, childList: true, subtree: true });
+  }
+})();
