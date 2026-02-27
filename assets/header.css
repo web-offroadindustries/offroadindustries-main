@@ -691,17 +691,25 @@ body:not(.header-pinned) .header-scrolled .header {
   margin: 0; /* override negative margin in nav css */
 }
 
-.dropdown_column__menu .dropdown_item li:after {
-    content: "";
-    height: 1px;
-    width: 0;
-    background: red;
-    display: block;
-    position: absolute;
-    left: 0;
-    bottom: -5px;
-    transition: .25s width ease-in-out;
+.mega-menu-container .dropdown_column__menu .dropdown_item li a{
+  display: inline-block;
+  position: relative;
+  padding-bottom: 6px;
 }
-.dropdown_column__menu .dropdown_item li:hover:after {
-  width: 100%;
+
+.mega-menu-container .dropdown_column__menu .dropdown_item li a::after{
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .25s ease;
+}
+
+.mega-menu-container .dropdown_column__menu .dropdown_item li:hover a::after{
+  transform: scaleX(1);
 }
