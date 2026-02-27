@@ -691,7 +691,7 @@ body:not(.header-pinned) .header-scrolled .header {
   margin: 0; /* override negative margin in nav css */
 }
 
-.dropdown_column__menu .dropdown_item li a:after {
+.dropdown_column__menu .dropdown_item li:after {
     content: "";
     height: 1px;
     width: 0;
@@ -702,6 +702,6 @@ body:not(.header-pinned) .header-scrolled .header {
     bottom: -5px;
     transition: .25s width ease-in-out;
 }
-.dropdown_column__menu .dropdown_item li a:hover:after {
+.dropdown_column__menu .dropdown_item li:hover:after {
   width: 100%;
 }
