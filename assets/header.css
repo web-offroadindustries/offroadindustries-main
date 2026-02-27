@@ -695,7 +695,7 @@ body:not(.header-pinned) .header-scrolled .header {
     content: "";
     height: 1px;
     width: 0;
-    background: currentColor;
+    background: red;
     display: block;
     position: absolute;
     left: 0;
