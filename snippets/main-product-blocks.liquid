@@ -130,7 +130,7 @@
           {%- assign current_variant = product.selected_or_first_available_variant -%}
           {%- if current_variant.sku != blank -%}
             <div class="product-sku" style="margin-top: 6px; font-size: 14px; opacity: 0.85;">
-              <span class="product-sku__label">SKU:</span>
+              <span class="product-sku__label">SKU:-</span>
               <span class="product-sku__value" data-product-sku>{{ current_variant.sku }}</span>
             </div>
           {%- endif -%}
