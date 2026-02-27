@@ -690,3 +690,18 @@ body:not(.header-pinned) .header-scrolled .header {
 .site-header--design-6 .f-site-nav{
   margin: 0; /* override negative margin in nav css */
 }
+
+.dropdown_column__menu .dropdown_item li a[class*=link]:after {
+    content: "";
+    height: 1px;
+    width: 0;
+    background: currentColor;
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    transition: .25s width ease-in-out;
+}
+.dropdown_column__menu .dropdown_item li a[class*=link]:hover:after {
+  width: 100%;
+}
