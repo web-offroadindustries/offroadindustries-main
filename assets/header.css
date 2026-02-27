@@ -806,3 +806,35 @@ body:not(.header-pinned) .header-scrolled .header {
   width: 100% !important;
   height: 86px;
 }
+
+/* Only apply to items where we injected a mega menu */
+.f-mobile-nav__item[data-mobile-mega-injected="1"] {
+  background: transparent !important;
+}
+
+/* Make the drawer dropdown container transparent (only mega menu container has background) */
+.f-mobile-nav__item[data-mobile-mega-injected="1"] > collapsible-tab > .f-mobile-nav__dropdown[data-content] {
+  background: transparent !important;
+  padding: 0 !important;
+}
+
+/* Mobile mega menu clone should be static inside drawer */
+.f-mobile-nav .mega-menu-container--mobile {
+  position: relative !important;
+  inset: auto !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: none !important;
+  pointer-events: auto !important;
+  margin-top: 10px;
+}
+
+/* Make sure overlay stays inside mega menu container only */
+.f-mobile-nav__item[data-mobile-mega-injected="1"] .mega-menu-container--mobile::before {
+  z-index: 0;
+}
+.f-mobile-nav__item[data-mobile-mega-injected="1"] .mega-menu-container--mobile .dropdown,
+.f-mobile-nav__item[data-mobile-mega-injected="1"] .mega-menu-container--mobile .dropdown_content {
+  position: relative;
+  z-index: 1;
+}
