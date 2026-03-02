@@ -440,6 +440,7 @@
         },
         "brand_tile_UJ48br": {
           "type": "brand_tile",
+          "disabled": true,
           "settings": {
             "logo": "shopify://shop_images/GVM_ICON_420x420_RAM.jpg",
             "label": "RAM 2500",
