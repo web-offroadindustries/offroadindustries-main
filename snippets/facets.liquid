@@ -12,6 +12,7 @@
   assign default_state_collapsible = section.settings.default_state_collapsible
   assign show_results_count = section.settings.show_results_count
   assign filter_color_type = section.settings.filter_color_type
+
   assign show_more_text = 'products.facets.show_more' | t
   assign show_less_text = 'products.facets.show_less' | t
   if show_more_text contains 'translation missing'
@@ -32,6 +33,7 @@
   style="--f-drawer-width: 100vw;"
 >
   <div class="f-drawer__overlay" data-drawer-overlay></div>
+
   <motion-element
     data-motion="{% if sidebar_position != 'drawer' %}{{ animation_effect }}{% else %}none{% endif %}"
     class="f-drawer__content w-full focus-inset"
@@ -42,6 +44,7 @@
         <h3 class="f-facets__heading h5">
           {{ 'products.facets.filter_by_label' | t }}
         </h3>
+
         <div class="collection-product-count" role="status" data-product-count>
           {%- if results.results_count -%}
             {{-
@@ -62,6 +65,7 @@
             -}}
           {%- endif -%}
         </div>
+
         <button
           id="DrawerClose-Facets"
           class="f-drawer__close btn btn--plain"
@@ -108,7 +112,7 @@
                       <select
                         id="Mobile-SortBy"
                         name="sort_by"
-                        class="form-control "
+                        class="form-control"
                         aria-describedby="a11y-refresh-page-message a11y-selection-message"
                       >
                         {%- for option in results.sort_options -%}
@@ -132,7 +136,6 @@
                     assign isOpen = false
                     assign isHidden = false
 
-                    # Show ONLY Brand/Vendor on SEARCH page
                     assign show_filter = true
                     if request.page_type == 'search' and filter.param_name != 'filter.p.vendor'
                       assign show_filter = false
@@ -166,7 +169,6 @@
                     endif
 
                     assign sorted_values = filter.values
-                    # Keep the selected values grouped together when operator is AND
                     if filter.operator == 'AND'
                       assign active_filter_values = filter.values | where: 'active', true
                       assign inactive_filter_values = filter.values | where: 'active', false
@@ -193,6 +195,7 @@
                         <span class="font-body-bolder text-button">
                           {{- filter.label | escape -}}
                         </span>
+
                         {% if group_collapsible %}
                           <span data-collapsible-icon class="no-js-hidden">
                             <svg width="2" height="12" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -295,7 +298,7 @@
                               </ul>
 
                             {%- else -%}
-                              <ul class="list-none f-facets__list" role="list">
+                              <ul class="list-none f-facets__list{% if is_color or filter.presentation == 'swatch' %} f-facets__list--color f-filter__color--{{ filter_color_type }}{% endif %}" role="list">
                                 {%- for value in sorted_values -%}
                                   {% capture label %}
                                     {{ value.label | escape }} {% if show_results_count %}<span class="f-facets__results-count">({{ value.count }})</span>{% endif %}
@@ -338,10 +341,9 @@
                                   <span class="label-show-less label-text hidden"><span aria-hidden="true">- </span>{{- show_less_text -}}</span>
                                 </button>
                               </show-more-button>
-                            {%- endif %}
+                            {%- endif -%}
 
                           {% when 'price_range' %}
-                            {# keep your existing price range code unchanged #}
                             {% liquid
                               assign currencies_using_comma_decimals = 'ANG,ARS,BRL,BYN,BYR,CLF,CLP,COP,CRC,CZK,DKK,EUR,HRK,HUF,IDR,ISK,MZN,NOK,PLN,RON,RUB,SEK,TRY,UYU,VES,VND' | split: ','
                               assign uses_comma_decimals = false
@@ -358,11 +360,13 @@
                                 assign to_value = filter.max_value.value | money_without_currency | replace: ',', ''
                                 assign max = filter.range_max | money_without_currency | replace: ',', ''
                               endif
+
                               assign to_value = to_value | default: max
                               assign range_min = from_value | divided_by: max | times: 100
                               assign range_max = to_value | divided_by: max | times: 100
                               assign price_gap = 5
                             %}
+
                             <price-range
                               class="f-facets-price"
                               data-price-max="{{ max }}"
@@ -370,27 +374,14 @@
                               style="--price-min: {{ range_min | default: 0 }}%; --price-max: {{ range_max | default: 100 }}%"
                             >
                               <div class="f-facets-price__range-group">
-                                <input
-                                  data-type="min-range"
-                                  type="range"
-                                  aria-label="{{ 'products.facets.from' | t }}"
-                                  tabindex="-1"
+                                <input data-type="min-range" type="range" aria-label="{{ 'products.facets.from' | t }}" tabindex="-1"
                                   class="f-facets-price__range focus-none f-facets-price__range--min"
-                                  min="0"
-                                  max="{{ max }}"
-                                  value="{{ from_value | default: 0 }}"
-                                >
-                                <input
-                                  data-type="max-range"
-                                  type="range"
-                                  aria-label="{{ 'products.facets.to' | t }}"
-                                  tabindex="-1"
+                                  min="0" max="{{ max }}" value="{{ from_value | default: 0 }}">
+                                <input data-type="max-range" type="range" aria-label="{{ 'products.facets.to' | t }}" tabindex="-1"
                                   class="f-facets-price__range focus-none f-facets-price__range--max"
-                                  min="0"
-                                  max="{{ max }}"
-                                  value="{{ to_value }}"
-                                >
+                                  min="0" max="{{ max }}" value="{{ to_value }}">
                               </div>
+
                               <div class="f-facets-price__inputs">
                                 <div class="f-facets-price__field">
                                   <span class="visually-hidden">{{- 'products.facets.from' | t -}}</span>
@@ -400,15 +391,14 @@
                                     name="{{ filter.min_value.param_name }}"
                                     id="Filter-{{ filter.label | escape }}-GTE"
                                     {%- if filter.min_value.value -%}value="{{ from_value }}"{%- endif -%}
-                                    type="number"
-                                    inputmode="numeric"
-                                    placeholder="0"
-                                    min="0"
-                                    max="{{ to_value | minus: price_gap }}"
+                                    type="number" inputmode="numeric" placeholder="0"
+                                    min="0" max="{{ to_value | minus: price_gap }}"
                                     data-type="min-input"
                                   >
                                 </div>
+
                                 <span class="f-facets-price__to">{{- 'products.facets.to' | t -}}</span>
+
                                 <div class="f-facets-price__field">
                                   <span class="visually-hidden">{{- 'products.facets.to' | t -}}</span>
                                   <span class="f-facets-price__field-currency">{{- cart.currency.symbol -}}</span>
@@ -417,11 +407,9 @@
                                     name="{{ filter.max_value.param_name }}"
                                     id="Filter-{{ filter.label | escape }}-LTE"
                                     {%- if filter.max_value.value -%}value="{{ to_value }}"{%- endif -%}
-                                    type="number"
-                                    inputmode="numeric"
+                                    type="number" inputmode="numeric"
                                     min="{{ from_value | plus: price_gap }}"
-                                    max="{{ max }}"
-                                    placeholder="{{ max }}"
+                                    max="{{ max }}" placeholder="{{ max }}"
                                     data-type="max-input"
                                   >
                                 </div>
