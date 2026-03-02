@@ -790,6 +790,7 @@
           "type": "name",
           "settings": {
             "label": "Name",
+            "field_name": "Name",
             "placeholder": "Enter your name",
             "field_width": "full",
             "hide_label": true,
@@ -827,6 +828,18 @@
             "required": false
           }
         },
+        "custom_select_UKYT7U": {
+          "type": "custom_select",
+          "settings": {
+            "label": "Which Vehicle",
+            "field_name": "Which Vehicle",
+            "placeholder": "Which Vehicle",
+            "options": "Ford F150, Chevy 1500, Chevy 2500HD, Toyota Tundra, RAM 2500 (5th Gen), RAM 2500 (6th Gen), Toyota LC300",
+            "field_width": "100",
+            "hide_label": true,
+            "required": false
+          }
+        },
         "location_iimVrq": {
           "type": "location",
           "settings": {
@@ -843,6 +856,8 @@
           "settings": {
             "label": "Message",
             "placeholder": "Which gvm Package do you want further information on?",
+            "rows": 3,
+            "field_width": "100",
             "hide_label": true
           }
         }
@@ -852,6 +867,7 @@
         "email_kXx4nz",
         "phone_RCdTeH",
         "rego_status_JfYJVA",
+        "custom_select_UKYT7U",
         "location_iimVrq",
         "message_EFG6zc"
       ],
