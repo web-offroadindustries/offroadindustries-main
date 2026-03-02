@@ -160,7 +160,7 @@
         "heading_mpxUJy": {
           "type": "heading",
           "settings": {
-            "heading": "ORI PROPOSED GVM PACKAGES",
+            "heading": "ORI GVM & GCM PACKAGES",
             "highlight_style": "underline",
             "enable_highlight_text_color": true,
             "heading_size": "h1",
@@ -262,7 +262,7 @@
         "text_eiTTm6": {
           "type": "text",
           "settings": {
-            "text": "<p><em>Increased strength without the cost of replacing all your suspension + legal one tonne payload.</em></p><ul><li><strong>GVM Increase:</strong> 3650kg.</li><li><strong>Key Features:</strong> Adds <strong>BDS Upper Control Arms</strong> and a leveling kit (or 2\" lift options) retains the factory Multimatic Suspension</li><li><strong>Best For:</strong> Chevy Silverado ZR2 owners only need to clear the \"one-tonne\" mark for tax purposes (FBT compliance) or carry extra tools/gear legally.<br/></li></ul><p></p><p><strong>Benefit:</strong> Enhanced front-end strength and wheel travel, making it far more capable on corrugated outback roads.<br/><br/></p>"
+            "text": "<p><em>Increased strength without the cost of replacing all your suspension + legal one tonne payload.</em></p><ul><li><strong>GVM Increase:</strong> 3650kg.</li><li><strong>Key Features:</strong> Adds <strong>BDS Upper Control Arms</strong> and a leveling kit (or 2\" lift options) retains the factory Multimatic Suspension</li><li><strong>Best For:</strong> Chevy Silverado ZR2 owners only need to clear the \"one-tonne\" mark for tax purposes (ATO compliance) or carry extra tools/gear legally.<br/></li></ul><p></p><p><strong>Benefit:</strong> Enhanced front-end strength and wheel travel, making it far more capable on corrugated outback roads.<br/><br/></p>"
           }
         }
       },
@@ -374,7 +374,7 @@
         "text_giGN6b": {
           "type": "text",
           "settings": {
-            "text": "<p><em>Maximum legal capacity for the most demanding builds. Ideal for Tray Canopy builds</em></p><ul><li><strong>GVM Increase:</strong> 4250kg (approx. 1672kg payload) upto <strong>GCM Increase</strong> rating  8750kg * ZR2 8450kg.</li><li><strong>Key Features:</strong> Fox 2.5 Performance Elite suspension, ORI 400kg leaf packs, and <strong>required load-rated wheels/tyres</strong>.</li><li><strong>Best For:</strong> Fully built rigs with rear drawer systems, rooftop tents, and long-range tanks or the ultimate tourer with Tray and Canopies fitted.</li><li><strong>Benefit:</strong> Massive payload increase that transforms the Silverado into a true heavy-duty platform while retaining 4.5T braking towing capacity.</li></ul>"
+            "text": "<p><em>Maximum legal capacity for the most demanding builds. Ideal for Tray Canopy builds and for the customer who wants to run 35\" Tyres legally.</em></p><ul><li><strong>GVM Increase:</strong> 4250kg (approx. 1672kg payload) upto <strong>GCM Increase</strong> rating  8750kg * ZR2 8450kg.</li><li><strong>Key Features:</strong> Fox 2.5 Performance Elite suspension, ORI 400kg leaf packs, and <strong>required load-rated wheels/tyres</strong>.</li><li><strong>Best For:</strong> Fully built rigs with rear drawer systems, rooftop tents, and long-range tanks or the ultimate tourer with Tray and Canopies fitted.</li><li><strong>Benefit:</strong> Massive payload increase that transforms the Silverado into a true heavy-duty platform while retaining 4.5T braking towing capacity.</li><li><em><strong>Note: Chevy Silverado ZR2 has reduced GCM due to the 4.2T towing capacity.</strong></em></li></ul>"
           }
         }
       },
@@ -430,7 +430,7 @@
         "text_AHtUHA": {
           "type": "text",
           "settings": {
-            "text": "<p><em>The pinnacle of Silverado suspension engineering.</em></p><ul><li><strong>GVM Increase:</strong> 4250kg.</li><li><strong>Key Features:</strong> <strong>Fox 3.0 Internal Bypass Race Series Shocks</strong> (front and rear).</li><li><strong>Best For:</strong> The enthusiast who wants it all—maximum legal payload combined with race-bred suspension technology.<br/></li></ul><p><strong><br/>Benefit:</strong> The 3.0 Bypass shocks offer unparalleled heat dissipation and damping control. It’s the ultimate \"go-anywhere\" setup that remains legally compliant across Australia.<br/><br/></p>"
+            "text": "<p><em>The pinnacle of Silverado suspension engineering.</em></p><ul><li><strong>GVM Increase:</strong> 4250kg.</li><li><strong>Key Features:</strong> <strong>Fox 3.0 Internal Bypass Race Series Shocks</strong> (front and rear).</li><li><strong>Best For:</strong> The enthusiast who wants it all—maximum legal payload combined with race-bred suspension technology.</li><li><strong>Benefit:</strong> The 3.0 Bypass shocks offer unparalleled heat dissipation and damping control. It’s the ultimate \"go-anywhere\" setup that remains legally compliant across Australia.</li></ul><p><em><strong>Note: Chevy Silverado ZR2 has reduced GCM due to the 4.2T towing capacity.</strong></em><br/><br/></p>"
           }
         }
       },
@@ -471,7 +471,7 @@
         "heading_YjLxhA": {
           "type": "heading",
           "settings": {
-            "heading": "ABOUT CHEVROLET SILVERADO 1500 LTZ",
+            "heading": "ORI Chevy Silverado GVM & GCM Specfications",
             "highlight_style": "underline",
             "enable_highlight_text_color": true,
             "heading_size": "h1",
