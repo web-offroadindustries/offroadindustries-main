@@ -135,6 +135,11 @@
                     assign isOpen = false
                     assign isHidden = false
 
+                    assign show_filter = true
+                    if request.page_type == 'search' and filter.param_name != 'filter.p.vendor'
+                      assign show_filter = false
+                    endif
+
                     assign label_lc = filter.label | downcase
                     assign show_filter = true
 
