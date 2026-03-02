@@ -402,12 +402,74 @@
         "mm_bg_opacity": 85,
         "mm_text_color": "#ffffff"
       }
+    },
+    "mega_menu_1_pQJFf4": {
+      "type": "mega-menu-1",
+      "blocks": {
+        "brand_tile_jeT4qf": {
+          "type": "brand_tile",
+          "settings": {
+            "logo": "shopify://shop_images/GVM_ICON_420x420_SILVERADO_1500.jpg",
+            "label": "Chevy Silverado 1500",
+            "link": "https://www.offroadindustries.com.au/pages/chevrolet-silverado-1500-gvm-package"
+          }
+        },
+        "brand_tile_BrPGR7": {
+          "type": "brand_tile",
+          "settings": {
+            "logo": "shopify://shop_images/GVM_ICON_420x420_SILVERADO_1500_copy.jpg",
+            "label": "Chevy Silverado 2500",
+            "link": "https://www.offroadindustries.com.au/pages/chevy-silverado-2500hd-gvm-packages"
+          }
+        },
+        "brand_tile_YDDwKb": {
+          "type": "brand_tile",
+          "settings": {
+            "logo": "shopify://shop_images/GVM_ICON_420x420_F150.jpg",
+            "label": "Ford 150",
+            "link": "https://www.offroadindustries.com.au/pages/ford-150-gvm-packages"
+          }
+        },
+        "brand_tile_CEAayT": {
+          "type": "brand_tile",
+          "settings": {
+            "logo": "shopify://shop_images/GVM_ICON_420x420_TOYOTA_TUNDRA.jpg",
+            "label": "Toyota Tundra",
+            "link": "https://www.offroadindustries.com.au/pages/toyota-tundra"
+          }
+        },
+        "brand_tile_UJ48br": {
+          "type": "brand_tile",
+          "settings": {
+            "logo": "shopify://shop_images/GVM_ICON_420x420_RAM.jpg",
+            "label": "RAM 2500",
+            "link": "shopify://pages/ram-2500-gvm-packages"
+          }
+        }
+      },
+      "block_order": [
+        "brand_tile_jeT4qf",
+        "brand_tile_BrPGR7",
+        "brand_tile_YDDwKb",
+        "brand_tile_CEAayT",
+        "brand_tile_UJ48br"
+      ],
+      "name": "Mega menu 1",
+      "settings": {
+        "parent": "ORI GVM Upgrades",
+        "mm_layout": "brands",
+        "mm_align": "center",
+        "mm_bg_color": "#0b0b0b",
+        "mm_bg_opacity": 85,
+        "mm_text_color": "#ffffff"
+      }
     }
   },
   "order": [
     "announcement-bar",
     "header",
     "mega_menu_1_9eGFTp",
-    "mega_menu_1_3iAP83"
+    "mega_menu_1_3iAP83",
+    "mega_menu_1_pQJFf4"
   ]
 }
