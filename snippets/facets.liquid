@@ -73,6 +73,7 @@
         </button>
       </div>
     {% endif %}
+
     <div class="f-drawer__inner scroll-container">
       <div
         class="f-facets__container f-facets__container--{{ sidebar_position }}"
@@ -83,22 +84,17 @@
         <facet-filters-form class="f-facets">
           <form id="FacetFiltersForm" class="f-facets__form" data-facet-form>
             {%- if results.terms -%}
-              <input
-                type="hidden"
-                name="q"
-                value="{{ results.terms | escape }}"
-              >
+              <input type="hidden" name="q" value="{{ results.terms | escape }}">
               <input name="options[prefix]" type="hidden" value="last">
             {%- endif -%}
 
             <div class="f-facets__wrapper" data-facets-wrapper>
-              {%- if results.filters != empty
-                and sidebar_position != 'drawer'
-              -%}
+              {%- if results.filters != empty and sidebar_position != 'drawer' -%}
                 <h3 class="f-facets__heading visually-hidden">
                   {{ 'products.facets.filter_by_label' | t }}
                 </h3>
               {%- endif -%}
+
               <div class="f-facets__blocks" data-collapsible-parent>
                 {% if enable_sorting %}
                   <div
@@ -107,7 +103,7 @@
                   >
                     <div id="Mobile-SortBy-Block" class="flex items-center">
                       <label for="facets-SortBy" class="h5 whitespace-nowrap">
-                        {{- 'products.facets.sort_by_label' | t }}:</label
+                        {{- 'products.facets.sort_by_label' | t -}}:</label
                       >
                       <select
                         id="Mobile-SortBy"
@@ -129,25 +125,17 @@
                     </div>
                   </div>
                 {% endif %}
+
                 {%- for filter in results.filters -%}
                   {% liquid
                     assign filter_index = forloop.index
                     assign isOpen = false
                     assign isHidden = false
 
+                    # Show ONLY Brand/Vendor on SEARCH page
                     assign show_filter = true
                     if request.page_type == 'search' and filter.param_name != 'filter.p.vendor'
                       assign show_filter = false
-                    endif
-
-                    assign label_lc = filter.label | downcase
-                    assign show_filter = true
-
-                    if request.page_type == 'search'
-                      assign show_filter = false
-                      if filter.param_name == 'filter.p.vendor' or label_lc == 'brand' or label_lc == 'vendor'
-                        assign show_filter = true
-                      endif
                     endif
 
                     if default_state_collapsible == 'collapsed'
@@ -166,6 +154,7 @@
                     if filter.min_value.value != blank or filter.max_value.value != blank or filter.active_values.size > 0
                       assign isOpen = true
                     endif
+
                     assign is_color = false
                     if settings.color_swatches_enable and settings.color_swatches_trigger != blank
                       assign filter_label = filter.label | downcase
@@ -190,74 +179,43 @@
                   {% endunless %}
 
                   {% if is_color %}
-                    <script
-                      src="{{ 'filter-color-swatch.js' | asset_url }}"
-                      defer="defer"
-                    ></script>
+                    <script src="{{ 'filter-color-swatch.js' | asset_url }}" defer="defer"></script>
                   {% endif %}
-                  <div
-                    class="f-facets__block js-filter"
-                    data-index="{{ forloop.index }}"
-                  >
+
+                  <div class="f-facets__block js-filter" data-index="{{ forloop.index }}">
                     <collapsible-tab
                       class="collapsible__item parent-display"
                       data-one-open="false"
-                      {% if isOpen %}
-                        open="true"
-                      {% endif -%}
-                      {% unless group_collapsible %}
-                        data-destroy="true"
-                      {% endunless %}
+                      {% if isOpen %}open="true"{% endif %}
+                      {% unless group_collapsible %}data-destroy="true"{% endunless %}
                     >
-                      <button
-                        class="f-facets__block-header focus-inset m-0 {{ heading_size }}"
-                        data-trigger
-                      >
+                      <button class="f-facets__block-header focus-inset m-0 {{ heading_size }}" data-trigger>
                         <span class="font-body-bolder text-button">
                           {{- filter.label | escape -}}
                         </span>
                         {% if group_collapsible %}
                           <span data-collapsible-icon class="no-js-hidden">
-                            <svg
-                              width="2"
-                              height="12"
-                              fill="none"
-                              xmlns="http://www.w3.org/2000/svg"
-                            >
+                            <svg width="2" height="12" fill="none" xmlns="http://www.w3.org/2000/svg">
                               <path d="M1 1.333v9.334" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
-                            <svg
-                              width="2"
-                              height="12"
-                              fill="none"
-                              xmlns="http://www.w3.org/2000/svg"
-                            >
+                            <svg width="2" height="12" fill="none" xmlns="http://www.w3.org/2000/svg">
                               <path d="M1 1.333v9.334" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
                           </span>
                         {% endif %}
                       </button>
-                      <div
-                        class="f-facets__block-content"
-                        data-content
-                        {% if isHidden %}
-                          hidden
-                        {% endif %}
-                      >
+
+                      <div class="f-facets__block-content" data-content {% if isHidden %}hidden{% endif %}>
                         {%- if filter.operator == 'AND' -%}
                           <small class="filter-and-operator-text text-sm text-normal">
                             {{- 'products.facets.match_all' | t -}}
                           </small>
                         {%- endif -%}
+
                         {% case filter.type %}
                           {% when 'list' %}
-                            {%- if is_color
-                              or filter.presentation == 'swatch'
-                            -%}
-                              <ul
-                                class="list-none f-facets__list f-facets__list--color f-filter__color--{{ filter_color_type }}"
-                                role="list"
-                              >
+                            {%- if is_color or filter.presentation == 'swatch' -%}
+                              <ul class="list-none f-facets__list f-facets__list--color f-filter__color--{{ filter_color_type }}" role="list">
                                 {%- for value in sorted_values -%}
                                   {% capture label %}
                                     {{ value.label | escape }} {% if show_results_count %}<span class="f-facets__results-count">({{ value.count }})</span>{% endif %}
@@ -293,6 +251,7 @@
                                   </li>
                                 {%- endfor -%}
                               </ul>
+
                             {%- elsif filter.presentation == 'image' -%}
                               <ul class="list-none f-facets__list f-facets__images">
                                 {%- for value in sorted_values -%}
@@ -300,6 +259,7 @@
                                     {{ value.label | escape }} {% if show_results_count %}<span class="f-facets__results-count">({{ value.count }})</span>{% endif %}
                                   {% endcapture %}
                                   {% capture id %}Filter-{{ filter.label | escape }}-{{ filter_index }}-{{ forloop.index }}{% endcapture %}
+
                                   {%- liquid
                                     assign disabled = false
                                     if value.count == 0 and value.active == false
@@ -312,39 +272,30 @@
                                       assign swatch_image = value.image | image_url: width: 144
                                     endif
                                   -%}
+
                                   <li class="f-facets__item{% if forloop.index > 10 %} show-more-item hidden{% endif %}">
-                                    <div
-                                      class="filter-image-swatch"
-                                    >
-                                      <label
-                                        for="{{- id -}}"
-                                      >
+                                    <div class="filter-image-swatch">
+                                      <label for="{{- id -}}">
                                         <input
                                           type="checkbox"
                                           id="{{- id -}}"
                                           name="{{- value.param_name -}}"
                                           value="{{- value.value -}}"
-                                          {% if value.active %}
-                                            checked
-                                          {% endif %}
+                                          {% if value.active %}checked{% endif %}
                                         >
                                         <span
                                           class="image-check"
                                           style="--swatch-background: {{ swatch_fallback }};{% if swatch_image != blank %} background-image: url({{ swatch_image }});{% endif %}"
                                         ></span>
-                                        <span class="filter-label">
-                                          {{- label -}}
-                                        </span>
+                                        <span class="filter-label">{{- label -}}</span>
                                       </label>
                                     </div>
                                   </li>
                                 {%- endfor -%}
                               </ul>
+
                             {%- else -%}
-                              <ul
-                                class="list-none f-facets__list{% if is_color or filter.presentation == 'swatch' %} f-facets__list--color f-filter__color--{{ filter_color_type }}{% endif %}"
-                                role="list"
-                              >
+                              <ul class="list-none f-facets__list" role="list">
                                 {%- for value in sorted_values -%}
                                   {% capture label %}
                                     {{ value.label | escape }} {% if show_results_count %}<span class="f-facets__results-count">({{ value.count }})</span>{% endif %}
@@ -357,22 +308,16 @@
                                       assign disabled = true
                                     endif
                                   -%}
+
                                   <li class="f-facets__item{% if forloop.index > 10 %} show-more-item hidden{% endif %}">
-                                    <label
-                                      for="{{ id }}"
-                                      class="f-checkbox{% if disabled %} f-checkbox--disabled{% endif %}"
-                                    >
+                                    <label for="{{ id }}" class="f-checkbox{% if disabled %} f-checkbox--disabled{% endif %}">
                                       <input
                                         type="checkbox"
                                         name="{{ value.param_name }}"
                                         value="{{ value.value }}"
                                         id="{{ id }}"
-                                        {% if value.active %}
-                                          checked
-                                        {% endif %}
-                                        {% if disabled %}
-                                          disabled
-                                        {% endif %}
+                                        {% if value.active %}checked{% endif %}
+                                        {% if disabled %}disabled{% endif %}
                                       >
                                       <span class="checkmark"></span>
                                       <span>{{ label }}</span>
@@ -381,6 +326,7 @@
                                 {%- endfor -%}
                               </ul>
                             {%- endif -%}
+
                             {%- if filter.values.size > 10 -%}
                               <show-more-button>
                                 <button
@@ -388,18 +334,14 @@
                                   id="Show-More-{{ forloop.index }}-{{ section.id }}"
                                   type="button"
                                 >
-                                  <span class="label-show-more label-text"
-                                    ><span aria-hidden="true">+ </span>
-                                    {{- show_more_text -}}
-                                  </span>
-                                  <span class="label-show-less label-text hidden"
-                                    ><span aria-hidden="true">- </span>
-                                    {{- show_less_text -}}
-                                  </span>
+                                  <span class="label-show-more label-text"><span aria-hidden="true">+ </span>{{- show_more_text -}}</span>
+                                  <span class="label-show-less label-text hidden"><span aria-hidden="true">- </span>{{- show_less_text -}}</span>
                                 </button>
                               </show-more-button>
                             {%- endif %}
+
                           {% when 'price_range' %}
+                            {# keep your existing price range code unchanged #}
                             {% liquid
                               assign currencies_using_comma_decimals = 'ANG,ARS,BRL,BYN,BYR,CLF,CLP,COP,CRC,CZK,DKK,EUR,HRK,HUF,IDR,ISK,MZN,NOK,PLN,RON,RUB,SEK,TRY,UYU,VES,VND' | split: ','
                               assign uses_comma_decimals = false
@@ -451,19 +393,13 @@
                               </div>
                               <div class="f-facets-price__inputs">
                                 <div class="f-facets-price__field">
-                                  <span class="visually-hidden">
-                                    {{- 'products.facets.from' | t -}}
-                                  </span>
-                                  <span class="f-facets-price__field-currency">
-                                    {{- cart.currency.symbol -}}
-                                  </span>
+                                  <span class="visually-hidden">{{- 'products.facets.from' | t -}}</span>
+                                  <span class="f-facets-price__field-currency">{{- cart.currency.symbol -}}</span>
                                   <input
                                     class="form-control"
                                     name="{{ filter.min_value.param_name }}"
                                     id="Filter-{{ filter.label | escape }}-GTE"
-                                    {%- if filter.min_value.value -%}
-                                      value="{{ from_value }}"
-                                    {%- endif -%}
+                                    {%- if filter.min_value.value -%}value="{{ from_value }}"{%- endif -%}
                                     type="number"
                                     inputmode="numeric"
                                     placeholder="0"
@@ -472,23 +408,15 @@
                                     data-type="min-input"
                                   >
                                 </div>
-                                <span class="f-facets-price__to">
-                                  {{- 'products.facets.to' | t -}}
-                                </span>
+                                <span class="f-facets-price__to">{{- 'products.facets.to' | t -}}</span>
                                 <div class="f-facets-price__field">
-                                  <span class="visually-hidden">
-                                    {{- 'products.facets.to' | t -}}
-                                  </span>
-                                  <span class="f-facets-price__field-currency">
-                                    {{- cart.currency.symbol -}}
-                                  </span>
+                                  <span class="visually-hidden">{{- 'products.facets.to' | t -}}</span>
+                                  <span class="f-facets-price__field-currency">{{- cart.currency.symbol -}}</span>
                                   <input
                                     class="form-control"
                                     name="{{ filter.max_value.param_name }}"
                                     id="Filter-{{ filter.label | escape }}-LTE"
-                                    {%- if filter.max_value.value -%}
-                                      value="{{ to_value }}"
-                                    {%- endif -%}
+                                    {%- if filter.max_value.value -%}value="{{ to_value }}"{%- endif -%}
                                     type="number"
                                     inputmode="numeric"
                                     min="{{ from_value | plus: price_gap }}"
@@ -505,6 +433,7 @@
                   </div>
                 {%- endfor -%}
               </div>
+
               <noscript>
                 <div class="py-sm">
                   <button class="btn btn--primary w-full">
@@ -515,31 +444,21 @@
             </div>
 
             {% if results.current_vendor or results.current_type %}
-              <input
-                type="hidden"
-                name="q"
-                value="{{ results.current_vendor }}{{ results.current_type }}"
-              >
+              <input type="hidden" name="q" value="{{ results.current_vendor }}{{ results.current_type }}">
             {% endif %}
           </form>
         </facet-filters-form>
       </div>
     </div>
+
     <div class="f-facets__footer flex justify-between items-center">
       <facet-remove class="text-left">
-        <a
-          href="{{ results_url }}"
-          class="btn btn--underline"
-          aria-label="{{ 'products.facets.clear_all' | t }}"
-        >
+        <a href="{{ results_url }}" class="btn btn--underline" aria-label="{{ 'products.facets.clear_all' | t }}">
           <span>{{ 'products.facets.clear_all' | t }}</span>
         </a>
       </facet-remove>
       <facet-apply>
-        <button
-          class="btn btn--primary w-full"
-          aria-label="{{ 'products.facets.apply' | t }}"
-        >
+        <button class="btn btn--primary w-full" aria-label="{{ 'products.facets.apply' | t }}">
           {{- 'products.facets.apply' | t -}}
         </button>
       </facet-apply>
