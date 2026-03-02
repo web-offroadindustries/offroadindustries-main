@@ -262,7 +262,7 @@
         "text_eiTTm6": {
           "type": "text",
           "settings": {
-            "text": "<p><em>Increased strength without the cost of replacing all your suspension + legal one tonne payload.</em></p><ul><li><strong>GVM Increase:</strong> 3650kg.</li><li><strong>Key Features:</strong> Adds <strong>BDS Upper Control Arms</strong> and a leveling kit (or 2\" lift options) retains the factory Multimatic Suspension</li><li><strong>Best For:</strong> Chevy Silverado ZR2 owners only need to clear the \"one-tonne\" mark for tax purposes (ATO compliance) or carry extra tools/gear legally.<br/></li></ul><p></p><p><strong>Benefit:</strong> Enhanced front-end strength and wheel travel, making it far more capable on corrugated outback roads.<br/><br/></p>"
+            "text": "<p><em>Increased strength without the cost of replacing all your suspension + legal one tonne payload.</em></p><ul><li><strong>GVM Increase:</strong> 3650kg.</li><li><strong>Key Features:</strong> Adds <strong>BDS Upper Control Arms</strong> and a leveling kit (or 2\" lift options) retains the factory Multimatic Suspension</li><li><strong>Best For:</strong> Chevy Silverado ZR2 owners only need to clear the \"one-tonne\" mark for tax purposes (ATO compliance) or carry extra tools/gear legally.<br/></li></ul><p><strong>Benefit:</strong> Enhanced front-end strength and wheel travel, making it far more capable on corrugated outback roads.<br/><br/></p>"
           }
         }
       },
@@ -1059,18 +1059,6 @@
             "required": false
           }
         },
-        "custom_select_pQBYkE": {
-          "type": "custom_select",
-          "settings": {
-            "label": "What Stage GVM Package",
-            "field_name": "What Stage GVM Package",
-            "placeholder": "What Stage GVM Package",
-            "options": "Stage 1, Stage 2, Stage 3, Stage 4, Stage 5, Stage 6",
-            "field_width": "100",
-            "hide_label": true,
-            "required": false
-          }
-        },
         "location_FiKmdb": {
           "type": "location",
           "settings": {
@@ -1099,7 +1087,6 @@
         "phone_atX8MW",
         "rego_status_YKHXBe",
         "custom_select_rebt6m",
-        "custom_select_pQBYkE",
         "location_FiKmdb",
         "message_rpD3xU"
       ],
@@ -1127,12 +1114,6 @@
     "rich_text_4AxLyp": {
       "type": "rich-text",
       "blocks": {
-        "text_m6MhJm": {
-          "type": "text",
-          "settings": {
-            "text": "<h2><strong>Why Choose an ORI GVM & GCM Bundle?</strong></h2><ul><li>💰 <strong>Major Tax Benefits:</strong> By boosting your payload over 1,000kg, your Silverado can often be reclassified, potentially qualifying for ATO<strong> Exemptions</strong> (consult your accountant!).</li><li>🇦🇺 <strong>Federal & State Compliance:</strong> Our kits are ADR-compliant and Federally Approved (SSM). Whether you are buying new or upgrading a registered truck, we provide the engineering peace of mind.</li><li>🛠️ <strong>World-Class Partnerships:</strong> We don’t just \"re-valve\" basic shocks. We partner with <strong>Fox and BDS</strong> to provide a complete suspension overhaul that actually rides <em>better</em> than the factory setup.</li></ul><p>🛡️ <strong>Insurance & Safety:</strong> Don't risk a denied insurance claim or a fine for being overweight. Our GVM upgrades and <strong>LS16 GCM certification</strong> keep you safe and legal.</p>"
-          }
-        },
         "heading_PHJcdq": {
           "type": "heading",
           "settings": {
@@ -1145,7 +1126,6 @@
         }
       },
       "block_order": [
-        "text_m6MhJm",
         "heading_PHJcdq"
       ],
       "name": "t:sections.rich-text.presets.name",
