@@ -1166,6 +1166,18 @@
             "required": false
           }
         },
+        "custom_select_zttPUQ": {
+          "type": "custom_select",
+          "settings": {
+            "label": "What Stage GVM Package",
+            "field_name": "What Stage GVM Package",
+            "placeholder": "What Stage GVM Package",
+            "options": "Stage 1, Stage 2, Stage 3, Stage 4, Stage 5, Stage 6",
+            "field_width": "100",
+            "hide_label": true,
+            "required": false
+          }
+        },
         "location_tt8Bqm": {
           "type": "location",
           "settings": {
@@ -1194,6 +1206,7 @@
         "phone_MfHate",
         "rego_status_9grEMG",
         "custom_select_ax9a9h",
+        "custom_select_zttPUQ",
         "location_tt8Bqm",
         "message_HVJGxF"
       ],
@@ -1216,135 +1229,6 @@
         "custom_id": "",
         "custom_class": "",
         "animations": "inherit"
-      }
-    },
-    "contact_form_v2_HRwdt9": {
-      "type": "contact-form-v2",
-      "blocks": {
-        "info_item_R4Gk3f": {
-          "type": "info_item",
-          "settings": {
-            "icon": "phone",
-            "label": "Phone",
-            "value": "+0483 930 639",
-            "link": "tel:+0483930639"
-          }
-        },
-        "info_item_D8imPe": {
-          "type": "info_item",
-          "settings": {
-            "icon": "email",
-            "label": "Email",
-            "value": "sales@offroadindustries.com.au",
-            "link": "mailto:sales@offroadindustries.com.au"
-          }
-        },
-        "info_item_KQf3cF": {
-          "type": "info_item",
-          "settings": {
-            "icon": "pin",
-            "label": "Address",
-            "value": "3 Montefiore Street Fairfield VIC 3078 Australia",
-            "link": "tel:+10000000000"
-          }
-        },
-        "info_item_FcMtU6": {
-          "type": "info_item",
-          "settings": {
-            "icon": "clock",
-            "label": "Business Hours",
-            "value": "Monday to Friday: 9:00AM – 4:00PM",
-            "link": "tel:+10000000000"
-          }
-        },
-        "field_name_CLnBFC": {
-          "type": "field_name",
-          "settings": {
-            "label": "Name",
-            "placeholder": "Your name",
-            "required": true,
-            "width": "full"
-          }
-        },
-        "field_email_BgE4hj": {
-          "type": "field_email",
-          "settings": {
-            "label": "Email",
-            "placeholder": "you@email.com",
-            "required": true,
-            "width": "full"
-          }
-        },
-        "field_phone_qWaHwr": {
-          "type": "field_phone",
-          "settings": {
-            "label": "Phone Number",
-            "placeholder": "Enter your phone number",
-            "required": false,
-            "width": "full"
-          }
-        },
-        "field_rego_status_ziNUAV": {
-          "type": "field_rego_status",
-          "settings": {
-            "label": "Pre or Post rego",
-            "field_name": "Pre or Post rego",
-            "placeholder": "Select one",
-            "options": "Pre rego, Post rego",
-            "required": false,
-            "width": "full"
-          }
-        },
-        "field_location_6tMBRD": {
-          "type": "field_location",
-          "settings": {
-            "label": "What is your location",
-            "field_name": "Location",
-            "placeholder": "What is your location?",
-            "required": false,
-            "width": "full"
-          }
-        },
-        "field_message_QyxnT6": {
-          "type": "field_message",
-          "settings": {
-            "label": "Message",
-            "placeholder": "Which gvm Package do you want further information on?",
-            "required": true,
-            "width": "full"
-          }
-        }
-      },
-      "block_order": [
-        "info_item_R4Gk3f",
-        "info_item_D8imPe",
-        "info_item_KQf3cF",
-        "info_item_FcMtU6",
-        "field_name_CLnBFC",
-        "field_email_BgE4hj",
-        "field_phone_qWaHwr",
-        "field_rego_status_ziNUAV",
-        "field_location_6tMBRD",
-        "field_message_QyxnT6"
-      ],
-      "disabled": true,
-      "name": "Contact Form v2",
-      "settings": {
-        "heading": "Questions? We’re Hereto Help",
-        "body": "<p>Add your intro text here.</p>",
-        "form_title": "Send us a message",
-        "form_banner_image": "shopify://shop_images/contact-form-banner.webp",
-        "button_label": "Submit",
-        "success_message": "Thanks! We received your message and will get back to you soon.",
-        "desktop_layout": "content_left",
-        "mobile_layout": "content_first",
-        "fields_columns_desktop": "1",
-        "max_width": 1200,
-        "bg_color": "#ffffff",
-        "form_bg": "#e6e6e6",
-        "accent": "#56bdc2",
-        "padding_top": 40,
-        "padding_bottom": 40
       }
     },
     "rich_text_4AxLyp": {
@@ -1470,7 +1354,6 @@
     "gvm_comparison_FfmTMw",
     "gvm_comparison_RXeVcA",
     "contact_form_v4_zJ7mnp",
-    "contact_form_v2_HRwdt9",
     "rich_text_4AxLyp",
     "logo_list_8XphYi"
   ]
