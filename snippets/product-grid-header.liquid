@@ -14,6 +14,7 @@
   endif
 
   assign has_active_facets = false
+
   for f in results.filters
     if brand_only_on_search
       if f.param_name == 'filter.p.vendor' and f.active_values.size > 0
@@ -25,9 +26,12 @@
         assign has_active_facets = true
         break
       endif
-      if f.type == 'price_range' and (f.min_value.value != null or f.max_value.value != null)
-        assign has_active_facets = true
-        break
+
+      if f.type == 'price_range'
+        if f.min_value.value != blank or f.max_value.value != blank
+          assign has_active_facets = true
+          break
+        endif
       endif
     endif
   endfor
@@ -59,18 +63,18 @@
         </facet-remove>
       {%- endfor -%}
 
-      {% if brand_only_on_search == false and filter.type == 'price_range' %}
-        {%- if filter.min_value.value != null or filter.max_value.value != null -%}
+      {%- if brand_only_on_search == false and filter.type == 'price_range' -%}
+        {%- if filter.min_value.value != blank or filter.max_value.value != blank -%}
           <facet-remove>
             <a href="{{ filter.url_to_remove }}" class="active-facets__button btn btn--small">
               <span class="active-facets__button-inner">
-                {%- if filter.min_value.value -%}
+                {%- if filter.min_value.value != blank -%}
                   {{ filter.min_value.value | money }}
                 {%- else -%}
                   {{ 0 | money }}
                 {%- endif -%}
                 -
-                {%- if filter.max_value.value -%}
+                {%- if filter.max_value.value != blank -%}
                   {{ filter.max_value.value | money }}
                 {%- else -%}
                   {{ filter.range_max | money }}
@@ -83,7 +87,7 @@
             </a>
           </facet-remove>
         {%- endif -%}
-      {% endif %}
+      {%- endif -%}
     {%- endfor -%}
 
     <facet-remove>
