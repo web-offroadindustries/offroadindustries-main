@@ -1510,6 +1510,18 @@
             "required": false
           }
         },
+        "custom_select_d7bihk": {
+          "type": "custom_select",
+          "settings": {
+            "label": "What Stage GVM Package",
+            "field_name": "What Stage GVM Package",
+            "placeholder": "What Stage GVM Package",
+            "options": "Stage 1, Stage 2, Stage 3, Stage 4, Stage 5, Stage 6",
+            "field_width": "100",
+            "hide_label": true,
+            "required": false
+          }
+        },
         "location_TLebdV": {
           "type": "location",
           "settings": {
@@ -1538,6 +1550,7 @@
         "phone_xxDBjJ",
         "rego_status_GHUeAg",
         "custom_select_4BAt7V",
+        "custom_select_d7bihk",
         "location_TLebdV",
         "message_QFCAgC"
       ],
