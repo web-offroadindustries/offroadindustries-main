@@ -135,6 +135,16 @@
                     assign isOpen = false
                     assign isHidden = false
 
+                    assign label_lc = filter.label | downcase
+                    assign show_filter = true
+
+                    if request.page_type == 'search'
+                      assign show_filter = false
+                      if filter.param_name == 'filter.p.vendor' or label_lc == 'brand' or label_lc == 'vendor'
+                        assign show_filter = true
+                      endif
+                    endif
+
                     if default_state_collapsible == 'collapsed'
                       assign isHidden = true
                       unless open_first_group and forloop.first and group_collapsible
@@ -169,6 +179,11 @@
                       assign sorted_values = active_filter_values | concat: inactive_filter_values
                     endif
                   %}
+
+                  {% unless show_filter %}
+                    {% continue %}
+                  {% endunless %}
+
                   {% if is_color %}
                     <script
                       src="{{ 'filter-color-swatch.js' | asset_url }}"
