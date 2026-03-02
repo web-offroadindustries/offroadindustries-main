@@ -140,7 +140,7 @@
         "text_CfcJd4": {
           "type": "text",
           "settings": {
-            "text": "<p><strong>Shatter your payload limits and command the outback without compromise.</strong> &gt; Offroad Industries (ORI) delivers Australia’s ultimate, fully Federally Approved GVM upgrades for the Chevrolet Silverado 2500HD range. Whether you drive an LTZ Premium or another heavy-duty model, we have the arsenal to match</p><p><strong>The ORI Advantage:</strong></p><ul><li><strong>Massive Stance:</strong> Options ranging from a sleek 3” lift up to our monster 6.5” package on 37” tyres.</li><li><strong>NB2 Upgrades Made Easy:</strong> A seamless, ORI-approved pathway from NB1 to the heavy-duty NB2 category via VTA-065187 or we can upgrade NB2 to NB2 via our VTA-065796</li><li><strong>Bulletproof Compliance:</strong> Rigorously tested and backed by Federal SSM Certification.</li></ul><p>Backed by punishing testing and uncompromising Federal SSM Certification, an ORI GVM Package doesn't just upgrade your Silverado; it elevates it to true <strong>\"Super-Truck\"</strong> status. Operating under exclusive ORI Vehicle SSM Approvals, we provide a streamlined, zero-headache pathway to reclassify your rig from an NB1 to a heavy-hitting NB2 category.</p><p><strong>The result?</strong> Your fully loaded truck, all your gear, and that 4.5T trailer in tow are 100% compliant, secure, and road-legal nationwide when completed Pre-Rego (Federal). Why not invest in your brand new Chevy Silverado 2500HD now ?<br/></p>"
+            "text": "<p><strong>Shatter your payload limits and command the outback without compromise.</strong> &gt; Offroad Industries (ORI) delivers Australia’s ultimate, fully Federally Approved GVM upgrades for the Chevrolet Silverado 2500HD range. Whether you drive an LTZ Premium or another heavy-duty model, we have the arsenal to match. Our SSM approvals only applys to GMVS Vehicles we cannot do private imports.</p><p><strong>The ORI Advantage:</strong></p><ul><li><strong>Massive Stance:</strong> Options ranging from a sleek 3” lift up to our monster 6.5” package on 37” tyres.</li><li><strong>NB2 Upgrades Made Easy:</strong> A seamless, ORI-approved pathway from NB1 to the heavy-duty NB2 category via VTA-065187 or we can upgrade NB2 to NB2 via our VTA-065796</li><li><strong>Bulletproof Compliance:</strong> Rigorously tested and backed by Federal SSM Certification.</li></ul><p>Backed by punishing testing and uncompromising Federal SSM Certification, an ORI GVM Package doesn't just upgrade your Silverado; it elevates it to true <strong>\"Super-Truck\"</strong> status. Operating under exclusive ORI Vehicle SSM Approvals, we provide a streamlined, zero-headache pathway to reclassify your rig from an NB1 to a heavy-hitting NB2 category.</p><p><strong>The result?</strong> Your fully loaded truck, all your gear, and that 4.5T trailer in tow are 100% compliant, secure, and road-legal nationwide when completed Pre-Rego (Federal). Why not invest in your brand new Chevy Silverado 2500HD now ?<br/></p>"
           }
         }
       },
@@ -739,7 +739,7 @@
         "heading_YjLxhA": {
           "type": "heading",
           "settings": {
-            "heading": "About Chevrolet Silverado 2500 LTZ GVM Specifications",
+            "heading": "Chevrolet Silverado 2500 LTZ GVM Specifications",
             "highlight_style": "underline",
             "enable_highlight_text_color": true,
             "heading_size": "h1",
@@ -805,13 +805,13 @@
             "label": "Gross Vehicle Mass (GVM)",
             "value_1": "4495 KG NB1\n5148 KG NB2",
             "value_2": "5500 KG",
-            "value_3": "60000 KG",
-            "value_4": "60000 KG",
-            "value_5": "6000 kg",
-            "value_6": "60000 KG",
-            "value_7": "60000 KG",
-            "value_8": "6000 kg",
-            "value_9": "6000kg",
+            "value_3": "6000 KG",
+            "value_4": "6000 KG",
+            "value_5": "6000 KG",
+            "value_6": "6000 KG",
+            "value_7": "6000 KG",
+            "value_8": "6000 KG",
+            "value_9": "6000 KG",
             "value_10": ""
           }
         },
@@ -835,15 +835,15 @@
           "type": "row",
           "settings": {
             "label": "Gross Combined Mass (GCM)",
-            "value_1": "12 474 KG",
-            "value_2": "12 474 KG",
-            "value_3": "12 474 KG",
-            "value_4": "12 474 KG",
-            "value_5": "12 474 KG",
-            "value_6": "12 474 KG",
-            "value_7": "12 474 KG",
-            "value_8": "12 474 KG",
-            "value_9": "12 474 KG",
+            "value_1": "12,474 KG",
+            "value_2": "12,474 KG",
+            "value_3": "12,474 KG",
+            "value_4": "12,474 KG",
+            "value_5": "12,474 KG",
+            "value_6": "12,474 KG",
+            "value_7": "12,474 KG",
+            "value_8": "12,474 KG",
+            "value_9": "12,474 KG",
             "value_10": ""
           }
         },
