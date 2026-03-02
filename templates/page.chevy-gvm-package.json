@@ -1127,6 +1127,12 @@
     "rich_text_4AxLyp": {
       "type": "rich-text",
       "blocks": {
+        "text_m6MhJm": {
+          "type": "text",
+          "settings": {
+            "text": "<h2><strong>Why Choose an ORI GVM & GCM Bundle?</strong></h2><ul><li>💰 <strong>Major Tax Benefits:</strong> By boosting your payload over 1,000kg, your Silverado can often be reclassified, potentially qualifying for ATO<strong> Exemptions</strong> (consult your accountant!).</li><li>🇦🇺 <strong>Federal & State Compliance:</strong> Our kits are ADR-compliant and Federally Approved (SSM). Whether you are buying new or upgrading a registered truck, we provide the engineering peace of mind.</li><li>🛠️ <strong>World-Class Partnerships:</strong> We don’t just \"re-valve\" basic shocks. We partner with <strong>Fox and BDS</strong> to provide a complete suspension overhaul that actually rides <em>better</em> than the factory setup.</li></ul><p>🛡️ <strong>Insurance & Safety:</strong> Don't risk a denied insurance claim or a fine for being overweight. Our GVM upgrades and <strong>LS16 GCM certification</strong> keep you safe and legal.</p>"
+          }
+        },
         "heading_PHJcdq": {
           "type": "heading",
           "settings": {
@@ -1139,6 +1145,7 @@
         }
       },
       "block_order": [
+        "text_m6MhJm",
         "heading_PHJcdq"
       ],
       "name": "t:sections.rich-text.presets.name",
