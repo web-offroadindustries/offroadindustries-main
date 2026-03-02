@@ -936,6 +936,7 @@
           "type": "name",
           "settings": {
             "label": "Name",
+            "field_name": "Name",
             "placeholder": "Enter your name",
             "field_width": "full",
             "hide_label": true,
@@ -973,6 +974,18 @@
             "required": false
           }
         },
+        "custom_select_9yNqx8": {
+          "type": "custom_select",
+          "settings": {
+            "label": "Which Vehicle",
+            "field_name": "Which Vehicle",
+            "placeholder": "Which Vehicle",
+            "options": "Ford F150, Chevy 1500, Chevy 2500HD, Toyota Tundra, RAM 2500 (5th Gen), RAM 2500 (6th Gen), Toyota LC300",
+            "field_width": "100",
+            "hide_label": true,
+            "required": false
+          }
+        },
         "location_fJEea9": {
           "type": "location",
           "settings": {
@@ -989,6 +1002,8 @@
           "settings": {
             "label": "Message",
             "placeholder": "Which gvm Package do you want further information on?",
+            "rows": 3,
+            "field_width": "100",
             "hide_label": true
           }
         }
@@ -998,6 +1013,7 @@
         "email_VajCJ3",
         "phone_L44CfG",
         "rego_status_wYBXXK",
+        "custom_select_9yNqx8",
         "location_fJEea9",
         "message_RnLkxr"
       ],
@@ -1020,135 +1036,6 @@
         "custom_id": "",
         "custom_class": "",
         "animations": "inherit"
-      }
-    },
-    "contact_form_v2_t9aepk": {
-      "type": "contact-form-v2",
-      "blocks": {
-        "info_item_BPeNXK": {
-          "type": "info_item",
-          "settings": {
-            "icon": "phone",
-            "label": "Phone",
-            "value": "+0483 930 639",
-            "link": "tel:+0483930639"
-          }
-        },
-        "info_item_f3ArhL": {
-          "type": "info_item",
-          "settings": {
-            "icon": "email",
-            "label": "Email",
-            "value": "sales@offroadindustries.com.au",
-            "link": "mailto:sales@offroadindustries.com.au"
-          }
-        },
-        "info_item_deptgX": {
-          "type": "info_item",
-          "settings": {
-            "icon": "pin",
-            "label": "Address",
-            "value": "3 Montefiore Street Fairfield VIC 3078 Australia",
-            "link": "tel:+10000000000"
-          }
-        },
-        "info_item_8rXbgh": {
-          "type": "info_item",
-          "settings": {
-            "icon": "clock",
-            "label": "Business Hours",
-            "value": "Monday to Friday: 9:00AM – 4:00PM",
-            "link": "tel:+10000000000"
-          }
-        },
-        "field_name_yweRiV": {
-          "type": "field_name",
-          "settings": {
-            "label": "Name",
-            "placeholder": "Your name",
-            "required": true,
-            "width": "full"
-          }
-        },
-        "field_email_3fJm7c": {
-          "type": "field_email",
-          "settings": {
-            "label": "Email",
-            "placeholder": "you@email.com",
-            "required": true,
-            "width": "full"
-          }
-        },
-        "field_phone_dnVCrw": {
-          "type": "field_phone",
-          "settings": {
-            "label": "Phone Number",
-            "placeholder": "Enter your phone number",
-            "required": false,
-            "width": "full"
-          }
-        },
-        "field_rego_status_Kzih4g": {
-          "type": "field_rego_status",
-          "settings": {
-            "label": "Pre or Post rego",
-            "field_name": "Pre or Post rego",
-            "placeholder": "Select one",
-            "options": "Pre rego, Post rego",
-            "required": false,
-            "width": "full"
-          }
-        },
-        "field_location_CQwzyj": {
-          "type": "field_location",
-          "settings": {
-            "label": "What is your location",
-            "field_name": "Location",
-            "placeholder": "What is your location?",
-            "required": false,
-            "width": "full"
-          }
-        },
-        "field_message_9bxGzF": {
-          "type": "field_message",
-          "settings": {
-            "label": "Message",
-            "placeholder": "Which gvm Package do you want further information on?",
-            "required": true,
-            "width": "full"
-          }
-        }
-      },
-      "block_order": [
-        "info_item_BPeNXK",
-        "info_item_f3ArhL",
-        "info_item_deptgX",
-        "info_item_8rXbgh",
-        "field_name_yweRiV",
-        "field_email_3fJm7c",
-        "field_phone_dnVCrw",
-        "field_rego_status_Kzih4g",
-        "field_location_CQwzyj",
-        "field_message_9bxGzF"
-      ],
-      "disabled": true,
-      "name": "Contact Form v2",
-      "settings": {
-        "heading": "Questions? We’re Hereto Help",
-        "body": "<p>Add your intro text here.</p>",
-        "form_title": "Send us a message",
-        "form_banner_image": "shopify://shop_images/contact-form-banner.webp",
-        "button_label": "Submit",
-        "success_message": "Thanks! We received your message and will get back to you soon.",
-        "desktop_layout": "content_left",
-        "mobile_layout": "content_first",
-        "fields_columns_desktop": "1",
-        "max_width": 1200,
-        "bg_color": "#ffffff",
-        "form_bg": "#e6e6e6",
-        "accent": "#56bdc2",
-        "padding_top": 40,
-        "padding_bottom": 40
       }
     },
     "rich_text_4AxLyp": {
@@ -1272,7 +1159,6 @@
     "gvm_comparison_FfmTMw",
     "gvm_comparison_RXeVcA",
     "contact_form_v4_3VcJeR",
-    "contact_form_v2_t9aepk",
     "rich_text_4AxLyp",
     "logo_list_8XphYi"
   ]
