@@ -29,10 +29,10 @@
 {%- if enable_free_shipping_mess -%}
     <link rel="stylesheet" href="{{ 'cart-goal.css' | asset_url }}" media="print" onload="this.media='all'">
     <f-cart-goal class="f-cartgoal {{ class_message }}" data-enable-confetti="{{ enable_confetti }}" data-cart-total="{{ cart.total_price | plus: 0 }}" data-cart-goal="{{ limit }}" style="--progress: 0%;">
-        <h4 class="f-cartgoal__title font-body text-body">
+        {% comment %} <h4 class="f-cartgoal__title font-body text-body">
             <span class="f-cartgoal__default-message">{{ free_shipping_message }}</span>
             <span class="f-cartgoal__success-message">{{ qualified_shipping_message }}</span>
-        </h4>
+        </h4> {% endcomment %}
         <div class="f-cartgoal__inner">
             <div class="f-cartgoal__bar">
                 <span data-progress="0"></span>
