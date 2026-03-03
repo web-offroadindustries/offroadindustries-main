@@ -94,24 +94,30 @@ class FacetFiltersForm extends HTMLElement {
 
   static renderElements(html, el, selector) {
     const elementContainer = document.querySelector(el);
-    elementContainer.innerHTML = new DOMParser()
-      .parseFromString(html, "text/html")
-      .querySelector(el).innerHTML;
+    if (!elementContainer) return;
+
+    const parsed = new DOMParser().parseFromString(html, "text/html");
+    const newEl = parsed.querySelector(el);
+    if (!newEl) return;
+
+    elementContainer.innerHTML = newEl.innerHTML;
+
+    const overlay = document.querySelector(selector);
     FacetFiltersForm.loading = new window.FoxTheme.AnimateLoading(
       document.body,
-      { overlay: document.querySelector(selector) }
+      overlay ? { overlay } : {}
     );
+
     __reInitTooltip(elementContainer);
   }
 
   static renderProductCount(html) {
-    const count = new DOMParser()
-      .parseFromString(html, "text/html")
-      .querySelector(FacetFiltersForm.selectors.productCount).innerHTML;
-    const container = document.querySelector(
-      FacetFiltersForm.selectors.productCount
-    );
-    container.innerHTML = count;
+    const parsed = new DOMParser().parseFromString(html, "text/html");
+    const newCountEl = parsed.querySelector(FacetFiltersForm.selectors.productCount);
+    const container = document.querySelector(FacetFiltersForm.selectors.productCount);
+
+    if (!newCountEl || !container) return;
+    container.innerHTML = newCountEl.innerHTML;
   }
 
   static renderFilters(html, event) {
@@ -151,8 +157,11 @@ class FacetFiltersForm extends HTMLElement {
     activeFacetElementSelectors.forEach((selector) => {
       const activeFacetsElement = html.querySelector(selector);
       if (!activeFacetsElement) return;
-      document.querySelector(selector).innerHTML =
-        activeFacetsElement.innerHTML;
+
+      const target = document.querySelector(selector);
+      if (!target) return;
+
+      target.innerHTML = activeFacetsElement.innerHTML;
     });
   }
 
