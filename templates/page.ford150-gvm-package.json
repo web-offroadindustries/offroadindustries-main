@@ -219,7 +219,7 @@
       "settings": {
         "container": "container",
         "color_schema": "",
-        "image": "shopify://shop_images/GVM_F150stage_1_3700_GVM_F150.jpg",
+        "image": "shopify://shop_images/stage_1_3700_GVM_F150_1a2b23ba-34d2-4d26-8561-73a904b38199.jpg",
         "image_width": "50%",
         "image_position": "left",
         "vertical_alignment": "center",
@@ -275,7 +275,7 @@
       "settings": {
         "container": "container",
         "color_schema": "",
-        "image": "shopify://shop_images/GVM_F150stage_2_3700_GVM_F150.jpg",
+        "image": "shopify://shop_images/stage_2_3700_GVM_F150_53baffd5-98d9-4ca4-aba1-40c3f875cf27.jpg",
         "image_width": "50%",
         "image_position": "right",
         "vertical_alignment": "center",
@@ -331,7 +331,7 @@
       "settings": {
         "container": "container",
         "color_schema": "",
-        "image": "shopify://shop_images/ORI-Stage3-F150-GVMTile.png",
+        "image": "shopify://shop_images/stage_3_3700_GVM_F150.jpg",
         "image_width": "50%",
         "image_position": "left",
         "vertical_alignment": "center",
@@ -387,7 +387,7 @@
       "settings": {
         "container": "container",
         "color_schema": "",
-        "image": "shopify://shop_images/GVM_F150stage_4_4300_GVM_F150.jpg",
+        "image": "shopify://shop_images/stage_4_4300_GVM_F150_9242cdce-016f-4d02-86a3-14f2552b2bc3.jpg",
         "image_width": "50%",
         "image_position": "right",
         "vertical_alignment": "center",
@@ -443,7 +443,7 @@
       "settings": {
         "container": "container",
         "color_schema": "",
-        "image": "shopify://shop_images/GVM_F150stage_5_4300_GVM_F150.jpg",
+        "image": "shopify://shop_images/stage_5_4300_GVM_F150_e4ba6e02-55d2-40f4-b386-3f66d16083b1.jpg",
         "image_width": "50%",
         "image_position": "left",
         "vertical_alignment": "center",
@@ -499,7 +499,7 @@
       "settings": {
         "container": "container",
         "color_schema": "",
-        "image": "shopify://shop_images/GVM_F150stage_6_4300_GVM_F150_08ffa7da-c630-46d5-bf13-3749176d590d.jpg",
+        "image": "shopify://shop_images/stage_6_4300_GVM_F150_31109e27-5ce9-4ce8-9b19-d22721c77fcf.jpg",
         "image_width": "50%",
         "image_position": "right",
         "vertical_alignment": "center",
