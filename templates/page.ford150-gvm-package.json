@@ -132,7 +132,7 @@
         "text_CfcJd4": {
           "type": "text",
           "settings": {
-            "text": "<p>Stop worrying about weight limits and start adventuring with absolute confidence. Offroad Industries (ORI) offers Australia’s most comprehensive, Federally Approved GVM (Gross Vehicle Mass) upgrades for the Ford F150 range—including Platinum, Lariat, XLT SWB, and LWB models with lift kits ranging from 2” to our monster 6” package with 37” tyres.</p><p>By bundling our ORI GVM Packages with GCM testing and LS16 certification, we grant your truck true \"Super-Truck\" status. The LS16 code is our secret sauce: a specific engineering modification code for Gross Combination Mass Re-rating. This ensures your truck, your gear, and your 4.5T trailer are 100% legal together, whether registered Pre-Rego (Federal) or Post-Rego (State-based).</p>"
+            "text": "<p>Stop worrying about weight limits and start adventuring with absolute confidence. Offroad Industries (ORI) offers Australia’s most comprehensive, Federally Approved GVM (Gross Vehicle Mass) upgrades for the Ford F150 range—including Platinum, Lariat, XLT SWB, and LWB models with lift kits ranging from 2” to our monster 6” package with 37” tyres.</p><p>By bundling our ORI GVM Packages with GCM testing and LS16 certification, we grant your truck true \"Super-Truck\" status. The LS16 code is our secret sauce: a specific engineering modification code for Gross Combination Mass Re-rating. This ensures your truck, your gear, and your 4.5T trailer are 100% legal together, whether registered Pre-Rego (Federal) or Post-Rego (State-based).</p><p>ORI SSM approval only apply to Ford Australia Delivered vehicles, Ford F150, SWB, LWB Platinum, Lariat, XLT vehicles.</p><p></p><p></p><p></p><p></p>"
           }
         }
       },
@@ -219,7 +219,7 @@
       "settings": {
         "container": "container",
         "color_schema": "",
-        "image": "shopify://shop_images/stage_1_3700_GVM_F150_1a2b23ba-34d2-4d26-8561-73a904b38199.jpg",
+        "image": "shopify://shop_images/GVM_F150stage_1_3700_GVM_F150.jpg",
         "image_width": "50%",
         "image_position": "left",
         "vertical_alignment": "center",
@@ -275,7 +275,7 @@
       "settings": {
         "container": "container",
         "color_schema": "",
-        "image": "shopify://shop_images/stage_2_3700_GVM_F150_53baffd5-98d9-4ca4-aba1-40c3f875cf27.jpg",
+        "image": "shopify://shop_images/GVM_F150stage_2_3700_GVM_F150.jpg",
         "image_width": "50%",
         "image_position": "right",
         "vertical_alignment": "center",
@@ -303,7 +303,7 @@
         "subheading_p3JeNT": {
           "type": "subheading",
           "settings": {
-            "subheading": "Stage 3: $16, 999 Installed & Engineered (Non Flare Option) or with flares $19,499"
+            "subheading": "Stage 3: $16, 999 Installed & Engineered"
           }
         },
         "heading_KMefdY": {
@@ -331,7 +331,7 @@
       "settings": {
         "container": "container",
         "color_schema": "",
-        "image": "shopify://shop_images/stage_3_3700_GVM_F150.jpg",
+        "image": "shopify://shop_images/ORI-Stage3-F150-GVMTile.png",
         "image_width": "50%",
         "image_position": "left",
         "vertical_alignment": "center",
@@ -387,7 +387,7 @@
       "settings": {
         "container": "container",
         "color_schema": "",
-        "image": "shopify://shop_images/stage_4_4300_GVM_F150_9242cdce-016f-4d02-86a3-14f2552b2bc3.jpg",
+        "image": "shopify://shop_images/GVM_F150stage_4_4300_GVM_F150.jpg",
         "image_width": "50%",
         "image_position": "right",
         "vertical_alignment": "center",
@@ -443,7 +443,7 @@
       "settings": {
         "container": "container",
         "color_schema": "",
-        "image": "shopify://shop_images/stage_5_4300_GVM_F150_e4ba6e02-55d2-40f4-b386-3f66d16083b1.jpg",
+        "image": "shopify://shop_images/GVM_F150stage_5_4300_GVM_F150.jpg",
         "image_width": "50%",
         "image_position": "left",
         "vertical_alignment": "center",
@@ -471,7 +471,7 @@
         "subheading_VEPgxn": {
           "type": "subheading",
           "settings": {
-            "subheading": "Stage 5: $24,500 Installed & Engineered. XLT, Lariat, Platinum"
+            "subheading": "Stage 5: $24,500 Installed & Engineered. Platinum, Lariat, XLT"
           }
         },
         "heading_6ppiVb": {
@@ -499,7 +499,7 @@
       "settings": {
         "container": "container",
         "color_schema": "",
-        "image": "shopify://shop_images/stage_6_4300_GVM_F150_31109e27-5ce9-4ce8-9b19-d22721c77fcf.jpg",
+        "image": "shopify://shop_images/GVM_F150stage_6_4300_GVM_F150_08ffa7da-c630-46d5-bf13-3749176d590d.jpg",
         "image_width": "50%",
         "image_position": "right",
         "vertical_alignment": "center",
@@ -527,7 +527,7 @@
         "heading_YjLxhA": {
           "type": "heading",
           "settings": {
-            "heading": "FORD F150, XLT, LARIAT, PLATINUM SWB & LWB GVM SPECIFICATIONS",
+            "heading": "FORD F150, PLATINUM, LARIAT, XLT  SWB & LWB GVM SPECIFICATIONS",
             "highlight_style": "underline",
             "enable_highlight_text_color": true,
             "heading_size": "h1",
@@ -611,9 +611,9 @@
             "value_2": "2476 KG",
             "value_3": "2481 KG",
             "value_4": "2481 KG",
-            "value_5": "2481 kg",
-            "value_6": "2491 kg",
-            "value_7": "2491 kg",
+            "value_5": "2481 KG",
+            "value_6": "2491 KG",
+            "value_7": "2491 KG",
             "value_8": "",
             "value_9": "",
             "value_10": ""
