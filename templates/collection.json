@@ -247,8 +247,8 @@
       "type": "main-collection-product-grid",
       "settings": {
         "container": "container",
-        "products_per_page": 15,
-        "columns": 3,
+        "products_per_page": 30,
+        "columns": 4,
         "column_gap": "medium",
         "row_gap": "medium",
         "enable_product_count": true,
