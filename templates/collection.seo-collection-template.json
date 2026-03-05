@@ -283,7 +283,7 @@
       "settings": {
         "container": "container",
         "color_schema": "",
-        "text_alignment": "center",
+        "text_alignment": "left",
         "padding_top": 40,
         "padding_bottom": 40,
         "show_section_divider": false,
