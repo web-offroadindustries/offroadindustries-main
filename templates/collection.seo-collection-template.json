@@ -442,7 +442,7 @@
         "faq_mf_namespace": "custom",
         "faq_mf_key": "collection_faq",
         "container_title": "{{ collection.metafields.custom.faq_title.value }}",
-        "container_subtitle": "<p>{{ collection.metafields.custom.faq_subtitle | metafield_tag }}</p>",
+        "container_subtitle": "{{ collection.metafields.custom.faq_subtitle | metafield_tag }}",
         "bg_color": "#ffffff",
         "card_bg": "#ffffff",
         "border_color": "#e6e6e6",
@@ -457,7 +457,7 @@
         "answer_size": 14,
         "answer_color": "#333333",
         "single_open": true,
-        "open_first_faq": false
+        "open_first_faq": true
       }
     },
     "177165700093d5a446": {
