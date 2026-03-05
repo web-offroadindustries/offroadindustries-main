@@ -7,7 +7,7 @@
   assign faq_mf = collection.metafields[ns][key]
   assign faqs = faq_mf.value
 
-  assign faq_title = section.settings.container_title
+  assign faq_title = section.settings.container_title | strip
   if faq_title == blank
     assign faq_title = 'FAQs'
   endif
@@ -37,15 +37,13 @@
     data-single-open="{{ section.settings.single_open }}"
   >
     <div class="cfq__wrap">
-      {%- if section.settings.container_title != blank or section.settings.container_subtitle != blank -%}
         <header class="cfq__head">
-          <h2 class="cfq__title">{{ faq_title }}</h2>
+            <h2 class="cfq__title">{{ faq_title }}</h2>
 
-          {%- if section.settings.container_subtitle != blank -%}
+            {%- if section.settings.container_subtitle != blank -%}
             <div class="cfq__subtitle rte">{{ section.settings.container_subtitle }}</div>
-          {%- endif -%}
+            {%- endif -%}
         </header>
-      {%- endif -%}
 
       <div class="cfq__list">
         {%- for faq in faqs -%}
