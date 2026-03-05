@@ -440,11 +440,18 @@
         },
         "brand_tile_UJ48br": {
           "type": "brand_tile",
-          "disabled": true,
           "settings": {
             "logo": "shopify://shop_images/GVM_ICON_420x420_RAM.jpg",
             "label": "RAM 2500",
             "link": "shopify://pages/ram-2500-gvm-packages"
+          }
+        },
+        "brand_tile_re7th7": {
+          "type": "brand_tile",
+          "settings": {
+            "logo": "shopify://shop_images/RAM_TEASER.jpg",
+            "label": "RAM 2500 6th Gen",
+            "link": ""
           }
         }
       },
@@ -453,7 +460,8 @@
         "brand_tile_BrPGR7",
         "brand_tile_YDDwKb",
         "brand_tile_CEAayT",
-        "brand_tile_UJ48br"
+        "brand_tile_UJ48br",
+        "brand_tile_re7th7"
       ],
       "name": "Mega menu 1",
       "settings": {
