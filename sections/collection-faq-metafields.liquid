@@ -39,9 +39,7 @@
     <div class="cfq__wrap">
       {%- if section.settings.container_title != blank or section.settings.container_subtitle != blank -%}
         <header class="cfq__head">
-          {%- if section.settings.container_title != blank -%}
-            <h2 class="cfq__title">{{ section.settings.container_title }}</h2>
-          {%- endif -%}
+          <h2 class="cfq__title">{{ faq_title }}</h2>
 
           {%- if section.settings.container_subtitle != blank -%}
             <div class="cfq__subtitle rte">{{ section.settings.container_subtitle }}</div>
@@ -53,7 +51,7 @@
         {%- for faq in faqs -%}
           {%- assign q = faq.question.value | default: faq.question -%}
 
-          <details class="cfq__item">
+          <details class="cfq__item" {% if section.settings.open_first_faq and forloop.first %}open{% endif %}>
             <summary class="cfq__q">
               <span class="cfq__qText">{{ q }}</span>
               <span class="cfq__icon" aria-hidden="true"></span>
@@ -214,7 +212,8 @@
     { "type": "number", "id": "answer_size", "label": "Answer font size (px)", "default": 14 },
     { "type": "color", "id": "answer_color", "label": "Answer color", "default": "#333333" },
 
-    { "type": "checkbox", "id": "single_open", "label": "Only one FAQ open at a time", "default": true }
+    { "type": "checkbox", "id": "single_open", "label": "Only one FAQ open at a time", "default": true },
+    { "type": "checkbox", "id": "open_first_faq", "label": "Open first FAQ by default", "default": false }
   ],
   "presets": [
     { "name": "Collection FAQ" }
