@@ -441,11 +441,11 @@
       "settings": {
         "faq_mf_namespace": "custom",
         "faq_mf_key": "collection_faq",
-        "container_title": "FAQ",
-        "container_subtitle": "",
-        "bg_color": "#FFFFFF",
-        "card_bg": "#FFFFFF",
-        "border_color": "#E6E6E6",
+        "container_title": "FAQ{{ collection.metafields.custom.faq_title.value }}",
+        "container_subtitle": "{{ collection.metafields.custom.faq_subtitle | metafield_tag }}",
+        "bg_color": "#ffffff",
+        "card_bg": "#ffffff",
+        "border_color": "#e6e6e6",
         "max_width": 1200,
         "padding_y": 32,
         "title_size": 30,
@@ -456,7 +456,8 @@
         "question_color": "#111111",
         "answer_size": 14,
         "answer_color": "#333333",
-        "single_open": true
+        "single_open": true,
+        "open_first_faq": false
       }
     },
     "177165700093d5a446": {
