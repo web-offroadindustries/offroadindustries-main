@@ -6,6 +6,11 @@
 
   assign faq_mf = collection.metafields[ns][key]
   assign faqs = faq_mf.value
+
+  assign faq_title = section.settings.container_title
+  if faq_title == blank
+    assign faq_title = 'FAQs'
+  endif
 -%}
 
 {%- if faqs != blank and faqs.count > 0 -%}
