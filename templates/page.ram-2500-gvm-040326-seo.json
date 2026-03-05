@@ -153,11 +153,39 @@
         "custom_class": "",
         "animations": "inherit"
       }
+    },
+    "rich_text_TqnMwd": {
+      "type": "rich-text",
+      "blocks": {
+        "text_A3CNT7": {
+          "type": "text",
+          "settings": {
+            "text": "<h2>RAM 2500 GVM Upgrades: Carry More, Tow Better, Travel Farther</h2><p>If you’re ready to get the most from your Ram 2500, getting a GVM upgrade is for you. It isn’t just an upgrade or numbers on paper, Ram 2500 GVM upgrades give you  about changing a number on paper, more support, more rugged potential, and even greater abilities to haul heavy loads of gear. Generally, when you drive your Ram 2500 off the lot, you’ll be sitting in the NB1 category, which is a broad ranging limit when it comes to how much weight you can legally carry. Certain vehicles - like the Ram 2500 - are built for more and can easily be transformed into beasts with upgraded suspension and coils to do your hard-working truck justice. </p><p>If you’re left wanting more - whether that’s more gear, heavier tools, or some serious touring equipment when you’re heading off into the wilds of Australia, our <a href=\"https://www.offroadindustries.com.au/pages/ori-gvm-upgrades\"><span style=\"text-decoration:underline\">GVM upgrades</span></a> can get you there. Discover the freedom of going further and explore the range of RAM 2500 GVM upgrades here at Offroad Industries. </p><h2>RAM 2500 GVM Upgrade Australia: Compliant & Certified Solutions</h2><p>When you get a GVM upgrade for your Ram 2500 with Offroad Industries, you’ll have everything you need. With installation and engineering all taken care of, all you need to do is choose which Stage you want. We can make sure everything is safe, compliant, and more powerful than you’ve experienced before. We’re a federally approved second-stage manufacturer, which means we can upgrade your RAM 2500 on the official federal database. </p><p>We’ve chosen the best combination of parts, including coils and suspension, all from top brands including the likes of <a href=\"https://www.offroadindustries.com.au/collections/fox_suspension_australian_distributor\"><span style=\"text-decoration:underline\">Fox Suspension</span></a> and <a href=\"https://www.offroadindustries.com.au/collections/bds-suspension-australian-distributor\"><span style=\"text-decoration:underline\">BDS</span></a>, along with our own rugged ranges of parts and accessories. There’s nothing generic or ordinary when it comes to ORI - everything was designed specifically for the RAM 2500 platform and subjected to rigorous testing and certification. That means you get the performance and power you need, without sacrificing safety or control. </p><h2>GVM Upgrade RAM 2500: Common Questions and What to Ask Your Installer</h2><p>Before you commit to a Ram 2500 GVM upgrade pack, there are a few key things worth clarifying regarding your vehicle. First, you’ll want to check how the upgrade changes your total payload and towing limits on your specific truck, along with the Class it’ll be in if you get a certain upgrade completed. </p><p>You’ll also want to check whether your current <a href=\"https://www.offroadindustries.com.au/collections/4-play-wheels\"><span style=\"text-decoration:underline\">wheels</span></a> and tyres are up for the job. With greater weight acting on them, along with a change in ground clearance, you may need to upgrade those too. </p><p>Finally, you might have questions regarding the timeframe and paperwork sign off, which we can help you with. If you have questions and want to speak to our team, <a href=\"https://www.offroadindustries.com.au/pages/contact-us\"><span style=\"text-decoration:underline\">contact us</span></a> any time for more information. </p><h2>Top GVM Upgrade Packages for the RAM 2500 in Australia</h2><p>Discover the true potential of your Ram 2500 and explore your options here at Offroad Industries. With each Stage having been engineered to suit different levels of demand, whether you want extra lift and more hauling power, or something seriously heavy duty, you’ll find a GVM upgrade option here. Whether you’re looking for something for daily hauling, heavy towing for weekend trips, or long-distance loaded touring across the toughest terrain, your RAM 2500 can truly reflect what it was built to do — work hard, go far and carry more with confidence. </p>"
+          }
+        }
+      },
+      "block_order": [
+        "text_A3CNT7"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "container": "container",
+        "color_schema": "",
+        "text_alignment": "center",
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "show_section_divider": false,
+        "divider_width": "container",
+        "custom_id": "",
+        "custom_class": "",
+        "animations": "inherit"
+      }
     }
   },
   "order": [
     "hero_JfeqW9",
     "main",
-    "multicolumn_AcQKEk"
+    "multicolumn_AcQKEk",
+    "rich_text_TqnMwd"
   ]
 }
