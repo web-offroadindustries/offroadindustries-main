@@ -441,8 +441,8 @@
       "settings": {
         "faq_mf_namespace": "custom",
         "faq_mf_key": "collection_faq",
-        "container_title": "FAQ{{ collection.metafields.custom.faq_title.value }}",
-        "container_subtitle": "{{ collection.metafields.custom.faq_subtitle | metafield_tag }}",
+        "container_title": "{{ collection.metafields.custom.faq_title.value }}",
+        "container_subtitle": "<p>{{ collection.metafields.custom.faq_subtitle | metafield_tag }}</p>",
         "bg_color": "#ffffff",
         "card_bg": "#ffffff",
         "border_color": "#e6e6e6",
