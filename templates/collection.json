@@ -245,6 +245,9 @@
     },
     "product-grid": {
       "type": "main-collection-product-grid",
+      "custom_css": [
+        ".f-checkbox {color: #000;}"
+      ],
       "settings": {
         "container": "container",
         "products_per_page": 16,
