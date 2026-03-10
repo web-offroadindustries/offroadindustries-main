@@ -163,6 +163,15 @@
                       </button>
 
                       <div class="f-facets__block-content" data-content>
+
+                        {% if current_tags != blank %}
+                          <div class="f-facets__tag-filter-actions" style="margin: 0 0 10px;">
+                            <a class="btn btn--underline" href="{{ base_url }}">
+                              Clear
+                            </a>
+                          </div>
+                        {% endif %}
+
                         <ul class="list-none f-facets__list" role="list">
                           {%- assign sorted_tags = results.all_tags | sort -%}
                           {%- for tag in sorted_tags -%}
@@ -209,6 +218,7 @@
                             </li>
                           {%- endfor -%}
                         </ul>
+
                       </div>
                     </collapsible-tab>
                   </div>
