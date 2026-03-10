@@ -253,7 +253,6 @@
         "row_gap": "medium",
         "enable_product_count": true,
         "enable_filtering": true,
-        "enable_filtering_by_tag": true,
         "enable_sorting": true,
         "sidebar_position": "left",
         "group_collapsible": true,
@@ -262,6 +261,10 @@
         "filter_group_heading_size": "h5",
         "show_results_count": true,
         "filter_color_type": "list",
+        "enable_tag_filter": true,
+        "show_tag_filter_with_facets": true,
+        "tag_filter_heading": "By Vehicle",
+        "tag_filter_exclude_prefixes": "spo-,filter-",
         "paginate_type": "number",
         "padding_top": 0,
         "padding_bottom": 100
