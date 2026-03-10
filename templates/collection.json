@@ -246,7 +246,8 @@
     "product-grid": {
       "type": "main-collection-product-grid",
       "custom_css": [
-        ".f-checkbox {color: #000;}"
+        ".f-checkbox {color: #000;}",
+        ".f-checkbox .checkmark {opacity: 1; background-color: #000; margin-inline: 4px 6px;}"
       ],
       "settings": {
         "container": "container",
