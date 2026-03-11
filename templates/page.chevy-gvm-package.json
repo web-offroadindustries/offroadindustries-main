@@ -253,7 +253,7 @@
         "heading_dHpa9y": {
           "type": "heading",
           "settings": {
-            "heading": "<strong>Stage 2: The Performance Level-Up (3650kg GVM + GCM up to 7850Kg)</strong>",
+            "heading": "<strong>Stage 2:  ZR2 Only Performance Level-Up (3650kg GVM + GCM up to 7850Kg)</strong>",
             "highlight_style": "none",
             "enable_highlight_text_color": false,
             "heading_size": "h2"
@@ -275,7 +275,7 @@
       "settings": {
         "container": "container",
         "color_schema": "",
-        "image": "shopify://shop_images/stage_2___3650_GVM_CHEVY_1500.jpg",
+        "image": "shopify://shop_images/Screenshot_2026-03-11_084406.png",
         "image_width": "50%",
         "image_position": "right",
         "vertical_alignment": "center",
