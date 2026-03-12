@@ -29,7 +29,7 @@
   </style>
 {%- endif -%}
 
-<footer class="site-footer{% if section.settings.show_divider %} site-footer--show-divider{% endif %}">
+<footer class="site-footer color-{{ section.settings.color_schema }}{% if section.settings.show_divider %} site-footer--show-divider{% endif %}">
   {%- if help_bar_block != blank -%}
     {%- liquid
       assign heading = help_bar_block.settings.heading
