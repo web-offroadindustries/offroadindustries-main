@@ -18,17 +18,30 @@
 -%}
 
 {%- if section.settings.footer_bg_image != blank -%}
+  {%- liquid
+    assign footer_bg_size = section.settings.footer_bg_size | default: 'cover'
+    assign footer_bg_position = section.settings.footer_bg_position | default: 'center'
+    assign footer_bg_repeat = 'no-repeat'
+    if footer_bg_size == 'auto'
+      assign footer_bg_repeat = 'repeat'
+    endif
+  -%}
   <style>
+    /* Footer background image (sits on top of the selected color scheme background) */
+    #shopify-section-{{ section.id }} .site-footer{
+      background-image: url({{ section.settings.footer_bg_image | image_url: width: 2400 }});
+      background-size: {{ footer_bg_size }};
+      background-position: {{ footer_bg_position }};
+      background-repeat: {{ footer_bg_repeat }};
+    }
+    /* Prevent inner footer wrappers from overriding the section background */
     #shopify-section-{{ section.id }} .site-footer__top,
     #shopify-section-{{ section.id }} .site-footer__bottom{
-      background-image: url({{ section.settings.footer_bg_image | image_url: width: 2400 }});
-      background-repeat: no-repeat;
-      background-position: {{ section.settings.footer_bg_position }};
-      background-size: {{ section.settings.footer_bg_size }};
+      background-color: transparent !important;
+      background-image: none !important;
     }
   </style>
 {%- endif -%}
-
 <footer class="site-footer color-{{ section.settings.color_schema }}{% if section.settings.show_divider %} site-footer--show-divider{% endif %}">
   {%- if help_bar_block != blank -%}
     {%- liquid
