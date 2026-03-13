@@ -61,9 +61,9 @@
             "form_id": "",
             "text_color": "#202020",
             "button_background_color": "#202020",
-            "button_label_color": "#FFFFFF",
-            "links_color": "#1878B9",
-            "errors_color": "#E02229",
+            "button_label_color": "#ffffff",
+            "links_color": "#1878b9",
+            "errors_color": "#e02229",
             "text_alignment": "center",
             "form_alignment": "center",
             "padding_top": 0,
@@ -85,6 +85,12 @@
         "quantity_selector_k8h8i8": {
           "type": "quantity_selector",
           "settings": {}
+        },
+        "custom_liquid_r3fEdW": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "<script>\n(function () {\n  function moveStoqButton() {\n    // 1) Find STOQ button (YOU MUST adjust this selector after inspecting the button in DevTools)\n    var btn =\n      document.querySelector('.stoq-notify-button, .stoq-notify-me, [data-stoq-notify], #stoq-notify-me');\n\n    // 2) Where to move it (adjust if your theme uses a different wrapper)\n    var target =\n      document.querySelector('.product-form__buttons, .product-form__submit, form[action^=\"/cart/add\"]');\n\n    if (!btn || !target) return;\n\n    // Prevent repeated moves\n    if (btn.dataset.stoqMoved === '1') return;\n\n    // Move + normalize styles so it doesn't behave like a floating tab\n    target.appendChild(btn);\n    btn.dataset.stoqMoved = '1';\n    btn.style.position = 'static';\n    btn.style.transform = 'none';\n    btn.style.right = 'auto';\n    btn.style.top = 'auto';\n  }\n\n  // STOQ may inject late, so try multiple times + observe DOM changes\n  moveStoqButton();\n  setTimeout(moveStoqButton, 500);\n  setTimeout(moveStoqButton, 1500);\n\n  var obs = new MutationObserver(function () { moveStoqButton(); });\n  obs.observe(document.documentElement, { childList: true, subtree: true });\n})();\n</script>"
+          }
         },
         "buy_buttons": {
           "type": "buy_buttons",
@@ -181,6 +187,7 @@
         "forms_inline_iqCiPN",
         "variant_picker",
         "quantity_selector_k8h8i8",
+        "custom_liquid_r3fEdW",
         "buy_buttons",
         "0085194a-475c-4e97-9fc9-d18c06632620",
         "text_FrMTyY",
