@@ -540,7 +540,7 @@
         "product_6VG8yJ": {
           "type": "product",
           "settings": {
-            "product": "husky-liners-weatherbeater-floor-liners-chevy-silverado-2500hd-1500",
+            "product": "husky-liners-weatherbeater-floor-liners-ford-f150-2021",
             "hotspot_color": "light",
             "horizontal": 45,
             "vertical": 33
@@ -549,7 +549,7 @@
         "product_xT3cFm": {
           "type": "product",
           "settings": {
-            "product": "avs-aeroskin-bonnet-protector-smoke-finish-chevy-silverado-2500hd",
+            "product": "avs-low-profile-weather-shields-smoke-ford-f150-2021",
             "hotspot_color": "light",
             "horizontal": 30,
             "vertical": 68
@@ -558,7 +558,7 @@
         "product_kNg8JP": {
           "type": "product",
           "settings": {
-            "product": "husky-heavy-duty-bed-mat-chevrolet-silverado-2500hd-2020",
+            "product": "husky-heavy-duty-bed-mat-ford-f150-xlt-lariat",
             "hotspot_color": "light",
             "horizontal": 74,
             "vertical": 52
@@ -573,11 +573,11 @@
       "settings": {
         "container": "container",
         "color_schema": "",
-        "image": "shopify://shop_images/2025-silverado-2500-3lt-gno-driver-front-3quarter-nav.png",
+        "image": "shopify://shop_images/bds-6-inch-lift-kit-fox-25-performance-elite-coil-over-ford-f150-21-25bdsbds1585fpe-445081.jpg",
         "image_position": "left",
         "desktop_content_position": "center",
-        "subheading": "<p>Bundle & save</p>",
-        "heading": "<p>Chevrolet Silverado 2500HD</p>",
+        "subheading": "",
+        "heading": "<p>Ford F150 Accessories 2021+</p>",
         "highlight_style": "none",
         "enable_highlight_text_color": false,
         "heading_size": "h-xl",
