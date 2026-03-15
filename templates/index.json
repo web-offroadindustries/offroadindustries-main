@@ -710,7 +710,7 @@
         "overlay_opacity": 0,
         "form_bg_color": "#ffffff",
         "text_color": "#000000",
-        "button_bg": "#000000",
+        "button_bg": "#e97750",
         "button_text": "#ffffff",
         "padding_top": 60,
         "padding_bottom": 60
