@@ -155,6 +155,11 @@
         "type": "shopify://apps/mappy-store-locator/blocks/bss-sl-script/edfca2bd-82ad-413c-b32c-580d239b17ab",
         "disabled": false,
         "settings": {}
+      },
+      "5439026248262864547": {
+        "type": "shopify://apps/preorder-globo/blocks/app-embed/e547a0ad-8212-4bcc-b02f-761faa9b8af2",
+        "disabled": true,
+        "settings": {}
       }
     },
     "color_schemes": {
