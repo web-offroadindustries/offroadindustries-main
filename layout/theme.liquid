@@ -21,12 +21,24 @@
   {% endif %}
 >
   <head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-PNBCJ3H');</script>
+    <!-- End Google Tag Manager -->
+    <script>
+      window.Store = window.Store || {};
+      window.Store.id = {{ shop.id }};
+    </script>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="theme-color" content="">
     <link rel="canonical" href="{{ canonical_url }}">
     <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
+    {% render 'orbislabs_sitemap_noindex' %}
 
     {%- if settings.favicon != blank -%}
       <link
@@ -174,7 +186,13 @@
 
     {% comment %} Custom metafield for head tag like GTag tracking {% endcomment %}
     {{ shop.metafields.foxtheme.code_head.value }}
-  </head>
+
+    {{ 'Evogria.woff2' | asset_url | preload_tag: as: 'font', type: 'font/woff2', crossorigin: 'anonymous' }}
+    {{ 'Geomanist-Regular.woff2' | asset_url | preload_tag: as: 'font', type: 'font/woff2', crossorigin: 'anonymous' }}
+    {{ 'Geomanist-Medium.woff2' | asset_url | preload_tag: as: 'font', type: 'font/woff2', crossorigin: 'anonymous' }}
+    {{ 'brand-guidelines.css' | asset_url | stylesheet_tag }}
+
+  {% include 'pagefly-app-header' %}</head>
 
   <body class="template-{{ template.name | handle }} {{ template.name }}-{{ template.suffix }}">
     {% comment %} Custom metafield for body tag like GTag tracking {% endcomment %}
@@ -191,6 +209,10 @@
     <a class="skip-to-content-link btn visually-hidden" href="#MainContent">
       {{- 'accessibility.skip_to_text' | t -}}
     </a>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PNBCJ3H"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
 
     <div class="site-wrapper">
       {%- if settings.show_scroll_top_button -%}
@@ -247,5 +269,77 @@
     {%- if request.design_mode -%}
       <script src="{{ 'theme-editor.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
+
+    {% comment %} WebChat {% endcomment %}
+    <script defer src="https://connect.podium.com/widget.js#ORG_TOKEN=211a92b8-ab89-45c7-ba01-acab8089df3d" id="podium-widget" data-organization-api-token="211a92b8-ab89-45c7-ba01-acab8089df3d"></script>
+
+    {% comment %} Klaviyo Back in stock {% endcomment %}
+    <script>
+        var klaviyo = klaviyo || [];
+        klaviyo.init({
+          account: "TJhB3u",
+          platform: "shopify"
+        });
+        klaviyo.enable("backinstock",{ 
+        trigger: {
+          product_page_text: "Notify Me When Available",
+          product_page_class: "btn",
+          product_page_text_align: "center",
+          product_page_margin: "0px",
+          replace_anchor: false
+        },
+        modal: {
+        headline: "{product_name}",
+        body_content: "Register to receive a notification when this item comes back in stock.",
+        email_field_label: "Email",
+        button_label: "Notify me when available",
+        subscription_success_label: "You're in! We'll let you know when it's back.",
+        footer_content: '',
+        additional_styles: "@import url('https://fonts.googleapis.com/css?family=Helvetica+Neue');",
+        drop_background_color: "#000",
+        background_color: "#fff",
+        text_color: "#222",
+        button_text_color: "#fff",
+        button_background_color: "#439fdb",
+        close_button_color: "#ccc",
+        error_background_color: "#fcd6d7",
+        error_text_color: "#C72E2F",
+        success_background_color: "#d3efcd",
+        success_text_color: "#1B9500"
+        }
+      });
+    </script>
+
+    {% comment %} Product Schema {% endcomment %}
+    {% if template contains 'product' %}
+      <script type="application/ld+json">
+      {
+        "@context":"http://schema.org",
+        "@type":"Product",
+        "@id":"{{ shop.url }}{{ product.url}}", 
+        "name": {{ product.title | json }},
+        "sku": {{ product.selected_or_first_available_variant.sku | json }},
+        "description": {{ product.description | strip_html | truncatewords: 50 | json }},
+        "url": {{ canonical_url | json }},
+        "image": "https:{{ product.featured_image | product_img_url: 'grande' }}",
+        "brand": {
+          "@type": "Brand",
+          "name": {{ product.vendor | json }},
+          "url": {{ jsonld_brand_url | json }}
+        },
+        "gtin": "{{ product.selected_or_first_available_variant.barcode }}",
+        "offers": [{
+          "@type": "Offer",
+          "priceCurrency": "{{ cart.currency.iso_code }}",
+          "price": "{{ product.selected_or_first_available_variant.price | money_without_currency | remove: ',' }}",
+          "availability": "http://schema.org/{% if product.selected_or_first_available_variant.available %}InStock{% else %}OutOfStock{% endif %}",
+          "itemCondition": "http://schema.org/NewCondition",
+          "seller": "{{ shop.name | escape }}",
+          "url": "{{ shop.secure_url }}{{ product.selected_or_first_available_variant.url }}"
+        }]
+        
+      }
+      </script>
+    {% endif %}
   </body>
 </html>

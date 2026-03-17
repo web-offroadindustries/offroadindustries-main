@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin language editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "customer": {
     "account": {
@@ -111,6 +120,10 @@
     "return_to_store": "Върнете се в магазина"
   },
   "templates": {
+    "404": {
+      "subtext": "Страницата, която поискахте, не съществува.",
+      "title": "404 Страницата не е намерена"
+    },
     "search": {
       "title": "Резултати от търсенето",
       "results_with_count_and_term": {
@@ -125,8 +138,8 @@
       },
       "search_for": "Търся \"{{ terms }}\"",
       "products": "продукти",
-			"suggestions": "Предложения",
-			"pages": "Страници"
+      "suggestions": "Предложения",
+      "pages": "Страници"
     },
     "contact": {
       "form": {
@@ -142,10 +155,6 @@
     },
     "cart": {
       "cart": "Количка"
-    },
-    "404": {
-      "subtext": "Страницата, която поискахте, не съществува.",
-      "title": "404 Страницата не е намерена"
     }
   },
   "general": {
@@ -216,9 +225,9 @@
       "item_added": "Артикулът е добавен във вашата количка.",
       "view": "Вижте моята количка ({{ count }})",
       "qualified_shipping_message": "Поздравления! Вашата поръчка отговаря на условията за безплатна доставка",
-			"gift_wrapping_html": "За {{ price }}, моля, опаковайте продуктите в тази поръчка.",
-			"gift_note_placeholder": "Подаръчно съобщение (безплатно и по избор)",
-			"cart_recommendations": "Може също да харесате",
+      "gift_wrapping_html": "За {{ price }}, моля, опаковайте продуктите в тази поръчка.",
+      "gift_note_placeholder": "Подаръчно съобщение (безплатно и по избор)",
+      "cart_recommendations": "Може също да харесате",
       "pick_delivery_date": "Изберете дата на доставка",
       "no_select_delivery_time_message": "Моля, изберете време за доставка.",
       "delivery_time_invalid": "Изберете валиден час, часът трябва да е по-голям от текущия.",
@@ -369,7 +378,7 @@
       "will_not_ship_until": "Готов за изпращане {{ date }}",
       "will_be_in_stock_after": "Обратно на склад {{ date }}",
       "waiting_for_stock": "Инвентаризация по пътя",
-      "add_all_to_cart":"Добавете всички в количката"
+      "add_all_to_cart": "Добавете всички в количката"
     },
     "facets": {
       "product_count": {
@@ -379,7 +388,7 @@
       "clear_with_label": "Изчистване на {{ label }}",
       "close_filter": "Затворете филтъра",
       "clear": "Ясно",
-      "match_all":"Съвпадение на всички",
+      "match_all": "Съвпадение на всички",
       "filter_button": "Филтрирайте",
       "filter_by_label": "филтър:",
       "filters_selected": {
@@ -619,7 +628,7 @@
     "placeholder": "Въведете своя имейл",
     "success": "Благодаря, че се абонирате"
   },
-	"recipient": {
+  "recipient": {
     "form": {
       "checkbox": "Искам да изпратя като подарък",
       "email_label": "Имейл на получателя",
@@ -630,6 +639,51 @@
       "message_label": "Съобщение (незадължително)",
       "message": "Съобщение",
       "max_characters": "Макс. {{ max_chars }} знака"
+    }
+  },
+  "pagefly": {
+    "products": {
+      "product": {
+        "regular_price": "Regular price",
+        "sold_out": "Sold out",
+        "unavailable": "Unavailable",
+        "on_sale": "Sale",
+        "quantity": "Quantity",
+        "add_to_cart": "Add to cart",
+        "back_to_collection": "Back to {{ title }}",
+        "view_details": "View details"
+      }
+    },
+    "article": {
+      "tags": "Tags:",
+      "all_topics": "All topics",
+      "by_author": "by {{ author }}",
+      "posted_in": "Posted in",
+      "read_more": "Read more",
+      "back_to_blog": "Back to {{ title }}"
+    },
+    "comments": {
+      "title": "Leave a comment",
+      "name": "Name",
+      "email": "Email",
+      "message": "Message",
+      "post": "Post comment",
+      "moderated": "Please note, comments must be approved before they are published",
+      "success_moderated": "Your comment was posted successfully. We will publish it in a little while, as our blog is moderated.",
+      "success": "Your comment was posted successfully! Thank you!",
+      "comments_with_count": {
+        "one": "{{ count }} comment",
+        "other": "{{ count }} comments"
+      }
+    },
+    "password_page": {
+      "login_form_message": "Enter store using password:",
+      "login_form_password_label": "Password",
+      "login_form_password_placeholder": "Your password",
+      "login_form_submit": "Enter",
+      "signup_form_email_label": "Email",
+      "signup_form_success": "We will send you an email right before we open!",
+      "password_link": "Enter using password"
     }
   }
 }

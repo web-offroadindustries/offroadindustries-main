@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin language editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "customer": {
     "account": {
@@ -111,6 +120,10 @@
     "return_to_store": "Grįžti į parduotuvę"
   },
   "templates": {
+    "404": {
+      "subtext": "Puslapis, kurio prašėte, neegzistuoja.",
+      "title": "404 Puslapis nerastas"
+    },
     "search": {
       "title": "Paieškos rezultatai",
       "results_with_count_and_term": {
@@ -125,8 +138,8 @@
       },
       "search_for": "Ieškokite „{{ terms }}“",
       "products": "Produktai",
-			"suggestions": "Pasiūlymus",
-			"pages": "Puslapių"
+      "suggestions": "Pasiūlymus",
+      "pages": "Puslapių"
     },
     "contact": {
       "form": {
@@ -142,10 +155,6 @@
     },
     "cart": {
       "cart": "Krepšelis"
-    },
-    "404": {
-      "subtext": "Puslapis, kurio prašėte, neegzistuoja.",
-      "title": "404 Puslapis nerastas"
     }
   },
   "general": {
@@ -216,9 +225,9 @@
       "item_added": "Prekė įdėta į krepšelį.",
       "view": "Peržiūrėti mano krepšelį ({{ count }})",
       "qualified_shipping_message": "Sveikinu! Jūsų užsakymas gali būti pristatytas nemokamai",
-			"gift_wrapping_html": "Už {{ price }} prašome suvynioti produktus tokia tvarka.",
-			"gift_note_placeholder": "Dovanos žinutė (nemokama ir neprivaloma)",
-			"cart_recommendations": "Jums taip pat gali patikti",
+      "gift_wrapping_html": "Už {{ price }} prašome suvynioti produktus tokia tvarka.",
+      "gift_note_placeholder": "Dovanos žinutė (nemokama ir neprivaloma)",
+      "cart_recommendations": "Jums taip pat gali patikti",
       "pick_delivery_date": "Pasirinkite pristatymo datą",
       "no_select_delivery_time_message": "Pasirinkite pristatymo laiką.",
       "delivery_time_invalid": "Pasirinkite galiojantį laiką, laikas turi būti didesnis nei dabartinis laikas.",
@@ -357,7 +366,7 @@
       "on_sale": "Išpardavimas",
       "description": "apibūdinimas",
       "add_to_cart": "Į krepšelį",
-      "add_all_to_cart":"Įdėkite viską į krepšelį",
+      "add_all_to_cart": "Įdėkite viską į krepšelį",
       "include_taxes": "Mokesčiai įskaičiuoti.",
       "share_label": "Dalintis",
       "xr_button": "Žiūrėkite savo erdvėje",
@@ -379,7 +388,7 @@
       "clear_with_label": "Išvalyti {{ label }}",
       "close_filter": "Uždarykite filtrą",
       "clear": "Aišku",
-      "match_all":"Suderinti visus",
+      "match_all": "Suderinti visus",
       "filter_button": "Filtras",
       "filter_by_label": "Filtras:",
       "filters_selected": {
@@ -619,7 +628,7 @@
     "placeholder": "Įrašykite savo el. paštą",
     "success": "Ačiū, kad užsiprenumeravote"
   },
-	"recipient": {
+  "recipient": {
     "form": {
       "checkbox": "Noriu siųsti kaip dovaną",
       "email_label": "Gavėjo el. pašto adresas",
@@ -630,6 +639,51 @@
       "message_label": "Žinutė (pasirinktinai)",
       "message": "Žinutė",
       "max_characters": "Daugiausia {{ max_chars }} simbolių"
+    }
+  },
+  "pagefly": {
+    "products": {
+      "product": {
+        "regular_price": "Regular price",
+        "sold_out": "Sold out",
+        "unavailable": "Unavailable",
+        "on_sale": "Sale",
+        "quantity": "Quantity",
+        "add_to_cart": "Add to cart",
+        "back_to_collection": "Back to {{ title }}",
+        "view_details": "View details"
+      }
+    },
+    "article": {
+      "tags": "Tags:",
+      "all_topics": "All topics",
+      "by_author": "by {{ author }}",
+      "posted_in": "Posted in",
+      "read_more": "Read more",
+      "back_to_blog": "Back to {{ title }}"
+    },
+    "comments": {
+      "title": "Leave a comment",
+      "name": "Name",
+      "email": "Email",
+      "message": "Message",
+      "post": "Post comment",
+      "moderated": "Please note, comments must be approved before they are published",
+      "success_moderated": "Your comment was posted successfully. We will publish it in a little while, as our blog is moderated.",
+      "success": "Your comment was posted successfully! Thank you!",
+      "comments_with_count": {
+        "one": "{{ count }} comment",
+        "other": "{{ count }} comments"
+      }
+    },
+    "password_page": {
+      "login_form_message": "Enter store using password:",
+      "login_form_password_label": "Password",
+      "login_form_password_placeholder": "Your password",
+      "login_form_submit": "Enter",
+      "signup_form_email_label": "Email",
+      "signup_form_success": "We will send you an email right before we open!",
+      "password_link": "Enter using password"
     }
   }
 }

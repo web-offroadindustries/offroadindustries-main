@@ -16,7 +16,33 @@
 
   assign logo_block = section.blocks | where: 'type', 'logo' | first
 -%}
-<footer class="site-footer{% if section.settings.show_divider %} site-footer--show-divider{% endif %}">
+
+{%- if section.settings.footer_bg_image != blank -%}
+  {%- liquid
+    assign footer_bg_size = section.settings.footer_bg_size | default: 'cover'
+    assign footer_bg_position = section.settings.footer_bg_position | default: 'center'
+    assign footer_bg_repeat = 'no-repeat'
+    if footer_bg_size == 'auto'
+      assign footer_bg_repeat = 'repeat'
+    endif
+  -%}
+  <style>
+    /* Footer background image (sits on top of the selected color scheme background) */
+    #shopify-section-{{ section.id }} .site-footer{
+      background-image: url({{ section.settings.footer_bg_image | image_url: width: 2400 }});
+      background-size: {{ footer_bg_size }};
+      background-position: {{ footer_bg_position }};
+      background-repeat: {{ footer_bg_repeat }};
+    }
+    /* Prevent inner footer wrappers from overriding the section background */
+    #shopify-section-{{ section.id }} .site-footer__top,
+    #shopify-section-{{ section.id }} .site-footer__bottom{
+      background-color: transparent !important;
+      background-image: none !important;
+    }
+  </style>
+{%- endif -%}
+<footer class="site-footer color-{{ section.settings.color_schema }}{% if section.settings.show_divider %} site-footer--show-divider{% endif %}">
   {%- if help_bar_block != blank -%}
     {%- liquid
       assign heading = help_bar_block.settings.heading
@@ -949,6 +975,35 @@
       "id": "color_schema",
       "label": "t:sections.common.color_schema.label",
       "default": "background-1"
+    }    ,
+    {
+      "type": "image_picker",
+      "id": "footer_bg_image",
+      "label": "Footer background image"
+    },
+    {
+      "type": "select",
+      "id": "footer_bg_size",
+      "label": "Background image size",
+      "default": "contain",
+      "options": [
+        { "value": "contain", "label": "Contain" },
+        { "value": "cover", "label": "Cover" },
+        { "value": "auto", "label": "Auto" }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "footer_bg_position",
+      "label": "Background image position",
+      "default": "center center",
+      "options": [
+        { "value": "center center", "label": "Center" },
+        { "value": "top center", "label": "Top" },
+        { "value": "bottom center", "label": "Bottom" },
+        { "value": "center left", "label": "Left" },
+        { "value": "center right", "label": "Right" }
+      ]
     },
     {
       "type": "checkbox",

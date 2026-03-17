@@ -351,3 +351,490 @@ body:not(.header-pinned) .header-scrolled .header {
     min-height: 6rem;
   }
 }
+
+/* ================================
+   Legacy Mega Menu (ported)
+   ================================ */
+
+/* Make sure the container is measurable (NOT display:none), and can be hovered */
+.mega-menu-container {
+  display: block !important;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: var(--f-header-height, 80px);
+  z-index: 9999;
+  /* background: var(--color-header-bg); */
+  color: var(--mm-text-color, #fff);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(8px);
+  transition: opacity 0.18s ease, transform 0.18s ease, visibility 0s linear 0.18s;
+  max-height: calc(100vh - var(--f-header-height, 80px));
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+
+  background-image: var(--mm-bg-image, none);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  isolation: isolate;
+}
+.mega-menu-container::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(
+    var(--mm-bg-r, 0),
+    var(--mm-bg-g, 0),
+    var(--mm-bg-b, 0),
+    var(--mm-bg-opacity, 0.85)
+  );
+  z-index: -1;
+}
+.mega-menu-container > * {
+  position: relative;
+  z-index: 1;
+}
+.mega-menu-container a {
+  color: var(--mm-text-color, #fff);
+}
+/* .mega-menu-container a:hover {
+  opacity: 0.85;
+} */
+.f-site-nav__item.f-menu__item-active > .mega-menu-container,
+.f-site-nav__item--mega:hover > .mega-menu-container,
+.f-site-nav__item--mega:focus-within > .mega-menu-container {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0);
+  transition: opacity 0.18s ease, transform 0.18s ease, visibility 0s;
+}
+
+/* Layout inside legacy mega menu */
+.mega-menu-container .dropdown_content {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  margin: 0 auto;
+  flex-wrap: nowrap;
+  gap: 20px;
+  padding: 20px;
+}
+
+.mega-menu-container .dropdown_column {
+  width: 100%;
+  padding: 15px 20px 30px 20px;
+  vertical-align: top;
+}
+
+.mega-menu-container img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.mega-menu__richtext,
+.mega-menu__image-caption-link {
+  padding: 0 5px;
+}
+
+.mega-menu__image-caption-link {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.mega-menu__image-caption {
+  margin: 10px 0;
+}
+
+.dropdown_column ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.dropdown_column ul.dropdown_title {
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 10px;
+}
+
+.dropdown_column__menu + .dropdown_column__menu {
+  margin-top: 10px;
+}
+
+/* Responsive */
+@media (max-width: 990px) {
+  .mega-menu-container .dropdown_content {
+    flex-wrap: wrap;
+  }
+  .mega-menu-container .dropdown_column {
+    width: 50%;
+  }
+}
+
+@media (max-width: 640px) {
+  .mega-menu-container .dropdown_column {
+    width: 100%;
+  }
+}
+
+/* ===== Brand Tiles Mega Menu ===== */
+.mega-menu-container {
+  color: var(--mm-text-color);
+  background-image: var(--mm-bg-image, none);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.mega-menu-container::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(var(--mm-bg-r), var(--mm-bg-g), var(--mm-bg-b), var(--mm-bg-opacity));
+  z-index: 0;
+}
+
+.mega-menu-container .dropdown.mega-menu,
+.mega-menu-container .dropdown_content {
+  position: relative;
+  z-index: 1;
+}
+
+/* Only for brands layout */
+.mega-menu-container--brands .dropdown_content {
+  width: 100%;
+}
+
+.mega-menu__brands {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 28px;
+  padding: 30px 0 40px;
+}
+
+.mega-menu__brands--left { justify-content: flex-start; }
+.mega-menu__brands--center { justify-content: center; }
+.mega-menu__brands--right { justify-content: flex-end; }
+
+.mega-menu__brand {
+  width: 180px;
+  background: rgba(0, 0, 0, 0.55);
+  border-radius: 14px;
+  padding: 18px 16px;
+  text-decoration: none;
+  color: var(--mm-text-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 10px 26px rgba(0,0,0,0.35);
+  transition: transform 160ms ease, background 160ms ease;
+  cursor: pointer;
+}
+
+.mega-menu__brand:hover {
+  transform: translateY(-2px);
+  background: rgba(0, 0, 0, 0.65);
+}
+
+.mega-menu__brand-logo {
+  width: 150px;
+  height: 95px;
+  background: #ffffff;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mega-menu__brand-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.mega-menu__brand-name {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  text-align: center;
+}
+
+/* Mobile: swipe horizontally instead of stacking */
+@media (max-width: 768px) {
+  .mega-menu__brands {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 14px;
+    gap: 18px;
+  }
+  .mega-menu__brand {
+    flex: 0 0 170px;
+  }
+  .mega-menu__brands::-webkit-scrollbar { display: none; }
+  .mega-menu__brands { scrollbar-width: none; }
+}
+
+/* =========================
+   Header Design 6 (2-row)
+========================= */
+.site-header--design-6{
+  border-bottom: 0;
+}
+
+.site-header--design-6 .site-header__inner--v6{
+  display: flex;
+  flex-direction: column;
+}
+
+.site-header--design-6 .site-header__top-v6{
+  display: flex;
+  align-items: center;
+  gap: 26px;
+  justify-content: flex-start;
+}
+@media (max-width: 768px) {
+  .site-header--design-6 .site-header__top-v6{
+    justify-content: space-between;
+  }
+}
+
+.site-header--design-6 .site-header__top-left-v6{
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+}
+
+.site-header--design-6 .header-v6-search{
+  position: relative;
+  width: 100%;
+}
+
+.site-header--design-6 .header-v6-search__input{
+  width: 100%;
+  
+  border-radius: 10px;
+  border: 0;
+  background: #fff;
+  color: #000;
+  padding: 0 64px 0 22px;
+  
+}
+
+.site-header--design-6 .header-v6-search__btn{
+  position: absolute;
+  top: 50%;
+  right: 16px;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  border: 0;
+  background: transparent;
+  color: #000;
+  cursor: pointer;
+}
+
+.site-header--design-6 .header-v6-search__btn svg{
+  width: 22px;
+  height: 22px;
+}
+
+.site-header--design-6 .site-header__top-right-v6{
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+.site-header--design-6 .header-v6-help{
+  flex-direction: column;
+  align-items: flex-start;
+  line-height: 1.1;
+}
+
+/* Design 6 – make search smaller via settings */
+.site-header--design-6 .site-header__top-search-v6{
+  flex: 0 0 auto;
+  margin-left: auto;
+  max-width: var(--v6-search-max, 620px);
+  
+}
+
+.site-header--design-6 .header-v6-search__input{
+  height: var(--v6-search-height, 52px);
+  font-size: var(--v6-search-font, 18px);
+}
+
+/* Design 6 – adjustable "Need Help" + phone */
+.site-header--design-6 .header-v6-help__label{
+  font-size: var(--v6-help-label, 20px);
+}
+
+.site-header--design-6 .header-v6-help__phone{
+  font-size: var(--v6-help-phone, 30px);
+}
+
+.site-header--design-6 .site-header__bottom-v6{
+  justify-content: flex-start;
+}
+
+.site-header--design-6 .f-site-nav{
+  margin: 0; /* override negative margin in nav css */
+}
+
+.mega-menu-container .dropdown_column__menu .dropdown_item li a{
+  display: inline-block;
+  position: relative;
+  padding-bottom: 6px;
+}
+
+.mega-menu-container .dropdown_column__menu .dropdown_item li a::after{
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .25s ease;
+}
+
+.mega-menu-container .dropdown_column__menu .dropdown_item li:hover a::after{
+  transform: scaleX(1);
+}
+
+/* =========================================
+   Mobile mega menu: toggle + clean background
+   ========================================= */
+
+/* Only the mega menu container should have the background overlay */
+.f-mobile-nav .f-mobile-nav__item.mm-mobile-has-mega,
+.f-mobile-nav .f-mobile-nav__item.mm-mobile-has-mega > * {
+  background: transparent !important;
+}
+
+/* Hide our injected dropdown by default (only for items we inject) */
+.f-mobile-nav .f-mobile-nav__item.mm-mobile-has-mega > .f-mobile-nav__dropdown.mm-mobile-dropdown {
+  display: none;
+  background: transparent !important;
+  padding: 0 !important;
+}
+
+/* Show when opened */
+.f-mobile-nav .f-mobile-nav__item.mm-mobile-open > .f-mobile-nav__dropdown.mm-mobile-dropdown {
+  display: block;
+}
+
+/* Add space for the toggle button */
+.f-mobile-nav .f-mobile-nav__item.mm-mobile-has-mega > .f-mobile-nav__link {
+  padding-right: 44px;
+}
+
+/* Our toggle button (creates the + / − behavior like the theme) */
+.f-mobile-nav .mm-mobile-toggle {
+  position: absolute;
+  right: 6px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 38px;
+  height: 38px;
+  border: 0;
+  background: transparent;
+  color: currentColor;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  line-height: 1;
+}
+.f-mobile-nav .mm-mobile-toggle::before { content: "+"; }
+.f-mobile-nav .mm-mobile-open .mm-mobile-toggle::before { content: "–"; }
+
+/* Make injected mega menu behave as part of drawer (not fixed/absolute) */
+.f-mobile-nav .mega-menu-container--mobile {
+  position: relative !important;
+  inset: auto !important;
+  max-height: none !important;
+  overflow: visible !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: none !important;
+  pointer-events: auto !important;
+  margin: 10px 0 0;
+  border-radius: 12px;
+}
+
+/* Force content above overlay */
+.f-mobile-nav .mega-menu-container--mobile::before { z-index: 0; }
+.f-mobile-nav .mega-menu-container--mobile .dropdown,
+.f-mobile-nav .mega-menu-container--mobile .dropdown_content { position: relative; z-index: 1; }
+
+/* Stack columns in mobile drawer */
+.f-mobile-nav .mega-menu-container--mobile .dropdown_content {
+  display: block;
+  padding: 12px 14px 18px;
+}
+.f-mobile-nav .mega-menu-container--mobile .dropdown_column {
+  width: 100%;
+  padding: 10px 0 18px;
+}
+
+/* Brand tiles in mobile drawer: show ALL brands as a 2-col grid */
+.f-mobile-nav .mega-menu-container--mobile.mega-menu-container--brands .mega-menu__brands {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  padding: 14px;
+  overflow: visible !important;
+}
+.f-mobile-nav .mega-menu-container--mobile.mega-menu-container--brands .mega-menu__brand {
+  width: 100% !important;
+}
+.f-mobile-nav .mega-menu-container--mobile.mega-menu-container--brands .mega-menu__brand-logo {
+  width: 100% !important;
+  height: 86px;
+}
+
+/* Only apply to items where we injected a mega menu */
+.f-mobile-nav__item[data-mobile-mega-injected="1"] {
+  background: transparent !important;
+}
+
+/* Make the drawer dropdown container transparent (only mega menu container has background) */
+.f-mobile-nav__item[data-mobile-mega-injected="1"] > collapsible-tab > .f-mobile-nav__dropdown[data-content] {
+  background: transparent !important;
+  padding: 0 !important;
+}
+
+/* Mobile mega menu clone should be static inside drawer */
+.f-mobile-nav .mega-menu-container--mobile {
+  position: relative !important;
+  inset: auto !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: none !important;
+  pointer-events: auto !important;
+  margin-top: 10px;
+}
+
+/* Make sure overlay stays inside mega menu container only */
+.f-mobile-nav__item[data-mobile-mega-injected="1"] .mega-menu-container--mobile::before {
+  z-index: 0;
+}
+.f-mobile-nav__item[data-mobile-mega-injected="1"] .mega-menu-container--mobile .dropdown,
+.f-mobile-nav__item[data-mobile-mega-injected="1"] .mega-menu-container--mobile .dropdown_content {
+  position: relative;
+  z-index: 1;
+}

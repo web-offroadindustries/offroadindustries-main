@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin language editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "customer": {
     "account": {
@@ -111,6 +120,10 @@
     "return_to_store": "매장으로 돌아가기"
   },
   "templates": {
+    "404": {
+      "subtext": "요청하신 페이지가 존재하지 않습니다.",
+      "title": "404 페이지를 찾을 수 없습니다"
+    },
     "search": {
       "title": "검색 결과",
       "results_with_count_and_term": {
@@ -125,8 +138,8 @@
       },
       "search_for": "\"{{ terms }}\" 검색",
       "products": "제품",
-			"suggestions": "제안",
-			"pages": "페이지"
+      "suggestions": "제안",
+      "pages": "페이지"
     },
     "contact": {
       "form": {
@@ -142,10 +155,6 @@
     },
     "cart": {
       "cart": "카트"
-    },
-    "404": {
-      "subtext": "요청하신 페이지가 존재하지 않습니다.",
-      "title": "404 페이지를 찾을 수 없습니다"
     }
   },
   "general": {
@@ -216,9 +225,9 @@
       "item_added": "장바구니에 항목이 추가되었습니다.",
       "view": "내 장바구니 보기({{ count }})",
       "qualified_shipping_message": "축하합니다! 귀하의 주문은 무료 배송을받을 자격이 있습니다.",
-			"gift_wrapping_html": "{{ price }}의 경우 이 순서로 제품을 포장하십시오.",
-			"gift_note_placeholder": "선물 메시지(무료 및 선택 사항)",
-			"cart_recommendations": "당신은 또한 같은 수 있습니다",
+      "gift_wrapping_html": "{{ price }}의 경우 이 순서로 제품을 포장하십시오.",
+      "gift_note_placeholder": "선물 메시지(무료 및 선택 사항)",
+      "cart_recommendations": "당신은 또한 같은 수 있습니다",
       "pick_delivery_date": "배송 날짜 선택",
       "no_select_delivery_time_message": "배송 시간을 선택 해 주세요.",
       "delivery_time_invalid": "유효한 시간을 선택하시고, 시간은 현재 시간보다 커야 합니다.",
@@ -357,7 +366,7 @@
       "on_sale": "판매",
       "description": "설명",
       "add_to_cart": "장바구니에 추가",
-      "add_all_to_cart":"장바구니에 모두 추가",
+      "add_all_to_cart": "장바구니에 모두 추가",
       "include_taxes": "세금 포함.",
       "share_label": "공유하다",
       "xr_button": "내 공간에서 보기",
@@ -379,7 +388,7 @@
       "clear_with_label": "{{ label }} 지우기",
       "close_filter": "필터 닫기",
       "clear": "분명한",
-      "match_all":"모두 일치",
+      "match_all": "모두 일치",
       "filter_button": "필터",
       "filter_by_label": "필터:",
       "filters_selected": {
@@ -619,7 +628,7 @@
     "placeholder": "이메일을 입력하세요",
     "success": "구독해 주셔서 감사합니다."
   },
-	"recipient": {
+  "recipient": {
     "form": {
       "checkbox": "선물로 보내고 싶습니다.",
       "email_label": "수신자 이메일",
@@ -630,6 +639,51 @@
       "message_label": "메시지(선택 사항)",
       "message": "메시지",
       "max_characters": "최대 {{ max_chars }}자"
+    }
+  },
+  "pagefly": {
+    "products": {
+      "product": {
+        "regular_price": "Regular price",
+        "sold_out": "Sold out",
+        "unavailable": "Unavailable",
+        "on_sale": "Sale",
+        "quantity": "Quantity",
+        "add_to_cart": "Add to cart",
+        "back_to_collection": "Back to {{ title }}",
+        "view_details": "View details"
+      }
+    },
+    "article": {
+      "tags": "Tags:",
+      "all_topics": "All topics",
+      "by_author": "by {{ author }}",
+      "posted_in": "Posted in",
+      "read_more": "Read more",
+      "back_to_blog": "Back to {{ title }}"
+    },
+    "comments": {
+      "title": "Leave a comment",
+      "name": "Name",
+      "email": "Email",
+      "message": "Message",
+      "post": "Post comment",
+      "moderated": "Please note, comments must be approved before they are published",
+      "success_moderated": "Your comment was posted successfully. We will publish it in a little while, as our blog is moderated.",
+      "success": "Your comment was posted successfully! Thank you!",
+      "comments_with_count": {
+        "one": "{{ count }} comment",
+        "other": "{{ count }} comments"
+      }
+    },
+    "password_page": {
+      "login_form_message": "Enter store using password:",
+      "login_form_password_label": "Password",
+      "login_form_password_placeholder": "Your password",
+      "login_form_submit": "Enter",
+      "signup_form_email_label": "Email",
+      "signup_form_success": "We will send you an email right before we open!",
+      "password_link": "Enter using password"
     }
   }
 }

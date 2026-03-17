@@ -1,0 +1,636 @@
+{{ 'contact-form.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+  assign section_id = section.settings.custom_id | default: section.id
+  assign custom_class = section.settings.custom_class
+
+  unless custom_class == blank
+    assign custom_class = custom_class | prepend: ' '
+  endunless
+
+  assign container = section.settings.container
+
+  assign motion_delay = 0
+  assign animation_effect = settings.animations
+  if animation_effect != 'none' and section.settings.animations != 'inherit'
+    assign animation_effect = section.settings.animations
+  endif
+  if section.settings.heading != blank
+    assign motion_delay = motion_delay | plus: 50
+  endif
+  if section.settings.subheading != blank
+    assign motion_delay = motion_delay | plus: 50
+  endif
+  if section.settings.description != blank
+    assign motion_delay = motion_delay | plus: 50
+  endif
+
+  assign form_id = 'ContactForm-' | append: section.id
+-%}
+
+{% render 'divider',
+  show_divider: section.settings.show_section_divider,
+  divider_width: section.settings.divider_width
+%}
+
+<div
+  id="{{ section_id }}"
+  class="f-contact-form f-contact-form-{{ section.settings.form_design }} f-section-padding color-{{ section.settings.color_schema }}{{ custom_class }}"
+  style="--section-padding-top: {{ section.settings.padding_top }}px; --section-padding-bottom: {{ section.settings.padding_bottom }}px;"
+>
+  <div class="{{ container }}">
+    {% render 'index-section-header',
+      section_settings: section.settings,
+      animation_effect: animation_effect,
+      header_alignment: section.settings.form_alignment
+    %}
+
+    <div class="flex justify-{{- section.settings.form_alignment -}}">
+      <motion-element
+        data-motion="{{ animation_effect }}"
+        data-motion-delay="{{ motion_delay }}"
+        class="block f-contact-form__wrapper"
+        style="width: {{ section.settings.form_width }}px;max-width: 100%;"
+      >
+        {%- form 'contact', id: form_id -%}
+          <div class="f-contact-form__fields f-flex flex-wrap f-grid--gap-medium">
+            {%- for block in section.blocks -%}
+              {%- liquid
+                assign hide_label = block.settings.hide_label
+                assign required = block.settings.required
+
+                assign width_pct = block.settings.field_width | default: '100'
+                assign form_field_class = 'form-field w-full f-column cfv4-field'
+              -%}
+
+              <div
+                class="{{ form_field_class }}"
+                style="--cfv4-w: {{ width_pct }}%;"
+                {{ block.shopify_attributes }}
+              >
+                {%- case block.type -%}
+
+                  {%- when 'name' -%}
+                    {%- assign name_key = block.settings.field_name | strip -%}
+                    {%- if name_key == blank -%}
+                      {%- assign name_key = 'templates.contact.form.name' | t -%}
+                    {%- endif -%}
+
+                    <label class="form-label{% if hide_label %} visually-hidden{% endif %}" for="ContactForm-name-{{ block.id }}">
+                      {{- block.settings.label -}}
+                      {%- if required -%}<span aria-hidden="true">*</span>{%- endif -%}
+                    </label>
+
+                    <input
+                      class="form-control"
+                      {% if required %}aria-required="true" required{% endif %}
+                      autocomplete="name"
+                      type="text"
+                      id="ContactForm-name-{{ block.id }}"
+                      name="contact[{{ name_key }}]"
+                      value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}"
+                      placeholder="{{ block.settings.placeholder }}"
+                    >
+
+                  {%- when 'email' -%}
+                    <label class="form-label{% if hide_label %} visually-hidden{% endif %}" for="ContactForm-email-{{ block.id }}">
+                      {{- block.settings.label -}} <span aria-hidden="true">*</span>
+                    </label>
+
+                    <input
+                      class="form-control{% if form.errors contains 'email' %} form-control--error{% endif %}"
+                      id="ContactForm-email-{{ block.id }}"
+                      name="contact[email]"
+                      spellcheck="false"
+                      autocapitalize="off"
+                      value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
+                      placeholder="{{ block.settings.placeholder }}"
+                      {% if form.errors contains 'email' %}
+                        aria-invalid="true"
+                        aria-describedby="ContactForm-email-error"
+                      {% endif %}
+                      aria-required="true"
+                      required
+                    >
+
+                    {%- if form.errors contains 'email' -%}
+                      <p class="form-message form-message--error" id="ContactForm-email-error">
+                        <span class="visually-hidden">{{- 'accessibility.error' | t -}}</span>
+                        <span>
+                          {{- form.errors.translated_fields.email | capitalize -}}
+                          {{ form.errors.messages.email -}}
+                        </span>
+                      </p>
+                    {%- endif -%}
+
+                  {%- when 'phone' -%}
+                    <label class="form-label{% if hide_label %} visually-hidden{% endif %}" for="ContactForm-phone-{{ block.id }}">
+                      {{- block.settings.label -}}
+                      {%- if required -%}<span aria-hidden="true">*</span>{%- endif -%}
+                    </label>
+
+                    <input
+                      class="form-control"
+                      {% if required %}aria-required="true" required{% endif %}
+                      pattern="[0-9\\-\\+\\(\\)\\s]*"
+                      autocomplete="tel"
+                      type="tel"
+                      id="ContactForm-phone-{{ block.id }}"
+                      name="contact[phone]"
+                      spellcheck="false"
+                      autocapitalize="off"
+                      value="{% if form.phone %}{{ form.phone }}{% elsif customer %}{{ customer.phone }}{% endif %}"
+                      placeholder="{{ block.settings.placeholder }}"
+                    >
+
+                  {%- when 'rego_status' -%}
+                    <label class="form-label{% if hide_label %} visually-hidden{% endif %}" for="ContactForm-rego-{{ block.id }}">
+                      {{- block.settings.label -}}
+                      {%- if required -%}<span aria-hidden="true">*</span>{%- endif -%}
+                    </label>
+
+                    <select
+                      class="form-control"
+                      id="ContactForm-rego-{{ block.id }}"
+                      name="contact[{{ block.settings.field_name | default: 'Pre or Post rego' }}]"
+                      {% if required %}aria-required="true" required{% endif %}
+                    >
+                      {%- if block.settings.placeholder != blank -%}
+                        <option value="" selected disabled>{{ block.settings.placeholder }}</option>
+                      {%- endif -%}
+
+                      {%- assign opts = block.settings.options | split: ',' -%}
+                      {%- for opt in opts -%}
+                        {%- assign o = opt | strip -%}
+                        {%- if o != blank -%}
+                          <option value="{{ o }}">{{ o }}</option>
+                        {%- endif -%}
+                      {%- endfor -%}
+                    </select>
+
+                  {%- when 'location' -%}
+                    <label class="form-label{% if hide_label %} visually-hidden{% endif %}" for="ContactForm-location-{{ block.id }}">
+                      {{- block.settings.label -}}
+                      {%- if required -%}<span aria-hidden="true">*</span>{%- endif -%}
+                    </label>
+
+                    <input
+                      class="form-control"
+                      {% if required %}aria-required="true" required{% endif %}
+                      type="text"
+                      id="ContactForm-location-{{ block.id }}"
+                      name="contact[{{ block.settings.field_name | default: 'Location' }}]"
+                      placeholder="{{ block.settings.placeholder }}"
+                      autocomplete="address-level1"
+                    >
+
+                  {%- when 'message' -%}
+                    <label class="form-label{% if hide_label %} visually-hidden{% endif %}" for="ContactForm-body-{{ block.id }}">
+                      {{- block.settings.label -}} <span aria-hidden="true">*</span>
+                    </label>
+
+                    <textarea
+                      class="form-control form-control--textarea"
+                      required
+                      aria-required="true"
+                      rows="{{ block.settings.rows | default: 3 }}"
+                      id="ContactForm-body-{{ block.id }}"
+                      name="contact[body]"
+                      placeholder="{{ block.settings.placeholder }}"
+                    >{{- form.body -}}</textarea>
+
+                  {%- when 'custom_text' -%}
+                    <label class="form-label{% if hide_label %} visually-hidden{% endif %}" for="ContactForm-ctext-{{ block.id }}">
+                      {{- block.settings.label -}}
+                      {%- if required -%}<span aria-hidden="true">*</span>{%- endif -%}
+                    </label>
+
+                    <input
+                      class="form-control"
+                      {% if required %}aria-required="true" required{% endif %}
+                      type="text"
+                      id="ContactForm-ctext-{{ block.id }}"
+                      name="contact[{{ block.settings.field_name | default: block.settings.label }}]"
+                      placeholder="{{ block.settings.placeholder }}"
+                    >
+
+                  {%- when 'custom_select' -%}
+                    <label class="form-label{% if hide_label %} visually-hidden{% endif %}" for="ContactForm-cselect-{{ block.id }}">
+                      {{- block.settings.label -}}
+                      {%- if required -%}<span aria-hidden="true">*</span>{%- endif -%}
+                    </label>
+
+                    <select
+                      class="form-control"
+                      id="ContactForm-cselect-{{ block.id }}"
+                      name="contact[{{ block.settings.field_name | default: block.settings.label }}]"
+                      {% if required %}aria-required="true" required{% endif %}
+                    >
+                      {%- if block.settings.placeholder != blank -%}
+                        <option value="" selected disabled>{{ block.settings.placeholder }}</option>
+                      {%- endif -%}
+
+                      {%- assign opts = block.settings.options | split: ',' -%}
+                      {%- for opt in opts -%}
+                        {%- assign o = opt | strip -%}
+                        {%- if o != blank -%}
+                          <option value="{{ o }}">{{ o }}</option>
+                        {%- endif -%}
+                      {%- endfor -%}
+                    </select>
+
+                  {%- when 'custom_textarea' -%}
+                    <label class="form-label{% if hide_label %} visually-hidden{% endif %}" for="ContactForm-ctextarea-{{ block.id }}">
+                      {{- block.settings.label -}}
+                      {%- if required -%}<span aria-hidden="true">*</span>{%- endif -%}
+                    </label>
+
+                    <textarea
+                      class="form-control form-control--textarea"
+                      {% if required %}aria-required="true" required{% endif %}
+                      rows="{{ block.settings.rows | default: 4 }}"
+                      id="ContactForm-ctextarea-{{ block.id }}"
+                      name="contact[{{ block.settings.field_name | default: block.settings.label }}]"
+                      placeholder="{{ block.settings.placeholder }}"
+                    ></textarea>
+
+                  {%- when 'custom_checkbox' -%}
+                    <label class="form-label{% if hide_label %} visually-hidden{% endif %}">
+                      {{- block.settings.label -}}
+                      {%- if required -%}<span aria-hidden="true">*</span>{%- endif -%}
+                    </label>
+
+                    <label style="display:flex; gap:10px; align-items:center;">
+                      <input
+                        type="checkbox"
+                        name="contact[{{ block.settings.field_name | default: block.settings.label }}]"
+                        value="Yes"
+                        {% if required %}required{% endif %}
+                      >
+                      <span>{{ block.settings.checkbox_text | default: block.settings.label }}</span>
+                    </label>
+
+                {%- endcase -%}
+              </div>
+            {%- endfor -%}
+
+            {%- if section.blocks.size > 0 -%}
+              <div class="form-field w-full f-column form-submit flex justify-{{- section.settings.form_alignment -}}">
+                {% assign default_submit = 'templates.contact.form.send' | t %}
+                <button type="submit" class="btn {{ section.settings.button_style }}">
+                  {{ section.settings.button_label | default: default_submit }}
+                </button>
+              </div>
+            {%- endif -%}
+          </div>
+
+          {% render 'form-status', form: form %}
+        {%- endform -%}
+      </motion-element>
+    </div>
+  </div>
+</div>
+
+<style>
+  /* width control per field (mobile = 100%, desktop uses dropdown %) */
+  #{{ section_id }} .cfv4-field{
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+  @media (min-width: 640px){
+    #{{ section_id }} .cfv4-field{
+      flex: 0 0 var(--cfv4-w, 100%);
+      max-width: var(--cfv4-w, 100%);
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Contact form v4",
+  "max_blocks": 50,
+  "disabled_on": { "groups": ["header", "footer"] },
+  "settings": [
+    { "type": "header", "content": "t:sections.common.general.name" },
+    {
+      "type": "select",
+      "id": "container",
+      "options": [
+        { "value": "container", "label": "t:sections.common.container.fixed" },
+        { "value": "container-fluid", "label": "t:sections.common.container.stretched" },
+        { "value": "container-full", "label": "t:sections.common.container.fullwidth" }
+      ],
+      "default": "container",
+      "label": "t:sections.common.container.label"
+    },
+    { "type": "color_scheme", "id": "color_schema", "label": "t:sections.common.color_schema.label", "default": "background-1" },
+
+    { "type": "header", "content": "t:sections.common.header.name" },
+    { "type": "inline_richtext", "id": "heading", "label": "t:sections.common.header.heading", "default": "Contact form" },
+    { "type": "text", "id": "subheading", "label": "t:sections.common.header.subheading" },
+    { "type": "richtext", "id": "description", "label": "t:sections.common.header.description" },
+
+    { "type": "header", "content": "t:sections.contact-form.settings.header_form_settings.content" },
+    {
+      "type": "select",
+      "id": "form_design",
+      "label": "t:sections.common.design.label",
+      "options": [
+        { "value": "design-1", "label": "t:sections.common.design.option__1" },
+        { "value": "design-2", "label": "t:sections.common.design.option__2" }
+      ],
+      "default": "design-1"
+    },
+    { "type": "range", "id": "form_width", "min": 300, "max": 800, "step": 5, "unit": "px", "label": "t:sections.contact-form.settings.form_width.label", "default": 500 },
+    {
+      "type": "select",
+      "id": "form_alignment",
+      "label": "t:sections.contact-form.settings.form_alignment.label",
+      "options": [
+        { "value": "start", "label": "t:settings_schema.global.settings.content_alignment.option__1.label" },
+        { "value": "center", "label": "t:settings_schema.global.settings.content_alignment.option__2.label" },
+        { "value": "end", "label": "t:settings_schema.global.settings.content_alignment.option__3.label" }
+      ],
+      "default": "center"
+    },
+
+    { "type": "header", "content": "t:sections.contact-form.settings.header_submit_button.content" },
+    { "type": "text", "id": "button_label", "label": "t:sections.contact-form.settings.button_label.label", "default": "Send" },
+    {
+      "type": "select",
+      "id": "button_style",
+      "label": "t:sections.common.button.button_style.label",
+      "options": [
+        { "value": "btn--primary", "label": "t:sections.common.button.button_style.options.option__1" },
+        { "value": "btn--secondary", "label": "t:sections.common.button.button_style.options.option__2" },
+        { "value": "btn--white", "label": "t:sections.common.button.button_style.options.option__3" },
+        { "value": "btn--underline", "label": "t:sections.common.button.button_style.options.option__4" }
+      ],
+      "default": "btn--primary"
+    },
+
+    { "type": "header", "content": "t:sections.common.section_padding.content" },
+    { "type": "range", "id": "padding_top", "label": "t:sections.common.section_padding.top_padding.label", "default": 40, "min": 0, "max": 100, "step": 2, "unit": "px" },
+    { "type": "range", "id": "padding_bottom", "label": "t:sections.common.section_padding.bottom_padding.label", "default": 40, "min": 0, "max": 100, "step": 2, "unit": "px" },
+
+    { "type": "header", "content": "t:sections.common.divider.section_heading.content" },
+    { "type": "checkbox", "id": "show_section_divider", "default": false, "label": "t:sections.common.divider.show_divider.label" },
+    {
+      "type": "select",
+      "id": "divider_width",
+      "options": [
+        { "value": "container", "label": "t:sections.common.container.fixed" },
+        { "value": "container-fluid", "label": "t:sections.common.container.stretched" },
+        { "value": "container-full", "label": "t:sections.common.container.fullwidth" }
+      ],
+      "default": "container",
+      "label": "t:sections.common.divider.width.label",
+      "visible_if": "{{ section.settings.show_section_divider == true }}"
+    },
+
+    { "type": "header", "content": "t:sections.common.custom_attr.header" },
+    { "type": "text", "id": "custom_id", "label": "t:sections.common.custom_attr.custom_id" },
+    { "type": "text", "id": "custom_class", "label": "t:sections.common.custom_attr.custom_class" },
+
+    { "type": "header", "content": "t:settings_schema.animations.header.content" },
+    {
+      "type": "select",
+      "id": "animations",
+      "label": "t:settings_schema.animations.header__2.content",
+      "default": "inherit",
+      "options": [
+        { "value": "inherit", "label": "t:settings_schema.animations.settings.animation.options.option_6" },
+        { "value": "fade-in", "label": "t:settings_schema.animations.settings.animation.options.option_2" },
+        { "value": "fade-in-up", "label": "t:settings_schema.animations.settings.animation.options.option_3" },
+        { "value": "fade-in-left", "label": "t:settings_schema.animations.settings.animation.options.option_4" },
+        { "value": "fade-in-right", "label": "t:settings_schema.animations.settings.animation.options.option_5" }
+      ]
+    }
+  ],
+  "blocks": [
+    {
+      "type": "name",
+      "name": "Name",
+      "settings": [
+        { "type": "text", "id": "label", "label": "Label", "default": "Name" },
+        { "type": "text", "id": "field_name", "label": "Email field name", "default": "Name" },
+        { "type": "text", "id": "placeholder", "label": "Placeholder", "default": "Enter your name" },
+        { "type": "select", "id": "field_width", "label": "Field width (desktop)", "default": "100",
+          "options": [
+            { "value": "100", "label": "100%" },
+            { "value": "75", "label": "75%" },
+            { "value": "66.6667", "label": "66%" },
+            { "value": "50", "label": "50%" },
+            { "value": "33.3333", "label": "33%" },
+            { "value": "25", "label": "25%" }
+          ]
+        },
+        { "type": "checkbox", "id": "hide_label", "label": "Hide label", "default": true },
+        { "type": "checkbox", "id": "required", "label": "Required", "default": false }
+      ]
+    },
+    {
+      "type": "email",
+      "name": "Email",
+      "settings": [
+        { "type": "text", "id": "label", "label": "Label", "default": "Email" },
+        { "type": "text", "id": "placeholder", "label": "Placeholder", "default": "Enter your email" },
+        { "type": "select", "id": "field_width", "label": "Field width (desktop)", "default": "100",
+          "options": [
+            { "value": "100", "label": "100%" },
+            { "value": "75", "label": "75%" },
+            { "value": "66.6667", "label": "66%" },
+            { "value": "50", "label": "50%" },
+            { "value": "33.3333", "label": "33%" },
+            { "value": "25", "label": "25%" }
+          ]
+        },
+        { "type": "checkbox", "id": "hide_label", "label": "Hide label", "default": true }
+      ]
+    },
+    {
+      "type": "phone",
+      "name": "Phone number",
+      "settings": [
+        { "type": "text", "id": "label", "label": "Label", "default": "Phone number" },
+        { "type": "text", "id": "placeholder", "label": "Placeholder", "default": "Enter your phone number" },
+        { "type": "select", "id": "field_width", "label": "Field width (desktop)", "default": "100",
+          "options": [
+            { "value": "100", "label": "100%" },
+            { "value": "75", "label": "75%" },
+            { "value": "66.6667", "label": "66%" },
+            { "value": "50", "label": "50%" },
+            { "value": "33.3333", "label": "33%" },
+            { "value": "25", "label": "25%" }
+          ]
+        },
+        { "type": "checkbox", "id": "hide_label", "label": "Hide label", "default": true },
+        { "type": "checkbox", "id": "required", "label": "Required", "default": false }
+      ]
+    },
+    {
+      "type": "rego_status",
+      "name": "Pre or Post rego",
+      "settings": [
+        { "type": "text", "id": "label", "label": "Label", "default": "Pre or Post rego" },
+        { "type": "text", "id": "field_name", "label": "Email field name", "default": "Pre or Post rego" },
+        { "type": "text", "id": "placeholder", "label": "Placeholder option", "default": "Select one" },
+        { "type": "text", "id": "options", "label": "Options (comma separated)", "default": "Pre rego, Post rego" },
+        { "type": "select", "id": "field_width", "label": "Field width (desktop)", "default": "100",
+          "options": [
+            { "value": "100", "label": "100%" },
+            { "value": "75", "label": "75%" },
+            { "value": "66.6667", "label": "66%" },
+            { "value": "50", "label": "50%" },
+            { "value": "33.3333", "label": "33%" },
+            { "value": "25", "label": "25%" }
+          ]
+        },
+        { "type": "checkbox", "id": "hide_label", "label": "Hide label", "default": true },
+        { "type": "checkbox", "id": "required", "label": "Required", "default": false }
+      ]
+    },
+    {
+      "type": "location",
+      "name": "Location",
+      "settings": [
+        { "type": "text", "id": "label", "label": "Label", "default": "What is your location" },
+        { "type": "text", "id": "field_name", "label": "Email field name", "default": "Location" },
+        { "type": "text", "id": "placeholder", "label": "Placeholder", "default": "What is your location?" },
+        { "type": "select", "id": "field_width", "label": "Field width (desktop)", "default": "100",
+          "options": [
+            { "value": "100", "label": "100%" },
+            { "value": "75", "label": "75%" },
+            { "value": "66.6667", "label": "66%" },
+            { "value": "50", "label": "50%" },
+            { "value": "33.3333", "label": "33%" },
+            { "value": "25", "label": "25%" }
+          ]
+        },
+        { "type": "checkbox", "id": "hide_label", "label": "Hide label", "default": true },
+        { "type": "checkbox", "id": "required", "label": "Required", "default": false }
+      ]
+    },
+    {
+      "type": "message",
+      "name": "Message",
+      "settings": [
+        { "type": "text", "id": "label", "label": "Label", "default": "Message" },
+        { "type": "text", "id": "placeholder", "label": "Placeholder", "default": "Which gvm Package do you want further information on?" },
+        { "type": "range", "id": "rows", "label": "Rows", "min": 2, "max": 10, "step": 1, "default": 3 },
+        { "type": "select", "id": "field_width", "label": "Field width (desktop)", "default": "100",
+          "options": [
+            { "value": "100", "label": "100%" },
+            { "value": "75", "label": "75%" },
+            { "value": "66.6667", "label": "66%" },
+            { "value": "50", "label": "50%" },
+            { "value": "33.3333", "label": "33%" },
+            { "value": "25", "label": "25%" }
+          ]
+        },
+        { "type": "checkbox", "id": "hide_label", "label": "Hide label", "default": true }
+      ]
+    },
+
+    {
+      "type": "custom_text",
+      "name": "Custom field: Text",
+      "settings": [
+        { "type": "text", "id": "label", "label": "Label", "default": "Custom text" },
+        { "type": "text", "id": "field_name", "label": "Email field name", "default": "Custom text" },
+        { "type": "text", "id": "placeholder", "label": "Placeholder", "default": "Enter value" },
+        { "type": "select", "id": "field_width", "label": "Field width (desktop)", "default": "100",
+          "options": [
+            { "value": "100", "label": "100%" },
+            { "value": "75", "label": "75%" },
+            { "value": "66.6667", "label": "66%" },
+            { "value": "50", "label": "50%" },
+            { "value": "33.3333", "label": "33%" },
+            { "value": "25", "label": "25%" }
+          ]
+        },
+        { "type": "checkbox", "id": "hide_label", "label": "Hide label", "default": true },
+        { "type": "checkbox", "id": "required", "label": "Required", "default": false }
+      ]
+    },
+    {
+      "type": "custom_select",
+      "name": "Custom field: Dropdown",
+      "settings": [
+        { "type": "text", "id": "label", "label": "Label", "default": "Custom dropdown" },
+        { "type": "text", "id": "field_name", "label": "Email field name", "default": "Custom dropdown" },
+        { "type": "text", "id": "placeholder", "label": "Placeholder option", "default": "Select one" },
+        { "type": "text", "id": "options", "label": "Options (comma separated)", "default": "Option 1, Option 2" },
+        { "type": "select", "id": "field_width", "label": "Field width (desktop)", "default": "100",
+          "options": [
+            { "value": "100", "label": "100%" },
+            { "value": "75", "label": "75%" },
+            { "value": "66.6667", "label": "66%" },
+            { "value": "50", "label": "50%" },
+            { "value": "33.3333", "label": "33%" },
+            { "value": "25", "label": "25%" }
+          ]
+        },
+        { "type": "checkbox", "id": "hide_label", "label": "Hide label", "default": true },
+        { "type": "checkbox", "id": "required", "label": "Required", "default": false }
+      ]
+    },
+    {
+      "type": "custom_textarea",
+      "name": "Custom field: Textarea",
+      "settings": [
+        { "type": "text", "id": "label", "label": "Label", "default": "Custom textarea" },
+        { "type": "text", "id": "field_name", "label": "Email field name", "default": "Custom textarea" },
+        { "type": "text", "id": "placeholder", "label": "Placeholder", "default": "Enter details" },
+        { "type": "range", "id": "rows", "label": "Rows", "min": 2, "max": 12, "step": 1, "default": 4 },
+        { "type": "select", "id": "field_width", "label": "Field width (desktop)", "default": "100",
+          "options": [
+            { "value": "100", "label": "100%" },
+            { "value": "75", "label": "75%" },
+            { "value": "66.6667", "label": "66%" },
+            { "value": "50", "label": "50%" },
+            { "value": "33.3333", "label": "33%" },
+            { "value": "25", "label": "25%" }
+          ]
+        },
+        { "type": "checkbox", "id": "hide_label", "label": "Hide label", "default": true },
+        { "type": "checkbox", "id": "required", "label": "Required", "default": false }
+      ]
+    },
+    {
+      "type": "custom_checkbox",
+      "name": "Custom field: Checkbox",
+      "settings": [
+        { "type": "text", "id": "label", "label": "Label", "default": "Consent" },
+        { "type": "text", "id": "field_name", "label": "Email field name", "default": "Consent" },
+        { "type": "text", "id": "checkbox_text", "label": "Checkbox text", "default": "I agree to be contacted back" },
+        { "type": "select", "id": "field_width", "label": "Field width (desktop)", "default": "100",
+          "options": [
+            { "value": "100", "label": "100%" },
+            { "value": "75", "label": "75%" },
+            { "value": "66.6667", "label": "66%" },
+            { "value": "50", "label": "50%" },
+            { "value": "33.3333", "label": "33%" },
+            { "value": "25", "label": "25%" }
+          ]
+        },
+        { "type": "checkbox", "id": "hide_label", "label": "Hide label", "default": true },
+        { "type": "checkbox", "id": "required", "label": "Required", "default": false }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Contact form v4",
+      "blocks": [
+        { "type": "name" },
+        { "type": "email" },
+        { "type": "phone" },
+        { "type": "rego_status" },
+        { "type": "location" },
+        { "type": "message" }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin language editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "customer": {
     "account": {
@@ -111,6 +120,10 @@
     "return_to_store": "返回商店"
   },
   "templates": {
+    "404": {
+      "subtext": "您请求的页面不存在。",
+      "title": "404页面不存在"
+    },
     "search": {
       "title": "搜索结果",
       "results_with_count_and_term": {
@@ -125,8 +138,8 @@
       },
       "search_for": "搜索“{{terms}}”",
       "products": "产品",
-			"suggestions": "建議",
-			"pages": "頁面"
+      "suggestions": "建議",
+      "pages": "頁面"
     },
     "contact": {
       "form": {
@@ -142,10 +155,6 @@
     },
     "cart": {
       "cart": "大车"
-    },
-    "404": {
-      "subtext": "您请求的页面不存在。",
-      "title": "404页面不存在"
     }
   },
   "general": {
@@ -216,9 +225,9 @@
       "item_added": "项目添加到您的购物车。",
       "view": "查看我的购物车 ({{ count }})",
       "qualified_shipping_message": "祝賀！您的訂單符合免運費條件",
-			"gift_wrapping_html": "對於 {{ price }}，請按此順序包裝產品。",
-			"gift_note_placeholder": "禮品贈言（免費和可選）",
-			"cart_recommendations": "您可能還喜歡",
+      "gift_wrapping_html": "對於 {{ price }}，請按此順序包裝產品。",
+      "gift_note_placeholder": "禮品贈言（免費和可選）",
+      "cart_recommendations": "您可能還喜歡",
       "pick_delivery_date": "選擇交貨日期",
       "no_select_delivery_time_message": "請選擇交貨時間。",
       "delivery_time_invalid": "請選擇有效時間，該時間必須大於當前時間。",
@@ -357,7 +366,7 @@
       "on_sale": "销售",
       "description": "描述",
       "add_to_cart": "添加到购物车",
-      "add_all_to_cart":"全部加入購物車",
+      "add_all_to_cart": "全部加入購物車",
       "include_taxes": "含税。",
       "share_label": "分享",
       "xr_button": "在您的空间中查看",
@@ -379,7 +388,7 @@
       "clear_with_label": "清除 {{ label }}",
       "close_filter": "关闭过滤器",
       "clear": "清除",
-      "match_all":"匹配所有",
+      "match_all": "匹配所有",
       "filter_button": "筛选",
       "filter_by_label": "筛选：",
       "filters_selected": {
@@ -619,7 +628,7 @@
     "placeholder": "输入你的电子邮箱",
     "success": "感谢订阅"
   },
-	"recipient": {
+  "recipient": {
     "form": {
       "checkbox": "我要將此作為禮物傳送",
       "email_label": "收件者電子郵件",
@@ -630,6 +639,51 @@
       "message_label": "訊息 (選填)",
       "message": "訊息",
       "max_characters": "最多 {{ max_chars }} 個字元"
+    }
+  },
+  "pagefly": {
+    "products": {
+      "product": {
+        "regular_price": "Regular price",
+        "sold_out": "Sold out",
+        "unavailable": "Unavailable",
+        "on_sale": "Sale",
+        "quantity": "Quantity",
+        "add_to_cart": "Add to cart",
+        "back_to_collection": "Back to {{ title }}",
+        "view_details": "View details"
+      }
+    },
+    "article": {
+      "tags": "Tags:",
+      "all_topics": "All topics",
+      "by_author": "by {{ author }}",
+      "posted_in": "Posted in",
+      "read_more": "Read more",
+      "back_to_blog": "Back to {{ title }}"
+    },
+    "comments": {
+      "title": "Leave a comment",
+      "name": "Name",
+      "email": "Email",
+      "message": "Message",
+      "post": "Post comment",
+      "moderated": "Please note, comments must be approved before they are published",
+      "success_moderated": "Your comment was posted successfully. We will publish it in a little while, as our blog is moderated.",
+      "success": "Your comment was posted successfully! Thank you!",
+      "comments_with_count": {
+        "one": "{{ count }} comment",
+        "other": "{{ count }} comments"
+      }
+    },
+    "password_page": {
+      "login_form_message": "Enter store using password:",
+      "login_form_password_label": "Password",
+      "login_form_password_placeholder": "Your password",
+      "login_form_submit": "Enter",
+      "signup_form_email_label": "Email",
+      "signup_form_success": "We will send you an email right before we open!",
+      "password_link": "Enter using password"
     }
   }
 }

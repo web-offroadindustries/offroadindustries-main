@@ -1,63 +1,105 @@
 {% liquid
+  assign sort_by = results.sort_by | default: results.default_sort_by
+
   if results.url
     assign results_url = results.url
   else
     assign terms = results.terms | escape
     assign results_url = '?q=' | append: terms | append: '&options%5Bprefix%5D=last&sort_by=' | append: sort_by
   endif
+
+  assign brand_only_on_search = false
+  if request.page_type == 'search'
+    assign brand_only_on_search = true
+  endif
+
+  assign has_active_facets = false
+
+  for f in results.filters
+    if brand_only_on_search
+      if f.param_name == 'filter.p.vendor' and f.active_values.size > 0
+        assign has_active_facets = true
+        break
+      endif
+    else
+      if f.active_values.size > 0
+        assign has_active_facets = true
+        break
+      endif
+
+      if f.type == 'price_range'
+        if f.min_value.value != blank or f.max_value.value != blank
+          assign has_active_facets = true
+          break
+        endif
+      endif
+    endif
+  endfor
 %}
-<div class="active-facets">
-  {%- for filter in results.filters -%}
-    {%- for value in filter.active_values -%}
-      <facet-remove>
-        <a
-          href="{{ value.url_to_remove }}"
-          class="active-facets__button btn btn--small"
-          data-tippy-content="{{ 'products.facets.clear_with_label' | t: label: value.label | escape }}"
-          data-tippy-theme="color-background-1"
-          data-tippy-placement="top"
-        >
-          <span class="active-facets__button-inner">
-            {{ value.label | escape }}
-            {% comment %} theme-check-disable {% endcomment %}
-            {{ 'icon-close-small.svg' | inline_asset_content }}
-            {% comment %} theme-check-enable {% endcomment %}
-          </span>
-        </a>
-      </facet-remove>
-    {%- endfor -%}
-    {% if filter.type == 'price_range' %}
-      {%- if filter.min_value.value != null or filter.max_value.value != null -%}
+
+{% if has_active_facets %}
+  <div class="active-facets">
+    {%- for filter in results.filters -%}
+      {%- if brand_only_on_search and filter.param_name != 'filter.p.vendor' -%}
+        {%- continue -%}
+      {%- endif -%}
+
+      {%- for value in filter.active_values -%}
         <facet-remove>
-          <a href="{{ filter.url_to_remove }}" class="active-facets__button btn btn--small">
+          <a
+            href="{{ value.url_to_remove }}"
+            class="active-facets__button btn btn--small"
+            data-tippy-content="{{ 'products.facets.clear_with_label' | t: label: value.label | escape }}"
+            data-tippy-theme="color-background-1"
+            data-tippy-placement="top"
+          >
             <span class="active-facets__button-inner">
-              {%- if filter.min_value.value -%}
-                {{ filter.min_value.value | money }}
-              {%- else -%}
-                {{ 0 | money }}
-              {%- endif -%}
-              -
-              {%- if filter.max_value.value -%}
-                {{ filter.max_value.value | money }}
-              {%- else -%}
-                {{ filter.range_max | money }}
-              {%- endif -%}
+              {{ value.label | escape }}
               {% comment %} theme-check-disable {% endcomment %}
               {{ 'icon-close-small.svg' | inline_asset_content }}
               {% comment %} theme-check-enable {% endcomment %}
-              <span class="visually-hidden">{{ 'products.facets.clear_filter' | t }}</span>
             </span>
           </a>
         </facet-remove>
+      {%- endfor -%}
+
+      {%- if brand_only_on_search == false and filter.type == 'price_range' -%}
+        {%- if filter.min_value.value != blank or filter.max_value.value != blank -%}
+          <facet-remove>
+            <a href="{{ filter.url_to_remove }}" class="active-facets__button btn btn--small">
+              <span class="active-facets__button-inner">
+                {%- if filter.min_value.value != blank -%}
+                  {{ filter.min_value.value | money }}
+                {%- else -%}
+                  {{ 0 | money }}
+                {%- endif -%}
+                -
+                {%- if filter.max_value.value != blank -%}
+                  {{ filter.max_value.value | money }}
+                {%- else -%}
+                  {{ filter.range_max | money }}
+                {%- endif -%}
+                {% comment %} theme-check-disable {% endcomment %}
+                {{ 'icon-close-small.svg' | inline_asset_content }}
+                {% comment %} theme-check-enable {% endcomment %}
+                <span class="visually-hidden">{{ 'products.facets.clear_filter' | t }}</span>
+              </span>
+            </a>
+          </facet-remove>
+        {%- endif -%}
       {%- endif -%}
-    {% endif %}
-  {%- endfor -%}
-  <facet-remove>
-    <a href="{{ results_url }}" class="active-facets__button btn btn--small btn--underline active-facets__button-clear">
-      <span>{{ 'products.facets.clear_all' | t }}</span>
-    </a>
-  </facet-remove>
-</div>
+    {%- endfor -%}
+
+    <facet-remove>
+      <a
+        href="{{ results_url }}"
+        class="active-facets__button btn btn--small btn--underline active-facets__button-clear"
+      >
+        <span>{{ 'products.facets.clear_all' | t }}</span>
+      </a>
+    </facet-remove>
+  </div>
+{% endif %}
 
 {% if enable_product_count or enable_sorting %}
   <div class="product-grid__header flex items-center justify-between">
@@ -76,6 +118,7 @@
           <span class="text-normal">{{- 'products.facets.filter_and_sort' | t -}}</span>
         </button>
       </drawer-opener>
+
       <noscript>
         <details class="drawer-facets-nojs parent-group {% unless sidebar_position == 'drawer' %}hidden lg-down:block{% endunless %}">
           <summary>
@@ -83,13 +126,14 @@
               {% comment %} theme-check-disable {% endcomment %}
               {{ 'icon-filter.svg' | inline_asset_content }}
               {% comment %} theme-check-enable {% endcomment %}
-              <span>{{- 'products.facets.filter_button' | t -}}</span></span
-            >
+              <span>{{- 'products.facets.filter_button' | t -}}</span>
+            </span>
             {% render 'facets-nojs', results: results, form_id: 'facets-2', sidebar_position: sidebar_position %}
           </summary>
         </details>
       </noscript>
     {% endif %}
+
     {% if enable_product_count %}
       <div class="collection-product-count hidden md:block" role="status" data-product-count>
         {%- if results.results_count -%}
@@ -104,6 +148,7 @@
         {%- endif -%}
       </div>
     {% endif %}
+
     {% if enable_sorting %}
       {%- assign sort_by = results.sort_by | default: results.default_sort_by -%}
       <div class="collection-sortby hidden md:block no-js-hidden">
@@ -115,7 +160,7 @@
               class="form-control"
               name="sort_by"
               aria-describedby="a11y-refresh-page-message a11y-selection-message"
-              data-default-sortby="{{ collection.default_sort_by }}"
+              data-default-sortby="{{ results.default_sort_by }}"
             >
               {%- for option in results.sort_options -%}
                 <option

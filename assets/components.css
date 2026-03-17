@@ -233,6 +233,9 @@ button,
   height: auto !important;
   line-height: 2.2rem;
 }
+.f-text-blocks__btn .btn--underline {
+  padding: 10px 30px !important;
+}
 .btn--underline:after, .btn--link:after {
   content: "";
   width: 100%;

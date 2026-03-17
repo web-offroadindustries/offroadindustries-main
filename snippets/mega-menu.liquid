@@ -1,0 +1,178 @@
+{%- liquid
+  assign parent_title = section.settings.parent | strip
+  assign section_type = section_type | default: 'mega-menu'
+  assign layout = section.settings.mm_layout | default: 'brands'
+
+  assign c = section.settings.mm_bg_color
+  assign o = section.settings.mm_bg_opacity | divided_by: 100.0
+  assign align = section.settings.mm_align | default: 'center'
+-%}
+
+{%- if parent_title != blank -%}
+  <div
+    class="f-site-nav__dropdown mega-menu-container {{ section_type }} mega-menu-container--{{ layout }}"
+    data-mega-menu-parent="{{ parent_title | escape }}"
+    style="
+      --mm-bg-r: {{ c | color_extract: 'red' }};
+      --mm-bg-g: {{ c | color_extract: 'green' }};
+      --mm-bg-b: {{ c | color_extract: 'blue' }};
+      --mm-bg-opacity: {{ o }};
+      --mm-text-color: {{ section.settings.mm_text_color }};
+      {%- if section.settings.mm_bg_image != blank -%}
+        --mm-bg-image: url({{ section.settings.mm_bg_image | image_url: width: 2400 }});
+      {%- endif -%}
+    "
+  >
+    <div class="dropdown mega-menu">
+      <div class="dropdown_content">
+
+        {%- if layout == 'brands' -%}
+          <div class="mega-menu__brands mega-menu__brands--{{ align }}">
+            {%- for block in section.blocks -%}
+              {%- if block.type != 'brand_tile' -%}{%- continue -%}{%- endif -%}
+
+              {%- liquid
+                assign logo = block.settings.logo
+                assign label = block.settings.label | strip
+                assign link = block.settings.link
+
+                if label == blank and logo != blank
+                  assign label = logo.alt | strip
+                endif
+              -%}
+
+              {%- if link != blank -%}
+                <a class="mega-menu__brand" href="{{ link }}" {{ block.shopify_attributes }}>
+              {%- else -%}
+                <div class="mega-menu__brand" role="presentation" {{ block.shopify_attributes }}>
+              {%- endif -%}
+
+                  <span class="mega-menu__brand-logo">
+                    {%- if logo != blank -%}
+                      <img
+                        src="{{ logo | image_url: width: 420 }}"
+                        alt="{{ label | escape }}"
+                        loading="lazy"
+                        width="420"
+                        height="{{ 420 | divided_by: logo.aspect_ratio | round }}"
+                      >
+                    {%- else -%}
+                      <span class="mega-menu__brand-logo-placeholder"></span>
+                    {%- endif -%}
+                  </span>
+
+                  {%- if label != blank -%}
+                    <span class="mega-menu__brand-name">{{ label }}</span>
+                  {%- endif -%}
+
+              {%- if link != blank -%}
+                </a>
+              {%- else -%}
+                </div>
+              {%- endif -%}
+            {%- endfor -%}
+          </div>
+
+        {%- else -%}
+          {%- for block in section.blocks -%}
+            {%- if block.type != 'column' -%}{%- continue -%}{%- endif -%}
+
+            <div class="dropdown_column" {{ block.shopify_attributes }}>
+              {%- if block.settings.richtext_top != blank -%}
+                <div class="mega-menu__richtext">
+                  {{ block.settings.richtext_top }}
+                </div>
+              {%- endif -%}
+
+              {%- if block.settings.image_top != blank -%}
+                <div class="mega-menu__image-caption-link">
+                  {%- if block.settings.image_link_top != blank -%}
+                    <a href="{{ block.settings.image_link_top }}">
+                  {%- endif -%}
+
+                  <img
+                    src="{{ block.settings.image_top | image_url: width: 600 }}"
+                    alt="{{ block.settings.image_top.alt | escape }}"
+                    loading="lazy"
+                  >
+
+                  {%- if block.settings.image_link_top != blank -%}
+                    </a>
+                  {%- endif -%}
+
+                  {%- if block.settings.image_caption_top != blank -%}
+                    <p class="mega-menu__image-caption">{{ block.settings.image_caption_top }}</p>
+                  {%- endif -%}
+                </div>
+              {%- endif -%}
+
+              {%- for i in (1..4) -%}
+                {%- assign menu_key = 'menu_' | append: i -%}
+                {%- assign menu_link_key = menu_key | append: '_link' -%}
+
+                {%- assign menu_handle = block.settings[menu_key] -%}
+                {%- assign menu_link = block.settings[menu_link_key] -%}
+
+                {%- if menu_handle != blank -%}
+                  {%- assign menu_obj = linklists[menu_handle] -%}
+                  {%- if menu_obj == blank -%}
+                    {%- assign menu_obj = menus[menu_handle] -%}
+                  {%- endif -%}
+
+                  {%- if menu_obj != blank -%}
+                    <div class="dropdown_column__menu">
+                      <ul class="dropdown_title">
+                        <li>
+                          {%- if menu_link != blank -%}
+                            <a href="{{ menu_link }}">{{ menu_obj.title }}</a>
+                          {%- else -%}
+                            {{ menu_obj.title }}
+                          {%- endif -%}
+                        </li>
+                      </ul>
+
+                      <ul class="dropdown_item">
+                        {%- for l in menu_obj.links -%}
+                          <li><a href="{{ l.url }}">{{ l.title }}</a></li>
+                        {%- endfor -%}
+                      </ul>
+                    </div>
+                  {%- endif -%}
+                {%- endif -%}
+              {%- endfor -%}
+
+              {%- if block.settings.image_bottom != blank -%}
+                <div class="mega-menu__image-caption-link">
+                  {%- if block.settings.image_link_bottom != blank -%}
+                    <a href="{{ block.settings.image_link_bottom }}">
+                  {%- endif -%}
+
+                  <img
+                    src="{{ block.settings.image_bottom | image_url: width: 600 }}"
+                    alt="{{ block.settings.image_bottom.alt | escape }}"
+                    loading="lazy"
+                  >
+
+                  {%- if block.settings.image_link_bottom != blank -%}
+                    </a>
+                  {%- endif -%}
+
+                  {%- if block.settings.image_caption_bottom != blank -%}
+                    <p class="mega-menu__image-caption">{{ block.settings.image_caption_bottom }}</p>
+                  {%- endif -%}
+                </div>
+              {%- endif -%}
+
+              {%- if block.settings.richtext_bottom != blank -%}
+                <div class="mega-menu__richtext">
+                  {{ block.settings.richtext_bottom }}
+                </div>
+              {%- endif -%}
+            </div>
+          {%- endfor -%}
+        {%- endif -%}
+
+      </div>
+    </div>
+  </div>
+{%- endif -%}

@@ -1,0 +1,524 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    },
+    "slideshow_ByTqfK": {
+      "type": "slideshow",
+      "blocks": {
+        "slide_bEPqJ9": {
+          "type": "slide",
+          "settings": {
+            "background": "shopify://shop_images/1920x1080px_LC.png",
+            "image_overlay_opacity": 0,
+            "content_position": "center",
+            "text_alignment": "center",
+            "text_color": "#000000",
+            "title": "",
+            "heading_size": "h2",
+            "heading_color": "",
+            "subheading": "",
+            "description": "",
+            "desc_size": "text-desc-base",
+            "button_text_1": "",
+            "button_link_1": "",
+            "button_style_1": "btn--primary",
+            "button_size_1": "",
+            "button_text_2": "",
+            "button_link_2": "",
+            "button_style_2": "btn--primary",
+            "button_size_2": ""
+          }
+        },
+        "slide_tzMDcz": {
+          "type": "slide",
+          "settings": {
+            "background": "shopify://shop_images/1920x1080px_RAM.png",
+            "image_overlay_opacity": 0,
+            "content_position": "center",
+            "text_alignment": "center",
+            "text_color": "#000000",
+            "title": "",
+            "heading_size": "h2",
+            "heading_color": "",
+            "subheading": "",
+            "description": "",
+            "desc_size": "text-desc-base",
+            "button_text_1": "",
+            "button_link_1": "",
+            "button_style_1": "btn--primary",
+            "button_size_1": "",
+            "button_text_2": "",
+            "button_link_2": "",
+            "button_style_2": "btn--primary",
+            "button_size_2": ""
+          }
+        },
+        "slide_yUTeVw": {
+          "type": "slide",
+          "settings": {
+            "background": "shopify://shop_images/1920x1080px_HERO_IMAGE_GVM_UPGRADES1920x1080px_tundra_w_details.jpg",
+            "image_overlay_opacity": 0,
+            "content_position": "center",
+            "text_alignment": "center",
+            "text_color": "#000000",
+            "title": "",
+            "heading_size": "h2",
+            "heading_color": "",
+            "subheading": "",
+            "description": "",
+            "desc_size": "text-desc-base",
+            "button_text_1": "",
+            "button_link_1": "",
+            "button_style_1": "btn--primary",
+            "button_size_1": "",
+            "button_text_2": "",
+            "button_link_2": "",
+            "button_style_2": "btn--primary",
+            "button_size_2": ""
+          }
+        },
+        "slide_a39Gpp": {
+          "type": "slide",
+          "settings": {
+            "background": "shopify://shop_images/1920x1080px_HERO_IMAGE_GVM_UPGRADES1920x1080px_Ford_F150_w_details.jpg",
+            "image_overlay_opacity": 0,
+            "content_position": "center",
+            "text_alignment": "center",
+            "text_color": "#000000",
+            "title": "",
+            "heading_size": "h2",
+            "heading_color": "",
+            "subheading": "",
+            "description": "",
+            "desc_size": "text-desc-base",
+            "button_text_1": "",
+            "button_link_1": "",
+            "button_style_1": "btn--primary",
+            "button_size_1": "",
+            "button_text_2": "",
+            "button_link_2": "",
+            "button_style_2": "btn--primary",
+            "button_size_2": ""
+          }
+        },
+        "slide_KV3FUV": {
+          "type": "slide",
+          "settings": {
+            "background": "shopify://shop_images/1920x1080px_HERO_IMAGE_GVM_UPGRADES1920x1080px_silverado_2500_w_details.jpg",
+            "image_overlay_opacity": 0,
+            "content_position": "center",
+            "text_alignment": "center",
+            "text_color": "#000000",
+            "title": "",
+            "heading_size": "h2",
+            "heading_color": "",
+            "subheading": "",
+            "description": "",
+            "desc_size": "text-desc-base",
+            "button_text_1": "",
+            "button_link_1": "",
+            "button_style_1": "btn--primary",
+            "button_size_1": "",
+            "button_text_2": "",
+            "button_link_2": "",
+            "button_style_2": "btn--primary",
+            "button_size_2": ""
+          }
+        },
+        "slide_wK9dtF": {
+          "type": "slide",
+          "settings": {
+            "background": "shopify://shop_images/1920x1080px_HERO_IMAGE_GVM_UPGRADES1920x1080px_1500_w_details.jpg",
+            "image_overlay_opacity": 0,
+            "content_position": "center",
+            "text_alignment": "center",
+            "text_color": "#000000",
+            "title": "",
+            "heading_size": "h2",
+            "heading_color": "",
+            "subheading": "",
+            "description": "",
+            "desc_size": "text-desc-base",
+            "button_text_1": "",
+            "button_link_1": "",
+            "button_style_1": "btn--primary",
+            "button_size_1": "",
+            "button_text_2": "",
+            "button_link_2": "",
+            "button_style_2": "btn--primary",
+            "button_size_2": ""
+          }
+        }
+      },
+      "block_order": [
+        "slide_bEPqJ9",
+        "slide_tzMDcz",
+        "slide_yUTeVw",
+        "slide_a39Gpp",
+        "slide_KV3FUV",
+        "slide_wK9dtF"
+      ],
+      "name": "t:sections.slideshow.name",
+      "settings": {
+        "container": "container-full",
+        "slideshow_height": "adapt",
+        "show_dots": false,
+        "show_nav": false,
+        "autoplay": true,
+        "autorotate_speed": 5,
+        "pagination_background": "light",
+        "controls_position": "center",
+        "pagination_style": "dots",
+        "show_text_below": false,
+        "text_alignment_mobile": "center",
+        "accessibility_info": "Slideshow about our brand",
+        "custom_id": "",
+        "custom_class": "",
+        "enable_bg_zoom_effect": false
+      }
+    },
+    "rich_text_k7z6De": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_4qWJN6": {
+          "type": "heading",
+          "settings": {
+            "heading": "About ORI GVM Upgrades",
+            "highlight_style": "none",
+            "enable_highlight_text_color": false,
+            "heading_size": "h0",
+            "heading_color": ""
+          }
+        },
+        "text_7BUCdz": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Discover the power of GVM upgrades from American trucks with Offroad Industries. Our USA-made suspension components and industry-leading FOX and BDS suspension choices set us apart. Each vehicle undergoes rigorous ADR brake testing and individualized stress analysis to ensure the best possible upgrade results. Trust us to provide complete data and make the right choice with Fox Suspension - the leading brand in USA offroad suspension. Transform your truck into an unstoppable force with GVM upgrades from Offroad Industries.<br/><br/>FOX USA-made suspension components paired with top-of-the-line BDS suspension options give your vehicle the ultimate advantage. We go above and beyond in our GVM Testing program, that we meet and exceed all ADR requirments and only use industry leaders to provide high quality Strength analysis on OE and Aftermarket parts to guarantee the best possible upgrade results.<br/><br/>Take your offroading experience to new heights with ORI GVM Upgraes Fox Suspension, the trusted and renowned brand for USA offroad suspension.<br/></p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_4qWJN6",
+        "text_7BUCdz"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "container": "container",
+        "color_schema": "",
+        "text_alignment": "left",
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "show_section_divider": false,
+        "divider_width": "container",
+        "custom_id": "",
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "image_with_text_PrJRDF": {
+      "type": "image-with-text",
+      "blocks": {
+        "text_jx4dXH": {
+          "type": "text",
+          "settings": {
+            "text": "<ul><li>Made In the USA</li><li>Fox Performance Series, Performance Elite, & Race Series Shocks are fully rebuilable and servicable. </li><li>Authorized Fox service repair agents in Australia.</li><li>ORI is stocking spare parts & accessories for your FOX Suspension</li></ul>"
+          }
+        }
+      },
+      "block_order": [
+        "text_jx4dXH"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "container": "container",
+        "color_schema": "",
+        "image": "shopify://shop_images/420_x_420px_MEGA_MENU_ICON__FOX.jpg",
+        "image_width": "50%",
+        "image_position": "left",
+        "vertical_alignment": "center",
+        "column_gap": "none",
+        "row_gap": "none",
+        "padding_left": 0,
+        "padding_right": 0,
+        "align_content_container": "none",
+        "mobile_padding_left": 15,
+        "mobile_padding_right": 15,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_top_mobile": 10,
+        "padding_bottom_mobile": 10,
+        "show_section_divider": false,
+        "divider_width": "container",
+        "custom_id": "",
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "collapsible_tabs_ciD8kW": {
+      "type": "collapsible-tabs",
+      "blocks": {
+        "content_Q9xLHk": {
+          "type": "content",
+          "settings": {
+            "icon": "none",
+            "title": "What makes ORI GVM upgrades from Offroad Industries the best choice for American trucks in Australia?",
+            "content": "<p>While Toyota and Ford continue to dominate the popularity contest when it comes to Australia’s most-driven trucks, the ranks of American trucks aren’t far behind. To deliver the quality and compatibility that you need for everything from a <a href=\"https://www.offroadindustries.com.au/collections/chevy-silverado-22-24-zr2-ltz\">Chevrolet Silverado</a> to a <a href=\"https://www.offroadindustries.com.au/collections/ram-1500-dt-2019-2023\">RAM 1500DT</a>, we source USA-made GVM suspension upgrades and accessories from the top manufacturers in the States. </p><p>You want an exceptional fit and parts that are made for the unique conditions your truck will tackle - which is why all of our upgrades are tailored to specific models, ensuring optimal performance and compliance with Australian standards.</p>",
+            "custom_liquid": "",
+            "content_page": "",
+            "open": false
+          }
+        },
+        "content_xrHna8": {
+          "type": "content",
+          "settings": {
+            "icon": "none",
+            "title": "How do Fox suspension and BDS components enhance the performance of my truck with a GVM upgrade?",
+            "content": "<p>Across <a href=\"https://www.offroadindustries.com.au/collections/fox-suspension\">Fox Suspension</a> and <a href=\"https://www.offroadindustries.com.au/collections/bds-suspension\">BDS</a>, you’ll find a range of products that give you everything from better road clearance to more resilience against bumpy and rough driving conditions. From lift kits and suspension upgrades to coil overs and shocks, increasing your payload is just one of the many benefits you’ll experience. For starters, even when you’ve loaded up your tub with all your gear, you’ll still experience better handling and performance, with that increased ground clearance you know and love about upgrading your suspension. </p><p>Between Fox and BDS, you’ll get incredible ride quality and handling, paired with reliable and robust support for increased loads. Together, they ensure your truck maintains stability and comfort, even with heavy gear and tough conditions.</p>",
+            "custom_liquid": "",
+            "content_page": "",
+            "open": false
+          }
+        },
+        "content_BkcGGW": {
+          "type": "content",
+          "settings": {
+            "icon": "none",
+            "title": "What is the GVM testing process used by Offroad Industries, and how does it ensure the best upgrade results?",
+            "content": "<p>At Offroad Industries, we want our customers to be able to buy and upgrade with confidence, knowing that they’re not only getting better ground clearance and control from their <a href=\"https://www.offroadindustries.com.au/collections/suspension\">suspension</a> upgrades, but also improved safety and handling. As a result, we make sure that everything we put together for GVM upgrades is thoroughly tested. </p><p>This includes everything from ADR brake assessments and individual stress analyses, to ensure each upgrade meets and exceeds Australian safety and performance criteria. This stringent approach guarantees that your vehicle operates safely under increased load conditions. </p>",
+            "custom_liquid": "",
+            "content_page": "",
+            "open": false
+          }
+        },
+        "content_Qnr3j6": {
+          "type": "content",
+          "settings": {
+            "icon": "none",
+            "title": "How does Offroad Industries ensure their GVM upgrade kits comply with Australian Design Rules (ADR)?",
+            "content": "<p>We fully comply with the Australian Design Rules, with comprehensive and rigorous testing to ensure quality, longevity and safety. These tests can include computer modelling of load-bearing components and detailed track testing to verify handling and operational safety. </p>",
+            "custom_liquid": "",
+            "content_page": "",
+            "open": false
+          }
+        },
+        "content_eVHWQQ": {
+          "type": "content",
+          "settings": {
+            "icon": "none",
+            "title": "Can I use Fox Performance Series, Performance Elite, or Race Series shocks with the GVM upgrade?",
+            "content": "<p>Yes, many of Fox Suspension’s Performance Series, Performance Elite, and Race Series can be utilised in your GVM upgrade though which ones are included may vary depending on the make and model of your truck. Each offers slightly different features and benefits, allowing you to customise your suspension setup based on your specific driving needs and preferences. </p>",
+            "custom_liquid": "",
+            "content_page": "",
+            "open": false
+          }
+        },
+        "content_p66FxM": {
+          "type": "content",
+          "settings": {
+            "icon": "none",
+            "title": "How does the GVM upgrade improve my truck’s towing and payload capacity?",
+            "content": "<p>By enhancing the suspension system and reinforcing key components, ORI's GVM upgrades increase your truck's legal load capacity. This means you can safely carry heavier payloads and tow larger trailers without compromising vehicle integrity or safety, giving you better control and more potential with every drive.</p>",
+            "custom_liquid": "",
+            "content_page": "",
+            "open": false
+          }
+        },
+        "content_CNpm4F": {
+          "type": "content",
+          "settings": {
+            "icon": "none",
+            "title": "What role does the ORI Leaf Pack play in the GVM upgrade, and how does it contribute to overall vehicle performance?",
+            "content": "<p>The ORI Leaf Pack is designed to support increased rear axle loads, providing additional strength and stability. This enhancement ensures your truck maintains proper ride height and handling characteristics, even when fully loaded. We put together different packs for different vehicles, ensuring you get the best possible fit to maximise performance and stability. </p>",
+            "custom_liquid": "",
+            "content_page": "",
+            "open": false
+          }
+        },
+        "content_MCfBwj": {
+          "type": "content",
+          "settings": {
+            "icon": "none",
+            "title": "What are the trends in off-road vehicle modifications, and how does Offroad Industries’ GVM upgrade cater to these needs?",
+            "content": "<p>The current trends in off-road modifications emphasise practical, rugged, and tested components tailored for real adventures. ORI's GVM upgrades align with this trend by offering durable, performance-focused solutions that enhance your truck's capability and reliability in challenging terrains. </p>",
+            "custom_liquid": "",
+            "content_page": "",
+            "open": false
+          }
+        }
+      },
+      "block_order": [
+        "content_Q9xLHk",
+        "content_xrHna8",
+        "content_BkcGGW",
+        "content_Qnr3j6",
+        "content_eVHWQQ",
+        "content_p66FxM",
+        "content_CNpm4F",
+        "content_MCfBwj"
+      ],
+      "name": "Collapsible tabs",
+      "settings": {
+        "container": "container",
+        "color_schema": "",
+        "section_header_padding_bottom": "medium",
+        "section_header_content_spacing": "medium",
+        "heading": "FAQS",
+        "highlight_style": "none",
+        "enable_highlight_text_color": false,
+        "heading_size": "h2",
+        "heading_color": "",
+        "subheading": "",
+        "description": "",
+        "item_heading_font": "body",
+        "item_heading_size": "h4",
+        "column_gap": "medium",
+        "content_width": "full",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "show_section_divider": false,
+        "divider_width": "container",
+        "custom_id": "",
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "multicolumn_AcQKEk": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_ECe8a7": {
+          "type": "column",
+          "settings": {
+            "show_image": true,
+            "image": "shopify://shop_images/image_-_2026-02-17T205945.442.png",
+            "image_link": "",
+            "title": "Ford F150 GVM Packages",
+            "heading_size": "h3",
+            "text": "<p>Click here to learn more about ORI GVM GCM packages for the Ford F150</p>",
+            "text_size": "medium",
+            "button_text": "",
+            "button_link": "",
+            "button_style": "btn--underline"
+          }
+        },
+        "column_T8hQry": {
+          "type": "column",
+          "settings": {
+            "show_image": true,
+            "image": "shopify://shop_images/image_-_2026-02-17T210005.244.png",
+            "image_link": "",
+            "title": "Toyota Tundra GVM Packages",
+            "heading_size": "h3",
+            "text": "<p>Click here to learn more about ORI GVM GCM packages for the Toyota Tundra</p>",
+            "text_size": "medium",
+            "button_text": "",
+            "button_link": "",
+            "button_style": "btn--underline"
+          }
+        },
+        "column_Bey9dh": {
+          "type": "column",
+          "settings": {
+            "show_image": true,
+            "image": "shopify://shop_images/image_-_2026-02-17T205900.998.png",
+            "image_link": "",
+            "title": "Chevy Silverado 1500 GVM Packages",
+            "heading_size": "h3",
+            "text": "<p>Click here to learn more about ORI GVM GCM packages for the Chevy Silverado 1500</p>",
+            "text_size": "medium",
+            "button_text": "",
+            "button_link": "",
+            "button_style": "btn--underline"
+          }
+        },
+        "column_nNUN6a": {
+          "type": "column",
+          "settings": {
+            "show_image": true,
+            "image": "shopify://shop_images/image_-_2026-02-17T205935.011.png",
+            "image_link": "",
+            "title": "Chevy Silverado 2500HD GVM Packages",
+            "heading_size": "h3",
+            "text": "<p>Click here to learn more about ORI GVM GCM packages for the Chevy Silverado 2500HD</p>",
+            "text_size": "medium",
+            "button_text": "",
+            "button_link": "",
+            "button_style": "btn--underline"
+          }
+        },
+        "column_mfLAKJ": {
+          "type": "column",
+          "disabled": true,
+          "settings": {
+            "show_image": true,
+            "image": "shopify://shop_images/image_-_2026-02-17T205922.034.png",
+            "image_link": "",
+            "title": "Column",
+            "heading_size": "h3",
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "text_size": "medium",
+            "button_text": "",
+            "button_link": "",
+            "button_style": "btn--underline"
+          }
+        }
+      },
+      "block_order": [
+        "column_ECe8a7",
+        "column_T8hQry",
+        "column_Bey9dh",
+        "column_nNUN6a",
+        "column_mfLAKJ"
+      ],
+      "name": "t:sections.multicolumn.name",
+      "settings": {
+        "container": "container",
+        "color_schema": "",
+        "section_header_padding_bottom": "medium",
+        "section_header_content_spacing": "medium",
+        "heading": "GVM Packages",
+        "highlight_style": "none",
+        "enable_highlight_text_color": false,
+        "heading_size": "h0",
+        "heading_color": "",
+        "subheading": "",
+        "description": "",
+        "layout": "vertical",
+        "text_alignment": "center",
+        "image_width": "fullwidth",
+        "custom_image_width": 80,
+        "columns": 4,
+        "column_gap": "medium",
+        "row_gap": "medium",
+        "enable_swipe_mobile": false,
+        "column_mobile": "1",
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "show_section_divider": false,
+        "divider_width": "container",
+        "custom_id": "",
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "slideshow_ByTqfK",
+    "rich_text_k7z6De",
+    "image_with_text_PrJRDF",
+    "collapsible_tabs_ciD8kW",
+    "multicolumn_AcQKEk"
+  ]
+}

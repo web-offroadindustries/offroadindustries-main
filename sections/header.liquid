@@ -154,7 +154,84 @@
               color_schema: section.settings.color_schema
             %}
           </div>
-        </div>  
+        </div>
+      {%- when 'design-6' -%}
+        <div
+          class="site-header__inner site-header__inner--v6 site-header__mobile-logo--{{ logo_mobile_position | default: 'left' }}"
+          style="
+            --v6-search-max: {{ section.settings.v6_search_max_width }}px;
+            --v6-search-height: {{ section.settings.v6_search_height }}px;
+            --v6-search-font: {{ section.settings.v6_search_font_size }}px;
+            --v6-help-label: {{ section.settings.v6_help_label_size }}px;
+            --v6-help-phone: {{ section.settings.v6_help_phone_size }}px;
+          "
+        >
+          <div class="site-header__top-v6">
+            <drawer-opener
+              class="mobile-nav-toggle hidden lg-down:flex no-js-hidden"
+              data-drawer="#Drawer-MobileNav"
+            >
+              <button
+                class="btn btn--plain focus-inset"
+                aria-haspopup="dialog"
+                aria-label="{{ 'layout.navigation.expand' | t }}"
+              >
+                {% comment %} theme-check-disable {% endcomment %}
+                {{ 'icon-hamburger.svg' | inline_asset_content }}
+                {% comment %} theme-check-enable {% endcomment %}
+              </button>
+            </drawer-opener>
+
+            <div class="site-header__top-left-v6">
+              {% render 'site-logo', section: section %}
+            </div>
+
+            <div class="site-header__top-search-v6 hidden lg:block">
+              <form action="{{ routes.search_url }}" method="get" role="search" class="header-v6-search">
+                <label class="visually-hidden" for="HeaderSearch-{{ section.id }}">
+                  {{ 'general.search.search' | t }}
+                </label>
+
+                <input
+                  id="HeaderSearch-{{ section.id }}"
+                  class="header-v6-search__input snize-exclude-input"
+                  type="search"
+                  name="q"
+                  placeholder="{{ 'general.search.placeholder' | t }}"
+                >
+                <input type="hidden" name="options[prefix]" value="last">
+
+                <button type="submit" class="header-v6-search__btn" aria-label="{{ 'general.search.search' | t }}">
+                  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" role="presentation" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                  </svg>
+                </button>
+              </form>
+            </div>
+
+            <div class="site-header__top-right-v6">
+              {% if section.settings.show_help_block %}
+                {% assign phone_raw = section.settings.help_phone | strip %}
+                {% assign phone_href = phone_raw | replace: " ", "" | replace: "(", "" | replace: ")", "" | replace: "-", "" %}
+                <div class="header-v6-help hidden lg:flex">
+                  <div class="header-v6-help__label">{{ section.settings.help_label }}</div>
+                  <a class="header-v6-help__phone" href="tel:{{ phone_href }}">{{ phone_raw }}</a>
+                </div>
+              {% endif %}
+
+              {% render 'header__addons',
+                section: section,
+                color_schema: section.settings.color_schema,
+                hide_desktop_search: true
+              %}
+            </div>
+          </div>
+
+          <div class="site-header__bottom-v6 hidden lg:flex">
+            {% render 'site-nav', section: section %}
+          </div>
+        </div>
       {%- else -%}
         <div class="site-header__inner flex site-header__mobile-logo--{{ logo_mobile_position | default: 'left' }}">
           <drawer-opener
@@ -476,6 +553,10 @@
         {
           "value": "design-5",
           "label": "t:sections.header.settings.layout.options__5.label"
+        },
+        {
+          "value": "design-6",
+          "label": "Design 6 (Logo + Search + Help row, Menu below)"
         }
       ],
       "default": "design-1",
@@ -731,6 +812,73 @@
       "max": 100,
       "step": 1,
       "unit": "px"
+    },
+    {
+      "type": "header",
+      "content": "Header help block"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_help_block",
+      "label": "Show help (Need Help + phone)",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "help_label",
+      "label": "Help label",
+      "default": "Need Help?"
+    },
+    {
+      "type": "text",
+      "id": "help_phone",
+      "label": "Help phone number",
+      "default": "0483 939 770"
+    },
+    {
+      "type": "range",
+      "id": "v6_search_max_width",
+      "label": "Search max width (desktop)",
+      "min": 360,
+      "max": 900,
+      "step": 10,
+      "default": 620
+    },
+    {
+      "type": "range",
+      "id": "v6_search_height",
+      "label": "Search height (desktop)",
+      "min": 10,
+      "max": 70,
+      "step": 2,
+      "default": 52
+    },
+    {
+      "type": "range",
+      "id": "v6_search_font_size",
+      "label": "Search text size (desktop)",
+      "min": 14,
+      "max": 24,
+      "step": 1,
+      "default": 18
+    },
+    {
+      "type": "range",
+      "id": "v6_help_label_size",
+      "label": "Need Help label font size (desktop)",
+      "min": 12,
+      "max": 30,
+      "step": 1,
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "v6_help_phone_size",
+      "label": "Phone number font size (desktop)",
+      "min": 16,
+      "max": 44,
+      "step": 1,
+      "default": 30
     }
   ],
   "blocks": [
@@ -2019,3 +2167,4 @@
   ]
 }
 {% endschema %}
+

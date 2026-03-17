@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin language editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "customer": {
     "account": {
@@ -111,6 +120,10 @@
     "return_to_store": "Palaa kauppaan"
   },
   "templates": {
+    "404": {
+      "subtext": "Pyytämääsi sivua ei ole olemassa.",
+      "title": "404 sivua ei löydetty"
+    },
     "search": {
       "title": "Hakutulokset",
       "results_with_count_and_term": {
@@ -125,8 +138,8 @@
       },
       "search_for": "Hae \"{{ terms }}\"",
       "products": "Tuotteet",
-			"suggestions": "Ehdotuksia",
-			"pages": "Sivut"
+      "suggestions": "Ehdotuksia",
+      "pages": "Sivut"
     },
     "contact": {
       "form": {
@@ -142,10 +155,6 @@
     },
     "cart": {
       "cart": "Kärry"
-    },
-    "404": {
-      "subtext": "Pyytämääsi sivua ei ole olemassa.",
-      "title": "404 sivua ei löydetty"
     }
   },
   "general": {
@@ -216,9 +225,9 @@
       "item_added": "Tuote lisätty ostoskoriin.",
       "view": "Näytä ostoskorini ({{ count }})",
       "qualified_shipping_message": "Onnittelen! Tilauksesi oikeuttaa ilmaiseen toimitukseen",
-			"gift_wrapping_html": "{{ price }} kääri tuotteet tähän tilaukseen.",
-			"gift_note_placeholder": "Lahjaviesti (ilmainen ja valinnainen)",
-			"cart_recommendations": "saatat pitää myös",
+      "gift_wrapping_html": "{{ price }} kääri tuotteet tähän tilaukseen.",
+      "gift_note_placeholder": "Lahjaviesti (ilmainen ja valinnainen)",
+      "cart_recommendations": "saatat pitää myös",
       "pick_delivery_date": "Valitse toimituspäivä",
       "no_select_delivery_time_message": "Valitse toimitusaika.",
       "delivery_time_invalid": "Valitse kelvollinen aika, ajan on oltava suurempi kuin nykyinen aika.",
@@ -357,19 +366,19 @@
       "on_sale": "Myynti",
       "description": "Kuvaus",
       "add_to_cart": "Lisää ostoskoriin",
-      "add_all_to_cart":"Lisää kaikki ostoskoriin",
+      "add_all_to_cart": "Lisää kaikki ostoskoriin",
       "include_taxes": "Sisältäen verot.",
       "share_label": "Jaa",
       "xr_button": "Näytä omassa tilassasi",
       "unavailable": "Ei saatavilla",
       "in_stock_label": "Varastossa, valmiina lähetettäväksi",
-        "stock_label": {
-          "one": "Alhainen varasto - {{ count }} kohde jäljellä",
-          "other": "Alhainen varasto - {{ count }} kohdetta jäljellä"
-        },
-        "will_not_ship_until": "Valmis lähetettäväksi {{ date }}",
-        "will_be_in_stock_after": "Takaisin varastossa {{ date }}",
-        "waiting_for_stock": "Inventaario matkalla"
+      "stock_label": {
+        "one": "Alhainen varasto - {{ count }} kohde jäljellä",
+        "other": "Alhainen varasto - {{ count }} kohdetta jäljellä"
+      },
+      "will_not_ship_until": "Valmis lähetettäväksi {{ date }}",
+      "will_be_in_stock_after": "Takaisin varastossa {{ date }}",
+      "waiting_for_stock": "Inventaario matkalla"
     },
     "facets": {
       "product_count": {
@@ -387,7 +396,7 @@
       },
       "to": "Vastaanottaja",
       "reset": "Nollaa",
-      "match_all":"Vastaa kaikki",
+      "match_all": "Vastaa kaikki",
       "filter_and_sort": "Suodata ja lajittele",
       "sort_button": "Järjestellä",
       "product_count_simple": {
@@ -619,7 +628,7 @@
     "placeholder": "Syötä sähköpostiosoitteesi",
     "success": "Kiitos tilaamisesta"
   },
-	"recipient": {
+  "recipient": {
     "form": {
       "checkbox": "Haluan lähettää tämän lahjaksi",
       "email_label": "Vastaanottajan sähköpostiosoite",
@@ -630,6 +639,51 @@
       "message_label": "Viesti (valinnainen)",
       "message": "Viesti",
       "max_characters": "enintään {{ max_chars }} merkkiä"
+    }
+  },
+  "pagefly": {
+    "products": {
+      "product": {
+        "regular_price": "Regular price",
+        "sold_out": "Sold out",
+        "unavailable": "Unavailable",
+        "on_sale": "Sale",
+        "quantity": "Quantity",
+        "add_to_cart": "Add to cart",
+        "back_to_collection": "Back to {{ title }}",
+        "view_details": "View details"
+      }
+    },
+    "article": {
+      "tags": "Tags:",
+      "all_topics": "All topics",
+      "by_author": "by {{ author }}",
+      "posted_in": "Posted in",
+      "read_more": "Read more",
+      "back_to_blog": "Back to {{ title }}"
+    },
+    "comments": {
+      "title": "Leave a comment",
+      "name": "Name",
+      "email": "Email",
+      "message": "Message",
+      "post": "Post comment",
+      "moderated": "Please note, comments must be approved before they are published",
+      "success_moderated": "Your comment was posted successfully. We will publish it in a little while, as our blog is moderated.",
+      "success": "Your comment was posted successfully! Thank you!",
+      "comments_with_count": {
+        "one": "{{ count }} comment",
+        "other": "{{ count }} comments"
+      }
+    },
+    "password_page": {
+      "login_form_message": "Enter store using password:",
+      "login_form_password_label": "Password",
+      "login_form_password_placeholder": "Your password",
+      "login_form_submit": "Enter",
+      "signup_form_email_label": "Email",
+      "signup_form_success": "We will send you an email right before we open!",
+      "password_link": "Enter using password"
     }
   }
 }

@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "type": "footer",
   "name": "t:sections.footer.name",
@@ -8,7 +17,7 @@
         "d2718812-c414-4fef-a2cc-7a964ed73dbe": {
           "type": "newsletter",
           "settings": {
-            "heading": "JOIN THE GUSTO",
+            "heading": "Welcome to Offroad Industries",
             "heading_size": "h6",
             "subheading": "<p>Subscribe for store updates and discounts.</p>",
             "description": "<p>By subscribing you agree to the <a href=\"/policies/terms-of-service\" title=\"Terms of Service\">Terms of Use</a> & <a href=\"/policies/privacy-policy\" title=\"Privacy Policy\">Privacy Policy.</a></p>",
@@ -23,8 +32,9 @@
         "3ca4a887-a88e-43f9-9422-843cb335bfa6": {
           "type": "link_list",
           "settings": {
-            "heading": "PRESETS",
+            "heading": "Important Information",
             "heading_size": "h6",
+            "menu": "footer",
             "width": 13,
             "open_default_collapsible_tab": false,
             "show_divider": true
@@ -32,9 +42,11 @@
         },
         "footer-0": {
           "type": "link_list",
+          "disabled": true,
           "settings": {
-            "heading": "ABOUT",
+            "heading": "ABOUT ORI",
             "heading_size": "h6",
+            "menu": "footer",
             "width": 13,
             "open_default_collapsible_tab": false,
             "show_divider": true
@@ -42,9 +54,11 @@
         },
         "link_list_ePTXrh": {
           "type": "link_list",
+          "disabled": true,
           "settings": {
-            "heading": "LINKS",
+            "heading": "Navigation",
             "heading_size": "h6",
+            "menu": "footer",
             "width": 13,
             "open_default_collapsible_tab": false,
             "show_divider": true
@@ -52,9 +66,11 @@
         },
         "8ea5fbcc-a81e-48ae-a337-2436b19c38af": {
           "type": "link_list",
+          "disabled": true,
           "settings": {
-            "heading": "SHOP",
+            "heading": "Account",
             "heading_size": "h6",
+            "menu": "footer",
             "width": 13,
             "open_default_collapsible_tab": false,
             "show_divider": true
@@ -76,7 +92,10 @@
       "custom_css": [],
       "settings": {
         "container": "container",
-        "color_schema": "inverse",
+        "color_schema": "accent",
+        "footer_bg_image": "shopify://shop_images/1920x1080_Topgraphic_lines_1.webp",
+        "footer_bg_size": "cover",
+        "footer_bg_position": "center center",
         "show_copyright": true,
         "show_divider": false,
         "enable_follow_on_shop": true,
@@ -85,7 +104,7 @@
         "enable_country_selector": true,
         "enable_language_selector": true,
         "show_payments": true,
-        "bottom_menu": "footer-bottom-menu",
+        "bottom_menu": "",
         "animations": "inherit"
       }
     },
@@ -101,7 +120,8 @@
         "03ac099f-69b1-4080-8b50-0fe8050a3ae0": {
           "type": "products",
           "settings": {
-            "text": "Products"
+            "text": "Products",
+            "collection": ""
           }
         },
         "9c24f1f1-363e-46a6-9b67-3cc0d81b8193": {
@@ -172,7 +192,7 @@
       ],
       "settings": {
         "design_mode": false,
-        "enable": true,
+        "enable": false,
         "show_for_homepage_only": true,
         "show_for_visitors_only": true,
         "trigger_open": "delay",

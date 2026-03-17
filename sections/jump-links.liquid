@@ -1,0 +1,263 @@
+{% comment %}
+  Section: Jump Links Bar (full-width items + swipe on mobile)
+  - Desktop: items auto-split width based on number of blocks (flex: 1)
+  - Mobile: horizontal swipe row, items don't stack
+  - Smooth scroll to ID with header offset
+{% endcomment %}
+
+{%- liquid
+  assign bg = section.settings.bg_color
+  assign text = section.settings.text_color
+  assign hover = section.settings.hover_color
+  assign active = section.settings.active_color
+  assign border = section.settings.border_color
+  assign pad_y = section.settings.pad_y
+  assign container_mode = section.settings.container_mode
+  assign container_width = section.settings.container_width
+  assign offset = section.settings.offset
+  assign duration = section.settings.duration
+-%}
+
+<div
+  class="jlbar"
+  style="
+    --jl-bg: {{ bg }};
+    --jl-text: {{ text }};
+    --jl-hover: {{ hover }};
+    --jl-active: {{ active }};
+    --jl-border: {{ border }};
+    --jl-pad-y: {{ pad_y }}px;
+    --jl-maxw: {{ container_width }}px;
+  "
+  data-jlbar
+  data-offset="{{ offset }}"
+  data-duration="{{ duration }}"
+>
+  <div class="jlbar__inner {% if container_mode == 'fixed' %}jlbar__inner--fixed{% endif %}">
+    <nav class="jlbar__nav" aria-label="Section navigation">
+      {%- for block in section.blocks -%}
+        {%- assign target_id = block.settings.target_id | strip -%}
+        {%- if target_id != blank and block.settings.label != blank -%}
+          <a
+            class="jlbar__item"
+            href="#{{ target_id | escape }}"
+            data-target-id="{{ target_id | escape }}"
+            {{ block.shopify_attributes }}
+          >
+            <span class="jlbar__label">{{ block.settings.label }}</span>
+          </a>
+        {%- endif -%}
+      {%- endfor -%}
+    </nav>
+  </div>
+</div>
+
+<style>
+  .jlbar {
+    width: 100%;
+    background: var(--jl-bg);
+    color: var(--jl-text);
+    border-bottom: 1px solid var(--jl-border);
+  }
+
+  .jlbar__inner {
+    width: 100%;
+  }
+
+  /* Fixed-width centered container option */
+  .jlbar__inner--fixed {
+    max-width: var(--jl-maxw);
+    margin: 0 auto;
+  }
+
+  .jlbar__nav {
+    display: flex;
+    align-items: stretch;
+    width: 100%;
+    overflow: hidden; /* desktop */
+  }
+
+  /* Each item takes equal width automatically (based on number of items) */
+  .jlbar__item {
+    flex: 1 1 0;
+    min-width: 0;
+    text-decoration: none;
+    color: var(--jl-text);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: 13px;
+    padding: var(--jl-pad-y) 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-left: 1px solid var(--jl-border);
+    transition: color .15s ease, background .15s ease;
+    white-space: nowrap;
+  }
+
+  .jlbar__item:first-child {
+    border-left: none;
+  }
+
+  .jlbar__item:hover {
+    color: var(--jl-hover);
+  }
+
+  .jlbar__item.is-active {
+    color: var(--jl-active);
+  }
+
+  /* Mobile swipe instead of stacking */
+  @media (max-width: 767px) {
+    .jlbar__nav {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scroll-snap-type: x mandatory;
+      gap: 0;
+    }
+    .jlbar__nav::-webkit-scrollbar { display: none; }
+    .jlbar__nav { scrollbar-width: none; }
+
+    /* Prevent equal split on mobile so it can swipe */
+    .jlbar__item {
+      flex: 0 0 auto;
+      scroll-snap-align: start;
+      padding-left: 18px;
+      padding-right: 18px;
+    }
+  }
+</style>
+
+<script>
+  (function () {
+    const container = document.querySelector('[data-jlbar]');
+    if (!container || container.dataset.bound === "1") return;
+    container.dataset.bound = "1";
+
+    const OFFSET = parseInt(container.dataset.offset || "0", 10);
+    const DURATION = parseInt(container.dataset.duration || "650", 10);
+
+    function getHeaderOffset() {
+      const header =
+        document.querySelector(".site-header") ||
+        document.querySelector(".header") ||
+        document.querySelector("[data-header]");
+      const h = header ? Math.ceil(header.getBoundingClientRect().height) : 0;
+      return h + OFFSET;
+    }
+
+    function easeInOutCubic(t) {
+      return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+    }
+
+    function smoothScrollTo(targetY, duration) {
+      const startY = window.pageYOffset || document.documentElement.scrollTop || 0;
+      const diff = targetY - startY;
+      const startTime = performance.now();
+
+      function step(now) {
+        const elapsed = now - startTime;
+        const t = Math.min(1, elapsed / duration);
+        const eased = easeInOutCubic(t);
+        window.scrollTo(0, startY + diff * eased);
+        if (t < 1) requestAnimationFrame(step);
+      }
+
+      requestAnimationFrame(step);
+    }
+
+    function scrollToId(id) {
+      const el = document.getElementById(id);
+      if (!el) return;
+
+      const top = (window.pageYOffset || document.documentElement.scrollTop || 0) + el.getBoundingClientRect().top;
+      const y = Math.max(0, top - getHeaderOffset());
+      smoothScrollTo(y, DURATION);
+
+      history.replaceState(null, "", "#" + encodeURIComponent(id));
+    }
+
+    // Click handling
+    container.addEventListener("click", function (e) {
+      const link = e.target.closest("[data-target-id]");
+      if (!link) return;
+      e.preventDefault();
+
+      const id = link.getAttribute("data-target-id");
+      if (!id) return;
+
+      // Active state UI
+      container.querySelectorAll(".jlbar__item").forEach(a => a.classList.remove("is-active"));
+      link.classList.add("is-active");
+
+      scrollToId(id);
+    });
+
+    // Optional: set active based on hash on load
+    window.addEventListener("load", function () {
+      const hash = (location.hash || "").replace("#", "");
+      if (!hash) return;
+      const decoded = decodeURIComponent(hash);
+      const link = container.querySelector(`.jlbar__item[data-target-id="${CSS.escape(decoded)}"]`);
+      if (link) link.classList.add("is-active");
+      setTimeout(() => scrollToId(decoded), 120);
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Jump links",
+  "settings": [
+    {
+      "type": "select",
+      "id": "container_mode",
+      "label": "Container width mode",
+      "default": "full",
+      "options": [
+        { "value": "full", "label": "Full width" },
+        { "value": "fixed", "label": "Fixed width (centered)" }
+      ]
+    },
+    {
+    "type": "text",
+    "id": "container_width",
+    "label": "Fixed container width (px)",
+    "default": "1200",
+    "info": "Enter a number only (example: 1200)."
+    },
+
+    { "type": "color", "id": "bg_color", "label": "Background color", "default": "#ffffff" },
+    { "type": "color", "id": "text_color", "label": "Text color", "default": "#6b6b6b" },
+    { "type": "color", "id": "hover_color", "label": "Hover text color", "default": "#111111" },
+    { "type": "color", "id": "active_color", "label": "Active text color", "default": "#111111" },
+    { "type": "color", "id": "border_color", "label": "Divider/border color", "default": "rgba(0,0,0,0.12)" },
+
+    { "type": "range", "id": "pad_y", "label": "Vertical padding (px)", "min": 8, "max": 28, "step": 1, "default": 18 },
+
+    { "type": "range", "id": "offset", "label": "Extra offset below sticky header (px)", "min": 0, "max": 140, "step": 2, "default": 10 },
+    { "type": "range", "id": "duration", "label": "Scroll duration (ms)", "min": 300, "max": 1400, "step": 50, "default": 650 }
+  ],
+  "blocks": [
+    {
+      "type": "link",
+      "name": "Nav item",
+      "settings": [
+        { "type": "text", "id": "label", "label": "Label", "default": "GVM Upgrade Options" },
+        { "type": "text", "id": "target_id", "label": "Target section ID (no #)", "default": "GVM-Upgrade-Options" }
+      ]
+    }
+  ],
+  "max_blocks": 10,
+  "presets": [
+    {
+      "name": "Jump links",
+      "blocks": [
+        { "type": "link" },
+        { "type": "link", "settings": { "label": "More Upgrade Options", "target_id": "More-Upgrade-Options" } },
+        { "type": "link", "settings": { "label": "Compare", "target_id": "Compare" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
