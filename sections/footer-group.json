@@ -93,7 +93,7 @@
       "settings": {
         "container": "container",
         "color_schema": "accent",
-        "footer_bg_image": "shopify://shop_images/1920x1080_Topgraphic_lines_copy_2.webp",
+        "footer_bg_image": "shopify://shop_images/1920x1080_Topgraphic_lines_1.webp",
         "footer_bg_size": "cover",
         "footer_bg_position": "center center",
         "show_copyright": true,
