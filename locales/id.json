@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin language editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "customer": {
     "account": {
@@ -111,6 +120,10 @@
     "return_to_store": "Kembali ke toko"
   },
   "templates": {
+    "404": {
+      "subtext": "Halaman yang Anda minta tidak ada.",
+      "title": "404 halaman tidak ditemukan"
+    },
     "search": {
       "title": "Hasil Pencarian",
       "results_with_count_and_term": {
@@ -125,8 +138,8 @@
       },
       "search_for": "Telusuri “{{ terms }}”",
       "products": "Produk",
-			"suggestions": "Saran",
-			"pages": "Halaman"
+      "suggestions": "Saran",
+      "pages": "Halaman"
     },
     "contact": {
       "form": {
@@ -142,10 +155,6 @@
     },
     "cart": {
       "cart": "Keranjang"
-    },
-    "404": {
-      "subtext": "Halaman yang Anda minta tidak ada.",
-      "title": "404 halaman tidak ditemukan"
     }
   },
   "general": {
@@ -216,9 +225,9 @@
       "item_added": "Item ditambahkan ke keranjang Anda.",
       "view": "Lihat keranjang saya ({{ count }})",
       "qualified_shipping_message": "Selamat! Pesanan Anda memenuhi syarat untuk pengiriman gratis",
-			"gift_wrapping_html": "Untuk {{ price }} harap bungkus produk dalam urutan ini.",
-			"gift_note_placeholder": "Pesan hadiah (gratis dan opsional)",
-			"cart_recommendations": "Anda mungkin juga menyukai",
+      "gift_wrapping_html": "Untuk {{ price }} harap bungkus produk dalam urutan ini.",
+      "gift_note_placeholder": "Pesan hadiah (gratis dan opsional)",
+      "cart_recommendations": "Anda mungkin juga menyukai",
       "pick_delivery_date": "Pilih tanggal pengiriman",
       "no_select_delivery_time_message": "Silakan pilih waktu pengiriman.",
       "delivery_time_invalid": "Silakan pilih waktu yang valid, waktu harus lebih besar dari waktu saat ini.",
@@ -357,7 +366,7 @@
       "on_sale": "Penjualan",
       "description": "Keterangan",
       "add_to_cart": "Masukkan ke keranjang",
-      "add_all_to_cart":"Tambahkan semua ke troli",
+      "add_all_to_cart": "Tambahkan semua ke troli",
       "include_taxes": "Termasuk pajak.",
       "share_label": "Membagikan",
       "xr_button": "Lihat di ruang Anda",
@@ -379,7 +388,7 @@
       "clear_with_label": "Hapus {{ label }}",
       "close_filter": "Tutup filter",
       "clear": "Jernih",
-      "match_all":"Cocokkan semuanya",
+      "match_all": "Cocokkan semuanya",
       "filter_button": "Saring",
       "filter_by_label": "Saring:",
       "filters_selected": {
@@ -619,7 +628,7 @@
     "placeholder": "Masukkan email Anda",
     "success": "Terima kasih telah berlangganan"
   },
-	"recipient": {
+  "recipient": {
     "form": {
       "checkbox": "Saya ingin mengirim ini sebagai hadiah",
       "email_label": "Email penerima",
@@ -630,6 +639,51 @@
       "message_label": "Pesan (opsional)",
       "message": "Pesan",
       "max_characters": "Maksimum {{ max_chars }} karakter"
+    }
+  },
+  "pagefly": {
+    "products": {
+      "product": {
+        "regular_price": "Regular price",
+        "sold_out": "Sold out",
+        "unavailable": "Unavailable",
+        "on_sale": "Sale",
+        "quantity": "Quantity",
+        "add_to_cart": "Add to cart",
+        "back_to_collection": "Back to {{ title }}",
+        "view_details": "View details"
+      }
+    },
+    "article": {
+      "tags": "Tags:",
+      "all_topics": "All topics",
+      "by_author": "by {{ author }}",
+      "posted_in": "Posted in",
+      "read_more": "Read more",
+      "back_to_blog": "Back to {{ title }}"
+    },
+    "comments": {
+      "title": "Leave a comment",
+      "name": "Name",
+      "email": "Email",
+      "message": "Message",
+      "post": "Post comment",
+      "moderated": "Please note, comments must be approved before they are published",
+      "success_moderated": "Your comment was posted successfully. We will publish it in a little while, as our blog is moderated.",
+      "success": "Your comment was posted successfully! Thank you!",
+      "comments_with_count": {
+        "one": "{{ count }} comment",
+        "other": "{{ count }} comments"
+      }
+    },
+    "password_page": {
+      "login_form_message": "Enter store using password:",
+      "login_form_password_label": "Password",
+      "login_form_password_placeholder": "Your password",
+      "login_form_submit": "Enter",
+      "signup_form_email_label": "Email",
+      "signup_form_success": "We will send you an email right before we open!",
+      "password_link": "Enter using password"
     }
   }
 }
