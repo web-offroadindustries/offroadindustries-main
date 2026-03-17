@@ -1,0 +1,198 @@
+
+{% if section.settings.section_id.size > 0 %}
+  <!-- PageFlyGlobalSection -->
+  {% render 'pagefly-main-js' %}
+  {% render 'pagefly-main-css' %}
+  {% include section.settings.section_id %}
+{% else %}
+  
+    {% if request.design_mode %}
+      <style>.pf-ph{font-size:14px!important;background:#fafafa;padding:20px;text-align:center;border:1px solid #f0f0f0;border-radius:4px;margin:15px}.pf-ph span{display:block;background:#e6f7ff;padding:8px 15px;border:1px solid #91d5ff}</style>
+      <div class="pf-ph">
+        <h3>PageFly Section</h3>
+        <span>No section selected. Please select your section from the list</span>
+      </div>
+    {% endif %}
+  
+{% endif %}
+
+{% schema %}
+{
+  "name": "PageFly Section",
+  "settings": [
+    {
+      "id": "section_id",
+      "type": "select",
+      "label": "Sections",
+      "options": [
+        {
+          "label": "Select section",
+          "value": ""
+        },
+        {
+          "label": "Contact Form v1",
+          "value": "pf-20a73d6b"
+        },
+        {
+          "label": "GVM-LP-1",
+          "value": "pf-30ef78dd"
+        },
+        {
+          "label": "GVM-LP-2",
+          "value": "pf-78dd50aa"
+        },
+        {
+          "label": "FORD 150 Stage 5",
+          "value": "pf-8bcbc831"
+        },
+        {
+          "label": "FORD 150 Stage 6",
+          "value": "pf-8331c300"
+        },
+        {
+          "label": "Method",
+          "value": "pf-160f5dd9"
+        },
+        {
+          "label": "ADD OFFROAD",
+          "value": "pf-1be89685"
+        },
+        {
+          "label": "Chevy 1500HD Stage 1",
+          "value": "pf-55af0c61"
+        },
+        {
+          "label": "LC300 Stage 1",
+          "value": "pf-6d5d4fbd"
+        },
+        {
+          "label": "LC300 Stage 2",
+          "value": "pf-c647ae0e"
+        },
+        {
+          "label": "FORD 150 Stage 4",
+          "value": "pf-859282da"
+        },
+        {
+          "label": "FORD 150 Stage 3",
+          "value": "pf-0d569944"
+        },
+        {
+          "label": "RAM Stage 5",
+          "value": "pf-c6328b9f"
+        },
+        {
+          "label": "RAM Stage 4",
+          "value": "pf-e758dbe2"
+        },
+        {
+          "label": "RAM Stage 3",
+          "value": "pf-6b85a219"
+        },
+        {
+          "label": "RAM Stage 2",
+          "value": "pf-a76f27f4"
+        },
+        {
+          "label": "RAM Stage 1",
+          "value": "pf-21dcacec"
+        },
+        {
+          "label": "Tundra Stage 2",
+          "value": "pf-55bf43e2"
+        },
+        {
+          "label": "Tundra Stage 1",
+          "value": "pf-8d3e1ff9"
+        },
+        {
+          "label": "FORD 150 Stage 2",
+          "value": "pf-a4eced76"
+        },
+        {
+          "label": "FORD 150 Stage 1",
+          "value": "pf-687a5240"
+        },
+        {
+          "label": "Chevy 1500HD Stage 2",
+          "value": "pf-7bbf8a3a"
+        },
+        {
+          "label": "Chevy 1500HD Stage 3",
+          "value": "pf-d3b4f116"
+        },
+        {
+          "label": "Chevy 1500HD Stage 5",
+          "value": "pf-cce476a8"
+        },
+        {
+          "label": "Chevy 1500HD Stage 4",
+          "value": "pf-314e7a2e"
+        },
+        {
+          "label": "Fox 1",
+          "value": "pf-f0795238"
+        },
+        {
+          "label": "TOYOTA LC300 Stage 2",
+          "value": "pf-a73e8ca4"
+        },
+        {
+          "label": "TOYOTA LC300 Stage 1",
+          "value": "pf-e24f09c2"
+        },
+        {
+          "label": "2500HD Stage 3",
+          "value": "pf-63160f5d"
+        },
+        {
+          "label": "2500HD Stage 2",
+          "value": "pf-3963160f"
+        },
+        {
+          "label": "2500HD Stage 1",
+          "value": "pf-a7396316"
+        },
+        {
+          "label": "1500HD  Stage 2",
+          "value": "pf-c92c432e"
+        },
+        {
+          "label": "1500HD",
+          "value": "pf-32bbacab"
+        },
+        {
+          "label": "BDS",
+          "value": "pf-629b809a"
+        },
+        {
+          "label": "Fox 2",
+          "value": "pf-168744b8"
+        },
+        {
+          "label": "Fox 3",
+          "value": "pf-d1f1a87e"
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "content": "Find and edit your section on the [section listing](https://offroad-ind.myshopify.com/admin/apps/pagefly/sections)"
+    },
+    {
+      "type": "paragraph",
+      "content": "To add block to a section, please use the App Block element on PageFly section editor."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "@app"
+    }
+  ],
+  "presets": [
+    {
+      "name": "PageFly Section"
+    }
+  ]
+}
+{% endschema %}
