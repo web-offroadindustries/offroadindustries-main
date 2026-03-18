@@ -545,7 +545,7 @@ body:not(.header-pinned) .header-scrolled .header {
 
 .mega-menu__brand-logo {
   width: 150px;
-  height: 95px;
+  height: auto;
   background: #ffffff;
   border-radius: 12px;
   display: flex;
