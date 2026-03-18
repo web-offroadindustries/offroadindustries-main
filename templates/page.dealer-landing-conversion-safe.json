@@ -1,0 +1,149 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    },
+    "conversion_hero": {
+      "type": "dealer-conversion",
+      "settings": {
+        "eyebrow": "Dealer applications open",
+        "heading": "Apply to stock premium suspension, GVM and 4x4 upgrade categories",
+        "heading_size": 58,
+        "heading_size_mobile": 36,
+        "text": "<p>This is the higher-conversion sample because the offer, trust signals and enquiry form are all above the fold. It removes extra friction and gives the client a stronger lead-capture layout.</p>",
+        "hero_points": "Clear trade-focused value proposition\nForm visible immediately on desktop\nSimple path for qualified dealer enquiries",
+        "mobile_order": "content_first",
+        "stat_1_value": "4x4",
+        "stat_1_label": "Specialist positioning",
+        "stat_2_value": "Trade",
+        "stat_2_label": "Dealer-focused applications",
+        "stat_3_value": "Fast",
+        "stat_3_label": "Application path",
+        "form_heading": "Apply for a dealer account",
+        "form_text": "<p>Tell us about your business and our team will review your enquiry.</p>",
+        "button_label": "Submit application",
+        "success_message": "Thanks for your enquiry. Our team has received your details and will be in touch soon.",
+        "label_first_name": "First name",
+        "placeholder_first_name": "Enter first name",
+        "required_first_name": true,
+        "label_last_name": "Last name",
+        "placeholder_last_name": "Enter last name",
+        "required_last_name": true,
+        "label_business_name": "Business name",
+        "placeholder_business_name": "Enter business name",
+        "required_business_name": true,
+        "label_location": "Business location",
+        "placeholder_location": "City, State / Region",
+        "required_location": true,
+        "label_email": "Email",
+        "placeholder_email": "Enter email address",
+        "label_phone": "Phone",
+        "placeholder_phone": "Enter phone number",
+        "required_phone": true,
+        "label_business_type": "Business type",
+        "business_type_placeholder": "Select business type",
+        "business_type_options": "4x4 retailer\nWorkshop / installer\nSuspension specialist\nOnline store\nFleet / commercial\nOther",
+        "required_business_type": true,
+        "label_brands": "Brands / categories of interest",
+        "placeholder_brands": "Example: BDS, Fox, GVM upgrades",
+        "label_message": "Tell us about your business",
+        "placeholder_message": "Tell us about your business, customers and what you want to stock.",
+        "message_rows": 4,
+        "show_consent": true,
+        "required_consent": true,
+        "consent_label": "I agree to be contacted about my dealer enquiry.",
+        "fallback_bg_color": "#101820",
+        "overlay_color": "#101820",
+        "overlay_opacity": 0,
+        "eyebrow_color": "#56bdc2",
+        "hero_heading_color": "#ffffff",
+        "hero_text_color": "#ffffff",
+        "form_card_bg": "#ffffff",
+        "form_card_border": "#d9d9d9",
+        "form_card_radius": 16,
+        "form_heading_color": "#101820",
+        "form_text_color": "#333333",
+        "label_color": "#101820",
+        "input_bg_color": "#ffffff",
+        "input_border_color": "#c9c9c9",
+        "input_focus_color": "#56bdc2",
+        "input_text_color": "#1f1f1f",
+        "input_radius": 8,
+        "button_bg": "#56bdc2",
+        "button_text": "#101820",
+        "button_radius": 8,
+        "container_width": 1280,
+        "padding_top": 88,
+        "padding_bottom": 88
+      }
+    },
+    "benefits_conversion": {
+      "type": "dealer-benefits-icons",
+      "blocks": {
+        "benefit_1": {
+          "type": "benefit",
+          "settings": {
+            "icon": "shield",
+            "title": "Built for specialists",
+            "text": "<p>Use this area for concise reasons that support the form and reduce hesitation.</p>"
+          }
+        },
+        "benefit_2": {
+          "type": "benefit",
+          "settings": {
+            "icon": "map",
+            "title": "Reach the right market",
+            "text": "<p>Show the value of your geographic coverage, audience fit or product mix.</p>"
+          }
+        },
+        "benefit_3": {
+          "type": "benefit",
+          "settings": {
+            "icon": "support",
+            "title": "Ongoing dealer support",
+            "text": "<p>Keep the copy short and confidence-building to support higher submission rates.</p>"
+          }
+        }
+      },
+      "block_order": ["benefit_1", "benefit_2", "benefit_3"],
+      "settings": {
+        "eyebrow": "Why this converts well",
+        "heading": "Short proof-driven content after the form keeps momentum high",
+        "text": "<p>This section reinforces the enquiry form without forcing users through a long page before they can apply.</p>",
+        "text_alignment": "center",
+        "heading_size": 40,
+        "heading_size_mobile": 30,
+        "header_width": 760,
+        "container_width": 1240,
+        "columns_desktop": 3,
+        "columns_tablet": 2,
+        "column_gap": 24,
+        "icon_size": 44,
+        "card_heading_size": 22,
+        "section_bg_color": "#ffffff",
+        "eyebrow_color": "#56bdc2",
+        "heading_color": "#101820",
+        "text_color": "#4a4a4a",
+        "icon_color": "#56bdc2",
+        "card_bg_color": "#ffffff",
+        "card_border_color": "#d9d9d9",
+        "card_heading_color": "#101820",
+        "card_radius": 14,
+        "padding_top": 68,
+        "padding_bottom": 68
+      }
+    }
+  },
+  "order": ["main", "conversion_hero", "benefits_conversion"]
+}
