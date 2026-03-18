@@ -191,7 +191,8 @@
         "subheading_JVKNjL": {
           "type": "subheading",
           "settings": {
-            "subheading": "Stage 1: $15,499 Installed & Engineered"
+            "subheading": "Stage 1: $15,499 Installed & Engineered",
+            "subheading_size": "h5"
           }
         },
         "heading_f9G7kD": {
@@ -220,14 +221,16 @@
         "container": "container",
         "color_schema": "",
         "image": "shopify://shop_images/GVM_TOYOTA_TUNDRA_DESKTOP_BANNER_SIZEstage_1_3850GVM___8350_GCM_f75efac7-c1fa-489e-9b51-ae008c24fc6b.jpg",
+        "enable_lightbox": true,
         "image_width": "50%",
         "image_position": "left",
         "vertical_alignment": "center",
+        "align_content_container": "none",
+        "show_image_padding": true,
         "column_gap": "medium",
         "row_gap": "medium",
         "padding_left": 0,
         "padding_right": 0,
-        "align_content_container": "none",
         "mobile_padding_left": 15,
         "mobile_padding_right": 15,
         "padding_top": 40,
@@ -247,7 +250,8 @@
         "subheading_nNBqbG": {
           "type": "subheading",
           "settings": {
-            "subheading": "Stage 2: $22,499 Installed & Engineered"
+            "subheading": "Stage 2: $22,499 Installed & Engineered",
+            "subheading_size": "h5"
           }
         },
         "heading_dHpa9y": {
@@ -276,14 +280,16 @@
         "container": "container",
         "color_schema": "",
         "image": "shopify://shop_images/GVM_TOYOTA_TUNDRA_DESKTOP_BANNER_SIZEstage_2_3850GVM___8350_GCM_5eff419b-a5ad-4d15-ad33-26dd721014e0.jpg",
+        "enable_lightbox": true,
         "image_width": "50%",
         "image_position": "right",
         "vertical_alignment": "center",
+        "align_content_container": "none",
+        "show_image_padding": true,
         "column_gap": "medium",
         "row_gap": "medium",
         "padding_left": 0,
         "padding_right": 0,
-        "align_content_container": "none",
         "mobile_padding_left": 15,
         "mobile_padding_right": 15,
         "padding_top": 40,
@@ -303,7 +309,8 @@
         "subheading_6jjGGc": {
           "type": "subheading",
           "settings": {
-            "subheading": "Stage 3: 4300 GVM | 8800 GCM Installed & Engineered"
+            "subheading": "Stage 3:  $20,999 Installed & Engineered",
+            "subheading_size": "h5"
           }
         },
         "heading_mEVqDg": {
@@ -332,14 +339,16 @@
         "container": "container",
         "color_schema": "",
         "image": "shopify://shop_images/GVM_TOYOTA_TUNDRAstage_3_4300GM___8800_GCM_copy.jpg",
+        "enable_lightbox": true,
         "image_width": "50%",
         "image_position": "left",
         "vertical_alignment": "center",
+        "align_content_container": "none",
+        "show_image_padding": true,
         "column_gap": "medium",
         "row_gap": "medium",
         "padding_left": 0,
         "padding_right": 0,
-        "align_content_container": "none",
         "mobile_padding_left": 15,
         "mobile_padding_right": 15,
         "padding_top": 40,
@@ -359,7 +368,8 @@
         "subheading_GcgNcf": {
           "type": "subheading",
           "settings": {
-            "subheading": "Stage 4 : cost $27 999 Installed & Engineered"
+            "subheading": "Stage 4 : cost $27 999 Installed & Engineered",
+            "subheading_size": "h5"
           }
         },
         "heading_3XdiUk": {
@@ -388,14 +398,16 @@
         "container": "container",
         "color_schema": "",
         "image": "shopify://shop_images/GVM_TOYOTA_TUNDRAstage_4_4300GM___8800_GCM_copy_2.jpg",
+        "enable_lightbox": true,
         "image_width": "50%",
         "image_position": "right",
         "vertical_alignment": "center",
+        "align_content_container": "none",
+        "show_image_padding": true,
         "column_gap": "medium",
         "row_gap": "medium",
         "padding_left": 0,
         "padding_right": 0,
-        "align_content_container": "none",
         "mobile_padding_left": 15,
         "mobile_padding_right": 15,
         "padding_top": 40,
