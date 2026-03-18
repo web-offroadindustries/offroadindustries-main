@@ -233,7 +233,7 @@
       "settings": {
         "container": "container",
         "color_schema": "",
-        "text_alignment": "center",
+        "text_alignment": "left",
         "padding_top": 40,
         "padding_bottom": 40,
         "show_section_divider": false,
@@ -261,6 +261,10 @@
         "filter_group_heading_size": "h6",
         "show_results_count": true,
         "filter_color_type": "list",
+        "enable_tag_filter": false,
+        "show_tag_filter_with_facets": false,
+        "tag_filter_heading": "By Vehicle",
+        "tag_filter_exclude_prefixes": "spo-,filter-",
         "paginate_type": "number",
         "padding_top": 0,
         "padding_bottom": 100
