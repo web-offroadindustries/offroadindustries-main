@@ -715,6 +715,34 @@
         "padding_top": 60,
         "padding_bottom": 60
       }
+    },
+    "video_kUd8dq": {
+      "type": "video",
+      "name": "t:sections.video.presets.name",
+      "settings": {
+        "container": "container",
+        "section_header_padding_bottom": "medium",
+        "section_header_content_spacing": "medium",
+        "heading": "ORI Fox 150 Packages",
+        "highlight_style": "none",
+        "enable_highlight_text_color": false,
+        "heading_size": "h2",
+        "heading_color": "",
+        "subheading": "",
+        "description": "",
+        "video_type": "external",
+        "video_url": "https://www.youtube.com/watch?v=aGHaFPaDuv4",
+        "cover_image": "shopify://shop_images/OFFROAD_INDUSTRIES_-_FOX_F150_-_12.03.2024_-_Matt_Williams_-_WEB_RES-1037_7fbfcd95-895e-4aca-a8cd-8c7dacf0637b.jpg",
+        "video_ratio": "adapt",
+        "autoplay_video": true,
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "show_section_divider": false,
+        "divider_width": "container",
+        "custom_id": "",
+        "custom_class": "",
+        "animations": "inherit"
+      }
     }
   },
   "order": [
@@ -725,6 +753,7 @@
     "hero_8BNkhD",
     "products_bundle_jFkhY9",
     "b9a09ce1-0384-4aac-8a69-af32bf73a5e8",
-    "contact_form_v3_yGfhUr"
+    "contact_form_v3_yGfhUr",
+    "video_kUd8dq"
   ]
 }
