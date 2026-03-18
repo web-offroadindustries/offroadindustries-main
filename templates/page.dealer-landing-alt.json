@@ -1,0 +1,167 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    },
+    "hero_alt": {
+      "type": "hero",
+      "blocks": {
+        "title_1": {
+          "type": "title",
+          "settings": {
+            "title": "Become an Offroad Industries dealer",
+            "highlight_style": "none",
+            "enable_highlight_text_color": false,
+            "heading_size": "h1",
+            "heading_color": "#ffffff"
+          }
+        },
+        "subtitle_1": {
+          "type": "subtitle",
+          "settings": {
+            "subtitle": "Trade accounts for suspension, GVM and 4x4 specialist businesses"
+          }
+        },
+        "text_1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Use this sample layout when you want a clean hero, a benefits section, a stronger partnership story and the form alongside the content.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "title_1",
+        "subtitle_1",
+        "text_1"
+      ],
+      "settings": {
+        "container": "container-full",
+        "image": "shopify://shop_images/OFFROAD_INDUSTRIES_-_FOX_F150_-_12.03.2024_-_Matt_Williams_-_WEB_RES-1037_7fbfcd95-895e-4aca-a8cd-8c7dacf0637b.jpg",
+        "image_mobile": "shopify://shop_images/OFFROAD_INDUSTRIES_-_FOX_F150_-_12.03.2024_-_Matt_Williams_-_WEB_RES-1037_7fbfcd95-895e-4aca-a8cd-8c7dacf0637b.jpg",
+        "image_overlay_opacity": 30,
+        "hero_height": "large",
+        "content_in_container": false,
+        "content_position": "left-middle",
+        "text_alignment": "left",
+        "text_color": "#ffffff",
+        "hero_height_mobile": "large",
+        "content_position_mobile": "center",
+        "show_text_below": true,
+        "text_alignment_mobile": "left",
+        "custom_id": "",
+        "custom_class": "",
+        "animations": "inherit",
+        "enable_bg_zoom_effect": true
+      }
+    },
+    "benefits_alt": {
+      "type": "dealer-benefits-icons",
+      "blocks": {
+        "benefit_1": {
+          "type": "benefit",
+          "settings": {
+            "icon": "truck",
+            "title": "Premium product mix",
+            "text": "<p>Showcase established 4x4, suspension and GVM categories that fit your dealership profile.</p>"
+          }
+        },
+        "benefit_2": {
+          "type": "benefit",
+          "settings": {
+            "icon": "wrench",
+            "title": "Technical guidance",
+            "text": "<p>Support your team with fitment-focused product help for the right build and vehicle use case.</p>"
+          }
+        },
+        "benefit_3": {
+          "type": "benefit",
+          "settings": {
+            "icon": "support",
+            "title": "Responsive dealer support",
+            "text": "<p>Position this as a dealer program backed by a team that understands specialist trade enquiries.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "benefit_1",
+        "benefit_2",
+        "benefit_3"
+      ],
+      "settings": {
+        "eyebrow": "Dealer benefits",
+        "heading": "Why growing 4x4 businesses partner with Offroad Industries",
+        "text": "<p>Swap the headings, icons and copy to match the strongest reasons your client wants to highlight.</p>",
+        "text_alignment": "center",
+        "heading_size": 44,
+        "heading_size_mobile": 32,
+        "header_width": 760,
+        "container_width": 1240,
+        "columns_desktop": 3,
+        "columns_tablet": 2,
+        "column_gap": 24,
+        "icon_size": 46,
+        "card_heading_size": 24,
+        "section_bg_color": "#ffffff",
+        "eyebrow_color": "#56bdc2",
+        "heading_color": "#101820",
+        "text_color": "#4a4a4a",
+        "icon_color": "#56bdc2",
+        "card_bg_color": "#ffffff",
+        "card_border_color": "#d9d9d9",
+        "card_heading_color": "#101820",
+        "card_radius": 14,
+        "padding_top": 72,
+        "padding_bottom": 72
+      }
+    },
+    "split_alt": {
+      "type": "dealer-split-content-form",
+      "settings": {}
+    },
+    "mappy_alt": {
+      "type": "apps",
+      "blocks": {
+        "mappy_store_locator_page_embed_block_alt": {
+          "type": "shopify://apps/mappy-store-locator/blocks/page-embed-block/edfca2bd-82ad-413c-b32c-580d239b17ab",
+          "settings": {
+            "is_show_heading_map": true,
+            "is_show_description_map": false
+          }
+        }
+      },
+      "block_order": [
+        "mappy_store_locator_page_embed_block_alt"
+      ],
+      "settings": {
+        "container": "container",
+        "color_schema": "",
+        "heading": "",
+        "highlight_style": "none",
+        "enable_highlight_text_color": false,
+        "heading_size": "h2",
+        "heading_color": "",
+        "description": "",
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    }
+  },
+  "order": [
+    "main",
+    "hero_alt",
+    "benefits_alt",
+    "split_alt",
+    "mappy_alt"
+  ]
+}
