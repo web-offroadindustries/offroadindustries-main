@@ -409,7 +409,7 @@
         "brand_tile_jeT4qf": {
           "type": "brand_tile",
           "settings": {
-            "logo": "shopify://shop_images/GVM_ICON_420x420_SILVERADO_1500.jpg",
+            "logo": "shopify://shop_images/SILVERADO_1500_copy_4.jpg",
             "label": "Chevy Silverado 1500",
             "link": "https://www.offroadindustries.com.au/pages/chevrolet-silverado-1500-gvm-package"
           }
@@ -417,7 +417,7 @@
         "brand_tile_BrPGR7": {
           "type": "brand_tile",
           "settings": {
-            "logo": "shopify://shop_images/GVM_ICON_420x420_SILVERADO_1500_copy.jpg",
+            "logo": "shopify://shop_images/SILVERADO_2500_copy_4.jpg",
             "label": "Chevy Silverado 2500",
             "link": "https://www.offroadindustries.com.au/pages/chevy-silverado-2500hd-gvm-packages"
           }
@@ -425,7 +425,7 @@
         "brand_tile_YDDwKb": {
           "type": "brand_tile",
           "settings": {
-            "logo": "shopify://shop_images/GVM_ICON_420x420_F150.jpg",
+            "logo": "shopify://shop_images/F150_copy_3.jpg",
             "label": "Ford 150",
             "link": "https://www.offroadindustries.com.au/pages/ford-150-gvm-packages"
           }
@@ -433,7 +433,7 @@
         "brand_tile_CEAayT": {
           "type": "brand_tile",
           "settings": {
-            "logo": "shopify://shop_images/GVM_ICON_420x420_TOYOTA_TUNDRA.jpg",
+            "logo": "shopify://shop_images/TOYOTA_TUNDRA_copy.jpg",
             "label": "Toyota Tundra",
             "link": "https://www.offroadindustries.com.au/pages/toyota-tundra"
           }
@@ -441,7 +441,7 @@
         "brand_tile_UJ48br": {
           "type": "brand_tile",
           "settings": {
-            "logo": "shopify://shop_images/GVM_ICON_420x420_RAM.jpg",
+            "logo": "shopify://shop_images/RAM_copy_2.jpg",
             "label": "RAM 2500",
             "link": "shopify://pages/ram-2500-gvm-packages"
           }
