@@ -116,6 +116,33 @@
         "duration": 650
       }
     },
+    "rich_text_FfDANG": {
+      "type": "rich-text",
+      "blocks": {
+        "text_73Mzb9": {
+          "type": "text",
+          "settings": {
+            "text": "<h3>What benefits does the GVM upgrade offer for my RAM 2500, especially for towing and heavy-duty use?</h3><p>When you’re toughing it out and want to push your vehicle to new limits, there’s nothing like a GVM upgrade for RAM 2500s to get the job done. Not only do you get a heavier payload, meaning you can haul more gear or toys to the worksite or into the bush, but you won’t be sacrificing control, safety or performance to do so. GVM upgrades for your RAM 2500 mean you can throw more in the tub, tow heavier trailers - whether that’s a caravan or boat trailer - while experiencing the same, if not better, handling and braking. <br/></p><h3>What are the key differences between the GVM upgrade stages for the RAM 2500, and which one should I choose?</h3><p>We offer multiple stages to suit the different levels of demand you have for your truck. They offer different specifications and Category changes, meaning that - no matter how you drive or what you need - you’ll find a kit compatible with your RAM 2500. Our Stage One and Two kits are ideal for work-use and daily extras, like putting heavier gear in the tub or loading up a trailer. </p><p>If you’re looking for something with serious extra ground clearance and major hauling power, Three, Four, or Five are more likely to deliver what you need. Each kit combines top of the line aftermarket parts, with our own range of leaf kits for extra support. If you’re unsure which kit is best, you can <a href=\"https://www.offroadindustries.com.au/pages/contact-us\"><span style=\"text-decoration:underline\">contact</span></a> our team for more information. <br/></p><h3>How does Fox suspension improve the overall handling and ride quality of my RAM 2500 with the GVM upgrade?</h3><p>When you have greater suspension and support across your wheelbase and frame, you’ll be braced against buckling, won’t be increasing the risk of rolling, while also being able to maintain - or even improve - your usual driving experience. When you get a RAM 2500 GVM upgrade with Offroad, you can expect superior handling, hard-wearing upgrades that can handle everything the Australian conditions throw at them, and a smoother ride, no matter where the journey takes you. <br/></p><h3>Can I use my factory wheels with the GVM upgrade for the RAM 2500, or do I need to upgrade them?</h3><p>Depending on the Stage you opt for, you may need to upgrade your wheels to match the new payload your truck can handle. This is especially true for when your upgrades change the Category of your vehicle. </p><p>Equally, one of the big benefits of upgrading your GVM is that you’ll have new <a href=\"https://www.offroadindustries.com.au/collections/suspension\"><span style=\"text-decoration:underline\">suspension</span></a> with increased ground clearance. To maximise the benefits you get from this, getting <a href=\"https://www.offroadindustries.com.au/collections/4-play-wheels\"><span style=\"text-decoration:underline\">custom wheels</span></a> can give you better traction, control and improve your truck’s manoeuvrability and give you a more rugged look. <br/></p><h3>How does Offroad Industries ensure that the GVM upgrade complies with Australian standards and regulations?</h3><p>We can recommend <a href=\"https://www.offroadindustries.com.au/pages/dealers-page\"><span style=\"text-decoration:underline\">authorised installers</span></a> throughout Australia when it comes to getting your new upgrades taken care of. Not only are they more than capable of dealing with aftermarket parts from American-made brands including <a href=\"https://www.offroadindustries.com.au/collections/bds-suspension-australian-distributor\"><span style=\"text-decoration:underline\">BDS</span></a> and <a href=\"https://www.offroadindustries.com.au/collections/fox_suspension_australian_distributor\"><span style=\"text-decoration:underline\">Fox Suspension</span></a>, but they’re also qualified to certify your vehicle before you drive it for the first time after upgrading. </p><p>Before you even purchase a RAM 2500 GVM upgrade from us, you can rest assured they’ve been engineered to comply with Australian Design Rules (ADR) and state-level certification requirements. <br/></p><h3>What role do ORI coil packs play in the RAM 2500 GVM upgrade, and how do they enhance the suspension performance?</h3><p>Our own range of ORI coil packs and leaf kits are custom-engineered for your specific truck’s model to handle increased load and stress. Their primary job is to provide better support and stability for heavy-duty applications, meaning you can head off on your journey with confidence, knowing that we’ve designed them to add the support you need. You can expect a more consistent ride height, while also serving to reduce rear-end sag or buckling while you’re carrying all your gear. <br/></p><h3>How does the GVM upgrade for my RAM 2500 reflect the latest off-road modification trends?</h3><p>When you’re investing in a vehicle as elite as a RAM 2500, you’re already a driver who demands more. While the original specs of this beast are already impressive, upgrading the suspension and GVM only enhance the existing features and functionality. To match your American-made truck, American-made aftermarket parts are designed to handle everything you want or need to put your RAM through - whether that’s for work or play. <br/></p><h3>What’s the installation process for the RAM 2500 GVM upgrade, and how long does it take?</h3><p>When you book in with an authorised installer, the process typically begins with an initial inspection, especially if you already have some upgrades installed. Our RAM 2500 kits are designed especially for your model, so once you’re ready to go ahead with installation, typically you can expect it done within two to three business days though this may vary depending on location. Once everything is done, you’ll have a revved up truck, with all the road-worthy paperwork, allowing you to head out and go further. </p>"
+          }
+        }
+      },
+      "block_order": [
+        "text_73Mzb9"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "container": "container",
+        "color_schema": "",
+        "text_alignment": "left",
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "show_section_divider": false,
+        "divider_width": "container",
+        "custom_id": "",
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
     "rich_text_GbXVUF": {
       "type": "rich-text",
       "blocks": {
@@ -305,7 +332,8 @@
         "subheading_JVKNjL": {
           "type": "subheading",
           "settings": {
-            "subheading": "Stage 1: $10,500 - Installed & Engineered"
+            "subheading": "Stage 1: $10,500 - Installed & Engineered",
+            "subheading_size": "h5"
           }
         },
         "heading_f9G7kD": {
@@ -334,14 +362,16 @@
         "container": "container",
         "color_schema": "",
         "image": "shopify://shop_images/stage_1_5300_GVM_RAM_2500_c983628a-fb71-4135-8853-e998f45694e9.jpg",
+        "enable_lightbox": true,
         "image_width": "50%",
         "image_position": "left",
         "vertical_alignment": "center",
+        "align_content_container": "none",
+        "show_image_padding": true,
         "column_gap": "medium",
         "row_gap": "medium",
         "padding_left": 0,
         "padding_right": 0,
-        "align_content_container": "none",
         "mobile_padding_left": 15,
         "mobile_padding_right": 15,
         "padding_top": 40,
@@ -361,7 +391,8 @@
         "subheading_nNBqbG": {
           "type": "subheading",
           "settings": {
-            "subheading": "Stage 2: $15,000 - Installed & Engineered"
+            "subheading": "Stage 2: $15,000 - Installed & Engineered",
+            "subheading_size": "h5"
           }
         },
         "heading_dHpa9y": {
@@ -390,14 +421,16 @@
         "container": "container",
         "color_schema": "",
         "image": "shopify://shop_images/stage_2_5300_GVM_RAM_2500_60b2ae64-2324-4b1c-8891-b74663e49c3b.jpg",
+        "enable_lightbox": true,
         "image_width": "50%",
         "image_position": "right",
         "vertical_alignment": "center",
+        "align_content_container": "none",
+        "show_image_padding": true,
         "column_gap": "medium",
         "row_gap": "medium",
         "padding_left": 0,
         "padding_right": 0,
-        "align_content_container": "none",
         "mobile_padding_left": 15,
         "mobile_padding_right": 15,
         "padding_top": 40,
@@ -417,7 +450,8 @@
         "subheading_p3JeNT": {
           "type": "subheading",
           "settings": {
-            "subheading": "Stage 3: $17,499 - Installed & Engineered"
+            "subheading": "Stage 3: $17,499 - Installed & Engineered",
+            "subheading_size": "h5"
           }
         },
         "heading_KMefdY": {
@@ -446,14 +480,16 @@
         "container": "container",
         "color_schema": "",
         "image": "shopify://shop_images/stage_3_5300_GVM_RAM_2500_f68355f6-e9cb-4d1c-9c46-303b58759cc0.jpg",
+        "enable_lightbox": true,
         "image_width": "50%",
         "image_position": "left",
         "vertical_alignment": "center",
+        "align_content_container": "none",
+        "show_image_padding": true,
         "column_gap": "medium",
         "row_gap": "medium",
         "padding_left": 0,
         "padding_right": 0,
-        "align_content_container": "none",
         "mobile_padding_left": 15,
         "mobile_padding_right": 15,
         "padding_top": 40,
@@ -473,7 +509,8 @@
         "subheading_UXFBYE": {
           "type": "subheading",
           "settings": {
-            "subheading": "Stage 4: $15,000 - Installed & Engineered"
+            "subheading": "Stage 4: $15,000 - Installed & Engineered",
+            "subheading_size": "h5"
           }
         },
         "heading_wfcybN": {
@@ -502,14 +539,16 @@
         "container": "container",
         "color_schema": "",
         "image": "shopify://shop_images/stage_4_5300_GVM_RAM_2500_c235c6be-6fc6-4e7a-b46f-14e1957b756b.jpg",
+        "enable_lightbox": true,
         "image_width": "50%",
         "image_position": "right",
         "vertical_alignment": "center",
+        "align_content_container": "none",
+        "show_image_padding": true,
         "column_gap": "medium",
         "row_gap": "medium",
         "padding_left": 0,
         "padding_right": 0,
-        "align_content_container": "none",
         "mobile_padding_left": 15,
         "mobile_padding_right": 15,
         "padding_top": 40,
@@ -529,7 +568,8 @@
         "subheading_drUinH": {
           "type": "subheading",
           "settings": {
-            "subheading": "Stage 5: $17,499 - Installed & Engineered"
+            "subheading": "Stage 5: $17,499 - Installed & Engineered",
+            "subheading_size": "h5"
           }
         },
         "heading_FGMkek": {
@@ -558,14 +598,16 @@
         "container": "container",
         "color_schema": "",
         "image": "shopify://shop_images/stage5-5550-ram.webp",
+        "enable_lightbox": true,
         "image_width": "50%",
         "image_position": "left",
         "vertical_alignment": "center",
+        "align_content_container": "none",
+        "show_image_padding": true,
         "column_gap": "medium",
         "row_gap": "medium",
         "padding_left": 0,
         "padding_right": 0,
-        "align_content_container": "none",
         "mobile_padding_left": 15,
         "mobile_padding_right": 15,
         "padding_top": 40,
@@ -1308,6 +1350,7 @@
     "main",
     "slideshow_CtnG98",
     "jump_links_UeawGp",
+    "rich_text_FfDANG",
     "rich_text_GbXVUF",
     "rich_text_t793Bx",
     "rich_text_jLn8zi",
