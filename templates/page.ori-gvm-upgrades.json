@@ -245,14 +245,16 @@
         "container": "container",
         "color_schema": "",
         "image": "shopify://shop_images/420_x_420px_MEGA_MENU_ICON__FOX.jpg",
+        "enable_lightbox": true,
         "image_width": "50%",
         "image_position": "left",
         "vertical_alignment": "center",
+        "align_content_container": "none",
+        "show_image_padding": true,
         "column_gap": "none",
         "row_gap": "none",
         "padding_left": 0,
         "padding_right": 0,
-        "align_content_container": "none",
         "mobile_padding_left": 15,
         "mobile_padding_right": 15,
         "padding_top": 0,
@@ -273,8 +275,8 @@
           "type": "content",
           "settings": {
             "icon": "none",
-            "title": "What makes ORI GVM upgrades from Offroad Industries the best choice for American trucks in Australia?",
-            "content": "<p>While Toyota and Ford continue to dominate the popularity contest when it comes to Australia’s most-driven trucks, the ranks of American trucks aren’t far behind. To deliver the quality and compatibility that you need for everything from a <a href=\"https://www.offroadindustries.com.au/collections/chevy-silverado-22-24-zr2-ltz\">Chevrolet Silverado</a> to a <a href=\"https://www.offroadindustries.com.au/collections/ram-1500-dt-2019-2023\">RAM 1500DT</a>, we source USA-made GVM suspension upgrades and accessories from the top manufacturers in the States. </p><p>You want an exceptional fit and parts that are made for the unique conditions your truck will tackle - which is why all of our upgrades are tailored to specific models, ensuring optimal performance and compliance with Australian standards.</p>",
+            "title": "What are GVM upgrades, and why are they essential for off-road vehicles?",
+            "content": "<p>GVM stands for Gross Vehicle Mass, which is the total weight capacity that your truck can legally carry. GVM upgrades can come from a number of new parts and accessories, but typically are from adding new suspension and improved brakes. </p><p>When you’re heading offroad, you’re typically going to be hauling some major gear - whether that’s in the tray or on a trailer. When you upgrade your GVM, you’ll prevent handling and safety issues and reduce brake wear and tear. It’s essential to ensure you get a safe, enjoyable drive, which means you’re not held back by having to pick and choose which gear to take when you’re roughing it. </p>",
             "custom_liquid": "",
             "content_page": "",
             "open": false
@@ -284,8 +286,8 @@
           "type": "content",
           "settings": {
             "icon": "none",
-            "title": "How do Fox suspension and BDS components enhance the performance of my truck with a GVM upgrade?",
-            "content": "<p>Across <a href=\"https://www.offroadindustries.com.au/collections/fox-suspension\">Fox Suspension</a> and <a href=\"https://www.offroadindustries.com.au/collections/bds-suspension\">BDS</a>, you’ll find a range of products that give you everything from better road clearance to more resilience against bumpy and rough driving conditions. From lift kits and suspension upgrades to coil overs and shocks, increasing your payload is just one of the many benefits you’ll experience. For starters, even when you’ve loaded up your tub with all your gear, you’ll still experience better handling and performance, with that increased ground clearance you know and love about upgrading your suspension. </p><p>Between Fox and BDS, you’ll get incredible ride quality and handling, paired with reliable and robust support for increased loads. Together, they ensure your truck maintains stability and comfort, even with heavy gear and tough conditions.</p>",
+            "title": "How does Offroad Industries’ GVM upgrade service improve your vehicle’s load capacity and performance?",
+            "content": "<p>We stock <a href=\"https://www.offroadindustries.com.au/collections/bds-suspension\"><span style=\"text-decoration:underline\">BDS</span></a> and <a href=\"https://www.offroadindustries.com.au/collections/fox-suspension\"><span style=\"text-decoration:underline\">FOX Suspension</span></a>, two manufacturers that deliver some of the highest-quality, resilient and versatile suspension upgrade kits in the market. They offer superior performance, support and durability, boosting your GVM for more hauling power without compromising the integrity or safety of your truck. </p><p>When you’re aiming for a GVM upgrade for trucks and 4x4s, both of these manufacturers will help across the board. You can expect a number of benefits - the key one being the all-important increased load capacity. You’ll also be able to carry larger loads without sacrificing driving comfort or safety, and you’ll get superior offroading performance. Perhaps one of the most important factors is that you’ll legally be able to carry more weight, ensuring you’re operating everything safely for both yourself and other drivers you encounter on and off the road. </p>",
             "custom_liquid": "",
             "content_page": "",
             "open": false
@@ -295,8 +297,8 @@
           "type": "content",
           "settings": {
             "icon": "none",
-            "title": "What is the GVM testing process used by Offroad Industries, and how does it ensure the best upgrade results?",
-            "content": "<p>At Offroad Industries, we want our customers to be able to buy and upgrade with confidence, knowing that they’re not only getting better ground clearance and control from their <a href=\"https://www.offroadindustries.com.au/collections/suspension\">suspension</a> upgrades, but also improved safety and handling. As a result, we make sure that everything we put together for GVM upgrades is thoroughly tested. </p><p>This includes everything from ADR brake assessments and individual stress analyses, to ensure each upgrade meets and exceeds Australian safety and performance criteria. This stringent approach guarantees that your vehicle operates safely under increased load conditions. </p>",
+            "title": "Which vehicle models are eligible for GVM upgrades at Offroad Industries?",
+            "content": "<p>Offroad Industries offers GVM upgrade solutions for just about every major 4WD truck in the country. You can find GVM upgrades for everything from Australia’s favourite, the Ford Ranger, to Toyota, Nissan, and Isuzu, along with European and American models like Volkswagen, RAM and Chevrolet. </p><p>For a personal recommendation, you can <a href=\"https://www.offroadindustries.com.au/pages/contact-us\"><span style=\"text-decoration:underline\">contact</span></a> our team. We’ll help you narrow your options down to get the best safety, performance, and GVM upgrade you need. </p>",
             "custom_liquid": "",
             "content_page": "",
             "open": false
@@ -306,8 +308,8 @@
           "type": "content",
           "settings": {
             "icon": "none",
-            "title": "How does Offroad Industries ensure their GVM upgrade kits comply with Australian Design Rules (ADR)?",
-            "content": "<p>We fully comply with the Australian Design Rules, with comprehensive and rigorous testing to ensure quality, longevity and safety. These tests can include computer modelling of load-bearing components and detailed track testing to verify handling and operational safety. </p>",
+            "title": "What is the step-by-step process for a GVM upgrade with Offroad Industries?",
+            "content": "<p>When you’re considering major vehicle transformations, including a GVM upgrade, the team at Offroad Industries work hard to make it as seamless as possible. We’ll consult with you to help you find the best option for your needs, driving preferences, and specific truck make and model. We account for on or off-road usage, and the overall weight you think you’ll need to be hauling. </p><p>Next, you can get everything taken care of by one of our <a href=\"https://www.offroadindustries.com.au/pages/dealers-page\"><span style=\"text-decoration:underline\">authorised installers</span></a>. They’ll ensure everything is completed correctly and deliver the right weight distribution and lift you need from your upgrade. They can also certify that you’ve completed the upgrades, giving you the certification that your vehicle meets Australian Design Rules (ADR) and state-based regulations. <br/><br/></p>",
             "custom_liquid": "",
             "content_page": "",
             "open": false
@@ -317,8 +319,8 @@
           "type": "content",
           "settings": {
             "icon": "none",
-            "title": "Can I use Fox Performance Series, Performance Elite, or Race Series shocks with the GVM upgrade?",
-            "content": "<p>Yes, many of Fox Suspension’s Performance Series, Performance Elite, and Race Series can be utilised in your GVM upgrade though which ones are included may vary depending on the make and model of your truck. Each offers slightly different features and benefits, allowing you to customise your suspension setup based on your specific driving needs and preferences. </p>",
+            "title": "Are the GVM upgrades provided by Offroad Industries fully compliant with Australian regulations?",
+            "content": "<p>Yes, all GVM upgrades from Offroad Industries are fully compliant with Australian Federal and State road safety standards. When your upgrades have been added, they’ll be recorded against your vehicle’s registration information, ensuring you’re fully covered legally when you’re out on the road or on a job site with your truck. </p>",
             "custom_liquid": "",
             "content_page": "",
             "open": false
@@ -328,8 +330,8 @@
           "type": "content",
           "settings": {
             "icon": "none",
-            "title": "How does the GVM upgrade improve my truck’s towing and payload capacity?",
-            "content": "<p>By enhancing the suspension system and reinforcing key components, ORI's GVM upgrades increase your truck's legal load capacity. This means you can safely carry heavier payloads and tow larger trailers without compromising vehicle integrity or safety, giving you better control and more potential with every drive.</p>",
+            "title": "What are the key benefits of upgrading your vehicle’s GVM with Offroad Industries?",
+            "content": "<p>There are a lot of benefits to getting offroad GVM upgrades, and they’re not just limited to complying with Australian road legality. You’ll get boosted safety, with the ability to carry or haul heavier loads without sacrificing your truck’s maneuverability. The likes of BDS and Fox Suspension give you superior ride quality and stability, even when you’re heading onto tough terrain. </p><p>Along with the immediately noticeable benefits, you’ll also be investing in the longevity of your truck. GVM upgrades protect the integrity of your brakes and the frame of your vehicle, reducing wear and tear from heavy use. </p>",
             "custom_liquid": "",
             "content_page": "",
             "open": false
@@ -339,19 +341,8 @@
           "type": "content",
           "settings": {
             "icon": "none",
-            "title": "What role does the ORI Leaf Pack play in the GVM upgrade, and how does it contribute to overall vehicle performance?",
-            "content": "<p>The ORI Leaf Pack is designed to support increased rear axle loads, providing additional strength and stability. This enhancement ensures your truck maintains proper ride height and handling characteristics, even when fully loaded. We put together different packs for different vehicles, ensuring you get the best possible fit to maximise performance and stability. </p>",
-            "custom_liquid": "",
-            "content_page": "",
-            "open": false
-          }
-        },
-        "content_MCfBwj": {
-          "type": "content",
-          "settings": {
-            "icon": "none",
-            "title": "What are the trends in off-road vehicle modifications, and how does Offroad Industries’ GVM upgrade cater to these needs?",
-            "content": "<p>The current trends in off-road modifications emphasise practical, rugged, and tested components tailored for real adventures. ORI's GVM upgrades align with this trend by offering durable, performance-focused solutions that enhance your truck's capability and reliability in challenging terrains. </p>",
+            "title": "How does Offroad Industries ensure the durability and quality of their GVM upgrade solutions?",
+            "content": "<p>Our parts and GVM upgrade accessories are all torture-tested by the manufacturers that design them. We stock aftermarket parts specifically designed to fit your truck’s dimensions, and they’re all made from high-quality materials with the toughest conditions in mind. They go through rigorous testing, ensuring the best quality and safety is guaranteed. </p>",
             "custom_liquid": "",
             "content_page": "",
             "open": false
@@ -365,8 +356,7 @@
         "content_Qnr3j6",
         "content_eVHWQQ",
         "content_p66FxM",
-        "content_CNpm4F",
-        "content_MCfBwj"
+        "content_CNpm4F"
       ],
       "name": "Collapsible tabs",
       "settings": {
