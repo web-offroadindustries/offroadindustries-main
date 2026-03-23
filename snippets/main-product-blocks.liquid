@@ -720,7 +720,6 @@
 
                       {%- liquid
                         assign so_type = ''
-                        assign show_special_order_button = false
                         for t in product.tags
                           assign td = t | downcase | strip
                           if td == 'pre-order' or td == 'preorder' or td == 'pre order'
@@ -731,20 +730,9 @@
                             endif
                           endif
                         endfor
-
-                        assign selected_variant = product.selected_or_first_available_variant
-                        if so_type != '' and selected_variant != null
-                          if quantity_rule_soldout
-                            assign show_special_order_button = true
-                          elsif selected_variant.available == false
-                            assign show_special_order_button = true
-                          elsif selected_variant.inventory_management == 'shopify' and selected_variant.inventory_quantity <= 0
-                            assign show_special_order_button = true
-                          endif
-                        endif
                       -%}
 
-                      {%- if show_special_order_button -%}
+                      {%- if so_type != '' -%}
                         <button
                           id="ProductSubmitButton-{{ section.id }}"
                           type="button"
@@ -801,70 +789,6 @@
                       </div>
                     {%- endif -%}
                     <div class="f-product-form__error-message-wrapper" role="alert"></div>
-                    <style>
-                      #ProductInfo-{{ section.id }} .f-product-form__buttons.has-stoq-preorder > button[type="submit"][name="add"],
-                      #ProductInfo-{{ section.id }} .f-product-form__buttons.has-stoq-preorder > .f-product-form__button-dynamic,
-                      #ProductInfo-{{ section.id }} .f-product-form__buttons.has-stoq-preorder > [data-so-trigger][data-order-type="pre"] {
-                        display: none !important;
-                      }
-                    </style>
-                    <script>
-                      (() => {
-                        const productInfo = document.getElementById('ProductInfo-{{ section.id }}');
-                        if (!productInfo) return;
-
-                        const findButtonsWrapper = () => productInfo.querySelector('.main-product-form .f-product-form__buttons');
-
-                        const updateStoqButtonState = () => {
-                          const buttonsWrapper = findButtonsWrapper();
-                          if (!buttonsWrapper) return;
-
-                          const stoqContainer = buttonsWrapper.querySelector('.restock-rocket-button-container');
-                          const hasVisibleStoqPreorder = !!(
-                            stoqContainer &&
-                            stoqContainer.children.length > 0 &&
-                            stoqContainer.getBoundingClientRect().height > 0 &&
-                            stoqContainer.textContent.replace(/\s+/g, '').length > 0
-                          );
-
-                          buttonsWrapper.classList.toggle('has-stoq-preorder', hasVisibleStoqPreorder);
-                        };
-
-                        const bindObserver = () => {
-                          const buttonsWrapper = findButtonsWrapper();
-                          if (!buttonsWrapper || buttonsWrapper.dataset.stoqObserverBound === 'true') return;
-
-                          buttonsWrapper.dataset.stoqObserverBound = 'true';
-                          const observer = new MutationObserver(updateStoqButtonState);
-                          observer.observe(buttonsWrapper, {
-                            childList: true,
-                            subtree: true,
-                            attributes: true,
-                            attributeFilter: ['class', 'style', 'hidden', 'aria-hidden']
-                          });
-                        };
-
-                        updateStoqButtonState();
-                        bindObserver();
-                        setTimeout(() => {
-                          updateStoqButtonState();
-                          bindObserver();
-                        }, 400);
-                        setTimeout(() => {
-                          updateStoqButtonState();
-                          bindObserver();
-                        }, 1200);
-
-                        document.addEventListener('variant:change', () => {
-                          updateStoqButtonState();
-                          bindObserver();
-                        });
-                        document.addEventListener('product:variant-change', () => {
-                          updateStoqButtonState();
-                          bindObserver();
-                        });
-                      })();
-                    </script>
                   </div>
                 {%- endform -%}
               </product-form>
