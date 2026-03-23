@@ -146,11 +146,6 @@
         "disabled": false,
         "settings": {}
       },
-      "back-in-stock-restock-alerts-4bb73be2-b7c2-4870-949f-c528145452a3": {
-        "type": "shopify://apps/back-in-stock-restock-alerts/blocks/main/4bb73be2-b7c2-4870-949f-c528145452a3",
-        "disabled": false,
-        "settings": {}
-      },
       "7297205921758642463": {
         "type": "shopify://apps/mappy-store-locator/blocks/bss-sl-script/edfca2bd-82ad-413c-b32c-580d239b17ab",
         "disabled": false,
@@ -159,6 +154,11 @@
       "855628211100114053": {
         "type": "shopify://apps/klaviyo-email-marketing-sms/blocks/klaviyo-onsite-embed/2632fe16-c075-4321-a88b-50b567f42507",
         "disabled": false,
+        "settings": {}
+      },
+      "back-in-stock-restock-alerts-4bb73be2-b7c2-4870-949f-c528145452a3": {
+        "type": "shopify://apps/stoq/blocks/main/4bb73be2-b7c2-4870-949f-c528145452a3",
+        "disabled": true,
         "settings": {}
       }
     },
