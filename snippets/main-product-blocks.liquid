@@ -801,6 +801,70 @@
                       </div>
                     {%- endif -%}
                     <div class="f-product-form__error-message-wrapper" role="alert"></div>
+                    <style>
+                      #ProductInfo-{{ section.id }} .f-product-form__buttons.has-stoq-preorder > button[type="submit"][name="add"],
+                      #ProductInfo-{{ section.id }} .f-product-form__buttons.has-stoq-preorder > .f-product-form__button-dynamic,
+                      #ProductInfo-{{ section.id }} .f-product-form__buttons.has-stoq-preorder > [data-so-trigger][data-order-type="pre"] {
+                        display: none !important;
+                      }
+                    </style>
+                    <script>
+                      (() => {
+                        const productInfo = document.getElementById('ProductInfo-{{ section.id }}');
+                        if (!productInfo) return;
+
+                        const findButtonsWrapper = () => productInfo.querySelector('.main-product-form .f-product-form__buttons');
+
+                        const updateStoqButtonState = () => {
+                          const buttonsWrapper = findButtonsWrapper();
+                          if (!buttonsWrapper) return;
+
+                          const stoqContainer = buttonsWrapper.querySelector('.restock-rocket-button-container');
+                          const hasVisibleStoqPreorder = !!(
+                            stoqContainer &&
+                            stoqContainer.children.length > 0 &&
+                            stoqContainer.getBoundingClientRect().height > 0 &&
+                            stoqContainer.textContent.replace(/\s+/g, '').length > 0
+                          );
+
+                          buttonsWrapper.classList.toggle('has-stoq-preorder', hasVisibleStoqPreorder);
+                        };
+
+                        const bindObserver = () => {
+                          const buttonsWrapper = findButtonsWrapper();
+                          if (!buttonsWrapper || buttonsWrapper.dataset.stoqObserverBound === 'true') return;
+
+                          buttonsWrapper.dataset.stoqObserverBound = 'true';
+                          const observer = new MutationObserver(updateStoqButtonState);
+                          observer.observe(buttonsWrapper, {
+                            childList: true,
+                            subtree: true,
+                            attributes: true,
+                            attributeFilter: ['class', 'style', 'hidden', 'aria-hidden']
+                          });
+                        };
+
+                        updateStoqButtonState();
+                        bindObserver();
+                        setTimeout(() => {
+                          updateStoqButtonState();
+                          bindObserver();
+                        }, 400);
+                        setTimeout(() => {
+                          updateStoqButtonState();
+                          bindObserver();
+                        }, 1200);
+
+                        document.addEventListener('variant:change', () => {
+                          updateStoqButtonState();
+                          bindObserver();
+                        });
+                        document.addEventListener('product:variant-change', () => {
+                          updateStoqButtonState();
+                          bindObserver();
+                        });
+                      })();
+                    </script>
                   </div>
                 {%- endform -%}
               </product-form>
