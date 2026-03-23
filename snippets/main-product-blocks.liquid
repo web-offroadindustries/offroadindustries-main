@@ -720,6 +720,7 @@
 
                       {%- liquid
                         assign so_type = ''
+                        assign show_special_order_button = false
                         for t in product.tags
                           assign td = t | downcase | strip
                           if td == 'pre-order' or td == 'preorder' or td == 'pre order'
@@ -730,9 +731,20 @@
                             endif
                           endif
                         endfor
+
+                        assign selected_variant = product.selected_or_first_available_variant
+                        if so_type != '' and selected_variant != null
+                          if quantity_rule_soldout
+                            assign show_special_order_button = true
+                          elsif selected_variant.available == false
+                            assign show_special_order_button = true
+                          elsif selected_variant.inventory_management == 'shopify' and selected_variant.inventory_quantity <= 0
+                            assign show_special_order_button = true
+                          endif
+                        endif
                       -%}
 
-                      {%- if so_type != '' -%}
+                      {%- if show_special_order_button -%}
                         <button
                           id="ProductSubmitButton-{{ section.id }}"
                           type="button"
