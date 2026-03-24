@@ -1529,3 +1529,7 @@ details[open]:not(.parent-group) > summary > [data-collapsible-icon] svg:first-c
     white-space: nowrap;
   }
 }
+
+.main-collection__list .product-card .product-card__wrapper product-form .bold_options.bold_options_loaded {
+  display: none;
+}
