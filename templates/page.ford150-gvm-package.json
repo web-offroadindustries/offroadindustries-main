@@ -191,7 +191,8 @@
         "subheading_JVKNjL": {
           "type": "subheading",
           "settings": {
-            "subheading": "Stage 1: $11,999 Installed & Engineered"
+            "subheading": "Stage 1: $11,999 Installed & Engineered",
+            "subheading_size": "h5"
           }
         },
         "heading_f9G7kD": {
@@ -220,14 +221,16 @@
         "container": "container",
         "color_schema": "",
         "image": "shopify://shop_images/GVM_F150stage_1_3700_GVM_F150.jpg",
+        "enable_lightbox": true,
         "image_width": "50%",
         "image_position": "left",
         "vertical_alignment": "center",
+        "align_content_container": "none",
+        "show_image_padding": true,
         "column_gap": "medium",
         "row_gap": "medium",
         "padding_left": 0,
         "padding_right": 0,
-        "align_content_container": "none",
         "mobile_padding_left": 15,
         "mobile_padding_right": 15,
         "padding_top": 40,
@@ -247,7 +250,8 @@
         "subheading_nNBqbG": {
           "type": "subheading",
           "settings": {
-            "subheading": "Stage 2: $15,499 Installed & Engineered"
+            "subheading": "Stage 2: $15,499 Installed & Engineered",
+            "subheading_size": "h5"
           }
         },
         "heading_dHpa9y": {
@@ -276,14 +280,16 @@
         "container": "container",
         "color_schema": "",
         "image": "shopify://shop_images/GVM_F150stage_2_3700_GVM_F150.jpg",
+        "enable_lightbox": true,
         "image_width": "50%",
         "image_position": "right",
         "vertical_alignment": "center",
+        "align_content_container": "none",
+        "show_image_padding": true,
         "column_gap": "medium",
         "row_gap": "medium",
         "padding_left": 0,
         "padding_right": 0,
-        "align_content_container": "none",
         "mobile_padding_left": 15,
         "mobile_padding_right": 15,
         "padding_top": 40,
@@ -303,7 +309,8 @@
         "subheading_p3JeNT": {
           "type": "subheading",
           "settings": {
-            "subheading": "Stage 3: $16, 999 Installed & Engineered"
+            "subheading": "Stage 3: $16, 999 Installed & Engineered",
+            "subheading_size": "h5"
           }
         },
         "heading_KMefdY": {
@@ -332,14 +339,16 @@
         "container": "container",
         "color_schema": "",
         "image": "shopify://shop_images/ORI-Stage3-F150-GVMTile.png",
+        "enable_lightbox": true,
         "image_width": "50%",
         "image_position": "left",
         "vertical_alignment": "center",
+        "align_content_container": "none",
+        "show_image_padding": true,
         "column_gap": "medium",
         "row_gap": "medium",
         "padding_left": 0,
         "padding_right": 0,
-        "align_content_container": "none",
         "mobile_padding_left": 15,
         "mobile_padding_right": 15,
         "padding_top": 40,
@@ -359,7 +368,8 @@
         "subheading_UXFBYE": {
           "type": "subheading",
           "settings": {
-            "subheading": "Stage 4: $26,499 Installed & Engineered"
+            "subheading": "Stage 4: $26,499 Installed & Engineered",
+            "subheading_size": "h5"
           }
         },
         "heading_wfcybN": {
@@ -388,14 +398,16 @@
         "container": "container",
         "color_schema": "",
         "image": "shopify://shop_images/GVM_F150stage_4_4300_GVM_F150.jpg",
+        "enable_lightbox": true,
         "image_width": "50%",
         "image_position": "right",
         "vertical_alignment": "center",
+        "align_content_container": "none",
+        "show_image_padding": true,
         "column_gap": "medium",
         "row_gap": "medium",
         "padding_left": 0,
         "padding_right": 0,
-        "align_content_container": "none",
         "mobile_padding_left": 15,
         "mobile_padding_right": 15,
         "padding_top": 40,
@@ -415,7 +427,8 @@
         "subheading_drUinH": {
           "type": "subheading",
           "settings": {
-            "subheading": "Stage 5: $24,500 Installed & Engineered. XLT, Lariat, Platinum"
+            "subheading": "Stage 5: $24,500 Installed & Engineered. XLT, Lariat, Platinum",
+            "subheading_size": "h5"
           }
         },
         "heading_FGMkek": {
@@ -444,14 +457,16 @@
         "container": "container",
         "color_schema": "",
         "image": "shopify://shop_images/GVM_F150stage_5_4300_GVM_F150.jpg",
+        "enable_lightbox": true,
         "image_width": "50%",
         "image_position": "left",
         "vertical_alignment": "center",
+        "align_content_container": "none",
+        "show_image_padding": true,
         "column_gap": "medium",
         "row_gap": "medium",
         "padding_left": 0,
         "padding_right": 0,
-        "align_content_container": "none",
         "mobile_padding_left": 15,
         "mobile_padding_right": 15,
         "padding_top": 40,
@@ -471,7 +486,8 @@
         "subheading_VEPgxn": {
           "type": "subheading",
           "settings": {
-            "subheading": "Stage 5: $24,500 Installed & Engineered. Platinum, Lariat, XLT"
+            "subheading": "Stage 5: $24,500 Installed & Engineered. Platinum, Lariat, XLT",
+            "subheading_size": "h5"
           }
         },
         "heading_6ppiVb": {
@@ -500,14 +516,16 @@
         "container": "container",
         "color_schema": "",
         "image": "shopify://shop_images/GVM_F150stage_6_4300_GVM_F150_08ffa7da-c630-46d5-bf13-3749176d590d.jpg",
+        "enable_lightbox": true,
         "image_width": "50%",
         "image_position": "right",
         "vertical_alignment": "center",
+        "align_content_container": "none",
+        "show_image_padding": true,
         "column_gap": "medium",
         "row_gap": "medium",
         "padding_left": 0,
         "padding_right": 0,
-        "align_content_container": "none",
         "mobile_padding_left": 15,
         "mobile_padding_right": 15,
         "padding_top": 40,
@@ -1231,6 +1249,98 @@
         "animations": "inherit"
       }
     },
+    "collapsible_tabs_KxkCie": {
+      "type": "collapsible-tabs",
+      "blocks": {
+        "content_pqjhx6": {
+          "type": "content",
+          "settings": {
+            "icon": "none",
+            "title": "Ford F-150 GVM Upgrades – Enhance Your Vehicle’s Capability",
+            "content": "<p>If you own a Ford F150, you already know they’re made for serious work and play. They’ve got an impressive setup and are ideal for offroading, but if you’re finding your adventures are stretching the capabilities of your truck, a Ford F150 GVM upgrade might be what you need. When you want to go beyond what the factory settings offer you, whether that’s because you’ve stacked on a few extras like bulls bars and <a href=\"https://www.offroadindustries.com.au/collections/winches-recovery-accessories\"><span style=\"text-decoration:underline\">winches</span></a> or need to throw a trailer on the back to haul your boat, you’ll need more payload. </p><p>When you get a professionally engineered GVM upgrade, there’s a whole lot of benefits and depending on the stage you opt for, you can improve anything from the payload you can haul to the ground clearance of your Ford. You can load up, head out, and take everything with you knowing that you have the power and support you need to get there without compromising control or the structure of your vehicle. </p><p>Our packages include top-quality aftermarket components spanning <a href=\"https://www.offroadindustries.com.au/collections/suspension\"><span style=\"text-decoration:underline\">suspension kits</span></a> and coils to rugged control arms, ensuring you get something road-safe, legal, and powerful. Explore the Ford F150 GVM upgrade range today and find the best option for your needs, or <a href=\"https://www.offroadindustries.com.au/pages/contact-us\"><span style=\"text-decoration:underline\">contact us</span></a> for a personal recommendation. </p>",
+            "custom_liquid": "",
+            "content_page": "",
+            "open": false
+          }
+        },
+        "content_Gqyw87": {
+          "type": "content",
+          "settings": {
+            "icon": "none",
+            "title": "Ford F-150 GVM Upgrade Options for Australian Conditions",
+            "content": "<p>Australia is a diverse country with unique landscapes and driving conditions, especially when you’re heading off the beaten path. Between long highway distances, dry and dusty outback tracks, salty coastal trails and the intense heat or blistering cold, there’s a lot you need to be able to navigate. When you’re heading out, you need all the appropriate gear with you, which is where that extra hauling potential and rugged aftermarket parts come in. </p><p>Our range was made for extremes, both in terms of terrain but also when it comes to payload potential. With parts from top brands including the likes of <a href=\"https://www.offroadindustries.com.au/collections/bds-suspension-australian-distributor\"><span style=\"text-decoration:underline\">BDS</span></a> and <a href=\"https://www.offroadindustries.com.au/collections/fox-suspension\"><span style=\"text-decoration:underline\">Fox</span></a>, the suspension, coil-overs, control arms, and shocks are all rugged enough to handle everything you and our unique conditions throw their way. </p><p>No matter whether you want to load up a caravan and do a lap of Australia, take the boat to the coast on the trailer, or need something heavy-duty for the farm with a winch in tow, the right GVM upgrade helps. It ensures your vehicle stays balanced, stable and capable under load, no matter where the journey takes you. </p>",
+            "custom_liquid": "",
+            "content_page": "",
+            "open": false
+          }
+        },
+        "content_XQNqqY": {
+          "type": "content",
+          "settings": {
+            "icon": "none",
+            "title": "How to Upgrade GVM on a Ford F-150 in Australia",
+            "content": "<p>When it comes to a comprehensive, effective, and street-legal Ford F150 GVM upgrade, it takes more than just some new shocks. You need a fully engineered upgrade that supports the frame, boosts your ground clearance, and supports a smooth ride and handling even when you’re at maximum capacity. At ORI, we’ve done all the hard work and have put together kits that are compatible with your Ford F150, making it easy to find the package that works for you. </p><p>When you order from us, the cost includes engineering and installation, making it easy to get things done properly. From there, you just need the relevant paperwork to show you’re compliant with the local regulations and you’re ready to head out and tackle your next big adventure. </p>",
+            "custom_liquid": "",
+            "content_page": "",
+            "open": false
+          }
+        },
+        "content_gRGXba": {
+          "type": "content",
+          "settings": {
+            "icon": "none",
+            "title": "Ford F-150 GVM Upgrade Packages and Compliance Info",
+            "content": "<p>As with any form of upgrade, when it comes to something as serious as changing the structure and legal payload, there are strict engineering and compliance requirements when you get a <a href=\"https://www.offroadindustries.com.au/pages/ori-gvm-upgrades\"><span style=\"text-decoration:underline\">GVM upgrade</span></a>. Most professionally engineered systems, like the ones you’ll find here at Offroad Industries, are approved through recognised compliance schemes and come with certification and you’ll also need to get documentation after installation has been completed.</p><p>This ensures that your Ford F150 GVM upgrade is compliant with Australian Design Rules and state registration requirements, while also protecting insurance and warranty considerations. </p>",
+            "custom_liquid": "",
+            "content_page": "",
+            "open": false
+          }
+        },
+        "content_MdyFrp": {
+          "type": "content",
+          "settings": {
+            "icon": "none",
+            "title": "Your Guide to Ford F-150 GVM Australia Upgrades and Benefits",
+            "content": "<p>There’s no shortage of benefits when you get a Ford F150 GVM upgrade. Along with personalising the look and feel of your truck, you’re also maximising its potential while still maintaining the road safety, control, and comfort you’d expect from your vehicle. </p><p>Increasing the payload with ORI can give you anywhere up to a 136% increase in how much weight you can take with you. Whether you want to load up with a <a href=\"https://www.offroadindustries.com.au/collections/titan-fuel-tanks\"><span style=\"text-decoration:underline\">long range fuel tank</span></a> for those remote journeys, need to be able to attach a caravan for family trips, or put all your gear for work in the tub, you can do it all with Offroad Industries. With the right setup, your Ford F150 becomes a properly engineered platform for towing, touring and tackling Australia’s toughest conditions. </p>",
+            "custom_liquid": "",
+            "content_page": "",
+            "open": false
+          }
+        }
+      },
+      "block_order": [
+        "content_pqjhx6",
+        "content_Gqyw87",
+        "content_XQNqqY",
+        "content_gRGXba",
+        "content_MdyFrp"
+      ],
+      "name": "Collapsible tabs",
+      "settings": {
+        "container": "container",
+        "color_schema": "",
+        "section_header_padding_bottom": "medium",
+        "section_header_content_spacing": "medium",
+        "heading": "",
+        "highlight_style": "none",
+        "enable_highlight_text_color": false,
+        "heading_size": "h2",
+        "heading_color": "",
+        "subheading": "",
+        "description": "",
+        "item_heading_font": "body",
+        "item_heading_size": "h6",
+        "column_gap": "medium",
+        "content_width": "full",
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "show_section_divider": false,
+        "divider_width": "container",
+        "custom_id": "",
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
     "rich_text_4AxLyp": {
       "type": "rich-text",
       "blocks": {
@@ -1354,6 +1464,7 @@
     "gvm_comparison_FfmTMw",
     "gvm_comparison_RXeVcA",
     "contact_form_v4_zJ7mnp",
+    "collapsible_tabs_KxkCie",
     "rich_text_4AxLyp",
     "logo_list_8XphYi"
   ]
