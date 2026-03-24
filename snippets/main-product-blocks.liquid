@@ -706,6 +706,9 @@
                   {%- if gift_card_recipient_feature_active -%}
                     {%- render 'gift-card-recipient-form', product: product, form: form, section: section -%}
                   {%- endif -%}
+                  <div class="f-product-form__vehicle-selector">
+                    <div class="bold_options" data-product-id="{{ product.id }}" data-product-form-id="{{ product_form_id }}"></div>
+                  </div>
                   <div class="f-product-form__buttons{% if show_dynamic_checkout and product.selling_plan_groups == empty %} f-product-form__buttons--show-buynow{% endif %}">
                     {% if block.settings.show_atc_button %}
                       {%- liquid

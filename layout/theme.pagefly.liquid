@@ -184,6 +184,12 @@ If you plan to remove PageFly, please see the guide in our help center first: ht
     {{ 'Geomanist-Medium.woff2' | asset_url | preload_tag: as: 'font', type: 'font/woff2', crossorigin: 'anonymous' }}
     {{ 'brand-guidelines.css' | asset_url | stylesheet_tag }}
 
+  
+    {%- render 'bold-options-hybrid' -%}
+    {%- render 'bold-common' -%}
+    {%- render 'sc-includes' -%}
+    <script src="{{ 'bold-options-form-linker.js' | asset_url }}" defer></script>
+
   {% include 'pagefly-app-header' %}</head>
 
   <body class="template-{{ template.name | handle }} {{ template.name }}-{{ template.suffix }}"><div class="pagefly-container">

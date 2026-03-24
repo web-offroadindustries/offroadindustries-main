@@ -1,6 +1,7 @@
 {% comment %}theme-check-disable TemplateLength{% endcomment %}
 {{ 'product.css' | asset_url | stylesheet_tag }}
 {{ 'so-special-order.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'bold-options-position-fix.js' | asset_url }}" defer></script>
 {%- liquid
   assign enable_image_zoom = section.settings.enable_image_zoom | default: false
 

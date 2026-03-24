@@ -1,0 +1,110 @@
+/* =========================
+   BRAND FONTS
+========================= */
+@font-face {
+  font-family: "Evogria";
+  src: url("//www.offroadindustries.com.au/cdn/shop/t/53/assets/Evogria.woff2?v=10173") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Geomanist";
+  src: url("//www.offroadindustries.com.au/cdn/shop/t/53/assets/Geomanist-Regular.woff2?v=10173") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Geomanist";
+  src: url("//www.offroadindustries.com.au/cdn/shop/t/53/assets/Geomanist-Medium.woff2?v=10173") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* =========================
+   BRAND VARIABLES
+========================= */
+:root {
+  --brand-teal: #56BDC2;
+  --brand-black: #000000;
+
+  --brand-display-font: "Evogria", sans-serif;
+  --brand-body-font: "Geomanist", sans-serif;
+}
+
+/* =========================
+   GLOBAL TYPE (GUIDELINES)
+   Evogria = headlines/display
+   Geomanist Medium = subhead
+   Geomanist Regular = body
+========================= */
+body,
+input,
+textarea,
+select,
+button,
+.f-site-nav__sub-link {
+  font-family: var(--brand-body-font) !important;
+  font-weight: 400;
+  color: var(--brand-black);
+}
+
+/* Headlines / display */
+h1, h2, h3, h4, h5, h6,
+.h0, .h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family: var(--brand-display-font) !important;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.subhead,
+.subtitle,
+.section__subheading,
+.banner__subtitle,
+.collection-hero__description strong,
+.rte h4,
+.rte h5,
+.f-site-nav__link,
+.products-bundle__subheading p,
+.f-hero_subheading,
+.f-hero_subheading p,
+button, .btn, .spr-summary-actions-newreview {
+  font-family: var(--brand-body-font) !important;
+  font-weight: 500;
+}
+
+/* =========================
+   BRAND COLOR (PRIMARY TEAL)
+========================= */
+a,
+.link,
+.text-link {
+  color: var(--brand-teal);
+}
+
+.button,
+.btn,
+button[type="submit"] {
+  background-color: var(--brand-teal);
+  border-color: var(--brand-teal);
+  color: #fff;
+}
+
+.button--secondary,
+.btn--secondary {
+  background: transparent;
+  border-color: var(--brand-teal);
+  color: var(--brand-teal);
+}
+.button-show-more.btn--underline,
+.active-facets .active-facets__button {
+  font-size: 12px;
+  padding: 5px 10px !important;
+  line-height: normal;
+  min-height: 34px;
+}
