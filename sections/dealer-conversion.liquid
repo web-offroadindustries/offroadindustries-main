@@ -79,72 +79,10 @@
         <div class="dealer-conversion-hero-form__form-text rte">{{ section.settings.form_text }}</div>
       {% endif %}
 
-      {% form 'contact', id: form_id, class: 'dealer-conversion-hero-form__form', data-klaviyo-endpoint: section.settings.klaviyo_endpoint %}
-        {% if form.posted_successfully? %}
-          <div class="dealer-conversion-hero-form__success" tabindex="-1" autofocus>{{ section.settings.success_message }}</div>
-        {% endif %}
-        {% if form.errors %}
-          <div class="dealer-conversion-hero-form__errors" role="alert">{{ form.errors | default_errors }}</div>
-        {% endif %}
-        <input type="hidden" name="contact[Form Type]" value="Dealer enquiry">
-        <input type="text" name="contact[Company HP]" class="dealer-conversion-hero-form__honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <div class="dealer-conversion-hero-form__klaviyo-wrap">
+        <div class="klaviyo-form-WwjwUL"></div>
+      </div>
 
-        <div class="dealer-conversion-hero-form__fields">
-          <div class="dealer-conversion-hero-form__field dealer-conversion-hero-form__field--half">
-            <label class="dealer-conversion-hero-form__label" for="DealerConversionFirst-{{ section_id }}">{{ section.settings.label_first_name }}</label>
-            <input id="DealerConversionFirst-{{ section_id }}" class="dealer-conversion-hero-form__input" type="text" name="contact[First Name]" placeholder="{{ section.settings.placeholder_first_name }}" {% if section.settings.required_first_name %}required{% endif %}>
-          </div>
-          <div class="dealer-conversion-hero-form__field dealer-conversion-hero-form__field--half">
-            <label class="dealer-conversion-hero-form__label" for="DealerConversionLast-{{ section_id }}">{{ section.settings.label_last_name }}</label>
-            <input id="DealerConversionLast-{{ section_id }}" class="dealer-conversion-hero-form__input" type="text" name="contact[Last Name]" placeholder="{{ section.settings.placeholder_last_name }}" {% if section.settings.required_last_name %}required{% endif %}>
-          </div>
-          <div class="dealer-conversion-hero-form__field dealer-conversion-hero-form__field--half">
-            <label class="dealer-conversion-hero-form__label" for="DealerConversionBusiness-{{ section_id }}">{{ section.settings.label_business_name }}</label>
-            <input id="DealerConversionBusiness-{{ section_id }}" class="dealer-conversion-hero-form__input" type="text" name="contact[Business Name]" placeholder="{{ section.settings.placeholder_business_name }}" {% if section.settings.required_business_name %}required{% endif %}>
-          </div>
-          <div class="dealer-conversion-hero-form__field dealer-conversion-hero-form__field--half">
-            <label class="dealer-conversion-hero-form__label" for="DealerConversionLocation-{{ section_id }}">{{ section.settings.label_location }}</label>
-            <input id="DealerConversionLocation-{{ section_id }}" class="dealer-conversion-hero-form__input" type="text" name="contact[Business Location]" placeholder="{{ section.settings.placeholder_location }}" {% if section.settings.required_location %}required{% endif %}>
-          </div>
-          <div class="dealer-conversion-hero-form__field dealer-conversion-hero-form__field--half">
-            <label class="dealer-conversion-hero-form__label" for="DealerConversionEmail-{{ section_id }}">{{ section.settings.label_email }}</label>
-            <input id="DealerConversionEmail-{{ section_id }}" class="dealer-conversion-hero-form__input" type="email" name="contact[email]" placeholder="{{ section.settings.placeholder_email }}" required>
-          </div>
-          <div class="dealer-conversion-hero-form__field dealer-conversion-hero-form__field--half">
-            <label class="dealer-conversion-hero-form__label" for="DealerConversionPhone-{{ section_id }}">{{ section.settings.label_phone }}</label>
-            <input id="DealerConversionPhone-{{ section_id }}" class="dealer-conversion-hero-form__input" type="tel" name="contact[Phone]" placeholder="{{ section.settings.placeholder_phone }}" {% if section.settings.required_phone %}required{% endif %}>
-          </div>
-          <div class="dealer-conversion-hero-form__field dealer-conversion-hero-form__field--half">
-            <label class="dealer-conversion-hero-form__label" for="DealerConversionBusinessType-{{ section_id }}">{{ section.settings.label_business_type }}</label>
-            <select id="DealerConversionBusinessType-{{ section_id }}" class="dealer-conversion-hero-form__select" name="contact[Business Type]" {% if section.settings.required_business_type %}required{% endif %}>
-              {% assign business_type_options = section.settings.business_type_options | newline_to_br | split: '<br />' %}
-              <option value="">{{ section.settings.business_type_placeholder }}</option>
-              {% for option in business_type_options %}
-                {% assign option_value = option | strip %}
-                {% if option_value != blank %}<option value="{{ option_value }}">{{ option_value }}</option>{% endif %}
-              {% endfor %}
-            </select>
-          </div>
-          <div class="dealer-conversion-hero-form__field dealer-conversion-hero-form__field--half">
-            <label class="dealer-conversion-hero-form__label" for="DealerConversionBrands-{{ section_id }}">{{ section.settings.label_brands }}</label>
-            <input id="DealerConversionBrands-{{ section_id }}" class="dealer-conversion-hero-form__input" type="text" name="contact[Brands of Interest]" placeholder="{{ section.settings.placeholder_brands }}">
-          </div>
-          <div class="dealer-conversion-hero-form__field dealer-conversion-hero-form__field--full">
-            <label class="dealer-conversion-hero-form__label" for="DealerConversionMessage-{{ section_id }}">{{ section.settings.label_message }}</label>
-            <textarea id="DealerConversionMessage-{{ section_id }}" class="dealer-conversion-hero-form__textarea" name="contact[body]" placeholder="{{ section.settings.placeholder_message }}" rows="{{ section.settings.message_rows }}"></textarea>
-          </div>
-          {% if section.settings.show_consent %}
-            <div class="dealer-conversion-hero-form__field dealer-conversion-hero-form__field--full">
-              <label class="dealer-conversion-hero-form__checkbox">
-                <input type="checkbox" name="contact[Dealer Consent]" value="Yes" {% if section.settings.required_consent %}required{% endif %}>
-                <span>{{ section.settings.consent_label }}</span>
-              </label>
-            </div>
-          {% endif %}
-        </div>
-
-        <button type="submit" class="dealer-conversion-hero-form__button">{{ section.settings.button_label }}</button>
-      {% endform %}
     </div>
   </div>
 
@@ -375,6 +313,12 @@
       #DealerConversionHeroForm-{{ section_id }} .dealer-conversion-hero-form__stats,
       #DealerConversionHeroForm-{{ section_id }} .dealer-conversion-hero-form__fields { grid-template-columns: 1fr; }
       #DealerConversionHeroForm-{{ section_id }} .dealer-conversion-hero-form__form-card { padding: 22px 20px; }
+    }
+    #DealerConversionHeroForm-{{ section_id }} .dealer-conversion-hero-form__klaviyo-wrap {
+      margin-top: 14px;
+    }
+    #DealerConversionHeroForm-{{ section_id }} .dealer-conversion-hero-form__klaviyo-wrap .klaviyo-form-WwjwUL {
+      width: 100%;
     }
   </style>
   <script>
