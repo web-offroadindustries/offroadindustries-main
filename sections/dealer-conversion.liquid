@@ -79,7 +79,7 @@
         <div class="dealer-conversion-hero-form__form-text rte">{{ section.settings.form_text }}</div>
       {% endif %}
 
-      {% form 'contact', id: form_id, class: 'dealer-conversion-hero-form__form' %}
+      {% form 'contact', id: form_id, class: 'dealer-conversion-hero-form__form', data-klaviyo-endpoint: section.settings.klaviyo_endpoint %}
         {% if form.posted_successfully? %}
           <div class="dealer-conversion-hero-form__success" tabindex="-1" autofocus>{{ section.settings.success_message }}</div>
         {% endif %}
@@ -377,12 +377,63 @@
       #DealerConversionHeroForm-{{ section_id }} .dealer-conversion-hero-form__form-card { padding: 22px 20px; }
     }
   </style>
+  <script>
+    (function () {
+      var form = document.getElementById({{ form_id | json }});
+      if (!form || !form.dataset.klaviyoEndpoint) return;
+      if (form.dataset.klaviyoBound === 'true') return;
+
+      form.dataset.klaviyoBound = 'true';
+
+      var submitButton = form.querySelector('button[type="submit"]');
+
+      form.addEventListener('submit', async function (event) {
+        if (form.dataset.klaviyoForwarded === 'true') return;
+
+        event.preventDefault();
+
+        if (submitButton) {
+          submitButton.disabled = true;
+          submitButton.setAttribute('aria-busy', 'true');
+        }
+
+        var payload = {
+          firstName: form.querySelector('[name="contact[First Name]"]')?.value || '',
+          lastName: form.querySelector('[name="contact[Last Name]"]')?.value || '',
+          businessName: form.querySelector('[name="contact[Business Name]"]')?.value || '',
+          businessLocation: form.querySelector('[name="contact[Business Location]"]')?.value || '',
+          email: form.querySelector('[name="contact[email]"]')?.value || '',
+          phone: form.querySelector('[name="contact[Phone]"]')?.value || '',
+          businessType: form.querySelector('[name="contact[Business Type]"]')?.value || '',
+          brandsOfInterest: form.querySelector('[name="contact[Brands of Interest]"]')?.value || '',
+          message: form.querySelector('[name="contact[body]"]')?.value || '',
+          dealerConsent: !!form.querySelector('[name="contact[Dealer Consent]"]:checked'),
+          sourceUrl: window.location.href
+        };
+
+        try {
+          await fetch(form.dataset.klaviyoEndpoint, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload),
+            keepalive: true
+          });
+        } catch (error) {
+          console.warn('Klaviyo dealer sync failed', error);
+        } finally {
+          form.dataset.klaviyoForwarded = 'true';
+          HTMLFormElement.prototype.submit.call(form);
+        }
+      });
+    })();
+  </script>
 </section>
 
 {% schema %}
 {
   "name": "Dealer conversion",
   "settings": [
+    { "type": "text", "id": "klaviyo_endpoint", "label": "Klaviyo endpoint URL" },
     { "type": "image_picker", "id": "background_image", "label": "Background image" },
     { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Dealer applications open" },
     { "type": "text", "id": "heading", "label": "Heading", "default": "Apply to stock premium suspension, GVM and 4x4 upgrade categories" },
