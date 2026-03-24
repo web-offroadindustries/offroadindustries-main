@@ -191,7 +191,8 @@
         "subheading_JVKNjL": {
           "type": "subheading",
           "settings": {
-            "subheading": "Stage 1: $11,500 - Installed & Engineered"
+            "subheading": "Stage 1: $11,500 - Installed & Engineered",
+            "subheading_size": "h5"
           }
         },
         "heading_f9G7kD": {
@@ -220,14 +221,16 @@
         "container": "container",
         "color_schema": "",
         "image": "shopify://shop_images/stage_1___3650_GVM_CHEVY_1500.jpg",
+        "enable_lightbox": true,
         "image_width": "50%",
         "image_position": "left",
         "vertical_alignment": "center",
+        "align_content_container": "none",
+        "show_image_padding": true,
         "column_gap": "medium",
         "row_gap": "medium",
         "padding_left": 0,
         "padding_right": 0,
-        "align_content_container": "none",
         "mobile_padding_left": 15,
         "mobile_padding_right": 15,
         "padding_top": 40,
@@ -247,7 +250,8 @@
         "subheading_nNBqbG": {
           "type": "subheading",
           "settings": {
-            "subheading": "Stage 2: $7,800 - Installed & Engineered"
+            "subheading": "Stage 2: $7,800 - Installed & Engineered",
+            "subheading_size": "h5"
           }
         },
         "heading_dHpa9y": {
@@ -275,15 +279,17 @@
       "settings": {
         "container": "container",
         "color_schema": "",
-        "image": "shopify://shop_images/Screenshot_2026-03-11_084406.png",
+        "image": "shopify://shop_images/Screenshot_2026-03-24_113426.png",
+        "enable_lightbox": true,
         "image_width": "50%",
         "image_position": "right",
         "vertical_alignment": "center",
+        "align_content_container": "none",
+        "show_image_padding": true,
         "column_gap": "medium",
         "row_gap": "medium",
         "padding_left": 0,
         "padding_right": 0,
-        "align_content_container": "none",
         "mobile_padding_left": 15,
         "mobile_padding_right": 15,
         "padding_top": 40,
@@ -303,7 +309,8 @@
         "subheading_p3JeNT": {
           "type": "subheading",
           "settings": {
-            "subheading": "Stage 3: $15,999 - Installed & Engineered"
+            "subheading": "Stage 3: $15,999 - Installed & Engineered",
+            "subheading_size": "h5"
           }
         },
         "heading_KMefdY": {
@@ -332,14 +339,16 @@
         "container": "container",
         "color_schema": "",
         "image": "shopify://shop_images/Stage_3___3850_GVM_CHEVY_1500.jpg",
+        "enable_lightbox": true,
         "image_width": "50%",
         "image_position": "left",
         "vertical_alignment": "center",
+        "align_content_container": "none",
+        "show_image_padding": true,
         "column_gap": "medium",
         "row_gap": "medium",
         "padding_left": 0,
         "padding_right": 0,
-        "align_content_container": "none",
         "mobile_padding_left": 15,
         "mobile_padding_right": 15,
         "padding_top": 40,
@@ -359,7 +368,8 @@
         "subheading_UXFBYE": {
           "type": "subheading",
           "settings": {
-            "subheading": "Stage 4: $16,999 - Installed & Engineered"
+            "subheading": "Stage 4: $16,999 - Installed & Engineered",
+            "subheading_size": "h5"
           }
         },
         "heading_wfcybN": {
@@ -388,14 +398,16 @@
         "container": "container",
         "color_schema": "",
         "image": "shopify://shop_images/Stage_4___4250_GVM_CHEVY_1500_e869df3a-828f-4542-a6f5-ef83791ab296.jpg",
+        "enable_lightbox": true,
         "image_width": "50%",
         "image_position": "right",
         "vertical_alignment": "center",
+        "align_content_container": "none",
+        "show_image_padding": true,
         "column_gap": "medium",
         "row_gap": "medium",
         "padding_left": 0,
         "padding_right": 0,
-        "align_content_container": "none",
         "mobile_padding_left": 15,
         "mobile_padding_right": 15,
         "padding_top": 40,
@@ -415,7 +427,8 @@
         "subheading_drUinH": {
           "type": "subheading",
           "settings": {
-            "subheading": "Stage 5: $26,999 - Installed & Engineered"
+            "subheading": "Stage 5: $26,999 - Installed & Engineered",
+            "subheading_size": "h5"
           }
         },
         "heading_FGMkek": {
@@ -444,14 +457,16 @@
         "container": "container",
         "color_schema": "",
         "image": "shopify://shop_images/image_-_2026-03-03T103301.867.png",
+        "enable_lightbox": true,
         "image_width": "50%",
         "image_position": "left",
         "vertical_alignment": "center",
+        "align_content_container": "none",
+        "show_image_padding": true,
         "column_gap": "medium",
         "row_gap": "medium",
         "padding_left": 0,
         "padding_right": 0,
-        "align_content_container": "none",
         "mobile_padding_left": 15,
         "mobile_padding_right": 15,
         "padding_top": 40,
