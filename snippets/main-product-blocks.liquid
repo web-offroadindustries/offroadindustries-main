@@ -735,20 +735,21 @@
                         endfor
                       -%}
 
-                      {%- if so_type != '' -%}
+                      {%- liquid
+                        assign inventory_policy = product.selected_or_first_available_variant.inventory_policy
+                      -%}
+                      {%- if inventory_policy == 'deny' -%}
                         <button
                           id="ProductSubmitButton-{{ section.id }}"
                           type="button"
                           class="f-product-form__submit btn {% if show_dynamic_checkout and product.selling_plan_groups == empty %}btn--secondary{% else %}btn--primary{% endif %}"
                           data-so-trigger
-                          data-order-type="{{ so_type }}"
+                          data-order-type="pre"
                           data-product-title="{{ product.title | escape }}"
                           data-product-url="{{ shop.url }}{{ product.url }}"
                           data-variant-id="{{ product.selected_or_first_available_variant.id }}"
                         >
-                          <span>
-                            {%- if so_type == 'pre' -%}Pre-Order{%- else -%}Special Order{%- endif -%}
-                          </span>
+                          <span>Pre-Order</span>
                         </button>
                       {%- else -%}
                         {%- liquid
@@ -786,7 +787,7 @@
                       {%- endif -%}
 
                     {% endif %}
-                    {%- if show_dynamic_checkout and so_type == '' -%}
+                    {%- if show_dynamic_checkout and inventory_policy != 'deny' -%}
                       <div class="f-product-form__button-dynamic">
                         {{ form | payment_button }}
                       </div>

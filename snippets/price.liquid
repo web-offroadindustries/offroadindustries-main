@@ -44,11 +44,9 @@
   <div class="f-price__regular">
     <span class="visually-hidden visually-hidden--inline">{{ 'products.product.price.regular_price' | t }}</span>
     <span class="f-price-item f-price-item--regular">
-      {%- if price == 0 -%}
-        Free
-      {%- else -%}
+      {%- unless price == 0 -%}
         {{ money_price }}
-      {%- endif -%}
+      {%- endunless -%}
     </span>
   </div>
   <div class="f-price__sale">
