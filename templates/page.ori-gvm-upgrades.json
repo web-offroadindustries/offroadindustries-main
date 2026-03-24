@@ -348,6 +348,50 @@
             "content_page": "",
             "open": false
           }
+        },
+        "content_GMT6pr": {
+          "type": "content",
+          "settings": {
+            "icon": "none",
+            "title": "4WD GVM Upgrades – Enhance Your Towing and Off-Road Capabilities",
+            "content": "<p>No matter what you drive, if you’re heading off the beaten track or need a rugged vehicle for work, chances are you need some serious hauling capabilities. Every kilo matters and GVM upgrades not only give you that extra payload, but also make sure the structure of your vehicle stays in top shape. Whether you’re taking a caravan out to the coast for the weekend, need a winch to do work out on a farm, or just want to load up the tub with all your camping gear, you’ll want to consider professionally engineered 4WD GVM upgrades. <br/>Here at Offroad Industries, we have a range of options for all of Australia’s most popular vehicles. From Ford F150s and Toyota Landcruisers to American-made trucks like Chevy Silverado, we’ve engineered everything to give you the towing and carrying capabilities you want without sacrificing handling when you’re offroading. <br/></p>",
+            "custom_liquid": "",
+            "content_page": "",
+            "open": false
+          }
+        },
+        "content_HpDB4n": {
+          "type": "content",
+          "settings": {
+            "icon": "none",
+            "title": "4x4 GVM Upgrades – Improve Your Vehicle’s Load Capacity",
+            "content": "<p>When you first drive your truck off the lot, it’ll come with a factory standard manufacturer-rated load limit, referred to as Gross Vehicle Mass. This number varies depending on the make and model, but the figure includes its maximum weight while still being able to operate. It includes the weight of your passengers, fuel, accessories and cargo combined. As soon as you’re adding extra gear or something heavy-duty to the trailer, it doesn’t take much to exceed that number. </p><p>If you want to tap into the real potential of your truck, a GVM upgrade that’s made with top quality aftermarket parts is essential. It boosts that number significantly, with some Stages giving you anywhere up to more than a 100% increase in payload. </p><p>It takes a special combination of new suspension, which also gives you greater ground clearance, as well as coils and leaf packs to give you the same power and control, while seriously amping up the weight you can handle.</p>",
+            "custom_liquid": "",
+            "content_page": "",
+            "open": false
+          }
+        },
+        "content_hJL8Az": {
+          "type": "content",
+          "settings": {
+            "icon": "none",
+            "title": "GVM Upgrades for 4WD and 4x4 Vehicles in Australia",
+            "content": "<p>No matter where you live, there’s no doubt that Australia’s climate and conditions are rugged and demand the most from you and your vehicle, especially when you’re offroading. From touring through arid environments in WA to the humid and muddy terrain in Victoria, when you’re navigating, you need all the traction and control you can get, especially when you’re taking heavy duty gear with you. </p><p>GVM upgrades are engineered and certified solutions that make it possible to safely and legally carry more weight than the original manufacturer rating. That means you can venture off the road, take everything you need, and still feel comfortable, safe, and capable even when you’re loaded up. For Australian drivers building a capable touring or working setup, upgrading the payload with 4WD GVM upgrades is often one of the most transformational things you can do to get more from every drive and truly maximise your truck’s potential.</p>",
+            "custom_liquid": "",
+            "content_page": "",
+            "open": false
+          }
+        },
+        "content_UMaFLU": {
+          "type": "content",
+          "settings": {
+            "icon": "none",
+            "title": "GVM Upgrades for 4WDs and 4x4s – Maximum Load Capacity and Performance",
+            "content": "<p>If you’ve ever added a few kilos extra to your truck than you really should, you’ll know how much it can make your vehicle feel like it’s sinking into the suspension. You’d also notice how much more care you need when navigating, as the extra weight can throw off your truck’s balance and braking capabilities. </p><p>If you demand more, and want to load up everything without worry, a dedicated, tested, and properly engineered GVM upgrade from Offroad Industries will give you what you need. You can unlock the ability to carry the gear you actually want for work or adventure without compromising safety. </p><p>At Offroad Industries, we focus on building 4WDs that are engineered to perform no matter the reason for your journey. From heavy-duty and resilient suspension upgrades to rugged control arms,, our GVM upgrades help ensure your vehicle is ready for towing, touring and tackling Australia’s toughest terrain. </p>",
+            "custom_liquid": "",
+            "content_page": "",
+            "open": false
+          }
         }
       },
       "block_order": [
@@ -357,7 +401,11 @@
         "content_Qnr3j6",
         "content_eVHWQQ",
         "content_p66FxM",
-        "content_CNpm4F"
+        "content_CNpm4F",
+        "content_GMT6pr",
+        "content_HpDB4n",
+        "content_hJL8Az",
+        "content_UMaFLU"
       ],
       "name": "Collapsible tabs",
       "settings": {
