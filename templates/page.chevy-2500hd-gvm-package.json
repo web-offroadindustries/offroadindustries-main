@@ -140,7 +140,7 @@
         "text_CfcJd4": {
           "type": "text",
           "settings": {
-            "text": "<p><strong>Shatter your payload limits and command the outback without compromise.</strong> &gt; Offroad Industries (ORI) delivers Australia’s ultimate, fully Federally Approved GVM upgrades for the Chevrolet Silverado 2500HD range. Whether you drive an LTZ Premium or another heavy-duty model, we have the arsenal to match. Our SSM approvals only applys to GMVS Vehicles we cannot do private imports.</p><p><strong>The ORI Advantage:</strong></p><ul><li><strong>Massive Stance:</strong> Options ranging from a sleek 3” lift up to our monster 6.5” package on 37” tyres.</li><li><strong>NB2 Upgrades Made Easy:</strong> A seamless, ORI-approved pathway from NB1 to the heavy-duty NB2 category via VTA-065187 or we can upgrade NB2 to NB2 via our VTA-065796</li><li><strong>Bulletproof Compliance:</strong> Rigorously tested and backed by Federal SSM Certification.</li></ul><p>Backed by punishing testing and uncompromising Federal SSM Certification, an ORI GVM Package doesn't just upgrade your Silverado; it elevates it to true <strong>\"Super-Truck\"</strong> status. Operating under exclusive ORI Vehicle SSM Approvals, we provide a streamlined, zero-headache pathway to reclassify your rig from an NB1 to a heavy-hitting NB2 category.</p><p><strong>The result?</strong> Your fully loaded truck, all your gear, and that 4.5T trailer in tow are 100% compliant, secure, and road-legal nationwide when completed Pre-Rego (Federal). Why not invest in your brand new Chevy Silverado 2500HD now ?<br/></p>"
+            "text": "<p>Shatter your payload limits and command the outback without compromise with a Silverado 2500 GVM upgrade. Offroad Industries (ORI) delivers Australia’s ultimate, fully Federally Approved GVM upgrades for the Chevrolet Silverado 2500HD range. Whether you drive an LTZ Premium or another heavy-duty model, we have the arsenal to match. Our SSM approvals only apply to GMVS Vehicles we cannot do private imports.</p><p><strong>The ORI Advantage:</strong></p><ul><li><strong>Massive Stance</strong>: Options ranging from a sleek 3” lift up to our monster 6.5” package on 37” tyres.</li><li><strong>NB2 Upgrades Made Easy</strong>: A seamless, ORI-approved pathway from NB1 to the heavy-duty NB2 category via VTA-065187 or we can upgrade NB2 to NB2 via our VTA-065796</li><li><strong>Bulletproof Compliance</strong>: Rigorously tested and backed by Federal SSM Certification.</li></ul><p><br/></p><p>Backed by punishing testing and uncompromising Federal SSM Certification, an ORI GVM Package doesn't just upgrade your Silverado; it takes it to true \"Super-Truck\" status. Operating under exclusive ORI Vehicle SSM Approvals, we provide a streamlined, zero-headache pathway to reclassify your rig from an NB1 to a heavy-hitting NB2 category.</p><p>The result? Your fully loaded truck, all your gear, and that 4.5T trailer in tow are 100% compliant, secure, and road-legal nationwide when completed Pre-Rego (Federal). Why not invest in your brand new Chevy Silverado 2500HD now? </p>"
           }
         }
       },
@@ -199,7 +199,8 @@
         "subheading_JVKNjL": {
           "type": "subheading",
           "settings": {
-            "subheading": "Stage 1: $16,500 - Installed & Engineered"
+            "subheading": "Stage 1: $16,500 - Installed & Engineered",
+            "subheading_size": "h5"
           }
         },
         "heading_f9G7kD": {
@@ -228,14 +229,16 @@
         "container": "container",
         "color_schema": "",
         "image": "shopify://shop_images/stage_1_5500_gvm_SILVERADO_2500HD_355b0b40-8837-4973-b637-8a9993a5fed9.jpg",
+        "enable_lightbox": true,
         "image_width": "50%",
         "image_position": "left",
         "vertical_alignment": "center",
+        "align_content_container": "none",
+        "show_image_padding": true,
         "column_gap": "medium",
         "row_gap": "medium",
         "padding_left": 0,
         "padding_right": 0,
-        "align_content_container": "none",
         "mobile_padding_left": 15,
         "mobile_padding_right": 15,
         "padding_top": 40,
@@ -255,7 +258,8 @@
         "subheading_nNBqbG": {
           "type": "subheading",
           "settings": {
-            "subheading": "Stage 2: $22,500 - Installed & Engineered"
+            "subheading": "Stage 2: $22,500 - Installed & Engineered",
+            "subheading_size": "h5"
           }
         },
         "heading_dHpa9y": {
@@ -284,14 +288,16 @@
         "container": "container",
         "color_schema": "",
         "image": "shopify://shop_images/stage_2_5900_gvm_SILVERADO_2500HD_5fc4d033-8b58-43d9-b8d9-0df8ea62086f.jpg",
+        "enable_lightbox": true,
         "image_width": "50%",
         "image_position": "right",
         "vertical_alignment": "center",
+        "align_content_container": "none",
+        "show_image_padding": true,
         "column_gap": "medium",
         "row_gap": "medium",
         "padding_left": 0,
         "padding_right": 0,
-        "align_content_container": "none",
         "mobile_padding_left": 15,
         "mobile_padding_right": 15,
         "padding_top": 40,
@@ -311,7 +317,8 @@
         "subheading_p3JeNT": {
           "type": "subheading",
           "settings": {
-            "subheading": "Stage 3: $27,500 - Installed & Engineered"
+            "subheading": "Stage 3: $27,500 - Installed & Engineered",
+            "subheading_size": "h5"
           }
         },
         "heading_KMefdY": {
@@ -340,14 +347,16 @@
         "container": "container",
         "color_schema": "",
         "image": "shopify://shop_images/stage_3_5900_gvm_SILVERADO_2500HD_65489731-4865-4706-9554-da20776b2862.jpg",
+        "enable_lightbox": true,
         "image_width": "50%",
         "image_position": "left",
         "vertical_alignment": "center",
+        "align_content_container": "none",
+        "show_image_padding": true,
         "column_gap": "medium",
         "row_gap": "medium",
         "padding_left": 0,
         "padding_right": 0,
-        "align_content_container": "none",
         "mobile_padding_left": 15,
         "mobile_padding_right": 15,
         "padding_top": 40,
@@ -367,7 +376,8 @@
         "subheading_AtKMTT": {
           "type": "subheading",
           "settings": {
-            "subheading": "Stage 3: $48,500 - Installed & Engineered"
+            "subheading": "Stage 3: $48,500 - Installed & Engineered",
+            "subheading_size": "h5"
           }
         },
         "heading_fFTkhn": {
@@ -396,14 +406,16 @@
         "container": "container",
         "color_schema": "",
         "image": "shopify://shop_images/stage_3.5_5900_gvm_SILVERADO_2500HD_copy_85c8f92f-d632-4a35-8791-022d49720b0b.jpg",
+        "enable_lightbox": true,
         "image_width": "50%",
         "image_position": "right",
         "vertical_alignment": "center",
+        "align_content_container": "none",
+        "show_image_padding": true,
         "column_gap": "medium",
         "row_gap": "medium",
         "padding_left": 0,
         "padding_right": 0,
-        "align_content_container": "none",
         "mobile_padding_left": 15,
         "mobile_padding_right": 15,
         "padding_top": 40,
@@ -423,7 +435,8 @@
         "subheading_DWKAtN": {
           "type": "subheading",
           "settings": {
-            "subheading": "Stage 4 : $28,000 - Installed & Engineered"
+            "subheading": "Stage 4 : $28,000 - Installed & Engineered",
+            "subheading_size": "h5"
           }
         },
         "heading_R6xiqM": {
@@ -452,14 +465,16 @@
         "container": "container",
         "color_schema": "",
         "image": "shopify://shop_images/stage_4_5900_gvm_SILVERADO_2500HD_copy_bde5207f-78de-4f27-9244-e8c1c756a608.jpg",
+        "enable_lightbox": true,
         "image_width": "50%",
         "image_position": "left",
         "vertical_alignment": "center",
+        "align_content_container": "none",
+        "show_image_padding": true,
         "column_gap": "medium",
         "row_gap": "medium",
         "padding_left": 0,
         "padding_right": 0,
-        "align_content_container": "none",
         "mobile_padding_left": 15,
         "mobile_padding_right": 15,
         "padding_top": 40,
@@ -479,7 +494,8 @@
         "subheading_GUEKJN": {
           "type": "subheading",
           "settings": {
-            "subheading": "Stage 5: $28,000 - Installed & Engineered"
+            "subheading": "Stage 5: $28,000 - Installed & Engineered",
+            "subheading_size": "h5"
           }
         },
         "heading_GqENUg": {
@@ -508,14 +524,16 @@
         "container": "container",
         "color_schema": "",
         "image": "shopify://shop_images/stage_5_5900_gvm_SILVERADO_2500HD_copy_2_ee765c51-aa21-44e2-ba31-3aacaec8eceb.jpg",
+        "enable_lightbox": true,
         "image_width": "50%",
         "image_position": "right",
         "vertical_alignment": "center",
+        "align_content_container": "none",
+        "show_image_padding": true,
         "column_gap": "medium",
         "row_gap": "medium",
         "padding_left": 0,
         "padding_right": 0,
-        "align_content_container": "none",
         "mobile_padding_left": 15,
         "mobile_padding_right": 15,
         "padding_top": 40,
@@ -535,7 +553,8 @@
         "subheading_KF8CC3": {
           "type": "subheading",
           "settings": {
-            "subheading": "Stage 6 : $34,000 - Installed & Engineered"
+            "subheading": "Stage 6 : $34,000 - Installed & Engineered",
+            "subheading_size": "h5"
           }
         },
         "heading_eDyjtL": {
@@ -564,14 +583,16 @@
         "container": "container",
         "color_schema": "",
         "image": "shopify://shop_images/stage_6_5900_gvm_SILVERADO_2500HD_copy_3_fd6f6dfc-ebf7-4300-814c-6cec2e83f9df.jpg",
+        "enable_lightbox": true,
         "image_width": "50%",
         "image_position": "left",
         "vertical_alignment": "center",
+        "align_content_container": "none",
+        "show_image_padding": true,
         "column_gap": "medium",
         "row_gap": "medium",
         "padding_left": 0,
         "padding_right": 0,
-        "align_content_container": "none",
         "mobile_padding_left": 15,
         "mobile_padding_right": 15,
         "padding_top": 40,
@@ -591,7 +612,8 @@
         "subheading_b3w7Fn": {
           "type": "subheading",
           "settings": {
-            "subheading": "Stage 6.5 : $53,000 - Installed & Engineered"
+            "subheading": "Stage 6.5 : $53,000 - Installed & Engineered",
+            "subheading_size": "h5"
           }
         },
         "heading_gDQyxC": {
@@ -620,20 +642,49 @@
         "container": "container",
         "color_schema": "",
         "image": "shopify://shop_images/stage_6.5_5900_gvm_SILVERADO_2500HD_copy_2_9551777e-e12a-47b0-99d2-05b0ab1eb7dc.jpg",
+        "enable_lightbox": true,
         "image_width": "50%",
         "image_position": "right",
         "vertical_alignment": "center",
+        "align_content_container": "none",
+        "show_image_padding": true,
         "column_gap": "medium",
         "row_gap": "medium",
         "padding_left": 0,
         "padding_right": 0,
-        "align_content_container": "none",
         "mobile_padding_left": 15,
         "mobile_padding_right": 15,
         "padding_top": 40,
         "padding_bottom": 40,
         "padding_top_mobile": 60,
         "padding_bottom_mobile": 60,
+        "show_section_divider": false,
+        "divider_width": "container",
+        "custom_id": "",
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "rich_text_RV8dqr": {
+      "type": "rich-text",
+      "blocks": {
+        "text_g3UJNm": {
+          "type": "text",
+          "settings": {
+            "text": "<h2>Silverado 2500 GVM Upgrade Options for Enhanced Towing Power</h2><p>One of the biggest challenges when you’re heading off the beaten track or out to a jobsite is making sure you can take all your gear, without overloading the manufacturer payload. When you want to be able to tow your trailer, boat, caravan, or simply load up the tub with more tools, you need some serious capabilities that won’t impact the structure or safety of your Chevy. </p><p>Our range of upgrades spans a huge scope of specs, giving you something custom, road-safe, and anywhere up to a 198% payload increase. Haul more and go further while still maintaining all the things you love about your truck when you get an engineered and installed Silverado GVM upgrade. </p><h2>Chevrolet Silverado 2500HD GVM Upgrades for Maximum Performance</h2><p>If you own a Chevy, you already know they’re an impressive beast both on and off the road. When you want to not only maintain their performance, but maximise it, Silverado GVM upgrades can help get you there. Between the boosted wheelbase from upgraded <a href=\"https://www.offroadindustries.com.au/collections/suspension\"><span style=\"text-decoration:underline\">suspension</span></a>, to more structural support from the new shocks and control arms, you’ll get better ground clearance, improved traction, and a structurally sound setup. These upgrades mean that you can carry your gear without strain - even on tough terrain. </p><p>When you transform your truck with a GVM package from ORI, you’ll also be able to add other upgrades that enhance the utility, functionality and personality of your vehicle. Get a fresh set of wheels to match the hauling power you’ve got, add on new <a href=\"https://www.offroadindustries.com.au/collections/bushwacker\"><span style=\"text-decoration:underline\">fender flares</span></a> to keep the undercarriage of your truck clear from dirt, or install a <a href=\"https://www.offroadindustries.com.au/collections/titan-fuel-tanks\"><span style=\"text-decoration:underline\">long range fuel tank</span></a> so you can go further. Silverado GVM upgrades do more than give you greater hauling power, they open you up to a whole new way to drive and enhance your truck. </p><p></p><h2>Silverado GVM Upgrade Packages – Enhance Your Vehicle’s Off-Road Capability</h2><p>When you’re offroading, sometimes you have to make a choice between taking all the gear you want with you or sticking to an easier path. If you’re too overloaded, handling, control, and stability can be impacted - but all of these concerns are alleviated with carefully engineered and installed <a href=\"https://www.offroadindustries.com.au/pages/ori-gvm-upgrades\"><span style=\"text-decoration:underline\">GVM upgrades</span></a>. </p><p>Our range enables you to lift your ground clearance by up to 6.5 inches, making it easier to tackle rugged tracks, beat your own path through the terrain, and maintain the traction you want. </p><h2>Silverado 2500 GVM Upgrade – Strengthen Your Vehicle for Heavy Duty Use</h2><p>Aside from the occasions when you need to be hauling higher loads, a GVM upgrade with ORI gives you a more resilient, hard-wearing truck regardless of what you’re carrying. You can tackle tough ground more easily, get through dry or soggy conditions with greater ease, and maintain a smooth ride no matter where you go and how much you’ve got in the tub. </p><p>No matter what motivates you, how you like to drive, or what you demand from your truck, a Chevy Silverado 2500HD GVM upgrade from ORI offers you the driving experience you’ve always wanted. Explore the range now, and if you’re unsure which option is right for you, you can contact us for a personal recommendation. </p><p>After you’ve purchased your upgrade, you can get everything installed and engineered and discover the difference it’ll make to your Chevy in a real-world environment. No matter whether you’re driving for work or play, you can head off with confidence knowing your Silverado can handle everything without compromising the handling, comfort, and control you’re used to. </p><p></p>"
+          }
+        }
+      },
+      "block_order": [
+        "text_g3UJNm"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "container": "container",
+        "color_schema": "",
+        "text_alignment": "center",
+        "padding_top": 40,
+        "padding_bottom": 40,
         "show_section_divider": false,
         "divider_width": "container",
         "custom_id": "",
@@ -1792,6 +1843,7 @@
     "image_with_text_giCQLF",
     "image_with_text_zgLfNt",
     "image_with_text_9MGF8c",
+    "rich_text_RV8dqr",
     "collapsible_tabs_UDrTRf",
     "rich_text_rnLAPH",
     "gvm_comparison_FfmTMw",
