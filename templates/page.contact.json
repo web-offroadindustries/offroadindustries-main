@@ -168,7 +168,15 @@
           "settings": {
             "placeholder": "Email Address",
             "required": true,
-            "width": "full"
+            "width": "half"
+          }
+        },
+        "phone_VNCYVT": {
+          "type": "phone",
+          "settings": {
+            "placeholder": "Phone Number",
+            "required": true,
+            "width": "half"
           }
         },
         "car_FwG3XP": {
@@ -193,6 +201,7 @@
         "first_name_fwQ4Kb",
         "last_name_Qeqyae",
         "email_Gxh74a",
+        "phone_VNCYVT",
         "car_FwG3XP",
         "message_rFV6PK"
       ],
