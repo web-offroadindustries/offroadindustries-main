@@ -1172,3 +1172,8 @@ responsive-image img {
     transform: scale(1.2) rotate(5deg) translateZ(0);
   }
 }
+
+/* XEON Styling */
+.jedi-stock-arrival-date {
+  padding: 20px;
+}
