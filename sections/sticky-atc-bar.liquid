@@ -122,32 +122,61 @@
               </div>
               
             {% endif %}
+            {%- liquid
+              assign sticky_so_type = ''
+              for t in product.tags
+                assign td = t | downcase | strip
+                if td == 'pre-order' or td == 'preorder' or td == 'pre order'
+                  assign sticky_so_type = 'pre'
+                elsif td == 'special order' or td == 'special-order'
+                  if sticky_so_type == ''
+                    assign sticky_so_type = 'special'
+                  endif
+                endif
+              endfor
+            -%}
             <div class="f-product-form__buttons flex items-center">
-              {% if show_atc_button %}
+              {%- if sticky_so_type != '' -%}
                 <button
-                  type="submit"
-                  name="add"
-                  class="f-product-form__submit btn {% if show_dynamic_checkout_buttons and product.selling_plan_groups == empty %}btn--secondary{% else %}btn--primary{% endif %} w-full"
-                  {% if product.selected_or_first_available_variant.available == false %}
-                    disabled
-                  {% endif %}
+                  type="button"
+                  class="f-product-form__submit btn btn--primary w-full"
+                  data-so-trigger
+                  data-order-type="{{ sticky_so_type }}"
+                  data-product-title="{{ product.title | escape }}"
+                  data-product-url="{{ shop.url }}{{ product.url }}"
+                  data-variant-id="{{ product.selected_or_first_available_variant.id }}"
                 >
                   <span>
-                    {%- if product.selected_or_first_available_variant.available -%}
-                      {{ 'products.product.add_to_cart' | t }}
-                    {%- else -%}
-                      {{ 'products.product.sold_out' | t }}
-                    {%- endif -%}
+                    {%- if sticky_so_type == 'pre' -%}Pre-Order{%- else -%}Special Order{%- endif -%}
                   </span>
-                  {% comment %} theme-check-disable {% endcomment %}
-                  {{ 'icon-spinner.svg' | inline_asset_content }}
-                  {% comment %} theme-check-enable {% endcomment %}
                 </button>
-              {% endif %}
-              {%- if show_dynamic_checkout_buttons -%}
-                <div class="f-product-form__button-dynamic hidden md:block">
-                  {{ form | payment_button }}
-                </div>
+              {%- else -%}
+                {% if show_atc_button %}
+                  <button
+                    type="submit"
+                    name="add"
+                    class="f-product-form__submit btn {% if show_dynamic_checkout_buttons and product.selling_plan_groups == empty %}btn--secondary{% else %}btn--primary{% endif %} w-full"
+                    {% if product.selected_or_first_available_variant.available == false %}
+                      disabled
+                    {% endif %}
+                  >
+                    <span>
+                      {%- if product.selected_or_first_available_variant.available -%}
+                        {{ 'products.product.add_to_cart' | t }}
+                      {%- else -%}
+                        {{ 'products.product.sold_out' | t }}
+                      {%- endif -%}
+                    </span>
+                    {% comment %} theme-check-disable {% endcomment %}
+                    {{ 'icon-spinner.svg' | inline_asset_content }}
+                    {% comment %} theme-check-enable {% endcomment %}
+                  </button>
+                {% endif %}
+                {%- if show_dynamic_checkout_buttons -%}
+                  <div class="f-product-form__button-dynamic hidden md:block">
+                    {{ form | payment_button }}
+                  </div>
+                {%- endif -%}
               {%- endif -%}
             </div>
           {%- endform -%}
