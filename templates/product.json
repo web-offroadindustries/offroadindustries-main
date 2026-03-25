@@ -72,6 +72,10 @@
             "padding_left": 0
           }
         },
+        "xeon_back_in_stock_date_stock_arrival_date_tKFxGi": {
+          "type": "shopify://apps/xeon-back-in-stock-date/blocks/stock_arrival_date/cb314c32-9ac6-4421-8903-5c25599c02ca",
+          "settings": {}
+        },
         "variant_picker": {
           "type": "variant_picker",
           "settings": {
@@ -179,6 +183,7 @@
         "e4d2f300-9ef9-4492-931b-cc2860fa9352",
         "a4fbde0c-c1ab-4001-a39d-e20d650d3e5d",
         "forms_inline_iqCiPN",
+        "xeon_back_in_stock_date_stock_arrival_date_tKFxGi",
         "variant_picker",
         "quantity_selector_k8h8i8",
         "buy_buttons",
