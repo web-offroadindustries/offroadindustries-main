@@ -112,6 +112,16 @@
                       autocomplete="email"
                     >
 
+                  {% when 'phone' %}
+                    <input
+                      class="cfv3__input"
+                      type="tel"
+                      name="contact[Phone Number]"
+                      placeholder="{{ placeholder | default: 'Phone Number' }}"
+                      {% if required %}required{% endif %}
+                      autocomplete="tel"
+                    >
+
                   {% when 'car' %}
                     <input
                       class="cfv3__input"
@@ -383,7 +393,7 @@
       "name": "Field: First name",
       "settings": [
         { "type": "text", "id": "placeholder", "label": "Placeholder", "default": "First Name" },
-        { "type": "checkbox", "id": "required", "label": "Required", "default": true },
+        { "type": "checkbox", "id": "required", "label": "Required", "default": false },
         { "type": "select", "id": "width", "label": "Width", "default": "half", "options": [
           { "value": "half", "label": "Half" },
           { "value": "full", "label": "Full" }
@@ -395,7 +405,7 @@
       "name": "Field: Last name",
       "settings": [
         { "type": "text", "id": "placeholder", "label": "Placeholder", "default": "Last Name" },
-        { "type": "checkbox", "id": "required", "label": "Required", "default": true },
+        { "type": "checkbox", "id": "required", "label": "Required", "default": false },
         { "type": "select", "id": "width", "label": "Width", "default": "half", "options": [
           { "value": "half", "label": "Half" },
           { "value": "full", "label": "Full" }
@@ -407,8 +417,20 @@
       "name": "Field: Email",
       "settings": [
         { "type": "text", "id": "placeholder", "label": "Placeholder", "default": "Email Address" },
-        { "type": "checkbox", "id": "required", "label": "Required", "default": true },
+        { "type": "checkbox", "id": "required", "label": "Required", "default": false },
         { "type": "select", "id": "width", "label": "Width", "default": "full", "options": [
+          { "value": "half", "label": "Half" },
+          { "value": "full", "label": "Full" }
+        ]}
+      ]
+    },
+    {
+      "type": "phone",
+      "name": "Field: Phone number",
+      "settings": [
+        { "type": "text", "id": "placeholder", "label": "Placeholder", "default": "Phone Number" },
+        { "type": "checkbox", "id": "required", "label": "Required", "default": false },
+        { "type": "select", "id": "width", "label": "Width", "default": "half", "options": [
           { "value": "half", "label": "Half" },
           { "value": "full", "label": "Full" }
         ]}
@@ -432,7 +454,7 @@
       "settings": [
         { "type": "text", "id": "placeholder", "label": "Placeholder", "default": "Your Inquiry..." },
         { "type": "range", "id": "rows", "label": "Rows", "min": 4, "max": 14, "step": 1, "default": 8 },
-        { "type": "checkbox", "id": "required", "label": "Required", "default": true },
+        { "type": "checkbox", "id": "required", "label": "Required", "default": false },
         { "type": "select", "id": "width", "label": "Width", "default": "full", "options": [
           { "value": "half", "label": "Half" },
           { "value": "full", "label": "Full" }
