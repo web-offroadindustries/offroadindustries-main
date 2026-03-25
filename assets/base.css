@@ -1176,8 +1176,6 @@ responsive-image img {
 /* XEON Styling */
 .jedi-stock-arrival-date {
   padding: 20px;
-}
-.jedi-stock-arrival-date h2,
-.jedi-stock-arrival-date p {
-  margin: 0;
+  line-height: normal;
+  border-radius: 5px;
 }
