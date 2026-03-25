@@ -1177,3 +1177,7 @@ responsive-image img {
 .jedi-stock-arrival-date {
   padding: 20px;
 }
+.jedi-stock-arrival-date h2,
+.jedi-stock-arrival-date p {
+  margin: 0;
+}
