@@ -1,0 +1,188 @@
+{%- liquid
+  assign section_id = section.settings.custom_id | default: section.id
+  assign custom_class = section.settings.custom_class
+  unless custom_class == blank
+    assign custom_class = custom_class | prepend: ' '
+  endunless
+  assign klaviyo_id = section.settings.klaviyo_form_id | strip
+-%}
+
+<div
+  id="{{ section_id }}"
+  class="klaviyo-embed-form{{ custom_class }} f-section-padding"
+  style="--section-padding-top: {{ section.settings.padding_top }}px; --section-padding-bottom: {{ section.settings.padding_bottom }}px;"
+>
+  <div class="{{ section.settings.container }}">
+    {%- if section.settings.heading != blank -%}
+      <h2 class="klaviyo-embed-form__heading" style="text-align: {{ section.settings.text_alignment }};">
+        {{ section.settings.heading }}
+      </h2>
+    {%- endif -%}
+
+    {%- if section.settings.subheading != blank -%}
+      <p class="klaviyo-embed-form__subheading" style="text-align: {{ section.settings.text_alignment }};">
+        {{ section.settings.subheading }}
+      </p>
+    {%- endif -%}
+
+    {%- if klaviyo_id != blank -%}
+      <div class="klaviyo-embed-form__wrapper">
+        <div class="klaviyo-form-{{ klaviyo_id }}"></div>
+      </div>
+    {%- else -%}
+      <p style="text-align:center;color:#999;padding:40px 0;">
+        Enter a Klaviyo Form ID in the section settings to display the form.
+      </p>
+    {%- endif -%}
+  </div>
+</div>
+
+<style>
+  #{{ section_id }} .klaviyo-embed-form__heading {
+    margin: 0 0 12px;
+    font-size: {{ section.settings.heading_size }}px;
+    color: {{ section.settings.heading_color }};
+  }
+
+  #{{ section_id }} .klaviyo-embed-form__subheading {
+    margin: 0 0 24px;
+    font-size: 16px;
+    color: {{ section.settings.text_color }};
+    line-height: 1.6;
+  }
+
+  #{{ section_id }} .klaviyo-embed-form__wrapper {
+    max-width: {{ section.settings.form_max_width }}px;
+    margin: 0 auto;
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Klaviyo embed form",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Klaviyo form"
+    },
+    {
+      "type": "text",
+      "id": "klaviyo_form_id",
+      "label": "Klaviyo Form ID",
+      "info": "Enter only the ID portion — e.g. for <div class=\"klaviyo-form-TDFXP7\"> enter TDFXP7"
+    },
+    {
+      "type": "range",
+      "id": "form_max_width",
+      "label": "Form max width",
+      "min": 300,
+      "max": 900,
+      "step": 10,
+      "unit": "px",
+      "default": 600
+    },
+    {
+      "type": "header",
+      "content": "Heading"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Register Your Interest"
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "label": "Heading size",
+      "min": 20,
+      "max": 60,
+      "step": 2,
+      "unit": "px",
+      "default": 32
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading color",
+      "default": "#222222"
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Subheading / description"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Subheading color",
+      "default": "#555555"
+    },
+    {
+      "type": "select",
+      "id": "text_alignment",
+      "label": "Text alignment",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "right", "label": "Right" }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "select",
+      "id": "container",
+      "label": "Container",
+      "options": [
+        { "value": "container", "label": "Fixed" },
+        { "value": "container-fluid", "label": "Stretched" },
+        { "value": "container-full", "label": "Full width" }
+      ],
+      "default": "container"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding top",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding bottom",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "header",
+      "content": "Custom attributes"
+    },
+    {
+      "type": "text",
+      "id": "custom_id",
+      "label": "Custom ID"
+    },
+    {
+      "type": "text",
+      "id": "custom_class",
+      "label": "Custom class"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Klaviyo embed form"
+    }
+  ]
+}
+{% endschema %}
