@@ -14,37 +14,36 @@
       "disabled": true,
       "settings": {}
     },
-
-    "slideshow_v2hero": {
+    "slideshow_ram6g": {
       "type": "slideshow",
       "blocks": {
-        "slide_v2hero_1": {
+        "slide_ram6g_1": {
           "type": "slide",
           "settings": {
             "background": "shopify://shop_images/1920x1080px_RAM.png",
-            "image_overlay_opacity": 40,
+            "image_overlay_opacity": 0,
             "content_position": "center",
             "text_alignment": "center",
-            "text_color": "#ffffff",
-            "title": "RAM 2500 6th Gen GVM Upgrade Packages",
-            "heading_size": "h1",
-            "heading_color": "#ffffff",
-            "subheading": "Australia's #1 Federally Approved SSM — More Payload. More Legal. More Capable.",
+            "text_color": "#000000",
+            "title": "",
+            "heading_size": "h2",
+            "heading_color": "",
+            "subheading": "",
             "description": "",
             "desc_size": "text-desc-base",
-            "button_text_1": "View GVM Packages",
-            "button_link_1": "#gvmpackages",
+            "button_text_1": "",
+            "button_link_1": "",
             "button_style_1": "btn--primary",
             "button_size_1": "",
-            "button_text_2": "Get a Free Quote",
-            "button_link_2": "#gvmenquiry",
-            "button_style_2": "btn--outline",
+            "button_text_2": "",
+            "button_link_2": "",
+            "button_style_2": "btn--primary",
             "button_size_2": ""
           }
         }
       },
       "block_order": [
-        "slide_v2hero_1"
+        "slide_ram6g_1"
       ],
       "name": "t:sections.slideshow.name",
       "settings": {
@@ -65,108 +64,36 @@
         "enable_bg_zoom_effect": false
       }
     },
-
-    "benefits_v2": {
-      "type": "dealer-benefits-icons",
-      "blocks": {
-        "benefit_v2_1": {
-          "type": "benefit",
-          "settings": {
-            "icon": "shield",
-            "title": "Federally Approved SSM",
-            "text": "<p>ORI is a certified Second Stage Manufacturer. Your upgrade is registered on the official Federal database — legal in every Australian state.</p>"
-          }
-        },
-        "benefit_v2_2": {
-          "type": "benefit",
-          "settings": {
-            "icon": "truck",
-            "title": "Engineered for the RAM 2500 6th Gen",
-            "text": "<p>Every kit is built specifically for this platform — not adapted from another vehicle. Tested under real Australian conditions.</p>"
-          }
-        },
-        "benefit_v2_3": {
-          "type": "benefit",
-          "settings": {
-            "icon": "wrench",
-            "title": "Fox & BDS Suspension",
-            "text": "<p>Premium USA-made Fox shocks and BDS control arms. The best components available, included in every stage — from entry-level to race-bred.</p>"
-          }
-        },
-        "benefit_v2_4": {
-          "type": "benefit",
-          "settings": {
-            "icon": "support",
-            "title": "Price Includes Everything",
-            "text": "<p>Installation, engineering certification, and all documentation is included. One price, no hidden fees, no surprises — ready to drive away.</p>"
-          }
-        }
-      },
-      "block_order": [
-        "benefit_v2_1",
-        "benefit_v2_2",
-        "benefit_v2_3",
-        "benefit_v2_4"
-      ],
-      "name": "Dealer benefits icons",
-      "settings": {
-        "eyebrow": "Why Choose ORI",
-        "heading": "Australia's Most Complete RAM 2500 GVM Upgrade",
-        "text": "",
-        "text_alignment": "center",
-        "heading_size": 44,
-        "heading_size_mobile": 32,
-        "header_width": 840,
-        "container_width": 1240,
-        "columns_desktop": 4,
-        "columns_tablet": 2,
-        "column_gap": 24,
-        "icon_size": 46,
-        "card_heading_size": 22,
-        "section_bg_color": "#f6f6f6",
-        "eyebrow_color": "#56bdc2",
-        "heading_color": "#101820",
-        "text_color": "#4a4a4a",
-        "icon_color": "#56bdc2",
-        "card_bg_color": "#ffffff",
-        "card_border_color": "#e0e0e0",
-        "card_heading_color": "#101820",
-        "card_radius": 14,
-        "padding_top": 64,
-        "padding_bottom": 64
-      }
-    },
-
-    "rich_text_v2_intro": {
+    "rich_text_ram6g_intro": {
       "type": "rich-text",
       "blocks": {
-        "heading_v2_intro": {
+        "heading_ram6g_intro": {
           "type": "heading",
           "settings": {
-            "heading": "<strong>RAM 2500 6th Gen GVM Upgrade — Carry More, Tow Better, Go Further</strong>",
+            "heading": "<strong>Unleash the Full Potential of Your RAM 2500 6th Gen in Australia</strong>",
             "highlight_style": "none",
             "enable_highlight_text_color": true,
             "heading_size": "h1",
             "heading_color": "#56bdc2"
           }
         },
-        "text_v2_intro": {
+        "text_ram6g_intro": {
           "type": "text",
           "settings": {
-            "text": "<p>The RAM 2500 6th Gen is one of the most capable heavy-duty trucks ever to arrive in Australia — but its factory GVM rating can still limit what you can legally carry when you're fully kitted out with bull bars, winches, a loaded tray, and a trailer behind you. That's exactly where an ORI GVM upgrade changes everything.</p><p>Our packages are engineered to deliver a massive legal payload increase, improved ride quality under load, and complete certification across all Australian states and territories. Whether you need to clear the one-tonne ATO threshold, outfit a working rig with a heavy canopy, or tow a 4.5-tonne caravan, there's a RAM 2500 6th Gen GVM stage built for you. Every package comes fully installed, engineered, and certified — ready to drive away.</p>"
+            "text": "<p>The RAM 2500 6th Gen is already one of the most capable heavy-duty trucks ever built — but if you're loading up with accessories, towing a serious trailer, or running a tray and canopy conversion, Australia's road rules can hold you back. That changes with an ORI GVM upgrade.</p><p>Offroad Industries (ORI) is a Federally Approved Second Stage Manufacturer (SSM), offering Australia's most comprehensive GVM upgrade packages for the RAM 2500 6th Gen. Every kit is fully engineered, LS16 certified, and compliant with Australian Design Rules — whether you're registering Pre-Rego (Federal) or Post-Rego (State-based). Our packages are designed specifically for the RAM 2500 6th Gen platform, giving you a massive payload increase, improved suspension performance, and complete legal peace of mind.</p>"
           }
         }
       },
       "block_order": [
-        "heading_v2_intro",
-        "text_v2_intro"
+        "heading_ram6g_intro",
+        "text_ram6g_intro"
       ],
       "name": "t:sections.rich-text.presets.name",
       "settings": {
         "container": "container",
         "color_schema": "",
         "text_alignment": "left",
-        "padding_top": 60,
+        "padding_top": 40,
         "padding_bottom": 0,
         "show_section_divider": false,
         "divider_width": "container",
@@ -175,11 +102,10 @@
         "animations": "inherit"
       }
     },
-
-    "contact_form_v4_v2top": {
+    "contact_form_v4_ram6g": {
       "type": "contact-form-v4",
       "blocks": {
-        "name_v2top": {
+        "name_ram6g": {
           "type": "name",
           "settings": {
             "label": "Name",
@@ -190,1452 +116,82 @@
             "required": false
           }
         },
-        "email_v2top": {
+        "email_ram6g": {
           "type": "email",
           "settings": {
             "label": "Email",
-            "placeholder": "Enter your email address",
+            "placeholder": "Enter your email",
             "field_width": "full",
             "hide_label": true
           }
         },
-        "phone_v2top": {
+        "phone_ram6g": {
           "type": "phone",
           "settings": {
-            "label": "Phone number",
-            "placeholder": "Enter your phone number",
+            "label": "Mobile",
+            "placeholder": "Enter your mobile number",
             "field_width": "full",
             "hide_label": true,
             "required": false
           }
         },
-        "rego_v2top": {
-          "type": "rego_status",
-          "settings": {
-            "label": "Pre or Post rego",
-            "field_name": "Pre or Post rego",
-            "placeholder": "Pre or Post Rego?",
-            "options": "Pre rego, Post rego",
-            "field_width": "full",
-            "hide_label": true,
-            "required": false
-          }
-        },
-        "vehicle_v2top": {
-          "type": "custom_select",
-          "settings": {
-            "label": "Which Vehicle",
-            "field_name": "Which Vehicle",
-            "placeholder": "Which Vehicle?",
-            "options": "Ford F150, Chevy 1500, Chevy 2500HD, Toyota Tundra, RAM 2500 (5th Gen), RAM 2500 (6th Gen), Toyota LC300",
-            "field_width": "100",
-            "hide_label": true,
-            "required": false
-          }
-        },
-        "stage_v2top": {
-          "type": "custom_select",
-          "settings": {
-            "label": "What Stage GVM Package",
-            "field_name": "What Stage GVM Package",
-            "placeholder": "Which Stage are you interested in?",
-            "options": "Stage 1, Stage 2, Stage 3, Stage 4, Not sure yet",
-            "field_width": "100",
-            "hide_label": true,
-            "required": false
-          }
-        },
-        "location_v2top": {
-          "type": "location",
-          "settings": {
-            "label": "What is your location",
-            "field_name": "Location",
-            "placeholder": "Your location (State / City)?",
-            "field_width": "full",
-            "hide_label": true,
-            "required": false
-          }
-        },
-        "message_v2top": {
+        "message_ram6g": {
           "type": "message",
           "settings": {
-            "label": "Message",
-            "placeholder": "Any questions or specific requirements? (optional)",
+            "label": "Enquiry",
+            "placeholder": "Enter your enquiry",
             "rows": 3,
             "field_width": "100",
             "hide_label": true
           }
+        },
+        "suspension_ram6g": {
+          "type": "custom_select",
+          "settings": {
+            "label": "Suspension Options",
+            "field_name": "Suspension Options",
+            "placeholder": "Select suspension option",
+            "options": "Stage 1, Stage 2, Stage 3, Stage 4",
+            "field_width": "100",
+            "hide_label": true,
+            "required": false
+          }
         }
       },
       "block_order": [
-        "name_v2top",
-        "email_v2top",
-        "phone_v2top",
-        "rego_v2top",
-        "vehicle_v2top",
-        "stage_v2top",
-        "location_v2top",
-        "message_v2top"
+        "name_ram6g",
+        "email_ram6g",
+        "phone_ram6g",
+        "message_ram6g",
+        "suspension_ram6g"
       ],
       "name": "Contact form v4",
       "settings": {
         "container": "container",
         "color_schema": "",
-        "heading": "Get a Free RAM 2500 6th Gen GVM Quote",
-        "subheading": "Our GVM experts will find the right stage for your build and budget.",
-        "description": "",
-        "form_design": "design-1",
-        "form_width": 600,
-        "form_alignment": "center",
-        "button_label": "Request My Free Quote",
-        "button_style": "btn--primary",
-        "padding_top": 60,
-        "padding_bottom": 60,
-        "show_section_divider": false,
-        "divider_width": "container",
-        "custom_id": "gvmenquiry",
-        "custom_class": "",
-        "animations": "inherit"
-      }
-    },
-
-    "jump_links_v2": {
-      "type": "jump-links",
-      "blocks": {
-        "link_v2_1": {
-          "type": "link",
-          "settings": {
-            "label": "GVM Packages",
-            "target_id": "gvmpackages"
-          }
-        },
-        "link_v2_2": {
-          "type": "link",
-          "settings": {
-            "label": "GVM Specification",
-            "target_id": "gvmspecification"
-          }
-        },
-        "link_v2_3": {
-          "type": "link",
-          "settings": {
-            "label": "Suspension Collection",
-            "target_id": "suspensioncollection"
-          }
-        },
-        "link_v2_4": {
-          "type": "link",
-          "settings": {
-            "label": "Get a Quote",
-            "target_id": "gvmexperts"
-          }
-        }
-      },
-      "block_order": [
-        "link_v2_1",
-        "link_v2_2",
-        "link_v2_3",
-        "link_v2_4"
-      ],
-      "name": "Jump links",
-      "settings": {
-        "container_mode": "full",
-        "container_width": "1200",
-        "bg_color": "#222222",
-        "text_color": "#ffffff",
-        "hover_color": "#56bdc2",
-        "active_color": "#56bdc2",
-        "border_color": "#ffffff1f",
-        "pad_y": 12,
-        "offset": 0,
-        "duration": 650
-      }
-    },
-
-    "rich_text_v2_pkg_heading": {
-      "type": "rich-text",
-      "blocks": {
-        "heading_v2_pkg": {
-          "type": "heading",
-          "settings": {
-            "heading": "ORI GVM Package — RAM 2500 6th Gen",
-            "highlight_style": "underline",
-            "enable_highlight_text_color": true,
-            "heading_size": "h1",
-            "heading_color": "#56bdc2"
-          }
-        },
-        "text_v2_pkg": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Four stages. One mission: unlock the full potential of your RAM 2500 6th Gen. Each package below is engineered for a specific use case — choose the one that matches how you load up and where you're headed.</p>"
-          }
-        }
-      },
-      "block_order": [
-        "heading_v2_pkg",
-        "text_v2_pkg"
-      ],
-      "name": "t:sections.rich-text.presets.name",
-      "settings": {
-        "container": "container",
-        "color_schema": "",
-        "text_alignment": "left",
-        "padding_top": 60,
-        "padding_bottom": 20,
-        "show_section_divider": false,
-        "divider_width": "container",
-        "custom_id": "gvmpackages",
-        "custom_class": "",
-        "animations": "inherit"
-      }
-    },
-
-    "multicolumn_v2_stages": {
-      "type": "multicolumn",
-      "blocks": {
-        "col_v2_s1": {
-          "type": "column",
-          "settings": {
-            "show_image": false,
-            "image": "",
-            "image_link": "",
-            "title": "Stage 1 — The Weekender",
-            "heading_size": "h4",
-            "text": "<p><strong>Best for:</strong> Daily drivers needing a legal payload boost on factory wheels.</p><p>Fox 2.0 Performance Series shocks + ORI 200kg HD leaf packs. Entry-level GVM upgrade with no wheel change required.</p><p><a href=\"#stage1detail\">View Stage 1 Details ↓</a></p>",
-            "text_size": "medium",
-            "button_text": "Get a Quote",
-            "button_link": "#gvmenquiry",
-            "button_style": "btn--outline"
-          }
-        },
-        "col_v2_s2": {
-          "type": "column",
-          "settings": {
-            "show_image": false,
-            "image": "",
-            "image_link": "",
-            "title": "Stage 2 — The Performance Level-Up",
-            "heading_size": "h4",
-            "text": "<p><strong>Best for:</strong> Long-distance tourers on corrugated roads with heavy gear.</p><p>Fox 2.5 Performance Elite DSC + ORI 200kg HD leaf packs. Dial in your ride with adjustable damping — all on factory wheels.</p><p><a href=\"#stage2detail\">View Stage 2 Details ↓</a></p>",
-            "text_size": "medium",
-            "button_text": "Get a Quote",
-            "button_link": "#gvmenquiry",
-            "button_style": "btn--outline"
-          }
-        },
-        "col_v2_s3": {
-          "type": "column",
-          "settings": {
-            "show_image": false,
-            "image": "",
-            "image_link": "",
-            "title": "Stage 3 — The Heavy Hauler",
-            "heading_size": "h4",
-            "text": "<p><strong>Best for:</strong> Tray & canopy conversions, permanent canopies, heavy touring builds.</p><p>Fox 2.5 Performance Elite + ORI 400kg HD leaf packs. Maximum payload increase with load-rated wheels and tyres.</p><p><a href=\"#stage3detail\">View Stage 3 Details ↓</a></p>",
-            "text_size": "medium",
-            "button_text": "Get a Quote",
-            "button_link": "#gvmenquiry",
-            "button_style": "btn--outline"
-          }
-        },
-        "col_v2_s4": {
-          "type": "column",
-          "settings": {
-            "show_image": false,
-            "image": "",
-            "image_link": "",
-            "title": "Stage 4 — No Compromise",
-            "heading_size": "h4",
-            "text": "<p><strong>Best for:</strong> Enthusiasts demanding race-bred technology and maximum legal capability.</p><p>Fox 3.0 Internal Bypass shocks + ORI 400kg HD leaf packs. Australia's highest-spec RAM 2500 6th Gen GVM package.</p><p><a href=\"#stage4detail\">View Stage 4 Details ↓</a></p>",
-            "text_size": "medium",
-            "button_text": "Get a Quote",
-            "button_link": "#gvmenquiry",
-            "button_style": "btn--outline"
-          }
-        }
-      },
-      "block_order": [
-        "col_v2_s1",
-        "col_v2_s2",
-        "col_v2_s3",
-        "col_v2_s4"
-      ],
-      "name": "t:sections.multicolumn.name",
-      "settings": {
-        "container": "container",
-        "color_schema": "",
-        "section_header_padding_bottom": "medium",
-        "section_header_content_spacing": "medium",
-        "heading": "",
-        "highlight_style": "none",
-        "enable_highlight_text_color": false,
-        "heading_size": "h2",
-        "heading_color": "",
+        "heading": "Register Your Interest",
         "subheading": "",
         "description": "",
-        "layout": "vertical",
-        "text_alignment": "left",
-        "image_width": "fullwidth",
-        "custom_image_width": 80,
-        "columns": 4,
-        "column_gap": "medium",
-        "row_gap": "medium",
-        "enable_swipe_mobile": true,
-        "column_mobile": "1",
-        "padding_top": 0,
-        "padding_bottom": 40,
-        "show_section_divider": true,
-        "divider_width": "container",
-        "custom_id": "",
-        "custom_class": "",
-        "animations": "inherit"
-      }
-    },
-
-    "image_with_text_v2_s1": {
-      "type": "image-with-text",
-      "blocks": {
-        "subheading_v2_s1": {
-          "type": "subheading",
-          "settings": {
-            "subheading": "Stage 1: Installed & Engineered — Contact for Pricing",
-            "subheading_size": "h5"
-          }
-        },
-        "heading_v2_s1": {
-          "type": "heading",
-          "settings": {
-            "heading": "<strong>Stage 1: The Weekender — Entry Level Payload Boost</strong>",
-            "highlight_style": "none",
-            "enable_highlight_text_color": false,
-            "heading_size": "h2"
-          }
-        },
-        "text_v2_s1": {
-          "type": "text",
-          "settings": {
-            "text": "<p><em>The perfect entry point for RAM 2500 6th Gen owners who need a legal payload increase without upgrading wheels or tyres.</em></p><ul><li><strong>GVM Rating:</strong> TBC kg (see specification table) | <strong>GCM:</strong> TBC kg</li><li><strong>Key Features:</strong> Fox 2.0 Performance Series coilovers (front), Fox 2.0 Performance Series reservoir shocks (rear), ORI heavy-duty 200kg leaf packs.</li><li><strong>Best For:</strong> Daily drivers, light tourers, and anyone needing to clear the NB1 payload threshold for ATO tax compliance while keeping factory wheels and tyres.</li><li><strong>The Benefit:</strong> A significant legal payload boost with premium USA-made Fox shocks — dramatically improved stability under load with zero changes to your existing wheel and tyre setup.</li></ul>"
-          }
-        }
-      },
-      "block_order": [
-        "subheading_v2_s1",
-        "heading_v2_s1",
-        "text_v2_s1"
-      ],
-      "name": "t:sections.image-with-text.presets.name",
-      "settings": {
-        "container": "container",
-        "color_schema": "",
-        "image": "shopify://shop_images/1920x1080px_RAM.png",
-        "enable_lightbox": true,
-        "image_width": "50%",
-        "image_position": "left",
-        "vertical_alignment": "center",
-        "align_content_container": "none",
-        "show_image_padding": true,
-        "column_gap": "medium",
-        "row_gap": "medium",
-        "padding_left": 0,
-        "padding_right": 0,
-        "mobile_padding_left": 15,
-        "mobile_padding_right": 15,
-        "padding_top": 60,
-        "padding_bottom": 40,
-        "padding_top_mobile": 60,
-        "padding_bottom_mobile": 60,
-        "show_section_divider": false,
-        "divider_width": "container",
-        "custom_id": "stage1detail",
-        "custom_class": "",
-        "animations": "inherit"
-      }
-    },
-
-    "image_with_text_v2_s2": {
-      "type": "image-with-text",
-      "blocks": {
-        "subheading_v2_s2": {
-          "type": "subheading",
-          "settings": {
-            "subheading": "Stage 2: Installed & Engineered — Contact for Pricing",
-            "subheading_size": "h5"
-          }
-        },
-        "heading_v2_s2": {
-          "type": "heading",
-          "settings": {
-            "heading": "<strong>Stage 2: The Performance Level-Up</strong>",
-            "highlight_style": "none",
-            "enable_highlight_text_color": false,
-            "heading_size": "h2"
-          }
-        },
-        "text_v2_s2": {
-          "type": "text",
-          "settings": {
-            "text": "<p><em>Step up to premium DSC suspension — dial in your ride on the fly while maximising legal payload, all on factory wheels.</em></p><ul><li><strong>GVM Rating:</strong> TBC kg (see specification table) | <strong>GCM:</strong> TBC kg <em>(Retains full braked towing capacity)</em></li><li><strong>Key Features:</strong> Fox 2.5 Performance Elite DSC coilovers (front), Fox 2.5 Performance Elite DSC reservoir shocks (rear), ORI heavy-duty 200kg leaf packs, heavy-duty BDS control arms.</li><li><strong>Best For:</strong> Long-distance tourers who drive corrugated outback roads heavily loaded with a bull bar, winch, and high tow-ball weight. Ideal for maximising performance without replacing factory wheels or tyres.</li><li><strong>The Benefit:</strong> The DSC (Dual Speed Compression) adjuster lets you customise your ride — stiffen for highway hauls, soften for the tracks with a single turn of the knob. No tools required.</li></ul>"
-          }
-        }
-      },
-      "block_order": [
-        "subheading_v2_s2",
-        "heading_v2_s2",
-        "text_v2_s2"
-      ],
-      "name": "t:sections.image-with-text.presets.name",
-      "settings": {
-        "container": "container",
-        "color_schema": "",
-        "image": "shopify://shop_images/1920x1080px_RAM.png",
-        "enable_lightbox": true,
-        "image_width": "50%",
-        "image_position": "right",
-        "vertical_alignment": "center",
-        "align_content_container": "none",
-        "show_image_padding": true,
-        "column_gap": "medium",
-        "row_gap": "medium",
-        "padding_left": 0,
-        "padding_right": 0,
-        "mobile_padding_left": 15,
-        "mobile_padding_right": 15,
-        "padding_top": 40,
-        "padding_bottom": 40,
-        "padding_top_mobile": 60,
-        "padding_bottom_mobile": 60,
-        "show_section_divider": false,
-        "divider_width": "container",
-        "custom_id": "stage2detail",
-        "custom_class": "",
-        "animations": "inherit"
-      }
-    },
-
-    "image_with_text_v2_s3": {
-      "type": "image-with-text",
-      "blocks": {
-        "subheading_v2_s3": {
-          "type": "subheading",
-          "settings": {
-            "subheading": "Stage 3: Installed & Engineered — Contact for Pricing",
-            "subheading_size": "h5"
-          }
-        },
-        "heading_v2_s3": {
-          "type": "heading",
-          "settings": {
-            "heading": "<strong>Stage 3: The Heavy Hauler</strong>",
-            "highlight_style": "none",
-            "enable_highlight_text_color": false,
-            "heading_size": "h2"
-          }
-        },
-        "text_v2_s3": {
-          "type": "text",
-          "settings": {
-            "text": "<p><em>Maximum legal capacity for the most demanding RAM 2500 6th Gen builds — ideal for tray &amp; canopy conversions, long-range fuel systems, and permanent heavy setups.</em></p><ul><li><strong>GVM Rating:</strong> TBC kg (see specification table) | <strong>GCM:</strong> TBC kg</li><li><strong>Key Features:</strong> Fox 2.5 Performance Elite suspension, ORI 400kg heavy-duty leaf packs, load-rated wheels and tyres required.</li><li><strong>Best For:</strong> Fully built rigs running rear drawer systems, rooftop tents, long-range fuel tanks, or heavy permanent canopies. Anyone who needs a genuine heavy-duty towing and hauling platform.</li><li><strong>The Benefit:</strong> A massive payload increase that transforms your RAM 2500 6th Gen into a true super-truck — safely retaining full braked towing capacity while delivering a huge improvement in legal carrying ability.</li><li><strong>NOTE:</strong> Load-rated wheels and tyres are required for Stage 3 and above.</li></ul>"
-          }
-        }
-      },
-      "block_order": [
-        "subheading_v2_s3",
-        "heading_v2_s3",
-        "text_v2_s3"
-      ],
-      "name": "t:sections.image-with-text.presets.name",
-      "settings": {
-        "container": "container",
-        "color_schema": "",
-        "image": "shopify://shop_images/1920x1080px_RAM.png",
-        "enable_lightbox": true,
-        "image_width": "50%",
-        "image_position": "left",
-        "vertical_alignment": "center",
-        "align_content_container": "none",
-        "show_image_padding": true,
-        "column_gap": "medium",
-        "row_gap": "medium",
-        "padding_left": 0,
-        "padding_right": 0,
-        "mobile_padding_left": 15,
-        "mobile_padding_right": 15,
-        "padding_top": 40,
-        "padding_bottom": 40,
-        "padding_top_mobile": 60,
-        "padding_bottom_mobile": 60,
-        "show_section_divider": false,
-        "divider_width": "container",
-        "custom_id": "stage3detail",
-        "custom_class": "",
-        "animations": "inherit"
-      }
-    },
-
-    "image_with_text_v2_s4": {
-      "type": "image-with-text",
-      "blocks": {
-        "subheading_v2_s4": {
-          "type": "subheading",
-          "settings": {
-            "subheading": "Stage 4: Installed & Engineered — Contact for Pricing",
-            "subheading_size": "h5"
-          }
-        },
-        "heading_v2_s4": {
-          "type": "heading",
-          "settings": {
-            "heading": "<strong>Stage 4: The \"No Compromise\" Build</strong>",
-            "highlight_style": "none",
-            "enable_highlight_text_color": false,
-            "heading_size": "h2"
-          }
-        },
-        "text_v2_s4": {
-          "type": "text",
-          "settings": {
-            "text": "<p><em>The ultimate RAM 2500 6th Gen GVM package — race-bred suspension technology combined with Australia's highest legal GVM rating for this platform.</em></p><ul><li><strong>GVM Rating:</strong> TBC kg (see specification table) | <strong>GCM:</strong> TBC kg</li><li><strong>Key Features:</strong> Fox 3.0 Internal Bypass Race Series shocks (front &amp; rear), ORI 400kg heavy-duty leaf packs, load-rated wheels and tyres required.</li><li><strong>Best For:</strong> Serious enthusiasts or working professionals who demand race-bred damping technology, maximum legal payload, and full towing capacity — all in one completely compliant package.</li><li><strong>The Benefit:</strong> Fox 3.0 Bypass shocks offer unparalleled heat dissipation and damping control over the longest, hardest corrugated roads Australia can throw at you. This is the ultimate go-anywhere RAM 2500 setup that remains 100% legally compliant in every state.</li><li><strong>NOTE:</strong> Load-rated wheels and tyres required. Contact our team to discuss wheel and tyre options.</li></ul>"
-          }
-        }
-      },
-      "block_order": [
-        "subheading_v2_s4",
-        "heading_v2_s4",
-        "text_v2_s4"
-      ],
-      "name": "t:sections.image-with-text.presets.name",
-      "settings": {
-        "container": "container",
-        "color_schema": "",
-        "image": "shopify://shop_images/1920x1080px_RAM.png",
-        "enable_lightbox": true,
-        "image_width": "50%",
-        "image_position": "right",
-        "vertical_alignment": "center",
-        "align_content_container": "none",
-        "show_image_padding": true,
-        "column_gap": "medium",
-        "row_gap": "medium",
-        "padding_left": 0,
-        "padding_right": 0,
-        "mobile_padding_left": 15,
-        "mobile_padding_right": 15,
-        "padding_top": 40,
-        "padding_bottom": 40,
-        "padding_top_mobile": 60,
-        "padding_bottom_mobile": 60,
-        "show_section_divider": false,
-        "divider_width": "container",
-        "custom_id": "stage4detail",
-        "custom_class": "",
-        "animations": "inherit"
-      }
-    },
-
-    "rich_text_v2_spec_heading": {
-      "type": "rich-text",
-      "blocks": {
-        "heading_v2_spec": {
-          "type": "heading",
-          "settings": {
-            "heading": "RAM 2500 6TH GEN GVM SPECIFICATIONS",
-            "highlight_style": "underline",
-            "enable_highlight_text_color": true,
-            "heading_size": "h1",
-            "heading_color": "#56bdc2"
-          }
-        }
-      },
-      "block_order": [
-        "heading_v2_spec"
-      ],
-      "name": "t:sections.rich-text.presets.name",
-      "settings": {
-        "container": "container",
-        "color_schema": "",
-        "text_alignment": "left",
-        "padding_top": 60,
-        "padding_bottom": 40,
-        "show_section_divider": true,
-        "divider_width": "container",
-        "custom_id": "gvmspecification",
-        "custom_class": "",
-        "animations": "inherit"
-      }
-    },
-
-    "gvm_comparison_v2_specs": {
-      "type": "gvm-comparison",
-      "blocks": {
-        "row_v2_gvm": {
-          "type": "row",
-          "settings": {
-            "label": "Gross Vehicle Mass (GVM)",
-            "value_1": "TBC KG",
-            "value_2": "TBC KG",
-            "value_3": "TBC KG",
-            "value_4": "TBC KG",
-            "value_5": "TBC KG",
-            "value_6": "",
-            "value_7": "",
-            "value_8": "",
-            "value_9": "",
-            "value_10": ""
-          }
-        },
-        "row_v2_btc": {
-          "type": "row",
-          "settings": {
-            "label": "Braked Towing Capacity (BTC)",
-            "value_1": "TBC KG",
-            "value_2": "TBC KG",
-            "value_3": "TBC KG",
-            "value_4": "TBC KG",
-            "value_5": "TBC KG",
-            "value_6": "",
-            "value_7": "",
-            "value_8": "",
-            "value_9": "",
-            "value_10": ""
-          }
-        },
-        "row_v2_gcm": {
-          "type": "row",
-          "settings": {
-            "label": "Gross Combined Mass (GCM)",
-            "value_1": "TBC KG",
-            "value_2": "TBC KG",
-            "value_3": "TBC KG",
-            "value_4": "TBC KG",
-            "value_5": "TBC KG",
-            "value_6": "",
-            "value_7": "",
-            "value_8": "",
-            "value_9": "",
-            "value_10": ""
-          }
-        },
-        "row_v2_kerb": {
-          "type": "row",
-          "settings": {
-            "label": "Kerb Weight",
-            "value_1": "TBC KG",
-            "value_2": "TBC KG",
-            "value_3": "TBC KG",
-            "value_4": "TBC KG",
-            "value_5": "TBC KG",
-            "value_6": "",
-            "value_7": "",
-            "value_8": "",
-            "value_9": "",
-            "value_10": ""
-          }
-        },
-        "row_v2_payload": {
-          "type": "row",
-          "settings": {
-            "label": "Payload (based on kerb weight)",
-            "value_1": "TBC KG",
-            "value_2": "TBC KG",
-            "value_3": "TBC KG",
-            "value_4": "TBC KG",
-            "value_5": "TBC KG",
-            "value_6": "",
-            "value_7": "",
-            "value_8": "",
-            "value_9": "",
-            "value_10": ""
-          }
-        },
-        "row_v2_payload_pct": {
-          "type": "row",
-          "settings": {
-            "label": "Payload Increase (%)",
-            "value_1": "0%",
-            "value_2": "TBC%",
-            "value_3": "TBC%",
-            "value_4": "TBC%",
-            "value_5": "TBC%",
-            "value_6": "",
-            "value_7": "",
-            "value_8": "",
-            "value_9": "",
-            "value_10": ""
-          }
-        },
-        "row_v2_front_axle": {
-          "type": "row",
-          "settings": {
-            "label": "Front Axle Capacity",
-            "value_1": "TBC KG",
-            "value_2": "TBC KG",
-            "value_3": "TBC KG",
-            "value_4": "TBC KG",
-            "value_5": "TBC KG",
-            "value_6": "",
-            "value_7": "",
-            "value_8": "",
-            "value_9": "",
-            "value_10": ""
-          }
-        },
-        "row_v2_rear_axle": {
-          "type": "row",
-          "settings": {
-            "label": "Rear Axle Capacity",
-            "value_1": "TBC KG",
-            "value_2": "TBC KG",
-            "value_3": "TBC KG",
-            "value_4": "TBC KG",
-            "value_5": "TBC KG",
-            "value_6": "",
-            "value_7": "",
-            "value_8": "",
-            "value_9": "",
-            "value_10": ""
-          }
-        },
-        "row_v2_offsets": {
-          "type": "row",
-          "settings": {
-            "label": "Wheel Offsets",
-            "value_1": "OEM",
-            "value_2": "OEM",
-            "value_3": "OEM",
-            "value_4": "TBC",
-            "value_5": "TBC",
-            "value_6": "",
-            "value_7": "",
-            "value_8": "",
-            "value_9": "",
-            "value_10": ""
-          }
-        },
-        "row_v2_wheel_lr": {
-          "type": "row",
-          "settings": {
-            "label": "Wheel Load Rating",
-            "value_1": "OEM",
-            "value_2": "OEM",
-            "value_3": "OEM",
-            "value_4": "TBC KG",
-            "value_5": "TBC KG",
-            "value_6": "",
-            "value_7": "",
-            "value_8": "",
-            "value_9": "",
-            "value_10": ""
-          }
-        },
-        "row_v2_tyre_lr": {
-          "type": "row",
-          "settings": {
-            "label": "Tyre Load Rating",
-            "value_1": "OEM",
-            "value_2": "OEM",
-            "value_3": "OEM",
-            "value_4": "TBC KG",
-            "value_5": "TBC KG",
-            "value_6": "",
-            "value_7": "",
-            "value_8": "",
-            "value_9": "",
-            "value_10": ""
-          }
-        },
-        "row_v2_wheel_upgrade": {
-          "type": "row",
-          "settings": {
-            "label": "Requires Wheel / Tyre Upgrade",
-            "value_1": "N/A",
-            "value_2": "N/A",
-            "value_3": "N/A",
-            "value_4": "✔",
-            "value_5": "✔",
-            "value_6": "",
-            "value_7": "",
-            "value_8": "",
-            "value_9": "",
-            "value_10": ""
-          }
-        },
-        "row_v2_max_tyre": {
-          "type": "row",
-          "settings": {
-            "label": "Maximum Tyre Size",
-            "value_1": "OEM",
-            "value_2": "OEM",
-            "value_3": "OEM",
-            "value_4": "TBC",
-            "value_5": "TBC",
-            "value_6": "",
-            "value_7": "",
-            "value_8": "",
-            "value_9": "",
-            "value_10": ""
-          }
-        }
-      },
-      "block_order": [
-        "row_v2_gvm",
-        "row_v2_btc",
-        "row_v2_gcm",
-        "row_v2_kerb",
-        "row_v2_payload",
-        "row_v2_payload_pct",
-        "row_v2_front_axle",
-        "row_v2_rear_axle",
-        "row_v2_offsets",
-        "row_v2_wheel_lr",
-        "row_v2_tyre_lr",
-        "row_v2_wheel_upgrade",
-        "row_v2_max_tyre"
-      ],
-      "name": "GVM Comparison",
-      "settings": {
-        "anchor_id": "compare",
-        "heading": "",
-        "details_heading": "",
-        "columns": "5",
-        "col_title_1": "OEM",
-        "col_title_2": "Stage 1",
-        "col_title_3": "Stage 2",
-        "col_title_4": "Stage 3",
-        "col_title_5": "Stage 4",
-        "col_title_6": "",
-        "col_title_7": "",
-        "col_title_8": "",
-        "col_title_9": "",
-        "col_title_10": "",
-        "container_width": "90%",
-        "heading_color": "#111111",
-        "text_color": "#111111",
-        "line_color": "#111111",
-        "mobile_card_bg": "#f5f3ee",
-        "mobile_card_text": "#111111",
-        "padding_top": 0,
-        "padding_bottom": 40
-      }
-    },
-
-    "gvm_comparison_v2_components": {
-      "type": "gvm-comparison",
-      "blocks": {
-        "row_v2_lift": {
-          "type": "row",
-          "settings": {
-            "label": "Lift Size",
-            "value_1": "",
-            "value_2": "2\"",
-            "value_3": "2\"",
-            "value_4": "2\"",
-            "value_5": "2.5\"",
-            "value_6": "",
-            "value_7": "",
-            "value_8": "",
-            "value_9": "",
-            "value_10": ""
-          }
-        },
-        "row_v2_fox20_coil": {
-          "type": "row",
-          "settings": {
-            "label": "Fox 2.0 Performance Series Coilovers (Front)",
-            "value_1": "TBC",
-            "value_2": "✔",
-            "value_3": "",
-            "value_4": "",
-            "value_5": "",
-            "value_6": "",
-            "value_7": "",
-            "value_8": "",
-            "value_9": "",
-            "value_10": ""
-          }
-        },
-        "row_v2_fox20_rear": {
-          "type": "row",
-          "settings": {
-            "label": "Fox 2.0 Performance Series Rear Shocks",
-            "value_1": "TBC",
-            "value_2": "✔",
-            "value_3": "",
-            "value_4": "",
-            "value_5": "",
-            "value_6": "",
-            "value_7": "",
-            "value_8": "",
-            "value_9": "",
-            "value_10": ""
-          }
-        },
-        "row_v2_fox25_coil": {
-          "type": "row",
-          "settings": {
-            "label": "Fox 2.5 Performance Elite DSC Coilovers (Front)",
-            "value_1": "TBC",
-            "value_2": "",
-            "value_3": "✔",
-            "value_4": "✔",
-            "value_5": "",
-            "value_6": "",
-            "value_7": "",
-            "value_8": "",
-            "value_9": "",
-            "value_10": ""
-          }
-        },
-        "row_v2_fox25_rear": {
-          "type": "row",
-          "settings": {
-            "label": "Fox 2.5 Performance Elite DSC Reservoir Shocks (Rear)",
-            "value_1": "TBC",
-            "value_2": "",
-            "value_3": "✔",
-            "value_4": "✔",
-            "value_5": "",
-            "value_6": "",
-            "value_7": "",
-            "value_8": "",
-            "value_9": "",
-            "value_10": ""
-          }
-        },
-        "row_v2_fox30_front": {
-          "type": "row",
-          "settings": {
-            "label": "Fox 3.0 Internal Bypass Race Shocks (Front)",
-            "value_1": "TBC",
-            "value_2": "",
-            "value_3": "",
-            "value_4": "",
-            "value_5": "✔",
-            "value_6": "",
-            "value_7": "",
-            "value_8": "",
-            "value_9": "",
-            "value_10": ""
-          }
-        },
-        "row_v2_fox30_rear": {
-          "type": "row",
-          "settings": {
-            "label": "Fox 3.0 Internal Bypass Race Shocks (Rear)",
-            "value_1": "TBC",
-            "value_2": "",
-            "value_3": "",
-            "value_4": "",
-            "value_5": "✔",
-            "value_6": "",
-            "value_7": "",
-            "value_8": "",
-            "value_9": "",
-            "value_10": ""
-          }
-        },
-        "row_v2_leaf_200": {
-          "type": "row",
-          "settings": {
-            "label": "ORI 200kg Heavy-Duty Leaf Packs",
-            "value_1": "TBC",
-            "value_2": "✔",
-            "value_3": "✔",
-            "value_4": "",
-            "value_5": "",
-            "value_6": "",
-            "value_7": "",
-            "value_8": "",
-            "value_9": "",
-            "value_10": ""
-          }
-        },
-        "row_v2_leaf_400": {
-          "type": "row",
-          "settings": {
-            "label": "ORI 400kg Heavy-Duty Leaf Packs",
-            "value_1": "TBC",
-            "value_2": "",
-            "value_3": "",
-            "value_4": "✔",
-            "value_5": "✔",
-            "value_6": "",
-            "value_7": "",
-            "value_8": "",
-            "value_9": "",
-            "value_10": ""
-          }
-        },
-        "row_v2_bds_arms": {
-          "type": "row",
-          "settings": {
-            "label": "Heavy-Duty BDS Control Arms",
-            "value_1": "TBC",
-            "value_2": "✔",
-            "value_3": "✔",
-            "value_4": "✔",
-            "value_5": "✔",
-            "value_6": "",
-            "value_7": "",
-            "value_8": "",
-            "value_9": "",
-            "value_10": ""
-          }
-        },
-        "row_v2_mudflaps": {
-          "type": "row",
-          "settings": {
-            "label": "ORI Mud Flaps & Brackets",
-            "value_1": "ORI-MUD-BRK",
-            "value_2": "",
-            "value_3": "",
-            "value_4": "✔",
-            "value_5": "✔",
-            "value_6": "",
-            "value_7": "",
-            "value_8": "",
-            "value_9": "",
-            "value_10": ""
-          }
-        },
-        "row_v2_part_numbers": {
-          "type": "row",
-          "settings": {
-            "label": "GVM Part Numbers",
-            "value_1": "",
-            "value_2": "RAM-2500-6G-Stage1-GVM",
-            "value_3": "RAM-2500-6G-Stage2-GVM",
-            "value_4": "RAM-2500-6G-Stage3-GVM",
-            "value_5": "RAM-2500-6G-Stage4-GVM",
-            "value_6": "",
-            "value_7": "",
-            "value_8": "",
-            "value_9": "",
-            "value_10": ""
-          }
-        }
-      },
-      "block_order": [
-        "row_v2_lift",
-        "row_v2_fox20_coil",
-        "row_v2_fox20_rear",
-        "row_v2_fox25_coil",
-        "row_v2_fox25_rear",
-        "row_v2_fox30_front",
-        "row_v2_fox30_rear",
-        "row_v2_leaf_200",
-        "row_v2_leaf_400",
-        "row_v2_bds_arms",
-        "row_v2_mudflaps",
-        "row_v2_part_numbers"
-      ],
-      "name": "GVM Comparison",
-      "settings": {
-        "anchor_id": "compare1",
-        "heading": "",
-        "details_heading": "Item",
-        "columns": "5",
-        "col_title_1": "Part Number",
-        "col_title_2": "Stage 1",
-        "col_title_3": "Stage 2",
-        "col_title_4": "Stage 3",
-        "col_title_5": "Stage 4",
-        "col_title_6": "",
-        "col_title_7": "",
-        "col_title_8": "",
-        "col_title_9": "",
-        "col_title_10": "",
-        "container_width": "90%",
-        "heading_color": "#111111",
-        "text_color": "#111111",
-        "line_color": "#111111",
-        "mobile_card_bg": "#f5f3ee",
-        "mobile_card_text": "#111111",
-        "padding_top": 40,
-        "padding_bottom": 40
-      }
-    },
-
-    "collapsible_tabs_v2_faq": {
-      "type": "collapsible-tabs",
-      "blocks": {
-        "faq_v2_1": {
-          "type": "content",
-          "settings": {
-            "icon": "none",
-            "title": "What is a GVM upgrade and why does my RAM 2500 6th Gen need one?",
-            "content": "<p>GVM stands for Gross Vehicle Mass — the maximum legal weight your vehicle can carry including its own weight, passengers, fuel, accessories, and cargo. Factory GVM ratings are set conservatively and your RAM 2500 6th Gen may not legally carry everything you want to add once you've fitted bull bars, winches, drawers, a canopy, and hitched a heavy trailer.</p><p>A GVM upgrade from ORI is an engineered, certified process that increases your truck's official maximum legal weight rating, giving you more legal payload to work with. It's not just a sticker change — every ORI GVM package includes new suspension components, an engineering certificate, and registration on the Federal compliance database.</p>",
-            "custom_liquid": "",
-            "content_page": "",
-            "open": true
-          }
-        },
-        "faq_v2_2": {
-          "type": "content",
-          "settings": {
-            "icon": "none",
-            "title": "What GVM stages are available for the RAM 2500 6th Gen?",
-            "content": "<p>ORI offers four GVM upgrade stages for the RAM 2500 6th Gen:</p><ul><li><strong>Stage 1</strong> — Entry-level payload boost with Fox 2.0 Performance Series suspension. No wheel or tyre upgrade required. Best for daily drivers and light tourers.</li><li><strong>Stage 2</strong> — Upgraded to Fox 2.5 DSC Performance Elite with adjustable damping. No wheel change required. Best for long-distance corrugated road touring.</li><li><strong>Stage 3</strong> — Heavy hauler configuration with Fox 2.5 PE and ORI 400kg leaf packs. Requires load-rated wheels and tyres. Best for tray and canopy conversions.</li><li><strong>Stage 4</strong> — Maximum capability with Fox 3.0 Internal Bypass race shocks. Requires load-rated wheels and tyres. Australia's highest-spec RAM 2500 6th Gen GVM package.</li></ul><p>Contact our team to discuss which stage suits your exact build.</p>",
-            "custom_liquid": "",
-            "content_page": "",
-            "open": false
-          }
-        },
-        "faq_v2_3": {
-          "type": "content",
-          "settings": {
-            "icon": "none",
-            "title": "How much payload increase can I expect from a RAM 2500 6th Gen GVM upgrade?",
-            "content": "<p>The exact payload increase depends on which stage you select and your specific vehicle's kerb weight. As a general guide, our GVM upgrades are designed to deliver significant payload increases — in some cases well over 50% more than factory ratings, depending on the stage chosen.</p><p>The key numbers to focus on are your starting payload (factory GVM minus kerb weight) and the upgraded GVM rating for your chosen stage. Our specification table on this page outlines the exact figures for each stage. Contact our team for a personalised calculation based on your specific vehicle configuration.</p>",
-            "custom_liquid": "",
-            "content_page": "",
-            "open": false
-          }
-        },
-        "faq_v2_4": {
-          "type": "content",
-          "settings": {
-            "icon": "none",
-            "title": "Is a RAM 2500 6th Gen GVM upgrade legal in all Australian states and territories?",
-            "content": "<p>Yes. ORI is a Federally Approved Second Stage Manufacturer (SSM), which means every GVM upgrade we complete is recorded on the official Federal compliance database. This gives your vehicle legal status in all Australian states and territories — not just the state where it was upgraded.</p><p>For Pre-Rego vehicles, your upgrade is processed through the Federal system and applies nationwide from day one. For Post-Rego vehicles, state-based processing applies. Our team will guide you through the exact compliance pathway for your situation during the enquiry process.</p>",
-            "custom_liquid": "",
-            "content_page": "",
-            "open": false
-          }
-        },
-        "faq_v2_5": {
-          "type": "content",
-          "settings": {
-            "icon": "none",
-            "title": "Can I still tow my caravan or trailer after a RAM 2500 6th Gen GVM upgrade?",
-            "content": "<p>Yes — all ORI GVM packages for the RAM 2500 6th Gen are designed to retain your vehicle's full braked towing capacity. The GCM (Gross Combined Mass) is also upgraded as part of the package, ensuring your truck, trailer, and all your gear remain fully legal together.</p><p>If you're planning to tow a heavy van or trailer, make sure to mention this when you contact our team. We'll confirm the exact GCM rating for your chosen stage and ensure your complete towing setup is covered.</p>",
-            "custom_liquid": "",
-            "content_page": "",
-            "open": false
-          }
-        },
-        "faq_v2_6": {
-          "type": "content",
-          "settings": {
-            "icon": "none",
-            "title": "What's the difference between a Pre-Rego and Post-Rego GVM upgrade?",
-            "content": "<p><strong>Pre-Rego (Federal):</strong> The upgrade is completed before your vehicle is first registered. This is processed through the Federal compliance system and applies in every Australian state from day one. Pre-Rego upgrades generally offer the widest range of options and highest GVM ratings.</p><p><strong>Post-Rego (State-based):</strong> The upgrade is completed after your vehicle is already registered. This is processed through your state's engineering certification system. The process is slightly different state by state, and some limitations may apply depending on your location.</p><p>Our team will advise you on the right pathway based on your vehicle's current registration status during the enquiry process.</p>",
-            "custom_liquid": "",
-            "content_page": "",
-            "open": false
-          }
-        },
-        "faq_v2_7": {
-          "type": "content",
-          "settings": {
-            "icon": "none",
-            "title": "What suspension brands does ORI use in their RAM 2500 6th Gen GVM packages?",
-            "content": "<p>Every ORI GVM package uses premium components from two of the world's most respected suspension brands:</p><ul><li><strong>Fox Suspension</strong> — USA-made performance shocks and coilovers. Depending on your stage, you'll receive Fox 2.0 Performance Series, Fox 2.5 Performance Elite DSC (with adjustable damping), or Fox 3.0 Internal Bypass race-spec shocks.</li><li><strong>BDS Suspension</strong> — Heavy-duty control arms engineered for the demands of Australian road conditions under maximum load.</li></ul><p>Combined with ORI's own heavy-duty leaf packs (available in 200kg and 400kg ratings), these components are specifically engineered and tested for the RAM 2500 6th Gen platform.</p>",
-            "custom_liquid": "",
-            "content_page": "",
-            "open": false
-          }
-        },
-        "faq_v2_8": {
-          "type": "content",
-          "settings": {
-            "icon": "none",
-            "title": "Does my insurance still cover me after a GVM upgrade?",
-            "content": "<p>Yes — provided your GVM upgrade is properly engineered and certified, your insurance coverage is not voided. Because ORI is a Federally Approved SSM and all our upgrades are recorded on the official Federal database, insurers can verify your upgrade is legitimate and compliant.</p><p>We recommend informing your insurer of the upgrade once it's complete and providing them with your engineering certificate. If you have specific questions about your insurance policy in relation to a GVM upgrade, we recommend speaking with your broker or insurer directly.</p>",
-            "custom_liquid": "",
-            "content_page": "",
-            "open": false
-          }
-        }
-      },
-      "block_order": [
-        "faq_v2_1",
-        "faq_v2_2",
-        "faq_v2_3",
-        "faq_v2_4",
-        "faq_v2_5",
-        "faq_v2_6",
-        "faq_v2_7",
-        "faq_v2_8"
-      ],
-      "name": "Collapsible tabs",
-      "settings": {
-        "container": "container",
-        "color_schema": "",
-        "section_header_padding_bottom": "medium",
-        "section_header_content_spacing": "medium",
-        "heading": "RAM 2500 6th Gen GVM Upgrade — Frequently Asked Questions",
-        "highlight_style": "none",
-        "enable_highlight_text_color": false,
-        "heading_size": "h2",
-        "heading_color": "",
-        "subheading": "",
-        "description": "",
-        "item_heading_font": "body",
-        "item_heading_size": "h6",
-        "column_gap": "medium",
-        "content_width": "full",
-        "padding_top": 60,
-        "padding_bottom": 40,
-        "show_section_divider": true,
-        "divider_width": "container",
-        "custom_id": "",
-        "custom_class": "",
-        "animations": "inherit"
-      }
-    },
-
-    "rich_text_v2_suspension": {
-      "type": "rich-text",
-      "blocks": {
-        "heading_v2_suspension": {
-          "type": "heading",
-          "settings": {
-            "heading": "ORI's Suspension Collection",
-            "highlight_style": "underline",
-            "enable_highlight_text_color": true,
-            "heading_size": "h1",
-            "heading_color": "#56bdc2"
-          }
-        }
-      },
-      "block_order": [
-        "heading_v2_suspension"
-      ],
-      "name": "t:sections.rich-text.presets.name",
-      "settings": {
-        "container": "container",
-        "color_schema": "",
-        "text_alignment": "left",
-        "padding_top": 40,
-        "padding_bottom": 40,
-        "show_section_divider": false,
-        "divider_width": "container",
-        "custom_id": "suspensioncollection",
-        "custom_class": "",
-        "animations": "inherit"
-      }
-    },
-
-    "logo_list_v2": {
-      "type": "logo-list",
-      "blocks": {
-        "logo_v2_fox": {
-          "type": "logo",
-          "settings": {
-            "image": "shopify://shop_images/ICONS_FOR_WEBSITE_FOX.png",
-            "image_from_url": "",
-            "image_link": "",
-            "image_width": 80
-          }
-        },
-        "logo_v2_bds": {
-          "type": "logo",
-          "settings": {
-            "image": "shopify://shop_images/ICONS_FOR_WEBSITE_BDS.png",
-            "image_from_url": "",
-            "image_link": "",
-            "image_width": 80
-          }
-        },
-        "logo_v2_bushwacker": {
-          "type": "logo",
-          "settings": {
-            "image": "shopify://shop_images/ICONS_FOR_WEBSITE_BUSHWACKER.png",
-            "image_from_url": "",
-            "image_link": "",
-            "image_width": 80
-          }
-        },
-        "logo_v2_peak": {
-          "type": "logo",
-          "settings": {
-            "image": "shopify://shop_images/peak_final-copy-small.jpg",
-            "image_from_url": "",
-            "image_link": "",
-            "image_width": 80
-          }
-        }
-      },
-      "block_order": [
-        "logo_v2_fox",
-        "logo_v2_bds",
-        "logo_v2_bushwacker",
-        "logo_v2_peak"
-      ],
-      "name": "t:sections.logo-list.presets.name",
-      "settings": {
-        "container": "container",
-        "color_schema": "",
-        "section_header_padding_bottom": "medium",
-        "section_header_content_spacing": "medium",
-        "heading": "",
-        "highlight_style": "none",
-        "enable_highlight_text_color": false,
-        "heading_size": "h2",
-        "heading_color": "",
-        "description": "",
-        "columns": 4,
-        "column_gap": "medium",
-        "row_gap": "medium",
-        "enable_slider": true,
-        "show_nav": false,
-        "show_dots": false,
-        "enable_swipe_mobile": false,
-        "column_mobile": "1",
-        "padding_top": 0,
-        "padding_bottom": 40,
-        "show_section_divider": false,
-        "divider_width": "container",
-        "custom_id": "",
-        "custom_class": "",
-        "animations": "inherit"
-      }
-    },
-
-    "contact_form_v4_v2bottom": {
-      "type": "contact-form-v4",
-      "blocks": {
-        "name_v2bot": {
-          "type": "name",
-          "settings": {
-            "label": "Name",
-            "field_name": "Name",
-            "placeholder": "Enter your name",
-            "field_width": "full",
-            "hide_label": true,
-            "required": false
-          }
-        },
-        "email_v2bot": {
-          "type": "email",
-          "settings": {
-            "label": "Email",
-            "placeholder": "Enter your email address",
-            "field_width": "full",
-            "hide_label": true
-          }
-        },
-        "phone_v2bot": {
-          "type": "phone",
-          "settings": {
-            "label": "Phone number",
-            "placeholder": "Enter your phone number",
-            "field_width": "full",
-            "hide_label": true,
-            "required": false
-          }
-        },
-        "rego_v2bot": {
-          "type": "rego_status",
-          "settings": {
-            "label": "Pre or Post rego",
-            "field_name": "Pre or Post rego",
-            "placeholder": "Pre or Post Rego?",
-            "options": "Pre rego, Post rego",
-            "field_width": "full",
-            "hide_label": true,
-            "required": false
-          }
-        },
-        "vehicle_v2bot": {
-          "type": "custom_select",
-          "settings": {
-            "label": "Which Vehicle",
-            "field_name": "Which Vehicle",
-            "placeholder": "Which Vehicle?",
-            "options": "Ford F150, Chevy 1500, Chevy 2500HD, Toyota Tundra, RAM 2500 (5th Gen), RAM 2500 (6th Gen), Toyota LC300",
-            "field_width": "100",
-            "hide_label": true,
-            "required": false
-          }
-        },
-        "stage_v2bot": {
-          "type": "custom_select",
-          "settings": {
-            "label": "What Stage GVM Package",
-            "field_name": "What Stage GVM Package",
-            "placeholder": "Which Stage are you interested in?",
-            "options": "Stage 1, Stage 2, Stage 3, Stage 4, Not sure yet",
-            "field_width": "100",
-            "hide_label": true,
-            "required": false
-          }
-        },
-        "location_v2bot": {
-          "type": "location",
-          "settings": {
-            "label": "What is your location",
-            "field_name": "Location",
-            "placeholder": "Your location (State / City)?",
-            "field_width": "full",
-            "hide_label": true,
-            "required": false
-          }
-        },
-        "message_v2bot": {
-          "type": "message",
-          "settings": {
-            "label": "Message",
-            "placeholder": "Any questions or specific requirements? (optional)",
-            "rows": 3,
-            "field_width": "100",
-            "hide_label": true
-          }
-        }
-      },
-      "block_order": [
-        "name_v2bot",
-        "email_v2bot",
-        "phone_v2bot",
-        "rego_v2bot",
-        "vehicle_v2bot",
-        "stage_v2bot",
-        "location_v2bot",
-        "message_v2bot"
-      ],
-      "name": "Contact form v4",
-      "settings": {
-        "container": "container",
-        "color_schema": "",
-        "heading": "Ready to Upgrade Your RAM 2500 6th Gen?",
-        "subheading": "Talk to our GVM experts — we'll recommend the right stage and get you a quote.",
-        "description": "",
         "form_design": "design-1",
-        "form_width": 600,
+        "form_width": 500,
         "form_alignment": "center",
-        "button_label": "Send My Enquiry",
+        "button_label": "Submit",
         "button_style": "btn--primary",
-        "padding_top": 60,
-        "padding_bottom": 60,
-        "show_section_divider": true,
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "show_section_divider": false,
         "divider_width": "container",
         "custom_id": "gvmexperts",
         "custom_class": "",
         "animations": "inherit"
       }
     }
-
   },
   "order": [
     "main",
-    "slideshow_v2hero",
-    "benefits_v2",
-    "rich_text_v2_intro",
-    "contact_form_v4_v2top",
-    "jump_links_v2",
-    "rich_text_v2_pkg_heading",
-    "multicolumn_v2_stages",
-    "image_with_text_v2_s1",
-    "image_with_text_v2_s2",
-    "image_with_text_v2_s3",
-    "image_with_text_v2_s4",
-    "rich_text_v2_spec_heading",
-    "gvm_comparison_v2_specs",
-    "gvm_comparison_v2_components",
-    "collapsible_tabs_v2_faq",
-    "rich_text_v2_suspension",
-    "logo_list_v2",
-    "contact_form_v4_v2bottom"
+    "slideshow_ram6g",
+    "rich_text_ram6g_intro",
+    "contact_form_v4_ram6g"
   ]
 }
+
