@@ -102,88 +102,23 @@
         "animations": "inherit"
       }
     },
-    "contact_form_v4_ram6g": {
-      "type": "contact-form-v4",
-      "blocks": {
-        "name_ram6g": {
-          "type": "name",
-          "settings": {
-            "label": "Name",
-            "field_name": "Name",
-            "placeholder": "Enter your name",
-            "field_width": "full",
-            "hide_label": true,
-            "required": false
-          }
-        },
-        "email_ram6g": {
-          "type": "email",
-          "settings": {
-            "label": "Email",
-            "placeholder": "Enter your email",
-            "field_width": "full",
-            "hide_label": true
-          }
-        },
-        "phone_ram6g": {
-          "type": "phone",
-          "settings": {
-            "label": "Mobile",
-            "placeholder": "Enter your mobile number",
-            "field_width": "full",
-            "hide_label": true,
-            "required": false
-          }
-        },
-        "message_ram6g": {
-          "type": "message",
-          "settings": {
-            "label": "Enquiry",
-            "placeholder": "Enter your enquiry",
-            "rows": 3,
-            "field_width": "100",
-            "hide_label": true
-          }
-        },
-        "suspension_ram6g": {
-          "type": "custom_select",
-          "settings": {
-            "label": "Suspension Options",
-            "field_name": "Suspension Options",
-            "placeholder": "Select suspension option",
-            "options": "Stage 1, Stage 2, Stage 3, Stage 4",
-            "field_width": "100",
-            "hide_label": true,
-            "required": false
-          }
-        }
-      },
-      "block_order": [
-        "name_ram6g",
-        "email_ram6g",
-        "phone_ram6g",
-        "message_ram6g",
-        "suspension_ram6g"
-      ],
-      "name": "Contact form v4",
+    "klaviyo_embed_form_Db6aUj": {
+      "type": "klaviyo-embed-form",
+      "name": "Klaviyo embed form",
       "settings": {
-        "container": "container",
-        "color_schema": "",
+        "klaviyo_form_id": "TDFXP7",
+        "form_max_width": 600,
         "heading": "Register Your Interest",
+        "heading_size": 32,
+        "heading_color": "#222222",
         "subheading": "",
-        "description": "",
-        "form_design": "design-1",
-        "form_width": 500,
-        "form_alignment": "center",
-        "button_label": "Submit",
-        "button_style": "btn--primary",
+        "text_color": "#555555",
+        "text_alignment": "center",
+        "container": "container",
         "padding_top": 40,
         "padding_bottom": 40,
-        "show_section_divider": false,
-        "divider_width": "container",
-        "custom_id": "gvmexperts",
-        "custom_class": "",
-        "animations": "inherit"
+        "custom_id": "",
+        "custom_class": ""
       }
     }
   },
@@ -191,6 +126,6 @@
     "main",
     "slideshow_ram6g",
     "rich_text_ram6g_intro",
-    "contact_form_v4_ram6g"
+    "klaviyo_embed_form_Db6aUj"
   ]
 }
