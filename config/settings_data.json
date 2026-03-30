@@ -156,8 +156,8 @@
         "disabled": false,
         "settings": {}
       },
-      "back-in-stock-restock-alerts-4bb73be2-b7c2-4870-949f-c528145452a3": {
-        "type": "shopify://apps/stoq/blocks/main/4bb73be2-b7c2-4870-949f-c528145452a3",
+      "10142937387702430166": {
+        "type": "shopify://apps/timesact-pre-order/blocks/app-embed/bf6c109b-79b5-457c-8752-0e5e9e9676e7",
         "disabled": false,
         "settings": {}
       }
