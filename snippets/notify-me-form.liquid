@@ -1,0 +1,79 @@
+{%- liquid
+  assign notify_modal_id = 'NotifyMe-' | append: section.id
+  assign current_variant = product.selected_or_first_available_variant
+-%}
+<link rel="stylesheet" href="{{ 'notify-me-form.css' | asset_url }}" media="print" onload="this.media='all'">
+<noscript>{{ 'notify-me-form.css' | asset_url | stylesheet_tag }}</noscript>
+
+<notify-me-form
+  id="NotifyMeForm-{{ section.id }}"
+  data-section="{{ section.id }}"
+  data-klaviyo-key="TJhB3u"
+  data-list-id="Ym6NHk"
+  data-variant-id="{{ current_variant.id }}"
+>
+  <modal-opener data-modal="#PopupModal-{{ notify_modal_id }}">
+    <button
+      type="button"
+      class="btn btn--secondary notify-me-form__trigger"
+      {% if current_variant == nil or current_variant.available %}style="display:none"{% endif %}
+      aria-haspopup="dialog"
+    >
+      {{ 'products.notify_form.notify_me' | t }}
+    </button>
+  </modal-opener>
+
+  <modal-dialog id="PopupModal-{{ notify_modal_id }}" class="f-modal hidden" style="--modal-width:480px">
+    <div class="f-modal__content" role="dialog" aria-modal="true" tabindex="-1">
+      <div class="scroll-container">
+        <button
+          id="ModalClose-{{ notify_modal_id }}"
+          type="button"
+          class="f-modal__close"
+          aria-label="{{ 'accessibility.close' | t }}"
+        >
+          {% comment %}theme-check-disable{% endcomment %}
+          {{ 'icon-close.svg' | inline_asset_content }}
+          {% comment %}theme-check-enable{% endcomment %}
+        </button>
+        <div class="f-modal__inner notify-me-form__modal-inner">
+          <h2
+            class="notify-me-form__modal-title"
+            data-product-title="{{ product.title | escape }}"
+          >
+            {{ product.title }}
+          </h2>
+          <p class="notify-me-form__modal-desc">
+            {{ 'products.notify_form.description' | t }}
+          </p>
+
+          <form class="notify-me-form__form" novalidate>
+            <p class="notify-me-form__error" style="display:none">
+              {{ 'products.notify_form.post_error' | t }}
+            </p>
+            <p class="notify-me-form__success" style="display:none">
+              {{ 'products.notify_form.post_success' | t }}
+            </p>
+            <div class="notify-me-form__fields" id="NotifyMeFields-{{ section.id }}">
+              <div class="notify-me-form__field">
+                <input
+                  type="email"
+                  name="email"
+                  id="NotifyMeEmail-{{ section.id }}"
+                  placeholder="{{ 'products.notify_form.email' | t }}"
+                  value="{%- if customer -%}{{ customer.email }}{%- endif -%}"
+                  required
+                  aria-label="{{ 'products.notify_form.email' | t }}"
+                >
+              </div>
+              <button type="submit" class="btn btn--primary notify-me-form__submit">
+                {{ 'products.notify_form.notify_me' | t }}
+              </button>
+            </div>
+          </form>
+
+        </div>
+      </div>
+    </div>
+  </modal-dialog>
+</notify-me-form>
