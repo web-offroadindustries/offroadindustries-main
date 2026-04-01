@@ -273,6 +273,14 @@
       "will_be_in_stock_after": "Back in stock {{ date }}",
       "waiting_for_stock": "Inventory on the way"
     },
+    "notify_form": {
+      "notify_me": "Notify Me When Available",
+      "description": "Register to receive a notification when this item comes back in stock.",
+      "email": "Email",
+      "message_content": "Please notify me when {{ product }} becomes available - {{ url }}",
+      "post_success": "Thanks! We will notify you when this product becomes available!",
+      "post_error": "Please provide a valid email address."
+    },
     "modal": {
       "label": "Media gallery"
     },

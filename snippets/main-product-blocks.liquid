@@ -796,6 +796,7 @@
                 {%- endform -%}
               </product-form>
             {% endif %}
+            {%- render 'notify-me-form', product: product, section: section -%}
             <link
               rel="stylesheet"
               href="{{ 'pickup-availability.css' | asset_url }}"

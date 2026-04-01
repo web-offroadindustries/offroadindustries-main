@@ -1,0 +1,126 @@
+/* ================================================
+   Notify Me When Available - Trigger Button
+   ================================================ */
+
+notify-me-form {
+  display: block;
+  margin-top: 12px;
+}
+
+.notify-me-form__trigger {
+  width: 100%;
+  border: 2px solid currentColor;
+  background: transparent;
+}
+
+.notify-me-form__success-inline {
+  margin-top: 12px;
+  color: #2e7d32;
+  font-size: 0.9rem;
+}
+
+/* ================================================
+   Notify Me Modal - Inner Layout
+   ================================================ */
+
+.notify-me-form__modal-inner {
+  padding: 32px 28px 28px;
+}
+
+.notify-me-form__modal-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  line-height: 1.35;
+  margin: 0 0 10px;
+  padding-right: 24px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.notify-me-form__modal-desc {
+  font-size: 0.9rem;
+  color: #555;
+  margin: 0 0 20px;
+  line-height: 1.5;
+}
+
+/* ================================================
+   Form Fields
+   ================================================ */
+
+.notify-me-form__form {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.notify-me-form__field {
+  margin-bottom: 10px;
+}
+
+.notify-me-form__field input[type="email"] {
+  width: 100%;
+  padding: 11px 14px;
+  font-size: 0.95rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.notify-me-form__field input[type="email"]:focus {
+  border-color: #555;
+}
+
+.notify-me-form__submit {
+  width: 100%;
+  padding: 13px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.notify-me-form__submit[disabled] {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ================================================
+   Messages
+   ================================================ */
+
+.notify-me-form__error {
+  font-size: 0.85rem;
+  color: #c62828;
+  margin: 0 0 10px;
+  padding: 10px 12px;
+  background: #ffebee;
+  border-radius: 4px;
+}
+
+.notify-me-form__success {
+  font-size: 0.9rem;
+  color: #2e7d32;
+  padding: 14px 16px;
+  background: #e8f5e9;
+  border-radius: 4px;
+  text-align: center;
+  line-height: 1.5;
+}
+
+/* ================================================
+   Responsive
+   ================================================ */
+
+@media screen and (max-width: 480px) {
+  .notify-me-form__modal-inner {
+    padding: 24px 18px 20px;
+  }
+
+  .notify-me-form__modal-title {
+    font-size: 1rem;
+  }
+}
