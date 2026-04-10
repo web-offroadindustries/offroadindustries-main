@@ -622,7 +622,7 @@ body:not(.header-pinned) .header-scrolled .header {
   min-width: 0;
   display: flex;
   align-items: center;
-  overflow: hidden;
+  overflow: visible;
 }
 
 /* Force nav items onto one line (snippet sets flex-wrap) */
@@ -633,6 +633,7 @@ body:not(.header-pinned) .header-scrolled .header {
 
 .site-header--design-6 .f-site-nav {
   margin: 0; /* override negative margin in nav css */
+  overflow: visible;
 }
 
 /* Search – compact, fixed-ish width */
