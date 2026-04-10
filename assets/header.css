@@ -596,101 +596,105 @@ body:not(.header-pinned) .header-scrolled .header {
   flex-direction: column;
 }
 
-.site-header--design-6 .site-header__top-v6{
+/* Design 6 – single-row top bar */
+.site-header--design-6 .site-header__top-v6 {
   display: flex;
   align-items: center;
-  gap: 26px;
-  justify-content: flex-start;
+  flex-wrap: nowrap;
+  gap: 20px;
 }
-@media (max-width: 768px) {
-  .site-header--design-6 .site-header__top-v6{
+@media (max-width: 1023.98px) {
+  .site-header--design-6 .site-header__top-v6 {
     justify-content: space-between;
   }
 }
 
-.site-header--design-6 .site-header__top-left-v6{
+/* Logo */
+.site-header--design-6 .site-header__top-left-v6 {
   flex: 0 0 auto;
   display: flex;
   align-items: center;
 }
 
-.site-header--design-6 .header-v6-search{
+/* Nav – natural width, single row */
+.site-header--design-6 .site-header__top-nav-v6 {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* Force nav items onto one line (snippet sets flex-wrap) */
+.site-header--design-6 .site-header__top-nav-v6 .f-site-nav__list {
+  flex-wrap: nowrap;
+  white-space: nowrap;
+}
+
+.site-header--design-6 .f-site-nav {
+  margin: 0; /* override negative margin in nav css */
+}
+
+/* Search – compact, fixed-ish width */
+.site-header--design-6 .site-header__top-search-v6 {
+  flex: 0 0 260px;
+  width: 260px;
+}
+
+.site-header--design-6 .header-v6-search {
   position: relative;
   width: 100%;
 }
 
-.site-header--design-6 .header-v6-search__input{
+.site-header--design-6 .header-v6-search__input {
   width: 100%;
-  
-  border-radius: 10px;
+  height: var(--v6-search-height, 44px);
+  font-size: var(--v6-search-font, 15px);
+  border-radius: 8px;
   border: 0;
   background: #fff;
   color: #000;
-  padding: 0 64px 0 22px;
-  
+  padding: 0 52px 0 16px;
 }
 
-.site-header--design-6 .header-v6-search__btn{
+.site-header--design-6 .header-v6-search__btn {
   position: absolute;
   top: 50%;
-  right: 16px;
+  right: 10px;
   transform: translateY(-50%);
-  width: 40px;
-  height: 40px;
+  width: 36px;
+  height: 36px;
   border: 0;
   background: transparent;
   color: #000;
   cursor: pointer;
 }
 
-.site-header--design-6 .header-v6-search__btn svg{
-  width: 22px;
-  height: 22px;
+.site-header--design-6 .header-v6-search__btn svg {
+  width: 20px;
+  height: 20px;
 }
 
-.site-header--design-6 .site-header__top-right-v6{
+/* Right side – help + cart */
+.site-header--design-6 .site-header__top-right-v6 {
   flex: 0 0 auto;
   display: flex;
   align-items: center;
-  gap: 22px;
+  gap: 16px;
 }
 
-.site-header--design-6 .header-v6-help{
+.site-header--design-6 .header-v6-help {
   flex-direction: column;
   align-items: flex-start;
-  line-height: 1.1;
+  line-height: 1.2;
 }
 
-/* Design 6 – nav inline in top row */
-.site-header--design-6 .site-header__top-nav-v6{
-  flex: 1;
-  min-width: 0;
-  display: flex;
-  align-items: center;
+.site-header--design-6 .header-v6-help__label {
+  font-size: var(--v6-help-label, 13px);
 }
 
-/* Design 6 – make search smaller via settings */
-.site-header--design-6 .site-header__top-search-v6{
-  flex: 0 1 var(--v6-search-max, 620px);
-  max-width: var(--v6-search-max, 620px);
-}
-
-.site-header--design-6 .header-v6-search__input{
-  height: var(--v6-search-height, 52px);
-  font-size: var(--v6-search-font, 18px);
-}
-
-/* Design 6 – adjustable "Need Help" + phone */
-.site-header--design-6 .header-v6-help__label{
-  font-size: var(--v6-help-label, 20px);
-}
-
-.site-header--design-6 .header-v6-help__phone{
-  font-size: var(--v6-help-phone, 30px);
-}
-
-.site-header--design-6 .f-site-nav{
-  margin: 0; /* override negative margin in nav css */
+.site-header--design-6 .header-v6-help__phone {
+  font-size: var(--v6-help-phone, 18px);
 }
 
 .mega-menu-container .dropdown_column__menu .dropdown_item li a{
