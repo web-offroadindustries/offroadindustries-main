@@ -638,8 +638,8 @@ body:not(.header-pinned) .header-scrolled .header {
 
 /* Search – compact, fixed-ish width */
 .site-header--design-6 .site-header__top-search-v6 {
-  flex: 0 0 260px;
-  width: 260px;
+  flex: 0 0 180px;
+  width: 180px;
 }
 
 .site-header--design-6 .header-v6-search {
