@@ -186,6 +186,10 @@
               {% render 'site-logo', section: section %}
             </div>
 
+            <div class="site-header__top-nav-v6 hidden lg:flex">
+              {% render 'site-nav', section: section %}
+            </div>
+
             <div class="site-header__top-search-v6 hidden lg:block">
               <form action="{{ routes.search_url }}" method="get" role="search" class="header-v6-search">
                 <label class="visually-hidden" for="HeaderSearch-{{ section.id }}">
@@ -228,9 +232,6 @@
             </div>
           </div>
 
-          <div class="site-header__bottom-v6 hidden lg:flex">
-            {% render 'site-nav', section: section %}
-          </div>
         </div>
       {%- else -%}
         <div class="site-header__inner flex site-header__mobile-logo--{{ logo_mobile_position | default: 'left' }}">

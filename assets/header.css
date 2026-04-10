@@ -661,12 +661,18 @@ body:not(.header-pinned) .header-scrolled .header {
   line-height: 1.1;
 }
 
+/* Design 6 – nav inline in top row */
+.site-header--design-6 .site-header__top-nav-v6{
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+}
+
 /* Design 6 – make search smaller via settings */
 .site-header--design-6 .site-header__top-search-v6{
-  flex: 0 0 auto;
-  margin-left: auto;
+  flex: 0 1 var(--v6-search-max, 620px);
   max-width: var(--v6-search-max, 620px);
-  
 }
 
 .site-header--design-6 .header-v6-search__input{
@@ -681,10 +687,6 @@ body:not(.header-pinned) .header-scrolled .header {
 
 .site-header--design-6 .header-v6-help__phone{
   font-size: var(--v6-help-phone, 30px);
-}
-
-.site-header--design-6 .site-header__bottom-v6{
-  justify-content: flex-start;
 }
 
 .site-header--design-6 .f-site-nav{
