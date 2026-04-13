@@ -338,7 +338,7 @@ class SiteNav extends HTMLElement {
       if (this.header && typeof this.header.handleMegaItemDeactive === "function") {
         this.header.handleMegaItemDeactive();
       }
-    }, 180);
+    }, 350);
   }
 
   onMenuItemLeave(evt) {

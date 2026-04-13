@@ -645,6 +645,18 @@
 /* ============================================
    Nav Columns Mega Menu (brand/model layout)
    ============================================ */
+
+/* Bridge the gap between the nav link and the mega dropdown so the mouse
+   doesn't exit the hover area when moving downward into the dropdown */
+.f-menu__item-active .f-site-nav__dropdown--mega::before {
+  content: '';
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  right: 0;
+  height: 30px;
+}
+
 .f-site-nav__nav-columns-wrap {
   padding: 3rem 0 2rem;
 }
@@ -698,4 +710,29 @@
 .color-background-1 .f-site-nav__nav-col-header,
 .color-background-2 .f-site-nav__nav-col-header {
   border-bottom-color: rgba(0, 0, 0, 0.15);
+}
+
+/* Side image layout */
+.f-site-nav__nav-columns-wrap--has-image {
+  display: flex;
+  align-items: flex-start;
+  gap: 3rem;
+}
+.f-site-nav__nav-columns-wrap--has-image .f-site-nav__nav-columns {
+  flex: 1;
+  min-width: 0;
+}
+.f-site-nav__nav-col-image {
+  flex: 0 0 var(--nav-img-width, 220px);
+  width: var(--nav-img-width, 220px);
+}
+.f-site-nav__nav-col-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 4px;
+  object-fit: cover;
+}
+.f-site-nav__nav-columns-wrap--image-right .f-site-nav__nav-col-image {
+  order: 1;
 }
