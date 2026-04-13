@@ -70,6 +70,7 @@
       "blocks": {
         "nav_columns_WqT39J": {
           "type": "nav_columns",
+          "disabled": true,
           "settings": {
             "heading": "Domestic Vehicles",
             "container": "container-fluid",
