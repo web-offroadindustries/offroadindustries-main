@@ -641,3 +641,61 @@
 .f-drawer-mobile-nav .f-disclosure-list {
   height: auto;
 }
+
+/* ============================================
+   Nav Columns Mega Menu (brand/model layout)
+   ============================================ */
+.f-site-nav__nav-columns-wrap {
+  padding: 3rem 0 2rem;
+}
+
+.f-site-nav__nav-columns {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(var(--nav-col-min, 130px), 1fr));
+  gap: 2.4rem 3rem;
+  width: 100%;
+}
+
+/* Column header – brand name / category name */
+.f-site-nav__nav-col-header {
+  display: block;
+  font-family: var(--font-menu-family);
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  letter-spacing: 0.07em;
+  color: currentColor !important;
+  padding-bottom: 0.7rem;
+  margin-bottom: 0.8rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+  transition: opacity 0.2s;
+}
+
+.f-site-nav__nav-col-header:hover {
+  opacity: 0.7;
+}
+
+/* Items under each column header */
+.f-site-nav__nav-col-items {
+  margin: 0;
+  padding: 0;
+}
+
+.f-site-nav__nav-col-link {
+  display: block;
+  padding: 0.3rem 0;
+  font-size: 1.25rem;
+  color: currentColor !important;
+  transition: opacity 0.2s;
+  line-height: 1.8;
+}
+
+.f-site-nav__nav-col-link:hover {
+  opacity: 0.7;
+}
+
+/* Light colour scheme: use a dark border instead */
+.color-background-1 .f-site-nav__nav-col-header,
+.color-background-2 .f-site-nav__nav-col-header {
+  border-bottom-color: rgba(0, 0, 0, 0.15);
+}

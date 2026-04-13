@@ -212,6 +212,37 @@
                     </div>
                   </div>
                 {%- endcapture -%}
+              {%- when 'nav_columns' -%}
+                {%- capture block_type -%}
+                  {%- liquid
+                    assign nav_menu_handle = block.settings.menu
+                    assign nav_links = linklists[nav_menu_handle].links
+                  -%}
+                  {%- if nav_links != blank -%}
+                    <div class="f-site-nav__nav-columns-wrap w-full">
+                      <div class="f-site-nav__nav-columns" style="--nav-col-min: {{ block.settings.min_col_width | default: 130 }}px">
+                        {%- for brand_link in nav_links -%}
+                          <div class="f-site-nav__nav-column">
+                            <a href="{{ brand_link.url }}" class="f-site-nav__nav-col-header">
+                              {{ brand_link.title }}
+                            </a>
+                            {%- if brand_link.links != blank -%}
+                              <ul class="f-site-nav__nav-col-items list-none">
+                                {%- for model_link in brand_link.links -%}
+                                  <li>
+                                    <a href="{{ model_link.url }}" class="f-site-nav__nav-col-link">
+                                      {{ model_link.title }}
+                                    </a>
+                                  </li>
+                                {%- endfor -%}
+                              </ul>
+                            {%- endif -%}
+                          </div>
+                        {%- endfor -%}
+                      </div>
+                    </div>
+                  {%- endif -%}
+                {%- endcapture -%}
               {%- else -%}
                 {%- capture block_type %}{% endcapture -%}
             {%- endcase -%}
