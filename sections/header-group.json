@@ -632,6 +632,7 @@
         "brand_tile_E39J6X",
         "brand_tile_EqTXaz"
       ],
+      "disabled": true,
       "name": "Mega menu 1",
       "settings": {
         "parent": "Domestic Vehicles",
