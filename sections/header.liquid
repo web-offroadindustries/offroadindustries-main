@@ -2164,6 +2164,68 @@
           "label": "t:sections.header.blocks.custom.settings.link"
         }
       ]
+    },
+    {
+      "type": "nav_columns",
+      "name": "Nav Columns Menu",
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "placeholder": "brands",
+          "label": "t:sections.header.blocks.menu_title",
+          "info": "Must exactly match the nav item title this dropdown belongs to"
+        },
+        {
+          "type": "header",
+          "content": "t:sections.header.blocks.dropdown_settings"
+        },
+        {
+          "type": "select",
+          "id": "container",
+          "options": [
+            {
+              "value": "inherit",
+              "label": "t:sections.header.blocks.container_inherit"
+            },
+            {
+              "value": "container",
+              "label": "t:sections.common.container.fixed"
+            },
+            {
+              "value": "container-fluid",
+              "label": "t:sections.common.container.stretched"
+            },
+            {
+              "value": "container-full",
+              "label": "t:sections.common.container.fullwidth"
+            }
+          ],
+          "default": "container-fluid",
+          "label": "t:sections.common.container.label"
+        },
+        {
+          "type": "header",
+          "content": "Menu source"
+        },
+        {
+          "type": "link_list",
+          "id": "menu",
+          "label": "Navigation menu",
+          "info": "Build a 2-level menu: Level 1 = column headers (e.g. brand names), Level 2 = column links (e.g. model names)"
+        },
+        {
+          "type": "range",
+          "id": "min_col_width",
+          "min": 80,
+          "max": 200,
+          "step": 10,
+          "unit": "px",
+          "label": "Minimum column width",
+          "default": 130,
+          "info": "Columns wrap automatically when screen is too narrow"
+        }
+      ]
     }
   ]
 }
