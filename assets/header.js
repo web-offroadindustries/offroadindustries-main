@@ -288,7 +288,8 @@ class SiteNav extends HTMLElement {
       li.addEventListener("mouseleave", this._boundLeave);
 
       // Prevent close when hovering inside dropdown
-      const dropdown = li.querySelector(".mega-menu-container");
+      // Support both legacy (.mega-menu-container) and native theme (.f-site-nav__dropdown) dropdowns
+      const dropdown = li.querySelector(".mega-menu-container") || li.querySelector(".f-site-nav__dropdown");
       if (dropdown && dropdown.dataset.dropdownBound !== "1") {
         dropdown.dataset.dropdownBound = "1";
 
@@ -312,7 +313,8 @@ class SiteNav extends HTMLElement {
     // Close other mega items
     this.megaItems.forEach((item) => item.classList.remove(this.classes.itemActive));
 
-    const dropdown = li.querySelector(".mega-menu-container");
+    // Support both legacy (.mega-menu-container) and native theme (.f-site-nav__dropdown) dropdowns
+    const dropdown = li.querySelector(".mega-menu-container") || li.querySelector(".f-site-nav__dropdown");
     if (!dropdown) return;
 
     // Activate header backdrop if available
