@@ -257,7 +257,7 @@
             assign li_class = li_class | append: ' f-site-nav__item--current'
           endif
 
-          if link.links != blank
+          if link.links != blank or has_mega_item
             assign li_class = li_class | append: ' f-site-nav__item--has-child'
           endif
 
