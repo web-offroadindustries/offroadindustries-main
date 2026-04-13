@@ -67,6 +67,20 @@
     },
     "header": {
       "type": "header",
+      "blocks": {
+        "nav_columns_AVAcnC": {
+          "type": "nav_columns",
+          "settings": {
+            "heading": "Domestic Vehicles",
+            "container": "container-fluid",
+            "menu": "domestic-vehicles",
+            "min_col_width": 130
+          }
+        }
+      },
+      "block_order": [
+        "nav_columns_AVAcnC"
+      ],
       "settings": {
         "color_schema": "accent",
         "layout": "design-6",
