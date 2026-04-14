@@ -193,7 +193,6 @@ class SiteNav extends HTMLElement {
   constructor() {
     super();
     this._boundEnter = this.onMenuItemEnter.bind(this);
-    this._boundLeave = this.onMenuItemLeave.bind(this);
   }
 
   connectedCallback() {
@@ -283,112 +282,114 @@ class SiteNav extends HTMLElement {
     this.megaItems.forEach((li) => {
       if (li.dataset.megaBound === "1") return;
       li.dataset.megaBound = "1";
-
+      // Only mouseenter — the global safe-zone tracker handles closing
       li.addEventListener("mouseenter", this._boundEnter);
-      li.addEventListener("mouseleave", this._boundLeave);
-
-      // Prevent close when hovering inside dropdown
-      // Support both legacy (.mega-menu-container) and native theme (.f-site-nav__dropdown) dropdowns
-      const dropdown = li.querySelector(".mega-menu-container") || li.querySelector(".f-site-nav__dropdown");
-      if (dropdown && dropdown.dataset.dropdownBound !== "1") {
-        dropdown.dataset.dropdownBound = "1";
-
-        dropdown.addEventListener("mouseenter", () => {
-          clearTimeout(this.timeoutLeave);
-        });
-
-        dropdown.addEventListener("mouseleave", () => {
-          this.scheduleClose(li);
-        });
-      }
     });
   }
 
   onMenuItemEnter(evt) {
-    clearTimeout(this.timeoutLeave);
+    // Stop any in-progress close tracker for the previous item
+    this._stopGlobalHover();
 
     const li = evt.currentTarget;
     if (!li) return;
 
-    // Close other mega items
-    this.megaItems.forEach((item) => item.classList.remove(this.classes.itemActive));
+    // Deactivate all other mega items
+    this.megaItems.forEach((item) => {
+      if (item !== li) item.classList.remove(this.classes.itemActive);
+    });
 
     // Support both legacy (.mega-menu-container) and native theme (.f-site-nav__dropdown) dropdowns
     const dropdown = li.querySelector(".mega-menu-container") || li.querySelector(".f-site-nav__dropdown");
-    if (!dropdown) return;
 
-    // Activate header backdrop if available
+    if (!dropdown) {
+      // No dropdown on this item — ensure backdrop is cleared
+      if (this.header && typeof this.header.handleMegaItemDeactive === "function") {
+        this.header.handleMegaItemDeactive();
+      }
+      return;
+    }
+
+    // Activate header backdrop
     if (this.header && typeof this.header.handleMegaItemActive === "function") {
       this.header.handleMegaItemActive(dropdown);
     }
 
     this.timeoutEnter = setTimeout(() => {
       li.classList.add(this.classes.itemActive);
+      // Start tracking once the dropdown is visible so getBoundingClientRect is accurate
+      this._startGlobalHover(li, dropdown);
     }, 10);
   }
 
-  scheduleClose(li) {
-    if (!li) return;
+  /**
+   * Start a global mousemove listener that watches a safe zone covering:
+   *   - the nav <li> itself
+   *   - any gap between the li and the dropdown (e.g. header padding)
+   *   - the dropdown panel
+   *
+   * When the mouse leaves the safe zone we schedule a short close delay.
+   * Re-entering the zone during the delay cancels the close.
+   */
+  _startGlobalHover(li, dropdown) {
+    this._stopGlobalHover(); // safety — clear any leftover state
 
-    clearTimeout(this.timeoutEnter);
-    clearTimeout(this.timeoutLeave);
+    this._globalHoverLi = li;
+    this._closeScheduled = false;
 
-    // Remove any prior mouse tracker
-    if (this._dropdownTracker) {
-      document.removeEventListener("mousemove", this._dropdownTracker);
-      this._dropdownTracker = null;
-    }
+    const check = (e) => {
+      const liRect = li.getBoundingClientRect();
+      const dropRect = dropdown.getBoundingClientRect();
 
-    // While the timer counts down, track the mouse — if it enters the
-    // dropdown's bounding rect the close is cancelled immediately,
-    // regardless of any CSS/layout gap between the nav link and dropdown.
-    const dropdown =
-      li.querySelector(".mega-menu-container") ||
-      li.querySelector(".f-site-nav__dropdown");
+      // Safe zone spans from the top of the li to the bottom of the dropdown,
+      // across the combined horizontal range of both elements.
+      const minX = Math.min(liRect.left, dropRect.left);
+      const maxX = Math.max(liRect.right, dropRect.right);
+      const minY = liRect.top;
+      const maxY = dropRect.bottom > liRect.bottom ? dropRect.bottom : liRect.bottom;
 
-    if (dropdown) {
-      const tracker = (e) => {
-        const r = dropdown.getBoundingClientRect();
-        if (
-          e.clientX >= r.left &&
-          e.clientX <= r.right &&
-          e.clientY >= r.top &&
-          e.clientY <= r.bottom
-        ) {
+      const inSafe =
+        e.clientX >= minX &&
+        e.clientX <= maxX &&
+        e.clientY >= minY &&
+        e.clientY <= maxY;
+
+      if (inSafe) {
+        if (this._closeScheduled) {
           clearTimeout(this.timeoutLeave);
-          document.removeEventListener("mousemove", tracker);
-          this._dropdownTracker = null;
+          this._closeScheduled = false;
         }
-      };
-      this._dropdownTracker = tracker;
-      document.addEventListener("mousemove", tracker, { passive: true });
-    }
-
-    this.timeoutLeave = setTimeout(() => {
-      if (this._dropdownTracker) {
-        document.removeEventListener("mousemove", this._dropdownTracker);
-        this._dropdownTracker = null;
+      } else {
+        if (!this._closeScheduled) {
+          this._closeScheduled = true;
+          this.timeoutLeave = setTimeout(() => {
+            this._stopGlobalHover();
+            li.classList.remove(this.classes.itemActive);
+            if (this.header && typeof this.header.handleMegaItemDeactive === "function") {
+              this.header.handleMegaItemDeactive();
+            }
+          }, 200);
+        }
       }
-      li.classList.remove(this.classes.itemActive);
+    };
 
-      if (this.header && typeof this.header.handleMegaItemDeactive === "function") {
-        this.header.handleMegaItemDeactive();
-      }
-    }, 700);
+    this._globalHoverTracker = check;
+    document.addEventListener("mousemove", check, { passive: true });
   }
 
-  onMenuItemLeave(evt) {
-    const li = evt.currentTarget;
-    this.scheduleClose(li);
+  _stopGlobalHover() {
+    clearTimeout(this.timeoutEnter);
+    clearTimeout(this.timeoutLeave);
+    if (this._globalHoverTracker) {
+      document.removeEventListener("mousemove", this._globalHoverTracker);
+      this._globalHoverTracker = null;
+    }
+    this._globalHoverLi = null;
+    this._closeScheduled = false;
   }
 
   closeMegaDropdowns() {
-    clearTimeout(this.timeoutEnter);
-    clearTimeout(this.timeoutLeave);
-    if (this._dropdownTracker) {
-      document.removeEventListener("mousemove", this._dropdownTracker);
-      this._dropdownTracker = null;
-    }
+    this._stopGlobalHover();
 
     this.megaItems &&
       this.megaItems.forEach((li) => li.classList.remove(this.classes.itemActive));
@@ -399,15 +400,11 @@ class SiteNav extends HTMLElement {
   }
 
   disconnectedCallback() {
-    if (this._dropdownTracker) {
-      document.removeEventListener("mousemove", this._dropdownTracker);
-      this._dropdownTracker = null;
-    }
+    this._stopGlobalHover();
     if (!this.megaItems) return;
 
     this.megaItems.forEach((li) => {
       li.removeEventListener("mouseenter", this._boundEnter);
-      li.removeEventListener("mouseleave", this._boundLeave);
       li.dataset.megaBound = "";
     });
   }
