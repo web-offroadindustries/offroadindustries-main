@@ -725,23 +725,24 @@
   border-bottom-color: rgba(0, 0, 0, 0.15);
 }
 
-/* Side image layout */
+/* Side image layout — 25 % image / 75 % columns */
 .f-site-nav__nav-columns-wrap--has-image {
   display: flex;
-  align-items: flex-start;
+  align-items: stretch;
   gap: 3rem;
 }
 .f-site-nav__nav-columns-wrap--has-image .f-site-nav__nav-columns {
-  flex: 1;
+  flex: 3;
   min-width: 0;
 }
 .f-site-nav__nav-col-image {
-  flex: 0 0 var(--nav-img-width, 220px);
-  width: var(--nav-img-width, 220px);
+  flex: 1;
+  min-width: 0;
+  min-height: 180px;
 }
 .f-site-nav__nav-col-img {
   width: 100%;
-  height: auto;
+  height: 100%;
   display: block;
   border-radius: 4px;
   object-fit: cover;

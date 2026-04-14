@@ -331,14 +331,50 @@ class SiteNav extends HTMLElement {
     if (!li) return;
 
     clearTimeout(this.timeoutEnter);
+    clearTimeout(this.timeoutLeave);
+
+    // Remove any prior mouse tracker
+    if (this._dropdownTracker) {
+      document.removeEventListener("mousemove", this._dropdownTracker);
+      this._dropdownTracker = null;
+    }
+
+    // While the timer counts down, track the mouse — if it enters the
+    // dropdown's bounding rect the close is cancelled immediately,
+    // regardless of any CSS/layout gap between the nav link and dropdown.
+    const dropdown =
+      li.querySelector(".mega-menu-container") ||
+      li.querySelector(".f-site-nav__dropdown");
+
+    if (dropdown) {
+      const tracker = (e) => {
+        const r = dropdown.getBoundingClientRect();
+        if (
+          e.clientX >= r.left &&
+          e.clientX <= r.right &&
+          e.clientY >= r.top &&
+          e.clientY <= r.bottom
+        ) {
+          clearTimeout(this.timeoutLeave);
+          document.removeEventListener("mousemove", tracker);
+          this._dropdownTracker = null;
+        }
+      };
+      this._dropdownTracker = tracker;
+      document.addEventListener("mousemove", tracker, { passive: true });
+    }
 
     this.timeoutLeave = setTimeout(() => {
+      if (this._dropdownTracker) {
+        document.removeEventListener("mousemove", this._dropdownTracker);
+        this._dropdownTracker = null;
+      }
       li.classList.remove(this.classes.itemActive);
 
       if (this.header && typeof this.header.handleMegaItemDeactive === "function") {
         this.header.handleMegaItemDeactive();
       }
-    }, 350);
+    }, 700);
   }
 
   onMenuItemLeave(evt) {
@@ -349,6 +385,10 @@ class SiteNav extends HTMLElement {
   closeMegaDropdowns() {
     clearTimeout(this.timeoutEnter);
     clearTimeout(this.timeoutLeave);
+    if (this._dropdownTracker) {
+      document.removeEventListener("mousemove", this._dropdownTracker);
+      this._dropdownTracker = null;
+    }
 
     this.megaItems &&
       this.megaItems.forEach((li) => li.classList.remove(this.classes.itemActive));
@@ -359,6 +399,10 @@ class SiteNav extends HTMLElement {
   }
 
   disconnectedCallback() {
+    if (this._dropdownTracker) {
+      document.removeEventListener("mousemove", this._dropdownTracker);
+      this._dropdownTracker = null;
+    }
     if (!this.megaItems) return;
 
     this.megaItems.forEach((li) => {
