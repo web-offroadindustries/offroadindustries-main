@@ -222,6 +222,23 @@
                     assign nav_col_image = block.settings.image
                     assign nav_img_position = block.settings.image_position | default: 'left'
                     assign nav_img_width = block.settings.image_width | default: 220
+
+                    assign nav_min_col = block.settings.min_col_width | default: 130
+                    assign nav_col_count = block.settings.columns | default: 'auto'
+                    assign nav_header_size = block.settings.header_font_size | default: ''
+                    assign nav_link_size = block.settings.link_font_size | default: ''
+
+                    assign nav_col_style = '--nav-col-min: ' | append: nav_min_col | append: 'px'
+                    if nav_header_size != ''
+                      assign nav_col_style = nav_col_style | append: '; --nav-col-header-size: ' | append: nav_header_size
+                    endif
+                    if nav_link_size != ''
+                      assign nav_col_style = nav_col_style | append: '; --nav-col-link-size: ' | append: nav_link_size
+                    endif
+                    if nav_col_count != 'auto' and nav_col_count != blank
+                      assign nav_grid_val = 'repeat(' | append: nav_col_count | append: ', 1fr)'
+                      assign nav_col_style = nav_col_style | append: '; grid-template-columns: ' | append: nav_grid_val
+                    endif
                   -%}
                   {%- if nav_links != blank -%}
                     <div class="f-site-nav__nav-columns-wrap w-full{% if nav_col_image %} f-site-nav__nav-columns-wrap--has-image f-site-nav__nav-columns-wrap--image-{{ nav_img_position }}{% endif %}"
@@ -242,7 +259,7 @@
                           {%- if block.settings.image_link != blank -%}</a>{%- endif -%}
                         </div>
                       {%- endif -%}
-                      <div class="f-site-nav__nav-columns" style="--nav-col-min: {{ block.settings.min_col_width | default: 130 }}px">
+                      <div class="f-site-nav__nav-columns" style="{{ nav_col_style }}">
                         {%- for brand_link in nav_links -%}
                           <div class="f-site-nav__nav-column">
                             <a href="{{ brand_link.url }}" class="f-site-nav__nav-col-header">

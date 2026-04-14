@@ -687,7 +687,7 @@
   font-family: var(--font-menu-family);
   font-weight: 700;
   text-transform: uppercase;
-  font-size: 1.2rem;
+  font-size: var(--nav-col-header-size, 1.3rem);
   letter-spacing: 0.07em;
   color: currentColor !important;
   padding-bottom: 0.7rem;
@@ -709,7 +709,7 @@
 .f-site-nav__nav-col-link {
   display: block;
   padding: 0.3rem 0;
-  font-size: 1.25rem;
+  font-size: var(--nav-col-link-size, 1.35rem);
   color: currentColor !important;
   transition: opacity 0.2s;
   line-height: 1.8;

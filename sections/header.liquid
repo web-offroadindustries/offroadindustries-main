@@ -2223,7 +2223,40 @@
           "unit": "px",
           "label": "Minimum column width",
           "default": 130,
-          "info": "Columns wrap automatically when screen is too narrow"
+          "info": "Columns wrap automatically when screen is too narrow. Ignored when a fixed column count is set."
+        },
+        {
+          "type": "header",
+          "content": "Typography & columns"
+        },
+        {
+          "type": "select",
+          "id": "columns",
+          "label": "Number of columns",
+          "default": "auto",
+          "info": "\"Auto\" distributes columns based on the minimum width above",
+          "options": [
+            { "value": "auto", "label": "Auto (based on min width)" },
+            { "value": "2", "label": "2 columns" },
+            { "value": "3", "label": "3 columns" },
+            { "value": "4", "label": "4 columns" },
+            { "value": "5", "label": "5 columns" },
+            { "value": "6", "label": "6 columns" }
+          ]
+        },
+        {
+          "type": "text",
+          "id": "header_font_size",
+          "label": "Column header font size",
+          "placeholder": "1.3rem",
+          "info": "Supports clamp() — e.g. clamp(1.1rem, 1.4vw, 1.4rem). Leave blank to use theme default."
+        },
+        {
+          "type": "text",
+          "id": "link_font_size",
+          "label": "Sub-link font size",
+          "placeholder": "1.35rem",
+          "info": "Supports clamp() — e.g. clamp(1rem, 1.2vw, 1.3rem). Leave blank to use theme default."
         },
         {
           "type": "header",
