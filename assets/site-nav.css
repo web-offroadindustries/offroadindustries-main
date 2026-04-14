@@ -646,15 +646,28 @@
    Nav Columns Mega Menu (brand/model layout)
    ============================================ */
 
-/* Bridge the gap between the nav link and the mega dropdown so the mouse
-   doesn't exit the hover area when moving downward into the dropdown */
+/* Stretch mega item li to fill the full header height so its bottom edge
+   meets the dropdown top — eliminates the hover gap entirely */
+.f-site-nav__item--mega {
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+}
+.f-site-nav__item--mega > a.f-site-nav__link,
+.f-site-nav__item--mega > header-menu {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+/* Extra safety bridge above the dropdown in case any gap remains */
 .f-menu__item-active .f-site-nav__dropdown--mega::before {
   content: '';
   position: absolute;
   bottom: 100%;
   left: 0;
   right: 0;
-  height: 30px;
+  height: 60px;
 }
 
 .f-site-nav__nav-columns-wrap {

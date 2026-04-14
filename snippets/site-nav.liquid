@@ -41,6 +41,7 @@
           assign is_mega_item = true
           assign three_level = false
           assign has_mega_item = false
+          assign is_nav_columns_block = false
           if link.links != blank
             if link.levels == 2
               assign three_level = true
@@ -217,6 +218,7 @@
                   {%- liquid
                     assign nav_menu_handle = block.settings.menu
                     assign nav_links = linklists[nav_menu_handle].links
+                    assign is_nav_columns_block = true
                     assign nav_col_image = block.settings.image
                     assign nav_img_position = block.settings.image_position | default: 'left'
                     assign nav_img_width = block.settings.image_width | default: 220
@@ -307,6 +309,7 @@
             >
               <div class="{{ dropdown_container }}">
                 <div class="f-site-nav__dropdown-inner flex flex-wrap justify-center">
+                  {%- unless is_nav_columns_block -%}
                   <ul
                     class="list-none w-full{% if is_mega_item and has_mega_item %} f-grid f-grid-{{- column -}}-cols{% endif %}"
                     role="list"
@@ -349,6 +352,7 @@
                       </li>
                     {% endfor %}
                   </ul>
+                  {%- endunless -%}
                   {% if has_mega_item == true and block_type != blank %}
                     {{- block_type -}}
                   {% endif %}
