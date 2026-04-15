@@ -269,6 +269,7 @@
         "show_tag_filter_with_facets": true,
         "tag_filter_heading": "By Vehicle",
         "tag_filter_exclude_prefixes": "spo-,filter-",
+        "tag_filter_include_prefixes": "ymm-",
         "paginate_type": "number",
         "padding_top": 0,
         "padding_bottom": 100

@@ -74,7 +74,8 @@
               show_faceted_filters: enable_filtering,
               show_tag_filter: show_tag_filter,
               tag_filter_heading: section.settings.tag_filter_heading,
-              tag_filter_exclude_prefixes: section.settings.tag_filter_exclude_prefixes
+              tag_filter_exclude_prefixes: section.settings.tag_filter_exclude_prefixes,
+              tag_filter_include_prefixes: section.settings.tag_filter_include_prefixes
             %}
             {% if enable_filtering %}
               <noscript>
@@ -368,6 +369,15 @@
       "id": "tag_filter_exclude_prefixes",
       "label": "Exclude tag prefixes (comma separated)",
       "default": "spo-,filter-",
+      "info": "Tags starting with these prefixes are hidden. Only applies when the include field below is blank.",
+      "visible_if": "{{ section.settings.enable_tag_filter == true }}"
+    },
+    {
+      "type": "text",
+      "id": "tag_filter_include_prefixes",
+      "label": "Show ONLY tags with these prefixes (comma separated)",
+      "placeholder": "ymm-",
+      "info": "When set, only tags starting with these prefixes are shown — overrides the exclude list. Use this to show only vehicle tags (e.g. ymm-). Leave blank to show all tags minus excluded ones.",
       "visible_if": "{{ section.settings.enable_tag_filter == true }}"
     },
 

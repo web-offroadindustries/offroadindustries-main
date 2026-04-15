@@ -32,6 +32,12 @@
   assign tag_filter_heading = tag_filter_heading | default: 'By Vehicle'
   assign tag_filter_exclude_prefixes = tag_filter_exclude_prefixes | default: 'spo-,filter-'
   assign tag_filter_exclude_list = tag_filter_exclude_prefixes | downcase | split: ','
+  assign tag_filter_include_prefixes = tag_filter_include_prefixes | default: ''
+  assign tag_filter_include_list = tag_filter_include_prefixes | downcase | split: ','
+  assign tag_filter_include_mode = false
+  if tag_filter_include_prefixes != blank
+    assign tag_filter_include_mode = true
+  endif
 
   assign show_header = false
   if show_tag_filter
@@ -177,25 +183,52 @@
                           {%- for tag in sorted_tags -%}
                             {%- assign tag_lc = tag | downcase -%}
 
-                            {%- if tag == tag_lc -%}
-                              {%- continue -%}
-                            {%- endif -%}
-
-                            {%- assign excluded = false -%}
-                            {%- for p in tag_filter_exclude_list -%}
-                              {%- assign prefix = p | strip -%}
-                              {%- if prefix != blank -%}
-                                {%- assign prefix_len = prefix | size -%}
-                                {%- assign head = tag_lc | slice: 0, prefix_len -%}
-                                {%- if head == prefix -%}
-                                  {%- assign excluded = true -%}
-                                  {%- break -%}
+                            {%- if tag_filter_include_mode -%}
+                              {%- comment -%}
+                                Include mode: only show tags that START WITH one of the
+                                include prefixes. Lowercase tags are allowed here so that
+                                EasySearch-style vehicle tags (e.g. ymm-2023-ram-1500)
+                                are not accidentally filtered out.
+                              {%- endcomment -%}
+                              {%- assign included = false -%}
+                              {%- for p in tag_filter_include_list -%}
+                                {%- assign inc_prefix = p | strip -%}
+                                {%- if inc_prefix != blank -%}
+                                  {%- assign inc_len = inc_prefix | size -%}
+                                  {%- assign tag_head = tag_lc | slice: 0, inc_len -%}
+                                  {%- if tag_head == inc_prefix -%}
+                                    {%- assign included = true -%}
+                                    {%- break -%}
+                                  {%- endif -%}
                                 {%- endif -%}
+                              {%- endfor -%}
+                              {%- unless included -%}
+                                {%- continue -%}
+                              {%- endunless -%}
+                            {%- else -%}
+                              {%- comment -%}
+                                Default mode: skip all-lowercase tags (internal/admin tags)
+                                and skip tags whose prefix is in the exclude list.
+                              {%- endcomment -%}
+                              {%- if tag == tag_lc -%}
+                                {%- continue -%}
                               {%- endif -%}
-                            {%- endfor -%}
 
-                            {%- if excluded -%}
-                              {%- continue -%}
+                              {%- assign excluded = false -%}
+                              {%- for p in tag_filter_exclude_list -%}
+                                {%- assign prefix = p | strip -%}
+                                {%- if prefix != blank -%}
+                                  {%- assign prefix_len = prefix | size -%}
+                                  {%- assign head = tag_lc | slice: 0, prefix_len -%}
+                                  {%- if head == prefix -%}
+                                    {%- assign excluded = true -%}
+                                    {%- break -%}
+                                  {%- endif -%}
+                                {%- endif -%}
+                              {%- endfor -%}
+                              {%- if excluded -%}
+                                {%- continue -%}
+                              {%- endif -%}
                             {%- endif -%}
 
                             {%- assign is_active = false -%}
