@@ -700,6 +700,19 @@
   opacity: 0.7;
 }
 
+/* Grouped column: solo items (no sub-links) stacked together in one column */
+.f-site-nav__nav-column--grouped {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.f-site-nav__nav-col-header--solo {
+  border-bottom: none;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
 /* Items under each column header */
 .f-site-nav__nav-col-items {
   margin: 0;

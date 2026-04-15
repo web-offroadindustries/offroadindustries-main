@@ -260,12 +260,13 @@
                         </div>
                       {%- endif -%}
                       <div class="f-site-nav__nav-columns" style="{{ nav_col_style }}">
+                        {%- comment -%} Pass 1: items that have sub-links get their own full column {%- endcomment -%}
                         {%- for brand_link in nav_links -%}
-                          <div class="f-site-nav__nav-column">
-                            <a href="{{ brand_link.url }}" class="f-site-nav__nav-col-header">
-                              {{ brand_link.title }}
-                            </a>
-                            {%- if brand_link.links != blank -%}
+                          {%- if brand_link.links != blank -%}
+                            <div class="f-site-nav__nav-column">
+                              <a href="{{ brand_link.url }}" class="f-site-nav__nav-col-header">
+                                {{ brand_link.title }}
+                              </a>
                               <ul class="f-site-nav__nav-col-items list-none">
                                 {%- for model_link in brand_link.links -%}
                                   <li>
@@ -275,9 +276,27 @@
                                   </li>
                                 {%- endfor -%}
                               </ul>
-                            {%- endif -%}
-                          </div>
+                            </div>
+                          {%- endif -%}
                         {%- endfor -%}
+                        {%- comment -%} Pass 2: items with no sub-links are grouped into a single column {%- endcomment -%}
+                        {%- assign has_solo_links = false -%}
+                        {%- for brand_link in nav_links -%}
+                          {%- if brand_link.links == blank -%}
+                            {%- assign has_solo_links = true -%}
+                          {%- endif -%}
+                        {%- endfor -%}
+                        {%- if has_solo_links -%}
+                          <div class="f-site-nav__nav-column f-site-nav__nav-column--grouped">
+                            {%- for brand_link in nav_links -%}
+                              {%- if brand_link.links == blank -%}
+                                <a href="{{ brand_link.url }}" class="f-site-nav__nav-col-header f-site-nav__nav-col-header--solo">
+                                  {{ brand_link.title }}
+                                </a>
+                              {%- endif -%}
+                            {%- endfor -%}
+                          </div>
+                        {%- endif -%}
                       </div>
                     </div>
                   {%- endif -%}
