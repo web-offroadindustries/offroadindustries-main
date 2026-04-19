@@ -40,6 +40,17 @@
             "show_divider": true
           }
         },
+        "link_list_GJrx4P": {
+          "type": "link_list",
+          "settings": {
+            "heading": "ORI Authorised Dealers",
+            "heading_size": "h6",
+            "menu": "footer-1",
+            "width": 25,
+            "open_default_collapsible_tab": false,
+            "show_divider": false
+          }
+        },
         "footer-0": {
           "type": "link_list",
           "disabled": true,
@@ -84,6 +95,7 @@
       "block_order": [
         "d2718812-c414-4fef-a2cc-7a964ed73dbe",
         "3ca4a887-a88e-43f9-9422-843cb335bfa6",
+        "link_list_GJrx4P",
         "footer-0",
         "link_list_ePTXrh",
         "8ea5fbcc-a81e-48ae-a337-2436b19c38af",
