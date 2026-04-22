@@ -1,1 +1,760 @@
-{"sections":{"1653903038c126b831":{"type":"slideshow","blocks":{"slide_39hWWW":{"type":"slide","settings":{"background":"shopify:\/\/shop_images\/Desktop-Slider-Banner-2-1920x1080px_Ford-F150.png","image_overlay_opacity":0,"content_position":"center","text_alignment":"center","text_color":"#000000","title":"","heading_size":"h2","heading_color":"","subheading":"","description":"","desc_size":"text-desc-base","button_text_1":"","button_link_1":"","button_style_1":"btn--primary","button_size_1":"","button_text_2":"","button_link_2":"","button_style_2":"btn--primary","button_size_2":""}},"slide_TmbWTM":{"type":"slide","settings":{"background":"shopify:\/\/shop_images\/Desktop-Slider-Banner-2-1920x1080px_silverado-2500.png","mb_background":"shopify:\/\/shop_images\/Desktop-Slider-Banner-2-1920x1080px_silverado-2500.png","image_overlay_opacity":0,"content_position":"center","text_alignment":"center","text_color":"#000000","title":"","heading_size":"h2","heading_color":"","subheading":"","description":"","desc_size":"text-desc-base","button_text_1":"","button_link_1":"","button_style_1":"btn--primary","button_size_1":"","button_text_2":"","button_link_2":"","button_style_2":"btn--primary","button_size_2":""}},"slide_MDYDqF":{"type":"slide","disabled":true,"settings":{"background":"shopify:\/\/shop_images\/bds-6-inch-lift-kit-fox-25-performance-elite-coil-over-ford-f150-21-25bdsbds1585fpe-445081.jpg","image_overlay_opacity":0,"content_position":"center-bottom","text_alignment":"center","text_color":"#ffffff","title":"","heading_size":"h-xl","heading_color":"#e1ea7a","subheading":"","description":"","desc_size":"text-desc-base","button_text_1":"","button_link_1":"","button_style_1":"btn--white","button_size_1":"","button_text_2":"","button_link_2":"","button_style_2":"btn--primary","button_size_2":""}}},"block_order":["slide_39hWWW","slide_TmbWTM","slide_MDYDqF"],"custom_css":["@media (min-width: 768px) {.f-slideshow__content {max-width: 42rem; }}"],"settings":{"container":"container-full","slideshow_height":"adapt","show_dots":false,"show_nav":false,"autoplay":true,"autorotate_speed":5,"pagination_background":"none","controls_position":"center","pagination_style":"dots","show_text_below":true,"text_alignment_mobile":"center","accessibility_info":"Slideshow about our brand","custom_id":"","custom_class":"","enable_bg_zoom_effect":false}},"1770092251a8cb32bd":{"type":"apps","blocks":{"tinyseo_heading_one_block_dgpt3L":{"type":"shopify:\/\/apps\/tinyseo\/blocks\/heading-one-block\/0605268f-f7c4-4e95-b560-e43df7d59ae4","settings":{"heading_one":"Choose Your OFFRoad Vehicle","text_align":"center","font_size":36,"font_weight":"normal","line_height":36,"color":"#000000","margin_top":20,"margin_right":5,"margin_bottom":20,"margin_left":5,"custom_css":""}},"easysearch_ymm_easysearch_widget_3eeiFK":{"type":"shopify:\/\/apps\/easysearch-ymm\/blocks\/easysearch-widget\/6d82686b-b68a-4b5e-98e3-e07b2b53d810","settings":{"show_at":"custom","placement_selector":"","insert_method":"prepend","padding_top":0,"padding_bottom":0}}},"block_order":["tinyseo_heading_one_block_dgpt3L","easysearch_ymm_easysearch_widget_3eeiFK"],"settings":{"container":"container","color_schema":"scheme-10","heading":"","highlight_style":"none","enable_highlight_text_color":false,"heading_size":"h2","heading_color":"","description":"","padding_top":20,"padding_bottom":20}},"video_kUd8dq":{"type":"video","name":"t:sections.video.presets.name","settings":{"container":"container","section_header_padding_bottom":"medium","section_header_content_spacing":"medium","heading":"ORI Fox 150 Packages","highlight_style":"none","enable_highlight_text_color":false,"heading_size":"h2","heading_color":"","subheading":"","description":"","video_type":"external","video_url":"https:\/\/www.youtube.com\/watch?v=aGHaFPaDuv4","cover_image":"shopify:\/\/shop_images\/OFFROAD_INDUSTRIES_-_FOX_F150_-_12.03.2024_-_Matt_Williams_-_WEB_RES-1037_7fbfcd95-895e-4aca-a8cd-8c7dacf0637b.jpg","video_ratio":"adapt","autoplay_video":true,"padding_top":40,"padding_bottom":40,"show_section_divider":false,"divider_width":"container","custom_id":"","custom_class":"","animations":"inherit"}},"uneven_image_cards_bkLjJt":{"type":"uneven-image-cards","blocks":{"image_with_text_DKJpNL":{"type":"image_with_text","settings":{"image":"shopify:\/\/shop_images\/IMG_1555_2.png","image_ratio":"adapt","sub_heading":"Addoffroad Stealth Fighter","heading":"Chevy Silverado ZR2","highlight_style":"drawer_line","enable_highlight_text_color":false,"heading_size":"h3","heading_color":"","description":"","button_label":"Shop Now","button_link":"shopify:\/\/products\/addoffroad-stealth-fighter-bar-chevy-silverado-zr2","button_style":"btn--secondary","text_alignment":"center","content_spacing":"small"}},"image_card_FyJ7iw":{"type":"image_card","settings":{"layout":"layout1","text_color":"#ffffff","image":"shopify:\/\/shop_images\/image_-_2026-02-17T205945.442.png","image_ratio":"adapt","image_overlay_opacity":0,"sub_heading":"","heading":"","highlight_style":"none","enable_highlight_text_color":false,"heading_size":"h1","heading_color":"","description":"","button_label":"","button_link":"","button_style":"btn--underline","vertical_content_padding":56,"vertical_content_padding_mobile":40}}},"block_order":["image_with_text_DKJpNL","image_card_FyJ7iw"],"disabled":true,"custom_css":["@media (min-width: 768px) {.section__header--text {max-width: 57rem; margin-inline: auto; }}"],"settings":{"color_schema":"","section_header_padding_bottom":"small","section_header_content_spacing":"small","heading":"ORI GVM packages","highlight_style":"none","enable_highlight_text_color":false,"heading_size":"h3","heading_color":"","subheading":"Whats new at ORI","description":"","vertical_alignment":"center","padding_top":40,"padding_bottom":40,"show_section_divider":false,"divider_width":"container","custom_id":"","custom_class":"","animations":"inherit"}},"scrolling_promotion_iqVp4T":{"type":"scrolling-promotion","blocks":{"image_V8QxeT":{"type":"image","settings":{"image":"shopify:\/\/shop_images\/420_x_420px_MEGA_MENU_ICON__BDS.jpg","image_height":120,"image_link":"shopify:\/\/collections\/bds-suspension-australian-distributor","use_custom_spacing":false,"margin_left":10,"margin_right":10,"margin_left_mobile":10,"margin_right_mobile":10}},"announcement_dFJCAx":{"type":"announcement","settings":{"text":"BDSSuspension","font_family":"body","text_size":30,"text_link":"","use_custom_spacing":false,"margin_left":10,"margin_right":10,"margin_left_mobile":10,"margin_right_mobile":10}},"divider_ra8kGw":{"type":"divider","settings":{"width":64,"use_custom_spacing":false,"margin_left":10,"margin_right":10,"margin_left_mobile":10,"margin_right_mobile":10}},"image_JkfQc4":{"type":"image","settings":{"image":"shopify:\/\/shop_images\/420_x_420px_MEGA_MENU_ICON__FOX.jpg","image_height":120,"image_link":"","use_custom_spacing":false,"margin_left":10,"margin_right":10,"margin_left_mobile":10,"margin_right_mobile":10}},"announcement_7NbxBT":{"type":"announcement","settings":{"text":"Fox Suspension","font_family":"body","text_size":30,"text_link":"","use_custom_spacing":false,"margin_left":10,"margin_right":10,"margin_left_mobile":10,"margin_right_mobile":10}},"divider_HyyX8h":{"type":"divider","settings":{"width":64,"use_custom_spacing":false,"margin_left":10,"margin_right":10,"margin_left_mobile":10,"margin_right_mobile":10}},"image_CMHfbV":{"type":"image","settings":{"image":"shopify:\/\/shop_images\/420_x_420px_MEGA_MENU_ICON__BAJA_DESIGNS.jpg","image_height":80,"image_link":"shopify:\/\/collections\/baja-designs","use_custom_spacing":true,"margin_left":0,"margin_right":20,"margin_left_mobile":0,"margin_right_mobile":20}},"announcement_Ck9fgL":{"type":"announcement","settings":{"text":"Baja Designs","font_family":"heading","text_size":34,"text_link":"","use_custom_spacing":true,"margin_left":0,"margin_right":30,"margin_left_mobile":0,"margin_right_mobile":16}},"divider_qMNDMW":{"type":"divider","settings":{"width":64,"use_custom_spacing":true,"margin_left":0,"margin_right":30,"margin_left_mobile":0,"margin_right_mobile":16}},"image_cqXJGB":{"type":"image","settings":{"image":"shopify:\/\/shop_images\/ADD-OFFROAD-21-FORD-RAPTOR-Phantom-Rear-Bumper-Installation-Guide-1.png","image_height":80,"image_link":"","use_custom_spacing":true,"margin_left":0,"margin_right":20,"margin_left_mobile":0,"margin_right_mobile":20}},"announcement_kcKcYP":{"type":"announcement","settings":{"text":"Active Desert Designs Offroad","font_family":"heading","text_size":34,"text_link":"","use_custom_spacing":true,"margin_left":0,"margin_right":30,"margin_left_mobile":0,"margin_right_mobile":16}},"divider_nWecrt":{"type":"divider","settings":{"width":64,"use_custom_spacing":true,"margin_left":0,"margin_right":30,"margin_left_mobile":0,"margin_right_mobile":16}},"image_xj6yaA":{"type":"image","settings":{"image":"shopify:\/\/shop_images\/huskyliners-logo-fullcolor-24206_4x_68ee4016-c4a6-4e86-b15e-f8f048d6e1d0.png","image_height":80,"image_link":"","use_custom_spacing":true,"margin_left":0,"margin_right":20,"margin_left_mobile":0,"margin_right_mobile":20}},"announcement_rVDhn4":{"type":"announcement","settings":{"text":"Husky Liners","font_family":"heading","text_size":34,"text_link":"","use_custom_spacing":true,"margin_left":0,"margin_right":30,"margin_left_mobile":0,"margin_right_mobile":16}},"divider_VyRtkM":{"type":"divider","settings":{"width":64,"use_custom_spacing":true,"margin_left":0,"margin_right":30,"margin_left_mobile":0,"margin_right_mobile":16}}},"block_order":["image_V8QxeT","announcement_dFJCAx","divider_ra8kGw","image_JkfQc4","announcement_7NbxBT","divider_HyyX8h","image_CMHfbV","announcement_Ck9fgL","divider_qMNDMW","image_cqXJGB","announcement_kcKcYP","divider_nWecrt","image_xj6yaA","announcement_rVDhn4","divider_VyRtkM"],"settings":{"container":"container-full","color_schema":"","section_header_padding_bottom":"medium","section_header_content_spacing":"medium","heading":"","highlight_style":"none","enable_highlight_text_color":false,"heading_size":"h2","heading_color":"","subheading":"","description":"","alignment":"center","direction":"left","pause_on_hover":true,"speed":0.2,"item_gap":0,"item_gap_mobile":0,"padding_top":40,"padding_bottom":40,"use_custom_mobile_padding":true,"padding_top_mobile":20,"padding_bottom_mobile":20,"show_section_divider":false,"divider_width":"container-full","custom_id":"","custom_class":""}},"hero_8BNkhD":{"type":"hero","blocks":{"subtitle_3GEAxk":{"type":"subtitle","settings":{"subtitle":""}},"title_ymPcbc":{"type":"title","settings":{"title":"Addoffroad Exclusive or ORI","highlight_style":"none","enable_highlight_text_color":false,"heading_size":"h-xl","heading_color":"#ffffff"}},"text_CDfQbC":{"type":"text","settings":{"text":""}},"button_NpYePP":{"type":"button","settings":{"button_label":"Shop Now","button_link":"shopify:\/\/collections\/addictive-desert-designs","button_style":"btn--white","button_size":""}}},"block_order":["subtitle_3GEAxk","title_ymPcbc","text_CDfQbC","button_NpYePP"],"settings":{"container":"container-full","image":"shopify:\/\/shop_images\/chevy-2500HD-blue.png","image_mobile":"shopify:\/\/shop_images\/chevy-2500HD-blue.png","image_overlay_opacity":20,"hero_height":"adapt","content_in_container":false,"content_position":"center-bottom","text_alignment":"center","text_color":"#ffffff","hero_height_mobile":"adapt","content_position_mobile":"center","show_text_below":false,"text_alignment_mobile":"center","custom_id":"","custom_class":"","animations":"inherit","enable_bg_zoom_effect":true}},"products_bundle_jFkhY9":{"type":"products-bundle","blocks":{"product_6VG8yJ":{"type":"product","settings":{"product":"husky-liners-weatherbeater-floor-liners-ford-f150-2021","hotspot_color":"light","horizontal":45,"vertical":33}},"product_xT3cFm":{"type":"product","settings":{"product":"avs-low-profile-weather-shields-smoke-ford-f150-2021","hotspot_color":"light","horizontal":30,"vertical":68}},"product_kNg8JP":{"type":"product","settings":{"product":"husky-heavy-duty-bed-mat-ford-f150-xlt-lariat","hotspot_color":"light","horizontal":74,"vertical":52}}},"block_order":["product_6VG8yJ","product_xT3cFm","product_kNg8JP"],"settings":{"container":"container","color_schema":"","image":"shopify:\/\/shop_images\/bds-6-inch-lift-kit-fox-25-performance-elite-coil-over-ford-f150-21-25bdsbds1585fpe-445081.jpg","image_position":"left","desktop_content_position":"center","subheading":"","heading":"<p>Ford F150 Accessories 2021+<\/p>","highlight_style":"none","enable_highlight_text_color":false,"heading_size":"h-xl","desktop_content_alignment":"left","mobile_content_alignment":"left","padding_left":100,"padding_right":50,"align_content_container":"none","mobile_padding_left":0,"mobile_padding_right":0,"padding_top":40,"padding_bottom":40,"padding_top_mobile":48,"padding_bottom_mobile":0,"show_section_divider":false,"divider_width":"container","custom_id":"","custom_class":"","animations":"inherit"}},"b9a09ce1-0384-4aac-8a69-af32bf73a5e8":{"type":"collage-tabs","blocks":{"template--16355052454049__b9a09ce1-0384-4aac-8a69-af32bf73a5e8-tab-1":{"type":"tab","disabled":true,"settings":{"content_color_schema":"scheme-5","navigation_title":"New to ORI - BANK Products","image":"shopify:\/\/shop_images\/banks-ram-air-cold-air-intake-w-massive-oileddry-filter-super-tube-air-mass-control-moduleoffroad-industries42266-794466.png","heading":"New to ORI BANKS Products","highlight_style":"none","enable_highlight_text_color":false,"heading_size":"h-xl","heading_color":"","subheading":"Performance Products","description":"<p>New range of Aftermarket Accessories brought to you buy offroad Industries.<\/p>","text_alignment":"center","button_label":"Shop Now","button_link":"","button_style":"btn--primary","mobile_text_alignment":"inherit"}}},"block_order":["template--16355052454049__b9a09ce1-0384-4aac-8a69-af32bf73a5e8-tab-1"],"settings":{"container":"container-full","color_schema":"","tab_heading_size":"h4","desktop_navigation_alignment":"center","desktop_image_position":"left","desktop_image_width":50,"image_aspect_ratio":"adapt","padding_top":0,"padding_bottom":0,"show_section_divider":false,"divider_width":"container","custom_id":"","custom_class":"","animations":"inherit"}},"contact_form_v3_yGfhUr":{"type":"contact-form-v3","blocks":{"first_name_WCLahd":{"type":"first_name","settings":{"placeholder":"First Name","required":true,"width":"half"}},"last_name_RVPHiC":{"type":"last_name","settings":{"placeholder":"Last Name","required":true,"width":"half"}},"email_bNAnxW":{"type":"email","settings":{"placeholder":"Email Address","required":true,"width":"full"}},"car_ttBVDC":{"type":"car","settings":{"placeholder":"Car Make, Year & Model","required":false,"width":"full"}},"message_WpXFNx":{"type":"message","settings":{"placeholder":"Your Inquiry...","rows":8,"required":true,"width":"full"}}},"block_order":["first_name_WCLahd","last_name_RVPHiC","email_bNAnxW","car_ttBVDC","message_WpXFNx"],"name":"Contact Form v3","settings":{"title":"Get in touch with us!","subtitle":"","phone":"","email":"","button_label":"Submit Enquiry","success_message":"Thanks! We received your enquiry and will get back to you soon.","columns_desktop":"2","max_width":900,"section_bg_color":"#ffffff","overlay_opacity":0,"form_bg_color":"#ffffff","text_color":"#000000","button_bg":"#e97750","button_text":"#ffffff","padding_top":60,"padding_bottom":60}}},"order":["1653903038c126b831","1770092251a8cb32bd","video_kUd8dq","uneven_image_cards_bkLjJt","scrolling_promotion_iqVp4T","hero_8BNkhD","products_bundle_jFkhY9","b9a09ce1-0384-4aac-8a69-af32bf73a5e8","contact_form_v3_yGfhUr"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "1653903038c126b831": {
+      "type": "slideshow",
+      "blocks": {
+        "slide_39hWWW": {
+          "type": "slide",
+          "settings": {
+            "background": "shopify://shop_images/Desktop-Slider-Banner-2-1920x1080px_Ford-F150.png",
+            "image_overlay_opacity": 0,
+            "content_position": "center",
+            "text_alignment": "center",
+            "text_color": "#000000",
+            "title": "",
+            "heading_size": "h2",
+            "heading_color": "",
+            "subheading": "",
+            "description": "",
+            "desc_size": "text-desc-base",
+            "button_text_1": "",
+            "button_link_1": "",
+            "button_style_1": "btn--primary",
+            "button_size_1": "",
+            "button_text_2": "",
+            "button_link_2": "",
+            "button_style_2": "btn--primary",
+            "button_size_2": ""
+          }
+        },
+        "slide_TmbWTM": {
+          "type": "slide",
+          "settings": {
+            "background": "shopify://shop_images/Desktop_Slider_Banner_2_1920x1080px_silverado_2500_IMAGE_ONLY_94e476d4-a785-44a2-84cb-ef9690e34088.jpg",
+            "mb_background": "shopify://shop_images/Desktop_Slider_Banner_2_1920x1080px_silverado_2500_IMAGE_ONLY_94e476d4-a785-44a2-84cb-ef9690e34088.jpg",
+            "image_overlay_opacity": 0,
+            "content_position": "center",
+            "text_alignment": "center",
+            "text_color": "#000000",
+            "title": "",
+            "heading_size": "h2",
+            "heading_color": "",
+            "subheading": "",
+            "description": "",
+            "desc_size": "text-desc-base",
+            "button_text_1": "",
+            "button_link_1": "",
+            "button_style_1": "btn--primary",
+            "button_size_1": "",
+            "button_text_2": "",
+            "button_link_2": "",
+            "button_style_2": "btn--primary",
+            "button_size_2": ""
+          }
+        },
+        "slide_MDYDqF": {
+          "type": "slide",
+          "disabled": true,
+          "settings": {
+            "background": "shopify://shop_images/bds-6-inch-lift-kit-fox-25-performance-elite-coil-over-ford-f150-21-25bdsbds1585fpe-445081.jpg",
+            "image_overlay_opacity": 0,
+            "content_position": "center-bottom",
+            "text_alignment": "center",
+            "text_color": "#ffffff",
+            "title": "",
+            "heading_size": "h-xl",
+            "heading_color": "#e1ea7a",
+            "subheading": "",
+            "description": "",
+            "desc_size": "text-desc-base",
+            "button_text_1": "",
+            "button_link_1": "",
+            "button_style_1": "btn--white",
+            "button_size_1": "",
+            "button_text_2": "",
+            "button_link_2": "",
+            "button_style_2": "btn--primary",
+            "button_size_2": ""
+          }
+        }
+      },
+      "block_order": [
+        "slide_39hWWW",
+        "slide_TmbWTM",
+        "slide_MDYDqF"
+      ],
+      "custom_css": [
+        "@media (min-width: 768px) {.f-slideshow__content {max-width: 42rem; }}"
+      ],
+      "settings": {
+        "container": "container-full",
+        "slideshow_height": "adapt",
+        "show_dots": false,
+        "show_nav": false,
+        "autoplay": true,
+        "autorotate_speed": 5,
+        "pagination_background": "none",
+        "controls_position": "center",
+        "pagination_style": "dots",
+        "show_text_below": true,
+        "text_alignment_mobile": "center",
+        "accessibility_info": "Slideshow about our brand",
+        "custom_id": "",
+        "custom_class": "",
+        "enable_bg_zoom_effect": false
+      }
+    },
+    "1770092251a8cb32bd": {
+      "type": "apps",
+      "blocks": {
+        "tinyseo_heading_one_block_dgpt3L": {
+          "type": "shopify://apps/tinyseo/blocks/heading-one-block/0605268f-f7c4-4e95-b560-e43df7d59ae4",
+          "settings": {
+            "heading_one": "Choose Your OFFRoad Vehicle",
+            "text_align": "center",
+            "font_size": 36,
+            "font_weight": "normal",
+            "line_height": 36,
+            "color": "#000000",
+            "margin_top": 20,
+            "margin_right": 5,
+            "margin_bottom": 20,
+            "margin_left": 5,
+            "custom_css": ""
+          }
+        },
+        "easysearch_ymm_easysearch_widget_3eeiFK": {
+          "type": "shopify://apps/easysearch-ymm/blocks/easysearch-widget/6d82686b-b68a-4b5e-98e3-e07b2b53d810",
+          "settings": {
+            "show_at": "custom",
+            "placement_selector": "",
+            "insert_method": "prepend",
+            "padding_top": 0,
+            "padding_bottom": 0
+          }
+        }
+      },
+      "block_order": [
+        "tinyseo_heading_one_block_dgpt3L",
+        "easysearch_ymm_easysearch_widget_3eeiFK"
+      ],
+      "settings": {
+        "container": "container",
+        "color_schema": "scheme-10",
+        "heading": "",
+        "highlight_style": "none",
+        "enable_highlight_text_color": false,
+        "heading_size": "h2",
+        "heading_color": "",
+        "description": "",
+        "padding_top": 20,
+        "padding_bottom": 20
+      }
+    },
+    "video_kUd8dq": {
+      "type": "video",
+      "name": "t:sections.video.presets.name",
+      "settings": {
+        "container": "container",
+        "section_header_padding_bottom": "medium",
+        "section_header_content_spacing": "medium",
+        "heading": "ORI Fox 150 Packages",
+        "highlight_style": "none",
+        "enable_highlight_text_color": false,
+        "heading_size": "h2",
+        "heading_color": "",
+        "subheading": "",
+        "description": "",
+        "video_type": "external",
+        "video_url": "https://www.youtube.com/watch?v=aGHaFPaDuv4",
+        "cover_image": "shopify://shop_images/OFFROAD_INDUSTRIES_-_FOX_F150_-_12.03.2024_-_Matt_Williams_-_WEB_RES-1037_7fbfcd95-895e-4aca-a8cd-8c7dacf0637b.jpg",
+        "video_ratio": "adapt",
+        "autoplay_video": true,
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "show_section_divider": false,
+        "divider_width": "container",
+        "custom_id": "",
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "uneven_image_cards_bkLjJt": {
+      "type": "uneven-image-cards",
+      "blocks": {
+        "image_with_text_DKJpNL": {
+          "type": "image_with_text",
+          "settings": {
+            "image": "shopify://shop_images/IMG_1555_2.png",
+            "image_ratio": "adapt",
+            "sub_heading": "Addoffroad Stealth Fighter",
+            "heading": "Chevy Silverado ZR2",
+            "highlight_style": "drawer_line",
+            "enable_highlight_text_color": false,
+            "heading_size": "h3",
+            "heading_color": "",
+            "description": "",
+            "button_label": "Shop Now",
+            "button_link": "shopify://products/addoffroad-stealth-fighter-bar-chevy-silverado-zr2",
+            "button_style": "btn--secondary",
+            "text_alignment": "center",
+            "content_spacing": "small"
+          }
+        },
+        "image_card_FyJ7iw": {
+          "type": "image_card",
+          "settings": {
+            "layout": "layout1",
+            "text_color": "#ffffff",
+            "image": "shopify://shop_images/image_-_2026-02-17T205945.442.png",
+            "image_ratio": "adapt",
+            "image_overlay_opacity": 0,
+            "sub_heading": "",
+            "heading": "",
+            "highlight_style": "none",
+            "enable_highlight_text_color": false,
+            "heading_size": "h1",
+            "heading_color": "",
+            "description": "",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "btn--underline",
+            "vertical_content_padding": 56,
+            "vertical_content_padding_mobile": 40
+          }
+        }
+      },
+      "block_order": [
+        "image_with_text_DKJpNL",
+        "image_card_FyJ7iw"
+      ],
+      "disabled": true,
+      "custom_css": [
+        "@media (min-width: 768px) {.section__header--text {max-width: 57rem; margin-inline: auto; }}"
+      ],
+      "settings": {
+        "color_schema": "",
+        "section_header_padding_bottom": "small",
+        "section_header_content_spacing": "small",
+        "heading": "ORI GVM packages",
+        "highlight_style": "none",
+        "enable_highlight_text_color": false,
+        "heading_size": "h3",
+        "heading_color": "",
+        "subheading": "Whats new at ORI",
+        "description": "",
+        "vertical_alignment": "center",
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "show_section_divider": false,
+        "divider_width": "container",
+        "custom_id": "",
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "scrolling_promotion_iqVp4T": {
+      "type": "scrolling-promotion",
+      "blocks": {
+        "image_V8QxeT": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/420_x_420px_MEGA_MENU_ICON__BDS.jpg",
+            "image_height": 120,
+            "image_link": "shopify://collections/bds-suspension-australian-distributor",
+            "use_custom_spacing": false,
+            "margin_left": 10,
+            "margin_right": 10,
+            "margin_left_mobile": 10,
+            "margin_right_mobile": 10
+          }
+        },
+        "announcement_dFJCAx": {
+          "type": "announcement",
+          "settings": {
+            "text": "BDSSuspension",
+            "font_family": "body",
+            "text_size": 30,
+            "text_link": "",
+            "use_custom_spacing": false,
+            "margin_left": 10,
+            "margin_right": 10,
+            "margin_left_mobile": 10,
+            "margin_right_mobile": 10
+          }
+        },
+        "divider_ra8kGw": {
+          "type": "divider",
+          "settings": {
+            "width": 64,
+            "use_custom_spacing": false,
+            "margin_left": 10,
+            "margin_right": 10,
+            "margin_left_mobile": 10,
+            "margin_right_mobile": 10
+          }
+        },
+        "image_JkfQc4": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/420_x_420px_MEGA_MENU_ICON__FOX.jpg",
+            "image_height": 120,
+            "image_link": "",
+            "use_custom_spacing": false,
+            "margin_left": 10,
+            "margin_right": 10,
+            "margin_left_mobile": 10,
+            "margin_right_mobile": 10
+          }
+        },
+        "announcement_7NbxBT": {
+          "type": "announcement",
+          "settings": {
+            "text": "Fox Suspension",
+            "font_family": "body",
+            "text_size": 30,
+            "text_link": "",
+            "use_custom_spacing": false,
+            "margin_left": 10,
+            "margin_right": 10,
+            "margin_left_mobile": 10,
+            "margin_right_mobile": 10
+          }
+        },
+        "divider_HyyX8h": {
+          "type": "divider",
+          "settings": {
+            "width": 64,
+            "use_custom_spacing": false,
+            "margin_left": 10,
+            "margin_right": 10,
+            "margin_left_mobile": 10,
+            "margin_right_mobile": 10
+          }
+        },
+        "image_CMHfbV": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/420_x_420px_MEGA_MENU_ICON__BAJA_DESIGNS.jpg",
+            "image_height": 80,
+            "image_link": "shopify://collections/baja-designs",
+            "use_custom_spacing": true,
+            "margin_left": 0,
+            "margin_right": 20,
+            "margin_left_mobile": 0,
+            "margin_right_mobile": 20
+          }
+        },
+        "announcement_Ck9fgL": {
+          "type": "announcement",
+          "settings": {
+            "text": "Baja Designs",
+            "font_family": "heading",
+            "text_size": 34,
+            "text_link": "",
+            "use_custom_spacing": true,
+            "margin_left": 0,
+            "margin_right": 30,
+            "margin_left_mobile": 0,
+            "margin_right_mobile": 16
+          }
+        },
+        "divider_qMNDMW": {
+          "type": "divider",
+          "settings": {
+            "width": 64,
+            "use_custom_spacing": true,
+            "margin_left": 0,
+            "margin_right": 30,
+            "margin_left_mobile": 0,
+            "margin_right_mobile": 16
+          }
+        },
+        "image_cqXJGB": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/ADD-OFFROAD-21-FORD-RAPTOR-Phantom-Rear-Bumper-Installation-Guide-1.png",
+            "image_height": 80,
+            "image_link": "",
+            "use_custom_spacing": true,
+            "margin_left": 0,
+            "margin_right": 20,
+            "margin_left_mobile": 0,
+            "margin_right_mobile": 20
+          }
+        },
+        "announcement_kcKcYP": {
+          "type": "announcement",
+          "settings": {
+            "text": "Active Desert Designs Offroad",
+            "font_family": "heading",
+            "text_size": 34,
+            "text_link": "",
+            "use_custom_spacing": true,
+            "margin_left": 0,
+            "margin_right": 30,
+            "margin_left_mobile": 0,
+            "margin_right_mobile": 16
+          }
+        },
+        "divider_nWecrt": {
+          "type": "divider",
+          "settings": {
+            "width": 64,
+            "use_custom_spacing": true,
+            "margin_left": 0,
+            "margin_right": 30,
+            "margin_left_mobile": 0,
+            "margin_right_mobile": 16
+          }
+        },
+        "image_xj6yaA": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/huskyliners-logo-fullcolor-24206_4x_68ee4016-c4a6-4e86-b15e-f8f048d6e1d0.png",
+            "image_height": 80,
+            "image_link": "",
+            "use_custom_spacing": true,
+            "margin_left": 0,
+            "margin_right": 20,
+            "margin_left_mobile": 0,
+            "margin_right_mobile": 20
+          }
+        },
+        "announcement_rVDhn4": {
+          "type": "announcement",
+          "settings": {
+            "text": "Husky Liners",
+            "font_family": "heading",
+            "text_size": 34,
+            "text_link": "",
+            "use_custom_spacing": true,
+            "margin_left": 0,
+            "margin_right": 30,
+            "margin_left_mobile": 0,
+            "margin_right_mobile": 16
+          }
+        },
+        "divider_VyRtkM": {
+          "type": "divider",
+          "settings": {
+            "width": 64,
+            "use_custom_spacing": true,
+            "margin_left": 0,
+            "margin_right": 30,
+            "margin_left_mobile": 0,
+            "margin_right_mobile": 16
+          }
+        }
+      },
+      "block_order": [
+        "image_V8QxeT",
+        "announcement_dFJCAx",
+        "divider_ra8kGw",
+        "image_JkfQc4",
+        "announcement_7NbxBT",
+        "divider_HyyX8h",
+        "image_CMHfbV",
+        "announcement_Ck9fgL",
+        "divider_qMNDMW",
+        "image_cqXJGB",
+        "announcement_kcKcYP",
+        "divider_nWecrt",
+        "image_xj6yaA",
+        "announcement_rVDhn4",
+        "divider_VyRtkM"
+      ],
+      "settings": {
+        "container": "container-full",
+        "color_schema": "",
+        "section_header_padding_bottom": "medium",
+        "section_header_content_spacing": "medium",
+        "heading": "",
+        "highlight_style": "none",
+        "enable_highlight_text_color": false,
+        "heading_size": "h2",
+        "heading_color": "",
+        "subheading": "",
+        "description": "",
+        "alignment": "center",
+        "direction": "left",
+        "pause_on_hover": true,
+        "speed": 0.2,
+        "item_gap": 0,
+        "item_gap_mobile": 0,
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "use_custom_mobile_padding": true,
+        "padding_top_mobile": 20,
+        "padding_bottom_mobile": 20,
+        "show_section_divider": false,
+        "divider_width": "container-full",
+        "custom_id": "",
+        "custom_class": ""
+      }
+    },
+    "hero_8BNkhD": {
+      "type": "hero",
+      "blocks": {
+        "subtitle_3GEAxk": {
+          "type": "subtitle",
+          "settings": {
+            "subtitle": ""
+          }
+        },
+        "title_ymPcbc": {
+          "type": "title",
+          "settings": {
+            "title": "Addoffroad Exclusive or ORI",
+            "highlight_style": "none",
+            "enable_highlight_text_color": false,
+            "heading_size": "h-xl",
+            "heading_color": "#ffffff"
+          }
+        },
+        "text_CDfQbC": {
+          "type": "text",
+          "settings": {
+            "text": ""
+          }
+        },
+        "button_NpYePP": {
+          "type": "button",
+          "settings": {
+            "button_label": "Shop Now",
+            "button_link": "shopify://collections/addictive-desert-designs",
+            "button_style": "btn--white",
+            "button_size": ""
+          }
+        }
+      },
+      "block_order": [
+        "subtitle_3GEAxk",
+        "title_ymPcbc",
+        "text_CDfQbC",
+        "button_NpYePP"
+      ],
+      "settings": {
+        "container": "container-full",
+        "image": "shopify://shop_images/chevy-2500HD-blue.png",
+        "image_mobile": "shopify://shop_images/chevy-2500HD-blue.png",
+        "image_overlay_opacity": 20,
+        "hero_height": "adapt",
+        "content_in_container": false,
+        "content_position": "center-bottom",
+        "text_alignment": "center",
+        "text_color": "#ffffff",
+        "hero_height_mobile": "adapt",
+        "content_position_mobile": "center",
+        "show_text_below": false,
+        "text_alignment_mobile": "center",
+        "custom_id": "",
+        "custom_class": "",
+        "animations": "inherit",
+        "enable_bg_zoom_effect": true
+      }
+    },
+    "products_bundle_jFkhY9": {
+      "type": "products-bundle",
+      "blocks": {
+        "product_6VG8yJ": {
+          "type": "product",
+          "settings": {
+            "product": "husky-liners-weatherbeater-floor-liners-ford-f150-2021",
+            "hotspot_color": "light",
+            "horizontal": 45,
+            "vertical": 33
+          }
+        },
+        "product_xT3cFm": {
+          "type": "product",
+          "settings": {
+            "product": "avs-low-profile-weather-shields-smoke-ford-f150-2021",
+            "hotspot_color": "light",
+            "horizontal": 30,
+            "vertical": 68
+          }
+        },
+        "product_kNg8JP": {
+          "type": "product",
+          "settings": {
+            "product": "husky-heavy-duty-bed-mat-ford-f150-xlt-lariat",
+            "hotspot_color": "light",
+            "horizontal": 74,
+            "vertical": 52
+          }
+        }
+      },
+      "block_order": [
+        "product_6VG8yJ",
+        "product_xT3cFm",
+        "product_kNg8JP"
+      ],
+      "settings": {
+        "container": "container",
+        "color_schema": "",
+        "image": "shopify://shop_images/bds-6-inch-lift-kit-fox-25-performance-elite-coil-over-ford-f150-21-25bdsbds1585fpe-445081.jpg",
+        "image_position": "left",
+        "desktop_content_position": "center",
+        "subheading": "",
+        "heading": "<p>Ford F150 Accessories 2021+</p>",
+        "highlight_style": "none",
+        "enable_highlight_text_color": false,
+        "heading_size": "h-xl",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "padding_left": 100,
+        "padding_right": 50,
+        "align_content_container": "none",
+        "mobile_padding_left": 0,
+        "mobile_padding_right": 0,
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "padding_top_mobile": 48,
+        "padding_bottom_mobile": 0,
+        "show_section_divider": false,
+        "divider_width": "container",
+        "custom_id": "",
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "b9a09ce1-0384-4aac-8a69-af32bf73a5e8": {
+      "type": "collage-tabs",
+      "blocks": {
+        "template--16355052454049__b9a09ce1-0384-4aac-8a69-af32bf73a5e8-tab-1": {
+          "type": "tab",
+          "disabled": true,
+          "settings": {
+            "content_color_schema": "scheme-5",
+            "navigation_title": "New to ORI - BANK Products",
+            "image": "shopify://shop_images/banks-ram-air-cold-air-intake-w-massive-oileddry-filter-super-tube-air-mass-control-moduleoffroad-industries42266-794466.png",
+            "heading": "New to ORI BANKS Products",
+            "highlight_style": "none",
+            "enable_highlight_text_color": false,
+            "heading_size": "h-xl",
+            "heading_color": "",
+            "subheading": "Performance Products",
+            "description": "<p>New range of Aftermarket Accessories brought to you buy offroad Industries.</p>",
+            "text_alignment": "center",
+            "button_label": "Shop Now",
+            "button_link": "",
+            "button_style": "btn--primary",
+            "mobile_text_alignment": "inherit"
+          }
+        }
+      },
+      "block_order": [
+        "template--16355052454049__b9a09ce1-0384-4aac-8a69-af32bf73a5e8-tab-1"
+      ],
+      "settings": {
+        "container": "container-full",
+        "color_schema": "",
+        "tab_heading_size": "h4",
+        "desktop_navigation_alignment": "center",
+        "desktop_image_position": "left",
+        "desktop_image_width": 50,
+        "image_aspect_ratio": "adapt",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "show_section_divider": false,
+        "divider_width": "container",
+        "custom_id": "",
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "contact_form_v3_yGfhUr": {
+      "type": "contact-form-v3",
+      "blocks": {
+        "first_name_WCLahd": {
+          "type": "first_name",
+          "settings": {
+            "placeholder": "First Name",
+            "required": true,
+            "width": "half"
+          }
+        },
+        "last_name_RVPHiC": {
+          "type": "last_name",
+          "settings": {
+            "placeholder": "Last Name",
+            "required": true,
+            "width": "half"
+          }
+        },
+        "email_bNAnxW": {
+          "type": "email",
+          "settings": {
+            "placeholder": "Email Address",
+            "required": true,
+            "width": "full"
+          }
+        },
+        "car_ttBVDC": {
+          "type": "car",
+          "settings": {
+            "placeholder": "Car Make, Year & Model",
+            "required": false,
+            "width": "full"
+          }
+        },
+        "message_WpXFNx": {
+          "type": "message",
+          "settings": {
+            "placeholder": "Your Inquiry...",
+            "rows": 8,
+            "required": true,
+            "width": "full"
+          }
+        }
+      },
+      "block_order": [
+        "first_name_WCLahd",
+        "last_name_RVPHiC",
+        "email_bNAnxW",
+        "car_ttBVDC",
+        "message_WpXFNx"
+      ],
+      "name": "Contact Form v3",
+      "settings": {
+        "title": "Get in touch with us!",
+        "subtitle": "",
+        "phone": "",
+        "email": "",
+        "button_label": "Submit Enquiry",
+        "success_message": "Thanks! We received your enquiry and will get back to you soon.",
+        "columns_desktop": "2",
+        "max_width": 900,
+        "section_bg_color": "#ffffff",
+        "overlay_opacity": 0,
+        "form_bg_color": "#ffffff",
+        "text_color": "#000000",
+        "button_bg": "#e97750",
+        "button_text": "#ffffff",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    }
+  },
+  "order": [
+    "1653903038c126b831",
+    "1770092251a8cb32bd",
+    "video_kUd8dq",
+    "uneven_image_cards_bkLjJt",
+    "scrolling_promotion_iqVp4T",
+    "hero_8BNkhD",
+    "products_bundle_jFkhY9",
+    "b9a09ce1-0384-4aac-8a69-af32bf73a5e8",
+    "contact_form_v3_yGfhUr"
+  ]
+}
