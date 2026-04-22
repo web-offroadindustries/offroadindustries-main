@@ -114,6 +114,7 @@
         "mobile_show_social": false,
         "show_promo_badge": true,
         "promo_badge_image": "shopify://shop_images/GVM_LOGO_FINAL-WHITE_HORIZONTAL.png",
+        "promo_badge_hover_image": "shopify://shop_images/GVM_LOGO_FINAL-01.png",
         "promo_badge_link": "shopify://pages/ori-gvm-upgrades",
         "promo_badge_width": 130,
         "promo_badge_mobile_width": 140,
@@ -434,7 +435,7 @@
         "brand_tile_jeT4qf": {
           "type": "brand_tile",
           "settings": {
-            "logo": "shopify://shop_images/SILVERADO_1500_copy_4.jpg",
+            "logo": "shopify://shop_images/SILVERADO_1500_copy_4_fb4ac951-398c-43ed-8574-f5703c47c0a4.jpg",
             "label": "Chevy Silverado 1500",
             "link": "https://www.offroadindustries.com.au/pages/chevrolet-silverado-1500-gvm-package"
           }
@@ -442,7 +443,7 @@
         "brand_tile_BrPGR7": {
           "type": "brand_tile",
           "settings": {
-            "logo": "shopify://shop_images/SILVERADO_2500_copy_4.jpg",
+            "logo": "shopify://shop_images/SILVERADO_2500_copy_4_1f45335a-303d-4bc6-af62-83ff8ee85a8a.jpg",
             "label": "Chevy Silverado 2500",
             "link": "https://www.offroadindustries.com.au/pages/chevy-silverado-2500hd-gvm-packages"
           }
@@ -450,7 +451,7 @@
         "brand_tile_YDDwKb": {
           "type": "brand_tile",
           "settings": {
-            "logo": "shopify://shop_images/F150_copy_3.jpg",
+            "logo": "shopify://shop_images/F150_copy_3_301d0aa8-a172-4a72-93dd-92c3038fbfc6.jpg",
             "label": "Ford 150",
             "link": "https://www.offroadindustries.com.au/pages/ford-150-gvm-packages"
           }
@@ -458,7 +459,7 @@
         "brand_tile_CEAayT": {
           "type": "brand_tile",
           "settings": {
-            "logo": "shopify://shop_images/TOYOTA_TUNDRA_copy.jpg",
+            "logo": "shopify://shop_images/TOYOTA_TUNDRA_copy_742153b9-e2db-4219-9a69-f8603b238408.jpg",
             "label": "Toyota Tundra",
             "link": "https://www.offroadindustries.com.au/pages/toyota-tundra"
           }
@@ -467,7 +468,7 @@
           "type": "brand_tile",
           "disabled": true,
           "settings": {
-            "logo": "shopify://shop_images/RAM_copy_2.jpg",
+            "logo": "shopify://shop_images/RAM_copy_2_e21bf234-9d24-42f3-8de6-85529982e06f.jpg",
             "label": "RAM 2500",
             "link": "shopify://pages/ram-2500-gvm-packages"
           }
@@ -475,7 +476,7 @@
         "brand_tile_re7th7": {
           "type": "brand_tile",
           "settings": {
-            "logo": "shopify://shop_images/RAM_6th_GEN.jpg",
+            "logo": "shopify://shop_images/RAM_copy_3.jpg",
             "label": "RAM 2500 6th Gen",
             "link": "shopify://pages/ram-2500-6th-gen-gvm"
           }

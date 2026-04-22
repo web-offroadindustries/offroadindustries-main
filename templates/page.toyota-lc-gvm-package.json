@@ -20,7 +20,7 @@
         "slide_bW6A4P": {
           "type": "slide",
           "settings": {
-            "background": "shopify://shop_images/1920x1080px_LC.png",
+            "background": "shopify://shop_images/Desktop_Slider_Banner_2_1920x1080px_toyota_lc_IMAGE_ONLY_copy.jpg",
             "image_overlay_opacity": 0,
             "content_position": "center",
             "text_alignment": "center",
@@ -191,7 +191,8 @@
         "subheading_JVKNjL": {
           "type": "subheading",
           "settings": {
-            "subheading": "Federally Approved VTA-064924$15,500 Installed & Engineered"
+            "subheading": "Federally Approved VTA-064924$15,500 Installed & Engineered",
+            "subheading_size": "h5"
           }
         },
         "heading_f9G7kD": {
@@ -220,14 +221,16 @@
         "container": "container",
         "color_schema": "",
         "image": "shopify://shop_images/stage_1_4200_GVM_LC_98b16727-5307-414d-92df-9c274a8e6b1a.jpg",
+        "enable_lightbox": true,
         "image_width": "50%",
         "image_position": "left",
         "vertical_alignment": "center",
+        "align_content_container": "none",
+        "show_image_padding": true,
         "column_gap": "medium",
         "row_gap": "medium",
         "padding_left": 0,
         "padding_right": 0,
-        "align_content_container": "none",
         "mobile_padding_left": 15,
         "mobile_padding_right": 15,
         "padding_top": 40,
@@ -247,7 +250,8 @@
         "subheading_nNBqbG": {
           "type": "subheading",
           "settings": {
-            "subheading": "Federally Approved VTA-064924$22,500 Installed & Engineered."
+            "subheading": "Federally Approved VTA-064924$22,500 Installed & Engineered.",
+            "subheading_size": "h5"
           }
         },
         "heading_dHpa9y": {
@@ -276,14 +280,16 @@
         "container": "container",
         "color_schema": "",
         "image": "shopify://shop_images/stage_2_5300_GVM_LC_fdd73d7d-1fc0-413d-8e73-9637b86160af.jpg",
+        "enable_lightbox": true,
         "image_width": "50%",
         "image_position": "right",
         "vertical_alignment": "center",
+        "align_content_container": "none",
+        "show_image_padding": true,
         "column_gap": "medium",
         "row_gap": "medium",
         "padding_left": 0,
         "padding_right": 0,
-        "align_content_container": "none",
         "mobile_padding_left": 15,
         "mobile_padding_right": 15,
         "padding_top": 40,
