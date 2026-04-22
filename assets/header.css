@@ -879,6 +879,13 @@ body:not(.header-pinned) .header-scrolled .header {
   width: var(--promo-badge-mobile-width, 14rem);
 }
 
+/* Mobile header bar: use mobile width var instead of desktop width */
+@media (max-width: 1023.98px) {
+  .header-promo-badge:not(.header-promo-badge--drawer) .header-promo-badge__img {
+    width: var(--promo-badge-mobile-width, 10rem);
+  }
+}
+
 /* Hover image swap: hide hover image by default, show on nav hover */
 .header-promo-badge__img--hover {
   display: none;

@@ -3,7 +3,7 @@
   {%- if mobile_mode -%}
     {%- assign badge_class = 'header-promo-badge header-promo-badge--drawer' -%}
   {%- else -%}
-    {%- assign badge_class = 'header-promo-badge hidden lg:flex' -%}
+    {%- assign badge_class = 'header-promo-badge flex' -%}
   {%- endif -%}
   {%- capture badge_sizes -%}(max-width: 1023px) {{ section.settings.promo_badge_mobile_width | default: 140 }}px, {{ section.settings.promo_badge_width | default: 130 }}px{%- endcapture -%}
   <div
