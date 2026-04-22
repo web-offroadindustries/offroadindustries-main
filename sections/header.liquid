@@ -56,7 +56,6 @@
             {% render 'site-logo', section: section %}
           </div>
           <div class="site-header__right">
-            {% render 'header__promo-badge', section: section %}
             {% render 'header__addons',
               section: section,
               color_schema: section.settings.color_schema
@@ -91,7 +90,6 @@
           </div>
           <div class="site-header__right">
             {% render 'site-nav', section: section, menu_part: 'last' %}
-            {% render 'header__promo-badge', section: section %}
             {% render 'header__addons',
               section: section,
               color_schema: section.settings.color_schema
@@ -121,7 +119,6 @@
             {% render 'site-nav', section: section %}
           </div>
           <div class="site-header__right">
-            {% render 'header__promo-badge', section: section %}
             {% render 'header__addons',
               section: section,
               color_schema: section.settings.color_schema
@@ -152,7 +149,6 @@
           </div>
           <div class="site-header__right flex-wrap">
             {% render 'site-nav', section: section, menu_part: 'last' %}
-            {% render 'header__promo-badge', section: section %}
             {% render 'header__addons',
               section: section,
               color_schema: section.settings.color_schema
@@ -228,7 +224,6 @@
                 </div>
               {% endif %}
 
-              {% render 'header__promo-badge', section: section %}
               {% render 'header__addons',
                 section: section,
                 color_schema: section.settings.color_schema,
@@ -265,7 +260,6 @@
             %}
           </div>
           <div class="site-header__right">
-            {% render 'header__promo-badge', section: section %}
             {% render 'header__addons',
               section: section,
               color_schema: section.settings.color_schema
@@ -321,7 +315,6 @@
               {% comment %} theme-check-enable {% endcomment %}
             </button>
             {% render 'site-logo', section: section, h1_tag: false %}
-            {% render 'header__promo-badge', section: section, mobile_mode: true %}
             <div class="f-mobile-nav__inner">
               <ul class="list-none">
                 {% for link in menu_links %}
@@ -796,46 +789,6 @@
       "id": "mobile_show_social",
       "label": "t:sections.header.settings.addon.mobile_show_social",
       "default": true
-    },
-    {
-      "type": "header",
-      "content": "Promo Badge"
-    },
-    {
-      "type": "checkbox",
-      "id": "show_promo_badge",
-      "label": "Show promo badge",
-      "default": false
-    },
-    {
-      "type": "image_picker",
-      "id": "promo_badge_image",
-      "label": "Badge image"
-    },
-    {
-      "type": "url",
-      "id": "promo_badge_link",
-      "label": "Badge link URL"
-    },
-    {
-      "type": "range",
-      "id": "promo_badge_width",
-      "min": 60,
-      "max": 240,
-      "step": 5,
-      "default": 130,
-      "unit": "px",
-      "label": "Badge width (desktop)"
-    },
-    {
-      "type": "range",
-      "id": "promo_badge_mobile_width",
-      "min": 60,
-      "max": 200,
-      "step": 5,
-      "default": 140,
-      "unit": "px",
-      "label": "Badge width (mobile drawer)"
     },
     {
       "type": "header",

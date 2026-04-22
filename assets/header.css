@@ -845,36 +845,3 @@ body:not(.header-pinned) .header-scrolled .header {
   position: relative;
   z-index: 1;
 }
-/* ===== Header Promo Badge ===== */
-.header-promo-badge {
-  align-items: center;
-  padding: 0 1.2rem;
-  flex-shrink: 0;
-}
-
-.header-promo-badge__link {
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-}
-
-.header-promo-badge__img {
-  display: block;
-  width: var(--promo-badge-width, 13rem);
-  max-width: 100%;
-  height: auto;
-  object-fit: contain;
-}
-
-/* Mobile drawer variant */
-.header-promo-badge--drawer {
-  display: flex;
-  justify-content: center;
-  padding: 1.6rem 2rem;
-  border-bottom: 0.1rem solid rgba(var(--color-foreground), 0.1);
-  margin: 0.8rem 0;
-}
-
-.header-promo-badge--drawer .header-promo-badge__img {
-  width: var(--promo-badge-mobile-width, 14rem);
-}
