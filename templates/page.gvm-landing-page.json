@@ -14,6 +14,81 @@
       "disabled": true,
       "settings": {}
     },
+    "logo_list_tG47ei": {
+      "type": "logo-list",
+      "blocks": {
+        "logo_DtUDqi": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/F150_copy_3_301d0aa8-a172-4a72-93dd-92c3038fbfc6.jpg",
+            "image_from_url": "",
+            "image_link": "",
+            "image_width": 80
+          }
+        },
+        "logo_ANYPGW": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/SILVERADO_1500_copy_4_fb4ac951-398c-43ed-8574-f5703c47c0a4.jpg",
+            "image_from_url": "",
+            "image_link": "",
+            "image_width": 80
+          }
+        },
+        "logo_MR8h7V": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/SILVERADO_2500_copy_4_1f45335a-303d-4bc6-af62-83ff8ee85a8a.jpg",
+            "image_from_url": "",
+            "image_link": "",
+            "image_width": 80
+          }
+        },
+        "logo_hwRXhB": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/TOYOTA_TUNDRA_copy_742153b9-e2db-4219-9a69-f8603b238408.jpg",
+            "image_from_url": "",
+            "image_link": "",
+            "image_width": 80
+          }
+        }
+      },
+      "block_order": [
+        "logo_DtUDqi",
+        "logo_ANYPGW",
+        "logo_MR8h7V",
+        "logo_hwRXhB"
+      ],
+      "name": "t:sections.logo-list.presets.name",
+      "settings": {
+        "container": "container",
+        "color_schema": "",
+        "section_header_padding_bottom": "medium",
+        "section_header_content_spacing": "medium",
+        "heading": "",
+        "highlight_style": "none",
+        "enable_highlight_text_color": false,
+        "heading_size": "h2",
+        "heading_color": "",
+        "description": "",
+        "columns": 2,
+        "column_gap": "medium",
+        "row_gap": "medium",
+        "enable_slider": false,
+        "show_nav": false,
+        "show_dots": false,
+        "enable_swipe_mobile": false,
+        "column_mobile": "1",
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "show_section_divider": false,
+        "divider_width": "container",
+        "custom_id": "",
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
     "multicolumn_AcQKEk": {
       "type": "multicolumn",
       "blocks": {
@@ -134,6 +209,7 @@
   },
   "order": [
     "main",
+    "logo_list_tG47ei",
     "multicolumn_AcQKEk"
   ]
 }
