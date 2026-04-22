@@ -112,7 +112,7 @@
         "mobile_show_cart": true,
         "mobile_show_account": false,
         "mobile_show_social": false,
-        "show_promo_badge": true,
+        "show_promo_badge": false,
         "promo_badge_image": "shopify://shop_images/image_-_2026-04-22T121905.065.png",
         "promo_badge_link": "shopify://pages/ori-gvm-upgrades",
         "promo_badge_width": 130,
