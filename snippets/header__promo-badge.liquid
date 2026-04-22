@@ -18,11 +18,25 @@
         | image_url: width: 400
         | image_tag:
           loading: 'lazy',
-          class: 'header-promo-badge__img',
+          class: 'header-promo-badge__img header-promo-badge__img--default',
           widths: '100, 160, 220, 300, 400',
           sizes: badge_sizes,
           alt: section.settings.promo_badge_image.alt
       }}
+      {%- unless mobile_mode -%}
+        {%- if section.settings.promo_badge_hover_image -%}
+          {{
+            section.settings.promo_badge_hover_image
+            | image_url: width: 400
+            | image_tag:
+              loading: 'lazy',
+              class: 'header-promo-badge__img header-promo-badge__img--hover',
+              widths: '100, 160, 220, 300, 400',
+              sizes: badge_sizes,
+              alt: section.settings.promo_badge_hover_image.alt
+          }}
+        {%- endif -%}
+      {%- endunless -%}
     {%- if badge_link != blank -%}
       </a>
     {%- endif -%}

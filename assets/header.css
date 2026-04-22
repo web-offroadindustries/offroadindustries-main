@@ -878,3 +878,16 @@ body:not(.header-pinned) .header-scrolled .header {
 .header-promo-badge--drawer .header-promo-badge__img {
   width: var(--promo-badge-mobile-width, 14rem);
 }
+
+/* Hover image swap: hide hover image by default, show on nav hover */
+.header-promo-badge__img--hover {
+  display: none;
+}
+.site-header__top-v6:has(.f-site-nav__item:hover) .header-promo-badge__img--default,
+.site-header__top-v6:has(.f-site-nav__item:focus-within) .header-promo-badge__img--default {
+  display: none;
+}
+.site-header__top-v6:has(.f-site-nav__item:hover) .header-promo-badge__img--hover,
+.site-header__top-v6:has(.f-site-nav__item:focus-within) .header-promo-badge__img--hover {
+  display: block;
+}
