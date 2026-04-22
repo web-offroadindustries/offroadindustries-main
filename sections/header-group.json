@@ -78,7 +78,6 @@
             "columns": "3",
             "header_font_size": "40",
             "link_font_size": "24",
-            "image": null,
             "image_link": "",
             "image_position": "left",
             "image_width": 220
@@ -461,6 +460,7 @@
         },
         "brand_tile_UJ48br": {
           "type": "brand_tile",
+          "disabled": true,
           "settings": {
             "logo": "shopify://shop_images/RAM_copy_2.jpg",
             "label": "RAM 2500",
