@@ -1,0 +1,30 @@
+{%- if section.settings.show_promo_badge and section.settings.promo_badge_image -%}
+  {%- assign badge_link = section.settings.promo_badge_link -%}
+  {%- if mobile_mode -%}
+    {%- assign badge_class = 'header-promo-badge header-promo-badge--drawer' -%}
+  {%- else -%}
+    {%- assign badge_class = 'header-promo-badge hidden lg:flex' -%}
+  {%- endif -%}
+  {%- capture badge_sizes -%}(max-width: 1023px) {{ section.settings.promo_badge_mobile_width | default: 140 }}px, {{ section.settings.promo_badge_width | default: 130 }}px{%- endcapture -%}
+  <div
+    class="{{ badge_class }}"
+    style="--promo-badge-width: {{ section.settings.promo_badge_width | default: 130 }}px; --promo-badge-mobile-width: {{ section.settings.promo_badge_mobile_width | default: 140 }}px;"
+  >
+    {%- if badge_link != blank -%}
+      <a href="{{ badge_link }}" class="header-promo-badge__link" aria-label="{{ section.settings.promo_badge_image.alt | default: 'Promo badge' | escape }}">
+    {%- endif -%}
+      {{
+        section.settings.promo_badge_image
+        | image_url: width: 400
+        | image_tag:
+          loading: 'lazy',
+          class: 'header-promo-badge__img',
+          widths: '100, 160, 220, 300, 400',
+          sizes: badge_sizes,
+          alt: section.settings.promo_badge_image.alt
+      }}
+    {%- if badge_link != blank -%}
+      </a>
+    {%- endif -%}
+  </div>
+{%- endif -%}
