@@ -199,7 +199,7 @@
         "subheading_JVKNjL": {
           "type": "subheading",
           "settings": {
-            "subheading": "Stage 1: $16,500 - Installed & Engineered",
+            "subheading": "Stage 1: $16,500* - Installed & Engineered",
             "subheading_size": "h5"
           }
         },
@@ -258,7 +258,7 @@
         "subheading_nNBqbG": {
           "type": "subheading",
           "settings": {
-            "subheading": "Stage 2: $22,500 - Installed & Engineered",
+            "subheading": "Stage 2: $22,500 * - Installed & Engineered",
             "subheading_size": "h5"
           }
         },
@@ -317,7 +317,7 @@
         "subheading_p3JeNT": {
           "type": "subheading",
           "settings": {
-            "subheading": "Stage 3: $27,500 - Installed & Engineered",
+            "subheading": "Stage 3: $27,500* - Installed & Engineered",
             "subheading_size": "h5"
           }
         },
@@ -376,7 +376,7 @@
         "subheading_AtKMTT": {
           "type": "subheading",
           "settings": {
-            "subheading": "Stage 3: $48,500 - Installed & Engineered",
+            "subheading": "Stage 3: $48,500* - Installed & Engineered",
             "subheading_size": "h5"
           }
         },
@@ -435,7 +435,7 @@
         "subheading_DWKAtN": {
           "type": "subheading",
           "settings": {
-            "subheading": "Stage 4 : $28,000 - Installed & Engineered",
+            "subheading": "Stage 4 : $28,000* - Installed & Engineered",
             "subheading_size": "h5"
           }
         },
@@ -494,7 +494,7 @@
         "subheading_GUEKJN": {
           "type": "subheading",
           "settings": {
-            "subheading": "Stage 5: $28,000 - Installed & Engineered",
+            "subheading": "Stage 5: $28,000* - Installed & Engineered",
             "subheading_size": "h5"
           }
         },
@@ -553,7 +553,7 @@
         "subheading_KF8CC3": {
           "type": "subheading",
           "settings": {
-            "subheading": "Stage 6 : $34,000 - Installed & Engineered",
+            "subheading": "Stage 6 : $34,000* - Installed & Engineered",
             "subheading_size": "h5"
           }
         },
@@ -612,7 +612,7 @@
         "subheading_b3w7Fn": {
           "type": "subheading",
           "settings": {
-            "subheading": "Stage 6.5 : $53,000 - Installed & Engineered",
+            "subheading": "Stage 6.5 : $53,000* - Installed & Engineered",
             "subheading_size": "h5"
           }
         },
@@ -902,15 +902,15 @@
           "type": "row",
           "settings": {
             "label": "Kerb Weight",
-            "value_1": "3762 KG",
-            "value_2": "3792 Kg",
-            "value_3": "3802 Kg",
-            "value_4": "3810 KG",
-            "value_5": "3810 KG",
-            "value_6": "3862",
-            "value_7": "3862",
-            "value_8": "3862",
-            "value_9": "3862",
+            "value_1": "3661 KG",
+            "value_2": "3741 KG",
+            "value_3": "3741 KG",
+            "value_4": "3741 KG",
+            "value_5": "3741 KG",
+            "value_6": "3741 KG",
+            "value_7": "3741 KG",
+            "value_8": "3741 KG",
+            "value_9": "3741 KG",
             "value_10": ""
           }
         },
