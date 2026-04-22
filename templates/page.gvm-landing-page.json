@@ -22,7 +22,7 @@
           "settings": {
             "image": "shopify://shop_images/F150_copy_3_301d0aa8-a172-4a72-93dd-92c3038fbfc6.jpg",
             "image_from_url": "",
-            "image_link": "",
+            "image_link": "https://www.offroadindustries.com.au/pages/ford-150-gvm-packages",
             "image_width": 80
           }
         },
@@ -31,7 +31,7 @@
           "settings": {
             "image": "shopify://shop_images/SILVERADO_1500_copy_4_fb4ac951-398c-43ed-8574-f5703c47c0a4.jpg",
             "image_from_url": "",
-            "image_link": "",
+            "image_link": "https://www.offroadindustries.com.au/pages/chevrolet-silverado-1500-gvm-package",
             "image_width": 80
           }
         },
@@ -40,7 +40,7 @@
           "settings": {
             "image": "shopify://shop_images/SILVERADO_2500_copy_4_1f45335a-303d-4bc6-af62-83ff8ee85a8a.jpg",
             "image_from_url": "",
-            "image_link": "",
+            "image_link": "https://www.offroadindustries.com.au/pages/chevy-silverado-2500hd-gvm-packages",
             "image_width": 80
           }
         },
@@ -49,7 +49,7 @@
           "settings": {
             "image": "shopify://shop_images/TOYOTA_TUNDRA_copy_742153b9-e2db-4219-9a69-f8603b238408.jpg",
             "image_from_url": "",
-            "image_link": "",
+            "image_link": "https://www.offroadindustries.com.au/pages/toyota-tundra",
             "image_width": 80
           }
         }
