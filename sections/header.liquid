@@ -194,6 +194,8 @@
               {% render 'site-nav', section: section %}
             </div>
 
+            {% render 'header__promo-badge', section: section %}
+
             <div class="site-header__top-search-v6 hidden lg:block">
               <form action="{{ routes.search_url }}" method="get" role="search" class="header-v6-search">
                 <label class="visually-hidden" for="HeaderSearch-{{ section.id }}">
@@ -228,7 +230,6 @@
                 </div>
               {% endif %}
 
-              {% render 'header__promo-badge', section: section %}
               {% render 'header__addons',
                 section: section,
                 color_schema: section.settings.color_schema,
