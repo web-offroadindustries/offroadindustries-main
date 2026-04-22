@@ -879,10 +879,34 @@ body:not(.header-pinned) .header-scrolled .header {
   width: var(--promo-badge-mobile-width, 14rem);
 }
 
-/* Mobile header bar: use mobile width var instead of desktop width */
+/* Mobile header bar: compact layout so search + cart icons stay visible */
 @media (max-width: 1023.98px) {
+  /* Tighten gap between header items on mobile */
+  .site-header--design-6 .site-header__top-v6 {
+    gap: 8px;
+  }
+  /* Allow logo to shrink on very small screens */
+  .site-header--design-6 .site-header__top-left-v6 {
+    flex: 0 1 auto;
+    min-width: 0;
+  }
+  .site-header--design-6 .site-header__top-left-v6 .site-logo__img {
+    max-width: 100%;
+  }
+  /* Badge: small fixed width, shrinkable */
+  .header-promo-badge:not(.header-promo-badge--drawer) {
+    flex-shrink: 1;
+    min-width: 0;
+    padding: 0 0.4rem;
+  }
   .header-promo-badge:not(.header-promo-badge--drawer) .header-promo-badge__img {
-    width: var(--promo-badge-mobile-width, 10rem);
+    width: 7rem;
+    max-width: 100%;
+  }
+  /* Right section (cart + search icons) never shrinks */
+  .site-header--design-6 .site-header__top-right-v6 {
+    flex-shrink: 0;
+    gap: 8px;
   }
 }
 
