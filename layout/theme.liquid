@@ -40,9 +40,11 @@
     <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="dns-prefetch" href="https://connect.podium.com">
-    <link rel="dns-prefetch" href="https://options.shopapps.site">
+    <link rel="preconnect" href="https://connect.podium.com" crossorigin>
+    <link rel="preconnect" href="https://options.shopapps.site" crossorigin>
     <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://static.klaviyo.com">
+    <link rel="dns-prefetch" href="https://a.klaviyo.com">
     {% render 'orbislabs_sitemap_noindex' %}
 
     {%- if settings.favicon != blank -%}
@@ -194,7 +196,6 @@
 
     {{ 'Evogria.woff2' | asset_url | preload_tag: as: 'font', type: 'font/woff2', crossorigin: 'anonymous' }}
     {{ 'Geomanist-Regular.woff2' | asset_url | preload_tag: as: 'font', type: 'font/woff2', crossorigin: 'anonymous' }}
-    {{ 'Geomanist-Medium.woff2' | asset_url | preload_tag: as: 'font', type: 'font/woff2', crossorigin: 'anonymous' }}
     {% comment %}theme-check-disable{% endcomment %}
     <link
       rel="preload"
@@ -289,45 +290,66 @@
       <script src="{{ 'theme-editor.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
 
-    {% comment %} WebChat {% endcomment %}
-    <script defer src="https://connect.podium.com/widget.js#ORG_TOKEN=211a92b8-ab89-45c7-ba01-acab8089df3d" id="podium-widget" data-organization-api-token="211a92b8-ab89-45c7-ba01-acab8089df3d"></script>
-
-    {% comment %} Klaviyo Back in stock {% endcomment %}
+    {% comment %} WebChat — load after first user interaction to avoid blocking initial render {% endcomment %}
     <script>
+      (function() {
+        var loaded = false;
+        function loadPodium() {
+          if (loaded) return;
+          loaded = true;
+          var s = document.createElement('script');
+          s.src = 'https://connect.podium.com/widget.js#ORG_TOKEN=211a92b8-ab89-45c7-ba01-acab8089df3d';
+          s.id = 'podium-widget';
+          s.setAttribute('data-organization-api-token', '211a92b8-ab89-45c7-ba01-acab8089df3d');
+          document.body.appendChild(s);
+        }
+        ['mousemove','scroll','touchstart','keydown','click'].forEach(function(e) {
+          document.addEventListener(e, loadPodium, { once: true, passive: true });
+        });
+        setTimeout(loadPodium, 5000);
+      })();
+    </script>
+
+    {% comment %} Klaviyo Back in stock — product pages only, deferred after load {% endcomment %}
+    {% if template contains 'product' %}
+    <script>
+      window.addEventListener('load', function() {
         var klaviyo = klaviyo || [];
         klaviyo.init({
           account: "TJhB3u",
           platform: "shopify"
         });
-        klaviyo.enable("backinstock",{ 
-        trigger: {
-          product_page_text: "Notify Me When Available",
-          product_page_class: "btn",
-          product_page_text_align: "center",
-          product_page_margin: "0px",
-          replace_anchor: false
-        },
-        modal: {
-        headline: "{product_name}",
-        body_content: "Register to receive a notification when this item comes back in stock.",
-        email_field_label: "Email",
-        button_label: "Notify me when available",
-        subscription_success_label: "You're in! We'll let you know when it's back.",
-        footer_content: '',
-        additional_styles: "@import url('https://fonts.googleapis.com/css?family=Helvetica+Neue');",
-        drop_background_color: "#000",
-        background_color: "#fff",
-        text_color: "#222",
-        button_text_color: "#fff",
-        button_background_color: "#439fdb",
-        close_button_color: "#ccc",
-        error_background_color: "#fcd6d7",
-        error_text_color: "#C72E2F",
-        success_background_color: "#d3efcd",
-        success_text_color: "#1B9500"
-        }
+        klaviyo.enable("backinstock",{
+          trigger: {
+            product_page_text: "Notify Me When Available",
+            product_page_class: "btn",
+            product_page_text_align: "center",
+            product_page_margin: "0px",
+            replace_anchor: false
+          },
+          modal: {
+            headline: "{product_name}",
+            body_content: "Register to receive a notification when this item comes back in stock.",
+            email_field_label: "Email",
+            button_label: "Notify me when available",
+            subscription_success_label: "You're in! We'll let you know when it's back.",
+            footer_content: '',
+            additional_styles: "@import url('https://fonts.googleapis.com/css?family=Helvetica+Neue');",
+            drop_background_color: "#000",
+            background_color: "#fff",
+            text_color: "#222",
+            button_text_color: "#fff",
+            button_background_color: "#439fdb",
+            close_button_color: "#ccc",
+            error_background_color: "#fcd6d7",
+            error_text_color: "#C72E2F",
+            success_background_color: "#d3efcd",
+            success_text_color: "#1B9500"
+          }
+        });
       });
     </script>
+    {% endif %}
 
     {% comment %} Product Schema {% endcomment %}
     {% if template contains 'product' %}
