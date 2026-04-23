@@ -38,6 +38,11 @@
     <meta name="theme-color" content="">
     <link rel="canonical" href="{{ canonical_url }}">
     <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="https://connect.podium.com">
+    <link rel="dns-prefetch" href="https://options.shopapps.site">
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
     {% render 'orbislabs_sitemap_noindex' %}
 
     {%- if settings.favicon != blank -%}
@@ -190,7 +195,15 @@
     {{ 'Evogria.woff2' | asset_url | preload_tag: as: 'font', type: 'font/woff2', crossorigin: 'anonymous' }}
     {{ 'Geomanist-Regular.woff2' | asset_url | preload_tag: as: 'font', type: 'font/woff2', crossorigin: 'anonymous' }}
     {{ 'Geomanist-Medium.woff2' | asset_url | preload_tag: as: 'font', type: 'font/woff2', crossorigin: 'anonymous' }}
-    {{ 'brand-guidelines.css' | asset_url | stylesheet_tag }}
+    {% comment %}theme-check-disable{% endcomment %}
+    <link
+      rel="preload"
+      href="{{ 'brand-guidelines.css' | asset_url }}"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet';"
+    >
+    {% comment %}theme-check-enable{% endcomment %}
+    <noscript>{{ 'brand-guidelines.css' | asset_url | stylesheet_tag }}</noscript>
 
   
     {%- render 'bold-options-hybrid' -%}
