@@ -206,11 +206,13 @@
     {% comment %}theme-check-enable{% endcomment %}
     <noscript>{{ 'brand-guidelines.css' | asset_url | stylesheet_tag }}</noscript>
 
-  
-    {%- render 'bold-options-hybrid' -%}
-    {%- render 'bold-common' -%}
-    {%- render 'sc-includes' -%}
-    <script src="{{ 'bold-options-form-linker.js' | asset_url }}" defer></script>
+    {% comment %}theme-check-disable{% endcomment %}
+    <link rel="preload" href="{{ 'header.css' | asset_url }}" as="style">
+    <link rel="preload" href="{{ 'site-nav.css' | asset_url }}" as="style">
+    <link rel="preload" href="{{ 'bold-options.css' | asset_url }}" as="style">
+    <link rel="preload" href="https://options.shopapps.site/js/options.js" as="script" crossorigin>
+    <link rel="preload" href="{{ 'bold-options-form-linker.js' | asset_url }}" as="script">
+    {% comment %}theme-check-enable{% endcomment %}
 
   {% include 'pagefly-app-header' %}</head>
 
@@ -382,5 +384,10 @@
       }
       </script>
     {% endif %}
+
+    {%- render 'bold-options-hybrid' -%}
+    {%- render 'bold-common' -%}
+    {%- render 'sc-includes' -%}
+    <script src="{{ 'bold-options-form-linker.js' | asset_url }}" defer></script>
   </body>
 </html>
