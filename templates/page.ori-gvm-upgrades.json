@@ -595,6 +595,7 @@
         "column_nNUN6a",
         "column_mfLAKJ"
       ],
+      "disabled": true,
       "name": "t:sections.multicolumn.name",
       "settings": {
         "container": "container",
