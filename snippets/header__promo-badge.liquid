@@ -17,7 +17,8 @@
         section.settings.promo_badge_image
         | image_url: width: 400
         | image_tag:
-          loading: 'lazy',
+          loading: 'eager',
+          fetchpriority: 'high',
           class: 'header-promo-badge__img header-promo-badge__img--default',
           widths: '100, 160, 220, 300, 400',
           sizes: badge_sizes,
@@ -29,7 +30,8 @@
             section.settings.promo_badge_hover_image
             | image_url: width: 400
             | image_tag:
-              loading: 'lazy',
+              loading: 'eager',
+              fetchpriority: 'high',
               class: 'header-promo-badge__img header-promo-badge__img--hover',
               widths: '100, 160, 220, 300, 400',
               sizes: badge_sizes,
