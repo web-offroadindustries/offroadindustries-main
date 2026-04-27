@@ -38,6 +38,7 @@
         alt="{{ alt | default: image.alt | escape }}"
         loading="{{ loading }}"
         fetchpriority="{{ fetchpriority }}"
+        decoding="async"
         class="{{ image_class }}"
         width="{{ image.width }}"
         height="{{ image.height }}"
