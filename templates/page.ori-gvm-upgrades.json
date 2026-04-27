@@ -386,6 +386,33 @@
         "animations": "inherit"
       }
     },
+    "1777270280188f73e4": {
+      "type": "apps",
+      "blocks": {
+        "mappy_store_locator_page_embed_block_EfwyNp": {
+          "type": "shopify://apps/mappy-store-locator/blocks/page-embed-block/edfca2bd-82ad-413c-b32c-580d239b17ab",
+          "settings": {
+            "is_show_heading_map": true,
+            "is_show_description_map": false
+          }
+        }
+      },
+      "block_order": [
+        "mappy_store_locator_page_embed_block_EfwyNp"
+      ],
+      "settings": {
+        "container": "container",
+        "color_schema": "",
+        "heading": "",
+        "highlight_style": "none",
+        "enable_highlight_text_color": false,
+        "heading_size": "h2",
+        "heading_color": "",
+        "description": "",
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    },
     "multicolumn_AcQKEk": {
       "type": "multicolumn",
       "blocks": {
@@ -513,6 +540,7 @@
     "rich_text_k7z6De",
     "image_with_text_PrJRDF",
     "collapsible_tabs_ciD8kW",
+    "1777270280188f73e4",
     "multicolumn_AcQKEk"
   ]
 }
