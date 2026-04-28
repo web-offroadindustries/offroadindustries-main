@@ -214,9 +214,27 @@
     <link rel="preload" href="{{ 'bold-options-form-linker.js' | asset_url }}" as="script">
     {% comment %}theme-check-enable{% endcomment %}
 
-  {% include 'pagefly-app-header' %}</head>
+  {% include 'pagefly-app-header' %}
+  {{ 'b2b-portal.css' | asset_url | stylesheet_tag }}
+  {%- liquid
+    assign b2b_user = false
+    if customer
+      if customer.b2b? or customer.tags contains 'b2b'
+        assign b2b_user = true
+      endif
+    endif
+    assign is_auth_template = false
+    if template contains 'customers/login' or template contains 'customers/activate_account' or template contains 'customers/reset_password'
+      assign is_auth_template = true
+    endif
+  -%}
+</head>
 
-  <body class="template-{{ template.name | handle }} {{ template.name }}-{{ template.suffix }}">
+  <body class="template-{{ template.name | handle }} {{ template.name }}-{{ template.suffix }}{% if b2b_user %} is-b2b{% endif %}">
+    {%- unless b2b_user or is_auth_template -%}
+      <style>html,body{display:none!important}</style>
+      <script>window.location.replace('/account/login');</script>
+    {%- endunless -%}
     {% comment %} Custom metafield for body tag like GTag tracking {% endcomment %}
     {{ shop.metafields.foxtheme.code_body.value }}
     {%- if settings.page_transition -%}

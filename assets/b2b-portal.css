@@ -1,0 +1,157 @@
+/* ─── B2B Portal — shared styles ────────────────────────────────────────────
+   Applies only to .is-b2b body class (set by theme.liquid gate) or to
+   explicit .b2b-* class selectors used by b2b snippets.
+   ─────────────────────────────────────────────────────────────────────────── */
+
+/* ── Auth gate "Pending Approval" page ────────────────────────────────────── */
+.b2b-pending {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  text-align: center;
+  padding: 40px 20px;
+  gap: 16px;
+}
+.b2b-pending__title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin: 0;
+}
+.b2b-pending__body {
+  font-size: 1.5rem;
+  opacity: 0.75;
+  max-width: 480px;
+  margin: 0;
+}
+.b2b-pending__link {
+  font-size: 1.4rem;
+  text-decoration: underline;
+}
+
+/* ── Stock badge on product cards ─────────────────────────────────────────── */
+.b2b-stock-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 6px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
+.b2b-stock-badge::before {
+  content: "";
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #22c55e;
+  flex-shrink: 0;
+}
+.b2b-stock-badge--out {
+  color: #ef4444;
+}
+.b2b-stock-badge--out::before {
+  background: #ef4444;
+}
+.b2b-stock-badge--low {
+  color: #f97316;
+}
+.b2b-stock-badge--low::before {
+  background: #f97316;
+}
+
+/* ── Product page — B2B order CTA (replaces Add to Cart) ─────────────────── */
+.b2b-order-cta {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.b2b-order-cta__notice {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  background: rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  padding: 14px 16px;
+  font-size: 1.4rem;
+  line-height: 1.5;
+}
+.b2b-order-cta__notice svg {
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  margin-top: 1px;
+  opacity: 0.6;
+}
+.b2b-order-cta__btn {
+  width: 100%;
+}
+
+/* ── Shipping calculator ──────────────────────────────────────────────────── */
+.b2b-shipping-calc {
+  display: block;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 8px;
+  padding: 20px;
+  margin-top: 20px;
+}
+.b2b-shipping-calc__title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0 0 16px;
+}
+.b2b-shipping-calc__form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.b2b-shipping-calc__field {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.b2b-shipping-calc__field label {
+  font-size: 1.3rem;
+  font-weight: 500;
+  opacity: 0.8;
+}
+.b2b-shipping-calc__btn {
+  width: 100%;
+  margin-top: 4px;
+}
+.b2b-shipping-calc__result {
+  margin-top: 14px;
+}
+
+/* Rate rows */
+.b2b-calc__rates {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.b2b-calc__rate {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.4rem;
+  padding: 8px 10px;
+  background: rgba(0, 0, 0, 0.03);
+  border-radius: 6px;
+}
+.b2b-calc__rate strong {
+  font-weight: 600;
+}
+.b2b-calc__no-rates,
+.b2b-calc__error {
+  font-size: 1.3rem;
+  opacity: 0.7;
+  margin: 0;
+  padding: 8px 0;
+}
+.b2b-calc__error {
+  color: #ef4444;
+  opacity: 1;
+}

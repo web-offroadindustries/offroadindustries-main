@@ -1,4 +1,10 @@
 {%- liquid
+  assign b2b_user = false
+  if customer
+    if customer.b2b? or customer.tags contains 'b2b'
+      assign b2b_user = true
+    endif
+  endif
   assign variant = product.selected_or_first_available_variant
   assign compare_at_price = variant.compare_at_price
   assign price = variant.price
@@ -236,7 +242,7 @@
           {% endfor %}
         </div>
       {% endif %}
-      {% unless list_layout %}
+      {% unless list_layout or b2b_user %}
         {% if enable_quick_add or enable_quick_view %}
           <div class="product-card__actions{{ actions_class }}">
             {% if enable_quick_add %}
@@ -418,6 +424,28 @@
         product: product,
         alignment: settings.pcard_content_alignment
       %}
+      {%- if b2b_user -%}
+        {%- liquid
+          assign card_v = product.selected_or_first_available_variant
+          assign b2b_stock_class = 'b2b-stock-badge'
+          assign b2b_stock_label = 'In Stock'
+          if card_v.inventory_management == 'shopify'
+            if card_v.inventory_quantity <= 0
+              assign b2b_stock_class = 'b2b-stock-badge b2b-stock-badge--out'
+              assign b2b_stock_label = 'Out of Stock'
+            elsif card_v.inventory_quantity <= 5
+              assign b2b_stock_class = 'b2b-stock-badge b2b-stock-badge--low'
+              assign b2b_stock_label = card_v.inventory_quantity | append: ' left in stock'
+            else
+              assign b2b_stock_label = card_v.inventory_quantity | append: ' in stock'
+            endif
+          elsif product.available == false
+            assign b2b_stock_class = 'b2b-stock-badge b2b-stock-badge--out'
+            assign b2b_stock_label = 'Out of Stock'
+          endif
+        -%}
+        <div class="{{ b2b_stock_class }}">{{ b2b_stock_label }}</div>
+      {%- endif -%}
       {% if is_complementary and show_product_option %}
         <div class="product-card__options relative text-left block">
           {% render 'product-card-swatch',
@@ -426,7 +454,7 @@
           %}
         </div>
       {% endif %}
-      {% if list_layout or is_lookbook %}
+      {% if (list_layout or is_lookbook) and b2b_user == false %}
         {% if enable_quick_add or enable_quick_view %}
           {%- liquid
             assign button_class = 'btn--white'
