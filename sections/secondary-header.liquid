@@ -15,6 +15,7 @@
     --sh-color: {{ section.settings.text_color }};
     --sh-font-size: {{ section.settings.font_size }}px;
     --sh-height: {{ section.settings.container_height }}px;
+    --sh-padding-y: {{ section.settings.padding_y }}px;
   "
   data-section-id="{{ section.id }}"
 >
@@ -159,6 +160,17 @@
       "max": 80,
       "step": 2,
       "default": 38,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_y",
+      "label": "Vertical padding",
+      "info": "Extra top/bottom padding inside the bar",
+      "min": 0,
+      "max": 24,
+      "step": 2,
+      "default": 6,
       "unit": "px"
     },
     {
