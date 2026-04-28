@@ -444,43 +444,6 @@
                 {% endfor %}
               </ul>
             </div>
-            {%- assign sh_section = sections['secondary-header'] -%}
-            {%- assign sh_has_items = false -%}
-            {%- for block in sh_section.blocks -%}
-              {%- if block.type == 'text_link' -%}{%- assign sh_has_items = true -%}{%- endif -%}
-            {%- endfor -%}
-            {%- if sh_has_items -%}
-              <div class="sh-mobile-info"
-                style="--sh-bg: {{ sh_section.settings.bg_color }}; --sh-color: {{ sh_section.settings.text_color }}; --sh-font-size: {{ sh_section.settings.font_size }}px;"
-              >
-                {%- for block in sh_section.blocks -%}
-                  {%- if block.type == 'text_link' -%}
-                    <div class="sh-mobile-info__item" style="--sh-block-icon-size: {{ block.settings.icon_size }}px;">
-                      {%- unless block.settings.svg_icon == 'none' and block.settings.custom_icon == blank -%}
-                        <span class="sh-mobile-info__icon" aria-hidden="true">
-                          {%- if block.settings.custom_icon != blank -%}
-                            <img src="{{ block.settings.custom_icon | image_url: width: 64 }}" alt="" class="sh-mobile-info__custom-icon" loading="lazy">
-                          {%- elsif block.settings.svg_icon == 'email' -%}
-                            <svg class="sh-mobile-info__svg-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg>
-                          {%- elsif block.settings.svg_icon == 'phone' -%}
-                            <svg class="sh-mobile-info__svg-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8 19.79 19.79 0 012 .18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
-                          {%- elsif block.settings.svg_icon == 'location' -%}
-                            <svg class="sh-mobile-info__svg-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                          {%- elsif block.settings.svg_icon == 'support' -%}
-                            <svg class="sh-mobile-info__svg-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a9 9 0 0118 0v6"/><path d="M21 19a2 2 0 01-2 2h-1a2 2 0 01-2-2v-3a2 2 0 012-2h3zM3 19a2 2 0 002 2h1a2 2 0 002-2v-3a2 2 0 00-2-2H3z"/></svg>
-                          {%- endif -%}
-                        </span>
-                      {%- endunless -%}
-                      {%- if block.settings.link != blank -%}
-                        <a href="{{ block.settings.link }}" class="sh-mobile-info__link">{{ block.settings.text }}</a>
-                      {%- else -%}
-                        <span class="sh-mobile-info__text">{{ block.settings.text }}</span>
-                      {%- endif -%}
-                    </div>
-                  {%- endif -%}
-                {%- endfor -%}
-              </div>
-            {%- endif -%}
             <div class="f-mobile-nav__addons">
               {% if show_addons_switcher %}
                 <div class="f-mobile-nav__addons-switcher">
