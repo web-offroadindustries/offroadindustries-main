@@ -187,3 +187,65 @@
     display: none;
   }
 }
+
+/* ─── Mobile drawer contact info ─────────────────────────────────────────── */
+
+.sh-mobile-info {
+  background: var(--sh-bg, #1a1a1a);
+  color: var(--sh-color, #ffffff);
+  font-size: var(--sh-font-size, 13px);
+  padding: 14px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.sh-mobile-info__item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sh-mobile-info__icon {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  color: inherit;
+  opacity: 0.85;
+}
+
+.sh-mobile-info__svg-icon {
+  display: block;
+  flex-shrink: 0;
+  width: var(--sh-block-icon-size, 14px);
+  height: var(--sh-block-icon-size, 14px);
+}
+
+.sh-mobile-info__custom-icon {
+  display: block;
+  flex-shrink: 0;
+  width: var(--sh-block-icon-size, 14px);
+  height: var(--sh-block-icon-size, 14px);
+  object-fit: contain;
+}
+
+.sh-mobile-info__link {
+  color: inherit;
+  text-decoration: none;
+  font-size: inherit;
+  line-height: 1.3;
+  white-space: nowrap;
+  opacity: 0.9;
+  transition: opacity 0.2s ease;
+}
+
+.sh-mobile-info__link:hover {
+  opacity: 1;
+}
+
+.sh-mobile-info__text {
+  color: inherit;
+  font-size: inherit;
+  line-height: 1.3;
+  white-space: nowrap;
+}
