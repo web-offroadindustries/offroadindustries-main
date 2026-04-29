@@ -35,14 +35,9 @@
   flex-shrink: 0;
 }
 
-/* Search item has a wider left gap instead of divider */
-.secondary-header__item--search + .secondary-header__item::before,
-.secondary-header__item + .secondary-header__item--search::before {
+/* Hide divider only when search is followed by another item, not before it */
+.secondary-header__item--search + .secondary-header__item::before {
   display: none;
-}
-
-.secondary-header__right .secondary-header__item--search {
-  margin-left: 12px;
 }
 
 .secondary-header__item {
