@@ -106,20 +106,20 @@
 .secondary-header__search-form {
   display: flex;
   align-items: center;
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.22);
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 20px;
-  padding: 0 6px 0 14px;
-  height: 28px;
+  padding: 0 10px 0 16px;
+  height: 32px;
   width: 100%;
   max-width: var(--sh-search-max, 280px);
-  transition: background 0.2s ease, border-color 0.2s ease;
+  transition: border-color 0.2s ease;
   box-sizing: border-box;
 }
 
 .secondary-header__search-form:focus-within {
-  background: rgba(255, 255, 255, 0.18);
-  border-color: rgba(255, 255, 255, 0.5);
+  background: transparent;
+  border-color: rgba(255, 255, 255, 0.65);
 }
 
 .secondary-header__search-input {
@@ -140,12 +140,13 @@
 
 .secondary-header__search-input::placeholder {
   color: inherit;
-  opacity: 0.55;
+  opacity: 0.5;
 }
 
-/* Aggressively reset global button styles on the search submit button */
+/* Beat theme's form button[type="submit"] overrides with specificity + !important */
 .secondary-header__search-btn,
-.secondary-header__search-btn.btn {
+.secondary-header__search-btn.btn,
+.secondary-header__search-form .secondary-header__search-btn {
   all: unset;
   box-sizing: border-box;
   cursor: pointer;
@@ -153,24 +154,28 @@
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  width: 26px;
-  height: 26px;
-  border-radius: 50%;
+  width: 22px;
+  height: 22px;
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
   color: inherit;
-  opacity: 0.7;
-  transition: opacity 0.2s ease, background 0.2s ease;
+  opacity: 0.65;
+  transition: opacity 0.2s ease;
 }
 
-.secondary-header__search-btn:hover {
+.secondary-header__search-btn:hover,
+.secondary-header__search-form .secondary-header__search-btn:hover {
   opacity: 1;
-  background: rgba(255, 255, 255, 0.15);
+  background: transparent !important;
 }
 
 .secondary-header__search-btn svg {
-  width: var(--sh-block-icon-size, 16px);
-  height: var(--sh-block-icon-size, 16px);
+  width: var(--sh-block-icon-size, 15px);
+  height: var(--sh-block-icon-size, 15px);
   display: block;
   flex-shrink: 0;
+  color: inherit;
 }
 
 /* Override any theme pseudo-elements on the button */
