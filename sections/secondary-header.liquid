@@ -53,7 +53,7 @@
                 <div class="secondary-header__item secondary-header__item--search" style="--sh-search-max: {{ block.settings.search_max_width }}px; --sh-block-icon-size: {{ block.settings.icon_size }}px;" {{ block.shopify_attributes }}>
                   <form action="{{ routes.search_url }}" method="get" role="search" class="secondary-header__search-form">
                     <label class="visually-hidden" for="SecondarySearch-l-{{ block.id }}">{{ 'general.search.search' | t }}</label>
-                    <input id="SecondarySearch-l-{{ block.id }}" class="secondary-header__search-input snize-exclude-input" type="search" name="q" placeholder="{{ block.settings.placeholder }}">
+                    <input id="SecondarySearch-l-{{ block.id }}" class="secondary-header__search-input snize-exclude-input" type="search" name="q" autocomplete="off" placeholder="{{ block.settings.placeholder }}">
                     <input type="hidden" name="options[prefix]" value="last">
                     <button type="submit" class="secondary-header__search-btn" aria-label="{{ 'general.search.search' | t }}">
                       <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" role="presentation" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
@@ -96,7 +96,7 @@
                 <div class="secondary-header__item secondary-header__item--search" style="--sh-search-max: {{ block.settings.search_max_width }}px; --sh-block-icon-size: {{ block.settings.icon_size }}px;" {{ block.shopify_attributes }}>
                   <form action="{{ routes.search_url }}" method="get" role="search" class="secondary-header__search-form">
                     <label class="visually-hidden" for="SecondarySearch-r-{{ block.id }}">{{ 'general.search.search' | t }}</label>
-                    <input id="SecondarySearch-r-{{ block.id }}" class="secondary-header__search-input snize-exclude-input" type="search" name="q" placeholder="{{ block.settings.placeholder }}">
+                    <input id="SecondarySearch-r-{{ block.id }}" class="secondary-header__search-input snize-exclude-input" type="search" name="q" autocomplete="off" placeholder="{{ block.settings.placeholder }}">
                     <input type="hidden" name="options[prefix]" value="last">
                     <button type="submit" class="secondary-header__search-btn" aria-label="{{ 'general.search.search' | t }}">
                       <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" role="presentation" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
