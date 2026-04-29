@@ -235,6 +235,10 @@
       <style>html,body{display:none!important}</style>
       <script>window.location.replace('/account/login');</script>
     {%- endunless -%}
+    {%- if b2b_user and template.name == 'index' -%}
+      <style>html,body{display:none!important}</style>
+      <script>window.location.replace('/pages/b2b-catalog');</script>
+    {%- endif -%}
     {% comment %} Custom metafield for body tag like GTag tracking {% endcomment %}
     {{ shop.metafields.foxtheme.code_body.value }}
     {%- if settings.page_transition -%}

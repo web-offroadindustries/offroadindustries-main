@@ -156,8 +156,9 @@
   opacity: 1;
 }
 
-/* ── B2B Product Catalog (account page) ───────────────────────────────────── */
-.b2b-catalog {
+/* ── B2B Product Catalog (account page + /pages/b2b-catalog) ─────────────── */
+.b2b-catalog,
+.b2b-catalog-page .b2b-catalog {
   width: 100%;
 }
 
@@ -348,9 +349,93 @@
   border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
 
+/* Page-specific header and stats (catalog page only) */
+.b2b-catalog__page-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+}
+
+.b2b-catalog__page-title {
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin: 0 0 6px;
+  line-height: 1.2;
+}
+
+.b2b-catalog__page-sub {
+  font-size: 1.4rem;
+  opacity: 0.6;
+  margin: 0;
+}
+
+.b2b-catalog__stats {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1.3rem;
+  opacity: 0.5;
+  margin-bottom: 18px;
+}
+
+.b2b-catalog__stats-sep {
+  opacity: 0.4;
+}
+
+.b2b-catalog__th--sku {
+  min-width: 100px;
+}
+
+.b2b-catalog__th--stock {
+  min-width: 140px;
+}
+
+.b2b-catalog__td--variant {
+  font-size: 1.35rem;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.b2b-catalog__td--stock {
+  white-space: nowrap;
+}
+
+.b2b-catalog__muted {
+  opacity: 0.3;
+}
+
+.b2b-catalog__page-btn--disabled {
+  opacity: 0.35;
+  pointer-events: none;
+  cursor: default;
+}
+
+/* Footer CTA */
+.b2b-catalog__footer-cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin-top: 40px;
+  padding: 24px 28px;
+  background: rgba(0, 0, 0, 0.03);
+  border: 1px solid rgba(0, 0, 0, 0.09);
+  border-radius: 10px;
+  flex-wrap: wrap;
+}
+
+.b2b-catalog__footer-cta p {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
 /* Responsive — allow table to scroll horizontally on small screens */
 @media screen and (max-width: 749px) {
-  .b2b-catalog__header {
+  .b2b-catalog__header,
+  .b2b-catalog__page-header {
     flex-direction: column;
   }
   .b2b-catalog__legend {
@@ -366,5 +451,10 @@
   }
   .b2b-catalog__pagination {
     flex-wrap: wrap;
+  }
+  .b2b-catalog__footer-cta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
   }
 }
