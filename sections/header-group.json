@@ -65,6 +65,64 @@
         "autorotate_speed": 5
       }
     },
+    "secondary-header": {
+      "type": "secondary-header",
+      "blocks": {
+        "block_email": {
+          "type": "text_link",
+          "settings": {
+            "side": "left",
+            "svg_icon": "email",
+            "icon_size": 14,
+            "text": "info@offroadindustries.com.au",
+            "link": "mailto:info@offroadindustries.com.au"
+          }
+        },
+        "block_phone": {
+          "type": "text_link",
+          "settings": {
+            "side": "left",
+            "svg_icon": "phone",
+            "icon_size": 14,
+            "text": "Got a Question? 0483 930 639",
+            "link": "tel:0483930639"
+          }
+        },
+        "block_support": {
+          "type": "text_link",
+          "settings": {
+            "side": "right",
+            "svg_icon": "support",
+            "icon_size": 14,
+            "text": "Customer Support",
+            "link": "/pages/contact"
+          }
+        },
+        "block_search": {
+          "type": "search",
+          "settings": {
+            "side": "right",
+            "placeholder": "Search products...",
+            "search_max_width": 280,
+            "icon_size": 16
+          }
+        }
+      },
+      "block_order": [
+        "block_email",
+        "block_phone",
+        "block_support",
+        "block_search"
+      ],
+      "settings": {
+        "container": "container-fluid",
+        "bg_color": "#1a1a1a",
+        "text_color": "#ffffff",
+        "font_size": 13,
+        "container_height": 38,
+        "hide_on_mobile": true
+      }
+    },
     "header": {
       "type": "header",
       "blocks": {
@@ -120,9 +178,10 @@
         "promo_badge_mobile_width": 140,
         "padding_top": 0,
         "padding_bottom": 0,
-        "show_help_block": true,
+        "show_help_block": false,
         "help_label": "Got a Question?",
         "help_phone": "0483 930 639",
+        "show_v6_search": false,
         "v6_search_max_width": 620,
         "v6_search_height": 30,
         "v6_search_font_size": 14,
@@ -503,6 +562,7 @@
   },
   "order": [
     "announcement-bar",
+    "secondary-header",
     "header",
     "mega_menu_1_9eGFTp",
     "mega_menu_1_3iAP83",

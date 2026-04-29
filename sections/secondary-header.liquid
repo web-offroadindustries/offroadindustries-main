@@ -1,0 +1,356 @@
+{{ 'secondary-header.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+  assign container = section.settings.container | default: 'container-fluid'
+  assign hide_class = ''
+  if section.settings.hide_on_mobile
+    assign hide_class = ' secondary-header--hide-mobile'
+  endif
+-%}
+
+<div
+  class="secondary-header{{ hide_class }}"
+  style="
+    --sh-bg: {{ section.settings.bg_color }};
+    --sh-color: {{ section.settings.text_color }};
+    --sh-font-size: {{ section.settings.font_size }}px;
+    --sh-height: {{ section.settings.container_height }}px;
+    --sh-padding-y: {{ section.settings.padding_y }}px;
+  "
+  data-section-id="{{ section.id }}"
+>
+  <div class="{{ container }}">
+    <div class="secondary-header__inner">
+
+      <div class="secondary-header__left">
+        {%- for block in section.blocks -%}
+          {%- if block.settings.side == 'left' -%}
+            {%- case block.type -%}
+              {%- when 'text_link' -%}
+                <div class="secondary-header__item" style="--sh-block-icon-size: {{ block.settings.icon_size }}px;" {{ block.shopify_attributes }}>
+                  {%- unless block.settings.svg_icon == 'none' and block.settings.custom_icon == blank -%}
+                    <span class="secondary-header__icon-wrap" aria-hidden="true">
+                      {%- if block.settings.custom_icon != blank -%}
+                        <img src="{{ block.settings.custom_icon | image_url: width: 64 }}" alt="" class="secondary-header__custom-icon" loading="eager">
+                      {%- elsif block.settings.svg_icon == 'email' -%}
+                        <svg class="secondary-header__svg-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg>
+                      {%- elsif block.settings.svg_icon == 'phone' -%}
+                        <svg class="secondary-header__svg-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8 19.79 19.79 0 012 .18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+                      {%- elsif block.settings.svg_icon == 'location' -%}
+                        <svg class="secondary-header__svg-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                      {%- elsif block.settings.svg_icon == 'support' -%}
+                        <svg class="secondary-header__svg-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a9 9 0 0118 0v6"/><path d="M21 19a2 2 0 01-2 2h-1a2 2 0 01-2-2v-3a2 2 0 012-2h3zM3 19a2 2 0 002 2h1a2 2 0 002-2v-3a2 2 0 00-2-2H3z"/></svg>
+                      {%- endif -%}
+                    </span>
+                  {%- endunless -%}
+                  {%- if block.settings.link != blank -%}
+                    <a href="{{ block.settings.link }}" class="secondary-header__link">{{ block.settings.text }}</a>
+                  {%- else -%}
+                    <span class="secondary-header__text">{{ block.settings.text }}</span>
+                  {%- endif -%}
+                </div>
+              {%- when 'search' -%}
+                <div class="secondary-header__item secondary-header__item--search" style="--sh-search-max: {{ block.settings.search_max_width }}px; --sh-block-icon-size: {{ block.settings.icon_size }}px;" {{ block.shopify_attributes }}>
+                  <form action="{{ routes.search_url }}" method="get" role="search" class="secondary-header__search-form">
+                    <label class="visually-hidden" for="SecondarySearch-l-{{ block.id }}">{{ 'general.search.search' | t }}</label>
+                    <input id="SecondarySearch-l-{{ block.id }}" class="secondary-header__search-input snize-exclude-input" type="search" name="q" placeholder="{{ block.settings.placeholder }}">
+                    <input type="hidden" name="options[prefix]" value="last">
+                    <button type="submit" class="secondary-header__search-btn" aria-label="{{ 'general.search.search' | t }}">
+                      <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" role="presentation" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                    </button>
+                  </form>
+                </div>
+            {%- endcase -%}
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+
+      <div class="secondary-header__right">
+        {%- for block in section.blocks -%}
+          {%- if block.settings.side == 'right' -%}
+            {%- case block.type -%}
+              {%- when 'text_link' -%}
+                <div class="secondary-header__item" style="--sh-block-icon-size: {{ block.settings.icon_size }}px;" {{ block.shopify_attributes }}>
+                  {%- unless block.settings.svg_icon == 'none' and block.settings.custom_icon == blank -%}
+                    <span class="secondary-header__icon-wrap" aria-hidden="true">
+                      {%- if block.settings.custom_icon != blank -%}
+                        <img src="{{ block.settings.custom_icon | image_url: width: 64 }}" alt="" class="secondary-header__custom-icon" loading="eager">
+                      {%- elsif block.settings.svg_icon == 'email' -%}
+                        <svg class="secondary-header__svg-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg>
+                      {%- elsif block.settings.svg_icon == 'phone' -%}
+                        <svg class="secondary-header__svg-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8 19.79 19.79 0 012 .18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+                      {%- elsif block.settings.svg_icon == 'location' -%}
+                        <svg class="secondary-header__svg-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                      {%- elsif block.settings.svg_icon == 'support' -%}
+                        <svg class="secondary-header__svg-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a9 9 0 0118 0v6"/><path d="M21 19a2 2 0 01-2 2h-1a2 2 0 01-2-2v-3a2 2 0 012-2h3zM3 19a2 2 0 002 2h1a2 2 0 002-2v-3a2 2 0 00-2-2H3z"/></svg>
+                      {%- endif -%}
+                    </span>
+                  {%- endunless -%}
+                  {%- if block.settings.link != blank -%}
+                    <a href="{{ block.settings.link }}" class="secondary-header__link">{{ block.settings.text }}</a>
+                  {%- else -%}
+                    <span class="secondary-header__text">{{ block.settings.text }}</span>
+                  {%- endif -%}
+                </div>
+              {%- when 'search' -%}
+                <div class="secondary-header__item secondary-header__item--search" style="--sh-search-max: {{ block.settings.search_max_width }}px; --sh-block-icon-size: {{ block.settings.icon_size }}px;" {{ block.shopify_attributes }}>
+                  <form action="{{ routes.search_url }}" method="get" role="search" class="secondary-header__search-form">
+                    <label class="visually-hidden" for="SecondarySearch-r-{{ block.id }}">{{ 'general.search.search' | t }}</label>
+                    <input id="SecondarySearch-r-{{ block.id }}" class="secondary-header__search-input snize-exclude-input" type="search" name="q" placeholder="{{ block.settings.placeholder }}">
+                    <input type="hidden" name="options[prefix]" value="last">
+                    <button type="submit" class="secondary-header__search-btn" aria-label="{{ 'general.search.search' | t }}">
+                      <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" role="presentation" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                    </button>
+                  </form>
+                </div>
+            {%- endcase -%}
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+
+    </div>
+  </div>
+</div>
+
+{%- assign sh_has_text = false -%}
+{%- for block in section.blocks -%}
+  {%- if block.type == 'text_link' -%}{%- assign sh_has_text = true -%}{%- endif -%}
+{%- endfor -%}
+{%- if sh_has_text -%}
+<template id="sh-mobile-tpl-{{ section.id }}">
+  {%- for block in section.blocks -%}
+    {%- if block.type == 'text_link' -%}
+      <div class="sh-mobile-info__item" style="--sh-block-icon-size: {{ block.settings.icon_size }}px;">
+        {%- unless block.settings.svg_icon == 'none' and block.settings.custom_icon == blank -%}
+          <span class="sh-mobile-info__icon" aria-hidden="true">
+            {%- if block.settings.custom_icon != blank -%}
+              <img src="{{ block.settings.custom_icon | image_url: width: 64 }}" alt="" class="sh-mobile-info__custom-icon" loading="lazy">
+            {%- elsif block.settings.svg_icon == 'email' -%}
+              <svg class="sh-mobile-info__svg-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg>
+            {%- elsif block.settings.svg_icon == 'phone' -%}
+              <svg class="sh-mobile-info__svg-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8 19.79 19.79 0 012 .18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+            {%- elsif block.settings.svg_icon == 'location' -%}
+              <svg class="sh-mobile-info__svg-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            {%- elsif block.settings.svg_icon == 'support' -%}
+              <svg class="sh-mobile-info__svg-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a9 9 0 0118 0v6"/><path d="M21 19a2 2 0 01-2 2h-1a2 2 0 01-2-2v-3a2 2 0 012-2h3zM3 19a2 2 0 002 2h1a2 2 0 002-2v-3a2 2 0 00-2-2H3z"/></svg>
+            {%- endif -%}
+          </span>
+        {%- endunless -%}
+        {%- if block.settings.link != blank -%}
+          <a href="{{ block.settings.link }}" class="sh-mobile-info__link">{{ block.settings.text }}</a>
+        {%- else -%}
+          <span class="sh-mobile-info__text">{{ block.settings.text }}</span>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+  {%- endfor -%}
+</template>
+<script>
+(function () {
+  var bg = {{ section.settings.bg_color | json }};
+  var color = {{ section.settings.text_color | json }};
+  var fontSize = {{ section.settings.font_size | json }};
+
+  function inject() {
+    var drawer = document.getElementById('Mobile-Nav');
+    if (!drawer) return;
+    if (drawer.querySelector('.sh-mobile-info')) return;
+
+    var navInner = drawer.querySelector('.f-mobile-nav__inner');
+    if (!navInner) return;
+
+    var tmpl = document.getElementById('sh-mobile-tpl-{{ section.id }}');
+    if (!tmpl) return;
+
+    var container = document.createElement('div');
+    container.className = 'sh-mobile-info';
+    container.style.cssText = '--sh-bg:' + bg + ';--sh-color:' + color + ';--sh-font-size:' + fontSize + 'px;';
+    container.appendChild(document.importNode(tmpl.content, true));
+    navInner.insertAdjacentElement('afterend', container);
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', inject);
+  } else {
+    inject();
+  }
+})();
+</script>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Secondary Header",
+  "tag": "div",
+  "class": "shopify-section-secondary-header",
+  "max_blocks": 6,
+  "settings": [
+    {
+      "type": "select",
+      "id": "container",
+      "label": "Container width",
+      "options": [
+        { "value": "container", "label": "Fixed" },
+        { "value": "container-fluid", "label": "Stretched" },
+        { "value": "container-full", "label": "Full width" }
+      ],
+      "default": "container-fluid"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background color",
+      "default": "#1a1a1a"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "font_size",
+      "label": "Font size",
+      "min": 10,
+      "max": 20,
+      "step": 1,
+      "default": 13,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "container_height",
+      "label": "Bar height",
+      "min": 28,
+      "max": 80,
+      "step": 2,
+      "default": 38,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_y",
+      "label": "Vertical padding",
+      "info": "Extra top/bottom padding inside the bar",
+      "min": 0,
+      "max": 24,
+      "step": 2,
+      "default": 6,
+      "unit": "px"
+    },
+    {
+      "type": "checkbox",
+      "id": "hide_on_mobile",
+      "label": "Hide on mobile",
+      "default": true
+    }
+  ],
+  "blocks": [
+    {
+      "type": "text_link",
+      "name": "Text / Link item",
+      "settings": [
+        {
+          "type": "select",
+          "id": "side",
+          "label": "Position",
+          "options": [
+            { "value": "left", "label": "Left side" },
+            { "value": "right", "label": "Right side" }
+          ],
+          "default": "left"
+        },
+        {
+          "type": "select",
+          "id": "svg_icon",
+          "label": "Built-in icon",
+          "info": "Overridden if a custom icon image is set below",
+          "options": [
+            { "value": "none", "label": "None" },
+            { "value": "email", "label": "Email" },
+            { "value": "phone", "label": "Phone" },
+            { "value": "location", "label": "Location" },
+            { "value": "support", "label": "Support / Headphones" }
+          ],
+          "default": "none"
+        },
+        {
+          "type": "image_picker",
+          "id": "custom_icon",
+          "label": "Custom icon image (optional)"
+        },
+        {
+          "type": "range",
+          "id": "icon_size",
+          "label": "Icon size",
+          "min": 12,
+          "max": 36,
+          "step": 2,
+          "default": 14,
+          "unit": "px"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text",
+          "default": "Info text"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link (optional)"
+        }
+      ]
+    },
+    {
+      "type": "search",
+      "name": "Search box",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "select",
+          "id": "side",
+          "label": "Position",
+          "options": [
+            { "value": "left", "label": "Left side" },
+            { "value": "right", "label": "Right side" }
+          ],
+          "default": "right"
+        },
+        {
+          "type": "text",
+          "id": "placeholder",
+          "label": "Placeholder text",
+          "default": "Search products..."
+        },
+        {
+          "type": "range",
+          "id": "search_max_width",
+          "label": "Max width",
+          "min": 150,
+          "max": 600,
+          "step": 10,
+          "default": 280,
+          "unit": "px"
+        },
+        {
+          "type": "range",
+          "id": "icon_size",
+          "label": "Search icon size",
+          "min": 12,
+          "max": 28,
+          "step": 2,
+          "default": 16,
+          "unit": "px"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Secondary Header"
+    }
+  ]
+}
+{% endschema %}

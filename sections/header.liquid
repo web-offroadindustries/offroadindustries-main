@@ -196,6 +196,7 @@
 
             {% render 'header__promo-badge', section: section %}
 
+            {% if section.settings.show_v6_search %}
             <div class="site-header__top-search-v6 hidden lg:block">
               <form action="{{ routes.search_url }}" method="get" role="search" class="header-v6-search">
                 <label class="visually-hidden" for="HeaderSearch-{{ section.id }}">
@@ -219,6 +220,7 @@
                 </button>
               </form>
             </div>
+            {% endif %}
 
             <div class="site-header__top-right-v6">
               {% if section.settings.show_help_block %}
@@ -888,6 +890,13 @@
       "id": "help_phone",
       "label": "Help phone number",
       "default": "0483 939 770"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_v6_search",
+      "label": "Show inline search bar (design-6)",
+      "info": "Disable if using the Secondary Header search block instead",
+      "default": true
     },
     {
       "type": "range",
