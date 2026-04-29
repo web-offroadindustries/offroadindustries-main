@@ -118,7 +118,7 @@
 }
 
 .secondary-header__search-input {
-  background: transparent;
+  background: transparent !important;
   border: none;
   outline: none;
   box-shadow: none;
@@ -136,6 +136,15 @@
 .secondary-header__search-input::placeholder {
   color: inherit;
   opacity: 0.5;
+}
+
+/* Prevent browser autofill from flashing a coloured background */
+.secondary-header__search-input:-webkit-autofill,
+.secondary-header__search-input:-webkit-autofill:hover,
+.secondary-header__search-input:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0 1000px var(--sh-bg, #1a1a1a) inset !important;
+  -webkit-text-fill-color: var(--sh-color, #ffffff) !important;
+  caret-color: var(--sh-color, #ffffff);
 }
 
 /* Beat theme's form button[type="submit"] overrides with specificity + !important */
