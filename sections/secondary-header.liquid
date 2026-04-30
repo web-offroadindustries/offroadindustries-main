@@ -27,7 +27,7 @@
           {%- if block.settings.side == 'left' -%}
             {%- case block.type -%}
               {%- when 'text_link' -%}
-                <div class="secondary-header__item" style="--sh-block-icon-size: {{ block.settings.icon_size }}px;{% if block.settings.block_color != blank %} color: {{ block.settings.block_color }};{% endif %}" {{ block.shopify_attributes }}>
+                <div class="secondary-header__item" style="--sh-block-icon-size: {{ block.settings.icon_size }}px;{% if block.settings.block_color != blank %} color: {{ block.settings.block_color }};{% endif %}{% if block.settings.block_font_size > 0 %} font-size: {{ block.settings.block_font_size }}px;{% endif %}" {{ block.shopify_attributes }}>
                   {%- unless block.settings.svg_icon == 'none' and block.settings.custom_icon == blank -%}
                     <span class="secondary-header__icon-wrap" aria-hidden="true">
                       {%- if block.settings.custom_icon != blank -%}
@@ -70,7 +70,7 @@
           {%- if block.settings.side == 'right' -%}
             {%- case block.type -%}
               {%- when 'text_link' -%}
-                <div class="secondary-header__item" style="--sh-block-icon-size: {{ block.settings.icon_size }}px;{% if block.settings.block_color != blank %} color: {{ block.settings.block_color }};{% endif %}" {{ block.shopify_attributes }}>
+                <div class="secondary-header__item" style="--sh-block-icon-size: {{ block.settings.icon_size }}px;{% if block.settings.block_color != blank %} color: {{ block.settings.block_color }};{% endif %}{% if block.settings.block_font_size > 0 %} font-size: {{ block.settings.block_font_size }}px;{% endif %}" {{ block.shopify_attributes }}>
                   {%- unless block.settings.svg_icon == 'none' and block.settings.custom_icon == blank -%}
                     <span class="secondary-header__icon-wrap" aria-hidden="true">
                       {%- if block.settings.custom_icon != blank -%}
@@ -120,7 +120,7 @@
 <template id="sh-mobile-tpl-{{ section.id }}">
   {%- for block in section.blocks -%}
     {%- if block.type == 'text_link' -%}
-      <div class="sh-mobile-info__item" style="--sh-block-icon-size: {{ block.settings.icon_size }}px;{% if block.settings.block_color != blank %} color: {{ block.settings.block_color }};{% endif %}">
+      <div class="sh-mobile-info__item" style="--sh-block-icon-size: {{ block.settings.icon_size }}px;{% if block.settings.block_color != blank %} color: {{ block.settings.block_color }};{% endif %}{% if block.settings.block_font_size > 0 %} font-size: {{ block.settings.block_font_size }}px;{% endif %}">
         {%- unless block.settings.svg_icon == 'none' and block.settings.custom_icon == blank -%}
           <span class="sh-mobile-info__icon" aria-hidden="true">
             {%- if block.settings.custom_icon != blank -%}
@@ -306,6 +306,17 @@
           "id": "block_color",
           "label": "Text & icon color",
           "info": "Leave blank to use the section default color"
+        },
+        {
+          "type": "range",
+          "id": "block_font_size",
+          "label": "Font size override",
+          "info": "Set to 0 to inherit the section font size",
+          "min": 0,
+          "max": 32,
+          "step": 1,
+          "default": 0,
+          "unit": "px"
         }
       ]
     },

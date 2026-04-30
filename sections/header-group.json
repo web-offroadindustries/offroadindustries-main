@@ -80,15 +80,25 @@
             "block_color": ""
           }
         },
-        "block_phone": {
+        "block_phone_label": {
+          "type": "text_link",
+          "settings": {
+            "side": "left",
+            "svg_icon": "none",
+            "icon_size": 14,
+            "text": "Got a Question?"
+          }
+        },
+        "block_phone_number": {
           "type": "text_link",
           "settings": {
             "side": "left",
             "svg_icon": "phone",
-            "icon_size": 14,
-            "text": "Got a Question? 0483 930 639",
+            "icon_size": 16,
+            "text": "0483 930 639",
             "link": "tel:0483930639",
-            "block_color": "#55bdc3"
+            "block_color": "#55bdc3",
+            "block_font_size": 16
           }
         },
         "block_support": {
@@ -114,7 +124,8 @@
       },
       "block_order": [
         "block_email",
-        "block_phone",
+        "block_phone_label",
+        "block_phone_number",
         "block_support",
         "block_search"
       ],
