@@ -77,7 +77,9 @@
             "icon_size": 14,
             "text": "sales@offroadindustries.com.au",
             "link": "mailto:sales@offroadindustries.com.au",
-            "block_color": ""
+            "hide_divider": false,
+            "block_color": "",
+            "block_font_size": 0
           }
         },
         "block_phone_label": {
@@ -86,7 +88,11 @@
             "side": "left",
             "svg_icon": "none",
             "icon_size": 14,
-            "text": "Got a Question?"
+            "text": "Got a Question?",
+            "link": "",
+            "hide_divider": false,
+            "block_color": "",
+            "block_font_size": 0
           }
         },
         "block_phone_number": {
@@ -99,7 +105,7 @@
             "link": "tel:0483930639",
             "hide_divider": true,
             "block_color": "#55bdc3",
-            "block_font_size": 16
+            "block_font_size": 20
           }
         },
         "block_support": {
@@ -110,7 +116,9 @@
             "icon_size": 14,
             "text": "Customer Support",
             "link": "https://www.support.offroadindustries.com.au/desk",
-            "block_color": ""
+            "hide_divider": false,
+            "block_color": "",
+            "block_font_size": 0
           }
         },
         "block_search": {
