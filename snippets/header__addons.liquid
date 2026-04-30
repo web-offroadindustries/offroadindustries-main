@@ -1,4 +1,10 @@
 {% liquid
+  assign b2b_user = false
+  if customer
+    if customer.b2b? or customer.tags contains 'b2b'
+      assign b2b_user = true
+    endif
+  endif
   assign form_id = section.id | append: '_'
   assign show_cart = section.settings.show_cart
   assign show_account = section.settings.show_account
@@ -84,7 +90,17 @@
       {% render 'user-links', block: block, link_class: 'site-header__link', color_schema: color_schema %}
     </div>
   {% endif %}
-  <div class="site-header__element {{ cart_class }}">
-    {% render 'cart-link', block: block, link_class: 'site-header__link', color_schema: color_schema %}
-  </div>
+  {%- if customer -%}
+    <div class="site-header__element hidden md:block">
+      <a href="/pages/b2b-catalog" class="site-header__link site-header__catalog-link">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+        <span class="site-header__catalog-label">Product Catalog</span>
+      </a>
+    </div>
+  {%- endif -%}
+  {%- unless b2b_user -%}
+    <div class="site-header__element {{ cart_class }}">
+      {% render 'cart-link', block: block, link_class: 'site-header__link', color_schema: color_schema %}
+    </div>
+  {%- endunless -%}
 </div>
