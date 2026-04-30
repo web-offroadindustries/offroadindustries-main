@@ -40,9 +40,12 @@
   display: none;
 }
 
-/* Hide divider before a specific block when opted out */
+/* Hide divider before a specific block when opted out, keep a small gap */
 .secondary-header__item--no-divider::before {
   display: none !important;
+}
+.secondary-header__item + .secondary-header__item--no-divider {
+  margin-left: 8px;
 }
 
 .secondary-header__item {
