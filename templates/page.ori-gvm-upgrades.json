@@ -51,7 +51,7 @@
       "name": "t:sections.slideshow.name",
       "settings": {
         "container": "container-full",
-        "slideshow_height": "small",
+        "slideshow_height": "adapt",
         "show_dots": false,
         "show_nav": false,
         "autoplay": false,
