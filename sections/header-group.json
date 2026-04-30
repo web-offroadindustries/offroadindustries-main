@@ -76,7 +76,8 @@
             "svg_icon": "email",
             "icon_size": 14,
             "text": "sales@offroadindustries.com.au",
-            "link": "mailto:sales@offroadindustries.com.au"
+            "link": "mailto:sales@offroadindustries.com.au",
+            "block_color": ""
           }
         },
         "block_phone": {
@@ -97,7 +98,8 @@
             "svg_icon": "support",
             "icon_size": 14,
             "text": "Customer Support",
-            "link": "https://www.support.offroadindustries.com.au/desk"
+            "link": "https://www.support.offroadindustries.com.au/desk",
+            "block_color": ""
           }
         },
         "block_search": {
