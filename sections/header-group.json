@@ -86,7 +86,8 @@
             "svg_icon": "phone",
             "icon_size": 14,
             "text": "Got a Question? 0483 930 639",
-            "link": "tel:0483930639"
+            "link": "tel:0483930639",
+            "block_color": "#55bdc3"
           }
         },
         "block_support": {
