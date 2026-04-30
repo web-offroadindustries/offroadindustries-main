@@ -27,7 +27,7 @@
           {%- if block.settings.side == 'left' -%}
             {%- case block.type -%}
               {%- when 'text_link' -%}
-                <div class="secondary-header__item" style="--sh-block-icon-size: {{ block.settings.icon_size }}px;" {{ block.shopify_attributes }}>
+                <div class="secondary-header__item" style="--sh-block-icon-size: {{ block.settings.icon_size }}px;{% if block.settings.block_color != blank %} color: {{ block.settings.block_color }};{% endif %}" {{ block.shopify_attributes }}>
                   {%- unless block.settings.svg_icon == 'none' and block.settings.custom_icon == blank -%}
                     <span class="secondary-header__icon-wrap" aria-hidden="true">
                       {%- if block.settings.custom_icon != blank -%}
@@ -70,7 +70,7 @@
           {%- if block.settings.side == 'right' -%}
             {%- case block.type -%}
               {%- when 'text_link' -%}
-                <div class="secondary-header__item" style="--sh-block-icon-size: {{ block.settings.icon_size }}px;" {{ block.shopify_attributes }}>
+                <div class="secondary-header__item" style="--sh-block-icon-size: {{ block.settings.icon_size }}px;{% if block.settings.block_color != blank %} color: {{ block.settings.block_color }};{% endif %}" {{ block.shopify_attributes }}>
                   {%- unless block.settings.svg_icon == 'none' and block.settings.custom_icon == blank -%}
                     <span class="secondary-header__icon-wrap" aria-hidden="true">
                       {%- if block.settings.custom_icon != blank -%}
@@ -120,7 +120,7 @@
 <template id="sh-mobile-tpl-{{ section.id }}">
   {%- for block in section.blocks -%}
     {%- if block.type == 'text_link' -%}
-      <div class="sh-mobile-info__item" style="--sh-block-icon-size: {{ block.settings.icon_size }}px;">
+      <div class="sh-mobile-info__item" style="--sh-block-icon-size: {{ block.settings.icon_size }}px;{% if block.settings.block_color != blank %} color: {{ block.settings.block_color }};{% endif %}">
         {%- unless block.settings.svg_icon == 'none' and block.settings.custom_icon == blank -%}
           <span class="sh-mobile-info__icon" aria-hidden="true">
             {%- if block.settings.custom_icon != blank -%}
@@ -300,6 +300,12 @@
           "type": "url",
           "id": "link",
           "label": "Link (optional)"
+        },
+        {
+          "type": "color",
+          "id": "block_color",
+          "label": "Text & icon color",
+          "info": "Leave blank to use the section default color"
         }
       ]
     },
