@@ -40,6 +40,11 @@
   display: none;
 }
 
+/* Hide divider before a specific block when opted out */
+.secondary-header__item--no-divider::before {
+  display: none !important;
+}
+
 .secondary-header__item {
   display: flex;
   align-items: center;
