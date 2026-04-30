@@ -3,6 +3,17 @@
    explicit .b2b-* class selectors used by b2b snippets.
    ─────────────────────────────────────────────────────────────────────────── */
 
+/* ── Header catalog link (logged-in customers only) ──────────────────────── */
+.site-header__catalog-link {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+.site-header__catalog-label {
+  font-size: 1.3rem;
+}
+
 /* ── Auth gate "Pending Approval" page ────────────────────────────────────── */
 .b2b-pending {
   display: flex;
