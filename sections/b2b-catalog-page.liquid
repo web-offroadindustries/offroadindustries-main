@@ -1,19 +1,17 @@
 {%- liquid
-  assign b2b_user = false
+  assign authorized = false
   if customer
-    if customer.b2b? or customer.tags contains 'b2b'
-      assign b2b_user = true
-    endif
+    assign authorized = true
   endif
   assign container = section.settings.container | default: 'container'
 -%}
 
-{%- unless b2b_user -%}
+{%- unless authorized -%}
   <style>html,body{display:none!important}</style>
-  <script>window.location.replace('/account/login');</script>
+  <script>window.location.replace('/account/login?return_to=' + encodeURIComponent(window.location.pathname));</script>
 {%- endunless -%}
 
-{%- if b2b_user -%}
+{%- if authorized -%}
 
 {%- paginate collections.all.products by section.settings.per_page -%}
 
@@ -23,6 +21,7 @@
 >
   <div class="{{ container }}">
 
+    {%- comment -%} ── Page header ───────────────────────────────────────────── {%- endcomment -%}
     <div class="b2b-catalog__page-header">
       <div class="b2b-catalog__page-header-text">
         <h1 class="b2b-catalog__page-title">{{ section.settings.heading }}</h1>
@@ -37,6 +36,7 @@
       </div>
     </div>
 
+    {%- comment -%} ── Stats bar ────────────────────────────────────────────── {%- endcomment -%}
     <div class="b2b-catalog__stats">
       <span>{{ collections.all.products_count }} product{{ collections.all.products_count | plural: '', 's' }}</span>
       {%- if paginate.pages > 1 -%}
@@ -45,6 +45,7 @@
       {%- endif -%}
     </div>
 
+    {%- comment -%} ── Product table ─────────────────────────────────────────── {%- endcomment -%}
     {%- if collections.all.products_count > 0 -%}
       <div class="b2b-catalog__table-wrap">
         <table class="b2b-catalog__table">
@@ -147,6 +148,7 @@
         </table>
       </div>
 
+      {%- comment -%} ── Pagination ────────────────────────────────────────── {%- endcomment -%}
       {%- if paginate.pages > 1 -%}
         <nav class="b2b-catalog__pagination" aria-label="Product catalog pages">
           {%- if paginate.previous -%}
@@ -175,6 +177,7 @@
       <p class="b2b-catalog__empty">No products available at this time. Please check back later.</p>
     {%- endif -%}
 
+    {%- comment -%} ── Footer CTA ───────────────────────────────────────────── {%- endcomment -%}
     {%- if section.settings.show_cta -%}
       <div class="b2b-catalog__footer-cta">
         <p>{{ section.settings.cta_text }}</p>
