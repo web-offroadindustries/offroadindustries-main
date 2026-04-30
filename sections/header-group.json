@@ -97,6 +97,7 @@
             "icon_size": 16,
             "text": "0483 930 639",
             "link": "tel:0483930639",
+            "hide_divider": true,
             "block_color": "#55bdc3",
             "block_font_size": 16
           }

@@ -27,7 +27,7 @@
           {%- if block.settings.side == 'left' -%}
             {%- case block.type -%}
               {%- when 'text_link' -%}
-                <div class="secondary-header__item" style="--sh-block-icon-size: {{ block.settings.icon_size }}px;{% if block.settings.block_color != blank %} color: {{ block.settings.block_color }};{% endif %}{% if block.settings.block_font_size > 0 %} font-size: {{ block.settings.block_font_size }}px;{% endif %}" {{ block.shopify_attributes }}>
+                <div class="secondary-header__item{% if block.settings.hide_divider %} secondary-header__item--no-divider{% endif %}" style="--sh-block-icon-size: {{ block.settings.icon_size }}px;{% if block.settings.block_color != blank %} color: {{ block.settings.block_color }};{% endif %}{% if block.settings.block_font_size > 0 %} font-size: {{ block.settings.block_font_size }}px;{% endif %}" {{ block.shopify_attributes }}>
                   {%- unless block.settings.svg_icon == 'none' and block.settings.custom_icon == blank -%}
                     <span class="secondary-header__icon-wrap" aria-hidden="true">
                       {%- if block.settings.custom_icon != blank -%}
@@ -70,7 +70,7 @@
           {%- if block.settings.side == 'right' -%}
             {%- case block.type -%}
               {%- when 'text_link' -%}
-                <div class="secondary-header__item" style="--sh-block-icon-size: {{ block.settings.icon_size }}px;{% if block.settings.block_color != blank %} color: {{ block.settings.block_color }};{% endif %}{% if block.settings.block_font_size > 0 %} font-size: {{ block.settings.block_font_size }}px;{% endif %}" {{ block.shopify_attributes }}>
+                <div class="secondary-header__item{% if block.settings.hide_divider %} secondary-header__item--no-divider{% endif %}" style="--sh-block-icon-size: {{ block.settings.icon_size }}px;{% if block.settings.block_color != blank %} color: {{ block.settings.block_color }};{% endif %}{% if block.settings.block_font_size > 0 %} font-size: {{ block.settings.block_font_size }}px;{% endif %}" {{ block.shopify_attributes }}>
                   {%- unless block.settings.svg_icon == 'none' and block.settings.custom_icon == blank -%}
                     <span class="secondary-header__icon-wrap" aria-hidden="true">
                       {%- if block.settings.custom_icon != blank -%}
@@ -300,6 +300,12 @@
           "type": "url",
           "id": "link",
           "label": "Link (optional)"
+        },
+        {
+          "type": "checkbox",
+          "id": "hide_divider",
+          "label": "Hide divider before this item",
+          "default": false
         },
         {
           "type": "color",
