@@ -183,7 +183,7 @@
         "show_help_block": false,
         "help_label": "Got a Question?",
         "help_phone": "0483 930 639",
-        "show_v6_search": true,
+        "show_v6_search": false,
         "v6_search_max_width": 620,
         "v6_search_height": 30,
         "v6_search_font_size": 14,
