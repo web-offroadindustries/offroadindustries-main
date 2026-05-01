@@ -3,6 +3,7 @@
     "main": {
       "type": "b2b-catalog-page",
       "settings": {
+        "require_login": false,
         "container": "container-fluid",
         "heading": "Product Catalog",
         "subheading": "Stock availability and pricing shown below. Contact us to place an order.",

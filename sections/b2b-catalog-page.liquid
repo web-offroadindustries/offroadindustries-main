@@ -3,6 +3,9 @@
   if customer
     assign authorized = true
   endif
+  if section.settings.require_login == false
+    assign authorized = true
+  endif
   assign container = section.settings.container | default: 'container'
 -%}
 
@@ -201,6 +204,12 @@
 {
   "name": "B2B Product Catalog",
   "settings": [
+    {
+      "type": "checkbox",
+      "id": "require_login",
+      "label": "Require login to view catalog",
+      "default": true
+    },
     {
       "type": "select",
       "id": "container",
