@@ -8,10 +8,14 @@
 
 {%- unless authorized -%}
   <style>html,body{display:none!important}</style>
-  <script>window.location.replace('/account/login?return_to=' + encodeURIComponent(window.location.pathname));</script>
+  <script>
+    try { localStorage.setItem('b2b_pending_redirect', window.location.pathname); } catch(e) {}
+    window.location.replace('/account/login');
+  </script>
 {%- endunless -%}
 
 {%- if authorized -%}
+<script>try { localStorage.removeItem('b2b_pending_redirect'); } catch(e) {}</script>
 
 {%- paginate collections.all.products by section.settings.per_page -%}
 

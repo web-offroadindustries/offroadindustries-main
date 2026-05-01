@@ -411,5 +411,18 @@
     {%- render 'bold-common' -%}
     {%- render 'sc-includes' -%}
     <script src="{{ 'bold-options-form-linker.js' | asset_url }}" defer></script>
+    {%- if customer -%}
+    <script>
+      (function() {
+        try {
+          var pending = localStorage.getItem('b2b_pending_redirect');
+          if (pending && /^\/[^/]/.test(pending) && window.location.pathname !== pending) {
+            localStorage.removeItem('b2b_pending_redirect');
+            window.location.replace(pending);
+          }
+        } catch(e) {}
+      })();
+    </script>
+    {%- endif -%}
   </body>
 </html>
