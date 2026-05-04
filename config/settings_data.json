@@ -58,7 +58,10 @@
     "cart_icon": "shopping-cart",
     "cart_drawer_show_view_cart": true,
     "enable_drawer_shipping_rates": false,
-    "collection_list": [],
+    "collection_list": [
+      "baja-designs"
+    ],
+    "cart_default_country": "Australia",
     "show_free_shipping_message": true,
     "pcard_show_second_img": true,
     "pcard_show_color_swatch": true,
