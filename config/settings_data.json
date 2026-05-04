@@ -57,7 +57,7 @@
     "cart_type": "drawer",
     "cart_icon": "shopping-cart",
     "cart_drawer_show_view_cart": true,
-    "enable_drawer_shipping_rates": true,
+    "enable_drawer_shipping_rates": false,
     "collection_list": [],
     "show_free_shipping_message": true,
     "pcard_show_second_img": true,
