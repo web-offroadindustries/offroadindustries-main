@@ -202,7 +202,7 @@
       <div class="b2b-pending">
         <h1 class="b2b-pending__title">{{ section.settings.gate_heading }}</h1>
         <p class="b2b-pending__body">{{ section.settings.gate_body }}</p>
-        <a href="{{ routes.account_login_url }}" class="btn btn--primary">{{ section.settings.gate_btn_label }}</a>
+        <a href="{{ routes.account_login_url }}?return_to={{ '/pages/b2b-catalog' | url_encode }}" class="btn btn--primary">{{ section.settings.gate_btn_label }}</a>
         {%- if section.settings.cta_link != blank -%}
           <a href="{{ section.settings.cta_link }}" class="b2b-pending__link">Not a wholesale customer? Contact us to apply.</a>
         {%- endif -%}
