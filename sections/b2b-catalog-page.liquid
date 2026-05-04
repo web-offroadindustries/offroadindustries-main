@@ -1,8 +1,10 @@
 {%- liquid
   assign container = section.settings.container | default: 'container'
+  assign authorized = false
+  if customer.b2b?
+    assign authorized = true
+  endif
 -%}
-
-{%- paginate collections.all.products by section.settings.per_page -%}
 
 <div
   class="b2b-catalog-page f-section-padding"
@@ -10,176 +12,206 @@
 >
   <div class="{{ container }}">
 
-    {%- comment -%} ── Page header ───────────────────────────────────────────── {%- endcomment -%}
-    <div class="b2b-catalog__page-header">
-      <div class="b2b-catalog__page-header-text">
-        <h1 class="b2b-catalog__page-title">{{ section.settings.heading }}</h1>
-        {%- if section.settings.subheading != blank -%}
-          <p class="b2b-catalog__page-sub">{{ section.settings.subheading }}</p>
-        {%- endif -%}
+    {%- if authorized -%}
+
+      {%- comment -%} ── Page header ───────────────────────────────────────────── {%- endcomment -%}
+      <div class="b2b-catalog__page-header">
+        <div class="b2b-catalog__page-header-text">
+          <h1 class="b2b-catalog__page-title">{{ section.settings.heading }}</h1>
+          {%- if section.settings.subheading != blank -%}
+            <p class="b2b-catalog__page-sub">{{ section.settings.subheading }}</p>
+          {%- endif -%}
+        </div>
+        <div class="b2b-catalog__legend">
+          <span class="b2b-stock-badge">In Stock</span>
+          <span class="b2b-stock-badge b2b-stock-badge--low">Low Stock</span>
+          <span class="b2b-stock-badge b2b-stock-badge--out">Out of Stock</span>
+        </div>
       </div>
-      <div class="b2b-catalog__legend">
-        <span class="b2b-stock-badge">In Stock</span>
-        <span class="b2b-stock-badge b2b-stock-badge--low">Low Stock</span>
-        <span class="b2b-stock-badge b2b-stock-badge--out">Out of Stock</span>
-      </div>
-    </div>
 
-    {%- comment -%} ── Stats bar ────────────────────────────────────────────── {%- endcomment -%}
-    <div class="b2b-catalog__stats">
-      <span>{{ collections.all.products_count }} product{{ collections.all.products_count | plural: '', 's' }}</span>
-      {%- if paginate.pages > 1 -%}
-        <span class="b2b-catalog__stats-sep">·</span>
-        <span>Page {{ paginate.current_page }} of {{ paginate.pages }}</span>
-      {%- endif -%}
-    </div>
+      {%- paginate collections.all.products by section.settings.per_page -%}
 
-    {%- comment -%} ── Product table ─────────────────────────────────────────── {%- endcomment -%}
-    {%- if collections.all.products_count > 0 -%}
-      <div class="b2b-catalog__table-wrap">
-        <table class="b2b-catalog__table">
-          <thead>
-            <tr>
-              <th class="b2b-catalog__th b2b-catalog__th--product">Product</th>
-              <th class="b2b-catalog__th">Variant</th>
-              <th class="b2b-catalog__th b2b-catalog__th--sku">SKU</th>
-              <th class="b2b-catalog__th b2b-catalog__th--stock">Stock</th>
-              <th class="b2b-catalog__th b2b-catalog__th--price">Retail Price</th>
-              <th class="b2b-catalog__th b2b-catalog__th--price">Member Price</th>
-            </tr>
-          </thead>
-          <tbody>
-            {%- for product in collections.all.products -%}
-              {%- for variant in product.variants -%}
-                {%- liquid
-                  assign qty = variant.inventory_quantity | default: 0
+        {%- comment -%} ── Stats bar ────────────────────────────────────────────── {%- endcomment -%}
+        <div class="b2b-catalog__stats">
+          <span>{{ collections.all.products_count }} product{{ collections.all.products_count | plural: '', 's' }}</span>
+          {%- if paginate.pages > 1 -%}
+            <span class="b2b-catalog__stats-sep">·</span>
+            <span>Page {{ paginate.current_page }} of {{ paginate.pages }}</span>
+          {%- endif -%}
+        </div>
 
-                  if variant.inventory_management != 'shopify' or variant.inventory_policy == 'continue'
-                    assign stock_class = 'b2b-stock-badge'
-                    assign stock_label = 'Available'
-                    assign stock_show_qty = false
-                  elsif qty > 10
-                    assign stock_class = 'b2b-stock-badge'
-                    assign stock_label = 'In Stock'
-                    assign stock_show_qty = true
-                  elsif qty > 0
-                    assign stock_class = 'b2b-stock-badge b2b-stock-badge--low'
-                    assign stock_label = 'Low Stock'
-                    assign stock_show_qty = true
-                  else
-                    assign stock_class = 'b2b-stock-badge b2b-stock-badge--out'
-                    assign stock_label = 'Out of Stock'
-                    assign stock_show_qty = false
-                  endif
-
-                  assign has_retail = false
-                  if variant.compare_at_price > variant.price
-                    assign has_retail = true
-                  endif
-                -%}
-                <tr class="b2b-catalog__row{% if forloop.first %} b2b-catalog__row--first{% endif %}">
-
-                  {%- if forloop.first -%}
-                    <td class="b2b-catalog__product-cell" rowspan="{{ product.variants.size }}">
-                      <a href="{{ product.url }}" class="b2b-catalog__product-link">
-                        {%- if product.featured_image -%}
-                          <img
-                            src="{{ product.featured_image | image_url: width: 100 }}"
-                            alt="{{ product.featured_image.alt | escape }}"
-                            width="44"
-                            height="44"
-                            class="b2b-catalog__thumb"
-                            loading="lazy"
-                            decoding="async"
-                          >
-                        {%- else -%}
-                          <span class="b2b-catalog__thumb b2b-catalog__thumb--placeholder" aria-hidden="true"></span>
-                        {%- endif -%}
-                        <span class="b2b-catalog__product-name">{{ product.title }}</span>
-                      </a>
-                    </td>
-                  {%- endif -%}
-
-                  <td class="b2b-catalog__td b2b-catalog__td--variant">
-                    {%- if variant.title == 'Default Title' -%}
-                      <span class="b2b-catalog__muted">—</span>
-                    {%- else -%}
-                      {{ variant.title }}
-                    {%- endif -%}
-                  </td>
-
-                  <td class="b2b-catalog__td b2b-catalog__td--sku">
-                    {{ variant.sku | default: '—' }}
-                  </td>
-
-                  <td class="b2b-catalog__td b2b-catalog__td--stock">
-                    <span class="{{ stock_class }}">
-                      {{ stock_label }}{% if stock_show_qty %}&nbsp;({{ qty }}){% endif %}
-                    </span>
-                  </td>
-
-                  <td class="b2b-catalog__td b2b-catalog__td--price">
-                    {%- if has_retail -%}
-                      {{ variant.compare_at_price | money }}
-                    {%- else -%}
-                      <span class="b2b-catalog__muted">—</span>
-                    {%- endif -%}
-                  </td>
-
-                  <td class="b2b-catalog__td b2b-catalog__td--price b2b-catalog__td--member">
-                    {{ variant.price | money }}
-                  </td>
-
+        {%- comment -%} ── Product table ─────────────────────────────────────────── {%- endcomment -%}
+        {%- if collections.all.products_count > 0 -%}
+          <div class="b2b-catalog__table-wrap">
+            <table class="b2b-catalog__table">
+              <thead>
+                <tr>
+                  <th class="b2b-catalog__th b2b-catalog__th--product">Product</th>
+                  <th class="b2b-catalog__th">Variant</th>
+                  <th class="b2b-catalog__th b2b-catalog__th--sku">SKU</th>
+                  <th class="b2b-catalog__th b2b-catalog__th--stock">Stock</th>
+                  <th class="b2b-catalog__th b2b-catalog__th--price">Retail Price</th>
+                  <th class="b2b-catalog__th b2b-catalog__th--price">Your Price</th>
                 </tr>
-              {%- endfor -%}
-            {%- endfor -%}
-          </tbody>
-        </table>
-      </div>
+              </thead>
+              <tbody>
+                {%- for product in collections.all.products -%}
+                  {%- for variant in product.variants -%}
+                    {%- liquid
+                      assign qty = variant.inventory_quantity | default: 0
 
-      {%- comment -%} ── Pagination ────────────────────────────────────────── {%- endcomment -%}
-      {%- if paginate.pages > 1 -%}
-        <nav class="b2b-catalog__pagination" aria-label="Product catalog pages">
-          {%- if paginate.previous -%}
-            <a href="{{ paginate.previous.url }}" class="btn btn--outline b2b-catalog__page-btn">
-              ← Previous
-            </a>
-          {%- else -%}
-            <span class="btn btn--outline b2b-catalog__page-btn b2b-catalog__page-btn--disabled" aria-disabled="true">← Previous</span>
+                      if variant.inventory_management != 'shopify' or variant.inventory_policy == 'continue'
+                        assign stock_class = 'b2b-stock-badge'
+                        assign stock_label = 'Available'
+                        assign stock_show_qty = false
+                      elsif qty > 10
+                        assign stock_class = 'b2b-stock-badge'
+                        assign stock_label = 'In Stock'
+                        assign stock_show_qty = true
+                      elsif qty > 0
+                        assign stock_class = 'b2b-stock-badge b2b-stock-badge--low'
+                        assign stock_label = 'Low Stock'
+                        assign stock_show_qty = true
+                      else
+                        assign stock_class = 'b2b-stock-badge b2b-stock-badge--out'
+                        assign stock_label = 'Out of Stock'
+                        assign stock_show_qty = false
+                      endif
+
+                      assign has_retail = false
+                      if variant.compare_at_price > variant.price
+                        assign has_retail = true
+                      endif
+                    -%}
+                    <tr class="b2b-catalog__row{% if forloop.first %} b2b-catalog__row--first{% endif %}">
+
+                      {%- if forloop.first -%}
+                        <td class="b2b-catalog__product-cell" rowspan="{{ product.variants.size }}">
+                          <a href="{{ product.url }}" class="b2b-catalog__product-link" target="_blank" rel="noopener">
+                            {%- if product.featured_image -%}
+                              <img
+                                src="{{ product.featured_image | image_url: width: 100 }}"
+                                alt="{{ product.featured_image.alt | escape }}"
+                                width="44"
+                                height="44"
+                                class="b2b-catalog__thumb"
+                                loading="lazy"
+                                decoding="async"
+                              >
+                            {%- else -%}
+                              <span class="b2b-catalog__thumb b2b-catalog__thumb--placeholder" aria-hidden="true"></span>
+                            {%- endif -%}
+                            <span class="b2b-catalog__product-name">{{ product.title }}</span>
+                          </a>
+                        </td>
+                      {%- endif -%}
+
+                      <td class="b2b-catalog__td b2b-catalog__td--variant">
+                        {%- if variant.title == 'Default Title' -%}
+                          <span class="b2b-catalog__muted">—</span>
+                        {%- else -%}
+                          {{ variant.title }}
+                        {%- endif -%}
+                      </td>
+
+                      <td class="b2b-catalog__td b2b-catalog__td--sku">
+                        {{ variant.sku | default: '—' }}
+                      </td>
+
+                      <td class="b2b-catalog__td b2b-catalog__td--stock">
+                        <span class="{{ stock_class }}">
+                          {{ stock_label }}{% if stock_show_qty %}&nbsp;({{ qty }}){% endif %}
+                        </span>
+                      </td>
+
+                      <td class="b2b-catalog__td b2b-catalog__td--price">
+                        {%- if has_retail -%}
+                          {{ variant.compare_at_price | money }}
+                        {%- else -%}
+                          {{ variant.price | money }}
+                        {%- endif -%}
+                      </td>
+
+                      <td class="b2b-catalog__td b2b-catalog__td--price b2b-catalog__td--member">
+                        {{ variant.price | money }}
+                      </td>
+
+                    </tr>
+                  {%- endfor -%}
+                {%- endfor -%}
+              </tbody>
+            </table>
+          </div>
+
+          {%- comment -%} ── Pagination ────────────────────────────────────────── {%- endcomment -%}
+          {%- if paginate.pages > 1 -%}
+            <nav class="b2b-catalog__pagination" aria-label="Product catalog pages">
+              {%- if paginate.previous -%}
+                <a href="{{ paginate.previous.url }}" class="btn btn--outline b2b-catalog__page-btn">
+                  ← Previous
+                </a>
+              {%- else -%}
+                <span class="btn btn--outline b2b-catalog__page-btn b2b-catalog__page-btn--disabled" aria-disabled="true">← Previous</span>
+              {%- endif -%}
+
+              <span class="b2b-catalog__page-info">
+                {{ paginate.current_page }} / {{ paginate.pages }}
+              </span>
+
+              {%- if paginate.next -%}
+                <a href="{{ paginate.next.url }}" class="btn btn--outline b2b-catalog__page-btn">
+                  Next →
+                </a>
+              {%- else -%}
+                <span class="btn btn--outline b2b-catalog__page-btn b2b-catalog__page-btn--disabled" aria-disabled="true">Next →</span>
+              {%- endif -%}
+            </nav>
           {%- endif -%}
 
-          <span class="b2b-catalog__page-info">
-            {{ paginate.current_page }} / {{ paginate.pages }}
-          </span>
+        {%- else -%}
+          <p class="b2b-catalog__empty">No products available at this time. Please check back later.</p>
+        {%- endif -%}
 
-          {%- if paginate.next -%}
-            <a href="{{ paginate.next.url }}" class="btn btn--outline b2b-catalog__page-btn">
-              Next →
-            </a>
-          {%- else -%}
-            <span class="btn btn--outline b2b-catalog__page-btn b2b-catalog__page-btn--disabled" aria-disabled="true">Next →</span>
-          {%- endif -%}
-        </nav>
+      {%- endpaginate -%}
+
+      {%- comment -%} ── Footer CTA ───────────────────────────────────────────── {%- endcomment -%}
+      {%- if section.settings.show_cta -%}
+        <div class="b2b-catalog__footer-cta">
+          <p>{{ section.settings.cta_text }}</p>
+          <a href="{{ section.settings.cta_link }}" class="btn btn--primary">
+            {{ section.settings.cta_label }}
+          </a>
+        </div>
       {%- endif -%}
+
+    {%- elsif customer -%}
+
+      {%- comment -%} Logged in but not a B2B company contact {%- endcomment -%}
+      <div class="b2b-pending">
+        <h1 class="b2b-pending__title">Access Restricted</h1>
+        <p class="b2b-pending__body">
+          This catalog is only available to approved wholesale accounts.
+          Contact us to apply for a wholesale account.
+        </p>
+        <a href="{{ section.settings.cta_link | default: '/pages/contact' }}" class="btn btn--primary">Contact Us</a>
+      </div>
 
     {%- else -%}
-      <p class="b2b-catalog__empty">No products available at this time. Please check back later.</p>
-    {%- endif -%}
 
-    {%- comment -%} ── Footer CTA ───────────────────────────────────────────── {%- endcomment -%}
-    {%- if section.settings.show_cta -%}
-      <div class="b2b-catalog__footer-cta">
-        <p>{{ section.settings.cta_text }}</p>
-        <a href="{{ section.settings.cta_link }}" class="btn btn--primary">
-          {{ section.settings.cta_label }}
-        </a>
+      {%- comment -%} Not logged in {%- endcomment -%}
+      <div class="b2b-pending">
+        <h1 class="b2b-pending__title">{{ section.settings.gate_heading }}</h1>
+        <p class="b2b-pending__body">{{ section.settings.gate_body }}</p>
+        <a href="{{ routes.account_login_url }}" class="btn btn--primary">{{ section.settings.gate_btn_label }}</a>
+        {%- if section.settings.cta_link != blank -%}
+          <a href="{{ section.settings.cta_link }}" class="b2b-pending__link">Not a wholesale customer? Contact us to apply.</a>
+        {%- endif -%}
       </div>
+
     {%- endif -%}
 
   </div>
 </div>
-
-{%- endpaginate -%}
 
 {% schema %}
 {
@@ -194,6 +226,10 @@
         { "value": "container-fluid", "label": "Stretched" }
       ],
       "default": "container-fluid"
+    },
+    {
+      "type": "header",
+      "content": "Catalog (shown to B2B contacts)"
     },
     {
       "type": "text",
@@ -218,12 +254,34 @@
     },
     {
       "type": "header",
+      "content": "Login Gate (shown to guests)"
+    },
+    {
+      "type": "text",
+      "id": "gate_heading",
+      "label": "Gate heading",
+      "default": "Wholesale Portal"
+    },
+    {
+      "type": "textarea",
+      "id": "gate_body",
+      "label": "Gate description",
+      "default": "Log in with your wholesale account to access pricing, stock availability, and the full product catalog."
+    },
+    {
+      "type": "text",
+      "id": "gate_btn_label",
+      "label": "Login button label",
+      "default": "Log In to View Catalog"
+    },
+    {
+      "type": "header",
       "content": "Contact CTA"
     },
     {
       "type": "checkbox",
       "id": "show_cta",
-      "label": "Show contact CTA",
+      "label": "Show contact CTA (catalog footer)",
       "default": true
     },
     {
