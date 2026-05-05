@@ -454,7 +454,7 @@
           %}
         </div>
       {% endif %}
-      {% if (list_layout or is_lookbook) and b2b_user == false %}
+      {% unless b2b_user %}{% if list_layout or is_lookbook %}
         {% if enable_quick_add or enable_quick_view %}
           {%- liquid
             assign button_class = 'btn--white'
@@ -596,7 +596,7 @@
             {% endif %}
           </div>
         {% endif %}
-      {% endif %}
+      {% endif %}{% endunless %}
       {% if is_lookbook and show_product_option %}
         <div class="product-card__options relative text-center block md:hidden">
           {% render 'product-card-swatch',
