@@ -234,10 +234,9 @@
     <script>
       (function () {
         try {
-          var dest = localStorage.getItem('b2b_redirect');
-          var loggedIn = {% if customer %}true{% else %}false{% endif %};
-          if (dest && loggedIn && window.location.pathname !== dest) {
-            localStorage.removeItem('b2b_redirect');
+          var dest = sessionStorage.getItem('b2b_redirect');
+          if (dest && window.location.pathname !== dest) {
+            sessionStorage.removeItem('b2b_redirect');
             window.location.replace(dest);
           }
         } catch (e) {}
