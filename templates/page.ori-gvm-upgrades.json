@@ -210,7 +210,7 @@
           "type": "button",
           "settings": {
             "button_label": "View our Dealers",
-            "button_link": "shopify://pages/dealership",
+            "button_link": "",
             "button_style": "btn--primary",
             "button_size": ""
           }
