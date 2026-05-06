@@ -159,7 +159,7 @@
         "text_7BUCdz": {
           "type": "text",
           "settings": {
-            "text": "<p>Want to upgrade your truck to maximise the heavy loads you can haul? Offroad Industries is your premier choice for getting all the best GVM upgrades, with options for all of Australia’s most-loved and hardest working vehicles. Whether you’re driving for work or play, we’ve got upgrades for everything from Chevrolet and RAM to Ford and Toyota, bringing you aftermarket parts from the top manufacturers in the industry. </p><p>Explore your options from the likes of Fox Suspension and BDS. These American-designed and made parts not only enhance the look of your vehicle, but also boost your payload and towing power. One of the biggest differences you’ll experience is the offroad handling and capabilities, with those rugged conditions that Australia is known for becoming easier to navigate. </p><p>With rigorous testing, hard-wearing materials and safety and legal compliance a part of the deal, you can order with confidence knowing that we not only meet but exceed all ADR requirements. When you want GVM upgrades that are built to last, you shop with Offroad Industries. Explore the range now and discover the true potential of your truck. </p>"
+            "text": "<h3>Maximize Your Payload & Towing: ORI GVM & GCM Upgrades for American Trucks</h3><p>American trucks are built incredibly tough—but when they hit Australian shores, their factory GVM (Gross Vehicle Mass) and GCM (Gross Combined Mass) ratings often fall short of what you actually need to carry and tow. By the time you add steel bullbars, custom tray bodies, heavy canopies, long-range fuel tanks, and serious camping gear, those factory limits add up fast.</p><p>Exceeding your GVM or GCM isn't just a massive insurance risk—it's a strict legal liability that compromises your safety.</p><p>That’s where our <strong>ORI certified GVM and GCM upgrade packages</strong> come in. Engineered specifically for your favorite full-size American trucks, our premium upgrades give you a higher legal payload and towing capacity. This means you can load up your rig and hitch up your caravan properly, without ever having to compromise on gear.</p><p><strong>Why Choose an ORI GVM & GCM Upgrade?</strong></p><ul><li><strong>Legally Increase Your Capacities:</strong> Safely maximize both your Gross Vehicle Mass and Gross Combined Mass ratings to handle real-world touring and towing weights.</li><li><strong>Fully ADR Compliant:</strong> Road-registered and 100% legal across all Australian states and territories.</li><li><strong>Australian Engineered:</strong> Rigorously tested, engineered, and certified by industry-leading Australian automotive engineers.</li><li><strong>Protect Your Assets:</strong> Ensures your heavy-duty truck remains fully insured and keeps you completely on the right side of the law.</li><li><strong>Purpose-Tuned Suspension:</strong> Features premium, heavy-duty suspension components specifically matched and tuned for harsh Australian conditions.</li><li><strong>Uncompromised Ride Quality:</strong> Expertly designed to handle massive loads while maintaining—or even enhancing—the manufacturer's original ride comfort and handling characteristics.</li></ul>"
           }
         }
       },
@@ -174,47 +174,6 @@
         "text_alignment": "left",
         "padding_top": 40,
         "padding_bottom": 40,
-        "show_section_divider": false,
-        "divider_width": "container",
-        "custom_id": "",
-        "custom_class": "",
-        "animations": "inherit"
-      }
-    },
-    "image_with_text_PrJRDF": {
-      "type": "image-with-text",
-      "blocks": {
-        "text_jx4dXH": {
-          "type": "text",
-          "settings": {
-            "text": "<ul><li>Made In the USA</li><li>Fox Performance Series, Performance Elite, & Race Series Shocks are fully rebuildable and servicable. </li><li>Authorised Fox service repair agents in Australia.</li><li>ORI is stocking spare parts & accessories for your FOX Suspension</li></ul>"
-          }
-        }
-      },
-      "block_order": [
-        "text_jx4dXH"
-      ],
-      "name": "t:sections.image-with-text.presets.name",
-      "settings": {
-        "container": "container",
-        "color_schema": "",
-        "image": "shopify://shop_images/420_x_420px_MEGA_MENU_ICON__FOX.jpg",
-        "enable_lightbox": true,
-        "image_width": "50%",
-        "image_position": "left",
-        "vertical_alignment": "center",
-        "align_content_container": "none",
-        "show_image_padding": true,
-        "column_gap": "none",
-        "row_gap": "none",
-        "padding_left": 0,
-        "padding_right": 0,
-        "mobile_padding_left": 15,
-        "mobile_padding_right": 15,
-        "padding_top": 0,
-        "padding_bottom": 0,
-        "padding_top_mobile": 10,
-        "padding_bottom_mobile": 10,
         "show_section_divider": false,
         "divider_width": "container",
         "custom_id": "",
@@ -531,6 +490,75 @@
         "custom_class": "",
         "animations": "inherit"
       }
+    },
+    "image_with_text_f3KNNe": {
+      "type": "image-with-text",
+      "blocks": {
+        "subheading_CDrj3e": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "Federally Approved & GVM & GCM Packages",
+            "subheading_size": "h5"
+          }
+        },
+        "heading_LRciTH": {
+          "type": "heading",
+          "settings": {
+            "heading": "ORI Is the Largest American Truck GVM Specialist",
+            "highlight_style": "none",
+            "enable_highlight_text_color": false,
+            "heading_size": "h2"
+          }
+        },
+        "text_KKm7Fh": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Installers Australia Wide</p>"
+          }
+        },
+        "button_QCb3BA": {
+          "type": "button",
+          "settings": {
+            "button_label": "View our Dealers",
+            "button_link": "shopify://pages/dealership",
+            "button_style": "btn--primary",
+            "button_size": ""
+          }
+        }
+      },
+      "block_order": [
+        "subheading_CDrj3e",
+        "heading_LRciTH",
+        "text_KKm7Fh",
+        "button_QCb3BA"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "container": "container",
+        "color_schema": "",
+        "image": "shopify://shop_images/gvm-gcm-logo-black.webp",
+        "enable_lightbox": true,
+        "image_width": "50%",
+        "image_position": "left",
+        "vertical_alignment": "center",
+        "align_content_container": "none",
+        "show_image_padding": true,
+        "column_gap": "medium",
+        "row_gap": "medium",
+        "padding_left": 0,
+        "padding_right": 0,
+        "mobile_padding_left": 15,
+        "mobile_padding_right": 15,
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "padding_top_mobile": 30,
+        "padding_bottom_mobile": 30,
+        "show_section_divider": false,
+        "divider_width": "container",
+        "custom_id": "",
+        "custom_class": "",
+        "animations": "inherit"
+      }
     }
   },
   "order": [
@@ -538,9 +566,9 @@
     "slideshow_ByTqfK",
     "logo_list_tG47ei",
     "rich_text_k7z6De",
-    "image_with_text_PrJRDF",
     "collapsible_tabs_ciD8kW",
     "1777270280188f73e4",
-    "multicolumn_AcQKEk"
+    "multicolumn_AcQKEk",
+    "image_with_text_f3KNNe"
   ]
 }
