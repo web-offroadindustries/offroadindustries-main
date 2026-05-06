@@ -234,10 +234,12 @@
     <script>
       (function () {
         try {
-          var dest = sessionStorage.getItem('b2b_redirect');
-          if (dest && window.location.pathname !== dest) {
-            sessionStorage.removeItem('b2b_redirect');
-            window.location.replace(dest);
+          var raw = localStorage.getItem('b2b_redirect');
+          if (!raw) return;
+          localStorage.removeItem('b2b_redirect');
+          var data = JSON.parse(raw);
+          if (Date.now() - data.ts < 30 * 60 * 1000 && window.location.pathname !== data.url) {
+            window.location.replace(data.url);
           }
         } catch (e) {}
       })();

@@ -205,7 +205,7 @@
         <a
           href="{{ routes.account_login_url }}?return_to=/pages/b2b-catalog"
           class="btn btn--primary"
-          onclick="try{sessionStorage.setItem('b2b_redirect','/pages/b2b-catalog')}catch(e){}"
+          onclick="try{localStorage.setItem('b2b_redirect',JSON.stringify({url:'/pages/b2b-catalog',ts:Date.now()}))}catch(e){}"
         >{{ section.settings.gate_btn_label }}</a>
         {%- if section.settings.cta_link != blank -%}
           <a href="{{ section.settings.cta_link }}" class="b2b-pending__link">Not a wholesale customer? Contact us to apply.</a>
