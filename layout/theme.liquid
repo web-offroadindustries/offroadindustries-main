@@ -231,6 +231,18 @@
 </head>
 
   <body class="template-{{ template.name | handle }} {{ template.name }}-{{ template.suffix }}{% if b2b_user %} is-b2b{% endif %}">
+    <script>
+      (function () {
+        try {
+          var dest = localStorage.getItem('b2b_redirect');
+          var loggedIn = {% if customer %}true{% else %}false{% endif %};
+          if (dest && loggedIn && window.location.pathname !== dest) {
+            localStorage.removeItem('b2b_redirect');
+            window.location.replace(dest);
+          }
+        } catch (e) {}
+      })();
+    </script>
     {% comment %} Custom metafield for body tag like GTag tracking {% endcomment %}
     {{ shop.metafields.foxtheme.code_body.value }}
     {%- if settings.page_transition -%}
