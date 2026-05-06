@@ -181,6 +181,75 @@
         "animations": "inherit"
       }
     },
+    "image_with_text_f3KNNe": {
+      "type": "image-with-text",
+      "blocks": {
+        "subheading_CDrj3e": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "Federally Approved & GVM & GCM Packages",
+            "subheading_size": "h5"
+          }
+        },
+        "heading_LRciTH": {
+          "type": "heading",
+          "settings": {
+            "heading": "ORI Is the Largest American Truck GVM Specialist",
+            "highlight_style": "none",
+            "enable_highlight_text_color": false,
+            "heading_size": "h2"
+          }
+        },
+        "text_KKm7Fh": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Installers Australia Wide</p>"
+          }
+        },
+        "button_QCb3BA": {
+          "type": "button",
+          "settings": {
+            "button_label": "View our Dealers",
+            "button_link": "shopify://pages/dealership",
+            "button_style": "btn--primary",
+            "button_size": ""
+          }
+        }
+      },
+      "block_order": [
+        "subheading_CDrj3e",
+        "heading_LRciTH",
+        "text_KKm7Fh",
+        "button_QCb3BA"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "container": "container",
+        "color_schema": "",
+        "image": "shopify://shop_images/gvm-gcm-logo-black.webp",
+        "enable_lightbox": true,
+        "image_width": "50%",
+        "image_position": "left",
+        "vertical_alignment": "center",
+        "align_content_container": "none",
+        "show_image_padding": true,
+        "column_gap": "medium",
+        "row_gap": "medium",
+        "padding_left": 0,
+        "padding_right": 0,
+        "mobile_padding_left": 15,
+        "mobile_padding_right": 15,
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "padding_top_mobile": 30,
+        "padding_bottom_mobile": 30,
+        "show_section_divider": false,
+        "divider_width": "container",
+        "custom_id": "",
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
     "collapsible_tabs_ciD8kW": {
       "type": "collapsible-tabs",
       "blocks": {
@@ -490,75 +559,6 @@
         "custom_class": "",
         "animations": "inherit"
       }
-    },
-    "image_with_text_f3KNNe": {
-      "type": "image-with-text",
-      "blocks": {
-        "subheading_CDrj3e": {
-          "type": "subheading",
-          "settings": {
-            "subheading": "Federally Approved & GVM & GCM Packages",
-            "subheading_size": "h5"
-          }
-        },
-        "heading_LRciTH": {
-          "type": "heading",
-          "settings": {
-            "heading": "ORI Is the Largest American Truck GVM Specialist",
-            "highlight_style": "none",
-            "enable_highlight_text_color": false,
-            "heading_size": "h2"
-          }
-        },
-        "text_KKm7Fh": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Installers Australia Wide</p>"
-          }
-        },
-        "button_QCb3BA": {
-          "type": "button",
-          "settings": {
-            "button_label": "View our Dealers",
-            "button_link": "shopify://pages/dealership",
-            "button_style": "btn--primary",
-            "button_size": ""
-          }
-        }
-      },
-      "block_order": [
-        "subheading_CDrj3e",
-        "heading_LRciTH",
-        "text_KKm7Fh",
-        "button_QCb3BA"
-      ],
-      "name": "t:sections.image-with-text.presets.name",
-      "settings": {
-        "container": "container",
-        "color_schema": "",
-        "image": "shopify://shop_images/gvm-gcm-logo-black.webp",
-        "enable_lightbox": true,
-        "image_width": "50%",
-        "image_position": "left",
-        "vertical_alignment": "center",
-        "align_content_container": "none",
-        "show_image_padding": true,
-        "column_gap": "medium",
-        "row_gap": "medium",
-        "padding_left": 0,
-        "padding_right": 0,
-        "mobile_padding_left": 15,
-        "mobile_padding_right": 15,
-        "padding_top": 40,
-        "padding_bottom": 40,
-        "padding_top_mobile": 30,
-        "padding_bottom_mobile": 30,
-        "show_section_divider": false,
-        "divider_width": "container",
-        "custom_id": "",
-        "custom_class": "",
-        "animations": "inherit"
-      }
     }
   },
   "order": [
@@ -566,9 +566,9 @@
     "slideshow_ByTqfK",
     "logo_list_tG47ei",
     "rich_text_k7z6De",
+    "image_with_text_f3KNNe",
     "collapsible_tabs_ciD8kW",
     "1777270280188f73e4",
-    "multicolumn_AcQKEk",
-    "image_with_text_f3KNNe"
+    "multicolumn_AcQKEk"
   ]
 }
