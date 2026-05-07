@@ -211,6 +211,9 @@
           <a href="{{ section.settings.cta_link }}" class="b2b-pending__link">Not a wholesale customer? Contact us to apply.</a>
         {%- endif -%}
       </div>
+      <script>
+        try { localStorage.setItem('b2b_redirect', JSON.stringify({ url: '/pages/b2b-catalog', ts: Date.now() })); } catch (e) {}
+      </script>
 
     {%- endif -%}
 

@@ -236,6 +236,9 @@
         try {
           var raw = localStorage.getItem('b2b_redirect');
           if (!raw) return;
+          // Leave the item untouched while Shopify's own auth/callback pages are processing.
+          // Consuming it here loses the race against Shopify's own redirect to the homepage.
+          if (window.location.pathname.indexOf('/account') === 0) return;
           localStorage.removeItem('b2b_redirect');
           var data = JSON.parse(raw);
           if (Date.now() - data.ts < 30 * 60 * 1000 && window.location.pathname !== data.url) {
