@@ -216,50 +216,10 @@
             "link_label": "Learn more",
             "link_url": ""
           }
-        },
-        "card_PYnkgA": {
-          "type": "card",
-          "settings": {
-            "heading": "Australian Largest American Truck GVM Specialist",
-            "body": "<p>Our upgrades provide a significant, legal increase to your Gross Vehicle Mass and Gross Combined Mass, allowing you to carry and tow more without breaking the law.</p>",
-            "link_label": "Learn more",
-            "link_url": ""
-          }
-        },
-        "card_nNaAg7": {
-          "type": "card",
-          "settings": {
-            "heading": "Australian Largest American Truck GVM Specialist",
-            "body": "<p>Our upgrades provide a significant, legal increase to your Gross Vehicle Mass and Gross Combined Mass, allowing you to carry and tow more without breaking the law.</p>",
-            "link_label": "Learn more",
-            "link_url": ""
-          }
-        },
-        "card_jfdQ9w": {
-          "type": "card",
-          "settings": {
-            "heading": "Australia Largest BDS & Fox Distributor",
-            "body": "<p>Every ORI upgrade kit is rigorously tested and fully ADR (Australian Design Rules) compliant, ensuring your vehicle meets national safety and engineering standards.</p>",
-            "link_label": "View compliance",
-            "link_url": ""
-          }
-        },
-        "card_FHyDJt": {
-          "type": "card",
-          "settings": {
-            "heading": "Strong Dealer Network Australia Wide",
-            "body": "<p>Unlike generic lifts, our GVM upgrades feature bespoke spring and shock rates specifically tuned for the increased loads your truck will actually carry.</p>",
-            "link_label": "Our engineering",
-            "link_url": ""
-          }
         }
       },
       "block_order": [
-        "card_FgCQA8",
-        "card_PYnkgA",
-        "card_nNaAg7",
-        "card_jfdQ9w",
-        "card_FHyDJt"
+        "card_FgCQA8"
       ],
       "name": "Why Choose",
       "settings": {
@@ -279,7 +239,7 @@
         "card_heading_size": 16,
         "card_body_color": "#555555",
         "card_body_size": 14,
-        "link_color": "#1f1f1f",
+        "link_color": "#56bdc2",
         "link_size": 12,
         "container_width": 1280,
         "padding_top": 60,
