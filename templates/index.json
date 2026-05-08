@@ -282,6 +282,16 @@
     "why_choose_TxqbNE": {
       "type": "why-choose",
       "blocks": {
+        "card_qPi8Qi": {
+          "type": "card",
+          "settings": {
+            "icon": "shopify://shop_images/shield-icon.jpg",
+            "heading": "SSM Federal Approval",
+            "body": "<p>ORI's GVM packages are backed by Federal Second Stage of Manufacture (SSM) certification. When these upgrades are applied pre-registration, the modifications—which can include significant suspension lifts (up to 6 inches on some models) and larger tires (up to 35\" or 37\")—are baked directly into your vehicle's federal compliance plate. This ensures your rig is 100% road-legal, safe, and fully insurable across every state and territory in Australia without the need for state-by-state engineering sign-offs</p>",
+            "link_label": "",
+            "link_url": ""
+          }
+        },
         "card_FgCQA8": {
           "type": "card",
           "settings": {
@@ -314,6 +324,7 @@
         }
       },
       "block_order": [
+        "card_qPi8Qi",
         "card_FgCQA8",
         "card_gUPNbe",
         "card_mEjy7z"
