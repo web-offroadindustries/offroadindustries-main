@@ -62,31 +62,31 @@
         <button class="dealer-locator__filter-btn is-active"
           data-state="ALL"
           style="background:{{ section.settings.accent_color }};color:#fff;border-color:{{ section.settings.accent_color }};"
-        >All States <span class="dealer-locator__filter-count">{{ total }}</span></button>
+        >All States <span class="dealer-locator__filter-count" style="background:rgba(0,0,0,0.2);color:#fff;">{{ total }}</span></button>
 
         {%- if qld_count > 0 -%}
-          <button class="dealer-locator__filter-btn" data-state="QLD" style="color:{{ section.settings.text_color }};border-color:{{ section.settings.card_border_color }};background:{{ section.settings.card_bg_color }};">QLD <span class="dealer-locator__filter-count">{{ qld_count }}</span></button>
+          <button class="dealer-locator__filter-btn" data-state="QLD" style="color:{{ section.settings.text_color }};border-color:{{ section.settings.card_border_color }};background:{{ section.settings.card_bg_color }};">QLD <span class="dealer-locator__filter-count" style="background:{{ section.settings.accent_color }};color:#fff;">{{ qld_count }}</span></button>
         {%- endif -%}
         {%- if nsw_count > 0 -%}
-          <button class="dealer-locator__filter-btn" data-state="NSW" style="color:{{ section.settings.text_color }};border-color:{{ section.settings.card_border_color }};background:{{ section.settings.card_bg_color }};">NSW <span class="dealer-locator__filter-count">{{ nsw_count }}</span></button>
+          <button class="dealer-locator__filter-btn" data-state="NSW" style="color:{{ section.settings.text_color }};border-color:{{ section.settings.card_border_color }};background:{{ section.settings.card_bg_color }};">NSW <span class="dealer-locator__filter-count" style="background:{{ section.settings.accent_color }};color:#fff;">{{ nsw_count }}</span></button>
         {%- endif -%}
         {%- if vic_count > 0 -%}
-          <button class="dealer-locator__filter-btn" data-state="VIC" style="color:{{ section.settings.text_color }};border-color:{{ section.settings.card_border_color }};background:{{ section.settings.card_bg_color }};">VIC <span class="dealer-locator__filter-count">{{ vic_count }}</span></button>
+          <button class="dealer-locator__filter-btn" data-state="VIC" style="color:{{ section.settings.text_color }};border-color:{{ section.settings.card_border_color }};background:{{ section.settings.card_bg_color }};">VIC <span class="dealer-locator__filter-count" style="background:{{ section.settings.accent_color }};color:#fff;">{{ vic_count }}</span></button>
         {%- endif -%}
         {%- if wa_count > 0 -%}
-          <button class="dealer-locator__filter-btn" data-state="WA" style="color:{{ section.settings.text_color }};border-color:{{ section.settings.card_border_color }};background:{{ section.settings.card_bg_color }};">WA <span class="dealer-locator__filter-count">{{ wa_count }}</span></button>
+          <button class="dealer-locator__filter-btn" data-state="WA" style="color:{{ section.settings.text_color }};border-color:{{ section.settings.card_border_color }};background:{{ section.settings.card_bg_color }};">WA <span class="dealer-locator__filter-count" style="background:{{ section.settings.accent_color }};color:#fff;">{{ wa_count }}</span></button>
         {%- endif -%}
         {%- if sa_count > 0 -%}
-          <button class="dealer-locator__filter-btn" data-state="SA" style="color:{{ section.settings.text_color }};border-color:{{ section.settings.card_border_color }};background:{{ section.settings.card_bg_color }};">SA <span class="dealer-locator__filter-count">{{ sa_count }}</span></button>
+          <button class="dealer-locator__filter-btn" data-state="SA" style="color:{{ section.settings.text_color }};border-color:{{ section.settings.card_border_color }};background:{{ section.settings.card_bg_color }};">SA <span class="dealer-locator__filter-count" style="background:{{ section.settings.accent_color }};color:#fff;">{{ sa_count }}</span></button>
         {%- endif -%}
         {%- if nt_count > 0 -%}
-          <button class="dealer-locator__filter-btn" data-state="NT" style="color:{{ section.settings.text_color }};border-color:{{ section.settings.card_border_color }};background:{{ section.settings.card_bg_color }};">NT <span class="dealer-locator__filter-count">{{ nt_count }}</span></button>
+          <button class="dealer-locator__filter-btn" data-state="NT" style="color:{{ section.settings.text_color }};border-color:{{ section.settings.card_border_color }};background:{{ section.settings.card_bg_color }};">NT <span class="dealer-locator__filter-count" style="background:{{ section.settings.accent_color }};color:#fff;">{{ nt_count }}</span></button>
         {%- endif -%}
         {%- if tas_count > 0 -%}
-          <button class="dealer-locator__filter-btn" data-state="TAS" style="color:{{ section.settings.text_color }};border-color:{{ section.settings.card_border_color }};background:{{ section.settings.card_bg_color }};">TAS <span class="dealer-locator__filter-count">{{ tas_count }}</span></button>
+          <button class="dealer-locator__filter-btn" data-state="TAS" style="color:{{ section.settings.text_color }};border-color:{{ section.settings.card_border_color }};background:{{ section.settings.card_bg_color }};">TAS <span class="dealer-locator__filter-count" style="background:{{ section.settings.accent_color }};color:#fff;">{{ tas_count }}</span></button>
         {%- endif -%}
         {%- if act_count > 0 -%}
-          <button class="dealer-locator__filter-btn" data-state="ACT" style="color:{{ section.settings.text_color }};border-color:{{ section.settings.card_border_color }};background:{{ section.settings.card_bg_color }};">ACT <span class="dealer-locator__filter-count">{{ act_count }}</span></button>
+          <button class="dealer-locator__filter-btn" data-state="ACT" style="color:{{ section.settings.text_color }};border-color:{{ section.settings.card_border_color }};background:{{ section.settings.card_bg_color }};">ACT <span class="dealer-locator__filter-count" style="background:{{ section.settings.accent_color }};color:#fff;">{{ act_count }}</span></button>
         {%- endif -%}
       </div>
 
@@ -111,14 +111,7 @@
             assign has_address = true
           endif
 
-          if block.settings.lat != blank and block.settings.lng != blank
-            assign maps_url = 'https://www.google.com/maps/dir/?api=1&destination=' | append: block.settings.lat | append: ',' | append: block.settings.lng
-          elsif has_address
-            assign maps_dest = block.settings.address | append: ', ' | append: block.settings.city | append: ' ' | append: block.settings.state | append: ' ' | append: block.settings.postcode | append: ', Australia' | url_encode
-            assign maps_url = 'https://www.google.com/maps/dir/?api=1&destination=' | append: maps_dest
-          else
-            assign maps_url = ''
-          endif
+          assign maps_url = block.settings.directions_url | default: ''
 
           assign has_tags = false
           if block.settings.tag_platinum or block.settings.tag_suspension or block.settings.tag_bullbars or block.settings.tag_shutter or block.settings.tag_steps
@@ -247,14 +240,17 @@
     filtersEl.querySelectorAll('.dealer-locator__filter-btn').forEach(function (b) {
       var active = b.dataset.state === state;
       b.classList.toggle('is-active', active);
+      var cnt = b.querySelector('.dealer-locator__filter-count');
       if (active) {
         b.style.background = accent;
         b.style.color = '#fff';
         b.style.borderColor = accent;
+        if (cnt) { cnt.style.background = 'rgba(0,0,0,0.2)'; cnt.style.color = '#fff'; }
       } else {
         b.style.background = cardBg;
         b.style.color = txtCol;
         b.style.borderColor = border;
+        if (cnt) { cnt.style.background = accent; cnt.style.color = '#fff'; }
       }
     });
 
@@ -339,9 +335,8 @@
         { "type": "checkbox", "id": "tag_shutter",    "label": "ORI Roller Shutter",      "default": false },
         { "type": "checkbox", "id": "tag_steps",      "label": "ORI Steps",               "default": false },
         { "type": "header", "content": "Google Maps (optional)" },
-        { "type": "paragraph", "content": "Add latitude and longitude for a precise Directions link. Leave blank to use the street address instead." },
-        { "type": "text", "id": "lat", "label": "Latitude",  "placeholder": "e.g. -27.3624" },
-        { "type": "text", "id": "lng", "label": "Longitude", "placeholder": "e.g. 153.0498" }
+        { "type": "paragraph", "content": "In Google Maps, search the location → Share → Copy link. Paste the full URL here." },
+        { "type": "text", "id": "directions_url", "label": "Google Maps URL", "placeholder": "https://maps.app.goo.gl/..." }
       ]
     }
   ],
