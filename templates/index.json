@@ -117,26 +117,67 @@
     "dealer_locator_EMPfrF": {
       "type": "dealer-locator",
       "blocks": {
-        "dealer_VR96z9": {
+        "dealer_NXeA79": {
           "type": "dealer",
           "settings": {
-            "name": "Example Dealer",
+            "name": "",
             "state": "QLD",
-            "address": "1/477 Newman Road",
-            "city": "Geebung",
+            "address": "1/477 Newman RoadGeebung",
+            "city": "WA",
             "postcode": "4034",
             "phone": "(07) 3123 4567",
-            "website": "",
+            "website": "https://www.offroadindustries.com.au/",
             "tag_platinum": false,
             "tag_suspension": false,
             "tag_bullbars": false,
             "tag_shutter": false,
-            "tag_steps": false
+            "tag_steps": false,
+            "directions_url": ""
+          }
+        },
+        "dealer_YFrNUn": {
+          "type": "dealer",
+          "settings": {
+            "name": "Dealers Name",
+            "state": "VIC",
+            "address": "Street Address",
+            "city": "VIC",
+            "postcode": "8888",
+            "phone": "0731324567",
+            "website": "",
+            "logo": "shopify://shop_images/gvm-gcm-logo-black.webp",
+            "tag_platinum": false,
+            "tag_suspension": true,
+            "tag_bullbars": true,
+            "tag_shutter": false,
+            "tag_steps": false,
+            "directions_url": "https://www.map.google.com"
+          }
+        },
+        "dealer_8aAepY": {
+          "type": "dealer",
+          "settings": {
+            "name": "Dealer nme",
+            "state": "SA",
+            "address": "south australia",
+            "city": "sa",
+            "postcode": "7777",
+            "phone": "1234567890",
+            "website": "https://www.offroadindustries.com.au/",
+            "logo": "shopify://shop_images/ImageComingSoon_be699833-ab1c-4e64-b6d3-e35c03b63d47.png",
+            "tag_platinum": true,
+            "tag_suspension": true,
+            "tag_bullbars": true,
+            "tag_shutter": true,
+            "tag_steps": false,
+            "directions_url": "https://www.map.google.com"
           }
         }
       },
       "block_order": [
-        "dealer_VR96z9"
+        "dealer_NXeA79",
+        "dealer_YFrNUn",
+        "dealer_8aAepY"
       ],
       "name": "Dealer Locator",
       "settings": {
@@ -153,7 +194,7 @@
         "card_shadow": true,
         "btn_primary_bg": "#56bdc2",
         "btn_primary_text": "#ffffff",
-        "btn_secondary_bg": "transparent",
+        "btn_secondary_bg": "rgba(0,0,0,0)",
         "btn_secondary_text": "#a0aab4",
         "tag_platinum_bg": "#56bdc2",
         "tag_platinum_text": "#ffffff",
