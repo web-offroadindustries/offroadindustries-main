@@ -212,19 +212,19 @@
         "dealer_YFrNUn": {
           "type": "dealer",
           "settings": {
-            "name": "Dealers Name",
+            "name": "Autoworks Car Care",
             "state": "VIC",
-            "address": "Street Address",
-            "city": "VIC",
-            "postcode": "8888",
-            "phone": "0731324567",
+            "address": "13/71 Frankston Gardens Dr, Carrum Downs VIC",
+            "city": "Carrum Downs",
+            "postcode": "3201",
+            "phone": "0483 939 591",
             "website": "",
-            "logo": "shopify://shop_images/gvm-gcm-logo-black.webp",
-            "tag_platinum": false,
+            "logo": "shopify://shop_images/Autoworks_Logo_POS.png",
+            "tag_platinum": true,
             "tag_suspension": true,
             "tag_bullbars": true,
-            "tag_shutter": false,
-            "tag_steps": false,
+            "tag_shutter": true,
+            "tag_steps": true,
             "directions_url": "https://www.map.google.com"
           }
         },
