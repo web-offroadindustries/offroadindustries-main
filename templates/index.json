@@ -96,15 +96,15 @@
         "@media (min-width: 768px) {.f-slideshow__content {max-width: 42rem; }}"
       ],
       "settings": {
-        "container": "container-full",
+        "container": "container-fluid",
         "slideshow_height": "adapt",
-        "show_dots": false,
-        "show_nav": false,
+        "show_dots": true,
+        "show_nav": true,
         "autoplay": true,
         "autorotate_speed": 5,
         "pagination_background": "none",
         "controls_position": "center",
-        "pagination_style": "dots",
+        "pagination_style": "counter",
         "show_text_below": true,
         "text_alignment_mobile": "center",
         "accessibility_info": "Slideshow about our brand",
@@ -502,6 +502,46 @@
         "custom_class": ""
       }
     },
+    "featured_collection_9HLMBr": {
+      "type": "featured-collection",
+      "name": "t:sections.featured-collection.name",
+      "settings": {
+        "container": "container",
+        "color_schema": "",
+        "section_header_padding_bottom": "medium",
+        "section_header_content_spacing": "medium",
+        "header_layout": "vertical",
+        "heading": "AMP Steps by Real Truck",
+        "highlight_style": "none",
+        "enable_highlight_text_color": false,
+        "heading_size": "h2",
+        "heading_color": "",
+        "subheading": "",
+        "description": "",
+        "collection": "amp-research-power-steps-bed-steps-bed-guard-australia",
+        "limit": 8,
+        "columns": 4,
+        "column_gap": "medium",
+        "row_gap": "medium",
+        "pcard_image_ratio": "",
+        "show_vendor": false,
+        "enable_slider": false,
+        "show_nav": false,
+        "show_dots": false,
+        "show_all_button_on_top": false,
+        "button_label": "",
+        "button_style": "btn--primary",
+        "enable_swipe_mobile": false,
+        "column_mobile": "1",
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "show_section_divider": false,
+        "divider_width": "container",
+        "custom_id": "",
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
     "hero_8BNkhD": {
       "type": "hero",
       "blocks": {
@@ -543,6 +583,7 @@
         "text_CDfQbC",
         "button_NpYePP"
       ],
+      "disabled": true,
       "settings": {
         "container": "container-full",
         "image": "shopify://shop_images/chevy-2500HD-blue.png",
@@ -752,6 +793,7 @@
     "video_kUd8dq",
     "uneven_image_cards_bkLjJt",
     "scrolling_promotion_iqVp4T",
+    "featured_collection_9HLMBr",
     "hero_8BNkhD",
     "products_bundle_jFkhY9",
     "b9a09ce1-0384-4aac-8a69-af32bf73a5e8",
