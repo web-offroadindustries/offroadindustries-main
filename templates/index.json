@@ -831,11 +831,30 @@
             "lng": ""
           }
         },
+        "dealer_RKymJ3": {
+          "type": "dealer",
+          "settings": {
+            "name": "",
+            "state": "WA",
+            "address": "",
+            "city": "",
+            "postcode": "",
+            "phone": "",
+            "website": "",
+            "tag_platinum": false,
+            "tag_suspension": false,
+            "tag_bullbars": false,
+            "tag_shutter": false,
+            "tag_steps": false,
+            "lat": "",
+            "lng": ""
+          }
+        },
         "dealer_cB67ht": {
           "type": "dealer",
           "settings": {
             "name": "Example Dealer",
-            "state": "SA",
+            "state": "VIC",
             "address": "1/477 Newman Road",
             "city": "Geebung",
             "postcode": "4034",
@@ -854,7 +873,7 @@
           "type": "dealer",
           "settings": {
             "name": "Example Dealer",
-            "state": "NT",
+            "state": "TAS",
             "address": "1/477 Newman Road",
             "city": "Geebung",
             "postcode": "4034",
@@ -894,6 +913,7 @@
         "dealer_qPyRhr",
         "dealer_aH4BnB",
         "dealer_qjcywr",
+        "dealer_RKymJ3",
         "dealer_cB67ht",
         "dealer_gA7kAG",
         "dealer_hpja3M"
