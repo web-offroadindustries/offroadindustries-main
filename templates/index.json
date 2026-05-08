@@ -147,6 +147,7 @@
         "tinyseo_heading_one_block_dgpt3L",
         "easysearch_ymm_easysearch_widget_3eeiFK"
       ],
+      "disabled": true,
       "settings": {
         "container": "container",
         "color_schema": "scheme-10",
@@ -162,6 +163,7 @@
     },
     "video_kUd8dq": {
       "type": "video",
+      "disabled": true,
       "name": "t:sections.video.presets.name",
       "settings": {
         "container": "container",
@@ -473,6 +475,7 @@
         "announcement_rVDhn4",
         "divider_VyRtkM"
       ],
+      "disabled": true,
       "settings": {
         "container": "container-full",
         "color_schema": "",
@@ -543,6 +546,7 @@
         "text_CDfQbC",
         "button_NpYePP"
       ],
+      "disabled": true,
       "settings": {
         "container": "container-full",
         "image": "shopify://shop_images/chevy-2500HD-blue.png",
@@ -599,6 +603,7 @@
         "product_xT3cFm",
         "product_kNg8JP"
       ],
+      "disabled": true,
       "settings": {
         "container": "container",
         "color_schema": "",
@@ -656,6 +661,7 @@
       "block_order": [
         "template--16355052454049__b9a09ce1-0384-4aac-8a69-af32bf73a5e8-tab-1"
       ],
+      "disabled": true,
       "settings": {
         "container": "container-full",
         "color_schema": "",
@@ -725,6 +731,7 @@
         "car_ttBVDC",
         "message_WpXFNx"
       ],
+      "disabled": true,
       "name": "Contact Form v3",
       "settings": {
         "title": "Get in touch with us!",
@@ -744,6 +751,58 @@
         "padding_top": 60,
         "padding_bottom": 60
       }
+    },
+    "dealer_locator_EMPfrF": {
+      "type": "dealer-locator",
+      "blocks": {
+        "dealer_VR96z9": {
+          "type": "dealer",
+          "settings": {
+            "name": "Example Dealer",
+            "state": "QLD",
+            "address": "1/477 Newman Road",
+            "city": "Geebung",
+            "postcode": "4034",
+            "phone": "(07) 3123 4567",
+            "website": "",
+            "tag_platinum": false,
+            "tag_suspension": false,
+            "tag_bullbars": false,
+            "tag_shutter": false,
+            "tag_steps": false,
+            "lat": "",
+            "lng": ""
+          }
+        }
+      },
+      "block_order": [
+        "dealer_VR96z9"
+      ],
+      "name": "Dealer Locator",
+      "settings": {
+        "eyebrow": "Find a dealer",
+        "heading": "Authorised ORI Installer Network",
+        "subheading": "Find your nearest authorised installer for ORI products, GVM upgrades, and 4x4 accessories.",
+        "bg_color": "#101820",
+        "accent_color": "#56bdc2",
+        "heading_color": "#ffffff",
+        "text_color": "#a0aab4",
+        "card_bg_color": "#1a2330",
+        "card_border_color": "#2a3545",
+        "card_radius": 12,
+        "card_shadow": true,
+        "btn_primary_bg": "#56bdc2",
+        "btn_primary_text": "#ffffff",
+        "btn_secondary_bg": "transparent",
+        "btn_secondary_text": "#a0aab4",
+        "tag_platinum_bg": "#56bdc2",
+        "tag_platinum_text": "#ffffff",
+        "tag_secondary_bg": "#2a3545",
+        "tag_secondary_text": "#a0aab4",
+        "container_width": 1280,
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
     }
   },
   "order": [
@@ -755,6 +814,7 @@
     "hero_8BNkhD",
     "products_bundle_jFkhY9",
     "b9a09ce1-0384-4aac-8a69-af32bf73a5e8",
-    "contact_form_v3_yGfhUr"
+    "contact_form_v3_yGfhUr",
+    "dealer_locator_EMPfrF"
   ]
 }
