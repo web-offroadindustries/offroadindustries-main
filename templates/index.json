@@ -116,6 +116,15 @@
     "vehicle_cards_CtwwXg": {
       "type": "vehicle-cards",
       "blocks": {
+        "vehicle_ie7ybh": {
+          "type": "vehicle",
+          "settings": {
+            "image": "shopify://shop_images/Toyota-Tundra--tile-ad---20260505-4-1.png",
+            "name": "toyota tundra",
+            "btn_label": "Explore Packages & Pricing",
+            "btn_url": ""
+          }
+        },
         "vehicle_d6GQJG": {
           "type": "vehicle",
           "settings": {
@@ -154,6 +163,7 @@
         }
       },
       "block_order": [
+        "vehicle_ie7ybh",
         "vehicle_d6GQJG",
         "vehicle_iFbyFT",
         "vehicle_rrjckn",
@@ -282,6 +292,15 @@
     "why_choose_TxqbNE": {
       "type": "why-choose",
       "blocks": {
+        "card_P84dj8": {
+          "type": "card",
+          "settings": {
+            "heading": "Australian Support",
+            "body": "",
+            "link_label": "",
+            "link_url": ""
+          }
+        },
         "card_qPi8Qi": {
           "type": "card",
           "settings": {
@@ -324,6 +343,7 @@
         }
       },
       "block_order": [
+        "card_P84dj8",
         "card_qPi8Qi",
         "card_FgCQA8",
         "card_gUPNbe",
