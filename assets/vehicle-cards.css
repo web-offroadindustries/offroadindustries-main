@@ -3,6 +3,7 @@
 .vehicle-cards {
   padding-top: var(--vc-pt, 60px);
   padding-bottom: var(--vc-pb, 60px);
+  overflow-x: clip;
 }
 
 .vehicle-cards__inner {
@@ -46,8 +47,10 @@
   overflow: hidden;
   transition: transform 0.18s, box-shadow 0.18s;
 }
-.vehicle-cards__card:hover {
-  transform: translateY(-3px);
+@media (hover: hover) {
+  .vehicle-cards__card:hover {
+    transform: translateY(-3px);
+  }
 }
 
 /* ── Image ───────────────────────────────────────────────────────────────── */
@@ -64,8 +67,10 @@
   display: block;
   transition: transform 0.3s ease;
 }
-.vehicle-cards__card:hover .vehicle-cards__img {
-  transform: scale(1.03);
+@media (hover: hover) {
+  .vehicle-cards__card:hover .vehicle-cards__img {
+    transform: scale(1.03);
+  }
 }
 
 /* ── Card body ───────────────────────────────────────────────────────────── */

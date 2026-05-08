@@ -3,6 +3,7 @@
 .why-choose {
   padding-top: var(--wc-pt, 60px);
   padding-bottom: var(--wc-pb, 60px);
+  overflow-x: clip;
 }
 
 .why-choose__inner {
