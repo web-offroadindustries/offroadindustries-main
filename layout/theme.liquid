@@ -234,15 +234,34 @@
     <script>
       (function () {
         try {
-          var raw = localStorage.getItem('b2b_redirect');
-          if (!raw) return;
-          // Leave the item untouched while Shopify's own auth/callback pages are processing.
-          // Consuming it here loses the race against Shopify's own redirect to the homepage.
+          // Detect return from Shopify B2B portal (logo click adds ?sso=silent to the homepage URL)
+          if (window.location.search.indexOf('sso=silent') !== -1) {
+            var raw = localStorage.getItem('b2b_redirect');
+            if (raw) {
+              try {
+                var d = JSON.parse(raw);
+                if (Date.now() - d.ts < 30 * 60 * 1000) {
+                  localStorage.removeItem('b2b_redirect');
+                  window.location.replace(d.url);
+                  return;
+                }
+              } catch (e) {}
+              localStorage.removeItem('b2b_redirect');
+            }
+            // No localStorage item — fall back to server-side B2B check
+            {%- if customer.b2b? -%}
+              window.location.replace('/pages/b2b-catalog');
+            {%- endif -%}
+            return;
+          }
+          // Standard localStorage redirect for non-SSO flows
+          var raw2 = localStorage.getItem('b2b_redirect');
+          if (!raw2) return;
           if (window.location.pathname.indexOf('/account') === 0) return;
           localStorage.removeItem('b2b_redirect');
-          var data = JSON.parse(raw);
-          if (Date.now() - data.ts < 30 * 60 * 1000 && window.location.pathname !== data.url) {
-            window.location.replace(data.url);
+          var d2 = JSON.parse(raw2);
+          if (Date.now() - d2.ts < 30 * 60 * 1000 && window.location.pathname !== d2.url) {
+            window.location.replace(d2.url);
           }
         } catch (e) {}
       })();
