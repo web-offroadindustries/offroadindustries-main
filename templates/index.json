@@ -773,10 +773,130 @@
             "lat": "",
             "lng": ""
           }
+        },
+        "dealer_qPyRhr": {
+          "type": "dealer",
+          "settings": {
+            "name": "",
+            "state": "NSW",
+            "address": "",
+            "city": "",
+            "postcode": "",
+            "phone": "",
+            "website": "",
+            "tag_platinum": false,
+            "tag_suspension": false,
+            "tag_bullbars": false,
+            "tag_shutter": false,
+            "tag_steps": false,
+            "lat": "",
+            "lng": ""
+          }
+        },
+        "dealer_aH4BnB": {
+          "type": "dealer",
+          "settings": {
+            "name": "Example Dealer",
+            "state": "VIC",
+            "address": "1/477 Newman Road",
+            "city": "Geebung",
+            "postcode": "4034",
+            "phone": "(07) 3123 4567",
+            "website": "",
+            "tag_platinum": false,
+            "tag_suspension": false,
+            "tag_bullbars": false,
+            "tag_shutter": false,
+            "tag_steps": false,
+            "lat": "",
+            "lng": ""
+          }
+        },
+        "dealer_qjcywr": {
+          "type": "dealer",
+          "settings": {
+            "name": "Example Dealer",
+            "state": "WA",
+            "address": "1/477 Newman Road",
+            "city": "Geebung",
+            "postcode": "4034",
+            "phone": "(07) 3123 4567",
+            "website": "",
+            "tag_platinum": false,
+            "tag_suspension": false,
+            "tag_bullbars": false,
+            "tag_shutter": false,
+            "tag_steps": false,
+            "lat": "",
+            "lng": ""
+          }
+        },
+        "dealer_cB67ht": {
+          "type": "dealer",
+          "settings": {
+            "name": "Example Dealer",
+            "state": "SA",
+            "address": "1/477 Newman Road",
+            "city": "Geebung",
+            "postcode": "4034",
+            "phone": "(07) 3123 4567",
+            "website": "",
+            "tag_platinum": false,
+            "tag_suspension": false,
+            "tag_bullbars": false,
+            "tag_shutter": false,
+            "tag_steps": false,
+            "lat": "",
+            "lng": ""
+          }
+        },
+        "dealer_gA7kAG": {
+          "type": "dealer",
+          "settings": {
+            "name": "Example Dealer",
+            "state": "NT",
+            "address": "1/477 Newman Road",
+            "city": "Geebung",
+            "postcode": "4034",
+            "phone": "(07) 3123 4567",
+            "website": "",
+            "tag_platinum": false,
+            "tag_suspension": false,
+            "tag_bullbars": false,
+            "tag_shutter": false,
+            "tag_steps": false,
+            "lat": "",
+            "lng": ""
+          }
+        },
+        "dealer_hpja3M": {
+          "type": "dealer",
+          "settings": {
+            "name": "Example Dealer",
+            "state": "TAS",
+            "address": "1/477 Newman Road",
+            "city": "Geebung",
+            "postcode": "4034",
+            "phone": "(07) 3123 4567",
+            "website": "",
+            "tag_platinum": false,
+            "tag_suspension": false,
+            "tag_bullbars": false,
+            "tag_shutter": false,
+            "tag_steps": false,
+            "lat": "",
+            "lng": ""
+          }
         }
       },
       "block_order": [
-        "dealer_VR96z9"
+        "dealer_VR96z9",
+        "dealer_qPyRhr",
+        "dealer_aH4BnB",
+        "dealer_qjcywr",
+        "dealer_cB67ht",
+        "dealer_gA7kAG",
+        "dealer_hpja3M"
       ],
       "name": "Dealer Locator",
       "settings": {
