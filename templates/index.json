@@ -205,6 +205,87 @@
         "padding_bottom": 60
       }
     },
+    "why_choose_TxqbNE": {
+      "type": "why-choose",
+      "blocks": {
+        "card_FgCQA8": {
+          "type": "card",
+          "settings": {
+            "heading": "Australian Largest American Truck GVM Specialist",
+            "body": "<p>Our upgrades provide a significant, legal increase to your Gross Vehicle Mass and Gross Combined Mass, allowing you to carry and tow more without breaking the law.</p>",
+            "link_label": "Learn more",
+            "link_url": ""
+          }
+        },
+        "card_PYnkgA": {
+          "type": "card",
+          "settings": {
+            "heading": "Australian Largest American Truck GVM Specialist",
+            "body": "<p>Our upgrades provide a significant, legal increase to your Gross Vehicle Mass and Gross Combined Mass, allowing you to carry and tow more without breaking the law.</p>",
+            "link_label": "Learn more",
+            "link_url": ""
+          }
+        },
+        "card_nNaAg7": {
+          "type": "card",
+          "settings": {
+            "heading": "Australian Largest American Truck GVM Specialist",
+            "body": "<p>Our upgrades provide a significant, legal increase to your Gross Vehicle Mass and Gross Combined Mass, allowing you to carry and tow more without breaking the law.</p>",
+            "link_label": "Learn more",
+            "link_url": ""
+          }
+        },
+        "card_jfdQ9w": {
+          "type": "card",
+          "settings": {
+            "heading": "Australia Largest BDS & Fox Distributor",
+            "body": "<p>Every ORI upgrade kit is rigorously tested and fully ADR (Australian Design Rules) compliant, ensuring your vehicle meets national safety and engineering standards.</p>",
+            "link_label": "View compliance",
+            "link_url": ""
+          }
+        },
+        "card_FHyDJt": {
+          "type": "card",
+          "settings": {
+            "heading": "Strong Dealer Network Australia Wide",
+            "body": "<p>Unlike generic lifts, our GVM upgrades feature bespoke spring and shock rates specifically tuned for the increased loads your truck will actually carry.</p>",
+            "link_label": "Our engineering",
+            "link_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "card_FgCQA8",
+        "card_PYnkgA",
+        "card_nNaAg7",
+        "card_jfdQ9w",
+        "card_FHyDJt"
+      ],
+      "name": "Why Choose",
+      "settings": {
+        "eyebrow": "",
+        "heading": "Why Choose ORI For Your Upgrade?",
+        "bg_color": "#ffffff",
+        "heading_color": "#1f1f1f",
+        "heading_size": 36,
+        "eyebrow_color": "#56bdc2",
+        "eyebrow_size": 13,
+        "card_bg_color": "#ffffff",
+        "card_border_color": "#e2e2e2",
+        "card_radius": 12,
+        "card_shadow": true,
+        "icon_size": 40,
+        "card_heading_color": "#1f1f1f",
+        "card_heading_size": 16,
+        "card_body_color": "#555555",
+        "card_body_size": 14,
+        "link_color": "#1f1f1f",
+        "link_size": 12,
+        "container_width": 1280,
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
     "1770092251a8cb32bd": {
       "type": "apps",
       "blocks": {
@@ -848,6 +929,7 @@
   "order": [
     "1653903038c126b831",
     "dealer_locator_EMPfrF",
+    "why_choose_TxqbNE",
     "1770092251a8cb32bd",
     "video_kUd8dq",
     "uneven_image_cards_bkLjJt",
