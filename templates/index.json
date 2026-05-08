@@ -201,6 +201,24 @@
     "dealer_locator_EMPfrF": {
       "type": "dealer-locator",
       "blocks": {
+        "dealer_C8pxHr": {
+          "type": "dealer",
+          "settings": {
+            "name": "TJM Hunter Valley",
+            "state": "NSW",
+            "address": "",
+            "city": "",
+            "postcode": "",
+            "phone": "",
+            "website": "",
+            "tag_platinum": false,
+            "tag_suspension": false,
+            "tag_bullbars": false,
+            "tag_shutter": false,
+            "tag_steps": false,
+            "directions_url": ""
+          }
+        },
         "dealer_NXeA79": {
           "type": "dealer",
           "settings": {
@@ -259,6 +277,7 @@
         }
       },
       "block_order": [
+        "dealer_C8pxHr",
         "dealer_NXeA79",
         "dealer_YFrNUn",
         "dealer_8aAepY"
