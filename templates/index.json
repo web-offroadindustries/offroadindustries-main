@@ -769,9 +769,7 @@
             "tag_suspension": false,
             "tag_bullbars": false,
             "tag_shutter": false,
-            "tag_steps": false,
-            "lat": "",
-            "lng": ""
+            "tag_steps": false
           }
         },
         "dealer_qPyRhr": {
@@ -788,9 +786,7 @@
             "tag_suspension": false,
             "tag_bullbars": false,
             "tag_shutter": false,
-            "tag_steps": false,
-            "lat": "",
-            "lng": ""
+            "tag_steps": false
           }
         },
         "dealer_aH4BnB": {
@@ -807,9 +803,7 @@
             "tag_suspension": false,
             "tag_bullbars": false,
             "tag_shutter": false,
-            "tag_steps": false,
-            "lat": "",
-            "lng": ""
+            "tag_steps": false
           }
         },
         "dealer_qjcywr": {
@@ -826,9 +820,7 @@
             "tag_suspension": false,
             "tag_bullbars": false,
             "tag_shutter": false,
-            "tag_steps": false,
-            "lat": "",
-            "lng": ""
+            "tag_steps": false
           }
         },
         "dealer_RKymJ3": {
@@ -845,9 +837,7 @@
             "tag_suspension": false,
             "tag_bullbars": false,
             "tag_shutter": false,
-            "tag_steps": false,
-            "lat": "",
-            "lng": ""
+            "tag_steps": false
           }
         },
         "dealer_cB67ht": {
@@ -864,9 +854,7 @@
             "tag_suspension": false,
             "tag_bullbars": false,
             "tag_shutter": false,
-            "tag_steps": false,
-            "lat": "",
-            "lng": ""
+            "tag_steps": false
           }
         },
         "dealer_gA7kAG": {
@@ -879,13 +867,12 @@
             "postcode": "4034",
             "phone": "(07) 3123 4567",
             "website": "",
+            "logo": "shopify://shop_images/gvm-gcm-logo-white.webp",
             "tag_platinum": false,
             "tag_suspension": false,
             "tag_bullbars": false,
             "tag_shutter": false,
-            "tag_steps": false,
-            "lat": "",
-            "lng": ""
+            "tag_steps": false
           }
         },
         "dealer_hpja3M": {
@@ -902,9 +889,7 @@
             "tag_suspension": false,
             "tag_bullbars": false,
             "tag_shutter": false,
-            "tag_steps": false,
-            "lat": "",
-            "lng": ""
+            "tag_steps": false
           }
         }
       },
