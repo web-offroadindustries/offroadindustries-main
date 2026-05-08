@@ -92,6 +92,7 @@
         "slide_TmbWTM",
         "slide_MDYDqF"
       ],
+      "disabled": true,
       "custom_css": [
         "@media (min-width: 768px) {.f-slideshow__content {max-width: 42rem; }}"
       ],
@@ -111,6 +112,97 @@
         "custom_id": "",
         "custom_class": "",
         "enable_bg_zoom_effect": false
+      }
+    },
+    "dealer_locator_EMPfrF": {
+      "type": "dealer-locator",
+      "blocks": {
+        "dealer_NXeA79": {
+          "type": "dealer",
+          "settings": {
+            "name": "",
+            "state": "QLD",
+            "address": "1/477 Newman RoadGeebung",
+            "city": "WA",
+            "postcode": "4034",
+            "phone": "(07) 3123 4567",
+            "website": "https://www.offroadindustries.com.au/",
+            "tag_platinum": false,
+            "tag_suspension": false,
+            "tag_bullbars": false,
+            "tag_shutter": false,
+            "tag_steps": false,
+            "directions_url": ""
+          }
+        },
+        "dealer_YFrNUn": {
+          "type": "dealer",
+          "settings": {
+            "name": "Dealers Name",
+            "state": "VIC",
+            "address": "Street Address",
+            "city": "VIC",
+            "postcode": "8888",
+            "phone": "0731324567",
+            "website": "",
+            "logo": "shopify://shop_images/gvm-gcm-logo-black.webp",
+            "tag_platinum": false,
+            "tag_suspension": true,
+            "tag_bullbars": true,
+            "tag_shutter": false,
+            "tag_steps": false,
+            "directions_url": "https://www.map.google.com"
+          }
+        },
+        "dealer_8aAepY": {
+          "type": "dealer",
+          "settings": {
+            "name": "Dealer nme",
+            "state": "SA",
+            "address": "south australia",
+            "city": "sa",
+            "postcode": "7777",
+            "phone": "1234567890",
+            "website": "https://www.offroadindustries.com.au/",
+            "logo": "shopify://shop_images/ImageComingSoon_be699833-ab1c-4e64-b6d3-e35c03b63d47.png",
+            "tag_platinum": true,
+            "tag_suspension": true,
+            "tag_bullbars": true,
+            "tag_shutter": true,
+            "tag_steps": false,
+            "directions_url": "https://www.map.google.com"
+          }
+        }
+      },
+      "block_order": [
+        "dealer_NXeA79",
+        "dealer_YFrNUn",
+        "dealer_8aAepY"
+      ],
+      "name": "Dealer Locator",
+      "settings": {
+        "eyebrow": "Find a dealer",
+        "heading": "Authorised ORI Installer Network",
+        "subheading": "Find your nearest authorised installer for ORI products, GVM upgrades, and 4x4 accessories.",
+        "bg_color": "#101820",
+        "accent_color": "#56bdc2",
+        "heading_color": "#ffffff",
+        "text_color": "#a0aab4",
+        "card_bg_color": "#1a2330",
+        "card_border_color": "#2a3545",
+        "card_radius": 12,
+        "card_shadow": true,
+        "btn_primary_bg": "#56bdc2",
+        "btn_primary_text": "#ffffff",
+        "btn_secondary_bg": "rgba(0,0,0,0)",
+        "btn_secondary_text": "#a0aab4",
+        "tag_platinum_bg": "#56bdc2",
+        "tag_platinum_text": "#ffffff",
+        "tag_secondary_bg": "#2a3545",
+        "tag_secondary_text": "#a0aab4",
+        "container_width": 1280,
+        "padding_top": 60,
+        "padding_bottom": 60
       }
     },
     "1770092251a8cb32bd": {
@@ -751,202 +843,11 @@
         "padding_top": 60,
         "padding_bottom": 60
       }
-    },
-    "dealer_locator_EMPfrF": {
-      "type": "dealer-locator",
-      "blocks": {
-        "dealer_VR96z9": {
-          "type": "dealer",
-          "settings": {
-            "name": "Example Dealer",
-            "state": "QLD",
-            "address": "1/477 Newman Road",
-            "city": "Geebung",
-            "postcode": "4034",
-            "phone": "(07) 3123 4567",
-            "website": "",
-            "tag_platinum": false,
-            "tag_suspension": false,
-            "tag_bullbars": false,
-            "tag_shutter": false,
-            "tag_steps": false,
-            "lat": "",
-            "lng": ""
-          }
-        },
-        "dealer_qPyRhr": {
-          "type": "dealer",
-          "settings": {
-            "name": "",
-            "state": "NSW",
-            "address": "",
-            "city": "",
-            "postcode": "",
-            "phone": "",
-            "website": "",
-            "tag_platinum": false,
-            "tag_suspension": false,
-            "tag_bullbars": false,
-            "tag_shutter": false,
-            "tag_steps": false,
-            "lat": "",
-            "lng": ""
-          }
-        },
-        "dealer_aH4BnB": {
-          "type": "dealer",
-          "settings": {
-            "name": "Example Dealer",
-            "state": "VIC",
-            "address": "1/477 Newman Road",
-            "city": "Geebung",
-            "postcode": "4034",
-            "phone": "(07) 3123 4567",
-            "website": "",
-            "tag_platinum": false,
-            "tag_suspension": false,
-            "tag_bullbars": false,
-            "tag_shutter": false,
-            "tag_steps": false,
-            "lat": "",
-            "lng": ""
-          }
-        },
-        "dealer_qjcywr": {
-          "type": "dealer",
-          "settings": {
-            "name": "Example Dealer",
-            "state": "WA",
-            "address": "1/477 Newman Road",
-            "city": "Geebung",
-            "postcode": "4034",
-            "phone": "(07) 3123 4567",
-            "website": "",
-            "tag_platinum": false,
-            "tag_suspension": false,
-            "tag_bullbars": false,
-            "tag_shutter": false,
-            "tag_steps": false,
-            "lat": "",
-            "lng": ""
-          }
-        },
-        "dealer_RKymJ3": {
-          "type": "dealer",
-          "settings": {
-            "name": "",
-            "state": "WA",
-            "address": "",
-            "city": "",
-            "postcode": "",
-            "phone": "",
-            "website": "",
-            "tag_platinum": false,
-            "tag_suspension": false,
-            "tag_bullbars": false,
-            "tag_shutter": false,
-            "tag_steps": false,
-            "lat": "",
-            "lng": ""
-          }
-        },
-        "dealer_cB67ht": {
-          "type": "dealer",
-          "settings": {
-            "name": "Example Dealer",
-            "state": "VIC",
-            "address": "1/477 Newman Road",
-            "city": "Geebung",
-            "postcode": "4034",
-            "phone": "(07) 3123 4567",
-            "website": "",
-            "tag_platinum": false,
-            "tag_suspension": false,
-            "tag_bullbars": false,
-            "tag_shutter": false,
-            "tag_steps": false,
-            "lat": "",
-            "lng": ""
-          }
-        },
-        "dealer_gA7kAG": {
-          "type": "dealer",
-          "settings": {
-            "name": "Example Dealer",
-            "state": "TAS",
-            "address": "1/477 Newman Road",
-            "city": "Geebung",
-            "postcode": "4034",
-            "phone": "(07) 3123 4567",
-            "website": "",
-            "tag_platinum": false,
-            "tag_suspension": false,
-            "tag_bullbars": false,
-            "tag_shutter": false,
-            "tag_steps": false,
-            "lat": "",
-            "lng": ""
-          }
-        },
-        "dealer_hpja3M": {
-          "type": "dealer",
-          "settings": {
-            "name": "Example Dealer",
-            "state": "TAS",
-            "address": "1/477 Newman Road",
-            "city": "Geebung",
-            "postcode": "4034",
-            "phone": "(07) 3123 4567",
-            "website": "",
-            "tag_platinum": false,
-            "tag_suspension": false,
-            "tag_bullbars": false,
-            "tag_shutter": false,
-            "tag_steps": false,
-            "lat": "",
-            "lng": ""
-          }
-        }
-      },
-      "block_order": [
-        "dealer_VR96z9",
-        "dealer_qPyRhr",
-        "dealer_aH4BnB",
-        "dealer_qjcywr",
-        "dealer_RKymJ3",
-        "dealer_cB67ht",
-        "dealer_gA7kAG",
-        "dealer_hpja3M"
-      ],
-      "name": "Dealer Locator",
-      "settings": {
-        "eyebrow": "Find a dealer",
-        "heading": "Authorised ORI Installer Network",
-        "subheading": "Find your nearest authorised installer for ORI products, GVM upgrades, and 4x4 accessories.",
-        "bg_color": "#101820",
-        "accent_color": "#56bdc2",
-        "heading_color": "#ffffff",
-        "text_color": "#a0aab4",
-        "card_bg_color": "#1a2330",
-        "card_border_color": "#2a3545",
-        "card_radius": 12,
-        "card_shadow": true,
-        "btn_primary_bg": "#56bdc2",
-        "btn_primary_text": "#ffffff",
-        "btn_secondary_bg": "transparent",
-        "btn_secondary_text": "#a0aab4",
-        "tag_platinum_bg": "#56bdc2",
-        "tag_platinum_text": "#ffffff",
-        "tag_secondary_bg": "#2a3545",
-        "tag_secondary_text": "#a0aab4",
-        "container_width": 1280,
-        "padding_top": 60,
-        "padding_bottom": 60
-      }
     }
   },
   "order": [
     "1653903038c126b831",
+    "dealer_locator_EMPfrF",
     "1770092251a8cb32bd",
     "video_kUd8dq",
     "uneven_image_cards_bkLjJt",
@@ -954,7 +855,6 @@
     "hero_8BNkhD",
     "products_bundle_jFkhY9",
     "b9a09ce1-0384-4aac-8a69-af32bf73a5e8",
-    "contact_form_v3_yGfhUr",
-    "dealer_locator_EMPfrF"
+    "contact_form_v3_yGfhUr"
   ]
 }
