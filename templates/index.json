@@ -211,6 +211,27 @@
         "card_FgCQA8": {
           "type": "card",
           "settings": {
+            "icon": "shopify://shop_images/jeep-icon.jpg",
+            "heading": "Australian Largest American Truck GVM Specialist",
+            "body": "<p>Our upgrades provide a significant, legal increase to your Gross Vehicle Mass and Gross Combined Mass, allowing you to carry and tow more without breaking the law.</p>",
+            "link_label": "Learn more",
+            "link_url": ""
+          }
+        },
+        "card_gUPNbe": {
+          "type": "card",
+          "settings": {
+            "icon": "shopify://shop_images/hubstaff-icon.png",
+            "heading": "Australian Largest American Truck GVM Specialist",
+            "body": "<p>Our upgrades provide a significant, legal increase to your Gross Vehicle Mass and Gross Combined Mass, allowing you to carry and tow more without breaking the law.</p>",
+            "link_label": "Learn more",
+            "link_url": ""
+          }
+        },
+        "card_mEjy7z": {
+          "type": "card",
+          "settings": {
+            "icon": "shopify://shop_images/shield-icon.jpg",
             "heading": "Australian Largest American Truck GVM Specialist",
             "body": "<p>Our upgrades provide a significant, legal increase to your Gross Vehicle Mass and Gross Combined Mass, allowing you to carry and tow more without breaking the law.</p>",
             "link_label": "Learn more",
@@ -219,11 +240,13 @@
         }
       },
       "block_order": [
-        "card_FgCQA8"
+        "card_FgCQA8",
+        "card_gUPNbe",
+        "card_mEjy7z"
       ],
       "name": "Why Choose",
       "settings": {
-        "eyebrow": "",
+        "eyebrow": "Offroad industry",
         "heading": "Why Choose ORI For Your Upgrade?",
         "bg_color": "#ffffff",
         "heading_color": "#1f1f1f",
