@@ -282,14 +282,14 @@
           "type": "announcement",
           "settings": {
             "text": "BDS Suspension",
-            "font_family": "body",
+            "font_family": "heading",
             "text_size": 30,
             "text_link": "",
-            "use_custom_spacing": false,
-            "margin_left": 10,
-            "margin_right": 10,
-            "margin_left_mobile": 10,
-            "margin_right_mobile": 10
+            "use_custom_spacing": true,
+            "margin_left": 0,
+            "margin_right": 30,
+            "margin_left_mobile": 0,
+            "margin_right_mobile": 16
           }
         },
         "divider_ra8kGw": {
@@ -320,14 +320,14 @@
           "type": "announcement",
           "settings": {
             "text": "Fox Suspension",
-            "font_family": "body",
+            "font_family": "heading",
             "text_size": 30,
             "text_link": "",
-            "use_custom_spacing": false,
-            "margin_left": 10,
-            "margin_right": 10,
-            "margin_left_mobile": 10,
-            "margin_right_mobile": 10
+            "use_custom_spacing": true,
+            "margin_left": 0,
+            "margin_right": 20,
+            "margin_left_mobile": 0,
+            "margin_right_mobile": 13
           }
         },
         "divider_HyyX8h": {
