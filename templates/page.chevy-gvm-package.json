@@ -1017,115 +1017,6 @@
         "padding_bottom": 40
       }
     },
-    "contact_form_v4_x8r3EB": {
-      "type": "contact-form-v4",
-      "blocks": {
-        "name_8kii3W": {
-          "type": "name",
-          "settings": {
-            "label": "Name",
-            "field_name": "Name",
-            "placeholder": "Enter your name",
-            "field_width": "full",
-            "hide_label": true,
-            "required": false
-          }
-        },
-        "email_pEVk6j": {
-          "type": "email",
-          "settings": {
-            "label": "Email",
-            "placeholder": "Enter your email",
-            "field_width": "full",
-            "hide_label": true
-          }
-        },
-        "phone_atX8MW": {
-          "type": "phone",
-          "settings": {
-            "label": "Phone number",
-            "placeholder": "Enter your phone number",
-            "field_width": "full",
-            "hide_label": true,
-            "required": false
-          }
-        },
-        "rego_status_YKHXBe": {
-          "type": "rego_status",
-          "settings": {
-            "label": "Pre or Post rego",
-            "field_name": "Pre or Post rego",
-            "placeholder": "Select one",
-            "options": "Pre rego, Post rego",
-            "field_width": "full",
-            "hide_label": true,
-            "required": false
-          }
-        },
-        "custom_select_rebt6m": {
-          "type": "custom_select",
-          "settings": {
-            "label": "Which Vehicle",
-            "field_name": "Which Vehicle",
-            "placeholder": "Which Vehicle",
-            "options": "Ford F150, Chevy 1500, Chevy 2500HD, Toyota Tundra, RAM 2500 (5th Gen), RAM 2500 (6th Gen), Toyota LC300",
-            "field_width": "100",
-            "hide_label": true,
-            "required": false
-          }
-        },
-        "location_FiKmdb": {
-          "type": "location",
-          "settings": {
-            "label": "What is your location",
-            "field_name": "Location",
-            "placeholder": "What is your location?",
-            "field_width": "full",
-            "hide_label": true,
-            "required": false
-          }
-        },
-        "message_rpD3xU": {
-          "type": "message",
-          "settings": {
-            "label": "Message",
-            "placeholder": "Which GVM Package do you want further information on?",
-            "rows": 3,
-            "field_width": "100",
-            "hide_label": true
-          }
-        }
-      },
-      "block_order": [
-        "name_8kii3W",
-        "email_pEVk6j",
-        "phone_atX8MW",
-        "rego_status_YKHXBe",
-        "custom_select_rebt6m",
-        "location_FiKmdb",
-        "message_rpD3xU"
-      ],
-      "name": "Contact form v4",
-      "settings": {
-        "container": "container",
-        "color_schema": "",
-        "heading": "GVM Enquiry? Contact us Now",
-        "subheading": "",
-        "description": "",
-        "form_design": "design-1",
-        "form_width": 500,
-        "form_alignment": "center",
-        "button_label": "Send",
-        "button_style": "btn--primary",
-        "padding_top": 40,
-        "padding_bottom": 40,
-        "show_section_divider": false,
-        "divider_width": "container",
-        "custom_id": "",
-        "custom_class": "",
-        "animations": "inherit"
-      }
-    },
     "rich_text_WbiBCz": {
       "type": "rich-text",
       "blocks": {
@@ -1134,7 +1025,7 @@
           "settings": {
             "heading": "Offroad Industries Wheel Recommendations",
             "highlight_style": "none",
-            "enable_highlight_text_color": false,
+            "enable_highlight_text_color": true,
             "heading_size": "h2",
             "heading_color": ""
           }
@@ -1260,6 +1151,198 @@
         "padding_bottom": 40
       }
     },
+    "wheel_comparison_grid_Ad63jA": {
+      "type": "wheel-comparison-grid",
+      "blocks": {
+        "row_TiUpB6": {
+          "type": "row",
+          "disabled": true,
+          "settings": {
+            "label": "SKU",
+            "use_as_title": false,
+            "value_1": "ZMR305890601000H",
+            "value_2": "ZMR30589060800H",
+            "value_3": "",
+            "value_4": "",
+            "value_5": "",
+            "value_6": ""
+          }
+        },
+        "row_LiwGcK": {
+          "type": "row",
+          "settings": {
+            "label": "DESCRIPTION",
+            "use_as_title": true,
+            "value_1": "IMS\n18x9\n20x9",
+            "value_2": "IMS\n18x9\n20x9",
+            "value_3": "IMS\n18x9\n20x9",
+            "value_4": "IMS\n18x9\n20x9",
+            "value_5": "",
+            "value_6": ""
+          }
+        },
+        "row_czQcMd": {
+          "type": "row",
+          "settings": {
+            "label": "COLOUR",
+            "use_as_title": false,
+            "value_1": "MATTE BLACK W/ GLOSS BLACK LIP",
+            "value_2": "GLOSS SILVER W/ MACHINED FACE",
+            "value_3": "MATTE BRONZE W GLOSS BLACK LIP",
+            "value_4": "MACHINED W/ MATTE BLACK LIP",
+            "value_5": "Matte Black",
+            "value_6": "Machined - Clear Coat"
+          }
+        },
+        "row_tEmT8z": {
+          "type": "row",
+          "settings": {
+            "label": "OFFSET",
+            "use_as_title": false,
+            "value_1": "Zero",
+            "value_2": "Zero",
+            "value_3": "zero",
+            "value_4": "zero",
+            "value_5": "+12",
+            "value_6": "+12"
+          }
+        }
+      },
+      "block_order": [
+        "row_TiUpB6",
+        "row_LiwGcK",
+        "row_czQcMd",
+        "row_tEmT8z"
+      ],
+      "name": "Wheel Comparison",
+      "settings": {
+        "anchor_id": "",
+        "heading": "",
+        "columns": "4",
+        "image_1": "shopify://shop_images/kmc-km552mb-ims-17x8-5-6-et-10-matte-black-w-gloss-black-lip-a1-png_3.png",
+        "image_2": "shopify://shop_images/kmc-km552sd-ims-17x8-5-6-et-10-gloss-silver-w-machined-face-a1-png.png",
+        "image_3": "shopify://shop_images/kmc-km552zb-ims-17x8-5-6-et-10-matte-bronze-w-gloss-black-lip-a1-png_1.png",
+        "image_4": "shopify://shop_images/kmc-km552db-ims-17x8-5-6-et-10-machined-w-gloss-black-lip-a1-png_1.png",
+        "label_col_width": 260,
+        "container_width": "1200px",
+        "text_color": "#111111",
+        "label_color": "#111111",
+        "line_color": "#d0d0d0",
+        "mobile_card_bg": "#ffffff",
+        "mobile_card_text": "#111111",
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    },
+    "contact_form_v4_x8r3EB": {
+      "type": "contact-form-v4",
+      "blocks": {
+        "name_8kii3W": {
+          "type": "name",
+          "settings": {
+            "label": "Name",
+            "field_name": "Name",
+            "placeholder": "Enter your name",
+            "field_width": "full",
+            "hide_label": true,
+            "required": false
+          }
+        },
+        "email_pEVk6j": {
+          "type": "email",
+          "settings": {
+            "label": "Email",
+            "placeholder": "Enter your email",
+            "field_width": "full",
+            "hide_label": true
+          }
+        },
+        "phone_atX8MW": {
+          "type": "phone",
+          "settings": {
+            "label": "Phone number",
+            "placeholder": "Enter your phone number",
+            "field_width": "full",
+            "hide_label": true,
+            "required": false
+          }
+        },
+        "rego_status_YKHXBe": {
+          "type": "rego_status",
+          "settings": {
+            "label": "Pre or Post rego",
+            "field_name": "Pre or Post rego",
+            "placeholder": "Select one",
+            "options": "Pre rego, Post rego",
+            "field_width": "full",
+            "hide_label": true,
+            "required": false
+          }
+        },
+        "custom_select_rebt6m": {
+          "type": "custom_select",
+          "settings": {
+            "label": "Which Vehicle",
+            "field_name": "Which Vehicle",
+            "placeholder": "Which Vehicle",
+            "options": "Ford F150, Chevy 1500, Chevy 2500HD, Toyota Tundra, RAM 2500 (5th Gen), RAM 2500 (6th Gen), Toyota LC300",
+            "field_width": "100",
+            "hide_label": true,
+            "required": false
+          }
+        },
+        "location_FiKmdb": {
+          "type": "location",
+          "settings": {
+            "label": "What is your location",
+            "field_name": "Location",
+            "placeholder": "What is your location?",
+            "field_width": "full",
+            "hide_label": true,
+            "required": false
+          }
+        },
+        "message_rpD3xU": {
+          "type": "message",
+          "settings": {
+            "label": "Message",
+            "placeholder": "Which GVM Package do you want further information on?",
+            "rows": 3,
+            "field_width": "100",
+            "hide_label": true
+          }
+        }
+      },
+      "block_order": [
+        "name_8kii3W",
+        "email_pEVk6j",
+        "phone_atX8MW",
+        "rego_status_YKHXBe",
+        "custom_select_rebt6m",
+        "location_FiKmdb",
+        "message_rpD3xU"
+      ],
+      "name": "Contact form v4",
+      "settings": {
+        "container": "container",
+        "color_schema": "",
+        "heading": "GVM Enquiry? Contact us Now",
+        "subheading": "",
+        "description": "",
+        "form_design": "design-1",
+        "form_width": 500,
+        "form_alignment": "center",
+        "button_label": "Send",
+        "button_style": "btn--primary",
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "show_section_divider": false,
+        "divider_width": "container",
+        "custom_id": "",
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
     "rich_text_4AxLyp": {
       "type": "rich-text",
       "blocks": {
@@ -1381,9 +1464,10 @@
     "rich_text_rnLAPH",
     "gvm_comparison_FfmTMw",
     "gvm_comparison_RXeVcA",
-    "contact_form_v4_x8r3EB",
     "rich_text_WbiBCz",
     "wheel_comparison_grid_Q4qPHN",
+    "wheel_comparison_grid_Ad63jA",
+    "contact_form_v4_x8r3EB",
     "rich_text_4AxLyp",
     "logo_list_8XphYi"
   ]
