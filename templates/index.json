@@ -201,6 +201,43 @@
     "dealer_locator_EMPfrF": {
       "type": "dealer-locator",
       "blocks": {
+        "dealer_NdTYFF": {
+          "type": "dealer",
+          "settings": {
+            "name": "Horse Power Factory",
+            "state": "VIC",
+            "address": "8/14 Amberley Cres,",
+            "city": "Dandenong South",
+            "postcode": "3175",
+            "phone": "Horse Power Factory",
+            "website": "https://hp-f.com.au/",
+            "tag_platinum": true,
+            "tag_suspension": true,
+            "tag_bullbars": true,
+            "tag_shutter": true,
+            "tag_steps": true,
+            "directions_url": ""
+          }
+        },
+        "dealer_7jqt8p": {
+          "type": "dealer",
+          "settings": {
+            "name": "Scalzo Automotive",
+            "state": "VIC",
+            "address": "13 Ryan Ct,",
+            "city": "Warragul",
+            "postcode": "3820",
+            "phone": "(03) 5622 2006",
+            "website": "https://www.scalzoautomotive.com.au/",
+            "logo": "shopify://shop_images/NewLogo_1.png",
+            "tag_platinum": true,
+            "tag_suspension": true,
+            "tag_bullbars": true,
+            "tag_shutter": true,
+            "tag_steps": true,
+            "directions_url": ""
+          }
+        },
         "dealer_C8pxHr": {
           "type": "dealer",
           "settings": {
@@ -279,6 +316,8 @@
         }
       },
       "block_order": [
+        "dealer_NdTYFF",
+        "dealer_7jqt8p",
         "dealer_C8pxHr",
         "dealer_NXeA79",
         "dealer_YFrNUn",
