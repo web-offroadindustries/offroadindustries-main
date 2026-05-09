@@ -201,6 +201,25 @@
     "dealer_locator_EMPfrF": {
       "type": "dealer-locator",
       "blocks": {
+        "dealer_imdW8p": {
+          "type": "dealer",
+          "settings": {
+            "name": "Truck N Toys",
+            "state": "NSW",
+            "address": "4/29 Walker St,",
+            "city": "South Windsor,",
+            "postcode": "2158",
+            "phone": "(02) 9652 2056",
+            "website": "https://trucksntoys.com.au/",
+            "logo": "shopify://shop_images/GFA-TNT-Logo_1_1.png",
+            "tag_platinum": true,
+            "tag_suspension": true,
+            "tag_bullbars": true,
+            "tag_shutter": true,
+            "tag_steps": true,
+            "directions_url": ""
+          }
+        },
         "dealer_NdTYFF": {
           "type": "dealer",
           "settings": {
@@ -268,11 +287,11 @@
             "phone": "(03) 5277 2503",
             "website": "https://www.offroadindustries.com.au/",
             "logo": "shopify://shop_images/GPC_Piston_Logo_1.png",
-            "tag_platinum": false,
-            "tag_suspension": false,
-            "tag_bullbars": false,
-            "tag_shutter": false,
-            "tag_steps": false,
+            "tag_platinum": true,
+            "tag_suspension": true,
+            "tag_bullbars": true,
+            "tag_shutter": true,
+            "tag_steps": true,
             "directions_url": ""
           }
         },
@@ -316,6 +335,7 @@
         }
       },
       "block_order": [
+        "dealer_imdW8p",
         "dealer_NdTYFF",
         "dealer_7jqt8p",
         "dealer_C8pxHr",
