@@ -249,11 +249,11 @@
             "postcode": "3564",
             "phone": "(03) 5480 7150",
             "website": "https://www.echucaservicecentre.repcoservice.net/?utm_source=GMB_listing&utm_medium=organic",
-            "tag_platinum": false,
-            "tag_suspension": false,
-            "tag_bullbars": false,
-            "tag_shutter": false,
-            "tag_steps": false,
+            "tag_platinum": true,
+            "tag_suspension": true,
+            "tag_bullbars": true,
+            "tag_shutter": true,
+            "tag_steps": true,
             "directions_url": ""
           }
         },
