@@ -130,7 +130,7 @@
           "settings": {
             "image": "shopify://shop_images/Chevy-2500--tile-ad---20260505-4.png",
             "name": "Chevy Silverado 2500HD",
-            "btn_label": "Explore Specs",
+            "btn_label": "Explore Packages & Pricing",
             "btn_url": "shopify://pages/ori-gvm-upgrade-chevrolet-silverado-2500hd-5-9t-2020"
           }
         },
@@ -138,8 +138,8 @@
           "type": "vehicle",
           "settings": {
             "image": "shopify://shop_images/Chevy-Silverado-1500--tile-ad---20260505-4.png",
-            "name": "Silverado 1500",
-            "btn_label": "Explore Specs",
+            "name": "Silverado 1500 LTZ & ZR2",
+            "btn_label": "Explore Packages & Pricing",
             "btn_url": "shopify://pages/chevrolet-silverado-1500-gvm-package"
           }
         },
@@ -147,8 +147,8 @@
           "type": "vehicle",
           "settings": {
             "image": "shopify://shop_images/FORD-F150---tile-ad---20260505-4-2.png",
-            "name": "Silverado 2500",
-            "btn_label": "Explore Specs",
+            "name": "Ford F150",
+            "btn_label": "Explore Packages & Pricing",
             "btn_url": "shopify://pages/ori-gvm-upgrade-chevrolet-silverado-2500hd-5-9t-2020"
           }
         },
@@ -156,7 +156,7 @@
           "type": "vehicle",
           "settings": {
             "image": "shopify://shop_images/FORD-F150---tile-ad---20260505-4-1.png",
-            "name": "Toyota Tundra",
+            "name": "Ford F150",
             "btn_label": "Explore More!",
             "btn_url": "shopify://pages/toyota-tundra"
           }
@@ -201,6 +201,43 @@
     "dealer_locator_EMPfrF": {
       "type": "dealer-locator",
       "blocks": {
+        "dealer_r6dj9U": {
+          "type": "dealer",
+          "settings": {
+            "name": "Opposite Lock Wodonga",
+            "state": "QLD",
+            "address": "87 Thomas Mitchell Dr",
+            "city": "Wodonga",
+            "postcode": "3690",
+            "phone": "(02) 6056 4414",
+            "website": "https://www.oppositelockalburywodonga.com.au/?utm_source=google&utm_medium=organic&utm_campaign=gmb",
+            "logo": "shopify://shop_images/loog-1920w.webp",
+            "tag_platinum": true,
+            "tag_suspension": true,
+            "tag_bullbars": true,
+            "tag_shutter": true,
+            "tag_steps": true,
+            "directions_url": ""
+          }
+        },
+        "dealer_WcCDKz": {
+          "type": "dealer",
+          "settings": {
+            "name": "Echuca Service Centre",
+            "state": "VIC",
+            "address": "1 Northern Hwy,",
+            "city": "Echuca",
+            "postcode": "3564",
+            "phone": "(03) 5480 7150",
+            "website": "https://www.echucaservicecentre.repcoservice.net/?utm_source=GMB_listing&utm_medium=organic",
+            "tag_platinum": false,
+            "tag_suspension": false,
+            "tag_bullbars": false,
+            "tag_shutter": false,
+            "tag_steps": false,
+            "directions_url": ""
+          }
+        },
         "dealer_KHy3ft": {
           "type": "dealer",
           "settings": {
@@ -469,6 +506,8 @@
         }
       },
       "block_order": [
+        "dealer_r6dj9U",
+        "dealer_WcCDKz",
         "dealer_KHy3ft",
         "dealer_UNjrEK",
         "dealer_EPUTDp",
