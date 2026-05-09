@@ -9,6 +9,55 @@
  */
 {
   "sections": {
+    "image_comparison_6czKNa": {
+      "type": "image-comparison",
+      "blocks": {
+        "image_AcJhpt": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/OFFROAD_INDUSTRIES_-_FOX_F150_-_12.03.2024_-_Matt_Williams_-_WEB_RES-1142.jpg",
+            "heading": "Before",
+            "color_scheme": "",
+            "heading_plain_text": false
+          }
+        },
+        "image_TcrEXK": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/OFFROAD_INDUSTRIES_-_FOX_F150_-_12.03.2024_-_Matt_Williams_-_WEB_RES-1001.jpg",
+            "heading": "After",
+            "color_scheme": "",
+            "heading_plain_text": false
+          }
+        }
+      },
+      "block_order": [
+        "image_AcJhpt",
+        "image_TcrEXK"
+      ],
+      "name": "t:sections.image-comparison.presets.name",
+      "settings": {
+        "container": "container",
+        "color_schema": "",
+        "section_header_padding_bottom": "medium",
+        "section_header_content_spacing": "medium",
+        "heading": "Before/after image slider",
+        "highlight_style": "none",
+        "enable_highlight_text_color": false,
+        "heading_size": "h2",
+        "heading_color": "",
+        "subheading": "",
+        "description": "",
+        "layout": "horizontal",
+        "image_height": "adapt",
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "show_section_divider": false,
+        "divider_width": "container",
+        "custom_id": "",
+        "custom_class": ""
+      }
+    },
     "main": {
       "type": "main-404",
       "settings": {}
@@ -97,6 +146,7 @@
     }
   },
   "order": [
+    "image_comparison_6czKNa",
     "main",
     "16478322674afd3f12"
   ]
