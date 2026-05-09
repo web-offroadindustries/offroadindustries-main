@@ -201,6 +201,25 @@
     "dealer_locator_EMPfrF": {
       "type": "dealer-locator",
       "blocks": {
+        "dealer_gRNtLh": {
+          "type": "dealer",
+          "settings": {
+            "name": "Jacksons 4x4",
+            "state": "SA",
+            "address": "61 Chris Collins Ct,",
+            "city": "Murray Bridge",
+            "postcode": "5253",
+            "phone": " (08) 8532 2550",
+            "website": "https://jacksons4x4.com.au/",
+            "logo": "shopify://shop_images/JA4X4_-_TRANSPARENT_-_WHITE_TEXT_-_HIGHRES.png",
+            "tag_platinum": true,
+            "tag_suspension": true,
+            "tag_bullbars": true,
+            "tag_shutter": true,
+            "tag_steps": true,
+            "directions_url": ""
+          }
+        },
         "dealer_iGYUxx": {
           "type": "dealer",
           "settings": {
@@ -525,6 +544,7 @@
         }
       },
       "block_order": [
+        "dealer_gRNtLh",
         "dealer_iGYUxx",
         "dealer_r6dj9U",
         "dealer_WcCDKz",
