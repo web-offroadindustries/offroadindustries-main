@@ -201,6 +201,25 @@
     "dealer_locator_EMPfrF": {
       "type": "dealer-locator",
       "blocks": {
+        "dealer_UNjrEK": {
+          "type": "dealer",
+          "settings": {
+            "name": "Pro 4x4",
+            "state": "QLD",
+            "address": "214 Lahrs Rd,",
+            "city": "Ormeau",
+            "postcode": "4208",
+            "phone": "(07) 5631 0222",
+            "website": "https://www.pro4x4australia.com.au/",
+            "logo": "shopify://shop_images/68db4b5f6e52d.png",
+            "tag_platinum": true,
+            "tag_suspension": true,
+            "tag_bullbars": true,
+            "tag_shutter": true,
+            "tag_steps": true,
+            "directions_url": ""
+          }
+        },
         "dealer_EPUTDp": {
           "type": "dealer",
           "settings": {
@@ -431,6 +450,7 @@
         }
       },
       "block_order": [
+        "dealer_UNjrEK",
         "dealer_EPUTDp",
         "dealer_rfNfzH",
         "dealer_dadJrw",
