@@ -201,6 +201,25 @@
     "dealer_locator_EMPfrF": {
       "type": "dealer-locator",
       "blocks": {
+        "dealer_EPUTDp": {
+          "type": "dealer",
+          "settings": {
+            "name": "ATS Expedition Outfitters",
+            "state": "QLD",
+            "address": "181/195 Maggiolo Dr,",
+            "city": "Mackay",
+            "postcode": "4740",
+            "phone": "(07) 4881 0010",
+            "website": "https://atsoutfitters.com.au/",
+            "logo": "shopify://shop_images/ats-eo-logo.webp",
+            "tag_platinum": true,
+            "tag_suspension": true,
+            "tag_bullbars": true,
+            "tag_shutter": true,
+            "tag_steps": true,
+            "directions_url": ""
+          }
+        },
         "dealer_rfNfzH": {
           "type": "dealer",
           "settings": {
@@ -412,6 +431,7 @@
         }
       },
       "block_order": [
+        "dealer_EPUTDp",
         "dealer_rfNfzH",
         "dealer_dadJrw",
         "dealer_tjqGAK",
