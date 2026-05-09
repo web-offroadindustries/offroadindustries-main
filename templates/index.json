@@ -707,7 +707,7 @@
           "settings": {
             "icon": "shopify://shop_images/shield-icon.jpg",
             "heading": "SSM Federal Approval",
-            "body": "<p>ORI's GVM packages are backed by Federal Second Stage of Manufacture (SSM) certification. When these upgrades are applied pre-registration, the modifications—which can include significant suspension lifts (up to 6 inches on some models) and larger tires (up to 35\" or 37\")—are baked directly into your vehicle's federal compliance plate. This ensures your rig is 100% road-legal, safe, and fully insurable across every state and territory in Australia without the need for state-by-state engineering sign-offs</p>",
+            "body": "<p><strong>Skip the red tape.</strong> With ORI’s Federal SSM-certified GVM packages, pre-registration upgrades—including massive lifts (up to 6\") and larger tires (up to 37\")—are baked directly into your federal compliance plate.</p><p>The result? A rig that is 100% road-legal, fully insurable, and ready to roll anywhere in Australia with <strong>zero state-by-state engineering required.</strong></p>",
             "link_label": "",
             "link_url": ""
           }
@@ -716,8 +716,8 @@
           "type": "card",
           "settings": {
             "icon": "shopify://shop_images/jeep-icon.jpg",
-            "heading": "Australian Largest American Truck GVM Specialist",
-            "body": "<p>Our upgrades provide a significant, legal increase to your Gross Vehicle Mass and Gross Combined Mass, allowing you to carry and tow more without breaking the law.</p>",
+            "heading": "ORI: Australia's #1 Source for American Truck Accessories",
+            "body": "<p>When it comes to upgrading your rig with top-tier American hardware, <strong>ORI</strong> is Australia’s undisputed heavyweight champion. As the largest distributor of US truck accessories in the country, we bridge the gap between premium American manufacturing and the harsh Aussie outback.</p><p>We don't just supply parts—we deliver performance, protection, and unparalleled style. ORI is the premier Australian pipeline for the industry's most legendary off-road and overland brands</p>",
             "link_label": "Learn more",
             "link_url": ""
           }
