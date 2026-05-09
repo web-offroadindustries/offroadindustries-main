@@ -201,6 +201,25 @@
     "dealer_locator_EMPfrF": {
       "type": "dealer-locator",
       "blocks": {
+        "dealer_tjqGAK": {
+          "type": "dealer",
+          "settings": {
+            "name": "Morpowa Auto & Dyno Centre",
+            "state": "SA",
+            "address": "Unit 2/14 Famechon Cres,",
+            "city": "Modbury North",
+            "postcode": "5092",
+            "phone": "(08) 8264 2077",
+            "website": "https://www.morpowa.com/",
+            "logo": "shopify://shop_images/MORPOWA_WEBLOGO.webp",
+            "tag_platinum": true,
+            "tag_suspension": true,
+            "tag_bullbars": true,
+            "tag_shutter": true,
+            "tag_steps": true,
+            "directions_url": ""
+          }
+        },
         "dealer_yVwTDR": {
           "type": "dealer",
           "settings": {
@@ -355,6 +374,7 @@
         }
       },
       "block_order": [
+        "dealer_tjqGAK",
         "dealer_yVwTDR",
         "dealer_imdW8p",
         "dealer_NdTYFF",
