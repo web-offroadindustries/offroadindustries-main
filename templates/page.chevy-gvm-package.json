@@ -1066,6 +1066,65 @@
         "animations": "inherit"
       }
     },
+    "image_with_text_nPddek": {
+      "type": "image-with-text",
+      "blocks": {
+        "subheading_6g8fxM": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "Approved GVM Wheels",
+            "subheading_size": "h5"
+          }
+        },
+        "heading_W9Cmqf": {
+          "type": "heading",
+          "settings": {
+            "heading": "Method Race wheel Load Rated Wheels",
+            "highlight_style": "none",
+            "enable_highlight_text_color": false,
+            "heading_size": "h2"
+          }
+        },
+        "text_pn6dDA": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Approved load rated wheels for your chevy Silverado Stage 4 and 5 packages.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_6g8fxM",
+        "heading_W9Cmqf",
+        "text_pn6dDA"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "container": "container",
+        "color_schema": "",
+        "image": "shopify://shop_images/Method_Race_Wheels_Logo.png",
+        "enable_lightbox": true,
+        "image_width": "50%",
+        "image_position": "left",
+        "vertical_alignment": "center",
+        "align_content_container": "none",
+        "show_image_padding": true,
+        "column_gap": "medium",
+        "row_gap": "medium",
+        "padding_left": 0,
+        "padding_right": 0,
+        "mobile_padding_left": 15,
+        "mobile_padding_right": 15,
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "padding_top_mobile": 30,
+        "padding_bottom_mobile": 30,
+        "show_section_divider": false,
+        "divider_width": "container",
+        "custom_id": "",
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
     "wheel_comparison_grid_Q4qPHN": {
       "type": "wheel-comparison-grid",
       "blocks": {
@@ -1149,6 +1208,65 @@
         "mobile_card_text": "#111111",
         "padding_top": 40,
         "padding_bottom": 40
+      }
+    },
+    "image_with_text_WkLWxb": {
+      "type": "image-with-text",
+      "blocks": {
+        "subheading_kA6kXE": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "Approved GVM Wheels",
+            "subheading_size": "h5"
+          }
+        },
+        "heading_Q8wcUj": {
+          "type": "heading",
+          "settings": {
+            "heading": "KMC Load Rated Wheels",
+            "highlight_style": "none",
+            "enable_highlight_text_color": false,
+            "heading_size": "h2"
+          }
+        },
+        "text_KFtkE7": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Approved load rated wheels for your chevy Silverado Stage 4 and 5 packages.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_kA6kXE",
+        "heading_Q8wcUj",
+        "text_KFtkE7"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "container": "container",
+        "color_schema": "",
+        "image": "shopify://shop_images/KMC_Wheels_Logo.png",
+        "enable_lightbox": true,
+        "image_width": "50%",
+        "image_position": "left",
+        "vertical_alignment": "center",
+        "align_content_container": "none",
+        "show_image_padding": true,
+        "column_gap": "medium",
+        "row_gap": "medium",
+        "padding_left": 0,
+        "padding_right": 0,
+        "mobile_padding_left": 15,
+        "mobile_padding_right": 15,
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "padding_top_mobile": 30,
+        "padding_bottom_mobile": 30,
+        "show_section_divider": false,
+        "divider_width": "container",
+        "custom_id": "",
+        "custom_class": "",
+        "animations": "inherit"
       }
     },
     "wheel_comparison_grid_Ad63jA": {
@@ -1465,7 +1583,9 @@
     "gvm_comparison_FfmTMw",
     "gvm_comparison_RXeVcA",
     "rich_text_WbiBCz",
+    "image_with_text_nPddek",
     "wheel_comparison_grid_Q4qPHN",
+    "image_with_text_WkLWxb",
     "wheel_comparison_grid_Ad63jA",
     "contact_form_v4_x8r3EB",
     "rich_text_4AxLyp",
