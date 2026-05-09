@@ -201,6 +201,24 @@
     "dealer_locator_EMPfrF": {
       "type": "dealer-locator",
       "blocks": {
+        "dealer_iGYUxx": {
+          "type": "dealer",
+          "settings": {
+            "name": "Ultimate Offroad",
+            "state": "VIC",
+            "address": "1871 Ferntree Gully Rd",
+            "city": "Ferntree Gully",
+            "postcode": "3156",
+            "phone": " (03) 8609 9033",
+            "website": "https://ultimateoffroad.com.au/",
+            "tag_platinum": false,
+            "tag_suspension": false,
+            "tag_bullbars": false,
+            "tag_shutter": false,
+            "tag_steps": false,
+            "directions_url": ""
+          }
+        },
         "dealer_r6dj9U": {
           "type": "dealer",
           "settings": {
@@ -506,6 +524,7 @@
         }
       },
       "block_order": [
+        "dealer_iGYUxx",
         "dealer_r6dj9U",
         "dealer_WcCDKz",
         "dealer_KHy3ft",
