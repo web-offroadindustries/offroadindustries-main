@@ -201,6 +201,25 @@
     "dealer_locator_EMPfrF": {
       "type": "dealer-locator",
       "blocks": {
+        "dealer_dadJrw": {
+          "type": "dealer",
+          "settings": {
+            "name": "BAW Automotive",
+            "state": "QLD",
+            "address": "Shed 1/477 Newman Rd",
+            "city": "Geebung",
+            "postcode": "4034",
+            "phone": "0417 783 415",
+            "website": "https://www.bawauto.com.au/",
+            "logo": "shopify://shop_images/bb1378_4bcb5962094e49ad81e7d2b7a1f0ee3e_mv2.avif",
+            "tag_platinum": true,
+            "tag_suspension": true,
+            "tag_bullbars": true,
+            "tag_shutter": true,
+            "tag_steps": true,
+            "directions_url": ""
+          }
+        },
         "dealer_tjqGAK": {
           "type": "dealer",
           "settings": {
@@ -374,6 +393,7 @@
         }
       },
       "block_order": [
+        "dealer_dadJrw",
         "dealer_tjqGAK",
         "dealer_yVwTDR",
         "dealer_imdW8p",
