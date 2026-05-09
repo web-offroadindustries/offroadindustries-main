@@ -201,6 +201,25 @@
     "dealer_locator_EMPfrF": {
       "type": "dealer-locator",
       "blocks": {
+        "dealer_y3RFNH": {
+          "type": "dealer",
+          "settings": {
+            "name": "Fat Builds 4x4",
+            "state": "TAS",
+            "address": "34 Burgess Dr",
+            "city": "Shearwater",
+            "postcode": "7307",
+            "phone": "(03) 6428 7240",
+            "website": "https://fatbuilds4x4.com.au/",
+            "logo": "shopify://shop_images/Fat_Builds_5_540x_af0b74dc-891e-43cc-aa3f-17febab4f564.png",
+            "tag_platinum": true,
+            "tag_suspension": true,
+            "tag_bullbars": true,
+            "tag_shutter": true,
+            "tag_steps": true,
+            "directions_url": ""
+          }
+        },
         "dealer_AVxJQF": {
           "type": "dealer",
           "settings": {
@@ -601,6 +620,7 @@
         }
       },
       "block_order": [
+        "dealer_y3RFNH",
         "dealer_AVxJQF",
         "dealer_p9jaVz",
         "dealer_TBCccV",
