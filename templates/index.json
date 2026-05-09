@@ -201,6 +201,25 @@
     "dealer_locator_EMPfrF": {
       "type": "dealer-locator",
       "blocks": {
+        "dealer_TBCccV": {
+          "type": "dealer",
+          "settings": {
+            "name": "Hunter Mechanical Kenwick",
+            "state": "QLD",
+            "address": "Unit 14/1736 Albany Hwy",
+            "city": "Kenwick",
+            "postcode": "6107",
+            "phone": "(08) 9367 0888",
+            "website": "https://hunter.com.au/?srsltid=ARcRdnqnMBuruhlNnlo8IzFs4q3SCz3yoJuEW2FYz-DhG3aMW5A9H5lz",
+            "logo": "shopify://shop_images/Untitled-Facebook-Ad-1-1024x536.png",
+            "tag_platinum": true,
+            "tag_suspension": true,
+            "tag_bullbars": true,
+            "tag_shutter": true,
+            "tag_steps": true,
+            "directions_url": ""
+          }
+        },
         "dealer_gRNtLh": {
           "type": "dealer",
           "settings": {
@@ -544,6 +563,7 @@
         }
       },
       "block_order": [
+        "dealer_TBCccV",
         "dealer_gRNtLh",
         "dealer_iGYUxx",
         "dealer_r6dj9U",
