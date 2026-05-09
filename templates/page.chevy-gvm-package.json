@@ -1126,6 +1126,119 @@
         "animations": "inherit"
       }
     },
+    "rich_text_WbiBCz": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_3w6rBa": {
+          "type": "heading",
+          "settings": {
+            "heading": "Offroad Industries Wheel Recommendations",
+            "highlight_style": "none",
+            "enable_highlight_text_color": false,
+            "heading_size": "h2",
+            "heading_color": ""
+          }
+        },
+        "text_LCthEm": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Struggling with wheel offsets? ORI is here to help! We take the guesswork out of finding the perfect fit, specializing in Method and KMC wheels</p>"
+          }
+        },
+        "button_eGC3Df": {
+          "type": "button",
+          "disabled": true,
+          "settings": {
+            "button_label": "Button label",
+            "button_link": "",
+            "button_style": "btn--primary",
+            "button_size": ""
+          }
+        }
+      },
+      "block_order": [
+        "heading_3w6rBa",
+        "text_LCthEm",
+        "button_eGC3Df"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "container": "container",
+        "color_schema": "",
+        "text_alignment": "center",
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "show_section_divider": false,
+        "divider_width": "container",
+        "custom_id": "",
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "wheel_comparison_grid_Q4qPHN": {
+      "type": "wheel-comparison-grid",
+      "blocks": {
+        "row_zHmRGt": {
+          "type": "row",
+          "settings": {
+            "label": "DESCRIPTION",
+            "use_as_title": true,
+            "value_1": "",
+            "value_2": "",
+            "value_3": "",
+            "value_4": "",
+            "value_5": "",
+            "value_6": ""
+          }
+        },
+        "row_N7zGaR": {
+          "type": "row",
+          "settings": {
+            "label": "COLOUR",
+            "use_as_title": false,
+            "value_1": "",
+            "value_2": "",
+            "value_3": "",
+            "value_4": "",
+            "value_5": "",
+            "value_6": ""
+          }
+        },
+        "row_JjJRHm": {
+          "type": "row",
+          "settings": {
+            "label": "OFFSET",
+            "use_as_title": false,
+            "value_1": "",
+            "value_2": "",
+            "value_3": "",
+            "value_4": "",
+            "value_5": "",
+            "value_6": ""
+          }
+        }
+      },
+      "block_order": [
+        "row_zHmRGt",
+        "row_N7zGaR",
+        "row_JjJRHm"
+      ],
+      "name": "Wheel Comparison",
+      "settings": {
+        "anchor_id": "",
+        "heading": "",
+        "columns": "3",
+        "label_col_width": 260,
+        "container_width": "1200px",
+        "text_color": "#111111",
+        "label_color": "#111111",
+        "line_color": "#d0d0d0",
+        "mobile_card_bg": "#ffffff",
+        "mobile_card_text": "#111111",
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    },
     "rich_text_4AxLyp": {
       "type": "rich-text",
       "blocks": {
@@ -1248,6 +1361,8 @@
     "gvm_comparison_FfmTMw",
     "gvm_comparison_RXeVcA",
     "contact_form_v4_x8r3EB",
+    "rich_text_WbiBCz",
+    "wheel_comparison_grid_Q4qPHN",
     "rich_text_4AxLyp",
     "logo_list_8XphYi"
   ]
