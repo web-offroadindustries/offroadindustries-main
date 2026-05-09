@@ -201,6 +201,25 @@
     "dealer_locator_EMPfrF": {
       "type": "dealer-locator",
       "blocks": {
+        "dealer_KHy3ft": {
+          "type": "dealer",
+          "settings": {
+            "name": "Garage76 Automotive",
+            "state": "ACT",
+            "address": "126 Gilmore Rd,",
+            "city": "Queanbeyan",
+            "postcode": "2620",
+            "phone": "(02) 6232 4062",
+            "website": "https://garage76.com.au/",
+            "logo": "shopify://shop_images/garage76-logo-generic_230x_2x_75ca580a-0a0e-4ee7-a6e6-64b92f44da1d.webp",
+            "tag_platinum": true,
+            "tag_suspension": true,
+            "tag_bullbars": true,
+            "tag_shutter": true,
+            "tag_steps": true,
+            "directions_url": ""
+          }
+        },
         "dealer_UNjrEK": {
           "type": "dealer",
           "settings": {
@@ -450,6 +469,7 @@
         }
       },
       "block_order": [
+        "dealer_KHy3ft",
         "dealer_UNjrEK",
         "dealer_EPUTDp",
         "dealer_rfNfzH",
