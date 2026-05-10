@@ -1492,8 +1492,8 @@
           "type": "content",
           "settings": {
             "icon": "none",
-            "title": "Collapsible tab heading",
-            "content": "<p>Fill in the text content of the collapsible item here. You can provide details and explanation for the question here.</p>",
+            "title": "What is a GVM",
+            "content": "<p><strong>ORI (Offroad Industries)</strong> engineers federally approved Gross Vehicle Mass (GVM) and Gross Combined Mass (GCM) upgrades tailored for the Australian market. They specifically target full-size American trucks (Ford F-150, Chevy Silverado, RAM, Toyota Tundra) that land in Australia with factory payload limits too low to legally support heavy steel trays, touring canopies, long-range tanks, and massive caravans.</p>",
             "custom_liquid": "",
             "content_page": "",
             "open": false
@@ -1503,8 +1503,19 @@
           "type": "content",
           "settings": {
             "icon": "none",
-            "title": "Collapsible tab heading",
+            "title": "What is a GCM ? Is pre or post rego?",
             "content": "<p>Fill in the text content of the collapsible item here. You can provide details and explanation for the question here.</p>",
+            "custom_liquid": "",
+            "content_page": "",
+            "open": false
+          }
+        },
+        "content_HQApzR": {
+          "type": "content",
+          "settings": {
+            "icon": "none",
+            "title": "What does SSM & ADR Approved Mean?",
+            "content": "<p>These kits are Federally Approved under Second Stage Manufacture (SSM). They undergo rigorous Australian Design Rules (ADR) compliance testing, which includes heavy-load brake assessments,  and structural stress analysis FEA across the entire range.</p>",
             "custom_liquid": "",
             "content_page": "",
             "open": false
@@ -1514,8 +1525,8 @@
           "type": "content",
           "settings": {
             "icon": "none",
-            "title": "Collapsible tab heading",
-            "content": "<p>Fill in the text content of the collapsible item here. You can provide details and explanation for the question here.</p>",
+            "title": "Pre or Post rego? Upgrades",
+            "content": "<p>Upgrades can be legally plated before a brand-new truck is ever registered (Federal approval), or engineered state-by-state after the vehicle has already been on the road (Post-registration). ORI can carry out in all states and terrorites, and have in engineers across the country to complete GVM and GCM upgrades, <strong>*Some states have height limitations and wheel offset allowances, please contact ORI for specific for post rego engineering.</strong></p>",
             "custom_liquid": "",
             "content_page": "",
             "open": false
@@ -1525,6 +1536,7 @@
       "block_order": [
         "content_BVyA8B",
         "content_98rn3n",
+        "content_HQApzR",
         "content_dRaGjH"
       ],
       "name": "Collapsible tabs",
@@ -1533,7 +1545,7 @@
         "color_schema": "",
         "section_header_padding_bottom": "medium",
         "section_header_content_spacing": "medium",
-        "heading": "Collapsible tabs",
+        "heading": "GVM & GCM Questions",
         "highlight_style": "none",
         "enable_highlight_text_color": false,
         "heading_size": "h2",
