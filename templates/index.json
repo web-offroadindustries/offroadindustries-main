@@ -201,6 +201,25 @@
     "dealer_locator_EMPfrF": {
       "type": "dealer-locator",
       "blocks": {
+        "dealer_g7wPbG": {
+          "type": "dealer",
+          "settings": {
+            "name": "Mick Tighe 4x4 & Outdoor",
+            "state": "QLD",
+            "address": "11 Mort St",
+            "city": "Newtown",
+            "postcode": "4350",
+            "phone": "(07) 4632 9782",
+            "website": "https://www.micktighe4x4.com.au/",
+            "logo": "shopify://shop_images/MT_STACKED-10SVG_140x_2x_2839bce5-a182-429f-8c3c-8e09d90b109b.svg",
+            "tag_platinum": true,
+            "tag_suspension": true,
+            "tag_bullbars": true,
+            "tag_shutter": true,
+            "tag_steps": true,
+            "directions_url": ""
+          }
+        },
         "dealer_iAq9hW": {
           "type": "dealer",
           "settings": {
@@ -697,6 +716,7 @@
         }
       },
       "block_order": [
+        "dealer_g7wPbG",
         "dealer_iAq9hW",
         "dealer_tyhdVg",
         "dealer_4iqeLR",
