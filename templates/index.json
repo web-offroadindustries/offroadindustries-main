@@ -201,6 +201,25 @@
     "dealer_locator_EMPfrF": {
       "type": "dealer-locator",
       "blocks": {
+        "dealer_iAq9hW": {
+          "type": "dealer",
+          "settings": {
+            "name": "Duffy's Automotive",
+            "state": "NSW",
+            "address": "25 Barnes St,",
+            "city": "Taminda",
+            "postcode": "NSW",
+            "phone": "(02) 6766 2774",
+            "website": "https://www.duffysautomotivetamworth.repcoservice.net/?utm_source=GMB_listing&utm_medium=organic",
+            "logo": "shopify://shop_images/1257_Duffy_s_20Automotive_20Tamworth_20Black_2022.png",
+            "tag_platinum": true,
+            "tag_suspension": true,
+            "tag_bullbars": true,
+            "tag_shutter": true,
+            "tag_steps": true,
+            "directions_url": ""
+          }
+        },
         "dealer_tyhdVg": {
           "type": "dealer",
           "settings": {
@@ -678,6 +697,7 @@
         }
       },
       "block_order": [
+        "dealer_iAq9hW",
         "dealer_tyhdVg",
         "dealer_4iqeLR",
         "dealer_HAieVD",
