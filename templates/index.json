@@ -1524,7 +1524,7 @@
         "content_dRaGjH": {
           "type": "content",
           "settings": {
-            "icon": "none",
+            "icon": "question_mark",
             "title": "Pre or Post rego? Upgrades",
             "content": "<p>Upgrades can be legally plated before a brand-new truck is ever registered (Federal approval), or engineered state-by-state after the vehicle has already been on the road (Post-registration). ORI can carry out in all states and terrorites, and have in engineers across the country to complete GVM and GCM upgrades, <strong>*Some states have height limitations and wheel offset allowances, please contact ORI for specific for post rego engineering.</strong></p>",
             "custom_liquid": "",
