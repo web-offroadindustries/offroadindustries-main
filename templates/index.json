@@ -693,11 +693,21 @@
     "why_choose_TxqbNE": {
       "type": "why-choose",
       "blocks": {
+        "card_FKNTVk": {
+          "type": "card",
+          "settings": {
+            "heading": "something for here",
+            "body": "",
+            "link_label": "",
+            "link_url": ""
+          }
+        },
         "card_P84dj8": {
           "type": "card",
           "settings": {
-            "heading": "Australian Support",
-            "body": "",
+            "icon": "shopify://shop_images/pngtree-business-project-protection-trusted-icon-design-for-web-png-image_1927655.png",
+            "heading": "Welcome to the ORI Standard, Australia-Wide!",
+            "body": "<p>At ORI, we are proud to offer an extensive network of approved fitment centres right across the country. But our commitment doesn't stop at geography! We believe that exceptional service begins long before your vehicle ever rolls into the shop. That is why we proactively educate our fitment partners on exactly what your specific vehicle requires and is capable of achieving.</p><p>Our philosophy is simple: <strong>it is never about just selling a kit; it is about providing the </strong><em><strong>right</strong></em><strong> kit, the very first time.</strong></p><p>To guarantee this flawless experience, we provide dedicated, expert technical guidance to all of our workshops. This ensures that your customised ORI GVM package perfectly aligns with your needs while upholding the uncompromising, premium standards we celebrate at ORI.</p>",
             "link_label": "",
             "link_url": ""
           }
@@ -718,7 +728,7 @@
             "icon": "shopify://shop_images/jeep-icon.jpg",
             "heading": "ORI: Australia's #1 Source for American Truck Accessories",
             "body": "<p>When it comes to upgrading your rig with top-tier American hardware, <strong>ORI</strong> is Australia’s undisputed heavyweight champion. As the largest distributor of US truck accessories in the country, we bridge the gap between premium American manufacturing and the harsh Aussie outback.</p><p>We don't just supply parts—we deliver performance, protection, and unparalleled style. ORI is the premier Australian pipeline for the industry's most legendary off-road and overland brands</p>",
-            "link_label": "Learn more",
+            "link_label": "",
             "link_url": ""
           }
         },
@@ -727,7 +737,7 @@
           "settings": {
             "icon": "shopify://shop_images/warehouse-icon-illustration-design-template-vector.jpg",
             "heading": "Australian Largest American Truck GVM & GCM Specialist",
-            "body": "<p>Unlock your vehicle's true potential. ORI’s fully legal GVM and GCM upgrades provide a massive increase to your payload and towing capacity, keeping you safe and compliant on the road. We don't just guess—ORI has partnered with independent testing facilities to secure certified GCM data to strict LS16 standards. This means we can officially, safely, and effectively re-rate the GCM on full-size American trucks.</p>",
+            "body": "<p><strong>Forget boring, standard upgrades. At ORI, we push the limits.</strong> Unlock your vehicle's true potential with upgrades designed to go further and work harder.</p><ul><li><strong>Extreme Capability:</strong> We push the boundaries of what's approved, offering setups from OE wheels right up to massive 37\" tyres.</li><li><strong>Massive Capacity:</strong> Fully legal GVM and GCM upgrades that deliver a serious boost to your payload and towing.</li><li><strong>Proven & Certified:</strong> We don’t guess. We partner with independent testing facilities to secure certified GCM data to strict LS16 standards.</li><li><strong>100% Compliant:</strong> Official, safe, and effective GCM re-rating specifically for full-size American trucks, keeping you completely legal on the road.</li></ul>",
             "link_label": "Learn more",
             "link_url": ""
           }
@@ -736,14 +746,15 @@
           "type": "card",
           "settings": {
             "icon": "shopify://shop_images/shield-icon.jpg",
-            "heading": "Australian Largest American Truck GVM Specialist",
+            "heading": "Not Just a GVM, ORI is the GCM Specialist",
             "body": "<p>Unlock your vehicle's true potential. ORI’s fully legal GVM and GCM upgrades provide a massive increase to your payload and towing capacity, keeping you safe and compliant on the road. We don't just guess. ORI has partnered with independent testing facilities to secure certified GCM data to strict LS16 standards. This means we can officially, safely, and effectively re-rate the GCM on full-size American trucks. Pre and Post rego</p>",
-            "link_label": "Learn more",
+            "link_label": "",
             "link_url": ""
           }
         }
       },
       "block_order": [
+        "card_FKNTVk",
         "card_P84dj8",
         "card_qPi8Qi",
         "card_FgCQA8",
@@ -753,7 +764,7 @@
       "name": "Why Choose",
       "settings": {
         "eyebrow": "Offroad Industries",
-        "heading": "Why Choose ORI For Your Upgrade?",
+        "heading": "Why Choose ORI For Your GVM & GCM  Upgrade?",
         "bg_color": "#ffffff",
         "heading_color": "#1f1f1f",
         "heading_size": 36,
@@ -1413,6 +1424,74 @@
         "padding_top": 60,
         "padding_bottom": 60
       }
+    },
+    "collapsible_tabs_CHtQF9": {
+      "type": "collapsible-tabs",
+      "blocks": {
+        "content_BVyA8B": {
+          "type": "content",
+          "settings": {
+            "icon": "none",
+            "title": "Collapsible tab heading",
+            "content": "<p>Fill in the text content of the collapsible item here. You can provide details and explanation for the question here.</p>",
+            "custom_liquid": "",
+            "content_page": "",
+            "open": false
+          }
+        },
+        "content_98rn3n": {
+          "type": "content",
+          "settings": {
+            "icon": "none",
+            "title": "Collapsible tab heading",
+            "content": "<p>Fill in the text content of the collapsible item here. You can provide details and explanation for the question here.</p>",
+            "custom_liquid": "",
+            "content_page": "",
+            "open": false
+          }
+        },
+        "content_dRaGjH": {
+          "type": "content",
+          "settings": {
+            "icon": "none",
+            "title": "Collapsible tab heading",
+            "content": "<p>Fill in the text content of the collapsible item here. You can provide details and explanation for the question here.</p>",
+            "custom_liquid": "",
+            "content_page": "",
+            "open": false
+          }
+        }
+      },
+      "block_order": [
+        "content_BVyA8B",
+        "content_98rn3n",
+        "content_dRaGjH"
+      ],
+      "name": "Collapsible tabs",
+      "settings": {
+        "container": "container",
+        "color_schema": "",
+        "section_header_padding_bottom": "medium",
+        "section_header_content_spacing": "medium",
+        "heading": "Collapsible tabs",
+        "highlight_style": "none",
+        "enable_highlight_text_color": false,
+        "heading_size": "h2",
+        "heading_color": "",
+        "subheading": "",
+        "description": "",
+        "item_heading_font": "body",
+        "item_heading_size": "h6",
+        "column_gap": "medium",
+        "content_width": "full",
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "show_section_divider": false,
+        "divider_width": "container",
+        "custom_id": "",
+        "custom_class": "",
+        "animations": "inherit"
+      }
     }
   },
   "order": [
@@ -1427,6 +1506,7 @@
     "hero_8BNkhD",
     "products_bundle_jFkhY9",
     "b9a09ce1-0384-4aac-8a69-af32bf73a5e8",
-    "contact_form_v3_yGfhUr"
+    "contact_form_v3_yGfhUr",
+    "collapsible_tabs_CHtQF9"
   ]
 }
