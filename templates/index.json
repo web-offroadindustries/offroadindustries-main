@@ -613,9 +613,9 @@
             "logo": "shopify://shop_images/images_4.png",
             "tag_platinum": true,
             "tag_suspension": true,
-            "tag_bullbars": true,
-            "tag_shutter": true,
-            "tag_steps": true,
+            "tag_bullbars": false,
+            "tag_shutter": false,
+            "tag_steps": false,
             "directions_url": ""
           }
         },
