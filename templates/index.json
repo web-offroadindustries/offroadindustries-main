@@ -201,6 +201,25 @@
     "dealer_locator_EMPfrF": {
       "type": "dealer-locator",
       "blocks": {
+        "dealer_4iqeLR": {
+          "type": "dealer",
+          "settings": {
+            "name": "SNC Automotive",
+            "state": "QLD",
+            "address": " 2/25 Kremzow Rd,",
+            "city": "Brendale",
+            "postcode": "4500",
+            "phone": "(07) 3205 4315",
+            "website": "https://sncautomotive.com.au/",
+            "logo": "shopify://shop_images/logo_1_189edcb0-2c4a-4709-b4ff-d411728c08e9.png",
+            "tag_platinum": true,
+            "tag_suspension": true,
+            "tag_bullbars": true,
+            "tag_shutter": true,
+            "tag_steps": true,
+            "directions_url": ""
+          }
+        },
         "dealer_HAieVD": {
           "type": "dealer",
           "settings": {
@@ -640,6 +659,7 @@
         }
       },
       "block_order": [
+        "dealer_4iqeLR",
         "dealer_HAieVD",
         "dealer_y3RFNH",
         "dealer_AVxJQF",
