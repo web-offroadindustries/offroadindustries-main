@@ -67,6 +67,759 @@
         "enable_bg_zoom_effect": false
       }
     },
+    "vehicle_cards_CtwwXg": {
+      "type": "vehicle-cards",
+      "blocks": {
+        "vehicle_ie7ybh": {
+          "type": "vehicle",
+          "settings": {
+            "image": "shopify://shop_images/Toyota-Tundra--tile-ad---20260505-4-1.png",
+            "name": "toyota tundra",
+            "btn_label": "Explore Packages & Pricing",
+            "btn_url": ""
+          }
+        },
+        "vehicle_d6GQJG": {
+          "type": "vehicle",
+          "settings": {
+            "image": "shopify://shop_images/Chevy-2500--tile-ad---20260505-4.png",
+            "name": "Chevy Silverado 2500HD",
+            "btn_label": "Explore Packages & Pricing",
+            "btn_url": "shopify://pages/ori-gvm-upgrade-chevrolet-silverado-2500hd-5-9t-2020"
+          }
+        },
+        "vehicle_iFbyFT": {
+          "type": "vehicle",
+          "settings": {
+            "image": "shopify://shop_images/Chevy-Silverado-1500--tile-ad---20260505-4.png",
+            "name": "Silverado 1500 LTZ & ZR2",
+            "btn_label": "Explore Packages & Pricing",
+            "btn_url": "shopify://pages/chevrolet-silverado-1500-gvm-package"
+          }
+        },
+        "vehicle_rrjckn": {
+          "type": "vehicle",
+          "settings": {
+            "image": "shopify://shop_images/FORD-F150---tile-ad---20260505-4-2.png",
+            "name": "Ford F150",
+            "btn_label": "Explore Packages & Pricing",
+            "btn_url": "shopify://pages/ori-gvm-upgrade-chevrolet-silverado-2500hd-5-9t-2020"
+          }
+        },
+        "vehicle_ERMxXT": {
+          "type": "vehicle",
+          "settings": {
+            "image": "shopify://shop_images/FORD-F150---tile-ad---20260505-4-1.png",
+            "name": "Ford F150",
+            "btn_label": "Explore More!",
+            "btn_url": "shopify://pages/toyota-tundra"
+          }
+        }
+      },
+      "block_order": [
+        "vehicle_ie7ybh",
+        "vehicle_d6GQJG",
+        "vehicle_iFbyFT",
+        "vehicle_rrjckn",
+        "vehicle_ERMxXT"
+      ],
+      "name": "Vehicle Cards",
+      "settings": {
+        "eyebrow": "",
+        "heading": "",
+        "bg_color": "#ffffff",
+        "heading_color": "#1f1f1f",
+        "heading_size": 36,
+        "eyebrow_color": "#56bdc2",
+        "eyebrow_size": 13,
+        "img_ratio": "square",
+        "img_radius": 10,
+        "card_placeholder_color": "#e5e5e5",
+        "card_bg_color": "#ffffff",
+        "card_border_color": "#e2e2e2",
+        "card_radius": 10,
+        "card_shadow": true,
+        "name_color": "#1f1f1f",
+        "name_size": 18,
+        "default_btn_label": "Explore Specs",
+        "btn_bg": "#ffffff",
+        "btn_text_color": "#1f1f1f",
+        "btn_border_color": "#1f1f1f",
+        "btn_radius": 6,
+        "btn_size": 12,
+        "container_width": 1280,
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "dealer_locator_EMPfrF": {
+      "type": "dealer-locator",
+      "blocks": {
+        "dealer_g7wPbG": {
+          "type": "dealer",
+          "settings": {
+            "name": "Mick Tighe 4x4 & Outdoor",
+            "state": "QLD",
+            "address": "11 Mort St",
+            "city": "Newtown",
+            "postcode": "4350",
+            "phone": "(07) 4632 9782",
+            "website": "https://www.micktighe4x4.com.au/",
+            "logo": "shopify://shop_images/MT_STACKED-10SVG_140x_2x_2839bce5-a182-429f-8c3c-8e09d90b109b.svg",
+            "tag_platinum": true,
+            "tag_suspension": true,
+            "tag_bullbars": true,
+            "tag_shutter": true,
+            "tag_steps": true,
+            "directions_url": ""
+          }
+        },
+        "dealer_iAq9hW": {
+          "type": "dealer",
+          "settings": {
+            "name": "Duffy's Automotive",
+            "state": "NSW",
+            "address": "25 Barnes St,",
+            "city": "Taminda",
+            "postcode": "NSW",
+            "phone": "(02) 6766 2774",
+            "website": "https://www.duffysautomotivetamworth.repcoservice.net/?utm_source=GMB_listing&utm_medium=organic",
+            "logo": "shopify://shop_images/1257_Duffy_s_20Automotive_20Tamworth_20Black_2022.png",
+            "tag_platinum": true,
+            "tag_suspension": true,
+            "tag_bullbars": true,
+            "tag_shutter": true,
+            "tag_steps": true,
+            "directions_url": ""
+          }
+        },
+        "dealer_tyhdVg": {
+          "type": "dealer",
+          "settings": {
+            "name": "ARB Shepparton",
+            "state": "VIC",
+            "address": "180 Benalla Rd,",
+            "city": "Shepparton",
+            "postcode": "3630",
+            "phone": "(03) 5822 1877",
+            "website": "https://www.arb.com.au/arb-stores/arb-shepparton",
+            "logo": "shopify://shop_images/109-1098596_arb-logo-arb-4x4-accessories.png",
+            "tag_platinum": true,
+            "tag_suspension": true,
+            "tag_bullbars": true,
+            "tag_shutter": true,
+            "tag_steps": true,
+            "directions_url": ""
+          }
+        },
+        "dealer_4iqeLR": {
+          "type": "dealer",
+          "settings": {
+            "name": "SNC Automotive",
+            "state": "QLD",
+            "address": " 2/25 Kremzow Rd,",
+            "city": "Brendale",
+            "postcode": "4500",
+            "phone": "(07) 3205 4315",
+            "website": "https://sncautomotive.com.au/",
+            "logo": "shopify://shop_images/logo_1_189edcb0-2c4a-4709-b4ff-d411728c08e9.png",
+            "tag_platinum": true,
+            "tag_suspension": true,
+            "tag_bullbars": true,
+            "tag_shutter": true,
+            "tag_steps": true,
+            "directions_url": ""
+          }
+        },
+        "dealer_HAieVD": {
+          "type": "dealer",
+          "settings": {
+            "name": "ARB Rockingham",
+            "state": "WA",
+            "address": "57 Dixon Rd",
+            "city": "Rockingham",
+            "postcode": "6168",
+            "phone": "(08) 9529 2229",
+            "website": "https://arbrockingham.com.au/",
+            "logo": "shopify://shop_images/109-1098596_arb-logo-arb-4x4-accessories.png",
+            "tag_platinum": true,
+            "tag_suspension": true,
+            "tag_bullbars": true,
+            "tag_shutter": true,
+            "tag_steps": true,
+            "directions_url": ""
+          }
+        },
+        "dealer_y3RFNH": {
+          "type": "dealer",
+          "settings": {
+            "name": "Fat Builds 4x4",
+            "state": "TAS",
+            "address": "34 Burgess Dr",
+            "city": "Shearwater",
+            "postcode": "7307",
+            "phone": "(03) 6428 7240",
+            "website": "https://fatbuilds4x4.com.au/",
+            "logo": "shopify://shop_images/Fat_Builds_5_540x_af0b74dc-891e-43cc-aa3f-17febab4f564.png",
+            "tag_platinum": true,
+            "tag_suspension": true,
+            "tag_bullbars": true,
+            "tag_shutter": true,
+            "tag_steps": true,
+            "directions_url": ""
+          }
+        },
+        "dealer_AVxJQF": {
+          "type": "dealer",
+          "settings": {
+            "name": "Hunter Mechanical Karratha",
+            "state": "WA",
+            "address": "21 Crane Circle",
+            "city": "Pegs Creek",
+            "postcode": "6714",
+            "phone": "(08) 9144 4331",
+            "website": "",
+            "logo": "shopify://shop_images/Untitled-Facebook-Ad-1-1024x536.png",
+            "tag_platinum": true,
+            "tag_suspension": true,
+            "tag_bullbars": true,
+            "tag_shutter": true,
+            "tag_steps": true,
+            "directions_url": ""
+          }
+        },
+        "dealer_p9jaVz": {
+          "type": "dealer",
+          "settings": {
+            "name": "Hunter Mechanical Rockingham",
+            "state": "WA",
+            "address": "14 Carlston Rd",
+            "city": "Rockingham",
+            "postcode": "6168",
+            "phone": "(08) 9279 0664",
+            "website": "https://hunter.com.au/?srsltid=ARcRdnqnMBuruhlNnlo8IzFs4q3SCz3yoJuEW2FYz-DhG3aMW5A9H5lz",
+            "logo": "shopify://shop_images/Untitled-Facebook-Ad-1-1024x536.png",
+            "tag_platinum": true,
+            "tag_suspension": true,
+            "tag_bullbars": true,
+            "tag_shutter": true,
+            "tag_steps": true,
+            "directions_url": ""
+          }
+        },
+        "dealer_TBCccV": {
+          "type": "dealer",
+          "settings": {
+            "name": "Hunter Mechanical Kenwick",
+            "state": "WA",
+            "address": "Unit 14/1736 Albany Hwy",
+            "city": "Kenwick",
+            "postcode": "6107",
+            "phone": "(08) 9367 0888",
+            "website": "https://hunter.com.au/?srsltid=ARcRdnqnMBuruhlNnlo8IzFs4q3SCz3yoJuEW2FYz-DhG3aMW5A9H5lz",
+            "logo": "shopify://shop_images/Untitled-Facebook-Ad-1-1024x536.png",
+            "tag_platinum": true,
+            "tag_suspension": true,
+            "tag_bullbars": true,
+            "tag_shutter": true,
+            "tag_steps": true,
+            "directions_url": ""
+          }
+        },
+        "dealer_gRNtLh": {
+          "type": "dealer",
+          "settings": {
+            "name": "Jacksons 4x4",
+            "state": "SA",
+            "address": "61 Chris Collins Ct,",
+            "city": "Murray Bridge",
+            "postcode": "5253",
+            "phone": " (08) 8532 2550",
+            "website": "https://jacksons4x4.com.au/",
+            "logo": "shopify://shop_images/JA4X4_-_TRANSPARENT_-_WHITE_TEXT_-_HIGHRES.png",
+            "tag_platinum": true,
+            "tag_suspension": true,
+            "tag_bullbars": true,
+            "tag_shutter": true,
+            "tag_steps": true,
+            "directions_url": ""
+          }
+        },
+        "dealer_iGYUxx": {
+          "type": "dealer",
+          "settings": {
+            "name": "Ultimate Offroad",
+            "state": "VIC",
+            "address": "1871 Ferntree Gully Rd",
+            "city": "Ferntree Gully",
+            "postcode": "3156",
+            "phone": " (03) 8609 9033",
+            "website": "https://ultimateoffroad.com.au/",
+            "logo": "shopify://shop_images/image_-_2026-05-09T221436.314.png",
+            "tag_platinum": true,
+            "tag_suspension": true,
+            "tag_bullbars": true,
+            "tag_shutter": true,
+            "tag_steps": true,
+            "directions_url": ""
+          }
+        },
+        "dealer_r6dj9U": {
+          "type": "dealer",
+          "settings": {
+            "name": "Opposite Lock Wodonga",
+            "state": "VIC",
+            "address": "87 Thomas Mitchell Dr",
+            "city": "Wodonga",
+            "postcode": "3690",
+            "phone": "(02) 6056 4414",
+            "website": "https://www.oppositelockalburywodonga.com.au/?utm_source=google&utm_medium=organic&utm_campaign=gmb",
+            "logo": "shopify://shop_images/loog-1920w.webp",
+            "tag_platinum": true,
+            "tag_suspension": true,
+            "tag_bullbars": true,
+            "tag_shutter": true,
+            "tag_steps": true,
+            "directions_url": ""
+          }
+        },
+        "dealer_WcCDKz": {
+          "type": "dealer",
+          "settings": {
+            "name": "Echuca Service Centre",
+            "state": "VIC",
+            "address": "1 Northern Hwy,",
+            "city": "Echuca",
+            "postcode": "3564",
+            "phone": "(03) 5480 7150",
+            "website": "https://www.echucaservicecentre.repcoservice.net/?utm_source=GMB_listing&utm_medium=organic",
+            "logo": "shopify://shop_images/ESC_LOGO_1_002_002.png",
+            "tag_platinum": true,
+            "tag_suspension": true,
+            "tag_bullbars": true,
+            "tag_shutter": true,
+            "tag_steps": true,
+            "directions_url": ""
+          }
+        },
+        "dealer_KHy3ft": {
+          "type": "dealer",
+          "settings": {
+            "name": "Garage76 Automotive",
+            "state": "ACT",
+            "address": "126 Gilmore Rd,",
+            "city": "Queanbeyan",
+            "postcode": "2620",
+            "phone": "(02) 6232 4062",
+            "website": "https://garage76.com.au/",
+            "logo": "shopify://shop_images/garage76-logo-generic_230x_2x_75ca580a-0a0e-4ee7-a6e6-64b92f44da1d.webp",
+            "tag_platinum": true,
+            "tag_suspension": true,
+            "tag_bullbars": true,
+            "tag_shutter": true,
+            "tag_steps": true,
+            "directions_url": ""
+          }
+        },
+        "dealer_UNjrEK": {
+          "type": "dealer",
+          "settings": {
+            "name": "Pro 4x4",
+            "state": "QLD",
+            "address": "214 Lahrs Rd,",
+            "city": "Ormeau",
+            "postcode": "4208",
+            "phone": "(07) 5631 0222",
+            "website": "https://www.pro4x4australia.com.au/",
+            "logo": "shopify://shop_images/68db4b5f6e52d.png",
+            "tag_platinum": true,
+            "tag_suspension": true,
+            "tag_bullbars": true,
+            "tag_shutter": true,
+            "tag_steps": true,
+            "directions_url": ""
+          }
+        },
+        "dealer_EPUTDp": {
+          "type": "dealer",
+          "settings": {
+            "name": "ATS Expedition Outfitters",
+            "state": "QLD",
+            "address": "181/195 Maggiolo Dr,",
+            "city": "Mackay",
+            "postcode": "4740",
+            "phone": "(07) 4881 0010",
+            "website": "https://atsoutfitters.com.au/",
+            "logo": "shopify://shop_images/ats-eo-logo.webp",
+            "tag_platinum": true,
+            "tag_suspension": true,
+            "tag_bullbars": true,
+            "tag_shutter": true,
+            "tag_steps": true,
+            "directions_url": ""
+          }
+        },
+        "dealer_rfNfzH": {
+          "type": "dealer",
+          "settings": {
+            "name": "McCormacks 4wd",
+            "state": "QLD",
+            "address": "2 Knox Street, Sandgate, QLD 4017",
+            "city": "Sandgate",
+            "postcode": "4017",
+            "phone": "07 3269 3294",
+            "website": "https://mccormacks4wd.com.au/",
+            "logo": "shopify://shop_images/McCormack_Final.png",
+            "tag_platinum": true,
+            "tag_suspension": true,
+            "tag_bullbars": true,
+            "tag_shutter": true,
+            "tag_steps": true,
+            "directions_url": ""
+          }
+        },
+        "dealer_dadJrw": {
+          "type": "dealer",
+          "settings": {
+            "name": "BAW Automotive",
+            "state": "QLD",
+            "address": "Shed 1/477 Newman Rd",
+            "city": "Geebung",
+            "postcode": "4034",
+            "phone": "0417 783 415",
+            "website": "https://www.bawauto.com.au/",
+            "logo": "shopify://shop_images/bb1378_4bcb5962094e49ad81e7d2b7a1f0ee3e_mv2.avif",
+            "tag_platinum": true,
+            "tag_suspension": true,
+            "tag_bullbars": true,
+            "tag_shutter": true,
+            "tag_steps": true,
+            "directions_url": ""
+          }
+        },
+        "dealer_tjqGAK": {
+          "type": "dealer",
+          "settings": {
+            "name": "Morpowa Auto & Dyno Centre",
+            "state": "SA",
+            "address": "Unit 2/14 Famechon Cres,",
+            "city": "Modbury North",
+            "postcode": "5092",
+            "phone": "(08) 8264 2077",
+            "website": "https://www.morpowa.com/",
+            "logo": "shopify://shop_images/MORPOWA_WEBLOGO.webp",
+            "tag_platinum": true,
+            "tag_suspension": true,
+            "tag_bullbars": true,
+            "tag_shutter": true,
+            "tag_steps": true,
+            "directions_url": ""
+          }
+        },
+        "dealer_yVwTDR": {
+          "type": "dealer",
+          "settings": {
+            "name": "Thor Mechanical",
+            "state": "WA",
+            "address": "1/6 Dollyup St,",
+            "city": "Stake Hill",
+            "postcode": "6181",
+            "phone": "(08) 6243 6965",
+            "website": "https://tmwa.com.au/",
+            "logo": "shopify://shop_images/TMWA_Logo_012025.png",
+            "tag_platinum": true,
+            "tag_suspension": true,
+            "tag_bullbars": true,
+            "tag_shutter": true,
+            "tag_steps": true,
+            "directions_url": ""
+          }
+        },
+        "dealer_imdW8p": {
+          "type": "dealer",
+          "settings": {
+            "name": "Truck N Toys",
+            "state": "NSW",
+            "address": "4/29 Walker St,",
+            "city": "South Windsor,",
+            "postcode": "2158",
+            "phone": "(02) 9652 2056",
+            "website": "https://trucksntoys.com.au/",
+            "logo": "shopify://shop_images/GFA-TNT-Logo_1_1.png",
+            "tag_platinum": true,
+            "tag_suspension": true,
+            "tag_bullbars": true,
+            "tag_shutter": true,
+            "tag_steps": true,
+            "directions_url": ""
+          }
+        },
+        "dealer_NdTYFF": {
+          "type": "dealer",
+          "settings": {
+            "name": "Horse Power Factory",
+            "state": "VIC",
+            "address": "8/14 Amberley Cres,",
+            "city": "Dandenong South",
+            "postcode": "3175",
+            "phone": "(03) 9793 1616",
+            "website": "https://hp-f.com.au/",
+            "logo": "shopify://shop_images/images_4.png",
+            "tag_platinum": true,
+            "tag_suspension": true,
+            "tag_bullbars": false,
+            "tag_shutter": false,
+            "tag_steps": false,
+            "directions_url": ""
+          }
+        },
+        "dealer_7jqt8p": {
+          "type": "dealer",
+          "settings": {
+            "name": "Scalzo Automotive",
+            "state": "VIC",
+            "address": "13 Ryan Ct,",
+            "city": "Warragul",
+            "postcode": "3820",
+            "phone": "(03) 5622 2006",
+            "website": "https://www.scalzoautomotive.com.au/",
+            "logo": "shopify://shop_images/NewLogo_1.png",
+            "tag_platinum": true,
+            "tag_suspension": true,
+            "tag_bullbars": true,
+            "tag_shutter": true,
+            "tag_steps": true,
+            "directions_url": ""
+          }
+        },
+        "dealer_C8pxHr": {
+          "type": "dealer",
+          "settings": {
+            "name": "TJM Hunter Valley",
+            "state": "NSW",
+            "address": "130 Newcastle Rd, Wallsend NSW 2287",
+            "city": "Wallsend",
+            "postcode": "2287",
+            "phone": "(02) 4951 1184",
+            "website": "https://www.tjmhuntervalley.com.au/",
+            "logo": "shopify://shop_images/Landscape_on_Dark_1.png",
+            "tag_platinum": true,
+            "tag_suspension": true,
+            "tag_bullbars": true,
+            "tag_shutter": true,
+            "tag_steps": true,
+            "directions_url": ""
+          }
+        },
+        "dealer_NXeA79": {
+          "type": "dealer",
+          "settings": {
+            "name": "Geelong Performance",
+            "state": "VIC",
+            "address": " 26-30 Tarkin Ct, Bell Park VIC 3215",
+            "city": "Bell Park",
+            "postcode": "3125",
+            "phone": "(03) 5277 2503",
+            "website": "https://www.offroadindustries.com.au/",
+            "logo": "shopify://shop_images/GPC_Piston_Logo_1.png",
+            "tag_platinum": true,
+            "tag_suspension": true,
+            "tag_bullbars": true,
+            "tag_shutter": true,
+            "tag_steps": true,
+            "directions_url": ""
+          }
+        },
+        "dealer_YFrNUn": {
+          "type": "dealer",
+          "settings": {
+            "name": "Autoworks Car Care",
+            "state": "VIC",
+            "address": "13/71 Frankston Gardens Dr, Carrum Downs VIC",
+            "city": "Carrum Downs",
+            "postcode": "3201",
+            "phone": "0483 939 591",
+            "website": "",
+            "logo": "shopify://shop_images/Autoworks_Logo_REV.png",
+            "tag_platinum": true,
+            "tag_suspension": true,
+            "tag_bullbars": true,
+            "tag_shutter": true,
+            "tag_steps": true,
+            "directions_url": "https://www.map.google.com"
+          }
+        },
+        "dealer_8aAepY": {
+          "type": "dealer",
+          "settings": {
+            "name": "Every Day Offroad",
+            "state": "VIC",
+            "address": "40 Albemarle St,",
+            "city": "40 Albemarle St,",
+            "postcode": "3016",
+            "phone": "1800 519 700",
+            "website": "",
+            "logo": "shopify://shop_images/EVERYDAY_LOGO_CURSIVE_120_x_120_px_1000_x_1000_px_2.png",
+            "tag_platinum": true,
+            "tag_suspension": true,
+            "tag_bullbars": true,
+            "tag_shutter": true,
+            "tag_steps": true,
+            "directions_url": "https://www.map.google.com"
+          }
+        }
+      },
+      "block_order": [
+        "dealer_g7wPbG",
+        "dealer_iAq9hW",
+        "dealer_tyhdVg",
+        "dealer_4iqeLR",
+        "dealer_HAieVD",
+        "dealer_y3RFNH",
+        "dealer_AVxJQF",
+        "dealer_p9jaVz",
+        "dealer_TBCccV",
+        "dealer_gRNtLh",
+        "dealer_iGYUxx",
+        "dealer_r6dj9U",
+        "dealer_WcCDKz",
+        "dealer_KHy3ft",
+        "dealer_UNjrEK",
+        "dealer_EPUTDp",
+        "dealer_rfNfzH",
+        "dealer_dadJrw",
+        "dealer_tjqGAK",
+        "dealer_yVwTDR",
+        "dealer_imdW8p",
+        "dealer_NdTYFF",
+        "dealer_7jqt8p",
+        "dealer_C8pxHr",
+        "dealer_NXeA79",
+        "dealer_YFrNUn",
+        "dealer_8aAepY"
+      ],
+      "name": "Dealer Locator",
+      "settings": {
+        "eyebrow": "Find a dealer",
+        "heading": "Authorised ORI Platinum Installer Network",
+        "subheading": "Find your nearest authorised installer for ORI products, GVM upgrades, and 4x4 accessories.",
+        "bg_color": "#101820",
+        "accent_color": "#56bdc2",
+        "heading_color": "#ffffff",
+        "text_color": "#a0aab4",
+        "card_bg_color": "#1a2330",
+        "card_border_color": "#2a3545",
+        "card_radius": 12,
+        "card_shadow": true,
+        "btn_primary_bg": "#56bdc2",
+        "btn_primary_text": "#ffffff",
+        "btn_secondary_bg": "rgba(0,0,0,0)",
+        "btn_secondary_text": "#a0aab4",
+        "tag_platinum_bg": "#56bdc2",
+        "tag_platinum_text": "#ffffff",
+        "tag_secondary_bg": "#2a3545",
+        "tag_secondary_text": "#a0aab4",
+        "container_width": 1280,
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "why_choose_TxqbNE": {
+      "type": "why-choose",
+      "blocks": {
+        "card_FKNTVk": {
+          "type": "card",
+          "settings": {
+            "heading": "Support",
+            "body": "<p><strong>Upgrade Your American Truck with Offroad Industries</strong><br/>Looking for a one-stop shop for your American truck's GVM and GCM needs? We offer comprehensive support through the entire upgrade process.</p><ul><li><strong>Pre- & Post-Rego:</strong> We handle both pre-registration and post-registration GVM upgrades.</li><li><strong>Nationwide Compliance:</strong> Fully approved across all Australian states and territories.</li><li><strong>Expert Support:</strong> Fantastic customer service from start to finish.</li></ul><p>Ready to get started? Give Offroad Industries a call!</p>",
+            "link_label": "",
+            "link_url": ""
+          }
+        },
+        "card_P84dj8": {
+          "type": "card",
+          "settings": {
+            "icon": "shopify://shop_images/pngtree-business-project-protection-trusted-icon-design-for-web-png-image_1927655.png",
+            "heading": "Welcome to the ORI Standard, Australia-Wide!",
+            "body": "<p>At ORI, we are proud to offer an extensive network of approved fitment centres right across the country. But our commitment doesn't stop at geography! We believe that exceptional service begins long before your vehicle ever rolls into the shop. That is why we proactively educate our fitment partners on exactly what your specific vehicle requires and is capable of achieving.</p><p>Our philosophy is simple: <strong>it is never about just selling a kit; it is about providing the </strong><em><strong>right</strong></em><strong> kit, the very first time.</strong></p><p>To guarantee this flawless experience, we provide dedicated, expert technical guidance to all of our workshops. This ensures that your customised ORI GVM package perfectly aligns with your needs while upholding the uncompromising, premium standards we celebrate at ORI.</p>",
+            "link_label": "",
+            "link_url": ""
+          }
+        },
+        "card_qPi8Qi": {
+          "type": "card",
+          "settings": {
+            "icon": "shopify://shop_images/shield-icon.jpg",
+            "heading": "SSM Federal Approval",
+            "body": "<p><strong>Skip the red tape.</strong> With ORI’s Federal SSM-certified GVM packages, pre-registration upgrades—including massive lifts (up to 6\") and larger tires (up to 37\")—are baked directly into your federal compliance plate.</p><p>The result? A rig that is 100% road-legal, fully insurable, and ready to roll anywhere in Australia with <strong>zero state-by-state engineering required.</strong></p>",
+            "link_label": "",
+            "link_url": ""
+          }
+        },
+        "card_FgCQA8": {
+          "type": "card",
+          "settings": {
+            "icon": "shopify://shop_images/jeep-icon.jpg",
+            "heading": "Stock & Availability",
+            "body": "<p>When you choose us, you're backed by the largest distributor of American truck parts and accessories.</p><ul><li><strong>In Stock & Ready:</strong> Your parts are already on our shelves—no waiting around for shipping!</li><li><strong>Expert Fitting:</strong> Ready for seamless fitting by one of our trusted, authorized installers.</li></ul><p><strong>Don't wait. Secure your kit from Offroad Industries today!</strong> </p>",
+            "link_label": "",
+            "link_url": ""
+          }
+        },
+        "card_gUPNbe": {
+          "type": "card",
+          "settings": {
+            "icon": "shopify://shop_images/warehouse-icon-illustration-design-template-vector.jpg",
+            "heading": "Australian Largest American Truck GVM & GCM Specialist",
+            "body": "<p><strong>Forget boring, standard upgrades. At ORI, we push the limits.</strong> Unlock your vehicle's true potential with upgrades designed to go further and work harder.</p><ul><li><strong>Extreme Capability:</strong> We push the boundaries of what's approved, offering setups from OE wheels right up to massive 37\" tyres.</li><li><strong>Massive Capacity:</strong> Fully legal GVM and GCM upgrades that deliver a serious boost to your payload and towing.</li><li><strong>Proven & Certified:</strong> We don’t guess. We partner with independent testing facilities to secure certified GCM data to strict LS16 standards.</li><li><strong>100% Compliant:</strong> Official, safe, and effective GCM re-rating specifically for full-size American trucks, keeping you completely legal on the road.</li></ul>",
+            "link_label": "",
+            "link_url": ""
+          }
+        },
+        "card_mEjy7z": {
+          "type": "card",
+          "settings": {
+            "icon": "shopify://shop_images/shield-icon.jpg",
+            "heading": "Not Just a GVM, ORI is the GCM Specialist",
+            "body": "<p>Unlock your vehicle's true potential. ORI’s fully legal GVM and GCM upgrades provide a massive increase to your payload and towing capacity, keeping you safe and compliant on the road. We don't just guess. ORI has partnered with independent testing facilities to secure certified GCM data to strict LS16 standards. This means we can officially, safely, and effectively re-rate the GCM on full-size American trucks. Pre and Post rego</p>",
+            "link_label": "",
+            "link_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "card_FKNTVk",
+        "card_P84dj8",
+        "card_qPi8Qi",
+        "card_FgCQA8",
+        "card_gUPNbe",
+        "card_mEjy7z"
+      ],
+      "name": "Why Choose",
+      "settings": {
+        "eyebrow": "Offroad Industries",
+        "heading": "Why Choose ORI For Your GVM & GCM  Upgrade?",
+        "bg_color": "#ffffff",
+        "heading_color": "#1f1f1f",
+        "heading_size": 36,
+        "eyebrow_color": "#56bdc2",
+        "eyebrow_size": 13,
+        "card_bg_color": "#ffffff",
+        "card_border_color": "#e2e2e2",
+        "card_radius": 12,
+        "card_shadow": true,
+        "icon_size": 40,
+        "card_heading_color": "#1f1f1f",
+        "card_heading_size": 16,
+        "card_body_color": "#555555",
+        "card_body_size": 14,
+        "link_color": "#56bdc2",
+        "link_size": 12,
+        "container_width": 1280,
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
     "logo_list_tG47ei": {
       "type": "logo-list",
       "blocks": {
@@ -564,6 +1317,9 @@
   "order": [
     "main",
     "slideshow_ByTqfK",
+    "vehicle_cards_CtwwXg",
+    "dealer_locator_EMPfrF",
+    "why_choose_TxqbNE",
     "logo_list_tG47ei",
     "rich_text_k7z6De",
     "image_with_text_f3KNNe",
