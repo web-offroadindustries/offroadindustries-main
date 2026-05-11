@@ -93,6 +93,7 @@
   display: block;
   width: 100%;
   padding: 11px 16px;
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
   font-family: "Geomanist", sans-serif;
   font-weight: 700;
@@ -101,12 +102,22 @@
   text-align: center;
   text-decoration: none;
   cursor: pointer;
-  transition: background 0.15s, color 0.15s;
-  white-space: nowrap;
+  -webkit-transition: background 0.15s, color 0.15s, opacity 0.15s;
+  transition: background 0.15s, color 0.15s, opacity 0.15s;
+  /* Allow label text to wrap — white-space: nowrap caused labels longer
+     than the card width to be clipped by the card's overflow: hidden */
+  white-space: normal;
+  word-break: break-word;
+  overflow-wrap: break-word;
   margin-top: auto;
+  /* Prevent iOS Safari from adding its own button styling */
+  -webkit-appearance: none;
+  appearance: none;
 }
-.vehicle-cards__btn:hover {
-  opacity: 0.8;
+@media (hover: hover) {
+  .vehicle-cards__btn:hover {
+    opacity: 0.8;
+  }
 }
 
 /* ── Tablet (3 columns) ──────────────────────────────────────────────────── */
