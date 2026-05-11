@@ -195,7 +195,10 @@
         "btn_size": 12,
         "container_width": 1280,
         "padding_top": 60,
-        "padding_bottom": 60
+        "padding_bottom": 60,
+        "mobile_layout": "slideshow",
+        "slideshow_animation": "fade",
+        "slideshow_interval": 6
       }
     },
     "dealer_locator_EMPfrF": {
@@ -863,7 +866,10 @@
         "link_size": 12,
         "container_width": 1280,
         "padding_top": 60,
-        "padding_bottom": 60
+        "padding_bottom": 60,
+        "mobile_layout": "slideshow",
+        "slideshow_animation": "fade",
+        "slideshow_interval": 6
       }
     },
     "1770092251a8cb32bd": {
