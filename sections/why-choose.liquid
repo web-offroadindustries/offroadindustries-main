@@ -1,0 +1,168 @@
+{{ 'why-choose.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+  assign section_id = section.id
+  assign total = section.blocks.size
+-%}
+
+<section
+  id="WhyChoose-{{ section_id }}"
+  class="why-choose"
+  style="
+    --wc-pt: {{ section.settings.padding_top }}px;
+    --wc-pb: {{ section.settings.padding_bottom }}px;
+    --wc-container: {{ section.settings.container_width }}px;
+    background: {{ section.settings.bg_color }};
+  "
+>
+  <div class="why-choose__inner">
+
+    {%- if section.settings.eyebrow != blank or section.settings.heading != blank -%}
+      <div class="why-choose__header">
+        {%- if section.settings.eyebrow != blank -%}
+          <p class="why-choose__eyebrow" style="color:{{ section.settings.eyebrow_color }};font-size:{{ section.settings.eyebrow_size }}px;">{{ section.settings.eyebrow }}</p>
+        {%- endif -%}
+        {%- if section.settings.heading != blank -%}
+          <h2 class="why-choose__heading" style="color:{{ section.settings.heading_color }};font-size:{{ section.settings.heading_size }}px;">{{ section.settings.heading }}</h2>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+
+    {%- if total > 0 -%}
+      <div class="why-choose__grid">
+
+        {%- for block in section.blocks -%}
+          <div
+            class="why-choose__card"
+            style="
+              background: {{ section.settings.card_bg_color }};
+              border: 1px solid {{ section.settings.card_border_color }};
+              border-radius: {{ section.settings.card_radius }}px;
+              {% if section.settings.card_shadow %}box-shadow: 0 2px 14px rgba(0,0,0,0.08);{% endif %}
+            "
+            {{ block.shopify_attributes }}
+          >
+
+            {%- if block.settings.icon != blank -%}
+              <div class="why-choose__icon">
+                <img
+                  src="{{ block.settings.icon | image_url: width: 160 }}"
+                  alt="{{ block.settings.heading | escape }}"
+                  loading="lazy"
+                  width="{{ section.settings.icon_size }}"
+                  height="{{ section.settings.icon_size }}"
+                  style="width:{{ section.settings.icon_size }}px;height:{{ section.settings.icon_size }}px;"
+                >
+              </div>
+            {%- endif -%}
+
+            {%- if block.settings.heading != blank -%}
+              <h3 class="why-choose__card-heading" style="color:{{ section.settings.card_heading_color }};font-size:{{ section.settings.card_heading_size }}px;">
+                {{ block.settings.heading }}
+              </h3>
+            {%- endif -%}
+
+            {%- if block.settings.body != blank -%}
+              <div class="why-choose__card-body" style="color:{{ section.settings.card_body_color }};font-size:{{ section.settings.card_body_size }}px;">
+                {{ block.settings.body }}
+              </div>
+            {%- endif -%}
+
+            {%- if block.settings.link_label != blank -%}
+              <a
+                href="{{ block.settings.link_url | default: '#' }}"
+                class="why-choose__card-link"
+                style="color:{{ section.settings.link_color }};font-size:{{ section.settings.link_size }}px;"
+              >
+                {{ block.settings.link_label }}
+                <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" width="14" height="14"><path d="M10.22 3.22a.75.75 0 0 1 1.06 0l6 6a.75.75 0 0 1 0 1.06l-6 6a.75.75 0 1 1-1.06-1.06L14.94 11H3.25a.75.75 0 0 1 0-1.5h11.69l-4.72-4.72a.75.75 0 0 1 0-1.06Z"/></svg>
+              </a>
+            {%- endif -%}
+
+          </div>
+        {%- endfor -%}
+
+      </div>
+    {%- endif -%}
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Why Choose",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow text" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Why Choose ORI For Your Upgrade?" },
+    { "type": "header", "content": "Section" },
+    { "type": "color", "id": "bg_color", "label": "Section background", "default": "#ffffff" },
+    { "type": "header", "content": "Heading text" },
+    { "type": "color", "id": "heading_color",  "label": "Heading colour",    "default": "#1f1f1f" },
+    { "type": "range", "id": "heading_size",   "label": "Heading font size", "min": 20, "max": 72, "step": 2, "default": 36, "unit": "px" },
+    { "type": "color", "id": "eyebrow_color",  "label": "Eyebrow colour",    "default": "#56bdc2" },
+    { "type": "range", "id": "eyebrow_size",   "label": "Eyebrow font size", "min": 10, "max": 24, "step": 1, "default": 13, "unit": "px" },
+    { "type": "header", "content": "Cards" },
+    { "type": "color", "id": "card_bg_color",     "label": "Card background",    "default": "#ffffff" },
+    { "type": "color", "id": "card_border_color", "label": "Card border colour", "default": "#e2e2e2" },
+    { "type": "range", "id": "card_radius",       "label": "Card corner radius", "min": 0, "max": 24, "step": 2, "default": 12 },
+    { "type": "checkbox", "id": "card_shadow",    "label": "Card drop shadow",   "default": true },
+    { "type": "range", "id": "icon_size",         "label": "Icon size",          "min": 24, "max": 80, "step": 4, "default": 40, "unit": "px" },
+    { "type": "header", "content": "Card text" },
+    { "type": "color", "id": "card_heading_color", "label": "Card heading colour", "default": "#1f1f1f" },
+    { "type": "range", "id": "card_heading_size",  "label": "Card heading size",   "min": 12, "max": 32, "step": 1, "default": 16, "unit": "px" },
+    { "type": "color", "id": "card_body_color",    "label": "Body text colour",    "default": "#555555" },
+    { "type": "range", "id": "card_body_size",     "label": "Body text size",      "min": 12, "max": 20, "step": 1, "default": 14, "unit": "px" },
+    { "type": "color", "id": "link_color",         "label": "Link colour",         "default": "#1f1f1f" },
+    { "type": "range", "id": "link_size",          "label": "Link font size",      "min": 10, "max": 18, "step": 1, "default": 12, "unit": "px" },
+    { "type": "header", "content": "Layout" },
+    { "type": "range", "id": "container_width", "label": "Max width",      "min": 960, "max": 1600, "step": 20, "default": 1280 },
+    { "type": "range", "id": "padding_top",     "label": "Padding top",    "min": 0,   "max": 120,  "step": 4,  "default": 60 },
+    { "type": "range", "id": "padding_bottom",  "label": "Padding bottom", "min": 0,   "max": 120,  "step": 4,  "default": 60 }
+  ],
+  "blocks": [
+    {
+      "type": "card",
+      "name": "Feature card",
+      "settings": [
+        { "type": "image_picker", "id": "icon",       "label": "Icon (SVG, PNG, WebP, JPG)" },
+        { "type": "text",         "id": "heading",    "label": "Heading",    "placeholder": "e.g. Australian Largest GVM Specialist" },
+        { "type": "richtext",     "id": "body",       "label": "Body text" },
+        { "type": "text",         "id": "link_label", "label": "Link label", "placeholder": "e.g. Learn more" },
+        { "type": "url",          "id": "link_url",   "label": "Link URL" }
+      ]
+    }
+  ],
+  "max_blocks": 9,
+  "presets": [
+    {
+      "name": "Why Choose",
+      "blocks": [
+        {
+          "type": "card",
+          "settings": {
+            "heading": "Australian Largest American Truck GVM Specialist",
+            "body": "<p>Our upgrades provide a significant, legal increase to your Gross Vehicle Mass and Gross Combined Mass, allowing you to carry and tow more without breaking the law.</p>",
+            "link_label": "Learn more"
+          }
+        },
+        {
+          "type": "card",
+          "settings": {
+            "heading": "Australia Largest BDS & Fox Distributor",
+            "body": "<p>Every ORI upgrade kit is rigorously tested and fully ADR (Australian Design Rules) compliant, ensuring your vehicle meets national safety and engineering standards.</p>",
+            "link_label": "View compliance"
+          }
+        },
+        {
+          "type": "card",
+          "settings": {
+            "heading": "Strong Dealer Network Australia Wide",
+            "body": "<p>Unlike generic lifts, our GVM upgrades feature bespoke spring and shock rates specifically tuned for the increased loads your truck will actually carry.</p>",
+            "link_label": "Our engineering"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
