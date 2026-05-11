@@ -776,8 +776,8 @@
         "card_FKNTVk": {
           "type": "card",
           "settings": {
-            "heading": "something for here",
-            "body": "",
+            "heading": "Support",
+            "body": "<p><strong>Upgrade Your American Truck with Offroad Industries</strong><br/>Looking for a one-stop shop for your American truck's GVM and GCM needs? We offer comprehensive support through the entire upgrade process.</p><ul><li><strong>Pre- & Post-Rego:</strong> We handle both pre-registration and post-registration GVM upgrades.</li><li><strong>Nationwide Compliance:</strong> Fully approved across all Australian states and territories.</li><li><strong>Expert Support:</strong> Fantastic customer service from start to finish.</li></ul><p>Ready to get started? Give Offroad Industries a call!</p>",
             "link_label": "",
             "link_url": ""
           }
@@ -806,8 +806,8 @@
           "type": "card",
           "settings": {
             "icon": "shopify://shop_images/jeep-icon.jpg",
-            "heading": "ORI: Australia's #1 Source for American Truck Accessories",
-            "body": "<p>When it comes to upgrading your rig with top-tier American hardware, <strong>ORI</strong> is Australia’s undisputed heavyweight champion. As the largest distributor of US truck accessories in the country, we bridge the gap between premium American manufacturing and the harsh Aussie outback.</p><p>We don't just supply parts—we deliver performance, protection, and unparalleled style. ORI is the premier Australian pipeline for the industry's most legendary off-road and overland brands</p>",
+            "heading": "Stock & Availability",
+            "body": "<p>When you choose us, you're backed by the largest distributor of American truck parts and accessories.</p><ul><li><strong>In Stock & Ready:</strong> Your parts are already on our shelves—no waiting around for shipping!</li><li><strong>Expert Fitting:</strong> Ready for seamless fitting by one of our trusted, authorized installers.</li></ul><p><strong>Don't wait. Secure your kit from Offroad Industries today!</strong> </p>",
             "link_label": "",
             "link_url": ""
           }
@@ -818,7 +818,7 @@
             "icon": "shopify://shop_images/warehouse-icon-illustration-design-template-vector.jpg",
             "heading": "Australian Largest American Truck GVM & GCM Specialist",
             "body": "<p><strong>Forget boring, standard upgrades. At ORI, we push the limits.</strong> Unlock your vehicle's true potential with upgrades designed to go further and work harder.</p><ul><li><strong>Extreme Capability:</strong> We push the boundaries of what's approved, offering setups from OE wheels right up to massive 37\" tyres.</li><li><strong>Massive Capacity:</strong> Fully legal GVM and GCM upgrades that deliver a serious boost to your payload and towing.</li><li><strong>Proven & Certified:</strong> We don’t guess. We partner with independent testing facilities to secure certified GCM data to strict LS16 standards.</li><li><strong>100% Compliant:</strong> Official, safe, and effective GCM re-rating specifically for full-size American trucks, keeping you completely legal on the road.</li></ul>",
-            "link_label": "Learn more",
+            "link_label": "",
             "link_url": ""
           }
         },
