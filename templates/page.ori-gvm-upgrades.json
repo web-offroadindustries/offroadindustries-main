@@ -123,6 +123,7 @@
         "vehicle_rrjckn",
         "vehicle_ERMxXT"
       ],
+      "disabled": true,
       "name": "Vehicle Cards",
       "settings": {
         "eyebrow": "",
@@ -698,6 +699,7 @@
         "dealer_YFrNUn",
         "dealer_8aAepY"
       ],
+      "disabled": true,
       "name": "Dealer Locator",
       "settings": {
         "eyebrow": "Find a dealer",
@@ -795,6 +797,7 @@
         "card_gUPNbe",
         "card_mEjy7z"
       ],
+      "disabled": true,
       "name": "Why Choose",
       "settings": {
         "eyebrow": "Offroad Industries",
