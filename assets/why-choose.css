@@ -128,3 +128,97 @@
     scroll-snap-align: start;
   }
 }
+
+/* ── Mobile Slideshow ────────────────────────────────────────────────────── */
+@media (max-width: 639px) {
+  /* Override swipe-carousel styles when in slideshow mode */
+  .why-choose__grid--slideshow {
+    display: grid;
+    grid-template-columns: 1fr;
+    overflow: hidden;
+    gap: 0;
+    padding: 4px 16px;
+    /* reset swipe styles */
+    flex-wrap: unset;
+    scroll-snap-type: unset;
+    -webkit-overflow-scrolling: unset;
+    scrollbar-width: unset;
+  }
+  .why-choose__grid--slideshow .why-choose__card {
+    grid-area: 1 / 1; /* stack all cards in the same cell */
+    width: 100%;
+    min-width: unset;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    flex-shrink: unset;
+    scroll-snap-align: unset;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .why-choose__grid--slideshow .why-choose__card.is-active {
+    opacity: 1;
+    pointer-events: auto;
+    z-index: 1;
+  }
+
+  /* ── Fade animation ── */
+  .why-choose__grid--slideshow[data-animation="fade"] .why-choose__card {
+    -webkit-transition: opacity 0.6s ease;
+    transition: opacity 0.6s ease;
+  }
+
+  /* ── Slide animation ── */
+  .why-choose__grid--slideshow[data-animation="slide"] .why-choose__card {
+    opacity: 1;
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%);
+    /* No transition for off-screen reset */
+    -webkit-transition: none;
+    transition: none;
+  }
+  .why-choose__grid--slideshow[data-animation="slide"] .why-choose__card.is-active {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+    -webkit-transition: -webkit-transform 0.5s ease;
+    transition: transform 0.5s ease;
+  }
+  .why-choose__grid--slideshow[data-animation="slide"] .why-choose__card.is-leaving {
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%);
+    -webkit-transition: -webkit-transform 0.5s ease;
+    transition: transform 0.5s ease;
+    z-index: 0;
+  }
+
+  /* ── Dots ── */
+  .why-choose__dots {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 14px;
+    padding: 0 16px 8px;
+  }
+  .why-choose__dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.2);
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    -webkit-transition: background 0.2s, width 0.2s, border-radius 0.2s;
+    transition: background 0.2s, width 0.2s, border-radius 0.2s;
+    -webkit-appearance: none;
+    appearance: none;
+  }
+  .why-choose__dot.is-active {
+    width: 20px;
+    border-radius: 4px;
+    background: rgba(0, 0, 0, 0.55);
+  }
+}

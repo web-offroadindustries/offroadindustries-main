@@ -1,8 +1,11 @@
 {{ 'why-choose.css' | asset_url | stylesheet_tag }}
 
 {%- liquid
-  assign section_id = section.id
-  assign total = section.blocks.size
+  assign section_id       = section.id
+  assign total             = section.blocks.size
+  assign mobile_layout    = section.settings.mobile_layout | default: 'slideshow'
+  assign slideshow_anim   = section.settings.slideshow_animation | default: 'fade'
+  assign slideshow_int    = section.settings.slideshow_interval | default: 4
 -%}
 
 <section
@@ -29,7 +32,11 @@
     {%- endif -%}
 
     {%- if total > 0 -%}
-      <div class="why-choose__grid">
+      <div
+        class="why-choose__grid{%- if mobile_layout == 'slideshow' %} why-choose__grid--slideshow{%- endif %}"
+        data-animation="{{ slideshow_anim }}"
+        data-interval="{{ slideshow_int }}"
+      >
 
         {%- for block in section.blocks -%}
           <div
@@ -88,6 +95,100 @@
   </div>
 </section>
 
+<script>
+(function () {
+  var SECTION_ID = '{{ section_id }}';
+
+  function initSlideshow(sectionEl) {
+    var grid = sectionEl.querySelector('.why-choose__grid--slideshow');
+    if (!grid) return;
+
+    var animation   = grid.getAttribute('data-animation') || 'fade';
+    var intervalSec = parseInt(grid.getAttribute('data-interval'), 10) || 4;
+    var cards       = Array.from(grid.querySelectorAll('.why-choose__card'));
+    if (!cards.length) return;
+
+    var current      = 0;
+    var transitioning = false;
+    var timer        = null;
+
+    cards[0].classList.add('is-active');
+    if (cards.length < 2) return;
+
+    /* ── Pagination dots ── */
+    var dotsEl = document.createElement('div');
+    dotsEl.className = 'why-choose__dots';
+    grid.parentNode.insertBefore(dotsEl, grid.nextSibling);
+
+    var dotBtns = cards.map(function (_, i) {
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'why-choose__dot' + (i === 0 ? ' is-active' : '');
+      btn.setAttribute('aria-label', 'Slide ' + (i + 1));
+      btn.addEventListener('click', function () { goTo(i, true); });
+      dotsEl.appendChild(btn);
+      return btn;
+    });
+
+    function syncDots() {
+      dotBtns.forEach(function (d, i) { d.classList.toggle('is-active', i === current); });
+    }
+
+    function goTo(next, resetTimer) {
+      if (next === current || transitioning) return;
+      transitioning = true;
+      var prev = current;
+      current  = next;
+
+      if (animation === 'slide') {
+        cards[prev].classList.remove('is-active');
+        cards[prev].classList.add('is-leaving');
+        cards[next].classList.add('is-active');
+        setTimeout(function () {
+          cards[prev].classList.remove('is-leaving');
+          transitioning = false;
+        }, 520);
+      } else {
+        cards[prev].classList.remove('is-active');
+        cards[next].classList.add('is-active');
+        setTimeout(function () { transitioning = false; }, 660);
+      }
+
+      syncDots();
+      if (resetTimer) { clearInterval(timer); startTimer(); }
+    }
+
+    function advance() { goTo((current + 1) % cards.length, false); }
+
+    function startTimer() { timer = setInterval(advance, intervalSec * 1000); }
+    startTimer();
+
+    /* Pause auto-advance while user touches the section */
+    sectionEl.addEventListener('touchstart', function () { clearInterval(timer); }, { passive: true });
+    sectionEl.addEventListener('touchend',   function () { startTimer(); },        { passive: true });
+  }
+
+  function run() {
+    var el = document.getElementById('WhyChoose-' + SECTION_ID);
+    if (el) initSlideshow(el);
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', run);
+  } else {
+    run();
+  }
+
+  /* Re-init after Shopify section editor reload */
+  document.addEventListener('shopify:section:load', function (e) {
+    var el = e.target.id === ('WhyChoose-' + SECTION_ID)
+      ? e.target
+      : e.target.querySelector('#WhyChoose-' + SECTION_ID);
+    if (el) initSlideshow(el);
+  });
+}());
+</script>
+
 {% schema %}
 {
   "name": "Why Choose",
@@ -117,7 +218,34 @@
     { "type": "header", "content": "Layout" },
     { "type": "range", "id": "container_width", "label": "Max width",      "min": 960, "max": 1600, "step": 20, "default": 1280 },
     { "type": "range", "id": "padding_top",     "label": "Padding top",    "min": 0,   "max": 120,  "step": 4,  "default": 60 },
-    { "type": "range", "id": "padding_bottom",  "label": "Padding bottom", "min": 0,   "max": 120,  "step": 4,  "default": 60 }
+    { "type": "range", "id": "padding_bottom",  "label": "Padding bottom", "min": 0,   "max": 120,  "step": 4,  "default": 60 },
+    { "type": "header", "content": "Mobile layout" },
+    {
+      "type": "select",
+      "id": "mobile_layout",
+      "label": "Mobile layout type",
+      "default": "slideshow",
+      "options": [
+        { "value": "slideshow", "label": "Slideshow (one item at a time)" },
+        { "value": "swipe",     "label": "Swipe carousel" }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "slideshow_animation",
+      "label": "Slideshow animation",
+      "default": "fade",
+      "options": [
+        { "value": "fade",  "label": "Fade in / Fade out" },
+        { "value": "slide", "label": "Slide" }
+      ]
+    },
+    {
+      "type": "range",
+      "id": "slideshow_interval",
+      "label": "Seconds per slide",
+      "min": 2, "max": 12, "step": 1, "default": 4
+    }
   ],
   "blocks": [
     {
