@@ -1,0 +1,363 @@
+{{ 'dealer-locator.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+  assign section_id = section.id
+  assign total = section.blocks.size
+
+  assign qld_count = 0
+  assign nsw_count = 0
+  assign vic_count = 0
+  assign wa_count  = 0
+  assign sa_count  = 0
+  assign nt_count  = 0
+  assign tas_count = 0
+  assign act_count = 0
+
+  for block in section.blocks
+    case block.settings.state
+      when 'QLD'
+        assign qld_count = qld_count | plus: 1
+      when 'NSW'
+        assign nsw_count = nsw_count | plus: 1
+      when 'VIC'
+        assign vic_count = vic_count | plus: 1
+      when 'WA'
+        assign wa_count = wa_count | plus: 1
+      when 'SA'
+        assign sa_count = sa_count | plus: 1
+      when 'NT'
+        assign nt_count = nt_count | plus: 1
+      when 'TAS'
+        assign tas_count = tas_count | plus: 1
+      when 'ACT'
+        assign act_count = act_count | plus: 1
+    endcase
+  endfor
+-%}
+
+<section
+  id="DealerLocator-{{ section_id }}"
+  class="dealer-locator"
+  style="--dl-pt:{{ section.settings.padding_top }}px;--dl-pb:{{ section.settings.padding_bottom }}px;--dl-container:{{ section.settings.container_width }}px;background:{{ section.settings.bg_color }};"
+>
+  <div class="dealer-locator__inner">
+
+    {%- if section.settings.eyebrow != blank or section.settings.heading != blank -%}
+      <div class="dealer-locator__header">
+        {%- if section.settings.eyebrow != blank -%}
+          <p class="dealer-locator__eyebrow" style="color:{{ section.settings.accent_color }};">{{ section.settings.eyebrow }}</p>
+        {%- endif -%}
+        {%- if section.settings.heading != blank -%}
+          <h2 class="dealer-locator__heading" style="color:{{ section.settings.heading_color }};">{{ section.settings.heading }}</h2>
+        {%- endif -%}
+        {%- if section.settings.subheading != blank -%}
+          <p class="dealer-locator__subheading" style="color:{{ section.settings.text_color }};">{{ section.settings.subheading }}</p>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+
+    {%- comment -%} ── State filter tabs ──────────────────────────────────── {%- endcomment -%}
+    {%- if total > 0 -%}
+      <div class="dealer-locator__filters" id="dl-filters-{{ section_id }}">
+        <button class="dealer-locator__filter-btn is-active"
+          data-state="ALL"
+          style="background:{{ section.settings.accent_color }};color:#fff;border-color:{{ section.settings.accent_color }};"
+        >All States <span class="dealer-locator__filter-count" style="background:rgba(0,0,0,0.2);color:#fff;">{{ total }}</span></button>
+
+        {%- if qld_count > 0 -%}
+          <button class="dealer-locator__filter-btn" data-state="QLD" style="color:{{ section.settings.text_color }};border-color:{{ section.settings.card_border_color }};background:{{ section.settings.card_bg_color }};">QLD <span class="dealer-locator__filter-count" style="background:{{ section.settings.accent_color }};color:#fff;">{{ qld_count }}</span></button>
+        {%- endif -%}
+        {%- if nsw_count > 0 -%}
+          <button class="dealer-locator__filter-btn" data-state="NSW" style="color:{{ section.settings.text_color }};border-color:{{ section.settings.card_border_color }};background:{{ section.settings.card_bg_color }};">NSW <span class="dealer-locator__filter-count" style="background:{{ section.settings.accent_color }};color:#fff;">{{ nsw_count }}</span></button>
+        {%- endif -%}
+        {%- if vic_count > 0 -%}
+          <button class="dealer-locator__filter-btn" data-state="VIC" style="color:{{ section.settings.text_color }};border-color:{{ section.settings.card_border_color }};background:{{ section.settings.card_bg_color }};">VIC <span class="dealer-locator__filter-count" style="background:{{ section.settings.accent_color }};color:#fff;">{{ vic_count }}</span></button>
+        {%- endif -%}
+        {%- if wa_count > 0 -%}
+          <button class="dealer-locator__filter-btn" data-state="WA" style="color:{{ section.settings.text_color }};border-color:{{ section.settings.card_border_color }};background:{{ section.settings.card_bg_color }};">WA <span class="dealer-locator__filter-count" style="background:{{ section.settings.accent_color }};color:#fff;">{{ wa_count }}</span></button>
+        {%- endif -%}
+        {%- if sa_count > 0 -%}
+          <button class="dealer-locator__filter-btn" data-state="SA" style="color:{{ section.settings.text_color }};border-color:{{ section.settings.card_border_color }};background:{{ section.settings.card_bg_color }};">SA <span class="dealer-locator__filter-count" style="background:{{ section.settings.accent_color }};color:#fff;">{{ sa_count }}</span></button>
+        {%- endif -%}
+        {%- if nt_count > 0 -%}
+          <button class="dealer-locator__filter-btn" data-state="NT" style="color:{{ section.settings.text_color }};border-color:{{ section.settings.card_border_color }};background:{{ section.settings.card_bg_color }};">NT <span class="dealer-locator__filter-count" style="background:{{ section.settings.accent_color }};color:#fff;">{{ nt_count }}</span></button>
+        {%- endif -%}
+        {%- if tas_count > 0 -%}
+          <button class="dealer-locator__filter-btn" data-state="TAS" style="color:{{ section.settings.text_color }};border-color:{{ section.settings.card_border_color }};background:{{ section.settings.card_bg_color }};">TAS <span class="dealer-locator__filter-count" style="background:{{ section.settings.accent_color }};color:#fff;">{{ tas_count }}</span></button>
+        {%- endif -%}
+        {%- if act_count > 0 -%}
+          <button class="dealer-locator__filter-btn" data-state="ACT" style="color:{{ section.settings.text_color }};border-color:{{ section.settings.card_border_color }};background:{{ section.settings.card_bg_color }};">ACT <span class="dealer-locator__filter-count" style="background:{{ section.settings.accent_color }};color:#fff;">{{ act_count }}</span></button>
+        {%- endif -%}
+      </div>
+
+      <p class="dealer-locator__meta" id="dl-meta-{{ section_id }}" style="color:{{ section.settings.text_color }};">
+        {{ total }} dealer{{ total | plural: '', 's' }}
+      </p>
+    {%- endif -%}
+
+    {%- comment -%} ── Dealer cards grid ──────────────────────────────────── {%- endcomment -%}
+    <div class="dealer-locator__grid" id="dl-grid-{{ section_id }}">
+
+      {%- if total == 0 -%}
+        <p class="dealer-locator__empty is-visible" style="color:{{ section.settings.text_color }};">
+          No dealers added yet. Use the theme editor to add dealer cards.
+        </p>
+      {%- endif -%}
+
+      {%- for block in section.blocks -%}
+        {%- liquid
+          assign has_address = false
+          if block.settings.address != blank
+            assign has_address = true
+          endif
+
+          assign maps_url = block.settings.directions_url | default: ''
+
+          assign has_tags = false
+          if block.settings.tag_platinum or block.settings.tag_suspension or block.settings.tag_bullbars or block.settings.tag_shutter or block.settings.tag_steps
+            assign has_tags = true
+          endif
+        -%}
+
+        <div
+          class="dealer-locator__card"
+          data-state="{{ block.settings.state }}"
+          style="background:{{ section.settings.card_bg_color }};border:1px solid {{ section.settings.card_border_color }};border-radius:{{ section.settings.card_radius }}px;{% if section.settings.card_shadow %}box-shadow:0 4px 20px rgba(0,0,0,0.18);{% endif %}"
+          {{ block.shopify_attributes }}
+        >
+
+          {%- comment -%} Card head — name + logo {%- endcomment -%}
+          <div class="dealer-locator__card-head">
+            <h3 class="dealer-locator__name" style="color:{{ section.settings.heading_color }};">
+              {{- block.settings.name | default: 'Dealer Name' -}}
+            </h3>
+            {%- if block.settings.logo != blank -%}
+              <img
+                src="{{ block.settings.logo | image_url: width: 120 }}"
+                alt="{{ block.settings.name | escape }} logo"
+                class="dealer-locator__logo"
+                loading="lazy"
+                width="56"
+                height="56"
+              >
+            {%- endif -%}
+          </div>
+
+          {%- comment -%} Card body — address + phone {%- endcomment -%}
+          <div class="dealer-locator__card-body" style="color:{{ section.settings.text_color }};">
+            {%- if has_address -%}
+              <div class="dealer-locator__info-row">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 4.82 7 13 7 13s7-8.18 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5Z"/></svg>
+                <span>
+                  {{ block.settings.address }}<br>
+                  {{ block.settings.city }}{% if block.settings.state != blank %}, {{ block.settings.state }}{% endif %}{% if block.settings.postcode != blank %} {{ block.settings.postcode }}{% endif %}
+                </span>
+              </div>
+            {%- endif -%}
+            {%- if block.settings.phone != blank -%}
+              <div class="dealer-locator__info-row">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8Z"/></svg>
+                <span>{{ block.settings.phone }}</span>
+              </div>
+            {%- endif -%}
+          </div>
+
+          {%- comment -%} Tags / badges {%- endcomment -%}
+          {%- if has_tags -%}
+            <div class="dealer-locator__tags">
+              {%- if block.settings.tag_platinum -%}
+                <span class="dealer-locator__tag" style="background:{{ section.settings.tag_platinum_bg }};color:{{ section.settings.tag_platinum_text }};">✓ Platinum GVM Installer</span>
+              {%- endif -%}
+              {%- if block.settings.tag_suspension -%}
+                <span class="dealer-locator__tag" style="background:{{ section.settings.tag_secondary_bg }};color:{{ section.settings.tag_secondary_text }};">Suspension</span>
+              {%- endif -%}
+              {%- if block.settings.tag_bullbars -%}
+                <span class="dealer-locator__tag" style="background:{{ section.settings.tag_secondary_bg }};color:{{ section.settings.tag_secondary_text }};">Bullbars</span>
+              {%- endif -%}
+              {%- if block.settings.tag_shutter -%}
+                <span class="dealer-locator__tag" style="background:{{ section.settings.tag_secondary_bg }};color:{{ section.settings.tag_secondary_text }};">ORI Roller Shutter</span>
+              {%- endif -%}
+              {%- if block.settings.tag_steps -%}
+                <span class="dealer-locator__tag" style="background:{{ section.settings.tag_secondary_bg }};color:{{ section.settings.tag_secondary_text }};">ORI Steps</span>
+              {%- endif -%}
+            </div>
+          {%- endif -%}
+
+          {%- comment -%} Action buttons {%- endcomment -%}
+          <div class="dealer-locator__actions">
+            {%- if maps_url != blank -%}
+              <a href="{{ maps_url }}" target="_blank" rel="noopener" class="dealer-locator__btn" style="background:{{ section.settings.btn_primary_bg }};color:{{ section.settings.btn_primary_text }};border-color:{{ section.settings.btn_primary_bg }};">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 4.82 7 13 7 13s7-8.18 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5Z"/></svg>
+                Directions
+              </a>
+            {%- endif -%}
+            {%- if block.settings.phone != blank -%}
+              {%- assign tel_raw = block.settings.phone | remove: ' ' | remove: '(' | remove: ')' | remove: '-' -%}
+              <a href="tel:{{ tel_raw }}" class="dealer-locator__btn" style="background:{{ section.settings.btn_secondary_bg }};color:{{ section.settings.btn_secondary_text }};border-color:{{ section.settings.card_border_color }};">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8Z"/></svg>
+                {{ block.settings.phone }}
+              </a>
+            {%- endif -%}
+            {%- if block.settings.website != blank -%}
+              <a href="{{ block.settings.website }}" target="_blank" rel="noopener" class="dealer-locator__btn" style="background:{{ section.settings.btn_secondary_bg }};color:{{ section.settings.btn_secondary_text }};border-color:{{ section.settings.card_border_color }};">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2Zm6.93 9H17a13.07 13.07 0 0 0-1.54-5.46A8.03 8.03 0 0 1 18.93 11ZM12 4c.83 0 1.96 1.67 2.72 5H9.28C10.04 5.67 11.17 4 12 4ZM8.54 5.54A13.07 13.07 0 0 0 7 11H5.07A8.03 8.03 0 0 1 8.54 5.54ZM5.07 13H7c.27 2.01.86 3.83 1.54 5.46A8.03 8.03 0 0 1 5.07 13ZM12 20c-.83 0-1.96-1.67-2.72-5h5.44C13.96 18.33 12.83 20 12 20Zm3.46-1.54A13.07 13.07 0 0 0 17 13h1.93a8.03 8.03 0 0 1-3.47 5.46Z"/></svg>
+                Website
+              </a>
+            {%- endif -%}
+          </div>
+
+        </div>
+      {%- endfor -%}
+
+      <p class="dealer-locator__empty" id="dl-empty-{{ section_id }}" style="color:{{ section.settings.text_color }};">No dealers found for this state.</p>
+
+    </div>
+
+  </div>
+</section>
+
+<script>
+(function () {
+  var sid    = {{ section_id | json }};
+  var accent = {{ section.settings.accent_color | json }};
+  var cardBg = {{ section.settings.card_bg_color | json }};
+  var border = {{ section.settings.card_border_color | json }};
+  var txtCol = {{ section.settings.text_color | json }};
+
+  var filtersEl = document.getElementById('dl-filters-' + sid);
+  var gridEl    = document.getElementById('dl-grid-' + sid);
+  var metaEl    = document.getElementById('dl-meta-' + sid);
+  var emptyEl   = document.getElementById('dl-empty-' + sid);
+
+  if (!filtersEl || !gridEl) return;
+
+  filtersEl.addEventListener('click', function (e) {
+    var btn = e.target.closest('.dealer-locator__filter-btn');
+    if (!btn) return;
+
+    var state = btn.dataset.state;
+
+    filtersEl.querySelectorAll('.dealer-locator__filter-btn').forEach(function (b) {
+      var active = b.dataset.state === state;
+      b.classList.toggle('is-active', active);
+      var cnt = b.querySelector('.dealer-locator__filter-count');
+      if (active) {
+        b.style.background = accent;
+        b.style.color = '#fff';
+        b.style.borderColor = accent;
+        if (cnt) { cnt.style.background = 'rgba(0,0,0,0.2)'; cnt.style.color = '#fff'; }
+      } else {
+        b.style.background = cardBg;
+        b.style.color = txtCol;
+        b.style.borderColor = border;
+        if (cnt) { cnt.style.background = accent; cnt.style.color = '#fff'; }
+      }
+    });
+
+    var cards = gridEl.querySelectorAll('.dealer-locator__card');
+    var visible = 0;
+    cards.forEach(function (card) {
+      var show = state === 'ALL' || card.dataset.state === state;
+      card.hidden = !show;
+      if (show) visible++;
+    });
+
+    if (metaEl) {
+      metaEl.textContent = visible + ' dealer' + (visible !== 1 ? 's' : '') + (state !== 'ALL' ? ' in ' + state : '');
+    }
+    if (emptyEl) {
+      emptyEl.classList.toggle('is-visible', visible === 0);
+    }
+  });
+})();
+</script>
+
+{% schema %}
+{
+  "name": "Dealer Locator",
+  "settings": [
+    { "type": "text",     "id": "eyebrow",    "label": "Eyebrow text",  "default": "Find a dealer" },
+    { "type": "text",     "id": "heading",    "label": "Heading",       "default": "Authorised ORI Installer Network" },
+    { "type": "textarea", "id": "subheading", "label": "Subheading",    "default": "Find your nearest authorised installer for ORI products, GVM upgrades, and 4x4 accessories." },
+    { "type": "header",   "content": "Colours" },
+    { "type": "color", "id": "bg_color",           "label": "Section background",     "default": "#101820" },
+    { "type": "color", "id": "accent_color",        "label": "Accent / eyebrow",       "default": "#56bdc2" },
+    { "type": "color", "id": "heading_color",       "label": "Heading text",           "default": "#ffffff" },
+    { "type": "color", "id": "text_color",          "label": "Body text",              "default": "#a0aab4" },
+    { "type": "color", "id": "card_bg_color",       "label": "Card background",        "default": "#1a2330" },
+    { "type": "color", "id": "card_border_color",   "label": "Card border",            "default": "#2a3545" },
+    { "type": "range",    "id": "card_radius",      "label": "Card corner radius", "min": 0, "max": 24, "step": 2, "default": 12 },
+    { "type": "checkbox", "id": "card_shadow",      "label": "Card drop shadow",       "default": true },
+    { "type": "header",   "content": "Buttons" },
+    { "type": "color", "id": "btn_primary_bg",      "label": "Primary button background",  "default": "#56bdc2" },
+    { "type": "color", "id": "btn_primary_text",    "label": "Primary button text",        "default": "#ffffff" },
+    { "type": "color", "id": "btn_secondary_bg",    "label": "Secondary button background","default": "transparent" },
+    { "type": "color", "id": "btn_secondary_text",  "label": "Secondary button text",      "default": "#a0aab4" },
+    { "type": "header",   "content": "Tag badges" },
+    { "type": "color", "id": "tag_platinum_bg",     "label": "Platinum GVM badge background", "default": "#56bdc2" },
+    { "type": "color", "id": "tag_platinum_text",   "label": "Platinum GVM badge text",        "default": "#ffffff" },
+    { "type": "color", "id": "tag_secondary_bg",    "label": "Other badge background",         "default": "#2a3545" },
+    { "type": "color", "id": "tag_secondary_text",  "label": "Other badge text",               "default": "#a0aab4" },
+    { "type": "header",   "content": "Layout" },
+    { "type": "range", "id": "container_width", "label": "Max width",       "min": 960, "max": 1600, "step": 20, "default": 1280 },
+    { "type": "range", "id": "padding_top",     "label": "Padding top",     "min": 0,   "max": 120,  "step": 4,  "default": 60 },
+    { "type": "range", "id": "padding_bottom",  "label": "Padding bottom",  "min": 0,   "max": 120,  "step": 4,  "default": 60 }
+  ],
+  "blocks": [
+    {
+      "type": "dealer",
+      "name": "Dealer",
+      "settings": [
+        { "type": "text",         "id": "name",     "label": "Dealer name",    "placeholder": "e.g. BAW Automotive" },
+        { "type": "select",       "id": "state",    "label": "State",
+          "options": [
+            { "value": "QLD", "label": "Queensland (QLD)" },
+            { "value": "NSW", "label": "New South Wales (NSW)" },
+            { "value": "VIC", "label": "Victoria (VIC)" },
+            { "value": "WA",  "label": "Western Australia (WA)" },
+            { "value": "SA",  "label": "South Australia (SA)" },
+            { "value": "NT",  "label": "Northern Territory (NT)" },
+            { "value": "TAS", "label": "Tasmania (TAS)" },
+            { "value": "ACT", "label": "ACT" }
+          ],
+          "default": "QLD"
+        },
+        { "type": "text",  "id": "address",  "label": "Street address", "placeholder": "e.g. 1/477 Newman Road" },
+        { "type": "text",  "id": "city",     "label": "City / Suburb",  "placeholder": "e.g. Geebung" },
+        { "type": "text",  "id": "postcode", "label": "Postcode",        "placeholder": "e.g. 4034" },
+        { "type": "text",  "id": "phone",    "label": "Phone number",    "placeholder": "e.g. (07) 3123 4567" },
+        { "type": "url",   "id": "website",  "label": "Website URL" },
+        { "type": "image_picker", "id": "logo", "label": "Logo image" },
+        { "type": "header",   "content": "Badges" },
+        { "type": "checkbox", "id": "tag_platinum",   "label": "Platinum GVM Installer", "default": false },
+        { "type": "checkbox", "id": "tag_suspension", "label": "Suspension",              "default": false },
+        { "type": "checkbox", "id": "tag_bullbars",   "label": "Bullbars",                "default": false },
+        { "type": "checkbox", "id": "tag_shutter",    "label": "ORI Roller Shutter",      "default": false },
+        { "type": "checkbox", "id": "tag_steps",      "label": "ORI Steps",               "default": false },
+        { "type": "header", "content": "Google Maps (optional)" },
+        { "type": "paragraph", "content": "In Google Maps, search the location → Share → Copy link. Paste the full URL here." },
+        { "type": "text", "id": "directions_url", "label": "Google Maps URL", "placeholder": "https://maps.app.goo.gl/..." }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Dealer Locator",
+      "blocks": [
+        {
+          "type": "dealer",
+          "settings": {
+            "name": "Example Dealer",
+            "state": "QLD",
+            "address": "1/477 Newman Road",
+            "city": "Geebung",
+            "postcode": "4034",
+            "phone": "(07) 3123 4567",
+            "tag_platinum": true
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
