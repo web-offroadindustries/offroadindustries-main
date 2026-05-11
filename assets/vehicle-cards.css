@@ -42,7 +42,7 @@
 .vehicle-cards__card {
   display: flex;
   flex-direction: column;
-  width: calc(25% - 15px);
+  width: calc(20% - 16px); /* 5 columns: (100% - 4 gaps × 20px) / 5 */
   box-sizing: border-box;
   overflow: hidden;
   transition: transform 0.18s, box-shadow 0.18s;
@@ -109,10 +109,17 @@
   opacity: 0.8;
 }
 
-/* ── Tablet (2 columns) ──────────────────────────────────────────────────── */
+/* ── Tablet (3 columns) ──────────────────────────────────────────────────── */
 @media (max-width: 1023px) {
   .vehicle-cards__card {
-    width: calc(50% - 10px);
+    width: calc(33.333% - 14px); /* 3 columns: (100% - 2 gaps × 20px) / 3 */
+  }
+}
+
+/* ── Small tablet (2 columns) ────────────────────────────────────────────── */
+@media (max-width: 767px) {
+  .vehicle-cards__card {
+    width: calc(50% - 10px); /* 2 columns: (100% - 1 gap × 20px) / 2 */
   }
 }
 
