@@ -76,7 +76,7 @@
             "image": "shopify://shop_images/Toyota-Tundra--tile-ad---20260505-4-1.png",
             "name": "toyota tundra",
             "btn_label": "Explore Packages & Pricing",
-            "btn_url": ""
+            "btn_url": "https://www.offroadindustries.com.au/pages/toyota-tundra"
           }
         },
         "vehicle_d6GQJG": {
@@ -85,7 +85,7 @@
             "image": "shopify://shop_images/Chevy-2500--tile-ad---20260505-4.png",
             "name": "Chevy Silverado 2500HD",
             "btn_label": "Explore Packages & Pricing",
-            "btn_url": "shopify://pages/ori-gvm-upgrade-chevrolet-silverado-2500hd-5-9t-2020"
+            "btn_url": ""
           }
         },
         "vehicle_iFbyFT": {
@@ -799,7 +799,7 @@
         "card_mEjy7z"
       ],
       "custom_css": [
-        ".why-choose__dots{display: none;}"
+        ".why-choose__dots {display: none;}"
       ],
       "name": "Why Choose",
       "settings": {
