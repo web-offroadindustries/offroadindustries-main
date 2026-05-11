@@ -1,0 +1,174 @@
+{{ 'vehicle-cards.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+  assign section_id = section.id
+  assign total = section.blocks.size
+
+  case section.settings.img_ratio
+    when 'square'
+      assign img_ratio = '1 / 1'
+    when '4-3'
+      assign img_ratio = '4 / 3'
+    when '3-2'
+      assign img_ratio = '3 / 2'
+    when '16-9'
+      assign img_ratio = '16 / 9'
+    else
+      assign img_ratio = '1 / 1'
+  endcase
+-%}
+
+<section
+  id="VehicleCards-{{ section_id }}"
+  class="vehicle-cards"
+  style="
+    --vc-pt: {{ section.settings.padding_top }}px;
+    --vc-pb: {{ section.settings.padding_bottom }}px;
+    --vc-container: {{ section.settings.container_width }}px;
+    --vc-img-ratio: {{ img_ratio }};
+    --vc-img-radius: {{ section.settings.img_radius }}px;
+    background: {{ section.settings.bg_color }};
+  "
+>
+  <div class="vehicle-cards__inner">
+
+    {%- if section.settings.eyebrow != blank or section.settings.heading != blank -%}
+      <div class="vehicle-cards__header">
+        {%- if section.settings.eyebrow != blank -%}
+          <p class="vehicle-cards__eyebrow" style="color:{{ section.settings.eyebrow_color }};font-size:{{ section.settings.eyebrow_size }}px;">{{ section.settings.eyebrow }}</p>
+        {%- endif -%}
+        {%- if section.settings.heading != blank -%}
+          <h2 class="vehicle-cards__heading" style="color:{{ section.settings.heading_color }};font-size:{{ section.settings.heading_size }}px;">{{ section.settings.heading }}</h2>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+
+    {%- if total > 0 -%}
+      <div class="vehicle-cards__grid">
+
+        {%- for block in section.blocks -%}
+          <div
+            class="vehicle-cards__card"
+            style="{% if section.settings.card_shadow %}box-shadow: 0 2px 14px rgba(0,0,0,0.1);{% endif %}"
+            {{ block.shopify_attributes }}
+          >
+
+            {%- if block.settings.image != blank -%}
+              <div class="vehicle-cards__img-wrap" style="border-radius:{{ section.settings.img_radius }}px;">
+                <img
+                  src="{{ block.settings.image | image_url: width: 600 }}"
+                  alt="{{ block.settings.name | escape }}"
+                  loading="lazy"
+                  width="600"
+                  height="600"
+                  class="vehicle-cards__img"
+                >
+              </div>
+            {%- else -%}
+              <div
+                class="vehicle-cards__img-wrap"
+                style="background:{{ section.settings.card_placeholder_color }};border-radius:{{ section.settings.img_radius }}px;"
+              ></div>
+            {%- endif -%}
+
+            <div
+              class="vehicle-cards__card-body"
+              style="background:{{ section.settings.card_bg_color }};border:1px solid {{ section.settings.card_border_color }};border-top:none;border-radius:0 0 {{ section.settings.card_radius }}px {{ section.settings.card_radius }}px;padding:16px;"
+            >
+              {%- if block.settings.name != blank -%}
+                <h3 class="vehicle-cards__name" style="color:{{ section.settings.name_color }};font-size:{{ section.settings.name_size }}px;">
+                  {{ block.settings.name }}
+                </h3>
+              {%- endif -%}
+
+              <a
+                href="{{ block.settings.btn_url | default: '#' }}"
+                class="vehicle-cards__btn"
+                style="background:{{ section.settings.btn_bg }};color:{{ section.settings.btn_text_color }};border:1.5px solid {{ section.settings.btn_border_color }};border-radius:{{ section.settings.btn_radius }}px;font-size:{{ section.settings.btn_size }}px;"
+              >
+                {{ block.settings.btn_label | default: section.settings.default_btn_label }}
+              </a>
+            </div>
+
+          </div>
+        {%- endfor -%}
+
+      </div>
+    {%- endif -%}
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Vehicle Cards",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow text" },
+    { "type": "text", "id": "heading", "label": "Heading" },
+    { "type": "header", "content": "Section" },
+    { "type": "color", "id": "bg_color", "label": "Section background", "default": "#ffffff" },
+    { "type": "header", "content": "Heading text" },
+    { "type": "color", "id": "heading_color", "label": "Heading colour",    "default": "#1f1f1f" },
+    { "type": "range", "id": "heading_size",  "label": "Heading font size", "min": 20, "max": 72, "step": 2, "default": 36, "unit": "px" },
+    { "type": "color", "id": "eyebrow_color", "label": "Eyebrow colour",    "default": "#56bdc2" },
+    { "type": "range", "id": "eyebrow_size",  "label": "Eyebrow font size", "min": 10, "max": 24, "step": 1, "default": 13, "unit": "px" },
+    { "type": "header", "content": "Image" },
+    {
+      "type": "select",
+      "id": "img_ratio",
+      "label": "Image aspect ratio",
+      "options": [
+        { "value": "square", "label": "Square (1:1)" },
+        { "value": "4-3",    "label": "Landscape (4:3)" },
+        { "value": "3-2",    "label": "Landscape (3:2)" },
+        { "value": "16-9",   "label": "Wide (16:9)" }
+      ],
+      "default": "square"
+    },
+    { "type": "range", "id": "img_radius", "label": "Image corner radius", "min": 0, "max": 20, "step": 2, "default": 10 },
+    { "type": "color", "id": "card_placeholder_color", "label": "Placeholder colour (no image)", "default": "#e5e5e5" },
+    { "type": "header", "content": "Card" },
+    { "type": "color",    "id": "card_bg_color",     "label": "Card body background", "default": "#ffffff" },
+    { "type": "color",    "id": "card_border_color", "label": "Card border colour",   "default": "#e2e2e2" },
+    { "type": "range",    "id": "card_radius",       "label": "Card body corner radius", "min": 0, "max": 20, "step": 2, "default": 10 },
+    { "type": "checkbox", "id": "card_shadow",       "label": "Card drop shadow",        "default": true },
+    { "type": "color",    "id": "name_color",        "label": "Vehicle name colour",  "default": "#1f1f1f" },
+    { "type": "range",    "id": "name_size",         "label": "Vehicle name size",    "min": 12, "max": 32, "step": 1, "default": 18, "unit": "px" },
+    { "type": "header", "content": "Button" },
+    { "type": "text",  "id": "default_btn_label",  "label": "Default button label",     "default": "Explore Specs" },
+    { "type": "color", "id": "btn_bg",             "label": "Button background",        "default": "#ffffff" },
+    { "type": "color", "id": "btn_text_color",     "label": "Button text colour",       "default": "#1f1f1f" },
+    { "type": "color", "id": "btn_border_color",   "label": "Button border colour",     "default": "#1f1f1f" },
+    { "type": "range", "id": "btn_radius",         "label": "Button corner radius",     "min": 0, "max": 40, "step": 2, "default": 6 },
+    { "type": "range", "id": "btn_size",           "label": "Button font size",         "min": 10, "max": 18, "step": 1, "default": 12, "unit": "px" },
+    { "type": "header", "content": "Layout" },
+    { "type": "range", "id": "container_width", "label": "Max width",      "min": 960, "max": 1600, "step": 20, "default": 1280 },
+    { "type": "range", "id": "padding_top",     "label": "Padding top",    "min": 0,   "max": 120,  "step": 4,  "default": 60 },
+    { "type": "range", "id": "padding_bottom",  "label": "Padding bottom", "min": 0,   "max": 120,  "step": 4,  "default": 60 }
+  ],
+  "blocks": [
+    {
+      "type": "vehicle",
+      "name": "Vehicle card",
+      "settings": [
+        { "type": "image_picker", "id": "image",     "label": "Image" },
+        { "type": "text",         "id": "name",      "label": "Vehicle name", "placeholder": "e.g. Ford F150" },
+        { "type": "text",         "id": "btn_label", "label": "Button label (leave blank to use default)" },
+        { "type": "url",          "id": "btn_url",   "label": "Button URL" }
+      ]
+    }
+  ],
+  "max_blocks": 12,
+  "presets": [
+    {
+      "name": "Vehicle Cards",
+      "blocks": [
+        { "type": "vehicle", "settings": { "name": "Ford F150" } },
+        { "type": "vehicle", "settings": { "name": "Silverado 1500" } },
+        { "type": "vehicle", "settings": { "name": "Silverado 2500" } },
+        { "type": "vehicle", "settings": { "name": "Toyota Tundra" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
