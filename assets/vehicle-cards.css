@@ -163,6 +163,9 @@
   }
 }
 
+/* Dots are injected by JS at all sizes — hide them outside mobile */
+.vehicle-cards__dots { display: none; }
+
 /* ── Mobile Slideshow ────────────────────────────────────────────────────── */
 @media (max-width: 639px) {
   /* Override swipe-carousel styles when in slideshow mode */
