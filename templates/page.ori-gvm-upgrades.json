@@ -798,6 +798,9 @@
         "card_gUPNbe",
         "card_mEjy7z"
       ],
+      "custom_css": [
+        ".why-choose__dots{display: none;}"
+      ],
       "name": "Why Choose",
       "settings": {
         "eyebrow": "Offroad Industries",
