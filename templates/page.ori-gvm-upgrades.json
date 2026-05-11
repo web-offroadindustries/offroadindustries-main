@@ -123,7 +123,6 @@
         "vehicle_rrjckn",
         "vehicle_ERMxXT"
       ],
-      "disabled": true,
       "name": "Vehicle Cards",
       "settings": {
         "eyebrow": "",
@@ -150,7 +149,10 @@
         "btn_size": 12,
         "container_width": 1280,
         "padding_top": 60,
-        "padding_bottom": 60
+        "padding_bottom": 60,
+        "mobile_layout": "slideshow",
+        "slideshow_animation": "fade",
+        "slideshow_interval": 4
       }
     },
     "dealer_locator_EMPfrF": {
@@ -699,7 +701,6 @@
         "dealer_YFrNUn",
         "dealer_8aAepY"
       ],
-      "disabled": true,
       "name": "Dealer Locator",
       "settings": {
         "eyebrow": "Find a dealer",
@@ -797,7 +798,6 @@
         "card_gUPNbe",
         "card_mEjy7z"
       ],
-      "disabled": true,
       "name": "Why Choose",
       "settings": {
         "eyebrow": "Offroad Industries",
@@ -820,7 +820,10 @@
         "link_size": 12,
         "container_width": 1280,
         "padding_top": 60,
-        "padding_bottom": 60
+        "padding_bottom": 60,
+        "mobile_layout": "slideshow",
+        "slideshow_animation": "fade",
+        "slideshow_interval": 4
       }
     },
     "logo_list_tG47ei": {
@@ -869,6 +872,7 @@
         "logo_MR8h7V",
         "logo_hwRXhB"
       ],
+      "disabled": true,
       "name": "t:sections.logo-list.presets.name",
       "settings": {
         "container": "container",
@@ -923,6 +927,7 @@
         "heading_4qWJN6",
         "text_7BUCdz"
       ],
+      "disabled": true,
       "name": "t:sections.rich-text.presets.name",
       "settings": {
         "container": "container",
@@ -978,6 +983,7 @@
         "text_KKm7Fh",
         "button_QCb3BA"
       ],
+      "disabled": true,
       "name": "t:sections.image-with-text.presets.name",
       "settings": {
         "container": "container",
@@ -1144,6 +1150,7 @@
         "content_hJL8Az",
         "content_UMaFLU"
       ],
+      "disabled": true,
       "name": "Collapsible tabs",
       "settings": {
         "container": "container",
@@ -1184,6 +1191,7 @@
       "block_order": [
         "mappy_store_locator_page_embed_block_EfwyNp"
       ],
+      "disabled": true,
       "settings": {
         "container": "container",
         "color_schema": "",
