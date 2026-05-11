@@ -103,7 +103,7 @@
             "image": "shopify://shop_images/FORD-F150---tile-ad---20260505-4-2.png",
             "name": "Ford F150",
             "btn_label": "Explore Packages & Pricing",
-            "btn_url": "shopify://pages/ori-gvm-upgrade-chevrolet-silverado-2500hd-5-9t-2020"
+            "btn_url": "https://www.offroadindustries.com.au/pages/ford-150-gvm-packages"
           }
         },
         "vehicle_ERMxXT": {
@@ -112,7 +112,7 @@
             "image": "shopify://shop_images/FORD-F150---tile-ad---20260505-4-1.png",
             "name": "Ford F150",
             "btn_label": "Explore More!",
-            "btn_url": "shopify://pages/toyota-tundra"
+            "btn_url": "https://www.offroadindustries.com.au/pages/ford-150-gvm-packages"
           }
         }
       },
