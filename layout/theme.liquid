@@ -234,8 +234,9 @@
     <script>
       (function () {
         try {
-          // Detect return from Shopify B2B portal (logo click adds ?sso=silent to the homepage URL)
-          if (window.location.search.indexOf('sso=silent') !== -1) {
+          // Detect return from Shopify B2B portal (?sso=silent = classic flow; ?company_location_changed=true = new accounts flow)
+          var search = window.location.search;
+          if (search.indexOf('sso=silent') !== -1 || search.indexOf('company_location_changed=true') !== -1) {
             var raw = localStorage.getItem('b2b_redirect');
             if (raw) {
               try {
