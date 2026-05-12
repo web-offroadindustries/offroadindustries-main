@@ -160,6 +160,12 @@
                 <span>{{ block.settings.phone }}</span>
               </div>
             {%- endif -%}
+            {%- if block.settings.email != blank -%}
+              <div class="dealer-locator__info-row">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2Zm0 4-8 5-8-5V6l8 5 8-5v2Z"/></svg>
+                <span>{{ block.settings.email }}</span>
+              </div>
+            {%- endif -%}
           </div>
 
           {%- comment -%} Tags / badges {%- endcomment -%}
@@ -196,6 +202,12 @@
               <a href="tel:{{ tel_raw }}" class="dealer-locator__btn" style="background:{{ section.settings.btn_secondary_bg }};color:{{ section.settings.btn_secondary_text }};border-color:{{ section.settings.card_border_color }};">
                 <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8Z"/></svg>
                 {{ block.settings.phone }}
+              </a>
+            {%- endif -%}
+            {%- if block.settings.email != blank -%}
+              <a href="mailto:{{ block.settings.email }}" class="dealer-locator__btn" style="background:{{ section.settings.btn_secondary_bg }};color:{{ section.settings.btn_secondary_text }};border-color:{{ section.settings.card_border_color }};">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2Zm0 4-8 5-8-5V6l8 5 8-5v2Z"/></svg>
+                Email
               </a>
             {%- endif -%}
             {%- if block.settings.website != blank -%}
@@ -326,6 +338,7 @@
         { "type": "text",  "id": "city",     "label": "City / Suburb",  "placeholder": "e.g. Geebung" },
         { "type": "text",  "id": "postcode", "label": "Postcode",        "placeholder": "e.g. 4034" },
         { "type": "text",  "id": "phone",    "label": "Phone number",    "placeholder": "e.g. (07) 3123 4567" },
+        { "type": "text",  "id": "email",    "label": "Email address",   "placeholder": "e.g. sales@example.com.au" },
         { "type": "url",   "id": "website",  "label": "Website URL" },
         { "type": "image_picker", "id": "logo", "label": "Logo image" },
         { "type": "header",   "content": "Badges" },
