@@ -4,6 +4,11 @@
   if customer.b2b?
     assign authorized = true
   endif
+
+  assign catalog_collection = collections[section.settings.catalog_collection]
+  if catalog_collection == blank
+    assign catalog_collection = collections.all
+  endif
 -%}
 
 <div
@@ -21,6 +26,16 @@
           {%- if section.settings.subheading != blank -%}
             <p class="b2b-catalog__page-sub">{{ section.settings.subheading }}</p>
           {%- endif -%}
+          {%- if customer.current_company != blank -%}
+            <p class="b2b-catalog__company-info">
+              <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+              <span>{{ customer.current_company.name }}</span>
+              {%- if customer.current_location != blank and customer.current_location.name != customer.current_company.name -%}
+                <span class="b2b-catalog__company-sep">·</span>
+                <span>{{ customer.current_location.name }}</span>
+              {%- endif -%}
+            </p>
+          {%- endif -%}
         </div>
         <div class="b2b-catalog__legend">
           <span class="b2b-stock-badge">In Stock</span>
@@ -29,11 +44,11 @@
         </div>
       </div>
 
-      {%- paginate collections.all.products by section.settings.per_page -%}
+      {%- paginate catalog_collection.products by section.settings.per_page -%}
 
         {%- comment -%} ── Stats bar ────────────────────────────────────────────── {%- endcomment -%}
         <div class="b2b-catalog__stats">
-          <span>{{ collections.all.products_count }} product{{ collections.all.products_count | plural: '', 's' }}</span>
+          <span>{{ catalog_collection.products_count }} product{{ catalog_collection.products_count | plural: '', 's' }}</span>
           {%- if paginate.pages > 1 -%}
             <span class="b2b-catalog__stats-sep">·</span>
             <span>Page {{ paginate.current_page }} of {{ paginate.pages }}</span>
@@ -41,7 +56,7 @@
         </div>
 
         {%- comment -%} ── Product table ─────────────────────────────────────────── {%- endcomment -%}
-        {%- if collections.all.products_count > 0 -%}
+        {%- if catalog_collection.products_count > 0 -%}
           <div class="b2b-catalog__table-wrap">
             <table class="b2b-catalog__table">
               <thead>
@@ -55,7 +70,7 @@
                 </tr>
               </thead>
               <tbody>
-                {%- for product in collections.all.products -%}
+                {%- for product in catalog_collection.products -%}
                   {%- for variant in product.variants -%}
                     {%- liquid
                       assign qty = variant.inventory_quantity | default: 0
@@ -237,6 +252,12 @@
     {
       "type": "header",
       "content": "Catalog (shown to B2B contacts)"
+    },
+    {
+      "type": "collection",
+      "id": "catalog_collection",
+      "label": "Catalog collection",
+      "info": "Choose a specific collection to display. Leave blank to show all products."
     },
     {
       "type": "text",

@@ -383,6 +383,25 @@
   margin: 0;
 }
 
+.b2b-catalog__company-info {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin: 8px 0 0;
+  padding: 4px 10px 4px 7px;
+  background: rgba(86, 189, 194, 0.1);
+  border: 1px solid rgba(86, 189, 194, 0.3);
+  border-radius: 20px;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #10363a;
+}
+
+.b2b-catalog__company-sep {
+  opacity: 0.4;
+  font-weight: 400;
+}
+
 .b2b-catalog__stats {
   display: flex;
   align-items: center;
