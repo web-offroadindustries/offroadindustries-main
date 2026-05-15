@@ -218,7 +218,7 @@
         <h1 class="b2b-pending__title">{{ section.settings.gate_heading }}</h1>
         <p class="b2b-pending__body">{{ section.settings.gate_body }}</p>
         <a
-          href="{{ routes.account_login_url }}?return_to=/pages/b2b-catalog"
+          href="{{ routes.account_login_url }}?return_url=/pages/b2b-catalog"
           class="btn btn--primary"
           onclick="try{localStorage.setItem('b2b_redirect',JSON.stringify({url:'/pages/b2b-catalog',ts:Date.now()}))}catch(e){}"
         >{{ section.settings.gate_btn_label }}</a>
