@@ -222,9 +222,10 @@
           class="btn btn--primary"
           onclick="try{localStorage.setItem('b2b_redirect',JSON.stringify({url:'/pages/b2b-catalog',ts:Date.now()}))}catch(e){}"
         >{{ section.settings.gate_btn_label }}</a>
-        <p class="b2b-pending__login-tip">
-          After logging in, click the <strong>ORI Offroad Industries logo</strong> at the top of the portal to be taken directly to the product catalog.
-        </p>
+        <div class="b2b-pending__login-tip">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="b2b-pending__tip-icon"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+          <p>After logging in, click the <strong>ORI Offroad Industries logo</strong> at the top of the Shopify portal to return to the store and view the product catalog.</p>
+        </div>
         {%- if section.settings.cta_link != blank -%}
           <a href="{{ section.settings.cta_link }}" class="b2b-pending__link">Not a wholesale customer? Contact us to apply.</a>
         {%- endif -%}
