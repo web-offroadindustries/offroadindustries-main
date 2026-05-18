@@ -102,17 +102,12 @@
                 {%- if block.settings.pdf_url != blank -%}
                   <a
                     href="{{ block.settings.pdf_url }}"
-                    class="vehicle-cards__pdf"
+                    class="vehicle-cards__brochure-btn"
                     download="{{ pdf_filename }}"
                     data-pdf-download
-                    aria-label="Download {{ block.settings.name | default: 'PDF' | escape }}"
-                    title="Download PDF"
+                    aria-label="Download brochure for {{ block.settings.name | default: 'vehicle' | escape }}"
                   >
-                    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                      <path d="M6 2h8l4 4v16H6V2z" fill="none" stroke="currentColor" stroke-width="1.8"/>
-                      <path d="M14 2v5h5" fill="none" stroke="currentColor" stroke-width="1.8"/>
-                      <text x="12" y="17" text-anchor="middle" font-size="6" font-weight="700" fill="currentColor">PDF</text>
-                    </svg>
+                    Download Brochure
                   </a>
                 {%- endif -%}
               </div>
