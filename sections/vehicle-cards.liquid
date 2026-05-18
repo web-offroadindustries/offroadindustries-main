@@ -2,7 +2,7 @@
 
 {%- liquid
   assign section_id       = section.id
-  assign total             = section.blocks.size
+  assign total            = section.blocks.size
   assign mobile_layout    = section.settings.mobile_layout | default: 'slideshow'
   assign slideshow_anim   = section.settings.slideshow_animation | default: 'fade'
   assign slideshow_int    = section.settings.slideshow_interval | default: 4
@@ -40,6 +40,7 @@
         {%- if section.settings.eyebrow != blank -%}
           <p class="vehicle-cards__eyebrow" style="color:{{ section.settings.eyebrow_color }};font-size:{{ section.settings.eyebrow_size }}px;">{{ section.settings.eyebrow }}</p>
         {%- endif -%}
+
         {%- if section.settings.heading != blank -%}
           <h2 class="vehicle-cards__heading" style="color:{{ section.settings.heading_color }};font-size:{{ section.settings.heading_size }}px;">{{ section.settings.heading }}</h2>
         {%- endif -%}
@@ -52,7 +53,6 @@
         data-animation="{{ slideshow_anim }}"
         data-interval="{{ slideshow_int }}"
       >
-
         {%- for block in section.blocks -%}
           <div
             class="vehicle-cards__card"
@@ -88,23 +88,81 @@
                 </h3>
               {%- endif -%}
 
-              <a
-                href="{{ block.settings.btn_url | default: '#' }}"
-                class="vehicle-cards__btn"
-                style="background:{{ section.settings.btn_bg }};color:{{ section.settings.btn_text_color }};border:1.5px solid {{ section.settings.btn_border_color }};border-radius:{{ section.settings.btn_radius }}px;font-size:{{ section.settings.btn_size }}px;"
-              >
-                {{ block.settings.btn_label | default: section.settings.default_btn_label }}
-              </a>
+              {%- assign pdf_filename = block.settings.name | default: 'vehicle-specs' | handleize | append: '.pdf' -%}
+
+              <div class="vehicle-cards__actions">
+                <a
+                  href="{{ block.settings.btn_url | default: '#' }}"
+                  class="vehicle-cards__btn"
+                  style="background:{{ section.settings.btn_bg }};color:{{ section.settings.btn_text_color }};border:1.5px solid {{ section.settings.btn_border_color }};border-radius:{{ section.settings.btn_radius }}px;font-size:{{ section.settings.btn_size }}px;"
+                >
+                  {{ block.settings.btn_label | default: section.settings.default_btn_label }}
+                </a>
+
+                {%- if block.settings.pdf_url != blank -%}
+                  <a
+                    href="{{ block.settings.pdf_url }}"
+                    class="vehicle-cards__pdf"
+                    download="{{ pdf_filename }}"
+                    data-pdf-download
+                    aria-label="Download {{ block.settings.name | default: 'PDF' | escape }}"
+                    title="Download PDF"
+                  >
+                    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                      <path d="M6 2h8l4 4v16H6V2z" fill="none" stroke="currentColor" stroke-width="1.8"/>
+                      <path d="M14 2v5h5" fill="none" stroke="currentColor" stroke-width="1.8"/>
+                      <text x="12" y="17" text-anchor="middle" font-size="6" font-weight="700" fill="currentColor">PDF</text>
+                    </svg>
+                  </a>
+                {%- endif -%}
+              </div>
             </div>
 
           </div>
         {%- endfor -%}
-
       </div>
     {%- endif -%}
 
   </div>
 </section>
+
+<style>
+  #VehicleCards-{{ section_id }} .vehicle-cards__actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  #VehicleCards-{{ section_id }} .vehicle-cards__actions .vehicle-cards__btn {
+    flex: 1 1 auto;
+    min-width: 0;
+    text-align: center;
+  }
+
+  #VehicleCards-{{ section_id }} .vehicle-cards__pdf {
+    width: 42px;
+    height: 42px;
+    flex: 0 0 42px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #d71920;
+    background: #ffffff;
+    border: 1.5px solid currentColor;
+    border-radius: {{ section.settings.btn_radius }}px;
+    text-decoration: none;
+  }
+
+  #VehicleCards-{{ section_id }} .vehicle-cards__pdf svg {
+    width: 24px;
+    height: 24px;
+    display: block;
+  }
+
+  #VehicleCards-{{ section_id }} .vehicle-cards__pdf:hover {
+    opacity: 0.8;
+  }
+</style>
 
 <script>
 (function () {
@@ -112,7 +170,9 @@
 
   function initSlideshow(sectionEl) {
     var grid = sectionEl.querySelector('.vehicle-cards__grid--slideshow');
-    if (!grid) return;
+    if (!grid || grid.dataset.slideshowReady === 'true') return;
+
+    grid.dataset.slideshowReady = 'true';
 
     var animation   = grid.getAttribute('data-animation') || 'fade';
     var intervalSec = parseInt(grid.getAttribute('data-interval'), 10) || 4;
@@ -126,7 +186,6 @@
     cards[0].classList.add('is-active');
     if (cards.length < 2) return;
 
-    /* ── Pagination dots ── */
     var dotsEl = document.createElement('div');
     dotsEl.className = 'vehicle-cards__dots';
     grid.parentNode.insertBefore(dotsEl, grid.nextSibling);
@@ -142,19 +201,24 @@
     });
 
     function syncDots() {
-      dotBtns.forEach(function (d, i) { d.classList.toggle('is-active', i === current); });
+      dotBtns.forEach(function (d, i) {
+        d.classList.toggle('is-active', i === current);
+      });
     }
 
     function goTo(next, resetTimer) {
       if (next === current || transitioning) return;
+
       transitioning = true;
+
       var prev = current;
-      current  = next;
+      current = next;
 
       if (animation === 'slide') {
         cards[prev].classList.remove('is-active');
         cards[prev].classList.add('is-leaving');
         cards[next].classList.add('is-active');
+
         setTimeout(function () {
           cards[prev].classList.remove('is-leaving');
           transitioning = false;
@@ -162,26 +226,92 @@
       } else {
         cards[prev].classList.remove('is-active');
         cards[next].classList.add('is-active');
-        setTimeout(function () { transitioning = false; }, 660);
+
+        setTimeout(function () {
+          transitioning = false;
+        }, 660);
       }
 
       syncDots();
-      if (resetTimer) { clearInterval(timer); startTimer(); }
+
+      if (resetTimer) {
+        clearInterval(timer);
+        startTimer();
+      }
     }
 
-    function advance() { goTo((current + 1) % cards.length, false); }
+    function advance() {
+      goTo((current + 1) % cards.length, false);
+    }
 
-    function startTimer() { timer = setInterval(advance, intervalSec * 1000); }
+    function startTimer() {
+      timer = setInterval(advance, intervalSec * 1000);
+    }
+
     startTimer();
 
-    /* Pause auto-advance while user touches the section */
-    sectionEl.addEventListener('touchstart', function () { clearInterval(timer); }, { passive: true });
-    sectionEl.addEventListener('touchend',   function () { startTimer(); },        { passive: true });
+    sectionEl.addEventListener('touchstart', function () {
+      clearInterval(timer);
+    }, { passive: true });
+
+    sectionEl.addEventListener('touchend', function () {
+      startTimer();
+    }, { passive: true });
+  }
+
+  function initPdfDownloads(sectionEl) {
+    var links = Array.from(sectionEl.querySelectorAll('[data-pdf-download]'));
+
+    links.forEach(function (link) {
+      if (link.dataset.pdfBound === 'true') return;
+
+      link.dataset.pdfBound = 'true';
+
+      link.addEventListener('click', function (event) {
+        event.preventDefault();
+
+        var pdfUrl = link.getAttribute('href');
+        var filename = link.getAttribute('download') || 'download.pdf';
+
+        if (!pdfUrl) return;
+
+        fetch(pdfUrl)
+          .then(function (response) {
+            if (!response.ok) throw new Error('PDF download failed');
+            return response.blob();
+          })
+          .then(function (blob) {
+            var blobUrl = window.URL.createObjectURL(blob);
+            var tempLink = document.createElement('a');
+
+            tempLink.href = blobUrl;
+            tempLink.download = filename;
+            document.body.appendChild(tempLink);
+            tempLink.click();
+            tempLink.remove();
+
+            window.URL.revokeObjectURL(blobUrl);
+          })
+          .catch(function () {
+            var tempLink = document.createElement('a');
+
+            tempLink.href = pdfUrl;
+            tempLink.download = filename;
+            document.body.appendChild(tempLink);
+            tempLink.click();
+            tempLink.remove();
+          });
+      });
+    });
   }
 
   function run() {
     var el = document.getElementById('VehicleCards-' + SECTION_ID);
-    if (el) initSlideshow(el);
+
+    if (el) {
+      initSlideshow(el);
+      initPdfDownloads(el);
+    }
   }
 
   if (document.readyState === 'loading') {
@@ -190,12 +320,15 @@
     run();
   }
 
-  /* Re-init after Shopify section editor reload */
   document.addEventListener('shopify:section:load', function (e) {
     var el = e.target.id === ('VehicleCards-' + SECTION_ID)
       ? e.target
       : e.target.querySelector('#VehicleCards-' + SECTION_ID);
-    if (el) initSlideshow(el);
+
+    if (el) {
+      initSlideshow(el);
+      initPdfDownloads(el);
+    }
   });
 }());
 </script>
@@ -209,10 +342,10 @@
     { "type": "header", "content": "Section" },
     { "type": "color", "id": "bg_color", "label": "Section background", "default": "#ffffff" },
     { "type": "header", "content": "Heading text" },
-    { "type": "color", "id": "heading_color", "label": "Heading colour",    "default": "#1f1f1f" },
-    { "type": "range", "id": "heading_size",  "label": "Heading font size", "min": 20, "max": 72, "step": 2, "default": 36, "unit": "px" },
-    { "type": "color", "id": "eyebrow_color", "label": "Eyebrow colour",    "default": "#56bdc2" },
-    { "type": "range", "id": "eyebrow_size",  "label": "Eyebrow font size", "min": 10, "max": 24, "step": 1, "default": 13, "unit": "px" },
+    { "type": "color", "id": "heading_color", "label": "Heading colour", "default": "#1f1f1f" },
+    { "type": "range", "id": "heading_size", "label": "Heading font size", "min": 20, "max": 72, "step": 2, "default": 36, "unit": "px" },
+    { "type": "color", "id": "eyebrow_color", "label": "Eyebrow colour", "default": "#56bdc2" },
+    { "type": "range", "id": "eyebrow_size", "label": "Eyebrow font size", "min": 10, "max": 24, "step": 1, "default": 13, "unit": "px" },
     { "type": "header", "content": "Image" },
     {
       "type": "select",
@@ -220,32 +353,32 @@
       "label": "Image aspect ratio",
       "options": [
         { "value": "square", "label": "Square (1:1)" },
-        { "value": "4-3",    "label": "Landscape (4:3)" },
-        { "value": "3-2",    "label": "Landscape (3:2)" },
-        { "value": "16-9",   "label": "Wide (16:9)" }
+        { "value": "4-3", "label": "Landscape (4:3)" },
+        { "value": "3-2", "label": "Landscape (3:2)" },
+        { "value": "16-9", "label": "Wide (16:9)" }
       ],
       "default": "square"
     },
     { "type": "range", "id": "img_radius", "label": "Image corner radius", "min": 0, "max": 20, "step": 2, "default": 10 },
     { "type": "color", "id": "card_placeholder_color", "label": "Placeholder colour (no image)", "default": "#e5e5e5" },
     { "type": "header", "content": "Card" },
-    { "type": "color",    "id": "card_bg_color",     "label": "Card body background", "default": "#ffffff" },
-    { "type": "color",    "id": "card_border_color", "label": "Card border colour",   "default": "#e2e2e2" },
-    { "type": "range",    "id": "card_radius",       "label": "Card body corner radius", "min": 0, "max": 20, "step": 2, "default": 10 },
-    { "type": "checkbox", "id": "card_shadow",       "label": "Card drop shadow",        "default": true },
-    { "type": "color",    "id": "name_color",        "label": "Vehicle name colour",  "default": "#1f1f1f" },
-    { "type": "range",    "id": "name_size",         "label": "Vehicle name size",    "min": 12, "max": 32, "step": 1, "default": 18, "unit": "px" },
+    { "type": "color", "id": "card_bg_color", "label": "Card body background", "default": "#ffffff" },
+    { "type": "color", "id": "card_border_color", "label": "Card border colour", "default": "#e2e2e2" },
+    { "type": "range", "id": "card_radius", "label": "Card body corner radius", "min": 0, "max": 20, "step": 2, "default": 10 },
+    { "type": "checkbox", "id": "card_shadow", "label": "Card drop shadow", "default": true },
+    { "type": "color", "id": "name_color", "label": "Vehicle name colour", "default": "#1f1f1f" },
+    { "type": "range", "id": "name_size", "label": "Vehicle name size", "min": 12, "max": 32, "step": 1, "default": 18, "unit": "px" },
     { "type": "header", "content": "Button" },
-    { "type": "text",  "id": "default_btn_label",  "label": "Default button label",     "default": "Explore Specs" },
-    { "type": "color", "id": "btn_bg",             "label": "Button background",        "default": "#ffffff" },
-    { "type": "color", "id": "btn_text_color",     "label": "Button text colour",       "default": "#1f1f1f" },
-    { "type": "color", "id": "btn_border_color",   "label": "Button border colour",     "default": "#1f1f1f" },
-    { "type": "range", "id": "btn_radius",         "label": "Button corner radius",     "min": 0, "max": 40, "step": 2, "default": 6 },
-    { "type": "range", "id": "btn_size",           "label": "Button font size",         "min": 10, "max": 18, "step": 1, "default": 12, "unit": "px" },
+    { "type": "text", "id": "default_btn_label", "label": "Default button label", "default": "Explore Specs" },
+    { "type": "color", "id": "btn_bg", "label": "Button background", "default": "#ffffff" },
+    { "type": "color", "id": "btn_text_color", "label": "Button text colour", "default": "#1f1f1f" },
+    { "type": "color", "id": "btn_border_color", "label": "Button border colour", "default": "#1f1f1f" },
+    { "type": "range", "id": "btn_radius", "label": "Button corner radius", "min": 0, "max": 40, "step": 2, "default": 6 },
+    { "type": "range", "id": "btn_size", "label": "Button font size", "min": 10, "max": 18, "step": 1, "default": 12, "unit": "px" },
     { "type": "header", "content": "Layout" },
-    { "type": "range", "id": "container_width", "label": "Max width",      "min": 960, "max": 1600, "step": 20, "default": 1280 },
-    { "type": "range", "id": "padding_top",     "label": "Padding top",    "min": 0,   "max": 120,  "step": 4,  "default": 60 },
-    { "type": "range", "id": "padding_bottom",  "label": "Padding bottom", "min": 0,   "max": 120,  "step": 4,  "default": 60 },
+    { "type": "range", "id": "container_width", "label": "Max width", "min": 960, "max": 1600, "step": 20, "default": 1280 },
+    { "type": "range", "id": "padding_top", "label": "Padding top", "min": 0, "max": 120, "step": 4, "default": 60 },
+    { "type": "range", "id": "padding_bottom", "label": "Padding bottom", "min": 0, "max": 120, "step": 4, "default": 60 },
     { "type": "header", "content": "Mobile layout" },
     {
       "type": "select",
@@ -254,7 +387,7 @@
       "default": "slideshow",
       "options": [
         { "value": "slideshow", "label": "Slideshow (one item at a time)" },
-        { "value": "swipe",     "label": "Swipe carousel" }
+        { "value": "swipe", "label": "Swipe carousel" }
       ]
     },
     {
@@ -263,7 +396,7 @@
       "label": "Slideshow animation",
       "default": "fade",
       "options": [
-        { "value": "fade",  "label": "Fade in / Fade out" },
+        { "value": "fade", "label": "Fade in / Fade out" },
         { "value": "slide", "label": "Slide" }
       ]
     },
@@ -271,7 +404,10 @@
       "type": "range",
       "id": "slideshow_interval",
       "label": "Seconds per slide",
-      "min": 2, "max": 12, "step": 1, "default": 4
+      "min": 2,
+      "max": 12,
+      "step": 1,
+      "default": 4
     }
   ],
   "blocks": [
@@ -279,10 +415,11 @@
       "type": "vehicle",
       "name": "Vehicle card",
       "settings": [
-        { "type": "image_picker", "id": "image",     "label": "Image" },
-        { "type": "text",         "id": "name",      "label": "Vehicle name", "placeholder": "e.g. Ford F150" },
-        { "type": "text",         "id": "btn_label", "label": "Button label (leave blank to use default)" },
-        { "type": "url",          "id": "btn_url",   "label": "Button URL" }
+        { "type": "image_picker", "id": "image", "label": "Image" },
+        { "type": "text", "id": "name", "label": "Vehicle name", "placeholder": "e.g. Ford F150" },
+        { "type": "text", "id": "btn_label", "label": "Button label (leave blank to use default)" },
+        { "type": "url", "id": "btn_url", "label": "Button URL" },
+        { "type": "url", "id": "pdf_url", "label": "PDF download URL" }
       ]
     }
   ],
