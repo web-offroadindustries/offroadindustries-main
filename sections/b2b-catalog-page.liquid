@@ -222,6 +222,9 @@
           class="btn btn--primary"
           onclick="try{localStorage.setItem('b2b_redirect',JSON.stringify({url:'/pages/b2b-catalog',ts:Date.now()}))}catch(e){}"
         >{{ section.settings.gate_btn_label }}</a>
+        <p class="b2b-pending__login-tip">
+          After logging in, click the <strong>ORI Offroad Industries logo</strong> at the top of the portal to be taken directly to the product catalog.
+        </p>
         {%- if section.settings.cta_link != blank -%}
           <a href="{{ section.settings.cta_link }}" class="b2b-pending__link">Not a wholesale customer? Contact us to apply.</a>
         {%- endif -%}
