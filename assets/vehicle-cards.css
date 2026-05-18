@@ -133,32 +133,33 @@
 
 .vehicle-cards__brochure-btn {
   flex: 0 0 auto;
-  min-height: 44px;
+  min-height: 42px;
   padding: 8px 12px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
   font-family: "Geomanist", sans-serif;
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 700;
   line-height: 1.2;
   letter-spacing: .08em;
   text-transform: uppercase;
   text-align: center;
   text-decoration: none;
-  color: #ffffff;
-  background: #d71920;
-  border: 1.5px solid #d71920;
+  color: #1f1f1f;
+  background: #eef4f5;
+  border: 1.5px solid #c8d7da;
   border-radius: 6px;
   cursor: pointer;
-  transition: background 0.15s, color 0.15s, opacity 0.15s, transform 0.15s;
+  transition: background 0.15s, color 0.15s, border-color 0.15s, transform 0.15s;
 }
 
 @media (hover: hover) {
-  .vehicle-cards__btn:hover,
   .vehicle-cards__brochure-btn:hover {
-    opacity: 0.85;
+    color: #111111;
+    background: #dcebed;
+    border-color: #9fbfc4;
     transform: translateY(-1px);
   }
 }
@@ -252,11 +253,30 @@
     gap: 7px;
   }
 
-  .vehicle-cards__btn {
-    min-height: 46px;
-    padding: 8px 10px;
-    letter-spacing: .06em;
-  }
+.vehicle-cards__btn {
+  flex: 0 0 auto;
+  min-height: 46px;
+  padding: 9px 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  font-family: "Geomanist", sans-serif;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  white-space: normal;
+  word-break: normal;
+  overflow-wrap: anywhere;
+  margin-top: 0;
+  -webkit-appearance: none;
+  appearance: none;
+  transition: background 0.15s, color 0.15s, border-color 0.15s, transform 0.15s, opacity 0.15s;
+}
 
   .vehicle-cards__pdf {
     width: 46px;
