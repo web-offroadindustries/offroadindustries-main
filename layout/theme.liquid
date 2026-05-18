@@ -21,6 +21,9 @@
   {% endif %}
 >
   <head>
+    {%- if customer.b2b? and template.name == 'index' -%}
+      <script>window.location.replace('/pages/b2b-catalog');</script>
+    {%- endif -%}
     <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
