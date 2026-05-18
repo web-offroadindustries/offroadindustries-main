@@ -75,8 +75,9 @@
           "settings": {
             "image": "shopify://shop_images/Toyota-Tundra--tile-ad---20260505-4-1.png",
             "name": "toyota tundra",
-            "btn_label": "Explore Packages & Pricing",
-            "btn_url": "https://www.offroadindustries.com.au/pages/toyota-tundra"
+            "btn_label": "View Packages & Pricing",
+            "btn_url": "https://www.offroadindustries.com.au/pages/toyota-tundra",
+            "pdf_url": ""
           }
         },
         "vehicle_d6GQJG": {
@@ -84,8 +85,9 @@
           "settings": {
             "image": "shopify://shop_images/Chevy-2500--tile-ad---20260505-4_7ce36d9a-1565-4823-b14a-b3e36018df11.png",
             "name": "Chevy Silverado 2500HD",
-            "btn_label": "Explore Packages & Pricing",
-            "btn_url": "https://www.offroadindustries.com.au/pages/chevy-silverado-2500hd-gvm-packages"
+            "btn_label": "View Packages & Pricing",
+            "btn_url": "https://www.offroadindustries.com.au/pages/chevy-silverado-2500hd-gvm-packages",
+            "pdf_url": ""
           }
         },
         "vehicle_iFbyFT": {
@@ -93,8 +95,9 @@
           "settings": {
             "image": "shopify://shop_images/Chevy-Silverado-1500--tile-ad---20260505-4_753e16ce-f09c-454c-8683-7edc168f4eae.png",
             "name": "Silverado 1500 LTZ & ZR2",
-            "btn_label": "Explore Packages & Pricing",
-            "btn_url": "https://www.offroadindustries.com.au/pages/chevrolet-silverado-1500-gvm-package"
+            "btn_label": "View Packages & Pricing",
+            "btn_url": "https://www.offroadindustries.com.au/pages/chevrolet-silverado-1500-gvm-package",
+            "pdf_url": ""
           }
         },
         "vehicle_rrjckn": {
@@ -102,8 +105,9 @@
           "settings": {
             "image": "shopify://shop_images/FORD-F150---tile-ad---20260505-4-3.png",
             "name": "Ford F150",
-            "btn_label": "Explore Packages & Pricing",
-            "btn_url": "https://www.offroadindustries.com.au/pages/ford-150-gvm-packages"
+            "btn_label": "View Packages & Pricing",
+            "btn_url": "https://www.offroadindustries.com.au/pages/ford-150-gvm-packages",
+            "pdf_url": ""
           }
         },
         "vehicle_ERMxXT": {
@@ -111,8 +115,9 @@
           "settings": {
             "image": "shopify://shop_images/FORD-F150---tile-ad---20260505-4-1_9dcaeba0-a747-4777-a6b3-eb3685b3b98f.png",
             "name": "Ford F150",
-            "btn_label": "Explore Packages & Pricing",
-            "btn_url": "https://www.offroadindustries.com.au/pages/ford-150-gvm-packages"
+            "btn_label": "View Packages & Pricing",
+            "btn_url": "https://www.offroadindustries.com.au/pages/ford-150-gvm-packages",
+            "pdf_url": ""
           }
         }
       },
