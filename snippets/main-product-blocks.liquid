@@ -681,7 +681,25 @@
             </modal-dialog>
           {% endif %}
         {%- when 'buy_buttons' -%}
+          {%- liquid
+            assign b2b_user = false
+            if customer
+              if customer.b2b? or customer.tags contains 'b2b'
+                assign b2b_user = true
+              endif
+            endif
+          -%}
           <div {{ block.shopify_attributes }}>
+            {%- if b2b_user -%}
+              <div class="b2b-order-cta">
+                <div class="b2b-order-cta__notice">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                  <span>Orders are fulfilled through our inventory management system. Please contact us to place an order.</span>
+                </div>
+                <a href="/pages/contact" class="btn btn--primary b2b-order-cta__btn">Contact Us to Order</a>
+              </div>
+              {%- render 'b2b-shipping-calc', product: product, section: section -%}
+            {%- else -%}
             {%- liquid
               assign gift_card_recipient_feature_active = false
               if block.settings.show_gift_card_recipient and product.gift_card?
@@ -797,6 +815,7 @@
               </product-form>
             {% endif %}
             {%- render 'notify-me-form', product: product, section: section -%}
+            {%- endif -%}
             <link
               rel="stylesheet"
               href="{{ 'pickup-availability.css' | asset_url }}"

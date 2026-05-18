@@ -16,6 +16,9 @@
         "heading": "Product Catalog",
         "subheading": "Stock availability and pricing shown below. Contact us to place an order.",
         "per_page": 25,
+        "gate_heading": "Wholesale Portal",
+        "gate_body": "Log in with your wholesale account to access pricing, stock availability, and the full product catalog.",
+        "gate_btn_label": "Log In to View Catalog",
         "show_cta": true,
         "cta_text": "Ready to place an order? Get in touch with our team.",
         "cta_label": "Contact Us to Order",
@@ -25,5 +28,7 @@
       }
     }
   },
-  "order": ["main"]
+  "order": [
+    "main"
+  ]
 }
