@@ -1,4 +1,4 @@
-/* ─── Vehicle Cards Section ───────────────────────────────────────────────── */
+/* Vehicle Cards Section */
 
 .vehicle-cards {
   padding-top: var(--vc-pt, 60px);
@@ -12,11 +12,12 @@
   padding: 0 20px;
 }
 
-/* ── Header ──────────────────────────────────────────────────────────────── */
+/* Header */
 .vehicle-cards__header {
   text-align: center;
   margin-bottom: 40px;
 }
+
 .vehicle-cards__eyebrow {
   margin: 0 0 10px;
   font-family: "Geomanist", sans-serif;
@@ -24,6 +25,7 @@
   letter-spacing: .14em;
   text-transform: uppercase;
 }
+
 .vehicle-cards__heading {
   margin: 0;
   font-family: "Evogria", sans-serif;
@@ -31,35 +33,40 @@
   text-transform: uppercase;
 }
 
-/* ── Grid ────────────────────────────────────────────────────────────────── */
+/* Grid */
 .vehicle-cards__grid {
   display: flex;
   flex-wrap: wrap;
+  align-items: stretch;
   gap: 20px;
 }
 
-/* ── Card ────────────────────────────────────────────────────────────────── */
+/* Card */
 .vehicle-cards__card {
   display: flex;
   flex-direction: column;
-  width: calc(20% - 16px); /* 5 columns: (100% - 4 gaps × 20px) / 5 */
+  width: calc(20% - 16px);
+  height: auto;
   box-sizing: border-box;
   overflow: hidden;
   transition: transform 0.18s, box-shadow 0.18s;
 }
+
 @media (hover: hover) {
   .vehicle-cards__card:hover {
     transform: translateY(-3px);
   }
 }
 
-/* ── Image ───────────────────────────────────────────────────────────────── */
+/* Image */
 .vehicle-cards__img-wrap {
   width: 100%;
   aspect-ratio: var(--vc-img-ratio, 1 / 1);
   overflow: hidden;
   border-radius: var(--vc-img-radius, 10px);
+  flex: 0 0 auto;
 }
+
 .vehicle-cards__img {
   width: 100%;
   height: 100%;
@@ -67,81 +74,154 @@
   display: block;
   transition: transform 0.3s ease;
 }
+
 @media (hover: hover) {
   .vehicle-cards__card:hover .vehicle-cards__img {
     transform: scale(1.03);
   }
 }
 
-/* ── Card body ───────────────────────────────────────────────────────────── */
+/* Card body */
 .vehicle-cards__card-body {
   display: flex;
   flex-direction: column;
-  flex: 1;
-  padding: 16px 4px 4px;
-  gap: 14px;
-}
-.vehicle-cards__name {
-  margin: 0;
-  font-family: "Geomanist", sans-serif;
-  font-weight: 700;
-  line-height: 1.2;
+  flex: 1 1 auto;
+  padding: 18px 20px 20px !important;
+  gap: 0;
 }
 
-/* ── Button ──────────────────────────────────────────────────────────────── */
+.vehicle-cards__name {
+  margin: 0 0 18px;
+  font-family: "Geomanist", sans-serif;
+  font-weight: 700;
+  line-height: 1.12;
+}
+
+/* Button + PDF icon row */
+.vehicle-cards__actions {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-height: 104px;
+}
+
 .vehicle-cards__btn {
-  display: block;
-  width: 100%;
-  padding: 11px 16px;
-  -webkit-box-sizing: border-box;
+  flex: 0 0 auto;
+  min-height: 48px;
+  padding: 8px 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   box-sizing: border-box;
   font-family: "Geomanist", sans-serif;
   font-weight: 700;
-  letter-spacing: .1em;
+  line-height: 1.25;
+  letter-spacing: .08em;
   text-transform: uppercase;
   text-align: center;
   text-decoration: none;
   cursor: pointer;
-  -webkit-transition: background 0.15s, color 0.15s, opacity 0.15s;
-  transition: background 0.15s, color 0.15s, opacity 0.15s;
-  /* Allow label text to wrap — white-space: nowrap caused labels longer
-     than the card width to be clipped by the card's overflow: hidden */
+  transition: background 0.15s, color 0.15s, opacity 0.15s, transform 0.15s;
   white-space: normal;
-  word-break: break-word;
-  overflow-wrap: break-word;
-  margin-top: auto;
-  /* Prevent iOS Safari from adding its own button styling */
+  word-break: normal;
+  overflow-wrap: anywhere;
+  margin-top: 0;
   -webkit-appearance: none;
   appearance: none;
 }
+
+.vehicle-cards__brochure-btn {
+  flex: 0 0 auto;
+  min-height: 44px;
+  padding: 8px 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  font-family: "Geomanist", sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  text-align: center;
+  text-decoration: none;
+  color: #ffffff;
+  background: #d71920;
+  border: 1.5px solid #d71920;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, opacity 0.15s, transform 0.15s;
+}
+
 @media (hover: hover) {
-  .vehicle-cards__btn:hover {
-    opacity: 0.8;
+  .vehicle-cards__btn:hover,
+  .vehicle-cards__brochure-btn:hover {
+    opacity: 0.85;
+    transform: translateY(-1px);
   }
 }
 
-/* ── Tablet (3 columns) ──────────────────────────────────────────────────── */
+/* PDF download icon */
+.vehicle-cards__pdf {
+  width: 48px;
+  min-width: 48px;
+  height: auto;
+  min-height: 48px;
+  flex: 0 0 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #d71920;
+  background: #ffffff;
+  border: 1.5px solid currentColor;
+  border-radius: 6px;
+  text-decoration: none;
+  box-sizing: border-box;
+  transition: background 0.15s, color 0.15s, opacity 0.15s, transform 0.15s;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.vehicle-cards__pdf svg {
+  width: 23px;
+  height: 23px;
+  display: block;
+}
+
+@media (hover: hover) {
+  .vehicle-cards__pdf:hover {
+    color: #ffffff;
+    background: #d71920;
+    transform: translateY(-1px);
+  }
+}
+
+/* Tablet - 3 columns */
 @media (max-width: 1023px) {
   .vehicle-cards__card {
-    width: calc(33.333% - 14px); /* 3 columns: (100% - 2 gaps × 20px) / 3 */
+    width: calc(33.333% - 14px);
   }
 }
 
-/* ── Small tablet (2 columns) ────────────────────────────────────────────── */
+/* Small tablet - 2 columns */
 @media (max-width: 767px) {
   .vehicle-cards__card {
-    width: calc(50% - 10px); /* 2 columns: (100% - 1 gap × 20px) / 2 */
+    width: calc(50% - 10px);
   }
 }
 
-/* ── Mobile (horizontal swipe carousel) ─────────────────────────────────── */
+/* Mobile horizontal swipe carousel */
 @media (max-width: 639px) {
   .vehicle-cards__inner {
     padding: 0;
   }
+
   .vehicle-cards__header {
     padding: 0 16px;
   }
+
   .vehicle-cards__grid {
     flex-wrap: nowrap;
     overflow-x: auto;
@@ -152,40 +232,68 @@
     scrollbar-width: none;
     -ms-overflow-style: none;
   }
+
   .vehicle-cards__grid::-webkit-scrollbar {
     display: none;
   }
+
   .vehicle-cards__card {
     min-width: 220px;
     width: 220px;
     flex-shrink: 0;
     scroll-snap-align: start;
   }
+
+  .vehicle-cards__card-body {
+    padding: 16px !important;
+  }
+
+  .vehicle-cards__actions {
+    gap: 7px;
+  }
+
+  .vehicle-cards__btn {
+    min-height: 46px;
+    padding: 8px 10px;
+    letter-spacing: .06em;
+  }
+
+  .vehicle-cards__pdf {
+    width: 46px;
+    min-width: 46px;
+    min-height: 46px;
+    flex-basis: 46px;
+  }
+
+  .vehicle-cards__pdf svg {
+    width: 22px;
+    height: 22px;
+  }
 }
 
-/* Dots are injected by JS at all sizes — hide them outside mobile */
-.vehicle-cards__dots { display: none; }
+/* Dots are injected by JS at all sizes - hide them outside mobile */
+.vehicle-cards__dots {
+  display: none;
+}
 
-/* ── Mobile Slideshow ────────────────────────────────────────────────────── */
+/* Mobile Slideshow */
 @media (max-width: 639px) {
-  /* Override swipe-carousel styles when in slideshow mode */
   .vehicle-cards__grid--slideshow {
     display: grid;
     grid-template-columns: 1fr;
     overflow: hidden;
     gap: 0;
     padding: 4px 16px;
-    /* reset swipe styles */
     flex-wrap: unset;
     scroll-snap-type: unset;
     -webkit-overflow-scrolling: unset;
     scrollbar-width: unset;
   }
+
   .vehicle-cards__grid--slideshow .vehicle-cards__card {
-    grid-area: 1 / 1; /* stack all cards in the same cell */
+    grid-area: 1 / 1;
     width: 100%;
     min-width: unset;
-    -webkit-box-sizing: border-box;
     box-sizing: border-box;
     flex-shrink: unset;
     scroll-snap-align: unset;
@@ -193,53 +301,42 @@
     pointer-events: none;
     z-index: 0;
   }
+
   .vehicle-cards__grid--slideshow .vehicle-cards__card.is-active {
     opacity: 1;
     pointer-events: auto;
     z-index: 1;
   }
 
-  /* ── Fade animation ── */
   .vehicle-cards__grid--slideshow[data-animation="fade"] .vehicle-cards__card {
-    -webkit-transition: opacity 0.6s ease;
     transition: opacity 0.6s ease;
   }
 
-  /* ── Slide animation ── */
   .vehicle-cards__grid--slideshow[data-animation="slide"] .vehicle-cards__card {
     opacity: 1;
-    -webkit-transform: translateX(100%);
     transform: translateX(100%);
-    /* No transition for off-screen reset */
-    -webkit-transition: none;
     transition: none;
   }
+
   .vehicle-cards__grid--slideshow[data-animation="slide"] .vehicle-cards__card.is-active {
-    -webkit-transform: translateX(0);
     transform: translateX(0);
-    -webkit-transition: -webkit-transform 0.5s ease;
     transition: transform 0.5s ease;
   }
+
   .vehicle-cards__grid--slideshow[data-animation="slide"] .vehicle-cards__card.is-leaving {
-    -webkit-transform: translateX(-100%);
     transform: translateX(-100%);
-    -webkit-transition: -webkit-transform 0.5s ease;
     transition: transform 0.5s ease;
     z-index: 0;
   }
 
-  /* ── Dots ── */
   .vehicle-cards__dots {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
     justify-content: center;
     gap: 8px;
     margin-top: 14px;
     padding: 0 16px 8px;
   }
+
   .vehicle-cards__dot {
     width: 8px;
     height: 8px;
@@ -248,11 +345,11 @@
     border: none;
     padding: 0;
     cursor: pointer;
-    -webkit-transition: background 0.2s, width 0.2s, border-radius 0.2s;
     transition: background 0.2s, width 0.2s, border-radius 0.2s;
     -webkit-appearance: none;
     appearance: none;
   }
+
   .vehicle-cards__dot.is-active {
     width: 20px;
     border-radius: 4px;
