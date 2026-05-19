@@ -186,7 +186,7 @@
           {%- comment -%} Action buttons {%- endcomment -%}
           <div class="dealer-locator__actions">
             {%- if maps_url != blank -%}
-              <a href="{{ maps_url }}" target="_blank" rel="noopener" class="dealer-locator__btn" style="background:{{ section.settings.btn_primary_bg }};color:{{ section.settings.btn_primary_text }};border-color:{{ section.settings.btn_primary_bg }};">
+              <a href="{{ maps_url }}" target="_blank" rel="noopener noreferrer" class="dealer-locator__btn" style="background:{{ section.settings.btn_primary_bg }};color:{{ section.settings.btn_primary_text }};border-color:{{ section.settings.btn_primary_bg }};">
                 <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 4.82 7 13 7 13s7-8.18 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5Z"/></svg>
                 Directions
               </a>
@@ -199,7 +199,7 @@
               </a>
             {%- endif -%}
             {%- if block.settings.website != blank -%}
-              <a href="{{ block.settings.website }}" target="_blank" rel="noopener" class="dealer-locator__btn" style="background:{{ section.settings.btn_secondary_bg }};color:{{ section.settings.btn_secondary_text }};border-color:{{ section.settings.card_border_color }};">
+              <a href="{{ block.settings.website }}" target="_blank" rel="noopener noreferrer" class="dealer-locator__btn" style="background:{{ section.settings.btn_secondary_bg }};color:{{ section.settings.btn_secondary_text }};border-color:{{ section.settings.card_border_color }};">
                 <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2Zm6.93 9H17a13.07 13.07 0 0 0-1.54-5.46A8.03 8.03 0 0 1 18.93 11ZM12 4c.83 0 1.96 1.67 2.72 5H9.28C10.04 5.67 11.17 4 12 4ZM8.54 5.54A13.07 13.07 0 0 0 7 11H5.07A8.03 8.03 0 0 1 8.54 5.54ZM5.07 13H7c.27 2.01.86 3.83 1.54 5.46A8.03 8.03 0 0 1 5.07 13ZM12 20c-.83 0-1.96-1.67-2.72-5h5.44C13.96 18.33 12.83 20 12 20Zm3.46-1.54A13.07 13.07 0 0 0 17 13h1.93a8.03 8.03 0 0 1-3.47 5.46Z"/></svg>
                 Website
               </a>

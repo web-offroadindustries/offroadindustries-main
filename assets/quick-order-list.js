@@ -216,9 +216,7 @@ if (!customElements.get("quick-order-list")) {
        * @param {Error} error - Error object
        */
       handleCartUpdateError(error) {
-        if (error.name === "AbortError") {
-          console.log("Request cancelled");
-        } else {
+        if (error.name !== "AbortError") {
           console.error("Cart update error:", error);
           this.showErrorMessage(FoxThemeStrings.cartError);
         }

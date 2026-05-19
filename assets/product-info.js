@@ -104,9 +104,6 @@ if (!customElements.get("product-info")) {
           const data = await response.json();
           return data;
         } catch (err) {
-          console.log(
-            `An error occurred while processing the request. Error message: ${err.message}`
-          );
         }
       }
 
@@ -138,7 +135,6 @@ if (!customElements.get("product-info")) {
         this.postProcessHtmlCallbacks.push((newNode) => {
           __reInitTooltip(newNode);
           window?.Shopify?.PaymentButton?.init();
-          console.log("init");
           window?.ProductModel?.loadShopifyXR();
         });
       }
@@ -419,9 +415,7 @@ if (!customElements.get("product-info")) {
             document.querySelector(`#${targetId}`)?.focus();
           })
           .catch((error) => {
-            if (error.name === "AbortError") {
-              console.log("Fetch aborted by user");
-            } else {
+            if (error.name !== "AbortError") {
               console.error(error);
             }
           });

@@ -93,6 +93,8 @@
                   <img
                     src="{{ block.settings.image_top | image_url: width: 600 }}"
                     alt="{{ block.settings.image_top.alt | escape }}"
+                    width="{{ block.settings.image_top.width }}"
+                    height="{{ block.settings.image_top.height }}"
                     loading="lazy"
                   >
 
@@ -150,6 +152,8 @@
                   <img
                     src="{{ block.settings.image_bottom | image_url: width: 600 }}"
                     alt="{{ block.settings.image_bottom.alt | escape }}"
+                    width="{{ block.settings.image_bottom.width }}"
+                    height="{{ block.settings.image_bottom.height }}"
                     loading="lazy"
                   >
 

@@ -46,6 +46,7 @@
     <link rel="preconnect" href="https://connect.podium.com" crossorigin>
     <link rel="preconnect" href="https://options.shopapps.site" crossorigin>
     <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    <link rel="preconnect" href="https://static.klaviyo.com" crossorigin>
     <link rel="dns-prefetch" href="https://static.klaviyo.com">
     <link rel="dns-prefetch" href="https://a.klaviyo.com">
     {% render 'orbislabs_sitemap_noindex' %}
@@ -417,7 +418,7 @@
         "sku": {{ product.selected_or_first_available_variant.sku | json }},
         "description": {{ product.description | strip_html | truncatewords: 50 | json }},
         "url": {{ canonical_url | json }},
-        "image": "https:{{ product.featured_image | product_img_url: 'grande' }}",
+        "image": "{{ product.featured_image | image_url: width: 1024 }}",
         "brand": {
           "@type": "Brand",
           "name": {{ product.vendor | json }},
