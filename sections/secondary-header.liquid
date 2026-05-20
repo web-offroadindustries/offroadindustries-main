@@ -66,6 +66,11 @@
       </div>
 
       <div class="secondary-header__right">
+        {%- if customer -%}
+          <div class="secondary-header__item">
+            <a href="{{ routes.account_logout_url }}" class="secondary-header__link">Log Out</a>
+          </div>
+        {%- endif -%}
         {%- for block in section.blocks -%}
           {%- if block.settings.side == 'right' -%}
             {%- case block.type -%}
