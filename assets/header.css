@@ -911,8 +911,8 @@ body:not(.header-pinned) .header-scrolled .header {
 }
 
 /* Promo badge image swap on nav hover — instant, no transition */
-/* --default = white logo (for dark dropdown bg), --hover = black logo (for light header bg) */
-/* Black logo is visible by default; swaps to white when nav dropdown opens */
+/* --default = white logo (visible on dark header bg), --hover = black logo (visible when nav dropdown opens) */
+/* White logo is visible by default; swaps to black when nav dropdown opens */
 .header-promo-badge,
 .header-promo-badge__link {
   position: relative;
@@ -929,13 +929,13 @@ body:not(.header-pinned) .header-scrolled .header {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  opacity: 1;
+  opacity: 0;
 }
 .site-header__top-v6:has(.f-site-nav__item:hover) .header-promo-badge__img--default,
 .site-header__top-v6:has(.f-site-nav__item:focus-within) .header-promo-badge__img--default {
-  opacity: 1;
+  opacity: 0;
 }
 .site-header__top-v6:has(.f-site-nav__item:hover) .header-promo-badge__img--hover,
 .site-header__top-v6:has(.f-site-nav__item:focus-within) .header-promo-badge__img--hover {
-  opacity: 0;
+  opacity: 1;
 }
