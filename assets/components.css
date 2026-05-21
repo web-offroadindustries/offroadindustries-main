@@ -1241,6 +1241,7 @@ details[open]:not(.parent-group) > summary > [data-collapsible-icon] svg:first-c
   position: relative;
   display: block;
   overflow: hidden;
+  aspect-ratio: 4 / 3;
 }
 .product-card__image-wrapper .f-image {
   border-radius: 0;
@@ -1248,9 +1249,23 @@ details[open]:not(.parent-group) > summary > [data-collapsible-icon] svg:first-c
 .product-card--list .product-card__image-wrapper {
   width: 8rem;
   flex: 0 0 auto;
+  aspect-ratio: 1;
 }
 .product-card__image-wrapper video {
   object-fit: cover;
+}
+.product-card__image-wrapper responsive-image,
+.product-card__image-wrapper .f-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.product-card__image-wrapper responsive-image img,
+.product-card__image-wrapper .f-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 .product-card__info {
   margin-block-start: 2rem;
