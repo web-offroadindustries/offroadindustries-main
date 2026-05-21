@@ -484,6 +484,7 @@
       "block_order": [
         "machship_shipping_estimator_Qxbfp7"
       ],
+      "disabled": true,
       "settings": {
         "container": "container",
         "color_schema": "",
