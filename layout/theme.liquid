@@ -49,6 +49,9 @@
     <link rel="preconnect" href="https://static.klaviyo.com" crossorigin>
     <link rel="dns-prefetch" href="https://static.klaviyo.com">
     <link rel="dns-prefetch" href="https://a.klaviyo.com">
+    <link rel="dns-prefetch" href="https://cdn.roseperl.com">
+    <link rel="dns-prefetch" href="https://cdn.tabarn.app">
+    <link rel="dns-prefetch" href="https://reconvert-cdn.com">
     {% render 'orbislabs_sitemap_noindex' %}
 
     {%- if settings.favicon != blank -%}
@@ -219,7 +222,6 @@
     {% comment %}theme-check-enable{% endcomment %}
 
   {% include 'pagefly-app-header' %}
-  {{ 'b2b-portal.css' | asset_url | stylesheet_tag }}
   {%- liquid
     assign b2b_user = false
     if customer
@@ -232,6 +234,9 @@
       assign is_auth_template = true
     endif
   -%}
+  {%- if b2b_user or template.suffix == 'b2b-catalog' -%}
+    {{ 'b2b-portal.css' | asset_url | stylesheet_tag }}
+  {%- endif -%}
 </head>
 
   <body class="template-{{ template.name | handle }} {{ template.name }}-{{ template.suffix }}{% if b2b_user %} is-b2b{% endif %}">
