@@ -24,12 +24,27 @@
     {%- if customer.b2b? and template.name == 'index' -%}
       <script>window.location.replace('/pages/b2b-catalog');</script>
     {%- endif -%}
-    <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-PNBCJ3H');</script>
+    <!-- Google Tag Manager (interaction-deferred for performance) -->
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
+      (function() {
+        var gtmLoaded = false;
+        function loadGTM() {
+          if (gtmLoaded) return;
+          gtmLoaded = true;
+          var f = document.getElementsByTagName('script')[0];
+          var j = document.createElement('script');
+          j.async = true;
+          j.src = 'https://www.googletagmanager.com/gtm.js?id=GTM-PNBCJ3H';
+          f.parentNode.insertBefore(j, f);
+        }
+        ['scroll','click','keydown','touchstart','mousemove'].forEach(function(e) {
+          window.addEventListener(e, loadGTM, {once: true, passive: true});
+        });
+        setTimeout(loadGTM, 4000);
+      })();
+    </script>
     <!-- End Google Tag Manager -->
     <script>
       window.Store = window.Store || {};
@@ -52,6 +67,15 @@
     <link rel="dns-prefetch" href="https://cdn.roseperl.com">
     <link rel="dns-prefetch" href="https://cdn.tabarn.app">
     <link rel="dns-prefetch" href="https://reconvert-cdn.com">
+    <link rel="dns-prefetch" href="https://connect.facebook.net">
+    <link rel="dns-prefetch" href="https://mpop.pxucdn.com">
+    <link rel="dns-prefetch" href="https://cdn.pushowl.com">
+    <link rel="dns-prefetch" href="https://cdnbspa.spicegems.com">
+    <link rel="dns-prefetch" href="https://s3.amazonaws.com">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://code.jquery.com">
+    <link rel="dns-prefetch" href="https://ajax.googleapis.com">
+    <link rel="dns-prefetch" href="https://static-tracking.klaviyo.com">
     {% render 'orbislabs_sitemap_noindex' %}
 
     {%- if settings.favicon != blank -%}
