@@ -163,10 +163,28 @@
     "dealer_locator_EMPfrF": {
       "type": "dealer-locator",
       "blocks": {
+        "dealer_4rgije": {
+          "type": "dealer",
+          "settings": {
+            "name": "",
+            "state": "QLD",
+            "address": "",
+            "city": "",
+            "postcode": "",
+            "phone": "",
+            "website": "",
+            "tag_platinum": false,
+            "tag_suspension": false,
+            "tag_bullbars": false,
+            "tag_shutter": false,
+            "tag_steps": false,
+            "directions_url": ""
+          }
+        },
         "dealer_8Pfxq3": {
           "type": "dealer",
           "settings": {
-            "name": "Sharp 4x4",
+            "name": "Sharp 4x4 Cockburn",
             "state": "WA",
             "address": "11b/816 Beeliar Dr, Cockburn Central WA 6164",
             "city": "Cockburn",
@@ -700,6 +718,7 @@
         }
       },
       "block_order": [
+        "dealer_4rgije",
         "dealer_8Pfxq3",
         "dealer_g7wPbG",
         "dealer_iAq9hW",
