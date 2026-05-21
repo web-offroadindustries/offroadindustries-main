@@ -279,6 +279,7 @@
         },
         "dealer_AVxJQF": {
           "type": "dealer",
+          "disabled": true,
           "settings": {
             "name": "Hunter Mechanical Karratha",
             "state": "WA",
@@ -298,6 +299,7 @@
         },
         "dealer_p9jaVz": {
           "type": "dealer",
+          "disabled": true,
           "settings": {
             "name": "Hunter Mechanical Rockingham",
             "state": "WA",
@@ -317,6 +319,7 @@
         },
         "dealer_TBCccV": {
           "type": "dealer",
+          "disabled": true,
           "settings": {
             "name": "Hunter Mechanical Kenwick",
             "state": "WA",
