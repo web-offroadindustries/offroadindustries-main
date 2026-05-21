@@ -469,6 +469,99 @@
         "open_first_faq": true
       }
     },
+    "vehicle_cards_CtwwXg": {
+      "type": "vehicle-cards",
+      "blocks": {
+        "vehicle_ie7ybh": {
+          "type": "vehicle",
+          "settings": {
+            "image": "shopify://shop_images/Toyota-Tundra--tile-ad---20260505-4-1.png",
+            "name": "toyota tundra",
+            "btn_label": "View Packages & Pricing",
+            "btn_url": "https://www.offroadindustries.com.au/pages/toyota-tundra",
+            "pdf_url": ""
+          }
+        },
+        "vehicle_d6GQJG": {
+          "type": "vehicle",
+          "settings": {
+            "image": "shopify://shop_images/Chevy-2500--tile-ad---20260505-4_7ce36d9a-1565-4823-b14a-b3e36018df11.png",
+            "name": "Chevy Silverado 2500HD",
+            "btn_label": "View Packages & Pricing",
+            "btn_url": "https://www.offroadindustries.com.au/pages/chevy-silverado-2500hd-gvm-packages",
+            "pdf_url": ""
+          }
+        },
+        "vehicle_iFbyFT": {
+          "type": "vehicle",
+          "settings": {
+            "image": "shopify://shop_images/Chevy-Silverado-1500--tile-ad---20260505-4_753e16ce-f09c-454c-8683-7edc168f4eae.png",
+            "name": "Silverado 1500 LTZ & ZR2",
+            "btn_label": "View Packages & Pricing",
+            "btn_url": "https://www.offroadindustries.com.au/pages/chevrolet-silverado-1500-gvm-package",
+            "pdf_url": ""
+          }
+        },
+        "vehicle_rrjckn": {
+          "type": "vehicle",
+          "settings": {
+            "image": "shopify://shop_images/FORD-F150---tile-ad---20260505-4-3.png",
+            "name": "Ford F150",
+            "btn_label": "View Packages & Pricing",
+            "btn_url": "https://www.offroadindustries.com.au/pages/ford-150-gvm-packages",
+            "pdf_url": ""
+          }
+        },
+        "vehicle_ERMxXT": {
+          "type": "vehicle",
+          "settings": {
+            "image": "shopify://shop_images/FORD-F150---tile-ad---20260505-4-1_9dcaeba0-a747-4777-a6b3-eb3685b3b98f.png",
+            "name": "Ford F150",
+            "btn_label": "View Packages & Pricing",
+            "btn_url": "https://www.offroadindustries.com.au/pages/ford-150-gvm-packages",
+            "pdf_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "vehicle_ie7ybh",
+        "vehicle_d6GQJG",
+        "vehicle_iFbyFT",
+        "vehicle_rrjckn",
+        "vehicle_ERMxXT"
+      ],
+      "name": "Vehicle Cards",
+      "settings": {
+        "eyebrow": "",
+        "heading": "ORI Federally Approved GVM & GCM Packages",
+        "bg_color": "#ffffff",
+        "heading_color": "#1f1f1f",
+        "heading_size": 36,
+        "eyebrow_color": "#56bdc2",
+        "eyebrow_size": 13,
+        "img_ratio": "square",
+        "img_radius": 10,
+        "card_placeholder_color": "#e5e5e5",
+        "card_bg_color": "#ffffff",
+        "card_border_color": "#e2e2e2",
+        "card_radius": 10,
+        "card_shadow": true,
+        "name_color": "#1f1f1f",
+        "name_size": 18,
+        "default_btn_label": "Explore Specs",
+        "btn_bg": "#ffffff",
+        "btn_text_color": "#1f1f1f",
+        "btn_border_color": "#1f1f1f",
+        "btn_radius": 6,
+        "btn_size": 12,
+        "container_width": 1280,
+        "padding_top": 60,
+        "padding_bottom": 60,
+        "mobile_layout": "slideshow",
+        "slideshow_animation": "fade",
+        "slideshow_interval": 4
+      }
+    },
     "177165700093d5a446": {
       "type": "apps",
       "blocks": {
@@ -510,6 +603,7 @@
     "custom_content_GQVPbH",
     "custom_content_9PAhjC",
     "collection_faq_metafields_yx9KPN",
+    "vehicle_cards_CtwwXg",
     "177165700093d5a446"
   ]
 }
