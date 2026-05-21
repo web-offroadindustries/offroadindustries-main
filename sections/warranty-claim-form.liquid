@@ -21,20 +21,68 @@
   assign form_id = 'WarrantyClaimForm-' | append: section.id
 -%}
 <style>
-  select.form-control {
+  .f-warranty-claim__card {
+    background: var(--color-background, #fff);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 12px;
+    padding: 3rem 3.5rem;
+    box-shadow: 0 4px 32px rgba(0, 0, 0, 0.07), 0 1px 4px rgba(0, 0, 0, 0.04);
+  }
+  @media (max-width: 749px) {
+    .f-warranty-claim__card {
+      padding: 1.75rem 1.25rem;
+      border-radius: 8px;
+    }
+  }
+  .f-warranty-claim__fields {
+    row-gap: 1.375rem;
+    column-gap: 1.5rem;
+  }
+  .f-warranty-claim__group-header {
+    width: 100%;
+    margin-top: 1.25rem;
+  }
+  .f-warranty-claim__group-header.is-first {
+    margin-top: 0;
+  }
+  .f-warranty-claim__group-title {
+    display: block;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-foreground-secondary, #9ca3af);
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--color-border, #e5e7eb);
+  }
+  .f-warranty-claim .form-label {
+    font-weight: 600;
+    font-size: 0.875rem;
+    margin-bottom: 0.4rem;
+    display: block;
+  }
+  .f-warranty-claim select.form-control {
     appearance: none;
     -webkit-appearance: none;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' viewBox='0 0 24 24'%3E%3Cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
-    background-position: right 0.75rem center;
+    background-position: right 0.875rem center;
     padding-right: 2.5rem;
     cursor: pointer;
   }
   .f-warranty-claim__hint {
-    font-size: 0.875rem;
+    font-size: 0.8125rem;
     color: var(--color-foreground-secondary, #6b7280);
-    margin-top: 0.25rem;
-    line-height: 1.4;
+    margin-top: 0.375rem;
+    line-height: 1.45;
+  }
+  .f-warranty-claim__submit-wrap {
+    padding-top: 0.75rem;
+  }
+  .f-warranty-claim__submit-wrap .btn {
+    min-width: 220px;
+    padding-top: 0.9rem;
+    padding-bottom: 0.9rem;
   }
 </style>
 {% render 'divider',
@@ -57,201 +105,218 @@
         data-motion="{{ animation_effect }}"
         data-motion-delay="{{ motion_delay }}"
         class="block f-warranty-claim__wrapper"
-        style="width: 860px; max-width: 100%;"
+        style="width: 900px; max-width: 100%;"
       >
-        {%- form 'contact', id: form_id -%}
-          {% render 'form-status', form: form, form_id: form_id %}
-          <input type="hidden" name="contact[name]" id="{{ form_id }}-combined-name">
+        <div class="f-warranty-claim__card">
+          {%- form 'contact', id: form_id -%}
+            {% render 'form-status', form: form, form_id: form_id %}
+            <input type="hidden" name="contact[name]" id="{{ form_id }}-combined-name">
 
-          <div class="f-flex flex-wrap f-grid--gap-medium">
+            <div class="f-flex flex-wrap f-warranty-claim__fields">
 
-            <div class="form-field w-full sm:w-1/2">
-              <label class="form-label" for="{{ form_id }}-first-name">
-                {{ section.settings.label_first_name }}
-                <span aria-hidden="true">*</span>
-              </label>
-              <input
-                class="form-control"
-                type="text"
-                id="{{ form_id }}-first-name"
-                name="contact[First Name]"
-                required
-                aria-required="true"
-                autocomplete="given-name"
-                placeholder="{{ section.settings.placeholder_first_name }}"
-                value="{% if customer %}{{ customer.first_name }}{% endif %}"
-              >
+              <!-- Personal Information -->
+              <div class="f-warranty-claim__group-header is-first">
+                <span class="f-warranty-claim__group-title">Personal Information</span>
+              </div>
+
+              <div class="form-field w-full sm:w-1/2">
+                <label class="form-label" for="{{ form_id }}-first-name">
+                  {{ section.settings.label_first_name }}
+                  <span aria-hidden="true">*</span>
+                </label>
+                <input
+                  class="form-control"
+                  type="text"
+                  id="{{ form_id }}-first-name"
+                  name="contact[First Name]"
+                  required
+                  aria-required="true"
+                  autocomplete="given-name"
+                  placeholder="{{ section.settings.placeholder_first_name }}"
+                  value="{% if customer %}{{ customer.first_name }}{% endif %}"
+                >
+              </div>
+
+              <div class="form-field w-full sm:w-1/2">
+                <label class="form-label" for="{{ form_id }}-last-name">
+                  {{ section.settings.label_last_name }}
+                  <span aria-hidden="true">*</span>
+                </label>
+                <input
+                  class="form-control"
+                  type="text"
+                  id="{{ form_id }}-last-name"
+                  name="contact[Last Name]"
+                  required
+                  aria-required="true"
+                  autocomplete="family-name"
+                  placeholder="{{ section.settings.placeholder_last_name }}"
+                  value="{% if customer %}{{ customer.last_name }}{% endif %}"
+                >
+              </div>
+
+              <div class="form-field w-full sm:w-1/2">
+                <label class="form-label" for="{{ form_id }}-email">
+                  {{ section.settings.label_email }}
+                  <span aria-hidden="true">*</span>
+                </label>
+                <input
+                  class="form-control{% if form.errors contains 'email' %} form-control--error{% endif %}"
+                  type="email"
+                  id="{{ form_id }}-email"
+                  name="contact[email]"
+                  required
+                  aria-required="true"
+                  autocomplete="email"
+                  spellcheck="false"
+                  autocapitalize="off"
+                  placeholder="{{ section.settings.placeholder_email }}"
+                  value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
+                >
+                {%- if form.errors contains 'email' -%}
+                  <p class="form-message form-message--error" id="{{ form_id }}-email-error">
+                    <span class="visually-hidden">{{ 'accessibility.error' | t }}</span>
+                    <span>{{ form.errors.translated_fields.email | capitalize }} {{ form.errors.messages.email }}</span>
+                  </p>
+                {%- endif -%}
+              </div>
+
+              <div class="form-field w-full sm:w-1/2">
+                <label class="form-label" for="{{ form_id }}-phone">
+                  {{ section.settings.label_phone }}
+                </label>
+                <input
+                  class="form-control"
+                  type="tel"
+                  id="{{ form_id }}-phone"
+                  name="contact[phone]"
+                  autocomplete="tel"
+                  pattern="[0-9\-\+\(\)\s]*"
+                  placeholder="{{ section.settings.placeholder_phone }}"
+                  value="{% if form.phone %}{{ form.phone }}{% elsif customer %}{{ customer.phone }}{% endif %}"
+                >
+              </div>
+
+              <!-- Order Details -->
+              <div class="f-warranty-claim__group-header">
+                <span class="f-warranty-claim__group-title">Order Details</span>
+              </div>
+
+              <div class="form-field w-full sm:w-1/2">
+                <label class="form-label" for="{{ form_id }}-order-number">
+                  {{ section.settings.label_order_number }}
+                  <span aria-hidden="true">*</span>
+                </label>
+                <input
+                  class="form-control"
+                  type="text"
+                  id="{{ form_id }}-order-number"
+                  name="contact[Order Number]"
+                  required
+                  aria-required="true"
+                  placeholder="{{ section.settings.placeholder_order_number }}"
+                >
+              </div>
+
+              <div class="form-field w-full sm:w-1/2">
+                <label class="form-label" for="{{ form_id }}-purchase-date">
+                  {{ section.settings.label_purchase_date }}
+                  <span aria-hidden="true">*</span>
+                </label>
+                <input
+                  class="form-control"
+                  type="date"
+                  id="{{ form_id }}-purchase-date"
+                  name="contact[Purchase Date]"
+                  required
+                  aria-required="true"
+                >
+              </div>
+
+              <div class="form-field w-full">
+                <label class="form-label" for="{{ form_id }}-product">
+                  {{ section.settings.label_product }}
+                  <span aria-hidden="true">*</span>
+                </label>
+                <input
+                  class="form-control"
+                  type="text"
+                  id="{{ form_id }}-product"
+                  name="contact[Product Name or SKU]"
+                  required
+                  aria-required="true"
+                  placeholder="{{ section.settings.placeholder_product }}"
+                >
+              </div>
+
+              <!-- Claim Details -->
+              <div class="f-warranty-claim__group-header">
+                <span class="f-warranty-claim__group-title">Claim Details</span>
+              </div>
+
+              <div class="form-field w-full">
+                <label class="form-label" for="{{ form_id }}-claim-type">
+                  {{ section.settings.label_claim_type }}
+                  <span aria-hidden="true">*</span>
+                </label>
+                <select
+                  class="form-control"
+                  id="{{ form_id }}-claim-type"
+                  name="contact[Claim Type]"
+                  required
+                  aria-required="true"
+                >
+                  <option value="" disabled selected>{{ section.settings.placeholder_claim_type }}</option>
+                  <option value="Manufacturing Defect">Manufacturing Defect</option>
+                  <option value="Shipping Damage">Shipping Damage</option>
+                  <option value="Missing Parts or Accessories">Missing Parts or Accessories</option>
+                  <option value="Incorrect Item Received">Incorrect Item Received</option>
+                  <option value="Fit or Compatibility Issue">Fit or Compatibility Issue</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+
+              <div class="form-field w-full">
+                <label class="form-label" for="{{ form_id }}-body">
+                  {{ section.settings.label_description }}
+                  <span aria-hidden="true">*</span>
+                </label>
+                <textarea
+                  class="form-control form-control--textarea"
+                  id="{{ form_id }}-body"
+                  name="contact[body]"
+                  required
+                  aria-required="true"
+                  rows="6"
+                  placeholder="{{ section.settings.placeholder_description }}"
+                >{{- form.body -}}</textarea>
+              </div>
+
+              <div class="form-field w-full">
+                <label class="form-label" for="{{ form_id }}-photo-link">
+                  {{ section.settings.label_photo_link }}
+                </label>
+                <input
+                  class="form-control"
+                  type="url"
+                  id="{{ form_id }}-photo-link"
+                  name="contact[Photo or Evidence Link]"
+                  placeholder="{{ section.settings.placeholder_photo_link }}"
+                >
+                {%- if section.settings.photo_link_hint != blank -%}
+                  <p class="f-warranty-claim__hint">{{ section.settings.photo_link_hint }}</p>
+                {%- endif -%}
+              </div>
+
+              <div class="form-field w-full flex justify-center f-warranty-claim__submit-wrap">
+                <button type="submit" class="btn {{ section.settings.button_style }}">
+                  {{ section.settings.button_label | default: 'Submit Claim' }}
+                </button>
+              </div>
+
             </div>
-
-            <div class="form-field w-full sm:w-1/2">
-              <label class="form-label" for="{{ form_id }}-last-name">
-                {{ section.settings.label_last_name }}
-                <span aria-hidden="true">*</span>
-              </label>
-              <input
-                class="form-control"
-                type="text"
-                id="{{ form_id }}-last-name"
-                name="contact[Last Name]"
-                required
-                aria-required="true"
-                autocomplete="family-name"
-                placeholder="{{ section.settings.placeholder_last_name }}"
-                value="{% if customer %}{{ customer.last_name }}{% endif %}"
-              >
-            </div>
-
-            <div class="form-field w-full sm:w-1/2">
-              <label class="form-label" for="{{ form_id }}-email">
-                {{ section.settings.label_email }}
-                <span aria-hidden="true">*</span>
-              </label>
-              <input
-                class="form-control{% if form.errors contains 'email' %} form-control--error{% endif %}"
-                type="email"
-                id="{{ form_id }}-email"
-                name="contact[email]"
-                required
-                aria-required="true"
-                autocomplete="email"
-                spellcheck="false"
-                autocapitalize="off"
-                placeholder="{{ section.settings.placeholder_email }}"
-                value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
-              >
-              {%- if form.errors contains 'email' -%}
-                <p class="form-message form-message--error" id="{{ form_id }}-email-error">
-                  <span class="visually-hidden">{{ 'accessibility.error' | t }}</span>
-                  <span>{{ form.errors.translated_fields.email | capitalize }} {{ form.errors.messages.email }}</span>
-                </p>
-              {%- endif -%}
-            </div>
-
-            <div class="form-field w-full sm:w-1/2">
-              <label class="form-label" for="{{ form_id }}-phone">
-                {{ section.settings.label_phone }}
-              </label>
-              <input
-                class="form-control"
-                type="tel"
-                id="{{ form_id }}-phone"
-                name="contact[phone]"
-                autocomplete="tel"
-                pattern="[0-9\-\+\(\)\s]*"
-                placeholder="{{ section.settings.placeholder_phone }}"
-                value="{% if form.phone %}{{ form.phone }}{% elsif customer %}{{ customer.phone }}{% endif %}"
-              >
-            </div>
-
-            <div class="form-field w-full sm:w-1/2">
-              <label class="form-label" for="{{ form_id }}-order-number">
-                {{ section.settings.label_order_number }}
-                <span aria-hidden="true">*</span>
-              </label>
-              <input
-                class="form-control"
-                type="text"
-                id="{{ form_id }}-order-number"
-                name="contact[Order Number]"
-                required
-                aria-required="true"
-                placeholder="{{ section.settings.placeholder_order_number }}"
-              >
-            </div>
-
-            <div class="form-field w-full sm:w-1/2">
-              <label class="form-label" for="{{ form_id }}-purchase-date">
-                {{ section.settings.label_purchase_date }}
-                <span aria-hidden="true">*</span>
-              </label>
-              <input
-                class="form-control"
-                type="date"
-                id="{{ form_id }}-purchase-date"
-                name="contact[Purchase Date]"
-                required
-                aria-required="true"
-              >
-            </div>
-
-            <div class="form-field w-full">
-              <label class="form-label" for="{{ form_id }}-product">
-                {{ section.settings.label_product }}
-                <span aria-hidden="true">*</span>
-              </label>
-              <input
-                class="form-control"
-                type="text"
-                id="{{ form_id }}-product"
-                name="contact[Product Name or SKU]"
-                required
-                aria-required="true"
-                placeholder="{{ section.settings.placeholder_product }}"
-              >
-            </div>
-
-            <div class="form-field w-full">
-              <label class="form-label" for="{{ form_id }}-claim-type">
-                {{ section.settings.label_claim_type }}
-                <span aria-hidden="true">*</span>
-              </label>
-              <select
-                class="form-control"
-                id="{{ form_id }}-claim-type"
-                name="contact[Claim Type]"
-                required
-                aria-required="true"
-              >
-                <option value="" disabled selected>{{ section.settings.placeholder_claim_type }}</option>
-                <option value="Manufacturing Defect">Manufacturing Defect</option>
-                <option value="Shipping Damage">Shipping Damage</option>
-                <option value="Missing Parts or Accessories">Missing Parts or Accessories</option>
-                <option value="Incorrect Item Received">Incorrect Item Received</option>
-                <option value="Fit or Compatibility Issue">Fit or Compatibility Issue</option>
-                <option value="Other">Other</option>
-              </select>
-            </div>
-
-            <div class="form-field w-full">
-              <label class="form-label" for="{{ form_id }}-body">
-                {{ section.settings.label_description }}
-                <span aria-hidden="true">*</span>
-              </label>
-              <textarea
-                class="form-control form-control--textarea"
-                id="{{ form_id }}-body"
-                name="contact[body]"
-                required
-                aria-required="true"
-                rows="5"
-                placeholder="{{ section.settings.placeholder_description }}"
-              >{{- form.body -}}</textarea>
-            </div>
-
-            <div class="form-field w-full">
-              <label class="form-label" for="{{ form_id }}-photo-link">
-                {{ section.settings.label_photo_link }}
-              </label>
-              <input
-                class="form-control"
-                type="url"
-                id="{{ form_id }}-photo-link"
-                name="contact[Photo or Evidence Link]"
-                placeholder="{{ section.settings.placeholder_photo_link }}"
-              >
-              {%- if section.settings.photo_link_hint != blank -%}
-                <p class="f-warranty-claim__hint">{{ section.settings.photo_link_hint }}</p>
-              {%- endif -%}
-            </div>
-
-            <div class="form-field w-full flex justify-center">
-              <button type="submit" class="btn {{ section.settings.button_style }}">
-                {{ section.settings.button_label | default: 'Submit Claim' }}
-              </button>
-            </div>
-
-          </div>
-        {%- endform -%}
+          {%- endform -%}
+        </div>
       </motion-element>
     </div>
   </div>
