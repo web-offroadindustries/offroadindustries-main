@@ -163,6 +163,44 @@
     "dealer_locator_EMPfrF": {
       "type": "dealer-locator",
       "blocks": {
+        "dealer_4rgije": {
+          "type": "dealer",
+          "settings": {
+            "name": "Sharp 4x4 Myaree",
+            "state": "WA",
+            "address": "94 Norma Road",
+            "city": "Myaree",
+            "postcode": "6164",
+            "phone": "(08) 6147 3929",
+            "website": "https://sharp4x4.com.au/",
+            "logo": "shopify://shop_images/image_-_2026-05-22T092935.065.png",
+            "tag_platinum": true,
+            "tag_suspension": true,
+            "tag_bullbars": true,
+            "tag_shutter": true,
+            "tag_steps": true,
+            "directions_url": ""
+          }
+        },
+        "dealer_8Pfxq3": {
+          "type": "dealer",
+          "settings": {
+            "name": "Sharp 4x4 Cockburn",
+            "state": "WA",
+            "address": "11b/816 Beeliar Dr, Cockburn Central WA 6164",
+            "city": "Cockburn",
+            "postcode": "6164",
+            "phone": "08 63927049",
+            "website": "https://sharp4x4.com.au/contact-us/",
+            "logo": "shopify://shop_images/image_-_2026-05-22T092935.065.png",
+            "tag_platinum": true,
+            "tag_suspension": true,
+            "tag_bullbars": true,
+            "tag_shutter": true,
+            "tag_steps": true,
+            "directions_url": ""
+          }
+        },
         "dealer_g7wPbG": {
           "type": "dealer",
           "settings": {
@@ -279,6 +317,7 @@
         },
         "dealer_AVxJQF": {
           "type": "dealer",
+          "disabled": true,
           "settings": {
             "name": "Hunter Mechanical Karratha",
             "state": "WA",
@@ -298,6 +337,7 @@
         },
         "dealer_p9jaVz": {
           "type": "dealer",
+          "disabled": true,
           "settings": {
             "name": "Hunter Mechanical Rockingham",
             "state": "WA",
@@ -317,6 +357,7 @@
         },
         "dealer_TBCccV": {
           "type": "dealer",
+          "disabled": true,
           "settings": {
             "name": "Hunter Mechanical Kenwick",
             "state": "WA",
@@ -678,6 +719,8 @@
         }
       },
       "block_order": [
+        "dealer_4rgije",
+        "dealer_8Pfxq3",
         "dealer_g7wPbG",
         "dealer_iAq9hW",
         "dealer_tyhdVg",

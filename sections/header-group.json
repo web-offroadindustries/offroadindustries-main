@@ -439,13 +439,13 @@
           "settings": {
             "logo": "shopify://shop_images/420_x_420px_MEGA_MENU_ICON__BANKS_POWER.jpg",
             "label": "Banks",
-            "link": "shopify://collections/banks-power-cold-air-intakes1"
+            "link": "shopify://collections/banks-power-cold-air-intakes"
           }
         },
         "brand_tile_tGDCAa": {
           "type": "brand_tile",
           "settings": {
-            "logo": "shopify://shop_images/420_x_420px_MEGA_MENU_ICON__AMP.jpg",
+            "logo": "shopify://shop_images/RT-AMP-Dual-Brand-Logo-RGB-Black.svg",
             "label": "AMP Power Steps",
             "link": "shopify://collections/amp-research-power-steps-bed-steps-bed-guard-australia"
           }
