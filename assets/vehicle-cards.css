@@ -1,5 +1,8 @@
 /* ─── Vehicle Cards Section ───────────────────────────────────────────────── */
 
+/* Dots are mobile-only; hide on desktop so JS-created elements don't leak */
+.vehicle-cards__dots { display: none; }
+
 .vehicle-cards {
   padding-top: var(--vc-pt, 60px);
   padding-bottom: var(--vc-pb, 60px);
