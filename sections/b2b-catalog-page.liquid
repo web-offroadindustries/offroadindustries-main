@@ -9,6 +9,13 @@
   if catalog_collection == blank
     assign catalog_collection = collections.all
   endif
+
+  assign bulk_enabled = section.settings.bulk_discount_enabled
+  assign bulk_qty     = section.settings.bulk_discount_qty | default: 5
+  assign bulk_pct     = section.settings.bulk_discount_pct | default: 10
+  assign columns      = section.settings.grid_columns | default: 4
+
+  assign first_variant_id = catalog_collection.products.first.selected_or_first_available_variant.id
 -%}
 
 <div
@@ -44,6 +51,56 @@
         </div>
       </div>
 
+      {%- comment -%} ── Bulk discount banner ─────────────────────────────────── {%- endcomment -%}
+      {%- if bulk_enabled -%}
+        <div class="b2b-catalog__bulk-banner">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><path d="M12 22V7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
+          <span><strong>Bulk Discount:</strong> Order {{ bulk_qty }}+ of any item and save {{ bulk_pct }}% — applied automatically at checkout.</span>
+        </div>
+      {%- endif -%}
+
+      {%- comment -%} ── Shipping estimator panel ─────────────────────────────── {%- endcomment -%}
+      <details class="b2b-catalog__shipping-panel">
+        <summary class="b2b-catalog__shipping-toggle">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+          Estimate Shipping
+          <svg class="b2b-catalog__shipping-chevron" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+        </summary>
+        <div class="b2b-catalog__shipping-body">
+          <script src="{{ 'b2b-shipping-calc.js' | asset_url }}" defer="defer"></script>
+          <b2b-shipping-calc
+            class="b2b-shipping-calc"
+            {%- if first_variant_id != blank -%}data-variant-id="{{ first_variant_id }}"{%- endif -%}
+          >
+            <h3 class="b2b-shipping-calc__title">Estimate Shipping Costs</h3>
+            <div class="b2b-shipping-calc__form">
+              <div class="b2b-shipping-calc__field">
+                <label for="B2BCatalogCountry">Country</label>
+                <select id="B2BCatalogCountry" data-country data-default="{{ settings.cart_default_country }}" class="form-control">
+                  <option value="">Select country…</option>
+                </select>
+              </div>
+              <div class="b2b-shipping-calc__field" data-province-wrapper style="display:none;">
+                <label for="B2BCatalogProvince">State / Province</label>
+                <select id="B2BCatalogProvince" data-province class="form-control"></select>
+              </div>
+              <div class="b2b-shipping-calc__field">
+                <label for="B2BCatalogZip">Postcode / ZIP</label>
+                <input id="B2BCatalogZip" type="text" data-zip class="form-control" placeholder="e.g. 2000" autocapitalize="characters">
+              </div>
+              <button type="button" data-calc-btn class="btn btn--secondary b2b-shipping-calc__btn">
+                <span>Calculate Shipping</span>
+                {%- comment -%}theme-check-disable{%- endcomment -%}
+                {{ 'icon-spinner.svg' | inline_asset_content }}
+                {%- comment -%}theme-check-enable{%- endcomment -%}
+              </button>
+            </div>
+            <div data-result class="b2b-shipping-calc__result"></div>
+            <template>{{ all_country_option_tags }}</template>
+          </b2b-shipping-calc>
+        </div>
+      </details>
+
       {%- paginate catalog_collection.products by section.settings.per_page -%}
 
         {%- comment -%} ── Stats bar ────────────────────────────────────────────── {%- endcomment -%}
@@ -55,107 +112,117 @@
           {%- endif -%}
         </div>
 
-        {%- comment -%} ── Product table ─────────────────────────────────────────── {%- endcomment -%}
+        {%- comment -%} ── Product grid ──────────────────────────────────────────── {%- endcomment -%}
         {%- if catalog_collection.products_count > 0 -%}
-          <div class="b2b-catalog__table-wrap">
-            <table class="b2b-catalog__table">
-              <thead>
-                <tr>
-                  <th class="b2b-catalog__th b2b-catalog__th--product">Product</th>
-                  <th class="b2b-catalog__th">Variant</th>
-                  <th class="b2b-catalog__th b2b-catalog__th--sku">SKU</th>
-                  <th class="b2b-catalog__th b2b-catalog__th--stock">Stock</th>
-                  <th class="b2b-catalog__th b2b-catalog__th--price">Retail Price</th>
-                  <th class="b2b-catalog__th b2b-catalog__th--price">Your Price</th>
-                </tr>
-              </thead>
-              <tbody>
-                {%- for product in catalog_collection.products -%}
-                  {%- for variant in product.variants -%}
-                    {%- liquid
-                      assign qty = variant.inventory_quantity | default: 0
+          <div class="b2b-catalog__grid" style="--b2b-cols: {{ columns }};">
 
-                      if variant.inventory_management != 'shopify' or variant.inventory_policy == 'continue'
-                        assign stock_class = 'b2b-stock-badge'
-                        assign stock_label = 'Available'
-                        assign stock_show_qty = false
-                      elsif qty > 10
-                        assign stock_class = 'b2b-stock-badge'
-                        assign stock_label = 'In Stock'
-                        assign stock_show_qty = true
-                      elsif qty > 0
-                        assign stock_class = 'b2b-stock-badge b2b-stock-badge--low'
-                        assign stock_label = 'Low Stock'
-                        assign stock_show_qty = true
-                      else
-                        assign stock_class = 'b2b-stock-badge b2b-stock-badge--out'
-                        assign stock_label = 'Out of Stock'
-                        assign stock_show_qty = false
-                      endif
+            {%- for product in catalog_collection.products -%}
+              {%- liquid
+                assign fv = product.selected_or_first_available_variant
+                assign fv_qty = fv.inventory_quantity | default: 0
+                if fv.inventory_management != 'shopify' or fv.inventory_policy == 'continue'
+                  assign fv_stock_class = 'b2b-stock-badge'
+                  assign fv_stock_label = 'Available'
+                  assign fv_stock_show_qty = false
+                elsif fv_qty > 10
+                  assign fv_stock_class = 'b2b-stock-badge'
+                  assign fv_stock_label = 'In Stock'
+                  assign fv_stock_show_qty = true
+                elsif fv_qty > 0
+                  assign fv_stock_class = 'b2b-stock-badge b2b-stock-badge--low'
+                  assign fv_stock_label = 'Low Stock'
+                  assign fv_stock_show_qty = true
+                else
+                  assign fv_stock_class = 'b2b-stock-badge b2b-stock-badge--out'
+                  assign fv_stock_label = 'Out of Stock'
+                  assign fv_stock_show_qty = false
+                endif
+                assign has_compare = false
+                if fv.compare_at_price > fv.price
+                  assign has_compare = true
+                endif
+              -%}
 
-                      assign has_retail = false
-                      if variant.compare_at_price > variant.price
-                        assign has_retail = true
-                      endif
-                    -%}
-                    <tr class="b2b-catalog__row{% if forloop.first %} b2b-catalog__row--first{% endif %}">
+              <div class="b2b-catalog__card">
 
-                      {%- if forloop.first -%}
-                        <td class="b2b-catalog__product-cell" rowspan="{{ product.variants.size }}">
-                          <a href="{{ product.url }}" class="b2b-catalog__product-link" target="_blank" rel="noopener">
-                            {%- if product.featured_image -%}
-                              <img
-                                src="{{ product.featured_image | image_url: width: 100 }}"
-                                alt="{{ product.featured_image.alt | escape }}"
-                                width="44"
-                                height="44"
-                                class="b2b-catalog__thumb"
-                                loading="lazy"
-                                decoding="async"
-                              >
-                            {%- else -%}
-                              <span class="b2b-catalog__thumb b2b-catalog__thumb--placeholder" aria-hidden="true"></span>
-                            {%- endif -%}
-                            <span class="b2b-catalog__product-name">{{ product.title }}</span>
-                          </a>
-                        </td>
-                      {%- endif -%}
+                <a href="{{ product.url }}" class="b2b-catalog__card-img-wrap" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
+                  {%- if product.featured_image -%}
+                    <img
+                      src="{{ product.featured_image | image_url: width: 500 }}"
+                      alt="{{ product.featured_image.alt | escape }}"
+                      width="500"
+                      height="375"
+                      class="b2b-catalog__card-img"
+                      loading="lazy"
+                      decoding="async"
+                    >
+                  {%- else -%}
+                    <span class="b2b-catalog__card-img-placeholder" aria-hidden="true"></span>
+                  {%- endif -%}
+                </a>
 
-                      <td class="b2b-catalog__td b2b-catalog__td--variant">
-                        {%- if variant.title == 'Default Title' -%}
-                          <span class="b2b-catalog__muted">—</span>
-                        {%- else -%}
-                          {{ variant.title }}
-                        {%- endif -%}
-                      </td>
+                <div class="b2b-catalog__card-body">
 
-                      <td class="b2b-catalog__td b2b-catalog__td--sku">
-                        {{ variant.sku | default: '—' }}
-                      </td>
+                  <a href="{{ product.url }}" class="b2b-catalog__card-title" target="_blank" rel="noopener noreferrer">{{ product.title }}</a>
 
-                      <td class="b2b-catalog__td b2b-catalog__td--stock">
-                        <span class="{{ stock_class }}">
-                          {{ stock_label }}{% if stock_show_qty %}&nbsp;({{ qty }}){% endif %}
-                        </span>
-                      </td>
+                  {%- if product.variants.size > 1 -%}
+                    <select class="b2b-catalog__variant-select form-control" aria-label="Select variant">
+                      {%- for variant in product.variants -%}
+                        {%- liquid
+                          assign v_qty = variant.inventory_quantity | default: 0
+                          if variant.inventory_management != 'shopify' or variant.inventory_policy == 'continue'
+                            assign v_sc = 'b2b-stock-badge'
+                            assign v_sl = 'Available'
+                            assign v_ss = false
+                          elsif v_qty > 10
+                            assign v_sc = 'b2b-stock-badge'
+                            assign v_sl = 'In Stock'
+                            assign v_ss = true
+                          elsif v_qty > 0
+                            assign v_sc = 'b2b-stock-badge b2b-stock-badge--low'
+                            assign v_sl = 'Low Stock'
+                            assign v_ss = true
+                          else
+                            assign v_sc = 'b2b-stock-badge b2b-stock-badge--out'
+                            assign v_sl = 'Out of Stock'
+                            assign v_ss = false
+                          endif
+                        -%}
+                        <option
+                          value="{{ variant.id }}"
+                          data-sku="{{ variant.sku | escape }}"
+                          data-price="{{ variant.price }}"
+                          data-compare="{{ variant.compare_at_price | default: 0 }}"
+                          data-stock-class="{{ v_sc }}"
+                          data-stock-label="{{ v_sl }}"
+                          data-stock-qty="{{ v_qty }}"
+                          data-stock-show="{{ v_ss }}"
+                          {%- if variant == fv %} selected{%- endif -%}
+                        >{{ variant.title }}</option>
+                      {%- endfor -%}
+                    </select>
+                  {%- endif -%}
 
-                      <td class="b2b-catalog__td b2b-catalog__td--price">
-                        {%- if has_retail -%}
-                          {{ variant.compare_at_price | money }}
-                        {%- else -%}
-                          {{ variant.price | money }}
-                        {%- endif -%}
-                      </td>
+                  <div class="b2b-catalog__card-pricing">
+                    {%- if has_compare -%}
+                      <span class="b2b-catalog__card-retail" data-retail>{{ fv.compare_at_price | money }}</span>
+                      <span class="b2b-catalog__card-retail-label">RRP</span>
+                    {%- else -%}
+                      <span class="b2b-catalog__card-retail" data-retail style="display:none;"></span>
+                      <span class="b2b-catalog__card-retail-label" style="display:none;"></span>
+                    {%- endif -%}
+                    <span class="b2b-catalog__card-price" data-price>{{ fv.price | money }}</span>
+                  </div>
 
-                      <td class="b2b-catalog__td b2b-catalog__td--price b2b-catalog__td--member">
-                        {{ variant.price | money }}
-                      </td>
+                  <div class="b2b-catalog__card-sku">SKU: <span data-sku>{{ fv.sku | default: '—' }}</span></div>
 
-                    </tr>
-                  {%- endfor -%}
-                {%- endfor -%}
-              </tbody>
-            </table>
+                  <span class="{{ fv_stock_class }}" data-stock>{{ fv_stock_label }}{%- if fv_stock_show_qty -%}&nbsp;({{ fv_qty }}){%- endif -%}</span>
+
+                </div>
+              </div>
+
+            {%- endfor -%}
+
           </div>
 
           {%- comment -%} ── Pagination ────────────────────────────────────────── {%- endcomment -%}
@@ -239,6 +306,58 @@
   </div>
 </div>
 
+<script>
+(function () {
+  function fmtMoney(cents) {
+    var fmt = window.FoxThemeSettings && window.FoxThemeSettings.money_format;
+    if (window.Shopify && window.Shopify.formatMoney) {
+      return window.Shopify.formatMoney(cents, fmt || '${{amount}} AUD');
+    }
+    return '$' + (cents / 100).toFixed(2);
+  }
+
+  function initCard(card) {
+    var sel = card.querySelector('.b2b-catalog__variant-select');
+    if (!sel) return;
+    sel.addEventListener('change', function () {
+      var opt   = sel.options[sel.selectedIndex];
+      var price   = parseInt(opt.dataset.price, 10)   || 0;
+      var compare = parseInt(opt.dataset.compare, 10) || 0;
+      var sku         = opt.dataset.sku       || '—';
+      var stockClass  = opt.dataset.stockClass;
+      var stockLabel  = opt.dataset.stockLabel;
+      var stockQty    = parseInt(opt.dataset.stockQty, 10) || 0;
+      var stockShow   = opt.dataset.stockShow === 'true';
+
+      var priceEl       = card.querySelector('[data-price]');
+      var retailEl      = card.querySelector('[data-retail]');
+      var retailLabelEl = card.querySelector('.b2b-catalog__card-retail-label');
+      var skuEl         = card.querySelector('[data-sku]');
+      var stockEl       = card.querySelector('[data-stock]');
+
+      if (priceEl) priceEl.textContent = fmtMoney(price);
+
+      if (compare > price) {
+        if (retailEl)      { retailEl.textContent = fmtMoney(compare); retailEl.style.display = ''; }
+        if (retailLabelEl) retailLabelEl.style.display = '';
+      } else {
+        if (retailEl)      retailEl.style.display = 'none';
+        if (retailLabelEl) retailLabelEl.style.display = 'none';
+      }
+
+      if (skuEl) skuEl.textContent = sku;
+
+      if (stockEl) {
+        stockEl.className   = stockClass;
+        stockEl.textContent = stockLabel + (stockShow && stockQty > 0 ? ' (' + stockQty + ')' : '');
+      }
+    });
+  }
+
+  document.querySelectorAll('.b2b-catalog__card').forEach(initCard);
+}());
+</script>
+
 {% schema %}
 {
   "name": "B2B Product Catalog",
@@ -283,6 +402,51 @@
       "max": 50,
       "step": 5,
       "default": 25
+    },
+    {
+      "type": "header",
+      "content": "Grid Layout"
+    },
+    {
+      "type": "select",
+      "id": "grid_columns",
+      "label": "Columns (desktop)",
+      "options": [
+        { "value": "3", "label": "3 columns" },
+        { "value": "4", "label": "4 columns" },
+        { "value": "5", "label": "5 columns" }
+      ],
+      "default": "4"
+    },
+    {
+      "type": "header",
+      "content": "Bulk Discount"
+    },
+    {
+      "type": "checkbox",
+      "id": "bulk_discount_enabled",
+      "label": "Show bulk discount banner",
+      "default": false,
+      "info": "Display only — set up the actual discount in Shopify Admin > Discounts"
+    },
+    {
+      "type": "range",
+      "id": "bulk_discount_qty",
+      "label": "Minimum quantity for discount",
+      "min": 2,
+      "max": 50,
+      "step": 1,
+      "default": 5
+    },
+    {
+      "type": "range",
+      "id": "bulk_discount_pct",
+      "label": "Discount percentage",
+      "min": 5,
+      "max": 50,
+      "step": 5,
+      "default": 10,
+      "unit": "%"
     },
     {
       "type": "header",
