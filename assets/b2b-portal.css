@@ -238,127 +238,6 @@
   flex-shrink: 0;
 }
 
-.b2b-catalog__table-wrap {
-  overflow-x: auto;
-  border-radius: 8px;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-}
-
-.b2b-catalog__table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 1.4rem;
-}
-
-.b2b-catalog__th {
-  text-align: left;
-  padding: 12px 16px;
-  font-weight: 600;
-  font-size: 1.15rem;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  background: rgba(0, 0, 0, 0.04);
-  border-bottom: 2px solid rgba(0, 0, 0, 0.1);
-  white-space: nowrap;
-}
-
-.b2b-catalog__th--product {
-  min-width: 220px;
-}
-
-.b2b-catalog__th--price {
-  text-align: right;
-}
-
-/* Product separator — thicker line above the first row of each product */
-.b2b-catalog__row--first td {
-  border-top: 1px solid rgba(0, 0, 0, 0.09);
-}
-
-.b2b-catalog__row--first:first-child td {
-  border-top: none;
-}
-
-/* Variant rows within same product */
-.b2b-catalog__row td {
-  border-top: 1px solid rgba(0, 0, 0, 0.04);
-}
-
-/* Zebra tint on every product group */
-.b2b-catalog__row--first:nth-child(odd) td,
-.b2b-catalog__row--first:nth-child(odd) ~ .b2b-catalog__row:not(.b2b-catalog__row--first) td {
-  background: rgba(0, 0, 0, 0.015);
-}
-
-.b2b-catalog__product-cell {
-  padding: 14px 16px;
-  vertical-align: top;
-}
-
-.b2b-catalog__product-link {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  text-decoration: none;
-  color: inherit;
-}
-
-.b2b-catalog__product-link:hover .b2b-catalog__product-name {
-  text-decoration: underline;
-}
-
-.b2b-catalog__thumb {
-  width: 44px;
-  height: 44px;
-  object-fit: cover;
-  border-radius: 6px;
-  flex-shrink: 0;
-  border: 1px solid rgba(0, 0, 0, 0.08);
-}
-
-.b2b-catalog__thumb--placeholder {
-  display: inline-block;
-  width: 44px;
-  height: 44px;
-  border-radius: 6px;
-  background: rgba(0, 0, 0, 0.07);
-  flex-shrink: 0;
-}
-
-.b2b-catalog__product-name {
-  font-weight: 600;
-  font-size: 1.4rem;
-  line-height: 1.35;
-}
-
-.b2b-catalog__td {
-  padding: 10px 16px;
-  vertical-align: middle;
-  color: rgba(0, 0, 0, 0.75);
-}
-
-.b2b-catalog__td--sku {
-  font-size: 1.2rem;
-  font-family: ui-monospace, monospace;
-  color: rgba(0, 0, 0, 0.45);
-  white-space: nowrap;
-}
-
-.b2b-catalog__td--price {
-  text-align: right;
-  white-space: nowrap;
-  font-variant-numeric: tabular-nums;
-}
-
-.b2b-catalog__td--member {
-  font-weight: 700;
-  color: #000;
-}
-
-.b2b-catalog__td--muted {
-  opacity: 0.3;
-}
-
 .b2b-catalog__empty {
   text-align: center;
   padding: 48px 20px;
@@ -443,23 +322,6 @@
   opacity: 0.4;
 }
 
-.b2b-catalog__th--sku {
-  min-width: 100px;
-}
-
-.b2b-catalog__th--stock {
-  min-width: 140px;
-}
-
-.b2b-catalog__td--variant {
-  font-size: 1.35rem;
-  color: rgba(0, 0, 0, 0.7);
-}
-
-.b2b-catalog__td--stock {
-  white-space: nowrap;
-}
-
 .b2b-catalog__muted {
   opacity: 0.3;
 }
@@ -468,6 +330,224 @@
   opacity: 0.35;
   pointer-events: none;
   cursor: default;
+}
+
+/* ── Product Grid ─────────────────────────────────────────────────────────── */
+.b2b-catalog__grid {
+  display: grid;
+  grid-template-columns: repeat(var(--b2b-cols, 4), 1fr);
+  gap: 20px;
+}
+
+@media screen and (max-width: 1199px) {
+  .b2b-catalog__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .b2b-catalog__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .b2b-catalog__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── Card ─────────────────────────────────────────────────────────────────── */
+.b2b-catalog__card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  background: #fff;
+  transition: box-shadow 0.18s, transform 0.18s;
+}
+
+@media (hover: hover) {
+  .b2b-catalog__card:hover {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+  }
+}
+
+/* ── Card image ───────────────────────────────────────────────────────────── */
+.b2b-catalog__card-img-wrap {
+  display: block;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.04);
+}
+
+.b2b-catalog__card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+@media (hover: hover) {
+  .b2b-catalog__card:hover .b2b-catalog__card-img {
+    transform: scale(1.04);
+  }
+}
+
+.b2b-catalog__card-img-placeholder {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.06);
+}
+
+/* ── Card body ────────────────────────────────────────────────────────────── */
+.b2b-catalog__card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 14px 16px 16px;
+  flex: 1;
+}
+
+/* ── Card title ───────────────────────────────────────────────────────────── */
+.b2b-catalog__card-title {
+  font-size: 1.35rem;
+  font-weight: 600;
+  line-height: 1.35;
+  color: inherit;
+  text-decoration: none;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.b2b-catalog__card-title:hover {
+  text-decoration: underline;
+}
+
+/* ── Variant select ───────────────────────────────────────────────────────── */
+.b2b-catalog__variant-select {
+  font-size: 1.3rem;
+}
+
+/* ── Pricing ──────────────────────────────────────────────────────────────── */
+.b2b-catalog__card-pricing {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 4px 8px;
+  margin-top: 4px;
+}
+
+.b2b-catalog__card-retail {
+  font-size: 1.25rem;
+  color: rgba(0, 0, 0, 0.4);
+  text-decoration: line-through;
+}
+
+.b2b-catalog__card-retail-label {
+  font-size: 1.1rem;
+  color: rgba(0, 0, 0, 0.35);
+  font-weight: 400;
+}
+
+.b2b-catalog__card-price {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #000;
+  font-variant-numeric: tabular-nums;
+  flex-basis: 100%;
+}
+
+/* ── SKU ──────────────────────────────────────────────────────────────────── */
+.b2b-catalog__card-sku {
+  font-size: 1.15rem;
+  font-family: ui-monospace, monospace;
+  color: rgba(0, 0, 0, 0.45);
+}
+
+/* ── Bulk discount banner ─────────────────────────────────────────────────── */
+.b2b-catalog__bulk-banner {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(86, 189, 194, 0.08);
+  border: 1px solid rgba(86, 189, 194, 0.3);
+  border-left: 4px solid #56bdc2;
+  border-radius: 8px;
+  padding: 14px 18px;
+  margin-bottom: 18px;
+  font-size: 1.4rem;
+  line-height: 1.5;
+}
+
+.b2b-catalog__bulk-banner svg {
+  flex-shrink: 0;
+  color: #56bdc2;
+}
+
+/* ── Shipping estimator panel ─────────────────────────────────────────────── */
+.b2b-catalog__shipping-panel {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.b2b-catalog__shipping-toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 18px;
+  font-size: 1.4rem;
+  font-weight: 600;
+  cursor: pointer;
+  list-style: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.b2b-catalog__shipping-toggle::-webkit-details-marker {
+  display: none;
+}
+
+.b2b-catalog__shipping-chevron {
+  margin-left: auto;
+  transition: transform 0.2s;
+}
+
+details[open] .b2b-catalog__shipping-chevron {
+  transform: rotate(180deg);
+}
+
+.b2b-catalog__shipping-body {
+  padding: 0 20px 20px;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.b2b-catalog__shipping-body .b2b-shipping-calc {
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  margin-top: 20px;
+}
+
+.b2b-catalog__shipping-body .b2b-shipping-calc__form {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr auto;
+  gap: 12px;
+  align-items: end;
+}
+
+@media screen and (max-width: 767px) {
+  .b2b-catalog__shipping-body .b2b-shipping-calc__form {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* Footer CTA */
@@ -490,7 +570,7 @@
   font-weight: 500;
 }
 
-/* Responsive — allow table to scroll horizontally on small screens */
+/* Responsive */
 @media screen and (max-width: 749px) {
   .b2b-catalog__header,
   .b2b-catalog__page-header {
@@ -500,12 +580,6 @@
     width: 100%;
     flex-wrap: wrap;
     gap: 12px;
-  }
-  .b2b-catalog__table-wrap {
-    margin: 0 -16px;
-    border-radius: 0;
-    border-left: none;
-    border-right: none;
   }
   .b2b-catalog__pagination {
     flex-wrap: wrap;
