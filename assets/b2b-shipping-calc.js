@@ -103,13 +103,25 @@ if (!customElements.get('b2b-shipping-calc')) {
       if (data.shipping_rates && data.shipping_rates.length > 0) {
         const fmt = window.FoxThemeSettings && window.FoxThemeSettings.money_format;
         const rows = data.shipping_rates.map(r => {
-          let price;
-          if (typeof formatMoney === 'function' && fmt) {
-            price = formatMoney(Math.round(parseFloat(r.price) * 100), fmt);
+          const priceNum  = parseFloat(r.price);
+          /* Rates above $500 or with "contact/quote/freight" in the name are
+             placeholder rates set by the merchant — show a quote prompt instead
+             of a misleading dollar amount */
+          const isQuoteRate = /contact|quote|freight/i.test(r.name) || priceNum >= 500;
+
+          let priceHtml;
+          if (isQuoteRate) {
+            priceHtml = '<span class="b2b-calc__contact-rate">Contact us for a quote</span>';
           } else {
-            price = '$' + parseFloat(r.price).toFixed(2);
+            let priceStr;
+            if (typeof formatMoney === 'function' && fmt) {
+              priceStr = formatMoney(Math.round(priceNum * 100), fmt);
+            } else {
+              priceStr = '$' + priceNum.toFixed(2);
+            }
+            priceHtml = `<strong>${priceStr}</strong>`;
           }
-          return `<div class="b2b-calc__rate"><span>${r.name}</span><strong>${price}</strong></div>`;
+          return `<div class="b2b-calc__rate"><span>${r.name}</span>${priceHtml}</div>`;
         }).join('');
         this.resultEl.innerHTML = `<div class="b2b-calc__rates">${rows}</div>`;
       } else if (data.shipping_rates) {
