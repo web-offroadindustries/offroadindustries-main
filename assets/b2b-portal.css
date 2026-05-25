@@ -550,6 +550,123 @@ details[open] .b2b-catalog__shipping-chevron {
   }
 }
 
+/* ── Shipping calc — contact-us quote rate ────────────────────────────────── */
+.b2b-calc__contact-rate {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #56bdc2;
+  font-style: italic;
+}
+
+/* ── Quantity discount widget (product page) ─────────────────────────────── */
+.b2b-qty-discount {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  padding: 18px 20px;
+  margin-top: 20px;
+}
+
+.b2b-qty-discount__title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0 0 14px;
+}
+
+.b2b-qty-discount__tiers {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+@media screen and (max-width: 639px) {
+  .b2b-qty-discount__tiers {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.b2b-qty-discount__tier {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 10px 8px;
+  background: rgba(0, 0, 0, 0.03);
+  border-radius: 6px;
+  border: 1px solid rgba(0, 0, 0, 0.07);
+  text-align: center;
+}
+
+.b2b-qty-discount__tier-range {
+  font-size: 1.2rem;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.b2b-qty-discount__tier-rate {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: rgba(0, 0, 0, 0.4);
+}
+
+.b2b-qty-discount__tier-rate--active {
+  color: #16a34a;
+}
+
+.b2b-qty-discount__label {
+  font-size: 1.3rem;
+  font-weight: 500;
+  opacity: 0.8;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.b2b-qty-discount__input-row {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.b2b-qty-discount__input {
+  width: 110px;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.b2b-qty-discount__result {
+  margin-top: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.b2b-qty-discount__result-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.4rem;
+  padding: 7px 10px;
+  background: rgba(0, 0, 0, 0.03);
+  border-radius: 5px;
+}
+
+.b2b-qty-discount__result-row--saving {
+  background: rgba(22, 163, 74, 0.07);
+  color: #16a34a;
+}
+
+.b2b-qty-discount__saving {
+  font-weight: 700;
+}
+
+.b2b-qty-discount__result-row--total {
+  background: rgba(0, 0, 0, 0.05);
+  font-weight: 600;
+}
+
+.b2b-qty-discount__result-row--total strong {
+  font-size: 1.6rem;
+}
+
 /* Footer CTA */
 .b2b-catalog__footer-cta {
   display: flex;
