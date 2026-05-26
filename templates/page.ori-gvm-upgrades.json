@@ -163,6 +163,26 @@
     "dealer_locator_EMPfrF": {
       "type": "dealer-locator",
       "blocks": {
+        "dealer_pFrnen": {
+          "type": "dealer",
+          "settings": {
+            "name": "Get Off Road 4x4 Wodonga",
+            "state": "VIC",
+            "address": "9 Osburn Street",
+            "city": "Wodonga",
+            "postcode": "3690",
+            "phone": "02 6024 3888",
+            "email": "sales@getoffroad4x4.com.au",
+            "website": "https://www.getoffroad4x4.com.au/contact-us",
+            "logo": "shopify://shop_images/image_-_2026-05-26T145509.187.png",
+            "tag_platinum": true,
+            "tag_suspension": true,
+            "tag_bullbars": true,
+            "tag_shutter": true,
+            "tag_steps": true,
+            "directions_url": ""
+          }
+        },
         "dealer_qJHiD9": {
           "type": "dealer",
           "settings": {
@@ -788,6 +808,7 @@
         }
       },
       "block_order": [
+        "dealer_pFrnen",
         "dealer_qJHiD9",
         "dealer_6eBDyh",
         "dealer_4rgije",
