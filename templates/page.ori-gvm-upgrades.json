@@ -76,7 +76,8 @@
             "image": "shopify://shop_images/Toyota-Tundra--tile-ad---20260505-4-1.png",
             "name": "toyota tundra",
             "btn_label": "View Packages & Pricing",
-            "btn_url": "https://www.offroadindustries.com.au/pages/toyota-tundra"
+            "btn_url": "https://www.offroadindustries.com.au/pages/toyota-tundra",
+            "pdf_url": "https://cdn.shopify.com/s/files/1/0165/6516/files/GVM_BROCHURE_BACK_Toyota_Tundra.pdf?v=1779415154"
           }
         },
         "vehicle_d6GQJG": {
@@ -85,7 +86,8 @@
             "image": "shopify://shop_images/Chevy-2500--tile-ad---20260505-4_7ce36d9a-1565-4823-b14a-b3e36018df11.png",
             "name": "Chevy Silverado 2500HD",
             "btn_label": "View Packages & Pricing",
-            "btn_url": "https://www.offroadindustries.com.au/pages/chevy-silverado-2500hd-gvm-packages"
+            "btn_url": "https://www.offroadindustries.com.au/pages/chevy-silverado-2500hd-gvm-packages",
+            "pdf_url": "https://cdn.shopify.com/s/files/1/0165/6516/files/GVM_BROCHURE_BACK_Chevy_Silverado_2500HD_LTZ.pdf?v=1779415154"
           }
         },
         "vehicle_iFbyFT": {
@@ -94,7 +96,8 @@
             "image": "shopify://shop_images/Chevy-Silverado-1500--tile-ad---20260505-4_753e16ce-f09c-454c-8683-7edc168f4eae.png",
             "name": "Silverado 1500 LTZ & ZR2",
             "btn_label": "View Packages & Pricing",
-            "btn_url": "https://www.offroadindustries.com.au/pages/chevrolet-silverado-1500-gvm-package"
+            "btn_url": "https://www.offroadindustries.com.au/pages/chevrolet-silverado-1500-gvm-package",
+            "pdf_url": "https://cdn.shopify.com/s/files/1/0165/6516/files/GVM_BROCHURE_BACK_Chevy_Silverado_1500.pdf?v=1779415153"
           }
         },
         "vehicle_rrjckn": {
@@ -103,7 +106,8 @@
             "image": "shopify://shop_images/FORD-F150---tile-ad---20260505-4-3.png",
             "name": "Ford F150",
             "btn_label": "View Packages & Pricing",
-            "btn_url": "https://www.offroadindustries.com.au/pages/ford-150-gvm-packages"
+            "btn_url": "https://www.offroadindustries.com.au/pages/ford-150-gvm-packages",
+            "pdf_url": "https://cdn.shopify.com/s/files/1/0165/6516/files/GVM_BROCHURE_BACK_Ford_F150.pdf?v=1779415153"
           }
         },
         "vehicle_ERMxXT": {
@@ -112,7 +116,8 @@
             "image": "shopify://shop_images/FORD-F150---tile-ad---20260505-4-1_9dcaeba0-a747-4777-a6b3-eb3685b3b98f.png",
             "name": "Ford F150",
             "btn_label": "View Packages & Pricing",
-            "btn_url": "https://www.offroadindustries.com.au/pages/ford-150-gvm-packages"
+            "btn_url": "https://www.offroadindustries.com.au/pages/ford-150-gvm-packages",
+            "pdf_url": "https://cdn.shopify.com/s/files/1/0165/6516/files/GVM_BROCHURE_BACK_Ford_F150.pdf?v=1779415153"
           }
         }
       },
@@ -158,6 +163,66 @@
     "dealer_locator_EMPfrF": {
       "type": "dealer-locator",
       "blocks": {
+        "dealer_pFrnen": {
+          "type": "dealer",
+          "settings": {
+            "name": "Get Off Road 4x4 Wodonga",
+            "state": "VIC",
+            "address": "9 Osburn Street",
+            "city": "Wodonga",
+            "postcode": "3690",
+            "phone": "02 6024 3888",
+            "email": "sales@getoffroad4x4.com.au",
+            "website": "https://www.getoffroad4x4.com.au/contact-us",
+            "logo": "shopify://shop_images/image_-_2026-05-26T145509.187.png",
+            "tag_platinum": true,
+            "tag_suspension": true,
+            "tag_bullbars": true,
+            "tag_shutter": true,
+            "tag_steps": true,
+            "directions_url": ""
+          }
+        },
+        "dealer_qJHiD9": {
+          "type": "dealer",
+          "settings": {
+            "name": "TJM Wagga Wagga",
+            "state": "NSW",
+            "address": "3 Rabaul Place",
+            "city": "Wagga Wagga",
+            "postcode": "2650",
+            "phone": "02 5954 9955",
+            "email": "sales@tjmwaggawagga.com.au",
+            "website": "https://www.tjmwaggawagga.com.au/",
+            "logo": "shopify://shop_images/Landscape_Alternative_on_Light_2.png",
+            "tag_platinum": true,
+            "tag_suspension": true,
+            "tag_bullbars": true,
+            "tag_shutter": true,
+            "tag_steps": true,
+            "directions_url": ""
+          }
+        },
+        "dealer_6eBDyh": {
+          "type": "dealer",
+          "settings": {
+            "name": "Wangaratta Offroad & Mechanical",
+            "state": "VIC",
+            "address": "37-39 Hay Ave, IC 3677",
+            "city": "Wangaratta",
+            "postcode": "3677",
+            "phone": "(03) 5721 2943",
+            "email": "info@wangarattaoffroad.com.au",
+            "website": "https://www.wangarattaoffroad.com.au/contact",
+            "logo": "shopify://shop_images/Wangaratta-OffRoad-Logo_v1_1.png",
+            "tag_platinum": true,
+            "tag_suspension": true,
+            "tag_bullbars": true,
+            "tag_shutter": true,
+            "tag_steps": true,
+            "directions_url": ""
+          }
+        },
         "dealer_4rgije": {
           "type": "dealer",
           "settings": {
@@ -743,6 +808,9 @@
         }
       },
       "block_order": [
+        "dealer_pFrnen",
+        "dealer_qJHiD9",
+        "dealer_6eBDyh",
         "dealer_4rgije",
         "dealer_8Pfxq3",
         "dealer_g7wPbG",
