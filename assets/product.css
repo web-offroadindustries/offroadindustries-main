@@ -1613,3 +1613,14 @@ product-modal .f-modal__content {
   padding-left: 7rem !important;
 }
 
+/* Sale price bigger and bolder than the compare-at retail price */
+.f-price--on-sale .f-price-item--sale {
+  font-weight: 800;
+  font-size: 1.25em;
+}
+
+.f-price--on-sale .f-price-item--regular {
+  font-size: 0.8em;
+  font-weight: 400;
+}
+
