@@ -1,7 +1,7 @@
 {%- liquid
   assign container = section.settings.container | default: 'container'
   assign authorized = false
-  if customer.b2b?
+  if customer.b2b? or customer.tags contains 'b2b'
     assign authorized = true
   endif
 
@@ -268,15 +268,8 @@
 
     {%- elsif customer -%}
 
-      {%- comment -%} Logged in but not a B2B company contact {%- endcomment -%}
-      <div class="b2b-pending">
-        <h1 class="b2b-pending__title">Access Restricted</h1>
-        <p class="b2b-pending__body">
-          This catalog is only available to approved wholesale accounts.
-          Contact us to apply for a wholesale account.
-        </p>
-        <a href="{{ section.settings.cta_link | default: '/pages/contact' }}" class="btn btn--primary">Contact Us</a>
-      </div>
+      {%- comment -%} Logged in but not a B2B account — send to account dashboard {%- endcomment -%}
+      <script>window.location.replace('/account');</script>
 
     {%- else -%}
 
@@ -285,14 +278,9 @@
         <h1 class="b2b-pending__title">{{ section.settings.gate_heading }}</h1>
         <p class="b2b-pending__body">{{ section.settings.gate_body }}</p>
         <a
-          href="{{ routes.account_login_url }}?return_url=/pages/b2b-catalog"
+          href="{{ routes.account_login_url }}?return_to=/pages/b2b-catalog"
           class="btn btn--primary"
-          onclick="try{localStorage.setItem('b2b_redirect',JSON.stringify({url:'/pages/b2b-catalog',ts:Date.now()}))}catch(e){}"
         >{{ section.settings.gate_btn_label }}</a>
-        <div class="b2b-pending__login-tip">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="b2b-pending__tip-icon"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
-          <p>After logging in, click the <strong>ORI Offroad Industries logo</strong> at the top of the Shopify portal to return to the store and view the product catalog.</p>
-        </div>
         {%- if section.settings.cta_link != blank -%}
           <a href="{{ section.settings.cta_link }}" class="b2b-pending__link">Not a wholesale customer? Contact us to apply.</a>
         {%- endif -%}
