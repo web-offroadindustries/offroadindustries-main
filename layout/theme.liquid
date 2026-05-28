@@ -304,6 +304,15 @@
             window.location.replace(d2.url);
           }
         } catch (e) {}
+        // Popup login handshake: if a b2b-catalog popup opened this page while logged in, signal it
+        {%- if customer -%}
+          try {
+            if (localStorage.getItem('b2b_login_popup_pending')) {
+              localStorage.removeItem('b2b_login_popup_pending');
+              localStorage.setItem('b2b_login_popup_done', '1');
+            }
+          } catch (_p) {}
+        {%- endif -%}
       })();
     </script>
     {% comment %} Custom metafield for body tag like GTag tracking {% endcomment %}

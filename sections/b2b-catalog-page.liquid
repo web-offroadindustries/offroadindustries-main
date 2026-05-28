@@ -289,8 +289,6 @@
         try { localStorage.setItem('b2b_redirect', JSON.stringify({ url: '/pages/b2b-catalog', ts: Date.now() })); } catch (e) {}
       </script>
       <script>
-        /* Popup login: opens Shopify login in a centered popup and auto-reloads this page
-           once the OAuth callback returns to the store domain (session is established). */
         (function () {
           var btn = document.querySelector('.b2b-pending .btn--primary');
           if (!btn) return;
@@ -309,35 +307,54 @@
             if (!popup || popup.closed) return; // popup blocked — fall back to normal navigation
 
             e.preventDefault();
-            btn.textContent = 'Opening sign‑in…';
+            btn.textContent = 'Opening sign-in...';
             btn.style.opacity = '0.65';
             btn.style.pointerEvents = 'none';
+
+            // Flag so theme.liquid can signal us if popup lands on any store page while logged in
+            try { localStorage.setItem('b2b_login_popup_pending', Date.now().toString()); } catch(_) {}
+
+            // Fallback hint after 5s in case popup stays open post-login
+            var hintTimer = setTimeout(function () {
+              btn.textContent = 'After signing in, close that window to continue';
+              btn.style.opacity = '1';
+            }, 5000);
+
+            // Storage event fires when theme.liquid detects a logged-in session in the popup
+            function onStorage(ev) {
+              if (ev.key === 'b2b_login_popup_done') { cleanup(); finish(); }
+            }
+            window.addEventListener('storage', onStorage);
 
             var passedStore = false;
             var start = Date.now();
 
+            // Poll at 10ms — OAuth callback URL is briefly store-domain before the 302;
+            // 100ms was too slow and missed it consistently.
             var timer = setInterval(function () {
-              if (Date.now() - start > 10 * 60 * 1000) { clearInterval(timer); return; }
-
+              if (Date.now() - start > 10 * 60 * 1000) { cleanup(); return; }
+              if (popup.closed) { cleanup(); finish(); return; }
               try {
                 if (popup.location.origin === window.location.origin) {
-                  passedStore = true; // OAuth callback is on store domain — session being set
+                  passedStore = true;
                   return;
                 }
               } catch (_) {
-                // Cross-origin: popup is on shopify.com
-                if (passedStore) {
-                  // Callback completed — session cookie is now set on store domain
-                  finish();
-                  return;
-                }
+                if (passedStore) { cleanup(); finish(); return; }
               }
+            }, 10);
 
-              if (popup.closed) finish(); // User closed the popup manually
-            }, 100);
+            function cleanup() {
+              clearInterval(timer);
+              clearTimeout(hintTimer);
+              window.removeEventListener('storage', onStorage);
+              try {
+                localStorage.removeItem('b2b_login_popup_pending');
+                localStorage.removeItem('b2b_login_popup_done');
+              } catch(_) {}
+            }
 
             function finish() {
-              clearInterval(timer);
               try { popup.close(); } catch (_) {}
               window.location.reload();
             }
