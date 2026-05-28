@@ -288,6 +288,62 @@
       <script>
         try { localStorage.setItem('b2b_redirect', JSON.stringify({ url: '/pages/b2b-catalog', ts: Date.now() })); } catch (e) {}
       </script>
+      <script>
+        /* Popup login: opens Shopify login in a centered popup and auto-reloads this page
+           once the OAuth callback returns to the store domain (session is established). */
+        (function () {
+          var btn = document.querySelector('.b2b-pending .btn--primary');
+          if (!btn) return;
+
+          btn.addEventListener('click', function (e) {
+            var url = btn.getAttribute('href');
+            var w = 560, h = 680;
+            var left = Math.round((screen.width  - w) / 2);
+            var top  = Math.round((screen.height - h) / 2);
+            var popup = window.open(
+              url,
+              'b2b_login',
+              'width=' + w + ',height=' + h + ',left=' + left + ',top=' + top + ',resizable=yes,scrollbars=yes'
+            );
+
+            if (!popup || popup.closed) return; // popup blocked — fall back to normal navigation
+
+            e.preventDefault();
+            btn.textContent = 'Opening sign‑in…';
+            btn.style.opacity = '0.65';
+            btn.style.pointerEvents = 'none';
+
+            var passedStore = false;
+            var start = Date.now();
+
+            var timer = setInterval(function () {
+              if (Date.now() - start > 10 * 60 * 1000) { clearInterval(timer); return; }
+
+              try {
+                if (popup.location.origin === window.location.origin) {
+                  passedStore = true; // OAuth callback is on store domain — session being set
+                  return;
+                }
+              } catch (_) {
+                // Cross-origin: popup is on shopify.com
+                if (passedStore) {
+                  // Callback completed — session cookie is now set on store domain
+                  finish();
+                  return;
+                }
+              }
+
+              if (popup.closed) finish(); // User closed the popup manually
+            }, 100);
+
+            function finish() {
+              clearInterval(timer);
+              try { popup.close(); } catch (_) {}
+              window.location.reload();
+            }
+          });
+        }());
+      </script>
 
     {%- endif -%}
 
