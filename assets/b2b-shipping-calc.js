@@ -56,6 +56,7 @@ if (!customElements.get('b2b-shipping-calc')) {
       this.resultEl.innerHTML = '';
 
       let itemKey = null;
+      let cartPopulated = false;
       try {
         if (this.variantId) {
           const addResp = await fetch('/cart/add.js', {
@@ -63,8 +64,10 @@ if (!customElements.get('b2b-shipping-calc')) {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ id: parseInt(this.variantId), quantity: 1 })
           });
-          const addData = await addResp.json();
-          if (addData.key) itemKey = addData.key;
+          if (addResp.ok) {
+            const addData = await addResp.json();
+            if (addData.key) { itemKey = addData.key; cartPopulated = true; }
+          }
         }
 
         const qs = new URLSearchParams({
@@ -83,7 +86,7 @@ if (!customElements.get('b2b-shipping-calc')) {
           });
         }
 
-        this._showRates(ratesData);
+        this._showRates(ratesData, cartPopulated);
       } catch(err) {
         this.resultEl.innerHTML = '<p class="b2b-calc__error">Unable to calculate shipping. Please try again.</p>';
         if (itemKey) {
@@ -99,19 +102,20 @@ if (!customElements.get('b2b-shipping-calc')) {
       }
     }
 
-    _showRates(data) {
+    _showRates(data, cartPopulated) {
       if (data.shipping_rates && data.shipping_rates.length > 0) {
         const fmt = window.FoxThemeSettings && window.FoxThemeSettings.money_format;
+        const allZero = data.shipping_rates.every(r => parseFloat(r.price) === 0);
+
         const rows = data.shipping_rates.map(r => {
           const priceNum  = parseFloat(r.price);
-          /* Rates above $500 or with "contact/quote/freight" in the name are
-             placeholder rates set by the merchant — show a quote prompt instead
-             of a misleading dollar amount */
           const isQuoteRate = /contact|quote|freight/i.test(r.name) || priceNum >= 500;
 
           let priceHtml;
           if (isQuoteRate) {
             priceHtml = '<span class="b2b-calc__contact-rate">Contact us for a quote</span>';
+          } else if (priceNum === 0) {
+            priceHtml = '<strong>Free</strong>';
           } else {
             let priceStr;
             if (typeof formatMoney === 'function' && fmt) {
@@ -123,7 +127,14 @@ if (!customElements.get('b2b-shipping-calc')) {
           }
           return `<div class="b2b-calc__rate"><span>${r.name}</span>${priceHtml}</div>`;
         }).join('');
-        this.resultEl.innerHTML = `<div class="b2b-calc__rates">${rows}</div>`;
+
+        // If all rates came back as $0 and we couldn't add an item to cart, the rates
+        // were calculated against an empty cart (no weight/value) and are unreliable.
+        const note = (allZero && !cartPopulated)
+          ? '<p class="b2b-calc__note">Freight costs for wholesale orders vary by size and destination. Please <a href="/pages/contact">contact us</a> for an accurate quote.</p>'
+          : '';
+
+        this.resultEl.innerHTML = `<div class="b2b-calc__rates">${rows}</div>${note}`;
       } else if (data.shipping_rates) {
         this.resultEl.innerHTML = '<p class="b2b-calc__no-rates">No shipping options available for this address.</p>';
       } else {
