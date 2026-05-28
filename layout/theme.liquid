@@ -264,6 +264,9 @@
   {%- if b2b_user and template contains 'customers/account' -%}
     <script>window.location.replace('/pages/b2b-catalog');</script>
   {%- endif -%}
+  {%- if b2b_user and template.name == 'index' -%}
+    <script>window.location.replace('/pages/b2b-catalog');</script>
+  {%- endif -%}
 </head>
 
   <body class="template-{{ template.name | handle }} {{ template.name }}-{{ template.suffix }}{% if b2b_user %} is-b2b{% endif %}">
