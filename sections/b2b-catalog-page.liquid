@@ -15,7 +15,11 @@
   assign bulk_pct     = section.settings.bulk_discount_pct | default: 10
   assign columns      = section.settings.grid_columns | default: 4
 
-  assign first_variant_id = catalog_collection.products.first.selected_or_first_available_variant.id
+  if section.settings.shipping_calc_variant_id != blank
+    assign first_variant_id = section.settings.shipping_calc_variant_id
+  else
+    assign first_variant_id = catalog_collection.products.first.selected_or_first_available_variant.id
+  endif
 -%}
 
 <div
@@ -508,6 +512,16 @@
       "step": 5,
       "default": 10,
       "unit": "%"
+    },
+    {
+      "type": "header",
+      "content": "Shipping Estimator"
+    },
+    {
+      "type": "text",
+      "id": "shipping_calc_variant_id",
+      "label": "Reference variant ID",
+      "info": "Variant ID of a product registered in Machship. This item is temporarily added to cart when calculating rates, then removed. Find it in Shopify Admin → Products → [product] → click a variant → copy the number at the end of the URL (/variants/XXXXXXXXXX). Leave blank to use the first product in the catalog."
     },
     {
       "type": "header",
