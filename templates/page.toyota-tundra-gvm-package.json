@@ -852,6 +852,22 @@
             "value_10": ""
           }
         },
+        "row_fGNVFp": {
+          "type": "row",
+          "settings": {
+            "label": "",
+            "value_1": "ORI-141SHD 300- 500 KG",
+            "value_2": "",
+            "value_3": "",
+            "value_4": "✔",
+            "value_5": "✔",
+            "value_6": "",
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
+          }
+        },
         "row_DDNBEa": {
           "type": "row",
           "settings": {
@@ -912,6 +928,7 @@
         "row_MQ9Uxh",
         "row_ViUDYJ",
         "row_pMzpPk",
+        "row_fGNVFp",
         "row_DDNBEa",
         "row_eqP6qp",
         "row_fQkXVY"
