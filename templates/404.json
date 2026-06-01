@@ -35,6 +35,7 @@
         "image_AcJhpt",
         "image_TcrEXK"
       ],
+      "disabled": true,
       "name": "Gone offroad page cannot be found",
       "settings": {
         "container": "container",
