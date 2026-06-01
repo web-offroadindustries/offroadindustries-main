@@ -55,47 +55,68 @@ if (!customElements.get('b2b-shipping-calc')) {
       this.calcBtn.classList.add('btn--loading');
       this.resultEl.innerHTML = '';
 
-      let itemKey = null;
-      let cartPopulated = false;
-      try {
-        if (this.variantId) {
-          const addResp = await fetch('/cart/add.js', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ id: parseInt(this.variantId), quantity: 1 })
-          });
-          if (addResp.ok) {
-            const addData = await addResp.json();
-            if (addData.key) { itemKey = addData.key; cartPopulated = true; }
-          }
-        }
+      // Ordered list of variant IDs to try. The product's own variant goes first;
+      // window.B2BShippingRefVariant (set by the section or theme) is a fallback for
+      // cases where the product variant isn't registered in the carrier service.
+      const refVariant = window.B2BShippingRefVariant ? String(window.B2BShippingRefVariant) : null;
+      const variantsToTry = [];
+      if (this.variantId) variantsToTry.push(String(this.variantId));
+      if (refVariant && refVariant !== String(this.variantId)) variantsToTry.push(refVariant);
 
-        const qs = new URLSearchParams({
-          'shipping_address[zip]': zip,
-          'shipping_address[country]': country,
-          'shipping_address[province]': province
+      const qs = new URLSearchParams({
+        'shipping_address[zip]': zip,
+        'shipping_address[country]': country,
+        'shipping_address[province]': province
+      });
+
+      const removeFromCart = (key) => {
+        if (!key) return Promise.resolve();
+        return fetch('/cart/change.js', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ id: key, quantity: 0 })
+        }).catch(() => {});
+      };
+
+      const _isUselessRates = (data) => {
+        if (!data.shipping_rates || data.shipping_rates.length === 0) return true;
+        return data.shipping_rates.every(r => {
+          const p = parseFloat(r.price);
+          return p === 0 && /contact|quote|freight/i.test(r.name);
         });
-        const ratesResp = await fetch(`/cart/shipping_rates.json?${qs}`);
-        const ratesData = await ratesResp.json();
+      };
 
-        if (itemKey) {
-          await fetch('/cart/change.js', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ id: itemKey, quantity: 0 })
-          });
+      try {
+        let ratesData = null;
+        let cartPopulated = false;
+
+        for (const vid of variantsToTry) {
+          let itemKey = null;
+          try {
+            const addResp = await fetch('/cart/add.js', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ id: parseInt(vid), quantity: 1 })
+            });
+            if (addResp.ok) {
+              const addData = await addResp.json();
+              if (addData.key) { itemKey = addData.key; cartPopulated = true; }
+            }
+          } catch(_) {}
+
+          const resp = await fetch(`/cart/shipping_rates.json?${qs}`);
+          const data = await resp.json();
+          await removeFromCart(itemKey);
+
+          ratesData = data;
+          // If we got real rates, stop trying further variants
+          if (!_isUselessRates(data)) break;
+          cartPopulated = !!itemKey;
         }
 
         this._showRates(ratesData, cartPopulated);
       } catch(err) {
         this.resultEl.innerHTML = '<p class="b2b-calc__error">Unable to calculate shipping. Please try again.</p>';
-        if (itemKey) {
-          fetch('/cart/change.js', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ id: itemKey, quantity: 0 })
-          }).catch(() => {});
-        }
       } finally {
         this.calcBtn.disabled = false;
         this.calcBtn.classList.remove('btn--loading');
