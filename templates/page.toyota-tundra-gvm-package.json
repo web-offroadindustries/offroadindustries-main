@@ -807,7 +807,7 @@
         "row_MQ9Uxh": {
           "type": "row",
           "settings": {
-            "label": "Husky Extenda Flare (Optional for 35\" Tyres)",
+            "label": "Husky Extenda Flare",
             "value_1": "2803926",
             "value_2": "",
             "value_3": "",
@@ -824,7 +824,7 @@
           "type": "row",
           "settings": {
             "label": "Rear Coil Options",
-            "value_1": "KTRR-141H 100- 250 KG",
+            "value_1": "ORI-141H 100- 250 KG",
             "value_2": "✔",
             "value_3": "✔",
             "value_4": "",
@@ -840,7 +840,23 @@
           "type": "row",
           "settings": {
             "label": "",
-            "value_1": "KTRR-141HHD 300- 500 KG",
+            "value_1": "ORI-141HHD 300- 500 KG",
+            "value_2": "",
+            "value_3": "",
+            "value_4": "✔",
+            "value_5": "✔",
+            "value_6": "",
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
+          }
+        },
+        "row_fGNVFp": {
+          "type": "row",
+          "settings": {
+            "label": "",
+            "value_1": "ORI-141SHD 300- 500 KG",
             "value_2": "",
             "value_3": "",
             "value_4": "✔",
@@ -870,6 +886,7 @@
         },
         "row_eqP6qp": {
           "type": "row",
+          "disabled": true,
           "settings": {
             "label": "ORI Mud Flap Solution Kit",
             "value_1": "ORI-Tun-Mudflap",
@@ -911,6 +928,7 @@
         "row_MQ9Uxh",
         "row_ViUDYJ",
         "row_pMzpPk",
+        "row_fGNVFp",
         "row_DDNBEa",
         "row_eqP6qp",
         "row_fQkXVY"

@@ -96,7 +96,7 @@
         "@media (min-width: 768px) {.f-slideshow__content {max-width: 42rem; }}"
       ],
       "settings": {
-        "container": "container-fluid",
+        "container": "container-full",
         "slideshow_height": "adapt",
         "show_dots": true,
         "show_nav": true,
