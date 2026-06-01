@@ -282,7 +282,7 @@
         <h1 class="b2b-pending__title">{{ section.settings.gate_heading }}</h1>
         <p class="b2b-pending__body">{{ section.settings.gate_body }}</p>
         <a
-          href="{{ routes.account_login_url }}?return_to=/pages/b2b-catalog"
+          href="{{ routes.account_login_url }}?return_url=/pages/b2b-catalog"
           class="btn btn--primary"
         >{{ section.settings.gate_btn_label }}</a>
         {%- if section.settings.cta_link != blank -%}
@@ -330,23 +330,19 @@
             }
             window.addEventListener('storage', onStorage);
 
-            var passedStore = false;
             var start = Date.now();
 
-            // Poll at 10ms — OAuth callback URL is briefly store-domain before the 302;
-            // 100ms was too slow and missed it consistently.
+            // Poll every 500ms — only to detect popup.closed.
+            // The passedStore cross-origin trick was removed: on new Customer Accounts the
+            // popup briefly touches the store domain during the OAuth redirect (before going
+            // to shopify.com), which set passedStore=true and then fired finish() immediately
+            // when the popup crossed to shopify.com — clearing b2b_login_popup_pending before
+            // the user even authenticated. Primary completion signal is now the localStorage
+            // handshake set by theme.liquid when the popup returns to the store while logged in.
             var timer = setInterval(function () {
               if (Date.now() - start > 10 * 60 * 1000) { cleanup(); return; }
               if (popup.closed) { cleanup(); finish(); return; }
-              try {
-                if (popup.location.origin === window.location.origin) {
-                  passedStore = true;
-                  return;
-                }
-              } catch (_) {
-                if (passedStore) { cleanup(); finish(); return; }
-              }
-            }, 10);
+            }, 500);
 
             function cleanup() {
               clearInterval(timer);

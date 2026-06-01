@@ -109,7 +109,7 @@ if (!customElements.get('b2b-shipping-calc')) {
 
         const rows = data.shipping_rates.map(r => {
           const priceNum  = parseFloat(r.price);
-          const isQuoteRate = /contact|quote|freight/i.test(r.name) || priceNum >= 500;
+          const isQuoteRate = (priceNum === 0 && /contact|quote|freight/i.test(r.name)) || priceNum >= 500;
 
           let priceHtml;
           if (isQuoteRate) {
