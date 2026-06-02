@@ -688,6 +688,7 @@
         },
         "dealer_NdTYFF": {
           "type": "dealer",
+          "disabled": true,
           "settings": {
             "name": "Horse Power Factory",
             "state": "VIC",
