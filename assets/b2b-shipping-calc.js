@@ -5,6 +5,7 @@ if (!customElements.get('b2b-shipping-calc')) {
       this.countryEl   = this.querySelector('[data-country]');
       this.provinceEl  = this.querySelector('[data-province]');
       this.provinceWrap = this.querySelector('[data-province-wrapper]');
+      this.cityEl      = this.querySelector('[data-city]');
       this.zipEl       = this.querySelector('[data-zip]');
       this.calcBtn     = this.querySelector('[data-calc-btn]');
       this.resultEl    = this.querySelector('[data-result]');
@@ -44,6 +45,7 @@ if (!customElements.get('b2b-shipping-calc')) {
       e.preventDefault();
       const country  = this.countryEl.value;
       const province = this.provinceEl.value || '';
+      const city     = this.cityEl ? this.cityEl.value.trim() : '';
       const zip      = this.zipEl.value.trim();
 
       if (!country || !zip) {
@@ -71,6 +73,7 @@ if (!customElements.get('b2b-shipping-calc')) {
 
         const qs = new URLSearchParams({
           'shipping_address[zip]': zip,
+          'shipping_address[city]': city,
           'shipping_address[country]': country,
           'shipping_address[province]': province
         });
