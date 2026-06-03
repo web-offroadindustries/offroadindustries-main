@@ -24,6 +24,17 @@
     </div>
 
     <div class="b2b-shipping-calc__field">
+      <label for="B2BCity-{{ section.id }}">Suburb / City</label>
+      <input
+        id="B2BCity-{{ section.id }}"
+        type="text"
+        data-city
+        class="form-control"
+        placeholder="e.g. Melbourne"
+      >
+    </div>
+
+    <div class="b2b-shipping-calc__field">
       <label for="B2BZip-{{ section.id }}">Postcode / ZIP</label>
       <input
         id="B2BZip-{{ section.id }}"
