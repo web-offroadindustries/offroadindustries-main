@@ -56,30 +56,17 @@ if (!customElements.get('b2b-shipping-calc')) {
       this.resultEl.innerHTML = '';
 
       let itemKey = null;
-      let debugLines = [];
       try {
         if (this.variantId) {
-          debugLines.push('Variant ID: ' + this.variantId);
           const addResp = await fetch('/cart/add.js', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ id: parseInt(this.variantId), quantity: 1 })
           });
-          debugLines.push('Cart add status: ' + addResp.status);
           if (addResp.ok) {
             const addData = await addResp.json();
-            if (addData.key) {
-              itemKey = addData.key;
-              debugLines.push('Cart add OK, key: ' + itemKey);
-            } else {
-              debugLines.push('Cart add OK but no key. Response: ' + JSON.stringify(addData).slice(0, 200));
-            }
-          } else {
-            const errData = await addResp.json().catch(() => ({}));
-            debugLines.push('Cart add FAILED: ' + (errData.description || errData.message || JSON.stringify(errData).slice(0, 200)));
+            if (addData.key) itemKey = addData.key;
           }
-        } else {
-          debugLines.push('No variant ID set on element');
         }
 
         const qs = new URLSearchParams({
@@ -89,7 +76,6 @@ if (!customElements.get('b2b-shipping-calc')) {
         });
         const ratesResp = await fetch(`/cart/shipping_rates.json?${qs}`);
         const ratesData = await ratesResp.json();
-        debugLines.push('Rates response: ' + JSON.stringify(ratesData).slice(0, 300));
 
         if (itemKey) {
           await fetch('/cart/change.js', {
@@ -99,10 +85,9 @@ if (!customElements.get('b2b-shipping-calc')) {
           }).catch(() => {});
         }
 
-        this._showRates(ratesData, debugLines);
+        this._showRates(ratesData);
       } catch(err) {
-        debugLines.push('JS error: ' + err.message);
-        this.resultEl.innerHTML = '<p class="b2b-calc__error">Unable to calculate shipping. Please try again.</p><pre style="font-size:11px;margin-top:8px;white-space:pre-wrap;color:#666;">' + debugLines.join('\n') + '</pre>';
+        this.resultEl.innerHTML = '<p class="b2b-calc__error">Unable to calculate shipping. Please try again.</p>';
         if (itemKey) {
           fetch('/cart/change.js', {
             method: 'POST',
@@ -116,8 +101,7 @@ if (!customElements.get('b2b-shipping-calc')) {
       }
     }
 
-    _showRates(data, debugLines) {
-      const debugHtml = (debugLines && debugLines.length) ? '<pre style="font-size:11px;margin-top:8px;white-space:pre-wrap;color:#888;border-top:1px solid #eee;padding-top:8px;">' + debugLines.join('\n') + '</pre>' : '';
+    _showRates(data) {
       if (data.shipping_rates && data.shipping_rates.length > 0) {
         const fmt = window.FoxThemeSettings && window.FoxThemeSettings.money_format;
 
@@ -142,15 +126,15 @@ if (!customElements.get('b2b-shipping-calc')) {
             }
             return `<div class="b2b-calc__rate"><span>${r.name}</span>${priceHtml}</div>`;
           }).join('');
-          this.resultEl.innerHTML = `<div class="b2b-calc__rates">${rows}</div>` + debugHtml;
+          this.resultEl.innerHTML = `<div class="b2b-calc__rates">${rows}</div>`;
         } else {
-          this.resultEl.innerHTML = '<p class="b2b-calc__no-rates">Shipping for this product must be quoted. Please <a href="/pages/contact">contact us</a> for a freight estimate.</p>' + debugHtml;
+          this.resultEl.innerHTML = '<p class="b2b-calc__no-rates">Shipping for this product must be quoted. Please <a href="/pages/contact">contact us</a> for a freight estimate.</p>';
         }
       } else if (data.shipping_rates) {
-        this.resultEl.innerHTML = '<p class="b2b-calc__no-rates">No shipping options available for this address.</p>' + debugHtml;
+        this.resultEl.innerHTML = '<p class="b2b-calc__no-rates">No shipping options available for this address.</p>';
       } else {
         const msgs = Object.values(data).flat().join(' ');
-        this.resultEl.innerHTML = `<p class="b2b-calc__error">${msgs || 'Could not retrieve rates.'}</p>` + debugHtml;
+        this.resultEl.innerHTML = `<p class="b2b-calc__error">${msgs || 'Could not retrieve rates.'}</p>`;
       }
     }
   });
