@@ -261,9 +261,6 @@
             var left = Math.round((screen.width  - w) / 2);
             var top  = Math.round((screen.height - h) / 2);
 
-            // Set flag BEFORE opening the popup — the popup's theme.liquid may execute
-            // very quickly (especially via Shopify's OAuth redirect back to the store)
-            // and must find this flag already set.
             try { localStorage.setItem('b2b_login_popup_pending', Date.now().toString()); } catch(_) {}
 
             var popup = window.open(
@@ -273,7 +270,6 @@
             );
 
             if (!popup || popup.closed) {
-              // Popup was blocked — clean up flag and fall back to normal navigation
               try { localStorage.removeItem('b2b_login_popup_pending'); } catch(_) {}
               return;
             }
@@ -283,7 +279,6 @@
             btn.style.opacity = '0.65';
             btn.style.pointerEvents = 'none';
 
-            // Add a visible "already signed in?" link the user can click manually
             var alreadyLink = document.createElement('a');
             alreadyLink.href = '#';
             alreadyLink.textContent = 'Already signed in? Click here to load the catalog';
@@ -295,14 +290,7 @@
             });
             btn.parentNode.insertBefore(alreadyLink, btn.nextSibling);
 
-            // Storage event fires when theme.liquid detects a logged-in session
-            function onStorage(ev) {
-              if (ev.key === 'b2b_login_popup_done') { cleanup(); finish(); }
-            }
-            window.addEventListener('storage', onStorage);
-
-            // postMessage fires when the popup lands on any store page while logged in.
-            // More reliable than storage events for new Customer Accounts (OAuth flow).
+            // postMessage — fires immediately if popup lands on store domain while logged in
             function onMessage(ev) {
               if (ev.origin === window.location.origin && ev.data === 'b2b_login_complete') {
                 cleanup(); finish();
@@ -310,48 +298,65 @@
             }
             window.addEventListener('message', onMessage);
 
-            var start = Date.now();
-            var checkFrame = null;
+            // localStorage storage event — fired by theme.liquid when it detects the session
+            function onStorage(ev) {
+              if (ev.key === 'b2b_login_popup_done') { cleanup(); finish(); }
+            }
+            window.addEventListener('storage', onStorage);
 
-            // Poll every 500ms for popup.closed
-            var timer = setInterval(function () {
+            var start = Date.now();
+            var sessionConfirmed = false;
+
+            // Poll popup.closed every 500ms
+            var closedTimer = setInterval(function () {
               if (Date.now() - start > 10 * 60 * 1000) { cleanup(); return; }
-              if (popup.closed) { cleanup(); finish(); return; }
+              if (popup.closed) { cleanup(); finish(); }
             }, 500);
 
-            // Every 4s load a hidden same-origin iframe with ?b2b_check=1.
-            // theme.liquid detects the session server-side and fires the localStorage
-            // handshake without consuming b2b_redirect. Works for new Customer Accounts
-            // (shopify.com OAuth) where the popup never returns to the store domain.
-            var frameTimer = setInterval(function () {
-              if (checkFrame) {
-                try { checkFrame.parentNode.removeChild(checkFrame); } catch(_) {}
-                checkFrame = null;
-              }
-              checkFrame = document.createElement('iframe');
-              checkFrame.src = '/?b2b_check=1&_=' + Date.now();
-              checkFrame.setAttribute('aria-hidden', 'true');
-              checkFrame.setAttribute('tabindex', '-1');
-              checkFrame.style.cssText = 'position:absolute;width:1px;height:1px;border:0;opacity:0;pointer-events:none;';
-              document.body.appendChild(checkFrame);
-            }, 4000);
+            // Shopify New Customer Accounts ALWAYS ends at shopify.com/account — the popup
+            // never returns to the store domain automatically. Strategy:
+            // 1. Every 2s, fetch the store page (cache-busted, with credentials).
+            // 2. Check for data-b2b-customer="1" on the body tag (added by theme.liquid).
+            // 3. When the session is confirmed, navigate the popup BACK to our store using
+            //    popup.location.replace() — opener→popup cross-origin navigation is allowed
+            //    by the HTML spec and works in all major browsers.
+            // 4. The popup lands on /pages/b2b-catalog, theme.liquid fires its handshake
+            //    (window.opener.location.replace + window.close), and the flow completes.
+            var sessionTimer = setInterval(function () {
+              if (sessionConfirmed) return;
+              fetch(window.location.origin + '/?b2b_check=1&_=' + Date.now(), {
+                credentials: 'include',
+                cache: 'no-store'
+              })
+              .then(function (r) { return r.text(); })
+              .then(function (html) {
+                if (html.indexOf('data-b2b-customer="1"') !== -1 && !sessionConfirmed) {
+                  sessionConfirmed = true;
+                  clearInterval(sessionTimer);
+                  // Navigate popup to store (absolute URL — relative would resolve against shopify.com)
+                  try {
+                    popup.location.replace(window.location.origin + '/pages/b2b-catalog');
+                  } catch (_) {
+                    // Cross-origin navigation failed — fall back to direct finish
+                    cleanup(); finish();
+                  }
+                }
+              })
+              .catch(function () {});
+            }, 2000);
 
             function cleanup() {
-              clearInterval(timer);
-              clearInterval(frameTimer);
-              window.removeEventListener('storage', onStorage);
+              clearInterval(closedTimer);
+              clearInterval(sessionTimer);
               window.removeEventListener('message', onMessage);
-              if (checkFrame) {
-                try { checkFrame.parentNode.removeChild(checkFrame); } catch(_) {}
-                checkFrame = null;
-              }
+              window.removeEventListener('storage', onStorage);
               if (alreadyLink && alreadyLink.parentNode) {
                 alreadyLink.parentNode.removeChild(alreadyLink);
               }
               try {
                 localStorage.removeItem('b2b_login_popup_pending');
                 localStorage.removeItem('b2b_login_popup_done');
-              } catch(_) {}
+              } catch (_) {}
             }
 
             function finish() {

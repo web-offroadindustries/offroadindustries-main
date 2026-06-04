@@ -269,7 +269,7 @@
   {%- endif -%}
 </head>
 
-  <body class="template-{{ template.name | handle }} {{ template.name }}-{{ template.suffix }}{% if b2b_user %} is-b2b{% endif %}">
+  <body class="template-{{ template.name | handle }} {{ template.name }}-{{ template.suffix }}{% if b2b_user %} is-b2b{% endif %}" data-b2b-customer="{%- if customer -%}1{%- endif -%}">
     <script>
       (function () {
         // When called from our iframe login-check poll, skip all redirects so we
