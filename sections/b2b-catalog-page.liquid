@@ -279,10 +279,26 @@
             btn.style.opacity = '0.65';
             btn.style.pointerEvents = 'none';
 
+            // After logging in the popup will stay on Shopify's account portal.
+            // This button navigates the main page through /account/login which
+            // triggers Shopify's silent SSO — it picks up the shopify.com session
+            // cookies set during the popup OAuth and redirects back to the catalog.
             var alreadyLink = document.createElement('a');
             alreadyLink.href = '#';
-            alreadyLink.textContent = 'Already signed in? Click here to load the catalog';
-            alreadyLink.style.cssText = 'display:block;margin-top:12px;font-size:0.875rem;color:inherit;opacity:0.8;';
+            alreadyLink.textContent = '✓ Login complete? Click here to open the catalog';
+            alreadyLink.style.cssText = [
+              'display:block',
+              'margin-top:16px',
+              'padding:10px 20px',
+              'background:var(--color-btn-bg,#1a1a1a)',
+              'color:var(--color-btn-text,#fff)',
+              'border-radius:4px',
+              'font-size:0.9rem',
+              'font-weight:600',
+              'text-align:center',
+              'text-decoration:none',
+              'cursor:pointer',
+            ].join(';');
             alreadyLink.addEventListener('click', function (ev) {
               ev.preventDefault();
               cleanup();
@@ -364,7 +380,11 @@
 
             function finish() {
               try { popup.close(); } catch (_) {}
-              window.location.reload();
+              // Navigate through /account/login instead of reloading.
+              // Shopify's silent SSO picks up the shopify.com session cookie set during
+              // the popup OAuth and automatically logs the user into the store, then
+              // redirects to return_url without showing the login form.
+              window.location.replace('/account/login?return_url=' + encodeURIComponent('/pages/b2b-catalog'));
             }
           });
         }());
