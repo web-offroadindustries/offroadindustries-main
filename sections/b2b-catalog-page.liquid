@@ -294,6 +294,15 @@
             }
             window.addEventListener('storage', onStorage);
 
+            // postMessage fires when the popup lands on any store page while logged in.
+            // More reliable than storage events for new Customer Accounts (OAuth flow).
+            function onMessage(ev) {
+              if (ev.origin === window.location.origin && ev.data === 'b2b_login_complete') {
+                cleanup(); finish();
+              }
+            }
+            window.addEventListener('message', onMessage);
+
             var start = Date.now();
             var checkFrame = null;
 
@@ -324,6 +333,7 @@
               clearInterval(timer);
               clearInterval(frameTimer);
               window.removeEventListener('storage', onStorage);
+              window.removeEventListener('message', onMessage);
               if (checkFrame) {
                 try { checkFrame.parentNode.removeChild(checkFrame); } catch(_) {}
                 checkFrame = null;

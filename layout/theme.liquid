@@ -320,6 +320,11 @@
               localStorage.removeItem('b2b_login_popup_pending');
               localStorage.setItem('b2b_login_popup_done', '1');
             }
+            // postMessage is more reliable than storage events when the popup
+            // returns via Shopify's new Customer Accounts OAuth redirect.
+            if (window.opener && !window.opener.closed) {
+              window.opener.postMessage('b2b_login_complete', window.location.origin);
+            }
           } catch (_p) {}
         {%- endif -%}
       })();
