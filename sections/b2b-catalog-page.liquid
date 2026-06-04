@@ -279,32 +279,41 @@
             btn.style.opacity = '0.65';
             btn.style.pointerEvents = 'none';
 
-            // After logging in the popup will stay on Shopify's account portal.
-            // This button navigates the main page through /account/login which
-            // triggers Shopify's silent SSO — it picks up the shopify.com session
-            // cookies set during the popup OAuth and redirects back to the catalog.
-            var alreadyLink = document.createElement('a');
-            alreadyLink.href = '#';
-            alreadyLink.textContent = '✓ Login complete? Click here to open the catalog';
-            alreadyLink.style.cssText = [
-              'display:block',
+            // Instructions shown while popup is open.
+            // If session auto-detection fires, this is removed automatically.
+            // If not, user is guided to navigate the popup back to the store
+            // (clicking "Go to store" in the popup establishes the store session,
+            // which triggers the onStorage handshake and reloads this page).
+            var instructionBox = document.createElement('div');
+            instructionBox.style.cssText = [
               'margin-top:16px',
-              'padding:10px 20px',
-              'background:var(--color-btn-bg,#1a1a1a)',
-              'color:var(--color-btn-text,#fff)',
+              'padding:12px 16px',
+              'background:#f5f5f5',
+              'border:1px solid #ddd',
               'border-radius:4px',
-              'font-size:0.9rem',
-              'font-weight:600',
-              'text-align:center',
-              'text-decoration:none',
-              'cursor:pointer',
+              'font-size:0.85rem',
+              'line-height:1.5',
+              'color:#333',
             ].join(';');
-            alreadyLink.addEventListener('click', function (ev) {
-              ev.preventDefault();
-              cleanup();
-              finish();
-            });
-            btn.parentNode.insertBefore(alreadyLink, btn.nextSibling);
+            instructionBox.innerHTML = [
+              '<strong>Step 2:</strong> After logging in, look at the popup window and ',
+              'click <strong>"Go to store to place an order"</strong> or the <strong>ORI logo</strong> ',
+              'inside it. The catalog will open automatically.',
+              '<br><br>',
+              '<a href="#" id="b2b-manual-reload" style="color:inherit;font-size:0.8rem;opacity:0.7;">',
+              'Catalog not loading? Click here to refresh</a>',
+            ].join('');
+            btn.parentNode.insertBefore(instructionBox, btn.nextSibling);
+
+            var manualBtn = instructionBox.querySelector('#b2b-manual-reload');
+            if (manualBtn) {
+              manualBtn.addEventListener('click', function (ev) {
+                ev.preventDefault();
+                cleanup();
+                finish();
+              });
+            }
+            var alreadyLink = instructionBox; // alias so cleanup() still removes it
 
             // postMessage — fires immediately if popup lands on store domain while logged in
             function onMessage(ev) {
@@ -380,11 +389,7 @@
 
             function finish() {
               try { popup.close(); } catch (_) {}
-              // Navigate through /account/login instead of reloading.
-              // Shopify's silent SSO picks up the shopify.com session cookie set during
-              // the popup OAuth and automatically logs the user into the store, then
-              // redirects to return_url without showing the login form.
-              window.location.replace('/account/login?return_url=' + encodeURIComponent('/pages/b2b-catalog'));
+              window.location.reload();
             }
           });
         }());
