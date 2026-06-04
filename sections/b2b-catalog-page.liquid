@@ -240,7 +240,7 @@
         <h1 class="b2b-pending__title">{{ section.settings.gate_heading }}</h1>
         <p class="b2b-pending__body">{{ section.settings.gate_body }}</p>
         <a
-          href="{{ routes.account_login_url }}?return_url={{ shop.secure_url | append: '/pages/b2b-catalog' | url_encode }}"
+          href="/account/login?return_url=/pages/b2b-catalog"
           class="btn btn--primary"
         >{{ section.settings.gate_btn_label }}</a>
         {%- if section.settings.cta_link != blank -%}
