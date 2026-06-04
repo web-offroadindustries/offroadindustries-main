@@ -324,7 +324,7 @@
             //    (window.opener.location.replace + window.close), and the flow completes.
             var sessionTimer = setInterval(function () {
               if (sessionConfirmed) return;
-              fetch(window.location.origin + '/?b2b_check=1&_=' + Date.now(), {
+              fetch(window.location.origin + '/pages/b2b-catalog?b2b_check=1&_=' + Date.now(), {
                 credentials: 'include',
                 cache: 'no-store'
               })

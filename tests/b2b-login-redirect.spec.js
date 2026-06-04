@@ -32,59 +32,80 @@ test.describe('B2B catalog login redirect', () => {
     await popup.close();
   });
 
-  test('data-b2b-customer attribute is absent for non-logged-in visitor', async ({ page }) => {
+  test('data-b2b-customer attribute is present on b2b-catalog page', async ({ page }) => {
     await page.goto(`${BASE}/pages/b2b-catalog`);
-    // theme.liquid renders data-b2b-customer="1" only when customer is set.
-    // For an anonymous visitor it should be absent or empty.
+    // Attribute should always be rendered by theme.liquid (empty when not logged in, "1" when logged in)
     const bodyAttr = await page.getAttribute('body', 'data-b2b-customer');
     console.log('data-b2b-customer (non-logged-in):', JSON.stringify(bodyAttr));
+    // Attribute exists (not null)
+    expect(bodyAttr).not.toBeNull();
+    // Not logged in → should NOT be "1"
     expect(bodyAttr).not.toBe('1');
   });
 
-  test('session check fetch returns HTML with data-b2b-customer attribute', async ({ page }) => {
-    // Verifies the mechanism the sessionTimer relies on: fetch /?b2b_check=1 returns
-    // the store homepage HTML, which theme.liquid stamps with data-b2b-customer.
-    // When not logged in, attribute should be absent/"" — never "1".
+  test('session check fetch to /pages/b2b-catalog returns HTML with data-b2b-customer', async ({ page }) => {
+    // The sessionTimer fetches /pages/b2b-catalog?b2b_check=1 to detect the customer session.
+    // Verify the fetch returns HTML that contains the data-b2b-customer attribute.
     await page.goto(`${BASE}/pages/b2b-catalog`);
 
-    const html = await page.evaluate(() =>
-      fetch('/?b2b_check=1&_=1', { credentials: 'include', cache: 'no-store' }).then(r => r.text())
+    const result = await page.evaluate(() =>
+      fetch('/pages/b2b-catalog?b2b_check=1&_=1', {
+        credentials: 'include',
+        cache: 'no-store',
+      }).then(r => r.text()).then(html => ({
+        hasAttr: html.includes('data-b2b-customer='),
+        isLoggedIn: html.includes('data-b2b-customer="1"'),
+        snippet: html.slice(html.indexOf('<body'), html.indexOf('<body') + 200),
+      }))
     );
 
-    const hasAttr = html.includes('data-b2b-customer=');
-    const isLoggedIn = html.includes('data-b2b-customer="1"');
-    console.log('HTML has data-b2b-customer attribute:', hasAttr);
-    console.log('Customer appears logged in:', isLoggedIn);
+    console.log('Has data-b2b-customer attribute:', result.hasAttr);
+    console.log('Customer logged in:', result.isLoggedIn);
+    console.log('Body tag snippet:', result.snippet);
 
-    // The attribute should be rendered by theme.liquid (always present, value varies)
-    expect(hasAttr).toBe(true);
-    // Not logged in → should NOT be "1"
-    expect(isLoggedIn).toBe(false);
+    expect(result.hasAttr).toBe(true);
+    expect(result.isLoggedIn).toBe(false); // Not logged in in test context
   });
 
   test('full flow: mock session detected → parent navigates, popup handled', async ({ page, context }) => {
-    // Simulate Shopify New Customer Accounts behavior:
+    // Simulate Shopify New Customer Accounts behavior end-to-end:
     // 1. Popup goes to shopify.com (never returns to store on its own)
-    // 2. Parent fetch /?b2b_check=1 returns data-b2b-customer="1" (session confirmed)
+    // 2. Parent fetch detects data-b2b-customer="1" (session confirmed)
     // 3. sessionTimer calls popup.location.replace(storeUrl)
-    //    → If cross-origin navigation succeeds: popup goes to store, theme.liquid
-    //      fires handshake (opener.location.replace + window.close), popup closes
-    //    → If cross-origin navigation fails: catch fires cleanup()+finish() which
-    //      reloads the parent — still shows the catalog
-    // 4. Either way, parent ends up at /pages/b2b-catalog
+    // 4. Popup navigates to /pages/b2b-catalog
+    // 5. Simulated theme.liquid handshake fires (window.opener.location.replace + postMessage + close)
+    // 6. Parent navigates to /pages/b2b-catalog; popup closes
 
-    // Serve mock HTML at shopify.com (simulates user landing on account portal)
+    // Simulate theme.liquid handshake: when the popup lands on the store with opener set
+    // and b2b_login_popup_pending exists, fire the handshake.
+    await context.addInitScript(() => {
+      window.addEventListener('load', function () {
+        try {
+          if (window.opener && !window.opener.closed) {
+            var pending = localStorage.getItem('b2b_login_popup_pending');
+            if (pending) {
+              // Simulate what theme.liquid does when customer is set in popup context
+              try { window.opener.location.replace(window.location.href); } catch (_) {}
+              try { window.opener.postMessage('b2b_login_complete', window.location.origin); } catch (_) {}
+              setTimeout(function () { try { window.close(); } catch (_) {} }, 300);
+            }
+          }
+        } catch (_) {}
+      });
+    });
+
+    // Intercept shopify.com — popup stays on the account portal (default NCA behavior)
     await context.route('https://shopify.com/**', async (route, request) => {
       if (request.resourceType() === 'document') {
         return route.fulfill({
           status: 200, contentType: 'text/html',
-          body: '<!DOCTYPE html><html><body><p>Shopify account portal</p></body></html>',
+          body: '<!DOCTYPE html><html><body><p>Shopify account portal – stays here</p></body></html>',
         });
       }
       route.continue();
     });
 
-    // Intercept the session check fetch from the parent to confirm customer is logged in
+    // Intercept the session check fetch — return HTML with session marker immediately
     await context.route(`${BASE}/**`, async (route, request) => {
       const url = new URL(request.url());
       if (url.searchParams.has('b2b_check') && request.resourceType() === 'fetch') {
@@ -110,30 +131,29 @@ test.describe('B2B catalog login redirect', () => {
     ]);
 
     await popup.waitForLoadState('domcontentloaded', { timeout: 8000 });
-    console.log('Popup URL (simulated account portal):', popup.url());
+    console.log('Popup URL (after open):', popup.url());
 
-    // sessionTimer fetches /?b2b_check=1 every 2s → gets mock → detects session
-    // → tries popup.location.replace() → parent reloads (either via handshake or catch)
+    // sessionTimer fetches b2b-catalog?b2b_check=1 every 2s → intercepted → data-b2b-customer="1"
+    // → popup.location.replace() → popup navigates to /pages/b2b-catalog
+    // → addInitScript handshake fires → opener.location.replace → parent navigates
     await parentNavPromise;
-    console.log('Parent URL after session detection:', page.url());
+    console.log('Parent URL after navigation:', page.url());
     expect(page.url()).toContain('/pages/b2b-catalog');
 
-    // Check whether the popup navigated to the store (full handshake path)
-    // or stayed on shopify.com (fallback path — parent reloaded itself)
-    await page.waitForTimeout(1000);
+    // Wait for popup to close (handshake fires window.close() after 300ms)
+    await page.waitForTimeout(1500);
     const popupClosed = popup.isClosed();
-    const popupUrl = popupClosed ? '(closed)' : popup.url();
-    console.log('Popup closed:', popupClosed, '| URL:', popupUrl);
+    console.log('Popup closed:', popupClosed);
+
+    // The critical assertion: parent shows the catalog
+    expect(page.url()).toContain('/pages/b2b-catalog');
 
     if (popupClosed) {
-      console.log('SUCCESS: Full flow — popup navigated to store, theme.liquid fired, popup self-closed');
+      console.log('FULL SUCCESS: popup navigated to store, handshake fired, popup self-closed');
     } else {
-      console.log('FALLBACK: popup.location.replace() failed cross-origin; parent reloaded via catch. ' +
-        'Popup stays open — user must close manually. This is still a working UX improvement.');
+      console.log('PARTIAL SUCCESS: parent navigated, popup stayed open (cross-origin close blocked)');
+      console.log('Popup URL:', popup.url());
     }
-
-    // Either path is acceptable — the critical requirement is the PARENT shows the catalog
-    expect(page.url()).toContain('/pages/b2b-catalog');
   });
 
 });
