@@ -316,17 +316,22 @@
         // iframe polling can detect login without consuming b2b_redirect.
         {%- if customer -%}
           try {
-            if (localStorage.getItem('b2b_login_popup_pending')) {
+            var _b2bPending = localStorage.getItem('b2b_login_popup_pending');
+            if (_b2bPending) {
               localStorage.removeItem('b2b_login_popup_pending');
               localStorage.setItem('b2b_login_popup_done', '1');
             }
-            // postMessage is more reliable than storage events when the popup
-            // returns via Shopify's new Customer Accounts OAuth redirect.
             if (window.opener && !window.opener.closed) {
-              window.opener.postMessage('b2b_login_complete', window.location.origin);
-              // Close the popup from within itself — parent calling popup.close() is
-              // blocked by cross-origin restrictions when popup passed through accounts.shopify.com.
-              setTimeout(function() { try { window.close(); } catch(_) {} }, 150);
+              // location.replace() is a cross-origin allowed write — works even when the popup
+              // passed through accounts.shopify.com. Navigates the parent to the B2B catalog.
+              try { window.opener.location.replace('/pages/b2b-catalog'); } catch(_) {}
+              // postMessage as same-origin fallback
+              try { window.opener.postMessage('b2b_login_complete', window.location.origin); } catch(_) {}
+              // Close popup from within — window.close() on script-opened windows always works
+              setTimeout(function() { try { window.close(); } catch(_) {} }, 300);
+            } else if (_b2bPending) {
+              // Not in a popup — signal via storage event for the iframe poll path
+              localStorage.setItem('b2b_login_popup_done', '1');
             }
           } catch (_p) {}
         {%- endif -%}
