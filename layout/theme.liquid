@@ -324,6 +324,9 @@
             // returns via Shopify's new Customer Accounts OAuth redirect.
             if (window.opener && !window.opener.closed) {
               window.opener.postMessage('b2b_login_complete', window.location.origin);
+              // Close the popup from within itself — parent calling popup.close() is
+              // blocked by cross-origin restrictions when popup passed through accounts.shopify.com.
+              setTimeout(function() { try { window.close(); } catch(_) {} }, 150);
             }
           } catch (_p) {}
         {%- endif -%}
