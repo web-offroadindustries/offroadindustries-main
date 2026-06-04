@@ -330,7 +330,10 @@
               })
               .then(function (r) { return r.text(); })
               .then(function (html) {
-                if (html.indexOf('data-b2b-customer="1"') !== -1 && !sessionConfirmed) {
+                // Split string so it doesn't appear literally in this page's own source
+                // (which would cause a false positive on every fetch of this page).
+                var _marker = 'data-b2b-c' + 'ustomer="1"';
+                if (html.indexOf(_marker) !== -1 && !sessionConfirmed) {
                   sessionConfirmed = true;
                   clearInterval(sessionTimer);
                   // Navigate popup to store (absolute URL — relative would resolve against shopify.com)
