@@ -260,21 +260,28 @@
             var w = 560, h = 680;
             var left = Math.round((screen.width  - w) / 2);
             var top  = Math.round((screen.height - h) / 2);
+
+            // Set flag BEFORE opening the popup — the popup's theme.liquid may execute
+            // very quickly (especially via Shopify's OAuth redirect back to the store)
+            // and must find this flag already set.
+            try { localStorage.setItem('b2b_login_popup_pending', Date.now().toString()); } catch(_) {}
+
             var popup = window.open(
               url,
               'b2b_login',
               'width=' + w + ',height=' + h + ',left=' + left + ',top=' + top + ',resizable=yes,scrollbars=yes'
             );
 
-            if (!popup || popup.closed) return; // popup blocked — fall back to normal navigation
+            if (!popup || popup.closed) {
+              // Popup was blocked — clean up flag and fall back to normal navigation
+              try { localStorage.removeItem('b2b_login_popup_pending'); } catch(_) {}
+              return;
+            }
 
             e.preventDefault();
             btn.textContent = 'Signing in…';
             btn.style.opacity = '0.65';
             btn.style.pointerEvents = 'none';
-
-            // Flag so theme.liquid can signal us if popup lands on any store page while logged in
-            try { localStorage.setItem('b2b_login_popup_pending', Date.now().toString()); } catch(_) {}
 
             // Add a visible "already signed in?" link the user can click manually
             var alreadyLink = document.createElement('a');
