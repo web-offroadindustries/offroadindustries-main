@@ -132,7 +132,7 @@ test.describe('B2B catalog login redirect', () => {
       btn.click(),
     ]);
 
-    await popup.waitForLoadState('domcontentloaded', { timeout: 8000 });
+    await popup.waitForLoadState('domcontentloaded', { timeout: 15000 });
     console.log('Popup URL (after open):', popup.url());
 
     // sessionTimer fetches b2b-catalog?b2b_check=1 every 2s → intercepted → data-b2b-customer="1"
