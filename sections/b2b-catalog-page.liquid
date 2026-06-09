@@ -309,6 +309,15 @@
   }
 
   document.querySelectorAll('.b2b-catalog__card').forEach(initCard);
+
+  // Move cards with no product image to the end of the grid
+  var grid = document.querySelector('.b2b-catalog__grid');
+  if (grid) {
+    var noImage = grid.querySelectorAll('.b2b-catalog__card-img-placeholder');
+    noImage.forEach(function (placeholder) {
+      grid.appendChild(placeholder.closest('.b2b-catalog__card'));
+    });
+  }
 }());
 </script>
 
