@@ -545,16 +545,23 @@
         "heading_YjLxhA": {
           "type": "heading",
           "settings": {
-            "heading": "FORD F150, PLATINUM, LARIAT, XLT  SWB & LWB GVM SPECIFICATIONS",
+            "heading": "FORD F150, PLATINUM, LARIAT, XLT  Specs",
             "highlight_style": "underline",
             "enable_highlight_text_color": true,
             "heading_size": "h1",
             "heading_color": "#56bdc2"
           }
+        },
+        "subheading_66iihL": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "Note: Tare weight is based off SWB XLT, other variants Lariat, Platinum models have different weight which will give different % increases below. If you want a specific KG increase please contact us."
+          }
         }
       },
       "block_order": [
-        "heading_YjLxhA"
+        "heading_YjLxhA",
+        "subheading_66iihL"
       ],
       "name": "t:sections.rich-text.presets.name",
       "settings": {
