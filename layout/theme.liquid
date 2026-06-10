@@ -272,69 +272,37 @@
   <body class="template-{{ template.name | handle }} {{ template.name }}-{{ template.suffix }}{% if b2b_user %} is-b2b{% endif %}" data-b2b-customer="{%- if customer -%}1{%- endif -%}">
     <script>
       (function () {
-        // When called from our iframe login-check poll, skip all redirects so we
-        // don't consume b2b_redirect — just run the popup handshake below.
-        var isLoginCheck = window.location.search.indexOf('b2b_check=1') !== -1;
-        if (!isLoginCheck) {
-          try {
-            // Detect return from Shopify B2B portal (?sso=silent = classic flow; ?company_location_changed=true/false = new accounts flow)
-            var search = window.location.search;
-            if (search.indexOf('sso=silent') !== -1 || search.indexOf('company_location_changed=') !== -1) {
-              var raw = localStorage.getItem('b2b_redirect');
-              if (raw) {
-                try {
-                  var d = JSON.parse(raw);
-                  if (Date.now() - d.ts < 30 * 60 * 1000) {
-                    localStorage.removeItem('b2b_redirect');
-                    window.location.replace(d.url);
-                    return;
-                  }
-                } catch (e) {}
-                localStorage.removeItem('b2b_redirect');
-              }
-              // No localStorage item — fall back to server-side B2B check
-              {%- if customer.b2b? -%}
-                window.location.replace('/pages/b2b-catalog');
-              {%- endif -%}
-              return;
-            }
-            // Standard localStorage redirect for non-SSO flows
-            var raw2 = localStorage.getItem('b2b_redirect');
-            if (raw2 && window.location.pathname.indexOf('/account') !== 0) {
-              localStorage.removeItem('b2b_redirect');
+        try {
+          var search = window.location.search;
+          if (search.indexOf('sso=silent') !== -1 || search.indexOf('company_location_changed=') !== -1) {
+            var raw = localStorage.getItem('b2b_redirect');
+            if (raw) {
               try {
-                var d2 = JSON.parse(raw2);
-                if (Date.now() - d2.ts < 30 * 60 * 1000 && window.location.pathname !== d2.url) {
-                  window.location.replace(d2.url);
+                var d = JSON.parse(raw);
+                if (Date.now() - d.ts < 30 * 60 * 1000) {
+                  localStorage.removeItem('b2b_redirect');
+                  window.location.replace(d.url);
+                  return;
                 }
               } catch (e) {}
+              localStorage.removeItem('b2b_redirect');
             }
-          } catch (e) {}
-        }
-        // Popup login handshake: runs for ALL page loads (including iframe checks).
-        // Previously gated behind b2b_redirect existing — now always fires so the
-        // iframe polling can detect login without consuming b2b_redirect.
-        {%- if customer -%}
-          try {
-            var _b2bPending = localStorage.getItem('b2b_login_popup_pending');
-            if (_b2bPending) {
-              localStorage.removeItem('b2b_login_popup_pending');
-              localStorage.setItem('b2b_login_popup_done', '1');
-            }
-            if (window.opener && !window.opener.closed) {
-              // location.replace() is a cross-origin allowed write — works even when the popup
-              // passed through accounts.shopify.com. Navigates the parent to the B2B catalog.
-              try { window.opener.location.replace('/pages/b2b-catalog'); } catch(_) {}
-              // postMessage as same-origin fallback
-              try { window.opener.postMessage('b2b_login_complete', window.location.origin); } catch(_) {}
-              // Close popup from within — window.close() on script-opened windows always works
-              setTimeout(function() { try { window.close(); } catch(_) {} }, 300);
-            } else if (_b2bPending) {
-              // Not in a popup — signal via storage event for the iframe poll path
-              localStorage.setItem('b2b_login_popup_done', '1');
-            }
-          } catch (_p) {}
-        {%- endif -%}
+            {%- if customer.b2b? -%}
+              window.location.replace('/pages/b2b-catalog');
+            {%- endif -%}
+            return;
+          }
+          var raw2 = localStorage.getItem('b2b_redirect');
+          if (raw2 && window.location.pathname.indexOf('/account') !== 0) {
+            localStorage.removeItem('b2b_redirect');
+            try {
+              var d2 = JSON.parse(raw2);
+              if (Date.now() - d2.ts < 30 * 60 * 1000 && window.location.pathname !== d2.url) {
+                window.location.replace(d2.url);
+              }
+            } catch (e) {}
+          }
+        } catch (e) {}
       })();
     </script>
     {% comment %} Custom metafield for body tag like GTag tracking {% endcomment %}
