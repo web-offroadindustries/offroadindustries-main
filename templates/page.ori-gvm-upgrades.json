@@ -448,6 +448,7 @@
         },
         "dealer_gRNtLh": {
           "type": "dealer",
+          "disabled": true,
           "settings": {
             "name": "Jacksons 4x4",
             "state": "SA",
