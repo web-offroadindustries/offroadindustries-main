@@ -325,6 +325,7 @@
         },
         "dealer_4iqeLR": {
           "type": "dealer",
+          "disabled": true,
           "settings": {
             "name": "SNC Automotive",
             "state": "QLD",
@@ -843,7 +844,6 @@
         "dealer_YFrNUn",
         "dealer_8aAepY"
       ],
-      "disabled": true,
       "name": "Dealer Locator",
       "settings": {
         "eyebrow": "Find a dealer",
