@@ -70,7 +70,7 @@
         "link_C8imG8": {
           "type": "link",
           "settings": {
-            "label": "GVM Packages",
+            "label": "SSM Packages",
             "target_id": "gvmpackages"
           }
         },
