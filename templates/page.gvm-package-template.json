@@ -130,7 +130,7 @@
         "heading_XhCLHT": {
           "type": "heading",
           "settings": {
-            "heading": "<strong>ORI SSM Chevy 2500HD Packages</strong>",
+            "heading": "<strong>ORI SSM Chevy Silverado 2500HD Packages</strong>",
             "highlight_style": "none",
             "enable_highlight_text_color": true,
             "heading_size": "h1",
@@ -792,7 +792,7 @@
         "heading_YjLxhA": {
           "type": "heading",
           "settings": {
-            "heading": "[VEHICLE] LTZ GVM Specifications",
+            "heading": "Chevy Silverado 2500 SSM Package Details.",
             "highlight_style": "underline",
             "enable_highlight_text_color": true,
             "heading_size": "h1",
@@ -820,22 +820,6 @@
     "gvm_comparison_FfmTMw": {
       "type": "gvm-comparison",
       "blocks": {
-        "row_Xb8MP6": {
-          "type": "row",
-          "settings": {
-            "label": "Lift Size",
-            "value_1": "",
-            "value_2": "3\"",
-            "value_3": "3\"",
-            "value_4": "3\"",
-            "value_5": "3\"",
-            "value_6": "5\"",
-            "value_7": "6.5\"",
-            "value_8": "6.5\"",
-            "value_9": "6.5\"",
-            "value_10": ""
-          }
-        },
         "row_M4PVnC": {
           "type": "row",
           "settings": {
@@ -844,11 +828,11 @@
             "value_2": "Torsion",
             "value_3": "Torsion",
             "value_4": "Coilover",
-            "value_5": "Coilover + Kelderman",
+            "value_5": "",
             "value_6": "Torsion",
             "value_7": "Torsion",
             "value_8": "Coilover",
-            "value_9": "Coilover + Kelderman",
+            "value_9": "",
             "value_10": ""
           }
         },
@@ -882,22 +866,6 @@
             "value_7": "4500 KG",
             "value_8": "4500 KG",
             "value_9": "4500 KG",
-            "value_10": ""
-          }
-        },
-        "row_zPKiUF": {
-          "type": "row",
-          "settings": {
-            "label": "Gross Combined Mass (GCM)",
-            "value_1": "12,474 KG",
-            "value_2": "12,474 KG",
-            "value_3": "12,474 KG",
-            "value_4": "12,474 KG",
-            "value_5": "12,474 KG",
-            "value_6": "12,474 KG",
-            "value_7": "12,474 KG",
-            "value_8": "12,474 KG",
-            "value_9": "12,474 KG",
             "value_10": ""
           }
         },
@@ -1066,11 +1034,9 @@
         }
       },
       "block_order": [
-        "row_Xb8MP6",
         "row_M4PVnC",
         "row_7JDfxb",
         "row_YVwraj",
-        "row_zPKiUF",
         "row_wywcAp",
         "row_VPhYR9",
         "row_bcXE8T",
@@ -1092,11 +1058,11 @@
         "col_title_2": "Stage 1",
         "col_title_3": "Stage 2",
         "col_title_4": "Stage 3",
-        "col_title_5": "Stage 3.5",
+        "col_title_5": "",
         "col_title_6": "Stage 4",
         "col_title_7": "STAGE 5",
         "col_title_8": "STAGE 6",
-        "col_title_9": "STAGE 6.5",
+        "col_title_9": "",
         "col_title_10": "STAGE 9",
         "container_width": "90%",
         "heading_color": "#111111",
@@ -1356,10 +1322,11 @@
         },
         "row_ft3LzT": {
           "type": "row",
+          "disabled": true,
           "settings": {
             "label": "GVM Part Number",
             "value_1": "",
-            "value_2": "VEH-STAGE1-GVM",
+            "value_2": "",
             "value_3": "VEH-STAGE2-GVM",
             "value_4": "VEH-STAGE3-GVM",
             "value_5": "VEH-STAGE3-GVM-K",
@@ -1399,12 +1366,12 @@
         "col_title_2": "Stage 1",
         "col_title_3": "Stage 2",
         "col_title_4": "Stage 3",
-        "col_title_5": "Stage 3.5",
+        "col_title_5": "",
         "col_title_6": "Stage 4",
         "col_title_7": "STAGE 5",
         "col_title_8": "STAGE 6",
-        "col_title_9": "STAGE 6.5",
-        "col_title_10": "STAGE 9",
+        "col_title_9": "",
+        "col_title_10": "",
         "container_width": "90%",
         "heading_color": "#111111",
         "text_color": "#111111",
