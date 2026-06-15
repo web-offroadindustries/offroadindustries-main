@@ -20,7 +20,6 @@
         "slide_bW6A4P": {
           "type": "slide",
           "settings": {
-            "background": "shopify://shop_images/PLACEHOLDER-hero-banner.jpg",
             "image_overlay_opacity": 0,
             "content_position": "center",
             "text_alignment": "center",
@@ -77,14 +76,14 @@
         "link_y9rErk": {
           "type": "link",
           "settings": {
-            "label": "GVM Specification",
+            "label": "",
             "target_id": "gvmspecification"
           }
         },
         "link_AGYMRH": {
           "type": "link",
           "settings": {
-            "label": "Approved Wheels",
+            "label": "",
             "target_id": "approved-wheels"
           }
         },
@@ -98,7 +97,7 @@
         "link_KmD9dx": {
           "type": "link",
           "settings": {
-            "label": "GVM Experts",
+            "label": "American Truck Experts",
             "target_id": "gvmexperts"
           }
         }
@@ -130,7 +129,7 @@
         "heading_XhCLHT": {
           "type": "heading",
           "settings": {
-            "heading": "<strong>[VEHICLE] GVM Packages [YEAR RANGE]</strong>",
+            "heading": "<strong>ORI SSM Chevy 2500HD Packages</strong>",
             "highlight_style": "none",
             "enable_highlight_text_color": true,
             "heading_size": "h1",
@@ -140,7 +139,7 @@
         "text_CfcJd4": {
           "type": "text",
           "settings": {
-            "text": "<p>Shatter your payload limits and command the outback without compromise with a [VEHICLE] GVM upgrade. Offroad Industries (ORI) delivers Australia’s ultimate, fully Federally Approved GVM upgrades for the [VEHICLE] range. Our SSM approvals only apply to GMSV Vehicles. We cannot do private imports.</p><p><strong>The ORI Advantage:</strong></p><ul><li><strong>Massive Stance</strong>: Options ranging from a sleek 3” lift up to our monster 6.5” package on 37” tyres.</li><li><strong>NB2 Upgrades Made Easy</strong>: A seamless, ORI-approved pathway from NB1 to the heavy-duty NB2 category via VTA-065187 or we can upgrade NB2 to NB2 via our VTA-065796</li><li><strong>Bulletproof Compliance</strong>: Rigorously tested and backed by Federal SSM Certification.</li></ul><p><br/></p><p>Backed by punishing testing and uncompromising Federal SSM Certification, an ORI GVM Package doesn't just upgrade your [VEHICLE]; it takes it to true \"Super-Truck\" status. Operating under exclusive ORI Vehicle SSM Approvals, we provide a streamlined, zero-headache pathway to reclassify your rig from an NB1 to a heavy-hitting NB2 category.</p><p>The result? Your fully loaded truck, all your gear, and that 4.5T trailer in tow are 100% compliant, secure, and road-legal nationwide when completed Pre-Rego (Federal). Why not invest in your brand new [VEHICLE] now? </p><p></p><p><strong>*Please note that some workshops may apply additional discretionary administration fees to the quoted installation and engineering price. Additionally, all Post-Registration GVM upgrades will incur additional local fees. Shipping is not included in the price.</strong></p><p></p>"
+            "text": "<h2><strong>AN AUSTRALIAN FIRST: The Ultimate Silverado 2500HD Build — No Truck License Required!</strong></h2><p>If you’ve been holding off on building a true, uncompromised Super-Truck because you refused to cross into truck-license territory, <strong>the game just changed.</strong></p><p>For the very first time in Australia, you can build the Silverado of your dreams without upgrading your license.</p><p>Thanks to our exclusive, newly engineered, and <strong>Federally Approved Second Stage Manufacture (SSM) packages</strong>, we are shattering the limits of what a standard-license vehicle can be. You can now run up to a massive <strong>6.5-inch lift</strong> on <strong>37-inch tyres</strong> while keeping your Silverado 2500HD classified strictly under 4.5 tonnes (NB1).</p><h3><strong>What Does This Mean For You?</strong></h3><p>It means you no longer have to compromise. You get:</p><ul><li><strong>The Monster Stance:</strong> Turn heads and dominate the road with an aggressive, towering footprint.</li><li><strong>Uncompromising Ground Clearance:</strong> Tackle any terrain Australia has to offer without a second thought.</li><li><strong>100% Street Legal:</strong> Drive the biggest, baddest truck on the market using your standard Australian car license.</li></ul><h3><strong>⚠️ The \"Pre-Rego\" Golden Rule</strong></h3><p>There is only one catch to making this dream a reality: <strong>It must be done Pre-Registration.</strong></p><p>To legally bake these extreme modifications directly into the truck's federal compliance plate under the SSM scheme, the vehicle <em>must</em> be built and certified before it is registered for the very first time.</p><p><strong>Why does this matter?</strong> It means you get to skip the endless red tape. You completely avoid the aftermarket engineering nightmares, the police defects, and the insurance headaches.</p><p>You simply choose the stage that suits your dream truck, and we put you in touch with an ORI-authorised installer. You choose your wheels and tyres with them, and then <strong>BOOM</strong>—your build starts. You'll take delivery of a fully compliant, fully insured super-truck that you can legally drive Australia-wide.</p><p><strong>Don't settle for standard. Be the first.</strong> Secure your Pre-Rego allocation today and build the ultimate Silverado 2500HD.</p>"
           }
         }
       },
@@ -206,7 +205,7 @@
         "heading_f9G7kD": {
           "type": "heading",
           "settings": {
-            "heading": "<strong>Stage 1: The Weekender Family Getaway</strong>",
+            "heading": "<strong>Stage 1: The Weekend Warrior 3\" Upgrade</strong>",
             "highlight_style": "none",
             "enable_highlight_text_color": false,
             "heading_size": "h2"
@@ -215,7 +214,7 @@
         "text_fRRw7g": {
           "type": "text",
           "settings": {
-            "text": "<p><em>The perfect entry point for a legal payload boost and an aggressive stance.</em></p><ul><li><strong>GVM Rating:</strong> 5500kg (Approx. 1708kg payload) | <strong>GCM:</strong> 12,474kg</li><li><strong>Key Features:</strong> 3\" Lift with Fox 2.5 HTO Performance Series Shocks, ORI 500kg heavy-duty leaf packs, heavy-duty BDS Control Arms, and Husky Extenda Flares.</li><li><strong>Best For:</strong> The family tourer needing a higher payload while keeping the truck 100% legal and safe.</li><li><strong>Benefit:</strong> Achieve a lifted, commanding stance with premium USA-made shocks. This setup upgrades your vehicle to an NB2 category, significantly improving stability under load while safely retaining its full 4.5T towing capacity</li><li><strong>Part Number: </strong>VEH-STAGE1-GVM<br/></li></ul>"
+            "text": "<p><strong>Best for:</strong> The daily driver and occasional tourer who wants a noticeable upgrade without going extreme.</p><ul><li><strong>Lift Height:</strong> 3 Inches</li><li><strong>Tyre Size:</strong> Engineered for either 35-inch or 37-inch tyres.</li><li><strong>Suspension Tech:</strong> Utilises a comprehensive <strong>BDS 3\" Kit</strong>, which includes a differential drop, sway bar relocation, and a rear block kit to dial in a perfectly level ride.</li><li><strong>Shock Configuration:</strong> <strong>Fox 2.5 Performance Series</strong> HTO<strong> Shocks</strong> <em>(front and rear)</em>. These provide excellent on-road comfort while resisting heat fade on harsh, corrugated roads.</li><li><strong>Extras:</strong> We also include colour-coded <strong>Husky Extenda Flares</strong> and <strong>ORI Metal mud flap brackets with rubber</strong> to ensure your vehicle is completely compliant and federally approved.</li><li><strong>What's Not Included:</strong> Just your wheels and tyres! All you need to do is pick your style. We have already set the specific wheel offsets required to keep the build federally compliant, so there is no need to stress about load ratings or legality.</li></ul>"
           }
         }
       },
@@ -228,7 +227,7 @@
       "settings": {
         "container": "container",
         "color_schema": "",
-        "image": "shopify://shop_images/PLACEHOLDER-stage-1.png",
+        "image": "shopify://shop_images/Stage_1_Chevy2500.png",
         "enable_lightbox": true,
         "image_width": "50%",
         "image_position": "left",
@@ -265,7 +264,7 @@
         "heading_dHpa9y": {
           "type": "heading",
           "settings": {
-            "heading": "<strong>Stage 2: The Tourer Edition (Lapping Australia)</strong>",
+            "heading": "<strong>Stage 2: The Heavy Hitter 3\" Upgrade</strong>",
             "highlight_style": "none",
             "enable_highlight_text_color": false,
             "heading_size": "h2"
@@ -274,7 +273,7 @@
         "text_eiTTm6": {
           "type": "text",
           "settings": {
-            "text": "<p><em>Increased strength and a massive payload upgrade utilizing Fox 2.5 DSC suspension & BDS components.</em></p><ul><li><strong>GVM Rating:</strong> 6000kg (Approx. 2198kg payload) | <strong>GCM:</strong> 12,474kg</li><li><strong>Key Features:</strong> 3\" Lift with Fox 2.5 DSC Performance Elite Series Suspension, ORI 500kg heavy-duty leaf packs, heavy-duty BDS Control Arms, and Husky Extenda Flares. Engineered for up to 37” Tyres.</li><li><strong>Best For:</strong> 4WD tourers driving long distances on corrugated roads, heavily loaded with a bull bar and high tow-ball weight. Perfect for maximizing off-road performance and load capacity.</li><li><strong>Benefit:</strong> The DSC adjustability allows you to \"dial in\" your ride—stiffen it for the highway and soften it for the tracks with the simple turn of a knob. All while delivering an incredible 6000kg GVM limit.</li><li><strong>Part Number:</strong> VEH-STAGE2-GVM<br/><br/></li></ul>"
+            "text": "<p><strong>Best for:</strong> The enthusiast who wants a massive improvement in suspension with complete adjustment for their vehicle's ride, featuring premium Fox 2.5 Performance Elite shocks.</p><ul><li><strong>Lift Height:</strong> 3 Inches</li><li><strong>Tyre Size:</strong> Engineered for either 35-inch or 37-inch tyres.</li><li><strong>Suspension Tech:</strong> Utilises a comprehensive <strong>BDS 3\" Kit</strong>, which includes a differential drop, sway bar relocation, and a rear block kit to dial in a perfectly level ride.</li><li><strong>Shock Configuration:</strong> <strong>Fox 2.5 Performance Elite Series Shocks</strong> <em>(front and rear)</em> featuring remote reservoirs and adjustable damping. You can literally dial in the ride with a simple clicker—soften it up for the highway, or firm it up for the tracks.</li><li><strong>Extras:</strong> We also include colour-coded <strong>Husky Extenda Flares</strong> and <strong>ORI Metal mud flap brackets with rubber</strong> to ensure your vehicle is completely compliant and federally approved.</li><li><strong>What's Not Included:</strong> Just your wheels and tyres! All you need to do is pick your style. We have already set the specific wheel offsets required to keep the build federally compliant, so there is no need to stress about load ratings or legality.</li></ul>"
           }
         }
       },
@@ -287,7 +286,7 @@
       "settings": {
         "container": "container",
         "color_schema": "",
-        "image": "shopify://shop_images/PLACEHOLDER-stage-2.png",
+        "image": "shopify://shop_images/Stage_3_Chevy2500.png",
         "enable_lightbox": true,
         "image_width": "50%",
         "image_position": "right",
@@ -324,7 +323,7 @@
         "heading_KMefdY": {
           "type": "heading",
           "settings": {
-            "heading": "<strong>Stage 3: The Heavy Hauler (Super Comfort Mode)</strong>",
+            "heading": "<strong>Stage 3: The Premium Comfort 3\" Coilover Conversion</strong>",
             "highlight_style": "none",
             "enable_highlight_text_color": false,
             "heading_size": "h2"
@@ -333,7 +332,7 @@
         "text_aVwiWh": {
           "type": "text",
           "settings": {
-            "text": "<p><em>The ultimate comfort from your [VEHICLE] with our fully engineered BDS Coil-Over Edition.</em></p><ul><li><strong>GVM Rating:</strong> 6000kg (Approx. 2190kg payload) | <strong>GCM:</strong> 12,474kg</li><li><strong>Key Features:</strong> 3\" Lift BDS Coil-Over Conversion, Fox 2.5 DSC Performance Elite Series Shocks, ORI 500kg leaf packs, and heavy-duty BDS Control Arms. Engineered for up to 37” Tyres.</li><li><strong>Best For:</strong> Fully built rigs with tray/canopy setups that also tow 4.5T and require heavy ball weights.</li><li><strong>Benefit:</strong> A massive payload increase that transforms the [VEHICLE] into a true heavy-duty platform. The front Coil-Over conversion provides unparalleled ride quality and front-end control, legally supporting huge weight without sacrificing comfort.</li><li><strong>Part Number:</strong> VEH-STAGE3-GVM</li></ul>"
+            "text": "<p><strong>Best for:</strong> The owner who demands the absolute best ride quality possible. If you want to upgrade to a plush coilover front end but are concerned about engineering and compliance, this is your solution. The ORI Stage 3 package fully engineers the BDS Coilover conversion for your Chevy Silverado 2500HD, eliminating the harsh factory ride.</p><ul><li><strong>Lift Height:</strong> 3 Inches</li><li><strong>Tyre Size:</strong> Engineered for either 35-inch or 37-inch tyres.</li><li><strong>Suspension Tech:</strong> Utilises a comprehensive <strong>BDS 3\" Coilover Kit</strong> that features a complete <em>torsion bar delete</em>—the ultimate key to a smoother ride. This system includes premium front coilovers, heavy-duty tie rods, upgraded upper and lower control arms, and a rear block kit to dial in a perfectly level stance.</li><li><strong>Shock Configuration:</strong> Massive <strong>Fox 2.5 Performance Elite Series Shocks</strong> <em>(front coilovers and rear shocks)</em> featuring remote reservoirs and adjustable damping. You can literally dial in your comfort with a simple clicker—soften it up to float down the highway, or firm it up for off-road tracks and towing.</li><li><strong>Extras:</strong> We also include colour-coded <strong>Husky Extenda Flares</strong> and <strong>ORI Metal mud flap brackets with rubber</strong> to ensure your vehicle is completely compliant and federally approved.</li><li><strong>What's Not Included:</strong> Just your wheels and tyres! All you need to do is pick your style. We have already set the specific wheel offsets required to keep the build federally compliant, so there is no need to stress about load ratings or legality.</li></ul>"
           }
         }
       },
@@ -346,7 +345,7 @@
       "settings": {
         "container": "container",
         "color_schema": "",
-        "image": "shopify://shop_images/PLACEHOLDER-stage-3.png",
+        "image": "shopify://shop_images/Stage_3_Chevy2500.png",
         "enable_lightbox": true,
         "image_width": "50%",
         "image_position": "left",
@@ -383,7 +382,7 @@
         "heading_fFTkhn": {
           "type": "heading",
           "settings": {
-            "heading": "<strong>Stage 3.5: The Heavy Hauler (Kelderman Air Edition)</strong>",
+            "heading": "<strong>Stage 4: The Outlaw 5\" Legal Monster</strong>",
             "highlight_style": "none",
             "enable_highlight_text_color": false,
             "heading_size": "h2"
@@ -392,7 +391,7 @@
         "text_NGC7ym": {
           "type": "text",
           "settings": {
-            "text": "<p><em>The ultimate in load-carrying flexibility. We ditch the leaf springs for Kelderman full rear air suspension.</em></p><ul><li><strong>GVM Rating:</strong> 6000kg (Approx. 2190kg payload) | <strong>GCM:</strong> 12,474kg</li><li><strong>Key Features:</strong> 3\" Lift BDS Coil-Over Conversion, Fox 2.5 DSC Performance Elite Series Shocks, and heavy-duty BDS Control Arms. <strong>Upgraded</strong> with Kelderman fully adjustable rear air suspension (replacing the heavy-duty leaf packs). Engineered for up to 37” Tyres.</li><li><strong>Best For:</strong> Fully built rigs with changing rear loads, heavy canopies, and massive tow ball weights.</li><li><strong>Benefit:</strong> You get the unparalleled front-end ride quality of the Coil-Over conversion, paired with the ultimate flexibility of Kelderman rear air. Easily raise or lower the rear end of your [VEHICLE] to perfectly match your load, keeping your truck level, comfortable, and highly capable.</li><li><strong>Part Number:</strong> VEH-STAGE3-GVM-K<br/><br/></li></ul>"
+            "text": "<p><strong>Best for:</strong> The owner who wants that true \"big truck\" presence without the legal headaches. If you want a massive stance that is 100% legal, the Stage 4 package delivers a premium BDS 5\" system with Fox 2.5 Performance Elite shocks, allowing you to run 37\" tyres fully legal on a standard car licence under our pre-rego SSM (Second Stage Manufacture) approval.</p><ul><li><strong>Lift Height:</strong> 5 Inches</li><li><strong>Tyre Size:</strong> Engineered specifically for 37-inch tyres.</li><li><strong>Suspension Tech:</strong> Utilises a heavy-duty <strong>BDS 5\" High-Clearance Kit</strong>, featuring a full replacement subframe drop and upgraded replacement steering knuckles to keep your factory steering geometry perfectly intact at the 5-inch ride height. ORI also includes the premium <strong>BDS upper control arms</strong> to give the front end a completely integrated, high-end look.</li><li><strong>Shock Configuration:</strong> <strong>Fox 2.5 Performance Elite Series Shocks</strong> <em>(front and rear)</em> featuring remote reservoirs and adjustable damping. You can literally dial in the ride with a simple clicker—soften it up for a plush highway cruise, or firm it up for control on the tracks.</li><li><strong>Extras:</strong> We also include colour-coded <strong>Husky Extenda Flares</strong> and <strong>ORI Metal mud flap brackets with rubber</strong> to ensure your vehicle is completely compliant and federally approved.</li><li><strong>What's Not Included:</strong> Just your wheels and tyres! All you need to do is pick your style. We have already set the specific wheel offsets required to keep the build federally compliant, so there is no need to stress about load ratings or legality.</li></ul>"
           }
         }
       },
@@ -405,7 +404,7 @@
       "settings": {
         "container": "container",
         "color_schema": "",
-        "image": "shopify://shop_images/PLACEHOLDER-stage-3-5.png",
+        "image": "shopify://shop_images/Stage_4_Chevy2500.png",
         "enable_lightbox": true,
         "image_width": "50%",
         "image_position": "right",
@@ -442,7 +441,7 @@
         "heading_R6xiqM": {
           "type": "heading",
           "settings": {
-            "heading": "<strong>Stage 4: The 5-Inch Lift Build</strong>",
+            "heading": "<strong>Stage 5: The Apex 6.5\" Legal Titan</strong>",
             "highlight_style": "none",
             "enable_highlight_text_color": false,
             "heading_size": "h2"
@@ -451,7 +450,7 @@
         "text_YBjh6X": {
           "type": "text",
           "settings": {
-            "text": "<p><em>A lifted stance with a massive GVM, engineered for 37” Tyres.</em></p><ul><li><strong>GVM Rating:</strong> 6000kg | <strong>GCM:</strong> 12,474kg</li><li><strong>Key Features:</strong> BDS 5” Suspension Package, heavy-duty BDS Control Arms, and ORI 550kg leaf packs. Engineered for up to 37” Tyres.</li><li><strong>Best For:</strong> The hardcore enthusiast who demands a significantly lifted stance and a higher-than-normal GVM while remaining fully legal and compliant.</li><li><strong>Benefit:</strong> The 5” BDS package allows for larger 37\" tyres without straining the torsion bar setup. This ensures a smoother ride and massive ground clearance. Completed Pre-Rego under our SSM, your truck is 100% federally approved and legal.</li><li><strong>Part Number:</strong> VEH-STAGE4-GVM</li></ul>"
+            "text": "<p><strong>Best for:</strong> The owner who wants the absolute maximum height available on a heavy-duty torsion setup. If you want that towering \"big truck\" presence that is 100% legal, the Stage 5 package delivers a massive BDS 6.5\" system with Fox 2.5 Performance Elite shocks, allowing you to run 37\" tyres fully legal on a standard car licence under our pre-rego SSM (Second Stage Manufacture) approval.</p><ul><li><strong>Lift Height:</strong> 6.5 Inches</li><li><strong>Tyre Size:</strong> Engineered specifically for 37-inch tyres.</li><li><strong>Suspension Tech:</strong> Utilises a heavy-duty <strong>BDS 6.5\" High-Clearance Kit</strong>, featuring a full replacement subframe drop and upgraded replacement steering knuckles to keep your factory steering geometry perfectly intact at the massive 6.5-inch ride height. ORI also includes the premium <strong>BDS upper control arms</strong> to give the front end a completely integrated, high-end look while retaining the robust factory torsion bar setup.</li><li><strong>Shock Configuration:</strong> <strong>Fox 2.5 Performance Elite Series Shocks</strong> <em>(front and rear)</em> featuring remote reservoirs and adjustable damping. You can literally dial in the ride with a simple clicker—soften it up for a plush highway cruise, or firm it up for control on the tracks.</li><li><strong>Extras:</strong> We also include colour-coded <strong>Husky Extenda Flares</strong> and <strong>ORI Metal mud flap brackets with rubber</strong> to ensure your vehicle is completely compliant and federally approved.</li><li><strong>What's Not Included:</strong> Just your wheels and tyres! All you need to do is pick your style. We have already set the specific wheel offsets required to keep the build federally compliant, so there is no need to stress about load ratings or legality.</li></ul>"
           }
         }
       },
@@ -464,7 +463,7 @@
       "settings": {
         "container": "container",
         "color_schema": "",
-        "image": "shopify://shop_images/PLACEHOLDER-stage-4.png",
+        "image": "shopify://shop_images/Stage_5_Chevy2500.png",
         "enable_lightbox": true,
         "image_width": "50%",
         "image_position": "left",
@@ -501,7 +500,7 @@
         "heading_GqENUg": {
           "type": "heading",
           "settings": {
-            "heading": "<strong>Stage 5: The \"Lifted & Loaded\" (6.5-Inch Lift)</strong>",
+            "heading": "<strong>Stage 6: The Ultimate 6.5\" Goliath</strong>",
             "highlight_style": "none",
             "enable_highlight_text_color": false,
             "heading_size": "h2"
@@ -510,7 +509,7 @@
         "text_ddpBQL": {
           "type": "text",
           "settings": {
-            "text": "<p><em>When 5 inches isn't enough, let's go to 6.5. 100% legal Australia-wide (Pre-Rego only).</em></p><ul><li><strong>GVM Rating:</strong> 6000kg | <strong>GCM:</strong> 12,474kg</li><li><strong>Key Features:</strong> Fox 2.5 Performance Elite with BDS Lift Kit Technology (6.5-Inch Suspension Lift), and ORI 500kg heavy-duty leaf packs.</li><li><strong>Best For:</strong> Enthusiasts who want the functionality of a huge GVM and maximum legal payload, while retaining a 4.5T towing capacity and a massive on-road presence. Engineered for up to 37” Tyres.</li><li><strong>Benefit:</strong> The Stage 5 kit is federally recognized under our SSM approval. Because it is available Pre-Rego only, you can drive your heavily lifted truck in any state, feeling safe, fully insured, and completely legal while looking the part.</li><li><strong>Part Number:</strong> VEH-STAGE5-GVM</li></ul>"
+            "text": "<p><strong>Best for:</strong> The uncompromising build. This is for the owner who wants the absolute maximum height, maximum tyre size, and zero compromises on ride quality. You get the towering 6.5-inch stance clearing 37s, the incredibly smooth coilover conversion, and 100% legal road compliance on a standard car licence.</p><ul><li><strong>Lift Height:</strong> 6.5 Inches</li><li><strong>Tyre Size:</strong> Engineered specifically for 37-inch tyres.</li><li><strong>Suspension Tech:</strong> Utilises a massive <strong>BDS 6.5\" Coilover Conversion Kit</strong>. This removes the stiff factory torsion bars completely, replacing them with a modern coil spring setup. It includes a full subframe drop, heavy-duty replacement knuckles, and upgraded upper and lower control arms to keep the geometry flawless at extreme heights.</li><li><strong>Shock Configuration:</strong> Massive <strong>Fox 2.5 Performance Elite Series Coilovers</strong> up front, paired with standard Fox 2.5 Elites in the rear. Both feature remote reservoirs and adjustable damping clickers, meaning a truck this huge actually rides smoother and absorbs hits better than it did rolling off the showroom floor.</li><li><strong>Extras:</strong> We also include colour-coded <strong>Husky Extenda Flares</strong> and <strong>ORI Metal mud flap brackets with rubber</strong> to ensure your vehicle is completely compliant and federally approved.</li><li><strong>What's Not Included:</strong> Just your wheels and tyres! All you need to do is pick your style. We have already set the specific wheel offsets required to keep the build federally compliant, so there is no need to stress about load ratings or legality.</li></ul>"
           }
         }
       },
@@ -523,7 +522,7 @@
       "settings": {
         "container": "container",
         "color_schema": "",
-        "image": "shopify://shop_images/PLACEHOLDER-stage-5.png",
+        "image": "shopify://shop_images/Stage_6_Chevy2500.png",
         "enable_lightbox": true,
         "image_width": "50%",
         "image_position": "right",
@@ -578,11 +577,11 @@
         "heading_eDyjtL",
         "text_aW8UUa"
       ],
+      "disabled": true,
       "name": "t:sections.image-with-text.presets.name",
       "settings": {
         "container": "container",
         "color_schema": "",
-        "image": "shopify://shop_images/PLACEHOLDER-stage-6.png",
         "enable_lightbox": true,
         "image_width": "50%",
         "image_position": "left",
@@ -637,11 +636,11 @@
         "heading_gDQyxC",
         "text_Ktnecb"
       ],
+      "disabled": true,
       "name": "t:sections.image-with-text.presets.name",
       "settings": {
         "container": "container",
         "color_schema": "",
-        "image": "shopify://shop_images/PLACEHOLDER-stage-6-5.png",
         "enable_lightbox": true,
         "image_width": "50%",
         "image_position": "right",
@@ -670,6 +669,7 @@
       "blocks": {
         "text_g3UJNm": {
           "type": "text",
+          "disabled": true,
           "settings": {
             "text": "<h2>[VEHICLE] GVM Upgrade Options for Enhanced Towing Power</h2><p>One of the biggest challenges when you’re heading off the beaten track or out to a jobsite is making sure you can take all your gear, without overloading the manufacturer payload. When you want to be able to tow your trailer, boat, caravan, or simply load up the tub with more tools, you need some serious capabilities that won’t impact the structure or safety of your Chevy. </p><p>Our range of upgrades spans a huge scope of specs, giving you something custom, road-safe, and anywhere up to a 198% payload increase. Haul more and go further while still maintaining all the things you love about your truck when you get an engineered and installed [VEHICLE] GVM upgrade. </p><h2>[VEHICLE] GVM Upgrades for Maximum Performance</h2><p>If you own a [VEHICLE], you already know they’re an impressive beast both on and off the road. When you want to not only maintain their performance, but maximise it, [VEHICLE] GVM upgrades can help get you there. Between the boosted wheelbase from upgraded <a href=\"https://www.offroadindustries.com.au/collections/suspension\"><span style=\"text-decoration:underline\">suspension</span></a>, to more structural support from the new shocks and control arms, you’ll get better ground clearance, improved traction, and a structurally sound setup. These upgrades mean that you can carry your gear without strain - even on tough terrain. </p><p>When you transform your truck with a GVM package from ORI, you’ll also be able to add other upgrades that enhance the utility, functionality and personality of your vehicle. Get a fresh set of wheels to match the hauling power you’ve got, add on new <a href=\"https://www.offroadindustries.com.au/collections/bushwacker\"><span style=\"text-decoration:underline\">fender flares</span></a> to keep the undercarriage of your truck clear from dirt, or install a <a href=\"https://www.offroadindustries.com.au/collections/titan-fuel-tanks\"><span style=\"text-decoration:underline\">long range fuel tank</span></a> so you can go further. [VEHICLE] GVM upgrades do more than give you greater hauling power, they open you up to a whole new way to drive and enhance your truck. </p><p></p><h2>[VEHICLE] GVM Upgrade Packages – Enhance Your Vehicle’s Off-Road Capability</h2><p>When you’re offroading, sometimes you have to make a choice between taking all the gear you want with you or sticking to an easier path. If you’re too overloaded, handling, control, and stability can be impacted - but all of these concerns are alleviated with carefully engineered and installed <a href=\"https://www.offroadindustries.com.au/pages/ori-gvm-upgrades\"><span style=\"text-decoration:underline\">GVM upgrades</span></a>. </p><p>Our range enables you to lift your ground clearance by up to 6.5 inches, making it easier to tackle rugged tracks, beat your own path through the terrain, and maintain the traction you want. </p><h2>[VEHICLE] GVM Upgrade – Strengthen Your Vehicle for Heavy Duty Use</h2><p>Aside from the occasions when you need to be hauling higher loads, a GVM upgrade with ORI gives you a more resilient, hard-wearing truck regardless of what you’re carrying. You can tackle tough ground more easily, get through dry or soggy conditions with greater ease, and maintain a smooth ride no matter where you go and how much you’ve got in the tub. </p><p>No matter what motivates you, how you like to drive, or what you demand from your truck, a [VEHICLE] GVM upgrade from ORI offers you the driving experience you’ve always wanted. Explore the range now, and if you’re unsure which option is right for you, you can contact us for a personal recommendation. </p><p>After you’ve purchased your upgrade, you can get everything installed and engineered and discover the difference it’ll make to your [VEHICLE] in a real-world environment. No matter whether you’re driving for work or play, you can head off with confidence knowing your [VEHICLE] can handle everything without compromising the handling, comfort, and control you’re used to. </p><p></p>"
           }
@@ -758,6 +758,7 @@
         "content_xFACmJ",
         "content_rQQeBN"
       ],
+      "disabled": true,
       "name": "Collapsible tabs",
       "settings": {
         "container": "container",
@@ -852,6 +853,7 @@
         },
         "row_7JDfxb": {
           "type": "row",
+          "disabled": true,
           "settings": {
             "label": "Gross Vehicle Mass (GVM)",
             "value_1": "4495 KG NB1\n5148 KG NB2",
@@ -916,6 +918,7 @@
         },
         "row_VPhYR9": {
           "type": "row",
+          "disabled": true,
           "settings": {
             "label": "Payload (bases on kerb weight) FROM NB1",
             "value_1": "NB1 733 KG\nNB2 1386 KG",
@@ -932,6 +935,7 @@
         },
         "row_bcXE8T": {
           "type": "row",
+          "disabled": true,
           "settings": {
             "label": "Payload Increase (%)",
             "value_1": "",
@@ -996,6 +1000,7 @@
         },
         "row_aDFEfG": {
           "type": "row",
+          "disabled": true,
           "settings": {
             "label": "Wheel Load Rating",
             "value_1": "",
@@ -1125,7 +1130,7 @@
           "type": "row",
           "settings": {
             "label": "Fox 2.5 HTO Performance Series (Rear)",
-            "value_1": "987-24-009",
+            "value_1": "987-24-011",
             "value_2": "✔",
             "value_3": "",
             "value_4": "",
@@ -1267,6 +1272,7 @@
         },
         "row_KnhHzc": {
           "type": "row",
+          "disabled": true,
           "settings": {
             "label": "500 KG ORI Rear Leaf Packs",
             "value_1": "ORI-CHVHD-500KG",
@@ -1283,6 +1289,7 @@
         },
         "row_nNQibi": {
           "type": "row",
+          "disabled": true,
           "settings": {
             "label": "Kelderman 4 Link Rear Air 0-3\"",
             "value_1": "KLM-10006647",
@@ -1299,6 +1306,7 @@
         },
         "row_q477DL": {
           "type": "row",
+          "disabled": true,
           "settings": {
             "label": "Kelderman 4 Link Rear Air 5-6\"",
             "value_1": "KLM-10031845",
@@ -1334,9 +1342,9 @@
           "settings": {
             "label": "ORI ADR Compliance Lights",
             "value_1": "ORI-LED-Comp",
-            "value_2": "✔",
-            "value_3": "✔",
-            "value_4": "✔",
+            "value_2": "",
+            "value_3": "",
+            "value_4": "",
             "value_5": "✔",
             "value_6": "✔",
             "value_7": "✔",
