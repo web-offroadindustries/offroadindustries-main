@@ -20,6 +20,7 @@
         "slide_bW6A4P": {
           "type": "slide",
           "settings": {
+            "background": "shopify://shop_images/image_-_2026-06-15T122340.201.png",
             "image_overlay_opacity": 0,
             "content_position": "center",
             "text_alignment": "center",
