@@ -198,8 +198,8 @@
         "subheading_JVKNjL": {
           "type": "subheading",
           "settings": {
-            "subheading": "Stage 1: $XX,XXX* - Installed & Engineered",
-            "subheading_size": "h5"
+            "subheading": "Stage 1: $10,500* - Installed & Engineered",
+            "subheading_size": "h4"
           }
         },
         "heading_f9G7kD": {
@@ -257,8 +257,8 @@
         "subheading_nNBqbG": {
           "type": "subheading",
           "settings": {
-            "subheading": "Stage 2: $XX,XXX* - Installed & Engineered",
-            "subheading_size": "h5"
+            "subheading": "Stage 2: $15,000* - Installed & Engineered",
+            "subheading_size": "h4"
           }
         },
         "heading_dHpa9y": {
@@ -316,7 +316,7 @@
         "subheading_p3JeNT": {
           "type": "subheading",
           "settings": {
-            "subheading": "Stage 3: $XX,XXX* - Installed & Engineered",
+            "subheading": "Stage 3: $19,999* - Installed & Engineered",
             "subheading_size": "h5"
           }
         },
@@ -375,8 +375,8 @@
         "subheading_AtKMTT": {
           "type": "subheading",
           "settings": {
-            "subheading": "Stage 3.5: $XX,XXX* - Installed & Engineered",
-            "subheading_size": "h5"
+            "subheading": "Stage 4: $21,999* - Installed & Engineered",
+            "subheading_size": "h4"
           }
         },
         "heading_fFTkhn": {
@@ -434,8 +434,8 @@
         "subheading_DWKAtN": {
           "type": "subheading",
           "settings": {
-            "subheading": "Stage 4 : $XX,XXX* - Installed & Engineered",
-            "subheading_size": "h5"
+            "subheading": "Stage 5 : $21,999* - Installed & Engineered",
+            "subheading_size": "h4"
           }
         },
         "heading_R6xiqM": {
@@ -493,8 +493,8 @@
         "subheading_GUEKJN": {
           "type": "subheading",
           "settings": {
-            "subheading": "Stage 5: $XX,XXX* - Installed & Engineered",
-            "subheading_size": "h5"
+            "subheading": "Stage 6: $29,000* - Installed & Engineered",
+            "subheading_size": "h4"
           }
         },
         "heading_GqENUg": {
