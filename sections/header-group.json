@@ -583,6 +583,31 @@
         "mm_bg_opacity": 85,
         "mm_text_color": "#ffffff"
       }
+    },
+    "mega_menu_1_QA7MGf": {
+      "type": "mega-menu-1",
+      "blocks": {
+        "brand_tile_gwD9yF": {
+          "type": "brand_tile",
+          "settings": {
+            "logo": "shopify://shop_images/image_-_2026-06-10T181239.479.png",
+            "label": "Silverado 2500",
+            "link": "shopify://pages/gvm-package-template"
+          }
+        }
+      },
+      "block_order": [
+        "brand_tile_gwD9yF"
+      ],
+      "name": "Mega menu 1",
+      "settings": {
+        "parent": "ORI Lifted Solutions",
+        "mm_layout": "brands",
+        "mm_align": "center",
+        "mm_bg_color": "#0b0b0b",
+        "mm_bg_opacity": 85,
+        "mm_text_color": "#ffffff"
+      }
     }
   },
   "order": [
@@ -591,6 +616,7 @@
     "header",
     "mega_menu_1_9eGFTp",
     "mega_menu_1_3iAP83",
-    "mega_menu_1_pQJFf4"
+    "mega_menu_1_pQJFf4",
+    "mega_menu_1_QA7MGf"
   ]
 }
