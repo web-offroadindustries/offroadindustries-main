@@ -1,0 +1,167 @@
+{
+  "sections": {
+    "breadcrumb": {
+      "type": "breadcrumb",
+      "settings": {
+        "brc_container": "container",
+        "brc_text_alignment": "start",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "main_product": {
+      "type": "main-product",
+      "blocks": {
+        "title": {
+          "type": "title",
+          "settings": {
+            "heading_size": "h1"
+          }
+        },
+        "subtitle": {
+          "type": "subtitle",
+          "settings": {}
+        },
+        "price": {
+          "type": "price",
+          "disabled": true,
+          "settings": {}
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_atc_button": false,
+            "show_dynamic_checkout": false
+          }
+        },
+        "description": {
+          "type": "description",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "title",
+        "subtitle",
+        "buy_buttons",
+        "description"
+      ],
+      "settings": {
+        "container": "container",
+        "media_size": "large",
+        "media_position": "left",
+        "image_zoom": false,
+        "enable_sticky_info": true,
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    },
+    "key_benefits": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_benefits": {
+          "type": "heading",
+          "settings": {
+            "heading": "What's Included",
+            "heading_size": "h2"
+          }
+        },
+        "text_benefits": {
+          "type": "text",
+          "settings": {
+            "text": "{{ product.metafields.ori.included_components }}"
+          }
+        }
+      },
+      "block_order": ["heading_benefits", "text_benefits"],
+      "settings": {
+        "container": "container",
+        "text_alignment": "left",
+        "padding_top": 48,
+        "padding_bottom": 48
+      }
+    },
+    "spec_table": {
+      "type": "gvm-comparison",
+      "settings": {
+        "heading": "Package Specifications",
+        "container": "container",
+        "padding_top": 48,
+        "padding_bottom": 48
+      }
+    },
+    "quote_form": {
+      "type": "contact-form-v4",
+      "settings": {
+        "heading": "Request a Quote",
+        "subheading": "Fill in your details and an ORI specialist will get back to you within one business day.",
+        "container": "container-narrow",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "installer_network": {
+      "type": "ori-installer-network",
+      "settings": {
+        "heading": "Approved Installer Network",
+        "subheading": "This package is installed by our certified specialists. Find your nearest ORI-approved installer.",
+        "container": "container",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "faq": {
+      "type": "ori-faq",
+      "blocks": {
+        "faq_1": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What is included in this package?",
+            "answer": "<p>Each ORI stage package includes all hardware, components, and the SSM certification process. Full inclusions are listed in the package details above. Contact ORI to confirm inclusions for your specific vehicle configuration.</p>"
+          }
+        },
+        "faq_2": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How long does installation take?",
+            "answer": "<p>Installation time varies by package and vehicle. Your ORI-approved installer will confirm timing when you book. Most Stage 1 packages are completed within one day.</p>"
+          }
+        },
+        "faq_3": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Will this affect my vehicle registration?",
+            "answer": "<p>After installation, your vehicle's compliance plate is updated to reflect the new GVM. This is a standard part of the SSM (Second Stage of Manufacture) process. No re-registration is required — the updated plate is all that's needed.</p>"
+          }
+        }
+      },
+      "block_order": ["faq_1", "faq_2", "faq_3"],
+      "settings": {
+        "heading": "Frequently Asked Questions",
+        "open_first": true,
+        "emit_schema": true,
+        "container": "container-narrow",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "related_packages": {
+      "type": "product-recommendations",
+      "settings": {
+        "heading": "Other Packages for This Vehicle",
+        "container": "container",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    }
+  },
+  "order": [
+    "breadcrumb",
+    "main_product",
+    "key_benefits",
+    "spec_table",
+    "quote_form",
+    "installer_network",
+    "faq",
+    "related_packages"
+  ]
+}
