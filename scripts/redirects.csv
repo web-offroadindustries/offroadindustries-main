@@ -1,0 +1,28 @@
+# ORI GVM/GCM Redirect Map — staged, DO NOT apply until client sign-off
+# Format: /old-path,/new-path
+# Import via: Shopify Admin → Online Store → Navigation → URL Redirects → Import
+#             OR run: node scripts/import-redirects.mjs (remove --dry-run flag)
+#
+# IMPORTANT: Confirm exact live handles against the store before applying.
+# Check for backlinks/ad traffic on each /pages/ URL before 301-ing.
+#
+# ── Pages → Collections ──────────────────────────────────────────────────────
+/pages/ori-gvm-upgrades,/collections/gvm-upgrades
+/pages/chevy-silverado-2500hd-gvm-packages,/collections/chevy-silverado-2500-gvm-upgrades
+/pages/toyota-tundra,/collections/toyota-tundra-gvm-upgrades
+/pages/chevrolet-silverado-1500-gvm-package,/collections/chevy-silverado-1500-gvm-upgrades
+/pages/ford-150-gvm-packages,/collections/ford-f150-gvm-upgrades
+/pages/ori-gvm-package,/collections/gvm-upgrades
+#
+# ── Existing collection handle renames (verify live handles first) ───────────
+# If /collections/tundra-gvm exists and is being renamed → uncomment:
+# /collections/tundra-gvm,/collections/toyota-tundra-gvm-upgrades
+#
+# If /collections/ford-f150-gvm exists → uncomment:
+# /collections/ford-f150-gvm,/collections/ford-f150-gvm-upgrades
+#
+# If /collections/silverado-1500-gvm exists → uncomment:
+# /collections/silverado-1500-gvm,/collections/chevy-silverado-1500-gvm-upgrades
+#
+# If /collections/chevy-silverado-2500hd-gvm exists → uncomment:
+# /collections/chevy-silverado-2500hd-gvm,/collections/chevy-silverado-2500-gvm-upgrades
