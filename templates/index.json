@@ -15,7 +15,8 @@
         "slide_39hWWW": {
           "type": "slide",
           "settings": {
-            "background": "shopify://shop_images/Desktop-Slider-Banner-2-1920x1080px_Ford-F150.png",
+            "background": "shopify://shop_images/image_-_2026-06-15T122340.201.png",
+            "mb_background": "shopify://shop_images/image_-_2026-06-15T122340.201.png",
             "image_overlay_opacity": 0,
             "content_position": "center",
             "text_alignment": "center",
@@ -25,11 +26,11 @@
             "heading_color": "",
             "subheading": "",
             "description": "",
-            "desc_size": "text-desc-base",
-            "button_text_1": "",
-            "button_link_1": "",
+            "desc_size": "text-desc-lg",
+            "button_text_1": "ORI Packages Now Online",
+            "button_link_1": "https://www.offroadindustries.com.au/pages/ssm-legal-nb1-chevy-2500hd",
             "button_style_1": "btn--primary",
-            "button_size_1": "",
+            "button_size_1": "btn--medium",
             "button_text_2": "",
             "button_link_2": "",
             "button_style_2": "btn--primary",
@@ -38,6 +39,7 @@
         },
         "slide_TmbWTM": {
           "type": "slide",
+          "disabled": true,
           "settings": {
             "background": "shopify://shop_images/Desktop_Slider_Banner_2_1920x1080px_silverado_2500_IMAGE_ONLY_94e476d4-a785-44a2-84cb-ef9690e34088.jpg",
             "mb_background": "shopify://shop_images/Desktop_Slider_Banner_2_1920x1080px_silverado_2500_IMAGE_ONLY_94e476d4-a785-44a2-84cb-ef9690e34088.jpg",
@@ -107,7 +109,7 @@
         "pagination_style": "counter",
         "show_text_below": true,
         "text_alignment_mobile": "center",
-        "accessibility_info": "Slideshow about our brand",
+        "accessibility_info": "",
         "custom_id": "",
         "custom_class": "",
         "enable_bg_zoom_effect": false

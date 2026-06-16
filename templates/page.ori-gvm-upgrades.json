@@ -325,6 +325,7 @@
         },
         "dealer_4iqeLR": {
           "type": "dealer",
+          "disabled": true,
           "settings": {
             "name": "SNC Automotive",
             "state": "QLD",
@@ -448,6 +449,7 @@
         },
         "dealer_gRNtLh": {
           "type": "dealer",
+          "disabled": true,
           "settings": {
             "name": "Jacksons 4x4",
             "state": "SA",
@@ -874,6 +876,7 @@
         "card_FKNTVk": {
           "type": "card",
           "settings": {
+            "icon": "shopify://shop_images/SUPPORT_ICON_0c724dc2-c02d-4294-8b4c-73728c59b216.png",
             "heading": "Support",
             "body": "<p><strong>Upgrade Your American Truck with Offroad Industries</strong><br/>Looking for a one-stop shop for your American truck's GVM and GCM needs? We offer comprehensive support through the entire upgrade process.</p><ul><li><strong>Pre- & Post-Rego:</strong> We handle both pre-registration and post-registration GVM upgrades.</li><li><strong>Nationwide Compliance:</strong> Fully approved across all Australian states and territories.</li><li><strong>Expert Support:</strong> Fantastic customer service from start to finish.</li></ul><p>Ready to get started? Give Offroad Industries a call!</p>",
             "link_label": "",
@@ -883,7 +886,7 @@
         "card_P84dj8": {
           "type": "card",
           "settings": {
-            "icon": "shopify://shop_images/pngtree-business-project-protection-trusted-icon-design-for-web-png-image_1927655.png",
+            "icon": "shopify://shop_images/Australian_Largest_American_Truck_GVM_GCM_Specialist_ICON_7b26e3b9-38f8-4afb-98c8-05a7c513a3ee.png",
             "heading": "Welcome to the ORI Standard, Australia-Wide!",
             "body": "<p>At ORI, we are proud to offer an extensive network of approved fitment centres right across the country. But our commitment doesn't stop at geography! We believe that exceptional service begins long before your vehicle ever rolls into the shop. That is why we proactively educate our fitment partners on exactly what your specific vehicle requires and is capable of achieving.</p><p>Our philosophy is simple: <strong>it is never about just selling a kit; it is about providing the </strong><em><strong>right</strong></em><strong> kit, the very first time.</strong></p><p>To guarantee this flawless experience, we provide dedicated, expert technical guidance to all of our workshops. This ensures that your customised ORI GVM package perfectly aligns with your needs while upholding the uncompromising, premium standards we celebrate at ORI.</p>",
             "link_label": "",
@@ -893,7 +896,7 @@
         "card_qPi8Qi": {
           "type": "card",
           "settings": {
-            "icon": "shopify://shop_images/shield-icon.jpg",
+            "icon": "shopify://shop_images/SSM_FEDERAL_APPROVED_ICON_7ff80801-0ed9-4233-b272-1994422228d5.png",
             "heading": "SSM Federal Approval",
             "body": "<p><strong>Skip the red tape.</strong> With ORI’s Federal SSM-certified GVM packages, pre-registration upgrades—including massive lifts (up to 6\") and larger tires (up to 37\")—are baked directly into your federal compliance plate.</p><p>The result? A rig that is 100% road-legal, fully insurable, and ready to roll anywhere in Australia with <strong>zero state-by-state engineering required.</strong></p>",
             "link_label": "",
@@ -903,7 +906,7 @@
         "card_FgCQA8": {
           "type": "card",
           "settings": {
-            "icon": "shopify://shop_images/jeep-icon.jpg",
+            "icon": "shopify://shop_images/STOCK_AVAILABILTY_ICON_1742c209-dd94-4cbb-b139-04265e9cfa31.png",
             "heading": "Stock & Availability",
             "body": "<p>When you choose us, you're backed by the largest distributor of American truck parts and accessories.</p><ul><li><strong>In Stock & Ready:</strong> Your parts are already on our shelves—no waiting around for shipping!</li><li><strong>Expert Fitting:</strong> Ready for seamless fitting by one of our trusted, authorized installers.</li></ul><p><strong>Don't wait. Secure your kit from Offroad Industries today!</strong> </p>",
             "link_label": "",
@@ -913,7 +916,7 @@
         "card_gUPNbe": {
           "type": "card",
           "settings": {
-            "icon": "shopify://shop_images/warehouse-icon-illustration-design-template-vector.jpg",
+            "icon": "shopify://shop_images/Not_Just_a_GVM_ORI_is_the_GCM_Specialist_ICON_5919d3d7-39f8-4987-afaa-2d9d44b99256.png",
             "heading": "Australian Largest American Truck GVM & GCM Specialist",
             "body": "<p><strong>Forget boring, standard upgrades. At ORI, we push the limits.</strong> Unlock your vehicle's true potential with upgrades designed to go further and work harder.</p><ul><li><strong>Extreme Capability:</strong> We push the boundaries of what's approved, offering setups from OE wheels right up to massive 37\" tyres.</li><li><strong>Massive Capacity:</strong> Fully legal GVM and GCM upgrades that deliver a serious boost to your payload and towing.</li><li><strong>Proven & Certified:</strong> We don’t guess. We partner with independent testing facilities to secure certified GCM data to strict LS16 standards.</li><li><strong>100% Compliant:</strong> Official, safe, and effective GCM re-rating specifically for full-size American trucks, keeping you completely legal on the road.</li></ul>",
             "link_label": "",
@@ -923,7 +926,7 @@
         "card_mEjy7z": {
           "type": "card",
           "settings": {
-            "icon": "shopify://shop_images/shield-icon.jpg",
+            "icon": "shopify://shop_images/ORI_STANDARD_ICON_f95e590e-6d76-49a1-a819-3000689261e0.png",
             "heading": "Not Just a GVM, ORI is the GCM Specialist",
             "body": "<p>Unlock your vehicle's true potential. ORI’s fully legal GVM and GCM upgrades provide a massive increase to your payload and towing capacity, keeping you safe and compliant on the road. We don't just guess. ORI has partnered with independent testing facilities to secure certified GCM data to strict LS16 standards. This means we can officially, safely, and effectively re-rate the GCM on full-size American trucks. Pre and Post rego</p>",
             "link_label": "",
