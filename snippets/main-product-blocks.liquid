@@ -698,9 +698,41 @@
                 assign b2b_user = true
               endif
             endif
+
+            assign is_gvm_package = false
+            if product.type == 'GVM Package' or product.type == 'GCM Package'
+              assign is_gvm_package = true
+            endif
+            unless is_gvm_package
+              for tag in product.tags
+                assign tag_d = tag | downcase | strip
+                if tag_d == 'type:gvm-upgrade' or tag_d == 'type:gcm-upgrade'
+                  assign is_gvm_package = true
+                  break
+                endif
+              endfor
+            endunless
           -%}
           <div {{ block.shopify_attributes }}>
-            {%- if b2b_user -%}
+            {%- if is_gvm_package -%}
+              <div class="ori-quote-cta">
+                <a
+                  href="/pages/contact?product={{ product.title | url_encode }}&variant={{ product.selected_or_first_available_variant.title | url_encode }}"
+                  class="btn btn--primary ori-quote-cta__btn"
+                >
+                  Request a Quote
+                </a>
+                <a
+                  href="/pages/contact"
+                  class="btn btn--outline ori-quote-cta__btn"
+                >
+                  Book Installation
+                </a>
+                <p class="ori-quote-cta__note">
+                  An ORI specialist will respond within one business day.
+                </p>
+              </div>
+            {%- elsif b2b_user -%}
               <div class="b2b-order-cta">
                 <div class="b2b-order-cta__notice">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
