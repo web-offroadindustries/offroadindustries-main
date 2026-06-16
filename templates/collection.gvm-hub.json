@@ -1,0 +1,305 @@
+{
+  "sections": {
+    "ori_gvm_hero": {
+      "type": "ori-gvm-hero",
+      "blocks": {
+        "trust_1": {
+          "type": "trust_item",
+          "settings": {
+            "text": "Federal / SSM Certification",
+            "icon": "✓"
+          }
+        },
+        "trust_2": {
+          "type": "trust_item",
+          "settings": {
+            "text": "ADR-Tested & Approved",
+            "icon": "✓"
+          }
+        },
+        "trust_3": {
+          "type": "trust_item",
+          "settings": {
+            "text": "Australia-Wide Installer Network",
+            "icon": "✓"
+          }
+        }
+      },
+      "block_order": ["trust_1", "trust_2", "trust_3"],
+      "settings": {
+        "badge_text": "Federally Approved | ADR-Tested | SSM Certified",
+        "heading": "GVM Upgrades Australia",
+        "heading_size": "h1",
+        "subheading": "<p>ORI Offroad Industries supplies federally approved GVM upgrade packages for American trucks and 4WDs across Australia. Every package is ADR-tested, SSM-certified, and installed by our national network of approved specialists — giving you more payload, legally.</p>",
+        "btn_1_text": "Browse Vehicles",
+        "btn_1_url": "/collections/gvm-upgrades",
+        "btn_1_style": "btn--primary",
+        "btn_2_text": "Request a Quote",
+        "btn_2_url": "/pages/contact",
+        "btn_2_style": "btn--outline",
+        "container": "container",
+        "color_schema": "",
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    },
+    "vehicle_tiles": {
+      "type": "vehicle-cards",
+      "blocks": {
+        "vehicle_tundra": {
+          "type": "vehicle",
+          "settings": {
+            "name": "Toyota Tundra",
+            "btn_label": "View Packages",
+            "btn_url": "/collections/toyota-tundra-gvm-upgrades"
+          }
+        },
+        "vehicle_silverado1500": {
+          "type": "vehicle",
+          "settings": {
+            "name": "Chevrolet Silverado 1500",
+            "btn_label": "View Packages",
+            "btn_url": "/collections/chevy-silverado-1500-gvm-upgrades"
+          }
+        },
+        "vehicle_silverado2500": {
+          "type": "vehicle",
+          "settings": {
+            "name": "Chevrolet Silverado 2500HD",
+            "btn_label": "View Packages",
+            "btn_url": "/collections/chevy-silverado-2500-gvm-upgrades"
+          }
+        },
+        "vehicle_f150": {
+          "type": "vehicle",
+          "settings": {
+            "name": "Ford F-150",
+            "btn_label": "View Packages",
+            "btn_url": "/collections/ford-f150-gvm-upgrades"
+          }
+        },
+        "vehicle_ram": {
+          "type": "vehicle",
+          "settings": {
+            "name": "RAM 1500",
+            "btn_label": "View Packages",
+            "btn_url": "/collections/ram-1500-gvm-upgrades"
+          }
+        },
+        "vehicle_ranger": {
+          "type": "vehicle",
+          "settings": {
+            "name": "Ford Ranger (Next-Gen)",
+            "btn_label": "View Packages",
+            "btn_url": "/collections/ford-ranger-gvm-upgrades"
+          }
+        },
+        "vehicle_hilux": {
+          "type": "vehicle",
+          "settings": {
+            "name": "Toyota HiLux",
+            "btn_label": "View Packages",
+            "btn_url": "/collections/toyota-hilux-gvm-upgrades"
+          }
+        }
+      },
+      "block_order": [
+        "vehicle_tundra",
+        "vehicle_silverado1500",
+        "vehicle_silverado2500",
+        "vehicle_f150",
+        "vehicle_ram",
+        "vehicle_ranger",
+        "vehicle_hilux"
+      ],
+      "settings": {
+        "heading": "GVM Upgrades by Vehicle",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "package_grid": {
+      "type": "ori-package-grid",
+      "blocks": {
+        "card_1": {
+          "type": "package_card",
+          "settings": {
+            "vehicle_label": "Toyota Tundra",
+            "title": "Stage 1 GVM Upgrade",
+            "gvm_figure": "TBC — request from client",
+            "payload_gain": "TBC",
+            "stage_label": "Stage 1",
+            "btn_text": "View Package",
+            "btn_url": "/collections/toyota-tundra-gvm-upgrades",
+            "btn_style": "btn--primary"
+          }
+        },
+        "card_2": {
+          "type": "package_card",
+          "settings": {
+            "vehicle_label": "Chevrolet Silverado 1500",
+            "title": "Stage 1 GVM Upgrade",
+            "gvm_figure": "TBC — request from client",
+            "payload_gain": "TBC",
+            "stage_label": "Stage 1",
+            "badge": "Popular",
+            "btn_text": "View Package",
+            "btn_url": "/collections/chevy-silverado-1500-gvm-upgrades",
+            "btn_style": "btn--primary"
+          }
+        },
+        "card_3": {
+          "type": "package_card",
+          "settings": {
+            "vehicle_label": "Ford F-150",
+            "title": "Stage 1 GVM Upgrade",
+            "gvm_figure": "TBC — request from client",
+            "payload_gain": "TBC",
+            "stage_label": "Stage 1",
+            "btn_text": "View Package",
+            "btn_url": "/collections/ford-f150-gvm-upgrades",
+            "btn_style": "btn--primary"
+          }
+        },
+        "card_4": {
+          "type": "package_card",
+          "settings": {
+            "vehicle_label": "RAM 1500",
+            "title": "Stage 1 GVM Upgrade",
+            "gvm_figure": "TBC — request from client",
+            "payload_gain": "TBC",
+            "stage_label": "Stage 1",
+            "btn_text": "View Package",
+            "btn_url": "/collections/ram-1500-gvm-upgrades",
+            "btn_style": "btn--primary"
+          }
+        }
+      ],
+      "block_order": ["card_1", "card_2", "card_3", "card_4"],
+      "settings": {
+        "heading": "Popular GVM Upgrade Packages",
+        "subheading": "Federally approved stage packages for Australia's most popular American trucks.",
+        "columns": 4,
+        "view_all_text": "View All Packages",
+        "view_all_url": "/collections/gvm-upgrades",
+        "view_all_style": "btn--outline",
+        "container": "container",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "video_section": {
+      "type": "video",
+      "disabled": true,
+      "settings": {
+        "heading": "Understanding GVM Upgrades",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "why_ori": {
+      "type": "why-choose",
+      "settings": {
+        "heading": "Why Choose ORI for Your GVM Upgrade?",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "installer_network": {
+      "type": "ori-installer-network",
+      "blocks": {
+        "installer_vic": {
+          "type": "installer",
+          "settings": {
+            "state": "VIC",
+            "name": "ORI Offroad Industries (HQ)",
+            "suburb": "Melbourne",
+            "phone": "TBC"
+          }
+        },
+        "installer_nsw": {
+          "type": "installer",
+          "settings": {
+            "state": "NSW",
+            "name": "NSW Installer — add via theme editor",
+            "suburb": "Sydney"
+          }
+        },
+        "installer_qld": {
+          "type": "installer",
+          "settings": {
+            "state": "QLD",
+            "name": "QLD Installer — add via theme editor",
+            "suburb": "Brisbane"
+          }
+        }
+      },
+      "block_order": ["installer_vic", "installer_nsw", "installer_qld"],
+      "settings": {
+        "heading": "Approved Installer Network",
+        "subheading": "ORI packages are installed by certified specialists across every state and territory.",
+        "container": "container",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "faq": {
+      "type": "ori-faq",
+      "blocks": {
+        "faq_1": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What is a GVM upgrade?",
+            "answer": "<p>A GVM (Gross Vehicle Mass) upgrade increases the maximum legal weight your vehicle can carry. ORI's federally approved packages use SSM (Second Stage of Manufacture) certification to reclassify your vehicle from NB1 to NB2, giving you more legal payload capacity.</p>"
+          }
+        },
+        "faq_2": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How much payload can I legally gain?",
+            "answer": "<p>Payload gains vary by vehicle and stage. Typical Stage 1 packages add 300–600 kg of legal payload. Contact ORI for vehicle-specific figures.</p>"
+          }
+        },
+        "faq_3": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What is the difference between GVM and GCM?",
+            "answer": "<p>GVM is the maximum legal weight of your vehicle fully loaded. GCM is the maximum legal combined weight of your vehicle plus a trailer. A GCM upgrade lets you legally tow more.</p>"
+          }
+        },
+        "faq_4": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Which vehicles can be upgraded?",
+            "answer": "<p>ORI currently offers federally approved packages for: Toyota Tundra, Chevrolet Silverado 1500, Chevrolet Silverado 2500HD/3500HD, Ford F-150, Ford F-250/F-350/F-450, RAM 1500, Next-Gen Ford Ranger, and Toyota HiLux.</p>"
+          }
+        },
+        "faq_5": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Will a GVM upgrade affect my warranty?",
+            "answer": "<p>ORI's packages are engineered and federally approved under the SSM process. Warranty implications depend on your vehicle manufacturer — we recommend confirming with your dealer before proceeding.</p>"
+          }
+        }
+      },
+      "block_order": ["faq_1", "faq_2", "faq_3", "faq_4", "faq_5"],
+      "settings": {
+        "heading": "Frequently Asked Questions",
+        "open_first": true,
+        "emit_schema": true,
+        "container": "container-narrow",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    }
+  },
+  "order": [
+    "ori_gvm_hero",
+    "vehicle_tiles",
+    "package_grid",
+    "video_section",
+    "why_ori",
+    "installer_network",
+    "faq"
+  ]
+}
