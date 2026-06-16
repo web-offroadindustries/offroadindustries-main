@@ -1,0 +1,71 @@
+{%- comment -%}
+  ori-schema-breadcrumb.liquid
+  Outputs BreadcrumbList JSON-LD.
+  Usage: {%- render 'ori-schema-breadcrumb', crumbs: crumbs_array -%}
+  crumbs_array format (build in the calling template/section):
+    assign crumbs = 'Home|/,GVM Upgrades|/collections/gvm-upgrades,Toyota Tundra GVM|/collections/toyota-tundra-gvm-upgrades' | split: ','
+
+  For product pages, pass product + collection so it auto-builds the crumbs.
+  Usage (product): {%- render 'ori-schema-breadcrumb', product: product, collection: collection -%}
+{%- endcomment -%}
+
+{%- liquid
+  assign bc_items = ''
+  assign bc_pos   = 1
+-%}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": {{ shop.url | json }}
+    }
+    {%- if collection != blank -%}
+    ,{
+      "@type": "ListItem",
+      "position": 2,
+      "name": {{ collection.title | json }},
+      "item": {{ shop.url | append: collection.url | json }}
+    }
+      {%- if product != blank -%}
+      ,{
+        "@type": "ListItem",
+        "position": 3,
+        "name": {{ product.title | json }},
+        "item": {{ shop.url | append: product.url | json }}
+      }
+      {%- endif -%}
+    {%- elsif product != blank -%}
+    ,{
+      "@type": "ListItem",
+      "position": 2,
+      "name": {{ product.title | json }},
+      "item": {{ shop.url | append: product.url | json }}
+    }
+    {%- elsif page != blank -%}
+    ,{
+      "@type": "ListItem",
+      "position": 2,
+      "name": {{ page.title | json }},
+      "item": {{ shop.url | append: page.url | json }}
+    }
+    {%- elsif crumbs != blank -%}
+    {%- assign crumb_arr = crumbs | split: ',' -%}
+    {%- for crumb in crumb_arr -%}
+      {%- assign crumb_parts = crumb | split: '|' -%}
+      ,{
+        "@type": "ListItem",
+        "position": {{ forloop.index | plus: 1 }},
+        "name": {{ crumb_parts[0] | strip | json }},
+        "item": {{ shop.url | append: crumb_parts[1] | strip | json }}
+      }
+    {%- endfor -%}
+    {%- endif -%}
+  ]
+}
+</script>
