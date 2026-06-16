@@ -15,7 +15,8 @@
         "slide_39hWWW": {
           "type": "slide",
           "settings": {
-            "background": "shopify://shop_images/Desktop-Slider-Banner-2-1920x1080px_Ford-F150.png",
+            "background": "shopify://shop_images/image_-_2026-06-15T122340.201.png",
+            "mb_background": "shopify://shop_images/image_-_2026-06-15T122340.201.png",
             "image_overlay_opacity": 0,
             "content_position": "center",
             "text_alignment": "center",
@@ -25,11 +26,11 @@
             "heading_color": "",
             "subheading": "",
             "description": "",
-            "desc_size": "text-desc-base",
-            "button_text_1": "",
-            "button_link_1": "",
+            "desc_size": "text-desc-lg",
+            "button_text_1": "ORI Packages Now Online",
+            "button_link_1": "https://www.offroadindustries.com.au/pages/ssm-legal-nb1-chevy-2500hd",
             "button_style_1": "btn--primary",
-            "button_size_1": "",
+            "button_size_1": "btn--medium",
             "button_text_2": "",
             "button_link_2": "",
             "button_style_2": "btn--primary",
@@ -38,6 +39,7 @@
         },
         "slide_TmbWTM": {
           "type": "slide",
+          "disabled": true,
           "settings": {
             "background": "shopify://shop_images/Desktop_Slider_Banner_2_1920x1080px_silverado_2500_IMAGE_ONLY_94e476d4-a785-44a2-84cb-ef9690e34088.jpg",
             "mb_background": "shopify://shop_images/Desktop_Slider_Banner_2_1920x1080px_silverado_2500_IMAGE_ONLY_94e476d4-a785-44a2-84cb-ef9690e34088.jpg",
@@ -714,33 +716,6 @@
         "animations": "inherit"
       }
     },
-    "rich_text_Nc684F": {
-      "type": "rich-text",
-      "blocks": {
-        "text_PjD9kX": {
-          "type": "text",
-          "settings": {
-            "text": "<h2>Offroad Industries Australia – 4x4 Parts and Accessories</h2><p>At Offroad Industries, we noticed a lack of options when it came to top-quality aftermarket 4x4 parts and accessories. As a result, we’ve collated suspension systems and off-road accessories built for serious touring, towing and off-road performance from the top brands in the automotive industry. We specialise in American-made parts for American-made trucks, including the likes of Chevy, RAM, and Ford. </p><p>With options to enhance your power, handling, and safety for all terrains and conditions that Australia throws your way, you can transform the way you drive when you shop at <a href=\"https://www.offroadindustries.com.au/pages/about-us\"><span style=\"text-decoration:underline\">Offroad Industries</span></a>. From suspension upgrades and functional accessories like electric sidesteps to protective parts like fender flares, bonnet protectors and weather shields, you can customise your hardest working vehicle the way you want. </p><h2>Offroad Industries – Premium 4WD Parts and Accessories in Australia</h2><p>Our focus has always been on sourcing and supplying 4WD parts and accessories that can handle the most rugged terrain and offroading conditions. Get greater ground clearance, go further, and push harder with options like long range fuel tanks, <a href=\"https://www.offroadindustries.com.au/pages/ori-gvm-upgrades\"><span style=\"text-decoration:underline\">GVM upgrades</span></a>, custom wheels, and lighting upgrades to keep your journey smooth even when the conditions are rough. With top brands like <a href=\"https://www.offroadindustries.com.au/collections/fox-suspension\"><span style=\"text-decoration:underline\">FOX</span></a>, <a href=\"https://www.offroadindustries.com.au/collections/bds-suspension-australian-distributor\"><span style=\"text-decoration:underline\">BDS</span></a>, Husky, Real Truck, and more to choose from, it’s never been easier to get parts and accessories that let you customise your truck to the exact specifications you want, with parts that are made to last. </p><p>Everything we stock here was carefully selected with real-world Australian use in mind, no matter whether you’re heading out to a job site day to day, or want something for long-distance touring and heavy towing, you can do it with Offroad Industries. </p><h2>Chevrolet Silverado, F-150 and Tundra Parts and Accessories</h2><p>Here at Offroad Industries, we know which vehicles Australian drivers are consistently choosing, and we’ve got the parts and upgrades to take them to the next level. Whether you’re touring or towing with anything from Chevrolet Silverado, to a Ford F-150 or Toyota Tundra, we have you covered. With Australian conditions being so diverse, and these resilient trucks having so much untapped potential, we source premium gear that helps bring out the best in your vehicle. </p><p>Suspension performance and load carrying capability are critical when you’re heading off the beaten track. Upgrading the functionality, power, and performance with suspension upgrades is one of the most popular options. You can also protect your vehicle and everything you’re hauling with add-ons like electric roller shutters and bull bars. Whether you’re towing a caravan, building a touring setup or improving off-road capability, Offroad Industries is your prime spot for getting hard-wearing solutions designed for harsh conditions. </p>"
-          }
-        }
-      },
-      "block_order": [
-        "text_PjD9kX"
-      ],
-      "name": "t:sections.rich-text.presets.name",
-      "settings": {
-        "container": "container",
-        "color_schema": "",
-        "text_alignment": "center",
-        "padding_top": 40,
-        "padding_bottom": 40,
-        "show_section_divider": false,
-        "divider_width": "container",
-        "custom_id": "",
-        "custom_class": "",
-        "animations": "inherit"
-      }
-    },
     "contact_form_v3_yGfhUr": {
       "type": "contact-form-v3",
       "blocks": {
@@ -824,7 +799,6 @@
     "hero_8BNkhD",
     "products_bundle_jFkhY9",
     "b9a09ce1-0384-4aac-8a69-af32bf73a5e8",
-    "rich_text_Nc684F",
     "contact_form_v3_yGfhUr"
   ]
 }
