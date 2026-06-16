@@ -1,0 +1,135 @@
+{
+  "sections": {
+    "breadcrumb": {
+      "type": "breadcrumb",
+      "settings": {
+        "brc_container": "container",
+        "brc_text_alignment": "start",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "hero_banner": {
+      "type": "slideshow",
+      "blocks": {
+        "slide_1": {
+          "type": "slide",
+          "settings": {
+            "title": "{{ collection.title }}",
+            "heading_size": "h1",
+            "heading_color": "#ffffff",
+            "image_overlay_opacity": 45,
+            "content_position": "center-bottom",
+            "text_alignment": "center",
+            "button_text_1": "View Packages",
+            "button_style_1": "btn--primary"
+          }
+        }
+      },
+      "block_order": ["slide_1"],
+      "settings": {
+        "container": "container-full",
+        "slideshow_height": "medium",
+        "show_dots": false,
+        "show_nav": false,
+        "autoplay": false
+      }
+    },
+    "collection_intro": {
+      "type": "rich-text",
+      "blocks": {
+        "text_intro": {
+          "type": "text",
+          "settings": {
+            "text": "{{ collection.description }}"
+          }
+        }
+      },
+      "block_order": ["text_intro"],
+      "settings": {
+        "container": "container-narrow",
+        "text_alignment": "center",
+        "padding_top": 48,
+        "padding_bottom": 24
+      }
+    },
+    "product_grid": {
+      "type": "main-collection-product-grid",
+      "settings": {
+        "container": "container",
+        "products_per_page": 12,
+        "columns": 3,
+        "column_gap": "medium",
+        "row_gap": "medium",
+        "enable_product_count": true,
+        "enable_filtering": false,
+        "enable_sorting": false,
+        "paginate_type": "number",
+        "padding_top": 24,
+        "padding_bottom": 60
+      }
+    },
+    "installer_network": {
+      "type": "ori-installer-network",
+      "settings": {
+        "heading": "Approved Installer Network",
+        "subheading": "ORI packages are installed by certified specialists across every state and territory.",
+        "container": "container",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "faq": {
+      "type": "ori-faq",
+      "blocks": {
+        "faq_1": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What is a GVM upgrade?",
+            "answer": "<p>A GVM (Gross Vehicle Mass) upgrade increases the maximum legal weight your vehicle can carry. ORI's federally approved packages use SSM certification to reclassify your vehicle from NB1 to NB2, giving you more legal payload capacity.</p>"
+          }
+        },
+        "faq_2": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How much payload can I legally gain with this vehicle?",
+            "answer": "<p>Payload gains vary by stage. Contact ORI for vehicle-specific figures and to confirm which stage suits your use case.</p>"
+          }
+        },
+        "faq_3": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Does ORI require engineering certification?",
+            "answer": "<p>All ORI packages go through the SSM process — independent engineering sign-off, ADR testing, and VTA certification. You receive a VTA approval number and an updated compliance plate.</p>"
+          }
+        }
+      },
+      "block_order": ["faq_1", "faq_2", "faq_3"],
+      "settings": {
+        "heading": "Frequently Asked Questions",
+        "open_first": true,
+        "emit_schema": true,
+        "container": "container-narrow",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "related_vehicles": {
+      "type": "vehicle-cards",
+      "settings": {
+        "heading": "Explore Other Vehicles",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    }
+  },
+  "order": [
+    "breadcrumb",
+    "hero_banner",
+    "collection_intro",
+    "product_grid",
+    "installer_network",
+    "faq",
+    "related_vehicles"
+  ]
+}
