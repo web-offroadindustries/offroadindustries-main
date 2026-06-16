@@ -1,0 +1,52 @@
+{%- comment -%}
+  ori-schema-local-business.liquid
+  Outputs AutomotiveBusiness / LocalBusiness JSON-LD for ORI Offroad Industries.
+  Render once per page on the GVM/GCM hub pages only.
+  Usage: {%- render 'ori-schema-local-business' -%}
+
+  NOTE: Confirm/update address, phone, and opening hours with the client before launch.
+  Real VTA approval numbers should be added to the hasCredential array once supplied.
+{%- endcomment -%}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": ["AutomotiveBusiness", "LocalBusiness"],
+  "name": "ORI Offroad Industries",
+  "url": {{ shop.url | json }},
+  "logo": {{ shop.url | append: '/cdn/shop/files/ori-logo.png' | json }},
+  "description": "Australia's supplier of federally approved GVM and GCM upgrade packages for American trucks and 4WDs. SSM-certified, ADR-tested, with a national installer network.",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "TBC — confirm with client",
+    "addressLocality": "Melbourne",
+    "addressRegion": "VIC",
+    "postalCode": "TBC",
+    "addressCountry": "AU"
+  },
+  "telephone": "TBC — confirm with client",
+  "areaServed": {
+    "@type": "Country",
+    "name": "Australia"
+  },
+  "serviceType": [
+    "GVM Upgrades",
+    "GCM Upgrades",
+    "Payload Capacity Upgrades",
+    "SSM Certification",
+    "Suspension Upgrades"
+  ],
+  "hasCredential": [
+    {
+      "@type": "EducationalOccupationalCredential",
+      "credentialCategory": "SSM Certification",
+      "name": "Second Stage of Manufacture — Federal Certification",
+      "description": "All ORI GVM/GCM packages carry full SSM certification under Australian Design Rules (ADR). VTA approval numbers available on request per vehicle platform."
+    }
+  ],
+  "sameAs": [
+    "https://www.instagram.com/orioffroad",
+    "https://www.facebook.com/orioffroad"
+  ]
+}
+</script>

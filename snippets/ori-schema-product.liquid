@@ -1,0 +1,78 @@
+{%- comment -%}
+  ori-schema-product.liquid
+  Output Product JSON-LD for GVM/GCM package product pages.
+  Usage: {%- render 'ori-schema-product', product: product -%}
+  Place in the <head> or just before </body> via theme.liquid (conditionally on template).
+{%- endcomment -%}
+
+{%- liquid
+  assign ori_product = product
+  assign ori_brand   = 'ORI Offroad Industries'
+  assign ori_url     = shop.url | append: ori_product.url
+-%}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": {{ ori_product.title | json }},
+  "description": {{ ori_product.description | strip_html | truncate: 500 | json }},
+  "url": {{ ori_url | json }},
+  "brand": {
+    "@type": "Brand",
+    "name": {{ ori_brand | json }}
+  },
+  {%- if ori_product.featured_image -%}
+  "image": [
+    {{ ori_product.featured_image | image_url: width: 1200 | prepend: 'https:' | json }}
+  ],
+  {%- endif -%}
+  "sku": {{ ori_product.selected_or_first_available_variant.sku | default: ori_product.id | json }},
+  "offers": {
+    "@type": "Offer",
+    "url": {{ ori_url | json }},
+    "priceCurrency": "AUD",
+    {%- if ori_product.selected_or_first_available_variant.price > 0 -%}
+    "price": {{ ori_product.selected_or_first_available_variant.price | divided_by: 100.0 }},
+    {%- endif -%}
+    "availability": "{% if ori_product.available %}https://schema.org/InStock{% else %}https://schema.org/OutOfStock{% endif %}",
+    "seller": {
+      "@type": "Organization",
+      "name": {{ ori_brand | json }}
+    }
+  }
+  {%- if ori_product.metafields.ori.original_gvm != blank or ori_product.metafields.ori.upgraded_gvm != blank -%}
+  ,
+  "additionalProperty": [
+    {%- if ori_product.metafields.ori.original_gvm != blank -%}
+    {
+      "@type": "PropertyValue",
+      "name": "Original GVM",
+      "value": {{ ori_product.metafields.ori.original_gvm | json }}
+    }
+    {%- endif -%}
+    {%- if ori_product.metafields.ori.upgraded_gvm != blank -%}
+    ,{
+      "@type": "PropertyValue",
+      "name": "Upgraded GVM",
+      "value": {{ ori_product.metafields.ori.upgraded_gvm | json }}
+    }
+    {%- endif -%}
+    {%- if ori_product.metafields.ori.payload_gain != blank -%}
+    ,{
+      "@type": "PropertyValue",
+      "name": "Payload Gain",
+      "value": {{ ori_product.metafields.ori.payload_gain | json }}
+    }
+    {%- endif -%}
+    {%- if ori_product.metafields.ori.ssm_approval != blank -%}
+    ,{
+      "@type": "PropertyValue",
+      "name": "SSM Approval",
+      "value": {{ ori_product.metafields.ori.ssm_approval | json }}
+    }
+    {%- endif -%}
+  ]
+  {%- endif -%}
+}
+</script>

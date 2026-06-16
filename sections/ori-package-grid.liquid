@@ -1,0 +1,357 @@
+{%- liquid
+  assign section_id = section.settings.custom_id | default: section.id
+  assign container  = section.settings.container
+  assign cols       = section.settings.columns | default: 3
+-%}
+
+<div
+  id="{{ section_id }}"
+  class="ori-package-grid f-section-padding color-{{ section.settings.color_schema }}"
+  data-section-type="ori-package-grid"
+  style="
+    --section-padding-top: {{ section.settings.padding_top }}px;
+    --section-padding-bottom: {{ section.settings.padding_bottom }}px;
+    --pkg-grid-cols: {{ cols }};
+  "
+>
+  <div class="{{ container }}">
+
+    {%- if section.settings.heading != blank or section.settings.subheading != blank -%}
+      <div class="ori-package-grid__header f-section-header">
+        {%- if section.settings.heading != blank -%}
+          <h2 class="ori-package-grid__heading {{ section.settings.heading_size }}">
+            {{ section.settings.heading }}
+          </h2>
+        {%- endif -%}
+        {%- if section.settings.subheading != blank -%}
+          <p class="ori-package-grid__subheading">{{ section.settings.subheading }}</p>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+
+    {%- if section.blocks.size > 0 -%}
+      <ul class="ori-package-grid__list" role="list">
+        {%- for block in section.blocks -%}
+          {%- case block.type -%}
+
+            {%- when 'package_card' -%}
+              <li class="ori-package-grid__item" {{ block.shopify_attributes }}>
+                <div class="ori-package-card">
+
+                  {%- if block.settings.image != blank -%}
+                    <div class="ori-package-card__image-wrap">
+                      {{-
+                        block.settings.image
+                        | image_url: width: 800
+                        | image_tag:
+                          loading: 'lazy',
+                          class: 'ori-package-card__image',
+                          widths: '400,600,800',
+                          sizes: '(max-width: 749px) calc(100vw - 32px), (max-width: 989px) calc(50vw - 40px), calc(33.3vw - 48px)'
+                      -}}
+                    </div>
+                  {%- endif -%}
+
+                  <div class="ori-package-card__body">
+
+                    {%- if block.settings.vehicle_label != blank -%}
+                      <span class="ori-package-card__vehicle">{{ block.settings.vehicle_label }}</span>
+                    {%- endif -%}
+
+                    {%- if block.settings.title != blank -%}
+                      <h3 class="ori-package-card__title h4">{{ block.settings.title }}</h3>
+                    {%- endif -%}
+
+                    <dl class="ori-package-card__specs">
+                      {%- if block.settings.gvm_figure != blank -%}
+                        <div class="ori-package-card__spec-row">
+                          <dt>GVM</dt>
+                          <dd>{{ block.settings.gvm_figure }}</dd>
+                        </div>
+                      {%- endif -%}
+                      {%- if block.settings.payload_gain != blank -%}
+                        <div class="ori-package-card__spec-row ori-package-card__spec-row--highlight">
+                          <dt>Payload gain</dt>
+                          <dd>{{ block.settings.payload_gain }}</dd>
+                        </div>
+                      {%- endif -%}
+                      {%- if block.settings.stage_label != blank -%}
+                        <div class="ori-package-card__spec-row">
+                          <dt>Stage</dt>
+                          <dd>{{ block.settings.stage_label }}</dd>
+                        </div>
+                      {%- endif -%}
+                    </dl>
+
+                    {%- if block.settings.badge != blank -%}
+                      <span class="ori-package-card__badge">{{ block.settings.badge }}</span>
+                    {%- endif -%}
+
+                    {%- if block.settings.btn_text != blank and block.settings.btn_url != blank -%}
+                      <a
+                        href="{{ block.settings.btn_url }}"
+                        class="btn {{ block.settings.btn_style }} ori-package-card__cta"
+                      >
+                        {{- block.settings.btn_text -}}
+                      </a>
+                    {%- endif -%}
+
+                  </div>
+                </div>
+              </li>
+
+          {%- endcase -%}
+        {%- endfor -%}
+      </ul>
+    {%- endif -%}
+
+    {%- if section.settings.view_all_text != blank and section.settings.view_all_url != blank -%}
+      <div class="ori-package-grid__footer">
+        <a href="{{ section.settings.view_all_url }}" class="btn {{ section.settings.view_all_style }}">
+          {{ section.settings.view_all_text }}
+        </a>
+      </div>
+    {%- endif -%}
+
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "ORI Package Grid",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section header"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "GVM & GCM Upgrade Packages"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "label": "Heading size",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" }
+      ],
+      "default": "h2"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading"
+    },
+    {
+      "type": "header",
+      "content": "View all button"
+    },
+    {
+      "type": "text",
+      "id": "view_all_text",
+      "label": "View all label"
+    },
+    {
+      "type": "url",
+      "id": "view_all_url",
+      "label": "View all URL"
+    },
+    {
+      "type": "select",
+      "id": "view_all_style",
+      "label": "View all button style",
+      "options": [
+        { "value": "btn--primary", "label": "Primary" },
+        { "value": "btn--secondary", "label": "Secondary" },
+        { "value": "btn--outline", "label": "Outline" }
+      ],
+      "default": "btn--outline"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "columns",
+      "label": "Columns (desktop)",
+      "min": 2,
+      "max": 4,
+      "step": 1,
+      "default": 3
+    },
+    {
+      "type": "select",
+      "id": "container",
+      "label": "Container width",
+      "options": [
+        { "value": "container-full", "label": "Full width" },
+        { "value": "container", "label": "Fixed (1200px)" },
+        { "value": "container-narrow", "label": "Narrow" }
+      ],
+      "default": "container"
+    },
+    {
+      "type": "select",
+      "id": "color_schema",
+      "label": "Color scheme",
+      "options": [
+        { "value": "", "label": "Default" },
+        { "value": "accent", "label": "Accent" },
+        { "value": "inverse", "label": "Inverse" }
+      ],
+      "default": ""
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "text",
+      "id": "custom_id",
+      "label": "Custom HTML ID"
+    },
+    {
+      "type": "text",
+      "id": "custom_class",
+      "label": "Custom CSS class"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "package_card",
+      "name": "Package card",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Card image"
+        },
+        {
+          "type": "text",
+          "id": "vehicle_label",
+          "label": "Vehicle label (eyebrow)",
+          "info": "e.g. Toyota Tundra"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Package title",
+          "default": "Stage 1 GVM Upgrade"
+        },
+        {
+          "type": "text",
+          "id": "gvm_figure",
+          "label": "GVM figure",
+          "info": "e.g. 4,200 kg",
+          "default": "4,200 kg"
+        },
+        {
+          "type": "text",
+          "id": "payload_gain",
+          "label": "Payload gain",
+          "info": "e.g. +450 kg",
+          "default": "+450 kg"
+        },
+        {
+          "type": "text",
+          "id": "stage_label",
+          "label": "Stage",
+          "default": "Stage 1"
+        },
+        {
+          "type": "text",
+          "id": "badge",
+          "label": "Badge text (optional)",
+          "info": "e.g. Most Popular"
+        },
+        {
+          "type": "text",
+          "id": "btn_text",
+          "label": "Button label",
+          "default": "View Package"
+        },
+        {
+          "type": "url",
+          "id": "btn_url",
+          "label": "Button URL"
+        },
+        {
+          "type": "select",
+          "id": "btn_style",
+          "label": "Button style",
+          "options": [
+            { "value": "btn--primary", "label": "Primary" },
+            { "value": "btn--secondary", "label": "Secondary" },
+            { "value": "btn--outline", "label": "Outline" }
+          ],
+          "default": "btn--primary"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "ORI Package Grid",
+      "blocks": [
+        {
+          "type": "package_card",
+          "settings": {
+            "vehicle_label": "Toyota Tundra",
+            "title": "Stage 1 GVM Upgrade",
+            "gvm_figure": "4,200 kg",
+            "payload_gain": "+450 kg",
+            "stage_label": "Stage 1",
+            "btn_text": "View Package"
+          }
+        },
+        {
+          "type": "package_card",
+          "settings": {
+            "vehicle_label": "Chevrolet Silverado 1500",
+            "title": "Stage 2 GVM Upgrade",
+            "gvm_figure": "4,400 kg",
+            "payload_gain": "+600 kg",
+            "stage_label": "Stage 2",
+            "badge": "Most Popular",
+            "btn_text": "View Package"
+          }
+        },
+        {
+          "type": "package_card",
+          "settings": {
+            "vehicle_label": "Ford F150",
+            "title": "Stage 1 GVM Upgrade",
+            "gvm_figure": "4,100 kg",
+            "payload_gain": "+400 kg",
+            "stage_label": "Stage 1",
+            "btn_text": "View Package"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

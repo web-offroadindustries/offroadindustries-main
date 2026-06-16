@@ -1,0 +1,128 @@
+{
+  "sections": {
+    "breadcrumb": {
+      "type": "breadcrumb",
+      "settings": {
+        "brc_container": "container",
+        "brc_text_alignment": "start",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "hero_banner": {
+      "type": "slideshow",
+      "blocks": {
+        "slide_1": {
+          "type": "slide",
+          "settings": {
+            "title": "{{ collection.title }}",
+            "heading_size": "h1",
+            "heading_color": "#ffffff",
+            "image_overlay_opacity": 45,
+            "content_position": "center-bottom",
+            "text_alignment": "center",
+            "button_text_1": "View Packages",
+            "button_style_1": "btn--primary"
+          }
+        }
+      },
+      "block_order": ["slide_1"],
+      "settings": {
+        "container": "container-full",
+        "slideshow_height": "medium",
+        "show_dots": false,
+        "show_nav": false,
+        "autoplay": false
+      }
+    },
+    "collection_intro": {
+      "type": "rich-text",
+      "blocks": {
+        "text_intro": {
+          "type": "text",
+          "settings": {
+            "text": "{{ collection.description }}"
+          }
+        }
+      },
+      "block_order": ["text_intro"],
+      "settings": {
+        "container": "container-narrow",
+        "text_alignment": "center",
+        "padding_top": 48,
+        "padding_bottom": 24
+      }
+    },
+    "product_grid": {
+      "type": "main-collection-product-grid",
+      "settings": {
+        "container": "container",
+        "products_per_page": 12,
+        "columns": 3,
+        "column_gap": "medium",
+        "row_gap": "medium",
+        "enable_product_count": true,
+        "enable_filtering": false,
+        "enable_sorting": false,
+        "paginate_type": "number",
+        "padding_top": 24,
+        "padding_bottom": 60
+      }
+    },
+    "installer_network": {
+      "type": "ori-installer-network",
+      "settings": {
+        "heading": "Approved Installer Network",
+        "subheading": "ORI GCM packages are installed by certified specialists across every state and territory.",
+        "container": "container",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "faq": {
+      "type": "ori-faq",
+      "blocks": {
+        "faq_1": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What is a GCM upgrade?",
+            "answer": "<p>A GCM (Gross Combined Mass) upgrade increases the maximum legal combined weight of your vehicle and trailer. All ORI packages are SSM-certified and federally approved.</p>"
+          }
+        },
+        "faq_2": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Can I tow more after a GCM upgrade?",
+            "answer": "<p>Yes. A GCM upgrade directly increases your legal towing limit. Combined with a GVM upgrade, you can carry more payload and tow a heavier trailer — legally and safely.</p>"
+          }
+        }
+      },
+      "block_order": ["faq_1", "faq_2"],
+      "settings": {
+        "heading": "Frequently Asked Questions",
+        "open_first": true,
+        "emit_schema": true,
+        "container": "container-narrow",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "related_vehicles": {
+      "type": "vehicle-cards",
+      "settings": {
+        "heading": "Explore Other Vehicles",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    }
+  },
+  "order": [
+    "breadcrumb",
+    "hero_banner",
+    "collection_intro",
+    "product_grid",
+    "installer_network",
+    "faq",
+    "related_vehicles"
+  ]
+}
