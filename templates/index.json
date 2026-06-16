@@ -109,7 +109,7 @@
         "pagination_style": "counter",
         "show_text_below": true,
         "text_alignment_mobile": "center",
-        "accessibility_info": "Slideshow about our brand",
+        "accessibility_info": "",
         "custom_id": "",
         "custom_class": "",
         "enable_bg_zoom_effect": false
