@@ -69,6 +69,16 @@
         "padding_bottom": 60
       }
     },
+    "payload_calculator": {
+      "type": "ori-payload-calculator",
+      "settings": {
+        "heading": "Estimate Your GCM Upgrade",
+        "intro": "<p>Select an upgrade stage below to see indicative GCM and towing figures. Contact ORI for your certified vehicle-specific numbers.</p>",
+        "container": "container-narrow",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
     "installer_network": {
       "type": "ori-installer-network",
       "settings": {
@@ -121,6 +131,7 @@
     "hero_banner",
     "collection_intro",
     "product_grid",
+    "payload_calculator",
     "installer_network",
     "faq",
     "related_vehicles"

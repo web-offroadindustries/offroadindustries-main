@@ -490,5 +490,17 @@
       })();
     </script>
     {%- endif -%}
+
+    {%- comment -%} ORI GVM/GCM JSON-LD structured data — injected per template type {%- endcomment -%}
+    {%- if template.suffix == 'gvm-package' or template.suffix == 'gcm-package' -%}
+      {%- render 'ori-schema-product', product: product -%}
+      {%- render 'ori-schema-breadcrumb', product: product, collection: collection -%}
+    {%- endif -%}
+    {%- if template.suffix == 'gvm-hub' or template.suffix == 'gcm-hub' -%}
+      {%- render 'ori-schema-local-business' -%}
+      {%- render 'ori-schema-breadcrumb', collection: collection -%}
+    {%- elsif template.suffix == 'gvm-vehicle' or template.suffix == 'gcm-vehicle' -%}
+      {%- render 'ori-schema-breadcrumb', collection: collection -%}
+    {%- endif -%}
   </body>
 </html>
