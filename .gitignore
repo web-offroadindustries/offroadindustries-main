@@ -13,3 +13,7 @@ node_modules/
 
 # Generated/local files
 lighthouse-perf-preview.json
+.ori-audit/
+scripts/.env
+*.local.env
+ORI-GVM-GCM-Implementation-Spec.md
