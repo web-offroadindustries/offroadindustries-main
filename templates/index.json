@@ -12,6 +12,30 @@
     "1653903038c126b831": {
       "type": "slideshow",
       "blocks": {
+        "slide_MpjByF": {
+          "type": "slide",
+          "settings": {
+            "background": "shopify://shop_images/2000x560_-_CHEVY_1500_1_78a26cf0-158a-4dcb-8ca2-f0a3526c28c6.png",
+            "image_overlay_opacity": 0,
+            "content_position": "center",
+            "text_alignment": "center",
+            "text_color": "#000000",
+            "title": "",
+            "heading_size": "h2",
+            "heading_color": "",
+            "subheading": "",
+            "description": "",
+            "desc_size": "text-desc-base",
+            "button_text_1": "Chevy Silverado 1500 GVM & GCM Packages",
+            "button_link_1": "shopify://pages/chevrolet-silverado-1500-gvm-package",
+            "button_style_1": "btn--primary",
+            "button_size_1": "btn--small",
+            "button_text_2": "",
+            "button_link_2": "",
+            "button_style_2": "btn--primary",
+            "button_size_2": ""
+          }
+        },
         "slide_BVErqB": {
           "type": "slide",
           "settings": {
@@ -112,6 +136,7 @@
         }
       },
       "block_order": [
+        "slide_MpjByF",
         "slide_BVErqB",
         "slide_39hWWW",
         "slide_TmbWTM",
