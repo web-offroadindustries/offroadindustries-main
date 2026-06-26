@@ -12,6 +12,31 @@
     "1653903038c126b831": {
       "type": "slideshow",
       "blocks": {
+        "video_xKTdra": {
+          "type": "video",
+          "settings": {
+            "shopify_video": "shopify://files/videos/ORI Short YouTube Insta Live Valve.mp4",
+            "video_alt_text": "",
+            "image_overlay_opacity": 0,
+            "content_position": "center",
+            "text_alignment": "center",
+            "text_color": "#000000",
+            "title": "Video slide",
+            "heading_size": "h1",
+            "heading_color": "",
+            "subheading": "",
+            "description": "<p>Tell your brand's story through images</p>",
+            "desc_size": "text-desc-base",
+            "button_text_1": "Button label",
+            "button_link_1": "",
+            "button_style_1": "btn--primary",
+            "button_size_1": "",
+            "button_text_2": "",
+            "button_link_2": "",
+            "button_style_2": "btn--primary",
+            "button_size_2": ""
+          }
+        },
         "slide_MpjByF": {
           "type": "slide",
           "settings": {
@@ -136,6 +161,7 @@
         }
       },
       "block_order": [
+        "video_xKTdra",
         "slide_MpjByF",
         "slide_BVErqB",
         "slide_39hWWW",
