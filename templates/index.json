@@ -39,9 +39,8 @@
         },
         "slide_TmbWTM": {
           "type": "slide",
-          "disabled": true,
           "settings": {
-            "background": "shopify://shop_images/Desktop_Slider_Banner_2_1920x1080px_silverado_2500_IMAGE_ONLY_94e476d4-a785-44a2-84cb-ef9690e34088.jpg",
+            "background": "shopify://shop_images/2000x560_-_Banks_Power_Cold_Air_Intake_1.png",
             "mb_background": "shopify://shop_images/Desktop_Slider_Banner_2_1920x1080px_silverado_2500_IMAGE_ONLY_94e476d4-a785-44a2-84cb-ef9690e34088.jpg",
             "image_overlay_opacity": 0,
             "content_position": "center",
@@ -53,9 +52,9 @@
             "subheading": "",
             "description": "",
             "desc_size": "text-desc-base",
-            "button_text_1": "",
-            "button_link_1": "",
-            "button_style_1": "btn--primary",
+            "button_text_1": "View our Collection",
+            "button_link_1": "shopify://collections/banks-power-cold-air-intakes",
+            "button_style_1": "btn--white",
             "button_size_1": "",
             "button_text_2": "",
             "button_link_2": "",
