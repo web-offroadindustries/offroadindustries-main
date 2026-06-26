@@ -12,6 +12,30 @@
     "1653903038c126b831": {
       "type": "slideshow",
       "blocks": {
+        "slide_BVErqB": {
+          "type": "slide",
+          "settings": {
+            "background": "shopify://shop_images/2000x560_-_FORD_F150.png",
+            "image_overlay_opacity": 0,
+            "content_position": "center",
+            "text_alignment": "center",
+            "text_color": "#000000",
+            "title": "Image slide",
+            "heading_size": "h2",
+            "heading_color": "",
+            "subheading": "",
+            "description": "<p>Tell your brand's story through images</p>",
+            "desc_size": "text-desc-base",
+            "button_text_1": "ORI F150 GVM Packages",
+            "button_link_1": "shopify://pages/ori-gvm-upgrade-ford-f150",
+            "button_style_1": "btn--primary",
+            "button_size_1": "",
+            "button_text_2": "",
+            "button_link_2": "",
+            "button_style_2": "btn--primary",
+            "button_size_2": ""
+          }
+        },
         "slide_39hWWW": {
           "type": "slide",
           "settings": {
@@ -89,6 +113,7 @@
         }
       },
       "block_order": [
+        "slide_BVErqB",
         "slide_39hWWW",
         "slide_TmbWTM",
         "slide_MDYDqF"
