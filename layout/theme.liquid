@@ -240,7 +240,13 @@
     {% comment %}theme-check-disable{% endcomment %}
     <link rel="preload" href="{{ 'header.css' | asset_url }}" as="style">
     <link rel="preload" href="{{ 'site-nav.css' | asset_url }}" as="style">
-    <link rel="preload" href="{{ 'bold-options.css' | asset_url }}" as="style">
+    <link
+      rel="preload"
+      href="{{ 'bold-options.css' | asset_url }}"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet';"
+    >
+    <link rel="preload" href="{{ 'slideshow-component.css' | asset_url }}" as="style">
     <link rel="preload" href="https://options.shopapps.site/js/options.js" as="script" crossorigin>
     <link rel="preload" href="{{ 'bold-options-form-linker.js' | asset_url }}" as="script">
     {% comment %}theme-check-enable{% endcomment %}
@@ -396,7 +402,7 @@
         ['mousemove','scroll','touchstart','keydown','click'].forEach(function(e) {
           document.addEventListener(e, loadPodium, { once: true, passive: true });
         });
-        setTimeout(loadPodium, 5000);
+        setTimeout(loadPodium, 8000);
       })();
     </script>
 
