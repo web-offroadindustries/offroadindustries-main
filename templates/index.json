@@ -9,11 +9,40 @@
  */
 {
   "sections": {
+    "video_68tQqM": {
+      "type": "video",
+      "name": "t:sections.video.presets.name",
+      "settings": {
+        "container": "container-full",
+        "section_header_padding_bottom": "medium",
+        "section_header_content_spacing": "medium",
+        "heading": "",
+        "highlight_style": "none",
+        "enable_highlight_text_color": false,
+        "heading_size": "h2",
+        "heading_color": "",
+        "subheading": "",
+        "description": "",
+        "video_type": "shopify",
+        "shopify_video": "shopify://files/videos/ORI Short YouTube Insta Live Valve.mp4",
+        "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+        "video_ratio": "21:9",
+        "autoplay_video": true,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "show_section_divider": false,
+        "divider_width": "container",
+        "custom_id": "",
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
     "1653903038c126b831": {
       "type": "slideshow",
       "blocks": {
         "video_xKTdra": {
           "type": "video",
+          "disabled": true,
           "settings": {
             "shopify_video": "shopify://files/videos/ORI Short YouTube Insta Live Valve.mp4",
             "video_alt_text": "",
@@ -168,6 +197,7 @@
         "slide_TmbWTM",
         "slide_MDYDqF"
       ],
+      "disabled": true,
       "custom_css": [
         "@media (min-width: 768px) {.f-slideshow__content {max-width: 42rem; }}"
       ],
@@ -864,6 +894,7 @@
     }
   },
   "order": [
+    "video_68tQqM",
     "1653903038c126b831",
     "1770092251a8cb32bd",
     "featured_collection_9HLMBr",
