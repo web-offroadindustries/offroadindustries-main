@@ -32,18 +32,11 @@
           "settings": {
             "subtitle": "Trade accounts for suspension, GVM and 4x4 specialist businesses"
           }
-        },
-        "text_1": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Use this sample layout when you want a clean hero, a benefits section, a stronger partnership story and the form alongside the content.</p>"
-          }
         }
       },
       "block_order": [
         "title_1",
-        "subtitle_1",
-        "text_1"
+        "subtitle_1"
       ],
       "settings": {
         "container": "container-full",
@@ -203,7 +196,7 @@
       "type": "apps",
       "blocks": {
         "mappy_store_locator_page_embed_block_alt": {
-          "type": "shopify://apps/mappy-store-locator/blocks/page-embed-block/edfca2bd-82ad-413c-b32c-580d239b17ab",
+          "type": "shopify://apps/ta-mappy-store-locator-maps/blocks/page-embed-block/edfca2bd-82ad-413c-b32c-580d239b17ab",
           "settings": {
             "is_show_heading_map": true,
             "is_show_description_map": false
