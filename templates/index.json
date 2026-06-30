@@ -42,7 +42,6 @@
       "blocks": {
         "video_xKTdra": {
           "type": "video",
-          "disabled": true,
           "settings": {
             "shopify_video": "shopify://files/videos/ORI Short YouTube Insta Live Valve.mp4",
             "video_alt_text": "",
