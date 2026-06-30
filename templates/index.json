@@ -11,6 +11,7 @@
   "sections": {
     "video_68tQqM": {
       "type": "video",
+      "disabled": true,
       "name": "t:sections.video.presets.name",
       "settings": {
         "container": "container-full",
@@ -196,7 +197,6 @@
         "slide_TmbWTM",
         "slide_MDYDqF"
       ],
-      "disabled": true,
       "custom_css": [
         "@media (min-width: 768px) {.f-slideshow__content {max-width: 42rem; }}"
       ],
