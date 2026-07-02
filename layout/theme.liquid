@@ -24,6 +24,20 @@
     {%- if customer.b2b? and template.name == 'index' -%}
       <script>window.location.replace('/pages/b2b-catalog');</script>
     {%- endif -%}
+    {%- comment -%}
+      /collections (the "list collections" page) has no collection of its own, so it
+      can't mirror /collections/all's product grid + filters. Per merchant request,
+      send /collections visitors to /collections/all so both URLs show the same page.
+      Scoped to the list-collections template only, evaluated server-side in Liquid,
+      and skipped inside the theme editor (request.design_mode) so the template stays
+      editable. Shopify admin URL Redirects can't cover /collections (reserved route),
+      so this is the theme-side equivalent. Delete this block to restore the default
+      all-collections listing at /collections. /collections/all never redirects back,
+      so there is no loop.
+    {%- endcomment -%}
+    {%- if template.name == 'list-collections' and request.design_mode == false -%}
+      <script>window.location.replace('/collections/all');</script>
+    {%- endif -%}
     <!-- Google Tag Manager (interaction-deferred for performance) -->
     <script>
       window.dataLayer = window.dataLayer || [];
