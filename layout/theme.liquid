@@ -36,7 +36,27 @@
       so there is no loop.
     {%- endcomment -%}
     {%- if template.name == 'list-collections' and request.design_mode == false -%}
-      <script>window.location.replace('/collections/all');</script>
+      <script>window.location.replace('/collections/all?sort_by=best-selling');</script>
+    {%- endif -%}
+    {%- comment -%}
+      Default the /collections/all sort order to "best selling". Shopify's built-in
+      "all" collection has no admin sort setting, and this theme sorts server-side from
+      the sort_by URL param (falling back to the collection default). So when a visitor
+      lands on /collections/all with no sort chosen, add sort_by=best-selling (keeping
+      any active filters), which the normal grid then honors. Scoped to the all
+      collection; skipped in the theme editor; the JS guard on the existing sort_by
+      param means it fires at most once (no loop) and never overrides a shopper's
+      manual sort choice.
+    {%- endcomment -%}
+    {%- if template.name == 'collection' and collection.handle == 'all' and request.design_mode == false -%}
+      <script>
+        (function () {
+          var s = window.location.search;
+          if (s.indexOf('sort_by=') === -1) {
+            window.location.replace(window.location.pathname + (s ? s + '&' : '?') + 'sort_by=best-selling');
+          }
+        })();
+      </script>
     {%- endif -%}
     <!-- Google Tag Manager (interaction-deferred for performance) -->
     <script>
