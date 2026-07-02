@@ -332,13 +332,29 @@
             {%- endif -%}
             return;
           }
-          // NOTE: An unconditional b2b_redirect consumer used to live here. It ran on
-          // every page for every visitor (logged-out included, and on the 404 page),
-          // read localStorage.b2b_redirect, and did window.location.replace('/pages/b2b-catalog').
-          // Combined with the logged-out gate arming that key, it created a global
-          // redirect trap that blocked all browsing/checkout and broke 404s. Removed.
-          // Legitimate B2B SSO returns are still handled by the sso=silent /
-          // company_location_changed branch above (with the customer.b2b? fallback).
+          {%- comment -%}
+            Non-SSO return-to-catalog. The b2b-catalog gate arms localStorage.b2b_redirect
+            for LOGGED-OUT visitors; after they log in (email + code) and click back to the
+            store, this consumes the key once and returns them to /pages/b2b-catalog.
+
+            Emitted ONLY for logged-in customers ({% if customer %}), which is the guard the
+            earlier version was missing: logged-out visitors never receive this script, so
+            the old global trap (which bounced ALL traffic + 404s to the catalog) cannot
+            recur. The key is preserved on /account pages, removed on use elsewhere, and the
+            gate only arms it while logged out, so there is no loop.
+          {%- endcomment -%}
+          {%- if customer -%}
+          var raw2 = localStorage.getItem('b2b_redirect');
+          if (raw2 && window.location.pathname.indexOf('/account') !== 0) {
+            localStorage.removeItem('b2b_redirect');
+            try {
+              var d2 = JSON.parse(raw2);
+              if (Date.now() - d2.ts < 30 * 60 * 1000 && window.location.pathname !== d2.url) {
+                window.location.replace(d2.url);
+              }
+            } catch (e) {}
+          }
+          {%- endif -%}
         } catch (e) {}
       })();
     </script>
