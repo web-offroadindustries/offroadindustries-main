@@ -194,6 +194,16 @@
   color: #ef4444;
   opacity: 1;
 }
+.b2b-calc__note {
+  font-size: 1.2rem;
+  color: #6b7280;
+  margin: 8px 0 0;
+  padding: 0;
+}
+.b2b-calc__note a {
+  color: inherit;
+  text-decoration: underline;
+}
 
 /* ── B2B Product Catalog (account page + /pages/b2b-catalog) ─────────────── */
 .b2b-catalog,

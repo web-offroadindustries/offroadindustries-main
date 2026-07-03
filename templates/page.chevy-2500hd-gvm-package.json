@@ -20,7 +20,7 @@
         "slide_bW6A4P": {
           "type": "slide",
           "settings": {
-            "background": "shopify://shop_images/Desktop_Slider_Banner_2_1920x1080px_silverado_2500_IMAGE_ONLY_94e476d4-a785-44a2-84cb-ef9690e34088.jpg",
+            "background": "shopify://shop_images/2000x560_-_Chevy_2500_-_Cypress_gray_NB2_ab25e482-4a20-4fe9-b364-7adfff38cf2f.png",
             "image_overlay_opacity": 0,
             "content_position": "center",
             "text_alignment": "center",
@@ -140,7 +140,7 @@
         "text_CfcJd4": {
           "type": "text",
           "settings": {
-            "text": "<p>Shatter your payload limits and command the outback without compromise with a Silverado 2500 GVM upgrade. Offroad Industries (ORI) delivers Australia’s ultimate, fully Federally Approved GVM upgrades for the Chevrolet Silverado 2500HD range. Our SSM approvals only apply to GMSV Vehicles we cannot do private imports.</p><p><strong>The ORI Advantage:</strong></p><ul><li><strong>Massive Stance</strong>: Options ranging from a sleek 3” lift up to our monster 6.5” package on 37” tyres.</li><li><strong>NB2 Upgrades Made Easy</strong>: A seamless, ORI-approved pathway from NB1 to the heavy-duty NB2 category via VTA-065187 or we can upgrade NB2 to NB2 via our VTA-065796</li><li><strong>Bulletproof Compliance</strong>: Rigorously tested and backed by Federal SSM Certification.</li></ul><p><br/></p><p>Backed by punishing testing and uncompromising Federal SSM Certification, an ORI GVM Package doesn't just upgrade your Silverado; it takes it to true \"Super-Truck\" status. Operating under exclusive ORI Vehicle SSM Approvals, we provide a streamlined, zero-headache pathway to reclassify your rig from an NB1 to a heavy-hitting NB2 category.</p><p>The result? Your fully loaded truck, all your gear, and that 4.5T trailer in tow are 100% compliant, secure, and road-legal nationwide when completed Pre-Rego (Federal). Why not invest in your brand new Chevy Silverado 2500HD now? </p><p></p><p><strong>*Please note that some workshops may apply additional discretionary administration fees to the quoted installation and engineering price. Additionally, all post-registration GVM upgrades will incur extra fees.</strong></p><p></p>"
+            "text": "<p>Shatter your payload limits and command the outback without compromise with a Silverado 2500 GVM upgrade. Offroad Industries (ORI) delivers Australia’s ultimate, fully Federally Approved GVM upgrades for the Chevrolet Silverado 2500HD range. Our SSM approvals only apply to GMSV Vehicles. We cannot do private imports.</p><p><strong>The ORI Advantage:</strong></p><ul><li><strong>Massive Stance</strong>: Options ranging from a sleek 3” lift up to our monster 6.5” package on 37” tyres.</li><li><strong>NB2 Upgrades Made Easy</strong>: A seamless, ORI-approved pathway from NB1 to the heavy-duty NB2 category via VTA-065187 or we can upgrade NB2 to NB2 via our VTA-065796</li><li><strong>Bulletproof Compliance</strong>: Rigorously tested and backed by Federal SSM Certification.</li></ul><p><br/></p><p>Backed by punishing testing and uncompromising Federal SSM Certification, an ORI GVM Package doesn't just upgrade your Silverado; it takes it to true \"Super-Truck\" status. Operating under exclusive ORI Vehicle SSM Approvals, we provide a streamlined, zero-headache pathway to reclassify your rig from an NB1 to a heavy-hitting NB2 category.</p><p>The result? Your fully loaded truck, all your gear, and that 4.5T trailer in tow are 100% compliant, secure, and road-legal nationwide when completed Pre-Rego (Federal). Why not invest in your brand new Chevy Silverado 2500HD now? </p><p></p><p><strong>*Please note that some workshops may apply additional discretionary administration fees to the quoted installation and engineering price. Additionally, all Post-Registration GVM upgrades will incur additional local fees. Shipping is not included in the price.</strong></p><p></p>"
           }
         }
       },
@@ -215,7 +215,7 @@
         "text_fRRw7g": {
           "type": "text",
           "settings": {
-            "text": "<p><em>The perfect entry point for a legal payload boost and an aggressive stance.</em></p><ul><li><strong>GVM Rating:</strong> 5500kg (Approx. 1708kg payload) | <strong>GCM:</strong> 12,474kg</li><li><strong>Key Features:</strong> 3\" Lift with Fox 2.5 HTO Performance Series Shocks, ORI 500kg heavy-duty leaf packs, heavy-duty BDS Control Arms, and Husky Extenda Flares.</li><li><strong>Best For:</strong> The family tourer needing a higher payload while keeping the truck 100% legal and safe.</li><li><strong>The Benefit:</strong> Achieve a lifted, commanding stance with premium USA-made shocks. This setup upgrades your vehicle to an NB2 category, significantly improving stability under load while safely retaining its full 4.5T towing capacity<br/><br/></li></ul>"
+            "text": "<p><em>The perfect entry point for a legal payload boost and an aggressive stance.</em></p><ul><li><strong>GVM Rating:</strong> 5500kg (Approx. 1708kg payload) | <strong>GCM:</strong> 12,474kg</li><li><strong>Key Features:</strong> 3\" Lift with Fox 2.5 HTO Performance Series Shocks, ORI 500kg heavy-duty leaf packs, heavy-duty BDS Control Arms, and Husky Extenda Flares.</li><li><strong>Best For:</strong> The family tourer needing a higher payload while keeping the truck 100% legal and safe.</li><li><strong>Benefit:</strong> Achieve a lifted, commanding stance with premium USA-made shocks. This setup upgrades your vehicle to an NB2 category, significantly improving stability under load while safely retaining its full 4.5T towing capacity</li><li><strong>Part Number: </strong>CHV-2500-Stage1-GVM<br/></li></ul>"
           }
         }
       },
@@ -228,7 +228,7 @@
       "settings": {
         "container": "container",
         "color_schema": "",
-        "image": "shopify://shop_images/stage_1_5500_gvm_SILVERADO_2500HD_355b0b40-8837-4973-b637-8a9993a5fed9.jpg",
+        "image": "shopify://shop_images/stage_1_5500_gvm_SILVERADO_2500HD.png",
         "enable_lightbox": true,
         "image_width": "50%",
         "image_position": "left",
@@ -258,7 +258,7 @@
         "subheading_nNBqbG": {
           "type": "subheading",
           "settings": {
-            "subheading": "Stage 2: $22,500 * - Installed & Engineered",
+            "subheading": "Stage 2: $22,500* - Installed & Engineered",
             "subheading_size": "h5"
           }
         },
@@ -274,7 +274,7 @@
         "text_eiTTm6": {
           "type": "text",
           "settings": {
-            "text": "<p><em>Increased strength and a massive payload upgrade utilizing Fox 2.5 DSC suspension & BDS components.</em></p><ul><li><strong>GVM Rating:</strong> 6000kg (Approx. 2198kg payload) | <strong>GCM:</strong> 12,474kg</li><li><strong>Key Features:</strong> 3\" Lift with Fox 2.5 DSC Performance Elite Series Suspension, ORI 500kg heavy-duty leaf packs, heavy-duty BDS Control Arms, and Husky Extenda Flares. Engineered for up to 37” Tyres.</li><li><strong>Best For:</strong> 4WD tourers driving long distances on corrugated roads, heavily loaded with a bull bar and high tow-ball weight. Perfect for maximizing off-road performance and load capacity.</li><li><strong>The Benefit:</strong> The DSC adjustability allows you to \"dial in\" your ride—stiffen it for the highway and soften it for the tracks with the simple turn of a knob. All while delivering an incredible 6000kg GVM limit.<br/><br/></li></ul>"
+            "text": "<p><em>Increased strength and a massive payload upgrade utilizing Fox 2.5 DSC suspension & BDS components.</em></p><ul><li><strong>GVM Rating:</strong> 6000kg (Approx. 2198kg payload) | <strong>GCM:</strong> 12,474kg</li><li><strong>Key Features:</strong> 3\" Lift with Fox 2.5 DSC Performance Elite Series Suspension, ORI 500kg heavy-duty leaf packs, heavy-duty BDS Control Arms, and Husky Extenda Flares. Engineered for up to 37” Tyres.</li><li><strong>Best For:</strong> 4WD tourers driving long distances on corrugated roads, heavily loaded with a bull bar and high tow-ball weight. Perfect for maximizing off-road performance and load capacity.</li><li><strong>Benefit:</strong> The DSC adjustability allows you to \"dial in\" your ride—stiffen it for the highway and soften it for the tracks with the simple turn of a knob. All while delivering an incredible 6000kg GVM limit.</li><li><strong>Part Number:</strong> CHV-2500-Stage2-GVM<br/><br/></li></ul>"
           }
         }
       },
@@ -287,7 +287,7 @@
       "settings": {
         "container": "container",
         "color_schema": "",
-        "image": "shopify://shop_images/stage_2_5900_gvm_SILVERADO_2500HD_5fc4d033-8b58-43d9-b8d9-0df8ea62086f.jpg",
+        "image": "shopify://shop_images/stage_2_5900_gvm_SILVERADO_2500HD.png",
         "enable_lightbox": true,
         "image_width": "50%",
         "image_position": "right",
@@ -333,7 +333,7 @@
         "text_aVwiWh": {
           "type": "text",
           "settings": {
-            "text": "<p><em>The ultimate comfort from your Chevy Silverado 2500HD with our fully engineered BDS Coil-Over Edition.</em></p><ul><li><strong>GVM Rating:</strong> 6000kg (Approx. 2190kg payload) | <strong>GCM:</strong> 12,474kg</li><li><strong>Key Features:</strong> 3\" Lift BDS Coil-Over Conversion, Fox 2.5 DSC Performance Elite Series Shocks, ORI 500kg leaf packs, and heavy-duty BDS Control Arms. Engineered for up to 37” Tyres.</li><li><strong>Best For:</strong> Fully built rigs with tray/canopy setups that also tow 4.5T and require heavy ball weights.</li><li><strong>The Benefit:</strong> A massive payload increase that transforms the Silverado 2500HD into a true heavy-duty platform. The front Coil-Over conversion provides unparalleled ride quality and front-end control, legally supporting huge weight without sacrificing comfort.</li></ul>"
+            "text": "<p><em>The ultimate comfort from your Chevy Silverado 2500HD with our fully engineered BDS Coil-Over Edition.</em></p><ul><li><strong>GVM Rating:</strong> 6000kg (Approx. 2190kg payload) | <strong>GCM:</strong> 12,474kg</li><li><strong>Key Features:</strong> 3\" Lift BDS Coil-Over Conversion, Fox 2.5 DSC Performance Elite Series Shocks, ORI 500kg leaf packs, and heavy-duty BDS Control Arms. Engineered for up to 37” Tyres.</li><li><strong>Best For:</strong> Fully built rigs with tray/canopy setups that also tow 4.5T and require heavy ball weights.</li><li><strong>Benefit:</strong> A massive payload increase that transforms the Silverado 2500HD into a true heavy-duty platform. The front Coil-Over conversion provides unparalleled ride quality and front-end control, legally supporting huge weight without sacrificing comfort.</li><li><strong>Part Number:</strong> CHV-2500-Stage3-GVM</li></ul>"
           }
         }
       },
@@ -346,7 +346,7 @@
       "settings": {
         "container": "container",
         "color_schema": "",
-        "image": "shopify://shop_images/stage_3_5900_gvm_SILVERADO_2500HD_65489731-4865-4706-9554-da20776b2862.jpg",
+        "image": "shopify://shop_images/stage_3_5900_gvm_SILVERADO_2500HD.png",
         "enable_lightbox": true,
         "image_width": "50%",
         "image_position": "left",
@@ -376,7 +376,7 @@
         "subheading_AtKMTT": {
           "type": "subheading",
           "settings": {
-            "subheading": "Stage 3: $48,500* - Installed & Engineered",
+            "subheading": "Stage 3.5: $48,500* - Installed & Engineered",
             "subheading_size": "h5"
           }
         },
@@ -392,7 +392,7 @@
         "text_NGC7ym": {
           "type": "text",
           "settings": {
-            "text": "<p><em>The ultimate in load-carrying flexibility. We ditch the leaf springs for Kelderman full rear air suspension.</em></p><ul><li><strong>GVM Rating:</strong> 6000kg (Approx. 2190kg payload) | <strong>GCM:</strong> 12,474kg</li><li><strong>Key Features:</strong> 3\" Lift BDS Coil-Over Conversion, Fox 2.5 DSC Performance Elite Series Shocks, and heavy-duty BDS Control Arms. <strong>Upgraded</strong> with Kelderman fully adjustable rear air suspension (replacing the heavy-duty leaf packs). Engineered for up to 37” Tyres.</li><li><strong>Best For:</strong> Fully built rigs with changing rear loads, heavy canopies, and massive tow ball weights.</li><li><strong>The Benefit:</strong> You get the unparalleled front-end ride quality of the Coil-Over conversion, paired with the ultimate flexibility of Kelderman rear air. Easily raise or lower the rear end of your Chevy Silverado to perfectly match your load, keeping your truck level, comfortable, and highly capable.<br/><br/></li></ul>"
+            "text": "<p><em>The ultimate in load-carrying flexibility. We ditch the leaf springs for Kelderman full rear air suspension.</em></p><ul><li><strong>GVM Rating:</strong> 6000kg (Approx. 2190kg payload) | <strong>GCM:</strong> 12,474kg</li><li><strong>Key Features:</strong> 3\" Lift BDS Coil-Over Conversion, Fox 2.5 DSC Performance Elite Series Shocks, and heavy-duty BDS Control Arms. <strong>Upgraded</strong> with Kelderman fully adjustable rear air suspension (replacing the heavy-duty leaf packs). Engineered for up to 37” Tyres.</li><li><strong>Best For:</strong> Fully built rigs with changing rear loads, heavy canopies, and massive tow ball weights.</li><li><strong>Benefit:</strong> You get the unparalleled front-end ride quality of the Coil-Over conversion, paired with the ultimate flexibility of Kelderman rear air. Easily raise or lower the rear end of your Chevy Silverado to perfectly match your load, keeping your truck level, comfortable, and highly capable.</li><li><strong>Part Number:</strong> CHV-2500-Stage3-GVM-K<br/><br/></li></ul>"
           }
         }
       },
@@ -405,7 +405,7 @@
       "settings": {
         "container": "container",
         "color_schema": "",
-        "image": "shopify://shop_images/stage_3.5_5900_gvm_SILVERADO_2500HD_copy_85c8f92f-d632-4a35-8791-022d49720b0b.jpg",
+        "image": "shopify://shop_images/stage_3.5_5900_gvm_SILVERADO_2500HD.png",
         "enable_lightbox": true,
         "image_width": "50%",
         "image_position": "right",
@@ -451,7 +451,7 @@
         "text_YBjh6X": {
           "type": "text",
           "settings": {
-            "text": "<p><em>A lifted stance with a massive GVM, engineered for 37” Tyres.</em></p><ul><li><strong>GVM Rating:</strong> 6000kg | <strong>GCM:</strong> 12,474kg</li><li><strong>Key Features:</strong> BDS 5” Suspension Package, heavy-duty BDS Control Arms, and ORI 550kg leaf packs. Engineered for up to 37” Tyres.</li><li><strong>Best For:</strong> The hardcore enthusiast who demands a significantly lifted stance and a higher-than-normal GVM while remaining fully legal and compliant.</li><li><strong>The Benefit:</strong> The 5” BDS package allows for larger 37\" tyres without straining the torsion bar setup. This ensures a smoother ride and massive ground clearance. Completed Pre-Rego under our SSM, your truck is 100% federally approved and legal.</li></ul>"
+            "text": "<p><em>A lifted stance with a massive GVM, engineered for 37” Tyres.</em></p><ul><li><strong>GVM Rating:</strong> 6000kg | <strong>GCM:</strong> 12,474kg</li><li><strong>Key Features:</strong> BDS 5” Suspension Package, heavy-duty BDS Control Arms, and ORI 550kg leaf packs. Engineered for up to 37” Tyres.</li><li><strong>Best For:</strong> The hardcore enthusiast who demands a significantly lifted stance and a higher-than-normal GVM while remaining fully legal and compliant.</li><li><strong>Benefit:</strong> The 5” BDS package allows for larger 37\" tyres without straining the torsion bar setup. This ensures a smoother ride and massive ground clearance. Completed Pre-Rego under our SSM, your truck is 100% federally approved and legal.</li><li><strong>Part Number:</strong> CHV-2500-Stage4-GVM</li></ul>"
           }
         }
       },
@@ -464,7 +464,7 @@
       "settings": {
         "container": "container",
         "color_schema": "",
-        "image": "shopify://shop_images/stage_4_5900_gvm_SILVERADO_2500HD_copy_bde5207f-78de-4f27-9244-e8c1c756a608.jpg",
+        "image": "shopify://shop_images/stage_4_5900_gvm_SILVERADO_2500HD.png",
         "enable_lightbox": true,
         "image_width": "50%",
         "image_position": "left",
@@ -510,7 +510,7 @@
         "text_ddpBQL": {
           "type": "text",
           "settings": {
-            "text": "<p><em>When 5 inches isn't enough, let's go to 6.5. 100% legal Australia-wide (Pre-Rego only).</em></p><ul><li><strong>GVM Rating:</strong> 6000kg | <strong>GCM:</strong> 12,474kg</li><li><strong>Key Features:</strong> Fox 2.5 Performance Elite with BDS Lift Kit Technology (6.5-Inch Suspension Lift), and ORI 500kg heavy-duty leaf packs.</li><li><strong>Best For:</strong> Enthusiasts who want the functionality of a huge GVM and maximum legal payload, while retaining a 4.5T towing capacity and a massive on-road presence. Engineered for up to 37” Tyres.</li><li><strong>The Benefit:</strong> The Stage 5 kit is federally recognized under our SSM approval. Because it is available Pre-Rego only, you can drive your heavily lifted truck in any state, feeling safe, fully insured, and completely legal while looking the part.</li></ul>"
+            "text": "<p><em>When 5 inches isn't enough, let's go to 6.5. 100% legal Australia-wide (Pre-Rego only).</em></p><ul><li><strong>GVM Rating:</strong> 6000kg | <strong>GCM:</strong> 12,474kg</li><li><strong>Key Features:</strong> Fox 2.5 Performance Elite with BDS Lift Kit Technology (6.5-Inch Suspension Lift), and ORI 500kg heavy-duty leaf packs.</li><li><strong>Best For:</strong> Enthusiasts who want the functionality of a huge GVM and maximum legal payload, while retaining a 4.5T towing capacity and a massive on-road presence. Engineered for up to 37” Tyres.</li><li><strong>Benefit:</strong> The Stage 5 kit is federally recognized under our SSM approval. Because it is available Pre-Rego only, you can drive your heavily lifted truck in any state, feeling safe, fully insured, and completely legal while looking the part.</li><li><strong>Part Number:</strong> CHV-2500-Stage5-GVM</li></ul>"
           }
         }
       },
@@ -523,7 +523,7 @@
       "settings": {
         "container": "container",
         "color_schema": "",
-        "image": "shopify://shop_images/stage_5_5900_gvm_SILVERADO_2500HD_copy_2_ee765c51-aa21-44e2-ba31-3aacaec8eceb.jpg",
+        "image": "shopify://shop_images/stage_5_5900_gvm_SILVERADO_2500HD.png",
         "enable_lightbox": true,
         "image_width": "50%",
         "image_position": "right",
@@ -569,7 +569,7 @@
         "text_aW8UUa": {
           "type": "text",
           "settings": {
-            "text": "<p><em>Ever wondered how these monsters get around legally? ORI Stage 6 makes the dream a reality.</em></p><ul><li><strong>GVM Rating:</strong> 6000kg | <strong>GCM:</strong> 12,474kg</li><li><strong>Key Features:</strong> Fox 2.5 Performance Elite with BDS Lift Kit Technology (6.5-Inch Coil-Over Suspension Lift engineered for up to 37\" Tyres), and ORI 500kg heavy-duty leaf packs. Engineered for up to 37” Tyres.</li><li><strong>Best For:</strong> The absolute hardcore enthusiast who demands a monster of a truck that still delivers heavy-duty NB2 payload limits and 4.5T towing capacity.</li><li><strong>The Benefit:</strong> Fully engineered for ultimate comfort and control. Equipped with a 6.5” BDS Coil-Over lift kit, this setup is 100% legal Australia-wide exclusively via ORI's Pre-Rego packages under our SSM approval. Drive anywhere knowing your monster build is completely legal and safe.<br/><br/></li></ul>"
+            "text": "<p><em>Ever wondered how these monsters get around legally? ORI Stage 6 makes the dream a reality.</em></p><ul><li><strong>GVM Rating:</strong> 6000kg | <strong>GCM:</strong> 12,474kg</li><li><strong>Key Features:</strong> Fox 2.5 Performance Elite with BDS Lift Kit Technology (6.5-Inch Coil-Over Suspension Lift engineered for up to 37\" Tyres), and ORI 500kg heavy-duty leaf packs. Engineered for up to 37” Tyres.</li><li><strong>Best For:</strong> The absolute hardcore enthusiast who demands a monster of a truck that still delivers heavy-duty NB2 payload limits and 4.5T towing capacity.</li><li><strong>Benefit:</strong> Fully engineered for ultimate comfort and control. Equipped with a 6.5” BDS Coil-Over lift kit, this setup is 100% legal Australia-wide exclusively via ORI's Pre-Rego packages under our SSM approval. Drive anywhere knowing your monster build is completely legal and safe.</li><li><strong>Part Number:</strong> CHV-2500-Stage6-GVM<br/></li></ul>"
           }
         }
       },
@@ -582,7 +582,7 @@
       "settings": {
         "container": "container",
         "color_schema": "",
-        "image": "shopify://shop_images/stage_6_5900_gvm_SILVERADO_2500HD_copy_3_fd6f6dfc-ebf7-4300-814c-6cec2e83f9df.jpg",
+        "image": "shopify://shop_images/stage_6_5900_gvm_SILVERADO_2500HD.png",
         "enable_lightbox": true,
         "image_width": "50%",
         "image_position": "left",
@@ -628,7 +628,7 @@
         "text_Ktnecb": {
           "type": "text",
           "settings": {
-            "text": "<p><em>The undisputed King of the Off-Road. Front Coil-Over performance meets Kelderman 4-Link rear air suspension.</em></p><ul><li><strong>GVM Rating:</strong> 6000kg | <strong>GCM:</strong> 12,474kg</li><li><strong>Key Features:</strong> Fox 2.5 Performance Elite with BDS Lift Kit Technology (6.5-Inch Coil-Over Suspension Lift engineered for up to 37\" Tyres), featuring a <strong>Kelderman 4-Link full air rear suspension setup</strong>.</li><li><strong>Best For:</strong> The ultimate enthusiast who demands Super Tourer status without compromise.</li><li><strong>The Benefit:</strong> This is the absolute pinnacle of suspension engineering. Combining the benefit of a BDS Coil-Over front end with the payload flexibility of a Kelderman 4-Link rear air setup, this package makes the ultimate dream a reality. 100% federally approved Pre-Rego, safe, insured, and ready to dominate any terrain in total luxury.</li></ul><p></p>"
+            "text": "<p><em>The undisputed King of the Off-Road. Front Coil-Over performance meets Kelderman 4-Link rear air suspension.</em></p><ul><li><strong>GVM Rating:</strong> 6000kg | <strong>GCM:</strong> 12,474kg</li><li><strong>Key Features:</strong> Fox 2.5 Performance Elite with BDS Lift Kit Technology (6.5-Inch Coil-Over Suspension Lift engineered for up to 37\" Tyres), featuring a <strong>Kelderman 4-Link full air rear suspension setup</strong>.</li><li><strong>Best For:</strong> The ultimate enthusiast who demands Super Tourer status without compromise.</li><li><strong>Benefit:</strong> This is the absolute pinnacle of suspension engineering. Combining the benefit of a BDS Coil-Over front end with the payload flexibility of a Kelderman 4-Link rear air setup, this package makes the ultimate dream a reality. 100% federally approved Pre-Rego, safe, insured, and ready to dominate any terrain in total luxury.</li><li><strong>Part Number:</strong> CHV-2500-Stage6-GVM-K<br/></li></ul><p></p>"
           }
         }
       },
@@ -641,7 +641,7 @@
       "settings": {
         "container": "container",
         "color_schema": "",
-        "image": "shopify://shop_images/stage_6.5_5900_gvm_SILVERADO_2500HD_copy_2_9551777e-e12a-47b0-99d2-05b0ab1eb7dc.jpg",
+        "image": "shopify://shop_images/stage_6.5_5900_gvm_SILVERADO_2500HD.png",
         "enable_lightbox": true,
         "image_width": "50%",
         "image_position": "right",
@@ -1588,7 +1588,7 @@
           "type": "message",
           "settings": {
             "label": "Message",
-            "placeholder": "Which gvm Package do you want further information on?",
+            "placeholder": "Which GVM Package do you want further information on?",
             "rows": 3,
             "field_width": "100",
             "hide_label": true

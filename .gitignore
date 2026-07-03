@@ -1,0 +1,19 @@
+# Local Shopify CLI development
+.shopify/
+
+# Live merchant settings — do not commit store-specific values
+config/settings_data.json
+
+# Playwright tests and related files
+tests/
+node_modules/
+
+# Claude Code files
+.claude/
+
+# Generated/local files
+lighthouse-perf-preview.json
+.ori-audit/
+scripts/.env
+*.local.env
+ORI-GVM-GCM-Implementation-Spec.md

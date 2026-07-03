@@ -11,11 +11,31 @@ if (!customElements.get("slideshow-component")) {
       }
       this.domNodes = queryDomNodes(this.selectors, this)
       this.prevIndex = 0
+
+      // Video-aware autoplay state.
+      this._currentVideo = null
+      this._onVideoEnd = null
+      this._onVideoError = null
+      this._onLoadedMeta = null
+      this._fallbackTimer = null
+      this._reducedMotion =
+        typeof window.matchMedia === 'function' &&
+        window.matchMedia('(prefers-reduced-motion: reduce)').matches
+
+      // Bound handlers so add/removeEventListener use the same reference.
+      this._onPointerEnter = this._pauseActiveVideo.bind(this)
+      this._onPointerLeave = this._resumeActiveVideo.bind(this)
+
       this.init()
     }
-    
+
     disconnectedCallback() {
       clearInterval(this.check)
+      this._clearVideoWatch()
+      this.removeEventListener('mouseenter', this._onPointerEnter)
+      this.removeEventListener('mouseleave', this._onPointerLeave)
+      this.removeEventListener('focusin', this._onPointerEnter)
+      this.removeEventListener('focusout', this._onPointerLeave)
     }
 
     init() {
@@ -27,6 +47,13 @@ if (!customElements.get("slideshow-component")) {
           this.slider.on('change', this.handleChange.bind(this))
           this.domNodes.contents[0].classList.add('selected')
           this.handleScreenChange()
+
+          // Pause/resume the active video together with the slideshow on hover/focus.
+          this.addEventListener('mouseenter', this._onPointerEnter)
+          this.addEventListener('mouseleave', this._onPointerLeave)
+          this.addEventListener('focusin', this._onPointerEnter)
+          this.addEventListener('focusout', this._onPointerLeave)
+
           this.playVideo()
           if (this.domNodes.pageCounter) {
             this.domNodes.flickity.insertBefore(this.domNodes.pageCounter, null)
@@ -53,22 +80,152 @@ if (!customElements.get("slideshow-component")) {
       if (this.domNodes.pageCounter && sliderCounterCurrent) {
         sliderCounterCurrent.textContent = index + 1
       }
-      
+
       this.playVideo()
     }
 
+    get autoplayEnabled() {
+      return !!(this.slider && this.slider.options && this.slider.options.autoPlay)
+    }
+
+    get autoplaySpeed() {
+      const speed = this.slider && this.slider.options && this.slider.options.autoPlay
+      return typeof speed === 'number' && speed > 0 ? speed : 5000
+    }
+
     playVideo() {
+      // Cancel any pending video-end/fallback advance from the slide we are leaving,
+      // then pause its media. Order matters: clear before pause so manual nav (which
+      // routes through here) can never trigger a second advance.
+      this._clearVideoWatch()
       this.pauseAllMedia()
+
       const selectedElm = this.slider.selectedElement
       const deferredMedia = selectedElm.querySelector('deferred-media')
-      if (deferredMedia) {
-        deferredMedia.loadContent()
-        const youtube = deferredMedia.querySelector('.js-youtube')
-        const vimeo = deferredMedia.querySelector('.js-vimeo')
-        const video = deferredMedia.querySelector('video')
-        if (video) video.play()
-        if (youtube) youtube.contentWindow.postMessage('{"event":"command","func":"' + 'playVideo' + '","args":""}', '*')
-        if (vimeo) vimeo.contentWindow.postMessage('{"method":"play"}', '*')
+
+      // Image-only slide: keep the configured timed autoplay running, unchanged.
+      if (!deferredMedia) {
+        if (this.autoplayEnabled) this.slider.playPlayer()
+        return
+      }
+
+      deferredMedia.loadContent()
+      const youtube = deferredMedia.querySelector('.js-youtube')
+      const vimeo = deferredMedia.querySelector('.js-vimeo')
+      const video = deferredMedia.querySelector('video')
+
+      // The slideshow's video block only renders native <video>, but keep the
+      // original external-player calls intact in case markup ever changes.
+      if (youtube) youtube.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*')
+      if (vimeo) vimeo.contentWindow.postMessage('{"method":"play"}', '*')
+
+      if (!video) {
+        if (this.autoplayEnabled) this.slider.playPlayer()
+        return
+      }
+
+      // Autoplay off, or visitor prefers reduced motion: original behaviour —
+      // play the video, never force an advance, manual nav only.
+      if (!this.autoplayEnabled || this._reducedMotion) {
+        const p = video.play()
+        if (p && typeof p.then === 'function') p.catch(() => {})
+        return
+      }
+
+      this._playSlideVideo(video)
+    }
+
+    _playSlideVideo(video) {
+      // Stop the autoplay timer entirely (stopPlayer, not pausePlayer) so Flickity's
+      // hover unpausePlayer cannot silently resume advancing while the video plays.
+      this.slider.stopPlayer()
+
+      video.loop = false // a looping video never fires 'ended'
+      video.muted = true // autoplay-policy compliance
+      video.playsInline = true
+      try { video.currentTime = 0 } catch (_) {}
+
+      const advance = this._advance.bind(this)
+      const onError = () => {
+        // Broken src / decode error: don't stall and don't jump — let the broken
+        // slide sit for the configured speed, then advance via the normal timer.
+        this._clearVideoWatch()
+        if (this.autoplayEnabled) this.slider.playPlayer()
+      }
+
+      this._currentVideo = video
+      this._onVideoEnd = advance
+      this._onVideoError = onError
+      video.addEventListener('ended', advance, { once: true })
+      video.addEventListener('error', onError, { once: true })
+
+      // Hard fallback: if 'ended' never fires, advance after the video's duration
+      // (plus buffer), or after the configured slide speed if duration is unknown.
+      const armFallback = () => {
+        const dur = isFinite(video.duration) && video.duration > 0 ? video.duration : null
+        const ms = dur ? dur * 1000 + 2000 : this.autoplaySpeed
+        this._fallbackTimer = setTimeout(advance, ms)
+      }
+      if (video.readyState >= 1) {
+        armFallback()
+      } else {
+        this._onLoadedMeta = armFallback
+        video.addEventListener('loadedmetadata', armFallback, { once: true })
+      }
+
+      const p = video.play()
+      if (p && typeof p.then === 'function') {
+        p.catch(() => {
+          // Playback blocked (autoplay policy): fall back to the normal timer.
+          this._clearVideoWatch()
+          if (this.autoplayEnabled) this.slider.playPlayer()
+        })
+      }
+    }
+
+    _advance() {
+      this._clearVideoWatch()
+      if (this.slider) this.slider.next()
+      // The resulting 'change' re-runs playVideo(), which restarts the timed
+      // autoplay on an image slide or arms the next video.
+    }
+
+    _clearVideoWatch() {
+      if (this._currentVideo) {
+        if (this._onVideoEnd) this._currentVideo.removeEventListener('ended', this._onVideoEnd)
+        if (this._onVideoError) this._currentVideo.removeEventListener('error', this._onVideoError)
+        if (this._onLoadedMeta) this._currentVideo.removeEventListener('loadedmetadata', this._onLoadedMeta)
+      }
+      if (this._fallbackTimer) clearTimeout(this._fallbackTimer)
+      this._currentVideo = null
+      this._onVideoEnd = null
+      this._onVideoError = null
+      this._onLoadedMeta = null
+      this._fallbackTimer = null
+    }
+
+    _pauseActiveVideo() {
+      if (!this._currentVideo || !this.autoplayEnabled || this._reducedMotion) return
+      this._currentVideo.pause()
+      // Hold the auto-advance while paused (hover/focus).
+      if (this._fallbackTimer) {
+        clearTimeout(this._fallbackTimer)
+        this._fallbackTimer = null
+      }
+    }
+
+    _resumeActiveVideo() {
+      const video = this._currentVideo
+      if (!video || !this.autoplayEnabled || this._reducedMotion) return
+      if (video.ended) return
+      const p = video.play()
+      if (p && typeof p.then === 'function') p.catch(() => {})
+      // Re-arm the hard fallback based on the time left to play.
+      if (!this._fallbackTimer && this._onVideoEnd) {
+        const remaining = isFinite(video.duration) && video.duration > 0
+          ? (video.duration - video.currentTime) * 1000 + 2000
+          : this.autoplaySpeed
+        this._fallbackTimer = setTimeout(this._onVideoEnd, remaining)
       }
     }
 

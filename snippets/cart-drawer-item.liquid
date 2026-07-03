@@ -82,7 +82,7 @@
                 {% endcomment %}
                 <span>
                   {%- if property.last contains '/uploads/' -%}
-                    <a href="{{ property.last }}" target="_blank">{{ property.last | split: '/' | last }}</a>
+                    <a href="{{ property.last }}" target="_blank" rel="noopener noreferrer">{{ property.last | split: '/' | last }}</a>
                   {%- else -%}
                     {{ property.last }}
                   {%- endif -%}

@@ -1,7 +1,7 @@
 {%- liquid
   assign container = section.settings.container | default: 'container'
   assign authorized = false
-  if customer.b2b?
+  if customer.b2b? or customer.tags contains 'b2b'
     assign authorized = true
   endif
 
@@ -15,7 +15,11 @@
   assign bulk_pct     = section.settings.bulk_discount_pct | default: 10
   assign columns      = section.settings.grid_columns | default: 4
 
-  assign first_variant_id = catalog_collection.products.first.selected_or_first_available_variant.id
+  if section.settings.shipping_calc_variant_id != blank
+    assign first_variant_id = section.settings.shipping_calc_variant_id
+  else
+    assign first_variant_id = catalog_collection.products.first.selected_or_first_available_variant.id
+  endif
 -%}
 
 <div
@@ -59,49 +63,7 @@
         </div>
       {%- endif -%}
 
-      {%- comment -%} ── Shipping estimator panel ─────────────────────────────── {%- endcomment -%}
-      <details class="b2b-catalog__shipping-panel">
-        <summary class="b2b-catalog__shipping-toggle">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
-          Estimate Shipping
-          <svg class="b2b-catalog__shipping-chevron" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-        </summary>
-        <div class="b2b-catalog__shipping-body">
-          <script src="{{ 'b2b-shipping-calc.js' | asset_url }}" defer="defer"></script>
-          <b2b-shipping-calc
-            class="b2b-shipping-calc"
-            {%- if first_variant_id != blank -%}data-variant-id="{{ first_variant_id }}"{%- endif -%}
-          >
-            <h3 class="b2b-shipping-calc__title">Estimate Shipping Costs</h3>
-            <div class="b2b-shipping-calc__form">
-              <div class="b2b-shipping-calc__field">
-                <label for="B2BCatalogCountry">Country</label>
-                <select id="B2BCatalogCountry" data-country data-default="{{ settings.cart_default_country }}" class="form-control">
-                  <option value="">Select country…</option>
-                </select>
-              </div>
-              <div class="b2b-shipping-calc__field" data-province-wrapper style="display:none;">
-                <label for="B2BCatalogProvince">State / Province</label>
-                <select id="B2BCatalogProvince" data-province class="form-control"></select>
-              </div>
-              <div class="b2b-shipping-calc__field">
-                <label for="B2BCatalogZip">Postcode / ZIP</label>
-                <input id="B2BCatalogZip" type="text" data-zip class="form-control" placeholder="e.g. 2000" autocapitalize="characters">
-              </div>
-              <button type="button" data-calc-btn class="btn btn--secondary b2b-shipping-calc__btn">
-                <span>Calculate Shipping</span>
-                {%- comment -%}theme-check-disable{%- endcomment -%}
-                {{ 'icon-spinner.svg' | inline_asset_content }}
-                {%- comment -%}theme-check-enable{%- endcomment -%}
-              </button>
-            </div>
-            <div data-result class="b2b-shipping-calc__result"></div>
-            <template>{{ all_country_option_tags }}</template>
-          </b2b-shipping-calc>
-        </div>
-      </details>
-
-      {%- paginate catalog_collection.products by section.settings.per_page -%}
+{%- paginate catalog_collection.products by section.settings.per_page -%}
 
         {%- comment -%} ── Stats bar ────────────────────────────────────────────── {%- endcomment -%}
         <div class="b2b-catalog__stats">
@@ -268,15 +230,8 @@
 
     {%- elsif customer -%}
 
-      {%- comment -%} Logged in but not a B2B company contact {%- endcomment -%}
-      <div class="b2b-pending">
-        <h1 class="b2b-pending__title">Access Restricted</h1>
-        <p class="b2b-pending__body">
-          This catalog is only available to approved wholesale accounts.
-          Contact us to apply for a wholesale account.
-        </p>
-        <a href="{{ section.settings.cta_link | default: '/pages/contact' }}" class="btn btn--primary">Contact Us</a>
-      </div>
+      {%- comment -%} Logged in but not a B2B account — send to account dashboard {%- endcomment -%}
+      <script>window.location.replace('/account');</script>
 
     {%- else -%}
 
@@ -285,14 +240,9 @@
         <h1 class="b2b-pending__title">{{ section.settings.gate_heading }}</h1>
         <p class="b2b-pending__body">{{ section.settings.gate_body }}</p>
         <a
-          href="{{ routes.account_login_url }}?return_url=/pages/b2b-catalog"
+          href="/account/login?return_url=/pages/b2b-catalog"
           class="btn btn--primary"
-          onclick="try{localStorage.setItem('b2b_redirect',JSON.stringify({url:'/pages/b2b-catalog',ts:Date.now()}))}catch(e){}"
         >{{ section.settings.gate_btn_label }}</a>
-        <div class="b2b-pending__login-tip">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="b2b-pending__tip-icon"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
-          <p>After logging in, click the <strong>ORI Offroad Industries logo</strong> at the top of the Shopify portal to return to the store and view the product catalog.</p>
-        </div>
         {%- if section.settings.cta_link != blank -%}
           <a href="{{ section.settings.cta_link }}" class="b2b-pending__link">Not a wholesale customer? Contact us to apply.</a>
         {%- endif -%}
@@ -305,6 +255,10 @@
 
   </div>
 </div>
+
+{%- if first_variant_id != blank -%}
+<script>window.B2BShippingRefVariant = {{ first_variant_id | json }};</script>
+{%- endif -%}
 
 <script>
 (function () {
@@ -355,6 +309,15 @@
   }
 
   document.querySelectorAll('.b2b-catalog__card').forEach(initCard);
+
+  // Move cards with no product image to the end of the grid
+  var grid = document.querySelector('.b2b-catalog__grid');
+  if (grid) {
+    var noImage = grid.querySelectorAll('.b2b-catalog__card-img-placeholder');
+    noImage.forEach(function (placeholder) {
+      grid.appendChild(placeholder.closest('.b2b-catalog__card'));
+    });
+  }
 }());
 </script>
 
@@ -447,6 +410,16 @@
       "step": 5,
       "default": 10,
       "unit": "%"
+    },
+    {
+      "type": "header",
+      "content": "Shipping Estimator"
+    },
+    {
+      "type": "text",
+      "id": "shipping_calc_variant_id",
+      "label": "Reference variant ID",
+      "info": "Variant ID of a product registered in Machship. This item is temporarily added to cart when calculating rates, then removed. Find it in Shopify Admin → Products → [product] → click a variant → copy the number at the end of the URL (/variants/XXXXXXXXXX). Leave blank to use the first product in the catalog."
     },
     {
       "type": "header",

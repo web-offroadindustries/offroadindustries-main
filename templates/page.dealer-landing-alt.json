@@ -32,22 +32,15 @@
           "settings": {
             "subtitle": "Trade accounts for suspension, GVM and 4x4 specialist businesses"
           }
-        },
-        "text_1": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Use this sample layout when you want a clean hero, a benefits section, a stronger partnership story and the form alongside the content.</p>"
-          }
         }
       },
       "block_order": [
         "title_1",
-        "subtitle_1",
-        "text_1"
+        "subtitle_1"
       ],
       "settings": {
         "container": "container-full",
-        "image": "shopify://shop_images/OFFROAD_INDUSTRIES_-_FOX_F150_-_12.03.2024_-_Matt_Williams_-_WEB_RES-1037_7fbfcd95-895e-4aca-a8cd-8c7dacf0637b.jpg",
+        "image": "shopify://shop_images/ori-ram-2500-roller-shutter-with-rambox-without-65-bedoriori-2500hd-roller-rambox-1219245.jpg",
         "image_mobile": "shopify://shop_images/OFFROAD_INDUSTRIES_-_FOX_F150_-_12.03.2024_-_Matt_Williams_-_WEB_RES-1037_7fbfcd95-895e-4aca-a8cd-8c7dacf0637b.jpg",
         "image_overlay_opacity": 30,
         "hero_height": "large",
@@ -72,8 +65,8 @@
           "type": "benefit",
           "settings": {
             "icon": "truck",
-            "title": "Premium product mix",
-            "text": "<p>Showcase established 4x4, suspension and GVM categories that fit your dealership profile.</p>"
+            "title": "Pure Distribution",
+            "text": "<p><strong>Pure Distribution, Zero Competition:</strong> We are 100% focused on supply, not fitting. By strictly operating as a distributor, we partner with our retail and workshop network rather than competing against them.</p>"
           }
         },
         "benefit_2": {
@@ -81,7 +74,7 @@
           "settings": {
             "icon": "wrench",
             "title": "Technical guidance",
-            "text": "<p>Support your team with fitment-focused product help for the right build and vehicle use case.</p>"
+            "text": "<p><strong>Compliance Experts:</strong> Bringing American muscle to Aussie roads means navigating strict regulations. We specialize in the parts and knowledge required to make American trucks fully road-legal and compliant in Australia.</p>"
           }
         },
         "benefit_3": {
@@ -89,7 +82,7 @@
           "settings": {
             "icon": "support",
             "title": "Responsive dealer support",
-            "text": "<p>Position this as a dealer program backed by a team that understands specialist trade enquiries.</p>"
+            "text": "<p><strong>16+ Years of Authority:</strong> With nearly two decades of dedicated experience in the American truck sector, we understand the specific nuances, fitments, and standards of these vehicles better than anyone else in the country.</p>"
           }
         }
       },
@@ -101,7 +94,7 @@
       "settings": {
         "eyebrow": "Dealer benefits",
         "heading": "Why growing 4x4 businesses partner with Offroad Industries",
-        "text": "<p>Swap the headings, icons and copy to match the strongest reasons your client wants to highlight.</p>",
+        "text": "",
         "text_alignment": "center",
         "heading_size": 44,
         "heading_size_mobile": 32,
@@ -127,13 +120,83 @@
     },
     "split_alt": {
       "type": "dealer-split-content-form",
-      "settings": {}
+      "settings": {
+        "desktop_order": "content_first",
+        "mobile_order": "content_first",
+        "eyebrow": "Why partner with us",
+        "heading": "A dealer program built for performance-focused 4x4 businesses",
+        "heading_size": 46,
+        "heading_size_mobile": 32,
+        "text": "<p>Use this section for a stronger sales message about product range, technical support, servicing capability and why your partnership offer is different.</p>",
+        "feature_list": "Premium 4x4 and suspension categories\nTechnical product guidance\nResponsive dealer support\nAustralia-wide reach",
+        "image_radius": 12,
+        "form_heading": "Dealer enquiry",
+        "form_text": "<p>Tell us about your business and our team will review your application.</p>",
+        "button_label": "Submit application",
+        "success_message": "Thanks for your enquiry. Our team has received your details and will be in touch soon.",
+        "label_first_name": "First name",
+        "placeholder_first_name": "Enter first name",
+        "required_first_name": true,
+        "label_last_name": "Last name",
+        "placeholder_last_name": "Enter last name",
+        "required_last_name": true,
+        "label_business_name": "Business name",
+        "placeholder_business_name": "Enter business name",
+        "required_business_name": true,
+        "label_abn": "ABN / Business registration",
+        "placeholder_abn": "Enter ABN or registration number",
+        "label_email": "Email",
+        "placeholder_email": "Enter email address",
+        "label_phone": "Phone",
+        "placeholder_phone": "Enter phone number",
+        "required_phone": true,
+        "label_website": "Website / social page",
+        "placeholder_website": "https://",
+        "label_location": "Business location",
+        "placeholder_location": "City, State / Region",
+        "required_location": true,
+        "label_business_type": "Business type",
+        "business_type_placeholder": "Select business type",
+        "business_type_options": "4x4 retailer\nWorkshop / installer\nSuspension specialist\nOnline store\nFleet / commercial\nOther",
+        "required_business_type": true,
+        "label_brands": "Brands / categories of interest",
+        "placeholder_brands": "Example: BDS, Fox, GVM upgrades",
+        "label_message": "Tell us about your business",
+        "placeholder_message": "Share details about your store, customer base and what you’re looking for.",
+        "message_rows": 6,
+        "required_message": true,
+        "show_consent": true,
+        "required_consent": true,
+        "consent_label": "I agree to be contacted about my dealer enquiry.",
+        "section_bg_color": "#f6f6f6",
+        "content_card_bg": "#ffffff",
+        "content_card_border": "#d9d9d9",
+        "content_card_radius": 14,
+        "form_card_bg": "#ffffff",
+        "form_card_border": "#d9d9d9",
+        "form_card_radius": 14,
+        "eyebrow_color": "#56bdc2",
+        "heading_color": "#101820",
+        "content_text_color": "#333333",
+        "label_color": "#101820",
+        "input_bg_color": "#ffffff",
+        "input_border_color": "#c9c9c9",
+        "input_focus_color": "#56bdc2",
+        "input_text_color": "#1f1f1f",
+        "input_radius": 8,
+        "button_bg": "#101820",
+        "button_text": "#ffffff",
+        "button_radius": 8,
+        "container_width": 1240,
+        "padding_top": 72,
+        "padding_bottom": 72
+      }
     },
     "mappy_alt": {
       "type": "apps",
       "blocks": {
         "mappy_store_locator_page_embed_block_alt": {
-          "type": "shopify://apps/mappy-store-locator/blocks/page-embed-block/edfca2bd-82ad-413c-b32c-580d239b17ab",
+          "type": "shopify://apps/ta-mappy-store-locator-maps/blocks/page-embed-block/edfca2bd-82ad-413c-b32c-580d239b17ab",
           "settings": {
             "is_show_heading_map": true,
             "is_show_description_map": false

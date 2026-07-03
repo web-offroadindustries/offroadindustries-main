@@ -20,7 +20,7 @@
         "slide_bW6A4P": {
           "type": "slide",
           "settings": {
-            "background": "shopify://shop_images/Desktop_Slider_Banner_1920x1080px_1500_IMAGE_ONLY.jpg",
+            "background": "shopify://shop_images/2000x560_-_CHEVY_1500_1_78a26cf0-158a-4dcb-8ca2-f0a3526c28c6.png",
             "image_overlay_opacity": 0,
             "content_position": "center",
             "text_alignment": "center",
@@ -132,7 +132,7 @@
         "text_CfcJd4": {
           "type": "text",
           "settings": {
-            "text": "<p>Stop worrying about weight limits and start adventuring with confidence. <strong>Offroad Industries (ORI)</strong> offers the most comprehensive, Federally Approved GVM (Gross Vehicle Mass) upgrades for the Chevy Silverado 1500 (LTZ, Trail Boss, and ZR2). </p><p>By bundling the <strong>ORI GVM Packages & </strong> <strong>GCM testing</strong> and the combination of <strong>LS16 certification</strong>, you are offering a legal \"Super-Truck\" status. The <strong>LS16 code</strong> is the secret sauce here: it’s the specific modification code for <strong>Gross Combination Mass Re-rating</strong>, ensuring the truck, the gear, and the massive 4.5T trailer are all </p><p>100% legal together for either PRE or Post Rego</p><p>Whether you’re a weekend explorer, a tradie with a heavy load, or a serious tourer towing a 4.5T caravan, our staged packages transform your truck’s legality, safety, and performance.</p><p><strong>*Please note that some workshops may apply additional discretionary administration fees to the quoted installation and engineering price. Additionally, all post-registration GVM upgrades will incur extra shipping fees.</strong></p>"
+            "text": "<p>Stop worrying about weight limits and start adventuring with confidence. <strong>Offroad Industries (ORI)</strong> offers the most comprehensive, Federally Approved GVM (Gross Vehicle Mass) upgrades for the Chevy Silverado 1500 (LTZ, Trail Boss, and ZR2). </p><p>By bundling the <strong>ORI GVM Packages & </strong> <strong>GCM testing</strong> and the combination of <strong>LS16 certification</strong>, you are offering a legal \"Super-Truck\" status. The <strong>LS16 code</strong> is the secret sauce here: it’s the specific modification code for <strong>Gross Combination Mass Re-rating</strong>, ensuring the truck, the gear, and the massive 4.5T trailer are all </p><p>100% legal together for either PRE or Post Rego</p><p>Whether you’re a weekend explorer, a tradie with a heavy load, or a serious tourer towing a 4.5T caravan, our staged packages transform your truck’s legality, safety, and performance.</p><p>*<strong>Please note that some workshops may apply additional discretionary administration fees to the quoted installation and engineering price. Additionally, all Post-Registration GVM upgrades will incur additional local fees. Shipping is not included in the price.</strong></p>"
           }
         }
       },
@@ -198,7 +198,7 @@
         "heading_f9G7kD": {
           "type": "heading",
           "settings": {
-            "heading": "<strong>Stage 1: The Weekender Family Getaway (3650kg GVM + GCM 8150kg )</strong>",
+            "heading": "<strong>Stage 1: The Weekender Family Getaway (3650kg GVM + GCM 8150kg)</strong>",
             "highlight_style": "none",
             "enable_highlight_text_color": false,
             "heading_size": "h2"
@@ -207,7 +207,7 @@
         "text_fRRw7g": {
           "type": "text",
           "settings": {
-            "text": "<p><em>The perfect entry point for those needing a legal payload boost without a major lift.</em></p><ul><li><strong>GVM Increase:</strong> Up to 3650kg (approx. 1077kg payload).</li><li><strong>Key Features:</strong> Fox 2.5 Performance Series shocks and ORI 200kg heavy-duty leaf packs matched with heavy duty BDS control arms.</li><li><strong>Best For:</strong> Daily drivers and light towing where you need to clear the \"one-tonne\" mark for tax purposes (ATO compliance) or carry extra tools/gear legally.</li><li><strong>Benefit:</strong> Maintains a lifted stance with premium usa made shocks,  while significantly improving stability under load without the need of purchasing load rated wheels.</li></ul>"
+            "text": "<p><em>The perfect entry point for those needing a legal payload boost without a major lift.</em></p><ul><li><strong>GVM Increase:</strong> Up to 3650kg (approx. 1077kg payload).</li><li><strong>Key Features:</strong> Fox 2.5 Performance Series shocks and ORI 200kg heavy-duty leaf packs matched with heavy duty BDS control arms.</li><li><strong>Best For:</strong> Daily drivers and light towing where you need to clear the \"one-tonne\" mark for tax purposes (ATO compliance) or carry extra tools/gear legally.</li><li><strong>Benefit:</strong> Maintains a lifted stance with premium USA-made shocks,  while significantly improving stability under load without the need of purchasing load rated wheels.</li><li><strong>Part Number:</strong> CHV-1500-Stage1-GVM</li></ul>"
           }
         }
       },
@@ -220,7 +220,7 @@
       "settings": {
         "container": "container",
         "color_schema": "",
-        "image": "shopify://shop_images/stage_1___3650_GVM_CHEVY_1500.jpg",
+        "image": "shopify://shop_images/GVM_CHEVY-1500---20260429stage-1-_-3650-GVM-CHEVY-1500.png",
         "enable_lightbox": true,
         "image_width": "50%",
         "image_position": "left",
@@ -266,7 +266,7 @@
         "text_eiTTm6": {
           "type": "text",
           "settings": {
-            "text": "<p><em>Increased strength without the cost of replacing all your suspension + legal one tonne payload.</em></p><ul><li><strong>GVM Increase:</strong> 3650kg.</li><li><strong>Key Features:</strong> Adds <strong>BDS Upper Control Arms</strong> and a leveling kit (or 2\" lift options) retains the factory Multimatic Suspension</li><li><strong>Best For:</strong> Chevy Silverado ZR2 owners only need to clear the \"one-tonne\" mark for tax purposes (ATO compliance) or carry extra tools/gear legally.</li><li><strong>Benefit:</strong> Enhanced front-end strength and wheel travel, ideal for ZR2 owner who retain the OEM suspension yet get 1 tonne payload.</li></ul><p></p>"
+            "text": "<p><em>Increased strength without the cost of replacing all your suspension + legal one tonne payload.</em></p><ul><li><strong>GVM Increase:</strong> 3650kg.</li><li><strong>Key Features:</strong> Adds <strong>BDS Upper Control Arms</strong> and a leveling kit (or 2\" lift options) retains the factory Multimatic Suspension</li><li><strong>Best For:</strong> Chevy Silverado ZR2 owners only need to clear the \"one-tonne\" mark for tax purposes (ATO compliance) or carry extra tools/gear legally.</li><li><strong>Benefit:</strong> Enhanced front-end strength and wheel travel, ideal for ZR2 owner who retain the OEM suspension yet get 1 tonne payload.</li><li><strong>Part Number:</strong> CHV-1500-Stage2-GVM</li></ul><p></p>"
           }
         }
       },
@@ -279,7 +279,7 @@
       "settings": {
         "container": "container",
         "color_schema": "",
-        "image": "shopify://shop_images/Screenshot_2026-03-24_113426.png",
+        "image": "shopify://shop_images/GVM_CHEVY-1500---20260429stage-2-_-3650-GVM-CHEVY-1500.png",
         "enable_lightbox": true,
         "image_width": "50%",
         "image_position": "right",
@@ -325,7 +325,7 @@
         "text_aVwiWh": {
           "type": "text",
           "settings": {
-            "text": "<p><em>Engineered for the ultimate suspension, </em></p><ul><li><strong>GVM Increase:</strong> 3850kg (approx. 1272kg payload). GCM Increase 8050 KG ZR2 or 8350 LTZ</li><li><strong>Key Features:</strong> Premium <strong>Fox 2.5 DSC (Dual Speed Compression)</strong> adjustable shocks.</li><li><strong>Best For:</strong> Heavy-duty touring. If you have a, bull bar, and a heavy tow ball weight from a large caravan, this is your sweet spot without having to upgrade your wheel and tyre package.</li><li><strong>Benefit:</strong> The DSC adjustability allows you to \"dial in\" your ride—stiffen it for the highway and soften it for the tracks at the turn of a knob. Fox’s premium shocks setup for the Chevy Silverado 1500.<br/><br/></li></ul>"
+            "text": "<p><em>Engineered for the ultimate suspension, </em></p><ul><li><strong>GVM Increase:</strong> 3850kg (approx. 1272kg payload). GCM Increase 8050 KG ZR2 or 8350 LTZ</li><li><strong>Key Features:</strong> Premium <strong>Fox 2.5 DSC (Dual Speed Compression)</strong> adjustable shocks.</li><li><strong>Best For:</strong> Heavy-duty touring. If you have a bull bar, and a heavy tow ball weight from a large caravan, this is your sweet spot without having to upgrade your wheel and tyre package.</li><li><strong>Benefit:</strong> The DSC adjustability allows you to \"dial in\" your ride—stiffen it for the highway and soften it for the tracks at the turn of a knob. Fox’s premium shocks setup for the Chevy Silverado 1500.</li><li><strong>Part Number: </strong>CHV-1500-Stage3-GVM<br/><br/></li></ul>"
           }
         }
       },
@@ -338,7 +338,7 @@
       "settings": {
         "container": "container",
         "color_schema": "",
-        "image": "shopify://shop_images/Stage_3___3850_GVM_CHEVY_1500.jpg",
+        "image": "shopify://shop_images/GVM_CHEVY-1500---20260429Stage-3-_-3850-GVM-CHEVY-1500.png",
         "enable_lightbox": true,
         "image_width": "50%",
         "image_position": "left",
@@ -384,7 +384,7 @@
         "text_giGN6b": {
           "type": "text",
           "settings": {
-            "text": "<p><em>Maximum legal capacity for the most demanding builds. Ideal for Tray Canopy builds and for the customer who wants to run 35\" Tyres legally.</em></p><ul><li><strong>GVM Increase:</strong> 4250kg (approx. 1672kg payload) upto <strong>GCM Increase</strong> rating  8750kg * ZR2 8450kg.</li><li><strong>Key Features:</strong> Fox 2.5 Performance Elite suspension, ORI 400kg leaf packs, and <strong>required load-rated wheels/tyres</strong>.</li><li><strong>Best For:</strong> Fully built rigs with rear drawer systems, rooftop tents, and long-range tanks or the ultimate tourer with Tray and Canopies fitted.</li><li><strong>Benefit:</strong> Massive payload increase that transforms the Silverado into a true heavy-duty platform while retaining 4.5T braking towing capacity.</li><li><em><strong>Note: Chevy Silverado ZR2 has reduced GCM due to the 4.2T towing capacity.</strong></em></li></ul>"
+            "text": "<p><em>Maximum legal capacity for the most demanding builds. Ideal for Tray Canopy builds and for the customer who wants to run 35\" Tyres legally.</em></p><ul><li><strong>GVM Increase:</strong> 4250kg (approx. 1672kg payload) upto <strong>GCM Increase</strong> rating  8750kg * ZR2 8450kg.</li><li><strong>Key Features:</strong> Fox 2.5 Performance Elite suspension, ORI 400kg leaf packs, and <strong>required load-rated wheels/tyres</strong>.</li><li><strong>Best For:</strong> Fully built rigs with rear drawer systems, rooftop tents, and long-range tanks or the ultimate tourer with Tray and Canopies fitted.</li><li><strong>Benefit:</strong> Massive payload increase that transforms the Silverado into a true heavy-duty platform while retaining 4.5T braking towing capacity.</li><li><em><strong>Note: Chevy Silverado ZR2 has reduced GCM due to the 4.2T towing capacity.</strong></em></li><li><strong>Part Number 200kg Leaf Pack: </strong>CHV-1500-Stage4-GVM-200</li><li><strong>Part Number 400kg Leaf Pack: </strong>CHV-1500-Stage4-GVM-400</li></ul>"
           }
         }
       },
@@ -397,7 +397,7 @@
       "settings": {
         "container": "container",
         "color_schema": "",
-        "image": "shopify://shop_images/Stage_4___4250_GVM_CHEVY_1500_e869df3a-828f-4542-a6f5-ef83791ab296.jpg",
+        "image": "shopify://shop_images/GVM_CHEVY-1500---20260429Stage-4-_-4250-GVM-CHEVY-1500.png",
         "enable_lightbox": true,
         "image_width": "50%",
         "image_position": "right",
@@ -443,7 +443,7 @@
         "text_AHtUHA": {
           "type": "text",
           "settings": {
-            "text": "<p><em>The pinnacle of Silverado suspension engineering.</em></p><ul><li><strong>GVM Increase:</strong> 4250kg.</li><li><strong>Key Features:</strong> <strong>Fox 3.0 Internal Bypass Race Series Shocks</strong> (front and rear).</li><li><strong>Best For:</strong> The enthusiast who wants it all—maximum legal payload combined with race-bred suspension technology.</li><li><strong>Benefit:</strong> The 3.0 Bypass shocks offer unparalleled heat dissipation and damping control. It’s the ultimate \"go-anywhere\" setup that remains legally compliant across Australia.</li></ul><p><em><strong>Note: Chevy Silverado ZR2 has reduced GCM due to the 4.2T towing capacity.</strong></em><br/><br/></p>"
+            "text": "<p><em>The pinnacle of Silverado suspension engineering.</em></p><ul><li><strong>GVM Increase:</strong> 4250kg.</li><li><strong>Key Features:</strong> <strong>Fox 3.0 Internal Bypass Race Series Shocks</strong> (front and rear).</li><li><strong>Best For:</strong> The enthusiast who wants it all—maximum legal payload combined with race-bred suspension technology.</li><li><strong>Benefit:</strong> The 3.0 Bypass shocks offer unparalleled heat dissipation and damping control. It’s the ultimate \"go-anywhere\" setup that remains legally compliant across Australia.</li><li><strong>Part Number 200kg Leaf Pack: </strong>CHV-1500-Stage5-GVM-200</li><li><strong>Part Number 400kg Leaf Pack: </strong>CHV-1500-Stage5-GVM-400</li></ul><p><em><strong>Note: Chevy Silverado ZR2 has reduced GCM due to the 4.2T towing capacity.</strong></em><br/><br/></p>"
           }
         }
       },
@@ -456,7 +456,7 @@
       "settings": {
         "container": "container",
         "color_schema": "",
-        "image": "shopify://shop_images/image_-_2026-03-03T103301.867.png",
+        "image": "shopify://shop_images/GVM_CHEVY-1500---20260429Stage-5-_-4250-GVM-CHEVY-1500.png",
         "enable_lightbox": true,
         "image_width": "50%",
         "image_position": "left",
@@ -1017,6 +1017,341 @@
         "padding_bottom": 40
       }
     },
+    "rich_text_WbiBCz": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_3w6rBa": {
+          "type": "heading",
+          "settings": {
+            "heading": "Offroad Industries Wheel Recommendations",
+            "highlight_style": "none",
+            "enable_highlight_text_color": true,
+            "heading_size": "h2",
+            "heading_color": ""
+          }
+        },
+        "text_LCthEm": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Struggling with wheel offsets? ORI is here to help! We take the guesswork out of finding the perfect fit, specializing in Method and KMC wheels</p>"
+          }
+        },
+        "button_eGC3Df": {
+          "type": "button",
+          "disabled": true,
+          "settings": {
+            "button_label": "Button label",
+            "button_link": "",
+            "button_style": "btn--primary",
+            "button_size": ""
+          }
+        }
+      },
+      "block_order": [
+        "heading_3w6rBa",
+        "text_LCthEm",
+        "button_eGC3Df"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "container": "container",
+        "color_schema": "",
+        "text_alignment": "center",
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "show_section_divider": false,
+        "divider_width": "container",
+        "custom_id": "",
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "image_with_text_nPddek": {
+      "type": "image-with-text",
+      "blocks": {
+        "subheading_6g8fxM": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "Approved GVM Wheels",
+            "subheading_size": "h5"
+          }
+        },
+        "heading_W9Cmqf": {
+          "type": "heading",
+          "settings": {
+            "heading": "Method Race wheel Load Rated Wheels",
+            "highlight_style": "none",
+            "enable_highlight_text_color": false,
+            "heading_size": "h2"
+          }
+        },
+        "text_pn6dDA": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Approved load rated wheels for your chevy Silverado Stage 4 and 5 packages.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_6g8fxM",
+        "heading_W9Cmqf",
+        "text_pn6dDA"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "container": "container",
+        "color_schema": "",
+        "image": "shopify://shop_images/Method_Race_Wheels_Logo.png",
+        "enable_lightbox": true,
+        "image_width": "50%",
+        "image_position": "left",
+        "vertical_alignment": "center",
+        "align_content_container": "none",
+        "show_image_padding": true,
+        "column_gap": "medium",
+        "row_gap": "medium",
+        "padding_left": 0,
+        "padding_right": 0,
+        "mobile_padding_left": 15,
+        "mobile_padding_right": 15,
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "padding_top_mobile": 30,
+        "padding_bottom_mobile": 30,
+        "show_section_divider": false,
+        "divider_width": "container",
+        "custom_id": "",
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "wheel_comparison_grid_Q4qPHN": {
+      "type": "wheel-comparison-grid",
+      "blocks": {
+        "row_VFXzYb": {
+          "type": "row",
+          "disabled": true,
+          "settings": {
+            "label": "SKU",
+            "use_as_title": false,
+            "value_1": "ZMR305890601000H",
+            "value_2": "ZMR30589060800H",
+            "value_3": "",
+            "value_4": "",
+            "value_5": "",
+            "value_6": ""
+          }
+        },
+        "row_zHmRGt": {
+          "type": "row",
+          "settings": {
+            "label": "DESCRIPTION",
+            "use_as_title": true,
+            "value_1": "MR305 NV \n18x9\n17x8.5",
+            "value_2": "MR305 NV\n18x9\n17x8.5",
+            "value_3": "MR305 NV\n18x9\n17x8.5",
+            "value_4": "MR305 NV\n18x9\n178.5",
+            "value_5": "MR709 HD Bead Grip\n18x9\n20x9",
+            "value_6": "MR709 HD Bead Grip\n18x9\n20x9"
+          }
+        },
+        "row_N7zGaR": {
+          "type": "row",
+          "settings": {
+            "label": "COLOUR",
+            "use_as_title": false,
+            "value_1": "Double Black",
+            "value_2": "Titanium",
+            "value_3": "Method Bronze",
+            "value_4": "Machined",
+            "value_5": "Matte Black",
+            "value_6": "Machined - Clear Coat"
+          }
+        },
+        "row_JjJRHm": {
+          "type": "row",
+          "settings": {
+            "label": "OFFSET",
+            "use_as_title": false,
+            "value_1": "Zero",
+            "value_2": "Zero",
+            "value_3": "zero",
+            "value_4": "zero",
+            "value_5": "+12",
+            "value_6": "+12"
+          }
+        }
+      },
+      "block_order": [
+        "row_VFXzYb",
+        "row_zHmRGt",
+        "row_N7zGaR",
+        "row_JjJRHm"
+      ],
+      "name": "Wheel Comparison",
+      "settings": {
+        "anchor_id": "",
+        "heading": "",
+        "columns": "6",
+        "image_1": "shopify://shop_images/image_-_2026-05-09T132150.392.png",
+        "image_2": "shopify://shop_images/63af59a170cf4e539ab48b175738b2e0_1.webp",
+        "image_3": "shopify://shop_images/image_-_2026-05-09T132203.393.png",
+        "image_4": "shopify://shop_images/image_-_2026-05-09T133151.319.png",
+        "image_5": "shopify://shop_images/e5eb83b9-5476-4f1b-9dbe-257d2e4b5141_11.png",
+        "image_6": "shopify://shop_images/b630f597-0cf2-41b6-a801-02b6b1ff055a_3.png",
+        "label_col_width": 260,
+        "container_width": "1200px",
+        "text_color": "#111111",
+        "label_color": "#111111",
+        "line_color": "#d0d0d0",
+        "mobile_card_bg": "#ffffff",
+        "mobile_card_text": "#111111",
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    },
+    "image_with_text_WkLWxb": {
+      "type": "image-with-text",
+      "blocks": {
+        "subheading_kA6kXE": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "Approved GVM Wheels",
+            "subheading_size": "h5"
+          }
+        },
+        "heading_Q8wcUj": {
+          "type": "heading",
+          "settings": {
+            "heading": "KMC Load Rated Wheels",
+            "highlight_style": "none",
+            "enable_highlight_text_color": false,
+            "heading_size": "h2"
+          }
+        },
+        "text_KFtkE7": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Approved load rated wheels for your chevy Silverado Stage 4 and 5 packages.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_kA6kXE",
+        "heading_Q8wcUj",
+        "text_KFtkE7"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "container": "container",
+        "color_schema": "",
+        "image": "shopify://shop_images/KMC_Wheels_Logo.png",
+        "enable_lightbox": true,
+        "image_width": "50%",
+        "image_position": "left",
+        "vertical_alignment": "center",
+        "align_content_container": "none",
+        "show_image_padding": true,
+        "column_gap": "medium",
+        "row_gap": "medium",
+        "padding_left": 0,
+        "padding_right": 0,
+        "mobile_padding_left": 15,
+        "mobile_padding_right": 15,
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "padding_top_mobile": 30,
+        "padding_bottom_mobile": 30,
+        "show_section_divider": false,
+        "divider_width": "container",
+        "custom_id": "",
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "wheel_comparison_grid_Ad63jA": {
+      "type": "wheel-comparison-grid",
+      "blocks": {
+        "row_TiUpB6": {
+          "type": "row",
+          "disabled": true,
+          "settings": {
+            "label": "SKU",
+            "use_as_title": false,
+            "value_1": "ZMR305890601000H",
+            "value_2": "ZMR30589060800H",
+            "value_3": "",
+            "value_4": "",
+            "value_5": "",
+            "value_6": ""
+          }
+        },
+        "row_LiwGcK": {
+          "type": "row",
+          "settings": {
+            "label": "DESCRIPTION",
+            "use_as_title": true,
+            "value_1": "IMS\n18x9\n20x9",
+            "value_2": "IMS\n18x9\n20x9",
+            "value_3": "IMS\n18x9\n20x9",
+            "value_4": "IMS\n18x9\n20x9",
+            "value_5": "",
+            "value_6": ""
+          }
+        },
+        "row_czQcMd": {
+          "type": "row",
+          "settings": {
+            "label": "COLOUR",
+            "use_as_title": false,
+            "value_1": "MATTE BLACK W/ GLOSS BLACK LIP",
+            "value_2": "GLOSS SILVER W/ MACHINED FACE",
+            "value_3": "MATTE BRONZE W GLOSS BLACK LIP",
+            "value_4": "MACHINED W/ MATTE BLACK LIP",
+            "value_5": "Matte Black",
+            "value_6": "Machined - Clear Coat"
+          }
+        },
+        "row_tEmT8z": {
+          "type": "row",
+          "settings": {
+            "label": "OFFSET",
+            "use_as_title": false,
+            "value_1": "Zero",
+            "value_2": "Zero",
+            "value_3": "zero",
+            "value_4": "zero",
+            "value_5": "+12",
+            "value_6": "+12"
+          }
+        }
+      },
+      "block_order": [
+        "row_TiUpB6",
+        "row_LiwGcK",
+        "row_czQcMd",
+        "row_tEmT8z"
+      ],
+      "name": "Wheel Comparison",
+      "settings": {
+        "anchor_id": "",
+        "heading": "",
+        "columns": "4",
+        "image_1": "shopify://shop_images/kmc-km552mb-ims-17x8-5-6-et-10-matte-black-w-gloss-black-lip-a1-png_3.png",
+        "image_2": "shopify://shop_images/kmc-km552sd-ims-17x8-5-6-et-10-gloss-silver-w-machined-face-a1-png.png",
+        "image_3": "shopify://shop_images/kmc-km552zb-ims-17x8-5-6-et-10-matte-bronze-w-gloss-black-lip-a1-png_1.png",
+        "image_4": "shopify://shop_images/kmc-km552db-ims-17x8-5-6-et-10-machined-w-gloss-black-lip-a1-png_1.png",
+        "label_col_width": 260,
+        "container_width": "1200px",
+        "text_color": "#111111",
+        "label_color": "#111111",
+        "line_color": "#d0d0d0",
+        "mobile_card_bg": "#ffffff",
+        "mobile_card_text": "#111111",
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    },
     "contact_form_v4_x8r3EB": {
       "type": "contact-form-v4",
       "blocks": {
@@ -1089,7 +1424,7 @@
           "type": "message",
           "settings": {
             "label": "Message",
-            "placeholder": "Which gvm Package do you want further information on?",
+            "placeholder": "Which GVM Package do you want further information on?",
             "rows": 3,
             "field_width": "100",
             "hide_label": true
@@ -1247,6 +1582,11 @@
     "rich_text_rnLAPH",
     "gvm_comparison_FfmTMw",
     "gvm_comparison_RXeVcA",
+    "rich_text_WbiBCz",
+    "image_with_text_nPddek",
+    "wheel_comparison_grid_Q4qPHN",
+    "image_with_text_WkLWxb",
+    "wheel_comparison_grid_Ad63jA",
     "contact_form_v4_x8r3EB",
     "rich_text_4AxLyp",
     "logo_list_8XphYi"

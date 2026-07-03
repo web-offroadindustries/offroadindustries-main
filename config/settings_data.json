@@ -25,7 +25,7 @@
     "color_overlay_bg": "#222222",
     "type_body_font": "archivo_n4",
     "body_font_weight_bolder": "600",
-    "body_scale": 100,
+    "body_scale": 90,
     "type_header_font": "archivo_n6",
     "heading_scale": 100,
     "heading_mobile_scale": 80,
@@ -57,8 +57,11 @@
     "cart_type": "drawer",
     "cart_icon": "shopping-cart",
     "cart_drawer_show_view_cart": true,
-    "enable_drawer_shipping_rates": true,
-    "collection_list": [],
+    "enable_drawer_shipping_rates": false,
+    "collection_list": [
+      "baja-designs"
+    ],
+    "cart_default_country": "Australia",
     "show_free_shipping_message": true,
     "pcard_show_second_img": true,
     "pcard_show_color_swatch": true,

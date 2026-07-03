@@ -5,6 +5,7 @@ if (!customElements.get('b2b-shipping-calc')) {
       this.countryEl   = this.querySelector('[data-country]');
       this.provinceEl  = this.querySelector('[data-province]');
       this.provinceWrap = this.querySelector('[data-province-wrapper]');
+      this.cityEl      = this.querySelector('[data-city]');
       this.zipEl       = this.querySelector('[data-zip]');
       this.calcBtn     = this.querySelector('[data-calc-btn]');
       this.resultEl    = this.querySelector('[data-result]');
@@ -44,6 +45,7 @@ if (!customElements.get('b2b-shipping-calc')) {
       e.preventDefault();
       const country  = this.countryEl.value;
       const province = this.provinceEl.value || '';
+      const city     = this.cityEl ? this.cityEl.value.trim() : '';
       const zip      = this.zipEl.value.trim();
 
       if (!country || !zip) {
@@ -63,12 +65,15 @@ if (!customElements.get('b2b-shipping-calc')) {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ id: parseInt(this.variantId), quantity: 1 })
           });
-          const addData = await addResp.json();
-          if (addData.key) itemKey = addData.key;
+          if (addResp.ok) {
+            const addData = await addResp.json();
+            if (addData.key) itemKey = addData.key;
+          }
         }
 
         const qs = new URLSearchParams({
           'shipping_address[zip]': zip,
+          'shipping_address[city]': city,
           'shipping_address[country]': country,
           'shipping_address[province]': province
         });
@@ -80,7 +85,7 @@ if (!customElements.get('b2b-shipping-calc')) {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ id: itemKey, quantity: 0 })
-          });
+          }).catch(() => {});
         }
 
         this._showRates(ratesData);
@@ -102,28 +107,32 @@ if (!customElements.get('b2b-shipping-calc')) {
     _showRates(data) {
       if (data.shipping_rates && data.shipping_rates.length > 0) {
         const fmt = window.FoxThemeSettings && window.FoxThemeSettings.money_format;
-        const rows = data.shipping_rates.map(r => {
-          const priceNum  = parseFloat(r.price);
-          /* Rates above $500 or with "contact/quote/freight" in the name are
-             placeholder rates set by the merchant — show a quote prompt instead
-             of a misleading dollar amount */
-          const isQuoteRate = /contact|quote|freight/i.test(r.name) || priceNum >= 500;
 
-          let priceHtml;
-          if (isQuoteRate) {
-            priceHtml = '<span class="b2b-calc__contact-rate">Contact us for a quote</span>';
-          } else {
-            let priceStr;
-            if (typeof formatMoney === 'function' && fmt) {
-              priceStr = formatMoney(Math.round(priceNum * 100), fmt);
+        // Machship uses $9999 as a sentinel price meaning "contact us for a quote".
+        // Filter those out so we only display real calculated rates.
+        const realRates = data.shipping_rates.filter(r => parseFloat(r.price) < 9000);
+
+        if (realRates.length > 0) {
+          const rows = realRates.map(r => {
+            const priceNum = parseFloat(r.price);
+            let priceHtml;
+            if (priceNum === 0) {
+              priceHtml = '<strong>Free</strong>';
             } else {
-              priceStr = '$' + priceNum.toFixed(2);
+              let priceStr;
+              if (typeof Shopify !== 'undefined' && Shopify.formatMoney && fmt) {
+                priceStr = Shopify.formatMoney(Math.round(priceNum * 100), fmt);
+              } else {
+                priceStr = '$' + priceNum.toFixed(2);
+              }
+              priceHtml = `<strong>${priceStr}</strong>`;
             }
-            priceHtml = `<strong>${priceStr}</strong>`;
-          }
-          return `<div class="b2b-calc__rate"><span>${r.name}</span>${priceHtml}</div>`;
-        }).join('');
-        this.resultEl.innerHTML = `<div class="b2b-calc__rates">${rows}</div>`;
+            return `<div class="b2b-calc__rate"><span>${r.name}</span>${priceHtml}</div>`;
+          }).join('');
+          this.resultEl.innerHTML = `<div class="b2b-calc__rates">${rows}</div>`;
+        } else {
+          this.resultEl.innerHTML = '<p class="b2b-calc__no-rates">Shipping for this product must be quoted. Please <a href="/pages/contact">contact us</a> for a freight estimate.</p>';
+        }
       } else if (data.shipping_rates) {
         this.resultEl.innerHTML = '<p class="b2b-calc__no-rates">No shipping options available for this address.</p>';
       } else {

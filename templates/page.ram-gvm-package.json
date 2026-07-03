@@ -274,7 +274,7 @@
       "settings": {
         "container": "container",
         "color_schema": "",
-        "image": "shopify://shop_images/stage_1_5300_GVM_RAM_2500_c983628a-fb71-4135-8853-e998f45694e9.jpg",
+        "image": "shopify://shop_images/GVM_RAM-2500-20260504stage-1--5300--GVM_RAM-2500.png",
         "enable_lightbox": true,
         "image_width": "50%",
         "image_position": "left",
@@ -333,7 +333,7 @@
       "settings": {
         "container": "container",
         "color_schema": "",
-        "image": "shopify://shop_images/stage_2_5300_GVM_RAM_2500_60b2ae64-2324-4b1c-8891-b74663e49c3b.jpg",
+        "image": "shopify://shop_images/GVM_RAM-2500-20260504stage-2--5300--GVM_RAM-2500.png",
         "enable_lightbox": true,
         "image_width": "50%",
         "image_position": "right",
@@ -392,7 +392,7 @@
       "settings": {
         "container": "container",
         "color_schema": "",
-        "image": "shopify://shop_images/stage_3_5300_GVM_RAM_2500_f68355f6-e9cb-4d1c-9c46-303b58759cc0.jpg",
+        "image": "shopify://shop_images/GVM_RAM-2500-20260504stage-3--5300--GVM_RAM-2500.png",
         "enable_lightbox": true,
         "image_width": "50%",
         "image_position": "left",
@@ -451,7 +451,7 @@
       "settings": {
         "container": "container",
         "color_schema": "",
-        "image": "shopify://shop_images/stage_4_5300_GVM_RAM_2500_c235c6be-6fc6-4e7a-b46f-14e1957b756b.jpg",
+        "image": "shopify://shop_images/GVM_RAM-2500-20260504stage-4--5300--GVM_RAM-2500.png",
         "enable_lightbox": true,
         "image_width": "50%",
         "image_position": "right",
@@ -510,7 +510,7 @@
       "settings": {
         "container": "container",
         "color_schema": "",
-        "image": "shopify://shop_images/stage5-5550-ram.webp",
+        "image": "shopify://shop_images/stage_5_5550_GVM_RAM_2500.png",
         "enable_lightbox": true,
         "image_width": "50%",
         "image_position": "left",

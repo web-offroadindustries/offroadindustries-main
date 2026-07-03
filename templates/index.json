@@ -9,19 +9,73 @@
  */
 {
   "sections": {
+    "video_68tQqM": {
+      "type": "video",
+      "disabled": true,
+      "name": "t:sections.video.presets.name",
+      "settings": {
+        "container": "container-full",
+        "section_header_padding_bottom": "medium",
+        "section_header_content_spacing": "medium",
+        "heading": "",
+        "highlight_style": "none",
+        "enable_highlight_text_color": false,
+        "heading_size": "h2",
+        "heading_color": "",
+        "subheading": "",
+        "description": "",
+        "video_type": "shopify",
+        "shopify_video": "shopify://files/videos/ORI Short YouTube Insta Live Valve.mp4",
+        "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+        "video_ratio": "21:9",
+        "autoplay_video": true,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "show_section_divider": false,
+        "divider_width": "container",
+        "custom_id": "",
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
     "1653903038c126b831": {
       "type": "slideshow",
       "blocks": {
-        "slide_39hWWW": {
+        "slide_MpjByF": {
           "type": "slide",
           "settings": {
-            "background": "shopify://shop_images/Desktop-Slider-Banner-2-1920x1080px_Ford-F150.png",
+            "background": "shopify://shop_images/2000x560_-_CHEVY_1500_1_78a26cf0-158a-4dcb-8ca2-f0a3526c28c6.png",
             "image_overlay_opacity": 0,
             "content_position": "center",
             "text_alignment": "center",
             "text_color": "#000000",
             "title": "",
             "heading_size": "h2",
+            "heading_color": "",
+            "subheading": "",
+            "description": "",
+            "desc_size": "text-desc-base",
+            "button_text_1": "Chevy Silverado 1500 GVM & GCM Packages",
+            "button_link_1": "shopify://pages/chevrolet-silverado-1500-gvm-package",
+            "button_style_1": "btn--primary",
+            "button_size_1": "btn--small",
+            "button_text_2": "",
+            "button_link_2": "",
+            "button_style_2": "btn--primary",
+            "button_size_2": ""
+          }
+        },
+        "video_xKTdra": {
+          "type": "video",
+          "settings": {
+            "shopify_video": "shopify://files/videos/ORI Short YouTube Insta Live Valve.mp4",
+            "video_alt_text": "",
+            "image_overlay_opacity": 0,
+            "content_position": "center",
+            "text_alignment": "center",
+            "text_color": "#000000",
+            "title": "",
+            "heading_size": "h1",
             "heading_color": "",
             "subheading": "",
             "description": "",
@@ -36,10 +90,59 @@
             "button_size_2": ""
           }
         },
+        "slide_BVErqB": {
+          "type": "slide",
+          "settings": {
+            "background": "shopify://shop_images/2000x560_-_FORD_F150.png",
+            "image_overlay_opacity": 0,
+            "content_position": "center",
+            "text_alignment": "center",
+            "text_color": "#000000",
+            "title": "",
+            "heading_size": "h2",
+            "heading_color": "",
+            "subheading": "",
+            "description": "",
+            "desc_size": "text-desc-base",
+            "button_text_1": "ORI F150 GVM Packages",
+            "button_link_1": "shopify://pages/ori-gvm-upgrade-ford-f150",
+            "button_style_1": "btn--primary",
+            "button_size_1": "",
+            "button_text_2": "",
+            "button_link_2": "",
+            "button_style_2": "btn--primary",
+            "button_size_2": ""
+          }
+        },
+        "slide_39hWWW": {
+          "type": "slide",
+          "settings": {
+            "background": "shopify://shop_images/image_-_2026-06-15T122340.201.png",
+            "mb_background": "shopify://shop_images/image_-_2026-06-15T122340.201.png",
+            "image_overlay_opacity": 0,
+            "content_position": "center",
+            "text_alignment": "center",
+            "text_color": "#000000",
+            "title": "",
+            "heading_size": "h2",
+            "heading_color": "",
+            "subheading": "",
+            "description": "",
+            "desc_size": "text-desc-lg",
+            "button_text_1": "ORI NB! Packages Now Online",
+            "button_link_1": "https://www.offroadindustries.com.au/pages/ssm-legal-nb1-chevy-2500hd",
+            "button_style_1": "btn--primary",
+            "button_size_1": "btn--medium",
+            "button_text_2": "",
+            "button_link_2": "",
+            "button_style_2": "btn--primary",
+            "button_size_2": ""
+          }
+        },
         "slide_TmbWTM": {
           "type": "slide",
           "settings": {
-            "background": "shopify://shop_images/Desktop_Slider_Banner_2_1920x1080px_silverado_2500_IMAGE_ONLY_94e476d4-a785-44a2-84cb-ef9690e34088.jpg",
+            "background": "shopify://shop_images/2000x560_-_Banks_Power_Cold_Air_Intake_1.png",
             "mb_background": "shopify://shop_images/Desktop_Slider_Banner_2_1920x1080px_silverado_2500_IMAGE_ONLY_94e476d4-a785-44a2-84cb-ef9690e34088.jpg",
             "image_overlay_opacity": 0,
             "content_position": "center",
@@ -51,9 +154,9 @@
             "subheading": "",
             "description": "",
             "desc_size": "text-desc-base",
-            "button_text_1": "",
-            "button_link_1": "",
-            "button_style_1": "btn--primary",
+            "button_text_1": "View our Collection",
+            "button_link_1": "shopify://collections/banks-power-cold-air-intakes",
+            "button_style_1": "btn--white",
             "button_size_1": "",
             "button_text_2": "",
             "button_link_2": "",
@@ -63,21 +166,20 @@
         },
         "slide_MDYDqF": {
           "type": "slide",
-          "disabled": true,
           "settings": {
-            "background": "shopify://shop_images/bds-6-inch-lift-kit-fox-25-performance-elite-coil-over-ford-f150-21-25bdsbds1585fpe-445081.jpg",
+            "background": "shopify://shop_images/2000x560_-_Chevy_2500_-_Cypress_gray_NB2_ab25e482-4a20-4fe9-b364-7adfff38cf2f.png",
             "image_overlay_opacity": 0,
             "content_position": "center-bottom",
             "text_alignment": "center",
             "text_color": "#ffffff",
             "title": "",
-            "heading_size": "h-xl",
+            "heading_size": "h0",
             "heading_color": "#e1ea7a",
             "subheading": "",
             "description": "",
             "desc_size": "text-desc-base",
-            "button_text_1": "",
-            "button_link_1": "",
+            "button_text_1": "6T GVM Upgrades",
+            "button_link_1": "shopify://pages/chevy-silverado-2500hd-gvm-packages",
             "button_style_1": "btn--white",
             "button_size_1": "",
             "button_text_2": "",
@@ -88,6 +190,9 @@
         }
       },
       "block_order": [
+        "slide_MpjByF",
+        "video_xKTdra",
+        "slide_BVErqB",
         "slide_39hWWW",
         "slide_TmbWTM",
         "slide_MDYDqF"
@@ -98,16 +203,16 @@
       "settings": {
         "container": "container-full",
         "slideshow_height": "adapt",
-        "show_dots": false,
-        "show_nav": false,
+        "show_dots": true,
+        "show_nav": true,
         "autoplay": true,
         "autorotate_speed": 5,
         "pagination_background": "none",
         "controls_position": "center",
-        "pagination_style": "dots",
+        "pagination_style": "counter",
         "show_text_below": true,
         "text_alignment_mobile": "center",
-        "accessibility_info": "Slideshow about our brand",
+        "accessibility_info": "",
         "custom_id": "",
         "custom_class": "",
         "enable_bg_zoom_effect": false
@@ -158,6 +263,46 @@
         "description": "",
         "padding_top": 20,
         "padding_bottom": 20
+      }
+    },
+    "featured_collection_9HLMBr": {
+      "type": "featured-collection",
+      "name": "t:sections.featured-collection.name",
+      "settings": {
+        "container": "container",
+        "color_schema": "",
+        "section_header_padding_bottom": "medium",
+        "section_header_content_spacing": "medium",
+        "header_layout": "vertical",
+        "heading": "AMP Steps by Real Truck",
+        "highlight_style": "none",
+        "enable_highlight_text_color": false,
+        "heading_size": "h2",
+        "heading_color": "",
+        "subheading": "",
+        "description": "",
+        "collection": "amp-research-power-steps-bed-steps-bed-guard-australia",
+        "limit": 8,
+        "columns": 4,
+        "column_gap": "medium",
+        "row_gap": "medium",
+        "pcard_image_ratio": "",
+        "show_vendor": false,
+        "enable_slider": false,
+        "show_nav": false,
+        "show_dots": false,
+        "show_all_button_on_top": false,
+        "button_label": "",
+        "button_style": "btn--primary",
+        "enable_swipe_mobile": false,
+        "column_mobile": "1",
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "show_section_divider": false,
+        "divider_width": "container",
+        "custom_id": "",
+        "custom_class": "",
+        "animations": "inherit"
       }
     },
     "video_kUd8dq": {
@@ -281,15 +426,15 @@
         "announcement_dFJCAx": {
           "type": "announcement",
           "settings": {
-            "text": "BDSSuspension",
-            "font_family": "body",
+            "text": "BDS Suspension",
+            "font_family": "heading",
             "text_size": 30,
             "text_link": "",
-            "use_custom_spacing": false,
-            "margin_left": 10,
-            "margin_right": 10,
-            "margin_left_mobile": 10,
-            "margin_right_mobile": 10
+            "use_custom_spacing": true,
+            "margin_left": 0,
+            "margin_right": 30,
+            "margin_left_mobile": 0,
+            "margin_right_mobile": 16
           }
         },
         "divider_ra8kGw": {
@@ -320,14 +465,14 @@
           "type": "announcement",
           "settings": {
             "text": "Fox Suspension",
-            "font_family": "body",
+            "font_family": "heading",
             "text_size": 30,
             "text_link": "",
-            "use_custom_spacing": false,
-            "margin_left": 10,
-            "margin_right": 10,
-            "margin_left_mobile": 10,
-            "margin_right_mobile": 10
+            "use_custom_spacing": true,
+            "margin_left": 0,
+            "margin_right": 20,
+            "margin_left_mobile": 0,
+            "margin_right_mobile": 13
           }
         },
         "divider_HyyX8h": {
@@ -395,7 +540,7 @@
         "announcement_kcKcYP": {
           "type": "announcement",
           "settings": {
-            "text": "Active Desert Designs Offroad",
+            "text": "Addictive Desert Designs",
             "font_family": "heading",
             "text_size": 34,
             "text_link": "",
@@ -543,6 +688,7 @@
         "text_CDfQbC",
         "button_NpYePP"
       ],
+      "disabled": true,
       "settings": {
         "container": "container-full",
         "image": "shopify://shop_images/chevy-2500HD-blue.png",
@@ -747,8 +893,10 @@
     }
   },
   "order": [
+    "video_68tQqM",
     "1653903038c126b831",
     "1770092251a8cb32bd",
+    "featured_collection_9HLMBr",
     "video_kUd8dq",
     "uneven_image_cards_bkLjJt",
     "scrolling_promotion_iqVp4T",

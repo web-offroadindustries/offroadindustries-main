@@ -75,6 +75,16 @@
           {% endif %}
 
           <input type="hidden" name="contact[Form Type]" value="Dealer enquiry">
+          {%- comment -%}
+            Shopify's {% form 'contact' %} tag always routes notifications to
+            the store contact email (Settings › General › Store email).
+            This field captures the intended sales address so it appears
+            in every notification email received at the store contact inbox.
+            To actually deliver notifications directly to sales@offroadindustries.com.au:
+              Shopify Admin › Settings › Notifications › Contact form
+              → edit the notification template and set the To: address.
+          {%- endcomment -%}
+          <input type="hidden" name="contact[Forward to Sales Team]" value="sales@offroadindustries.com.au">
           <input type="text" name="contact[Company HP]" class="dealer-split-form__honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
 
           <div class="dealer-split-form__fields">
@@ -104,7 +114,7 @@
             </div>
             <div class="dealer-split-form__field dealer-split-form__field--half">
               <label class="dealer-split-form__label" for="DealerSplitWebsite-{{ section_id }}">{{ section.settings.label_website }}</label>
-              <input id="DealerSplitWebsite-{{ section_id }}" class="dealer-split-form__input" type="url" name="contact[Website]" placeholder="{{ section.settings.placeholder_website }}">
+              <input id="DealerSplitWebsite-{{ section_id }}" class="dealer-split-form__input" type="text" name="contact[Website]" placeholder="{{ section.settings.placeholder_website }}" autocomplete="url">
             </div>
             <div class="dealer-split-form__field dealer-split-form__field--half">
               <label class="dealer-split-form__label" for="DealerSplitLocation-{{ section_id }}">{{ section.settings.label_location }}</label>
@@ -113,7 +123,7 @@
             <div class="dealer-split-form__field dealer-split-form__field--half">
               <label class="dealer-split-form__label" for="DealerSplitBusinessType-{{ section_id }}">{{ section.settings.label_business_type }}</label>
               <select id="DealerSplitBusinessType-{{ section_id }}" class="dealer-split-form__select" name="contact[Business Type]" {% if section.settings.required_business_type %}required{% endif %}>
-                {% assign business_type_options = section.settings.business_type_options | split: '\n' %}
+                {% assign business_type_options = section.settings.business_type_options | newline_to_br | split: '<br />' %}
                 <option value="">{{ section.settings.business_type_placeholder }}</option>
                 {% for option in business_type_options %}
                   {% assign option_value = option | strip %}

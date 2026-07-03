@@ -35,6 +35,7 @@
   endif
 -%}
 
+{%- if product.selling_plan_groups.size == 0 or b2b_user -%}
 <div
   class="f-product-single__block-inventory-status"
   data-product-id="{{ product.id }}"
@@ -101,3 +102,4 @@
     };
   {% endfor %}
 </script>
+{%- endif -%}

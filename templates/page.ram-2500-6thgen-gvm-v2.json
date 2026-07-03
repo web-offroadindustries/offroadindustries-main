@@ -20,7 +20,7 @@
         "slide_ram6g_1": {
           "type": "slide",
           "settings": {
-            "background": "shopify://shop_images/F9DF807D-A9DE-4F7B-9787-8BB627F109CB-scaled-e1736227069732.png",
+            "background": "shopify://shop_images/2000x560_-_RAM_2500_NB2.png",
             "image_overlay_opacity": 0,
             "content_position": "center",
             "text_alignment": "center",
@@ -80,7 +80,7 @@
         "text_ram6g_intro": {
           "type": "text",
           "settings": {
-            "text": "<p>The RAM 2500 6th Gen is already one of the most capable heavy-duty trucks ever built — but if you're loading up with accessories, towing a serious trailer, or running a tray and canopy conversion, Australia's road rules can hold you back. That changes with an ORI GVM upgrade.</p><p>Offroad Industries (ORI) is a Federally Approved Second Stage Manufacturer (SSM), offering Australia's most comprehensive GVM upgrade packages for the RAM 2500 6th Gen. Every kit is fully engineered, LS16 certified, and compliant with Australian Design Rules — whether you're registering Pre-Rego (Federal) or Post-Rego (State-based). Our packages are designed specifically for the RAM 2500 6th Gen platform, giving you a massive payload increase, improved suspension performance, and complete legal peace of mind.</p>"
+            "text": "<p>The RAM 2500 6th Gen is already one of the most capable heavy-duty trucks ever built — but if you're loading up with accessories, towing a serious trailer, or running a tray and canopy conversion, Australia's road rules can hold you back. That changes with an ORI GVM upgrade.</p><p>Offroad Industries (ORI) is a Federally Approved Second Stage Manufacturer (SSM), offering Australia's most comprehensive GVM upgrade packages for the RAM 2500 6th Gen. Every kit is fully engineered, LS16 certified, and compliant with Australian Design Rules — whether you're registering Pre-Rego (Federal) or Post-Rego (State-based). Our packages are designed specifically for the RAM 2500 6th Gen platform, giving you a massive payload increase, improved suspension performance, and complete legal peace of mind.</p><p></p>"
           }
         }
       },

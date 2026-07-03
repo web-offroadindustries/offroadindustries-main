@@ -473,6 +473,14 @@
                   <span>{{ account_text }}</span>
                 </a>
               {% endif %}
+              {%- if customer -%}
+                <a
+                  class="f-mobile-nav__addons-user-link btn btn--outline w-full"
+                  href="{{ routes.account_logout_url }}"
+                >
+                  <span>Log Out</span>
+                </a>
+              {%- endif -%}
               {% if show_social %}
                 {% render 'social-links' %}
               {% endif %}

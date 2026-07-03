@@ -127,6 +127,15 @@
                 assign bs = block.settings
                 assign mb_background = bs.mb_background
                 assign image_overlay_opacity = block.settings.image_overlay_opacity
+                # The first actual slide is the initially-visible one, so its background
+                # must load eager + high priority. Use a flag (not forloop.index) so this
+                # holds even when a non-slide block precedes the slide — which is why the
+                # collection hero was still a lazy LCP image after the first attempt.
+                assign is_hero_slide = false
+                unless hero_slide_rendered
+                  assign is_hero_slide = true
+                  assign hero_slide_rendered = true
+                endunless
               %}
               <div
                 class="f-slideshow__slide"
@@ -152,7 +161,13 @@
                       assign image_height = bs.background.width | divided_by: bs.background.aspect_ratio
                       assign loading = 'lazy'
                       assign fetchpriority = 'low'
-                      if forloop.index == 1 and section.index < 2
+                      {%- comment -%}
+                        The first slide is the initially-visible one, so it must never be
+                        lazy/low-priority — otherwise it becomes a lazy-loaded LCP image
+                        (e.g. on collection pages where the slideshow isn't in the first
+                        two sections). Slides 2+ stay lazy. Timing only; no visual change.
+                      {%- endcomment -%}
+                      if is_hero_slide
                         assign loading = 'eager'
                         assign fetchpriority = 'high'
                       endif
@@ -178,7 +193,13 @@
                       assign image_height = mb_background.width | divided_by: mb_background.aspect_ratio
                       assign loading = 'lazy'
                       assign fetchpriority = 'low'
-                      if forloop.index == 1 and section.index < 2
+                      {%- comment -%}
+                        The first slide is the initially-visible one, so it must never be
+                        lazy/low-priority — otherwise it becomes a lazy-loaded LCP image
+                        (e.g. on collection pages where the slideshow isn't in the first
+                        two sections). Slides 2+ stay lazy. Timing only; no visual change.
+                      {%- endcomment -%}
+                      if is_hero_slide
                         assign loading = 'eager'
                         assign fetchpriority = 'high'
                       endif
