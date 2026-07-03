@@ -1,27 +1,7 @@
 <script src="{{ 'b2b-shipping-calc.js' | asset_url }}" defer="defer"></script>
-{%- liquid
-  # Pre-fill the destination fields from the logged-in buyer's saved Shopify address.
-  # No external data source needed: suburb/postcode are just the delivery address, the
-  # same for every product. If the customer has no default address these stay blank and
-  # the calculator behaves exactly as before.
-  assign prefill_country = ''
-  assign prefill_province = ''
-  assign prefill_city = ''
-  assign prefill_zip = ''
-  if customer and customer.default_address
-    assign prefill_country = customer.default_address.country
-    assign prefill_province = customer.default_address.province
-    assign prefill_city = customer.default_address.city
-    assign prefill_zip = customer.default_address.zip
-  endif
--%}
 <b2b-shipping-calc
   class="b2b-shipping-calc"
   data-variant-id="{{ product.selected_or_first_available_variant.id }}"
-  data-prefill-country="{{ prefill_country | escape }}"
-  data-prefill-province="{{ prefill_province | escape }}"
-  data-prefill-city="{{ prefill_city | escape }}"
-  data-prefill-zip="{{ prefill_zip | escape }}"
 >
   <h3 class="b2b-shipping-calc__title">Estimate Shipping</h3>
   <div class="b2b-shipping-calc__form">

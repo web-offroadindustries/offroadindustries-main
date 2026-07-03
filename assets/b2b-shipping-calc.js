@@ -14,39 +14,6 @@ if (!customElements.get('b2b-shipping-calc')) {
       this._initCountries();
       this.calcBtn.addEventListener('click', this._handleCalc.bind(this));
       this.countryEl.addEventListener('change', this._handleCountryChange.bind(this));
-
-      this._prefillFromCustomer();
-    }
-
-    // Selects the option whose value OR visible text matches `wanted` (case-insensitive).
-    // Shopify stores country/province as full names, so matching on text covers both the
-    // option value and label regardless of how the country tags are generated.
-    _selectByValueOrText(selectEl, wanted) {
-      if (!selectEl || !wanted) return false;
-      const w = String(wanted).trim().toLowerCase();
-      const opt = Array.from(selectEl.options).find(o =>
-        o.value.trim().toLowerCase() === w || o.text.trim().toLowerCase() === w
-      );
-      if (opt) { selectEl.value = opt.value; return true; }
-      return false;
-    }
-
-    // Pre-fill the destination fields from the logged-in buyer's saved address. Runs after
-    // _initCountries so the country/province lists already exist. Only fills empty fields so
-    // it never clobbers anything the visitor has already typed.
-    _prefillFromCustomer() {
-      const country  = this.dataset.prefillCountry;
-      const province = this.dataset.prefillProvince;
-      const city     = this.dataset.prefillCity;
-      const zip      = this.dataset.prefillZip;
-
-      if (country && this._selectByValueOrText(this.countryEl, country)) {
-        // Rebuild the province list for the buyer's country before selecting the province.
-        this._handleCountryChange();
-        if (province) this._selectByValueOrText(this.provinceEl, province);
-      }
-      if (city && this.cityEl && !this.cityEl.value) this.cityEl.value = city;
-      if (zip && this.zipEl && !this.zipEl.value) this.zipEl.value = zip;
     }
 
     _initCountries() {
