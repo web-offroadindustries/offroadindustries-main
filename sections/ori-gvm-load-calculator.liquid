@@ -22,6 +22,8 @@
       data-enable-tour="{{ section.settings.enable_tour }}"
       data-fallback-quote-url="{{ fallback_quote_url | escape }}"
       data-quote-label="{{ section.settings.quote_button_label | escape }}"
+      data-show-accessories="{{ section.settings.show_accessories }}"
+      data-show-quote-button="{{ section.settings.show_quote_button }}"
       aria-busy="true"
     >
       <div class="ori-gvm-calculator__intro" data-gvm-intro>
@@ -191,6 +193,12 @@
       "default": "View pricing and request a quote"
     },
     {
+      "type": "checkbox",
+      "id": "show_quote_button",
+      "label": "Show quote button",
+      "default": false
+    },
+    {
       "type": "header",
       "content": "Calculator behaviour"
     },
@@ -208,6 +216,12 @@
       "type": "checkbox",
       "id": "enable_tour",
       "label": "Enable guided tutorial",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "show_accessories",
+      "label": "Show accessories section",
       "default": false
     },
     {
