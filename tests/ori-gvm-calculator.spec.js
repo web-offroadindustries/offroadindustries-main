@@ -11,7 +11,11 @@ async function selectVehicle(page, vehicleId = 'lc300', closeTour = true) {
 
   if (closeTour) {
     const dialog = page.getByRole('dialog', { name: /calculator tutorial/i });
-    if (await dialog.isVisible()) {
+    const opened = await dialog
+      .waitFor({ state: 'visible', timeout: 1000 })
+      .then(() => true)
+      .catch(() => false);
+    if (opened) {
       await dialog.getByRole('button', { name: 'Skip' }).click();
     }
   }
@@ -113,4 +117,65 @@ test('isolates an invalid vehicle instead of crashing the calculator', async ({ 
     page.getByText('This vehicle does not have enough data to calculate safely.')
   ).toBeVisible();
   await expect(page.getByLabel('Select your vehicle')).toBeVisible();
+});
+
+test('uses ORI brand variables and stays responsive without page overflow', async ({ page }, testInfo) => {
+  await page.goto(FIXTURE_URL);
+  await page.evaluate(() => {
+    document.documentElement.style.setProperty(
+      '--brand-display-font',
+      '"Fixture Display", sans-serif'
+    );
+    document.documentElement.style.setProperty(
+      '--brand-body-font',
+      '"Fixture Body", sans-serif'
+    );
+  });
+  await selectVehicle(page);
+
+  await page.setViewportSize({ width: 1280, height: 900 });
+  const workspace = page.locator('.ori-gvm-calculator__workspace');
+  const desktopLayout = await workspace.evaluate((node) => {
+    const style = getComputedStyle(node);
+    return {
+      display: style.display,
+      columns: style.gridTemplateColumns,
+    };
+  });
+  expect(desktopLayout.display).toBe('grid');
+  expect(desktopLayout.columns.split(' ').length).toBeGreaterThan(1);
+
+  const titleFont = await page
+    .locator('.ori-gvm-calculator__vehicle-title')
+    .evaluate((node) => getComputedStyle(node).fontFamily);
+  const bodyFont = await page
+    .locator('.ori-gvm-calculator__select')
+    .evaluate((node) => getComputedStyle(node).fontFamily);
+  const quoteBackground = await page
+    .locator('.ori-gvm-calculator__quote')
+    .evaluate((node) => getComputedStyle(node).backgroundColor);
+  expect(titleFont).toContain('Fixture Display');
+  expect(bodyFont).toContain('Fixture Body');
+  expect(quoteBackground).toBe('rgb(86, 189, 194)');
+  await page.screenshot({
+    path: testInfo.outputPath('ori-gvm-calculator-desktop.png'),
+    fullPage: true,
+  });
+
+  for (const width of [1280, 768, 390, 320]) {
+    await page.setViewportSize({ width, height: 900 });
+    const overflow = await page.evaluate(
+      () => document.documentElement.scrollWidth - document.documentElement.clientWidth
+    );
+    expect(overflow, `horizontal overflow at ${width}px`).toBeLessThanOrEqual(1);
+  }
+
+  await page.setViewportSize({ width: 390, height: 900 });
+  const resultsBox = await page.locator('.ori-gvm-calculator__results').boundingBox();
+  const controlsBox = await page.locator('.ori-gvm-calculator__controls').boundingBox();
+  expect(resultsBox.y).toBeLessThan(controlsBox.y);
+  await page.screenshot({
+    path: testInfo.outputPath('ori-gvm-calculator-mobile.png'),
+    fullPage: true,
+  });
 });
