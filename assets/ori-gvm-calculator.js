@@ -377,19 +377,25 @@
         this.quoteLabel || this.t('quote_cta', 'View pricing and request a quote')
       );
       quote.href = safeUrl(this.vehicle.quote_url, this.fallbackQuoteUrl);
-      var replay = element(
-        'button',
-        'ori-gvm-calculator__tour-replay',
-        this.t('tutorial_replay', 'How to use this calculator')
-      );
-      replay.type = 'button';
-      replay.addEventListener(
-        'click',
-        function () {
-          this.startTour(true, replay);
-        }.bind(this)
-      );
-      append(actions, [quote, replay]);
+      append(actions, [quote]);
+      // Guided tutorial ("How to use this calculator") is parked for now. The replay
+      // button only renders when the tour is enabled via the section setting, so
+      // switching "Enable guided tutorial" back on restores it with no code changes.
+      if (this.enableTour) {
+        var replay = element(
+          'button',
+          'ori-gvm-calculator__tour-replay',
+          this.t('tutorial_replay', 'How to use this calculator')
+        );
+        replay.type = 'button';
+        replay.addEventListener(
+          'click',
+          function () {
+            this.startTour(true, replay);
+          }.bind(this)
+        );
+        append(actions, [replay]);
+      }
       append(titleWrap, [title, actions]);
 
       var workspace = element('div', 'ori-gvm-calculator__workspace');
