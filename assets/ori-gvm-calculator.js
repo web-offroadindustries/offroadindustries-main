@@ -93,6 +93,8 @@
       this.sourceUrl = this.dataset.sourceUrl;
       this.warningThreshold = Number(this.dataset.warningThreshold) || 0.95;
       this.enableTour = toBoolean(this.dataset.enableTour);
+      this.showAccessories = toBoolean(this.dataset.showAccessories);
+      this.showQuoteButton = toBoolean(this.dataset.showQuoteButton);
       this.fallbackQuoteUrl = safeUrl(this.dataset.fallbackQuoteUrl, '/pages/contact');
       this.quoteLabel = this.dataset.quoteLabel || '';
       this.translations = this.parseTranslations();
@@ -371,13 +373,17 @@
         this.vehicle.name + ' - ' + this.t('simulator_suffix', 'Load simulator - GVM calculator')
       );
       var actions = element('div', 'ori-gvm-calculator__actions');
-      var quote = element(
-        'a',
-        'btn btn--primary ori-gvm-calculator__quote',
-        this.quoteLabel || this.t('quote_cta', 'View pricing and request a quote')
-      );
-      quote.href = safeUrl(this.vehicle.quote_url, this.fallbackQuoteUrl);
-      append(actions, [quote]);
+      // Quote button parked for now (client review). Renders only when the
+      // "Show quote button" section setting is switched on.
+      if (this.showQuoteButton) {
+        var quote = element(
+          'a',
+          'btn btn--primary ori-gvm-calculator__quote',
+          this.quoteLabel || this.t('quote_cta', 'View pricing and request a quote')
+        );
+        quote.href = safeUrl(this.vehicle.quote_url, this.fallbackQuoteUrl);
+        append(actions, [quote]);
+      }
       // Guided tutorial ("How to use this calculator") is parked for now. The replay
       // button only renders when the tour is enabled via the section setting, so
       // switching "Enable guided tutorial" back on restores it with no code changes.
@@ -405,8 +411,13 @@
       append(this.resultsColumn, [this.renderSummary(), this.renderVisualCard()]);
       append(workspace, [this.controlsColumn, this.resultsColumn]);
 
-      var accessories = this.renderAccessories();
-      append(this.simulatorHost, [titleWrap, workspace, accessories]);
+      // Accessories section parked for now (client review). Renders only when
+      // the "Show accessories section" setting is switched on.
+      var simulatorChildren = [titleWrap, workspace];
+      if (this.showAccessories) {
+        simulatorChildren.push(this.renderAccessories());
+      }
+      append(this.simulatorHost, simulatorChildren);
     }
 
     renderUpgrades() {

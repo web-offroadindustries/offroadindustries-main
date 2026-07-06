@@ -21,6 +21,8 @@
         "quote_button_label": "View pricing and request a quote",
         "warning_threshold": 95,
         "enable_tour": false,
+        "show_accessories": false,
+        "show_quote_button": false,
         "container": "container-full",
         "color_schema": "",
         "padding_top": 60,
