@@ -1,0 +1,26 @@
+{
+  "sections": {
+    "main": {
+      "type": "ori-gvm-load-calculator",
+      "settings": {
+        "heading": "GVM calculator and load simulator",
+        "intro": "<p>Model how passengers, cargo, accessories and trailer weight affect your vehicle's GVM, GCM and axle loads before you travel.</p>",
+        "disclaimer": "<p><strong>Estimate only.</strong> Results use representative reference data and do not replace weighbridge measurements, your compliance plate, manufacturer documentation or professional assessment. Confirm all limits for your exact vehicle before modifying, loading or towing.</p>",
+        "image_alt": "Vehicle load and towing calculator",
+        "fallback_quote_url": "/pages/contact",
+        "quote_button_label": "View pricing and request a quote",
+        "warning_threshold": 95,
+        "enable_tour": true,
+        "container": "container-full",
+        "color_schema": "",
+        "padding_top": 60,
+        "padding_bottom": 60,
+        "custom_id": "",
+        "custom_class": ""
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}
