@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ORI GVM calculator fixture</title>
+    <style>
+      :root {
+        --brand-teal: #56bdc2;
+        --brand-black: #000;
+        --brand-display-font: Arial, sans-serif;
+        --brand-body-font: Arial, sans-serif;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+      }
+
+      .container-full {
+        width: 100%;
+      }
+    </style>
+    <link rel="stylesheet" href="../../assets/ori-gvm-calculator.css">
+    <script src="../../assets/ori-gvm-calculator-engine.js" defer></script>
+    <script src="../../assets/ori-gvm-calculator.js" defer></script>
+  </head>
+  <body>
+    <main>
+      <section class="ori-gvm-calculator">
+        <div class="container-full">
+          <ori-gvm-calculator
+            data-section-id="fixture"
+            data-source-url="/assets/ori-gvm-calculator-data.json"
+            data-warning-threshold="0.95"
+            data-enable-tour="true"
+            data-fallback-quote-url="/pages/contact"
+            data-quote-label="View pricing and request a quote"
+            aria-busy="true"
+          >
+            <div class="ori-gvm-calculator__intro" data-gvm-intro>
+              <div class="ori-gvm-calculator__intro-content">
+                <h1 class="ori-gvm-calculator__heading">GVM calculator and load simulator</h1>
+                <div class="ori-gvm-calculator__overview">
+                  <p>Model how loads affect your vehicle.</p>
+                </div>
+                <div class="ori-gvm-calculator__disclaimer">
+                  <p><strong>Estimate only.</strong> Confirm every figure for your exact vehicle.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="ori-gvm-calculator__app" data-gvm-app>
+              <p data-gvm-status role="status">Loading calculator data...</p>
+            </div>
+
+            <script type="application/json" data-gvm-translations>
+              {
+                "select_vehicle": "Select your vehicle",
+                "select_vehicle_placeholder": "-- Select your vehicle --",
+                "simulator_suffix": "Load simulator - GVM calculator",
+                "quote_cta": "View pricing and request a quote",
+                "tutorial_replay": "How to use this calculator",
+                "upgrades_title": "GVM and towing upgrades",
+                "factory_option": "Factory (no upgrade)",
+                "factory_description": "Uses factory capacities",
+                "trailer_title": "Trailer and hitch",
+                "occupants_title": "Occupants and cargo",
+                "accessories_title": "Accessories",
+                "front": "Front",
+                "middle": "Middle",
+                "rear": "Rear",
+                "atm": "ATM",
+                "tbm": "TBM",
+                "passengers": "Passengers",
+                "cargo_rear": "Cargo - rear",
+                "summary_title": "Summary and compliance",
+                "visual_title": "Visual",
+                "vehicle_gvm": "Vehicle GVM",
+                "combined_gcm": "Combined GCM",
+                "towing_capacity": "Towing capacity",
+                "tbm_limit": "TBM limit",
+                "atm_entered": "ATM entered",
+                "tbm_entered": "TBM entered",
+                "vehicle_total": "Vehicle total (GVM)",
+                "combined_mass": "Combined mass (GCM)",
+                "front_axle": "Front axle",
+                "rear_axle": "Rear axle",
+                "gvm": "GVM",
+                "gcm": "GCM",
+                "kg": "kg",
+                "status_ok": "Within limit",
+                "status_warning": "Near limit",
+                "status_danger": "Over limit",
+                "status_unavailable": "Limit unavailable",
+                "loading": "Loading calculator data...",
+                "load_error": "Calculator data could not be loaded.",
+                "retry": "Try again",
+                "vehicle_unavailable": "This vehicle does not have enough data to calculate safely.",
+                "no_accessories": "No accessories listed",
+                "tutorial_step": "Step",
+                "tutorial_of": "of",
+                "tutorial_close": "Close tutorial",
+                "tutorial_back": "Back",
+                "tutorial_skip": "Skip",
+                "tutorial_next": "Next",
+                "tutorial_done": "Done",
+                "tutorial_dialog_label": "Calculator tutorial",
+                "tour_trailer_title": "Trailer and hitch",
+                "tour_trailer_text": "Enter your trailer ATM and TBM.",
+                "tour_occupants_title": "Occupants and cargo",
+                "tour_occupants_text": "Add realistic passenger and cargo weights.",
+                "tour_accessories_title": "Accessories",
+                "tour_accessories_text": "Select fitted and planned accessories.",
+                "tour_summary_title": "Summary and visual results",
+                "tour_summary_text": "Review every calculated limit.",
+                "tour_upgrades_title": "GVM upgrades",
+                "tour_upgrades_text": "Compare factory and upgrade limits."
+              }
+            </script>
+          </ori-gvm-calculator>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

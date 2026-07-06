@@ -691,6 +691,7 @@
     "tutorial_skip": "Skip",
     "tutorial_next": "Next",
     "tutorial_done": "Done",
+    "tutorial_dialog_label": "Calculator tutorial",
     "tour_trailer_title": "Trailer and hitch",
     "tour_trailer_text": "Enter your trailer ATM (Aggregate Trailer Mass) and TBM (Tow Ball Mass).",
     "tour_occupants_title": "Occupants and cargo",
