@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main": {
@@ -6,6 +15,7 @@
         "heading": "GVM calculator and load simulator",
         "intro": "<p>Model how passengers, cargo, accessories and trailer weight affect your vehicle's GVM, GCM and axle loads before you travel.</p>",
         "disclaimer": "<p><strong>Estimate only.</strong> Results use representative reference data and do not replace weighbridge measurements, your compliance plate, manufacturer documentation or professional assessment. Confirm all limits for your exact vehicle before modifying, loading or towing.</p>",
+        "image": "shopify://shop_images/dv8-2024-2026-chevy-silverado-25003500-spec-series-front-bumperdv8fbcs2-04-5467357.png",
         "image_alt": "Vehicle load and towing calculator",
         "fallback_quote_url": "/pages/contact",
         "quote_button_label": "View pricing and request a quote",
