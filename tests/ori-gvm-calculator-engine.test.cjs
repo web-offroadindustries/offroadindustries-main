@@ -114,3 +114,26 @@ test('validates the required vehicle calculation fields', () => {
   assert.equal(invalid.valid, false);
   assert.ok(invalid.missing.includes('factory_specs'));
 });
+
+test('ships a complete versioned reference dataset', () => {
+  const data = require('../assets/ori-gvm-calculator-data.json');
+
+  assert.equal(data.version, 1);
+  assert.equal(data.source_kind, 'reference_estimates');
+  assert.equal(data.vehicles.length, 8);
+  assert.deepEqual(
+    data.vehicles.map((item) => item.id),
+    ['lc300', 'lc200', 'lcp250', 'lc79', 'hilux', 'ranger_ng', 'everest_ng', 'd-max']
+  );
+
+  for (const item of data.vehicles) {
+    assert.equal(engine.validateVehicle(item).valid, true, item.id);
+    assert.ok(Array.isArray(item.upgrades), item.id);
+    assert.ok(item.quote_url.startsWith('/'), item.id);
+  }
+
+  assert.ok(data.accessories.front.length > 0);
+  assert.ok(data.accessories.middle.length > 0);
+  assert.ok(data.accessories_by_category.rear.Wagon.length > 0);
+  assert.ok(data.accessories_by_category.rear.Ute.length > 0);
+});
