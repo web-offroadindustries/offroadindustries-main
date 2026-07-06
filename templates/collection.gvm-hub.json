@@ -174,7 +174,7 @@
             "btn_style": "btn--primary"
           }
         }
-      ],
+      },
       "block_order": ["card_1", "card_2", "card_3", "card_4"],
       "settings": {
         "heading": "Popular GVM Upgrade Packages",
