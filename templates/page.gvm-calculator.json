@@ -20,7 +20,7 @@
         "fallback_quote_url": "/pages/contact",
         "quote_button_label": "View pricing and request a quote",
         "warning_threshold": 95,
-        "enable_tour": true,
+        "enable_tour": false,
         "container": "container-full",
         "color_schema": "",
         "padding_top": 60,
