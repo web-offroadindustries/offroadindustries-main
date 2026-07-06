@@ -1,0 +1,276 @@
+{{ 'ori-gvm-calculator.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'ori-gvm-calculator-engine.js' | asset_url }}" defer></script>
+<script src="{{ 'ori-gvm-calculator.js' | asset_url }}" defer></script>
+
+{%- liquid
+  assign section_id = section.settings.custom_id | default: section.id
+  assign fallback_quote_url = section.settings.fallback_quote_url | default: '/pages/contact'
+  assign warning_threshold = section.settings.warning_threshold | divided_by: 100.0
+-%}
+
+<section
+  id="{{ section_id | escape }}"
+  class="ori-gvm-calculator f-section-padding{% if section.settings.color_schema != blank %} color-{{ section.settings.color_schema }}{% endif %}{% if section.settings.custom_class != blank %} {{ section.settings.custom_class | escape }}{% endif %}"
+  data-section-type="ori-gvm-load-calculator"
+  style="--section-padding-top: {{ section.settings.padding_top }}px; --section-padding-bottom: {{ section.settings.padding_bottom }}px;"
+>
+  <div class="{{ section.settings.container }}">
+    <ori-gvm-calculator
+      data-section-id="{{ section.id }}"
+      data-source-url="{{ 'ori-gvm-calculator-data.json' | asset_url }}"
+      data-warning-threshold="{{ warning_threshold }}"
+      data-enable-tour="{{ section.settings.enable_tour }}"
+      data-fallback-quote-url="{{ fallback_quote_url | escape }}"
+      data-quote-label="{{ section.settings.quote_button_label | escape }}"
+      aria-busy="true"
+    >
+      <div class="ori-gvm-calculator__intro" data-gvm-intro>
+        <div class="ori-gvm-calculator__intro-content">
+          {%- if section.settings.heading != blank -%}
+            <h1 class="ori-gvm-calculator__heading h1">{{ section.settings.heading | escape }}</h1>
+          {%- endif -%}
+
+          {%- if section.settings.intro != blank -%}
+            <div class="ori-gvm-calculator__overview rte">{{ section.settings.intro }}</div>
+          {%- endif -%}
+
+          {%- if section.settings.disclaimer != blank -%}
+            <div class="ori-gvm-calculator__disclaimer rte">
+              {{ section.settings.disclaimer }}
+            </div>
+          {%- endif -%}
+        </div>
+
+        {%- if section.settings.image != blank -%}
+          <div class="ori-gvm-calculator__intro-media">
+            {{-
+              section.settings.image
+              | image_url: width: 1400
+              | image_tag:
+                loading: 'eager',
+                fetchpriority: 'high',
+                class: 'ori-gvm-calculator__intro-image',
+                widths: '420, 640, 900, 1200, 1400',
+                sizes: '(min-width: 990px) 42vw, 100vw',
+                alt: section.settings.image_alt
+            -}}
+          </div>
+        {%- endif -%}
+      </div>
+
+      <div class="ori-gvm-calculator__app" data-gvm-app>
+        <p class="ori-gvm-calculator__loading" data-gvm-status role="status">
+          {{ 'gvm_calculator.loading' | t }}
+        </p>
+      </div>
+
+      <noscript>
+        <p class="ori-gvm-calculator__error">{{ 'gvm_calculator.javascript_required' | t }}</p>
+      </noscript>
+
+      <script type="application/json" data-gvm-translations>
+        {
+          "select_vehicle": {{ 'gvm_calculator.select_vehicle' | t | json }},
+          "select_vehicle_placeholder": {{ 'gvm_calculator.select_vehicle_placeholder' | t | json }},
+          "simulator_suffix": {{ 'gvm_calculator.simulator_suffix' | t | json }},
+          "quote_cta": {{ 'gvm_calculator.quote_cta' | t | json }},
+          "tutorial_replay": {{ 'gvm_calculator.tutorial_replay' | t | json }},
+          "upgrades_title": {{ 'gvm_calculator.upgrades_title' | t | json }},
+          "factory_option": {{ 'gvm_calculator.factory_option' | t | json }},
+          "factory_description": {{ 'gvm_calculator.factory_description' | t | json }},
+          "trailer_title": {{ 'gvm_calculator.trailer_title' | t | json }},
+          "occupants_title": {{ 'gvm_calculator.occupants_title' | t | json }},
+          "accessories_title": {{ 'gvm_calculator.accessories_title' | t | json }},
+          "front": {{ 'gvm_calculator.front' | t | json }},
+          "middle": {{ 'gvm_calculator.middle' | t | json }},
+          "rear": {{ 'gvm_calculator.rear' | t | json }},
+          "atm": {{ 'gvm_calculator.atm' | t | json }},
+          "tbm": {{ 'gvm_calculator.tbm' | t | json }},
+          "passengers": {{ 'gvm_calculator.passengers' | t | json }},
+          "cargo_rear": {{ 'gvm_calculator.cargo_rear' | t | json }},
+          "summary_title": {{ 'gvm_calculator.summary_title' | t | json }},
+          "visual_title": {{ 'gvm_calculator.visual_title' | t | json }},
+          "vehicle_gvm": {{ 'gvm_calculator.vehicle_gvm' | t | json }},
+          "combined_gcm": {{ 'gvm_calculator.combined_gcm' | t | json }},
+          "towing_capacity": {{ 'gvm_calculator.towing_capacity' | t | json }},
+          "tbm_limit": {{ 'gvm_calculator.tbm_limit' | t | json }},
+          "atm_entered": {{ 'gvm_calculator.atm_entered' | t | json }},
+          "tbm_entered": {{ 'gvm_calculator.tbm_entered' | t | json }},
+          "vehicle_total": {{ 'gvm_calculator.vehicle_total' | t | json }},
+          "combined_mass": {{ 'gvm_calculator.combined_mass' | t | json }},
+          "front_axle": {{ 'gvm_calculator.front_axle' | t | json }},
+          "rear_axle": {{ 'gvm_calculator.rear_axle' | t | json }},
+          "gvm": {{ 'gvm_calculator.gvm' | t | json }},
+          "gcm": {{ 'gvm_calculator.gcm' | t | json }},
+          "kg": {{ 'gvm_calculator.kg' | t | json }},
+          "status_ok": {{ 'gvm_calculator.status_ok' | t | json }},
+          "status_warning": {{ 'gvm_calculator.status_warning' | t | json }},
+          "status_danger": {{ 'gvm_calculator.status_danger' | t | json }},
+          "status_unavailable": {{ 'gvm_calculator.status_unavailable' | t | json }},
+          "loading": {{ 'gvm_calculator.loading' | t | json }},
+          "load_error": {{ 'gvm_calculator.load_error' | t | json }},
+          "retry": {{ 'gvm_calculator.retry' | t | json }},
+          "vehicle_unavailable": {{ 'gvm_calculator.vehicle_unavailable' | t | json }},
+          "no_accessories": {{ 'gvm_calculator.no_accessories' | t | json }},
+          "tutorial_step": {{ 'gvm_calculator.tutorial_step' | t | json }},
+          "tutorial_of": {{ 'gvm_calculator.tutorial_of' | t | json }},
+          "tutorial_close": {{ 'gvm_calculator.tutorial_close' | t | json }},
+          "tutorial_back": {{ 'gvm_calculator.tutorial_back' | t | json }},
+          "tutorial_skip": {{ 'gvm_calculator.tutorial_skip' | t | json }},
+          "tutorial_next": {{ 'gvm_calculator.tutorial_next' | t | json }},
+          "tutorial_done": {{ 'gvm_calculator.tutorial_done' | t | json }},
+          "tutorial_dialog_label": {{ 'gvm_calculator.tutorial_dialog_label' | t | json }},
+          "tour_trailer_title": {{ 'gvm_calculator.tour_trailer_title' | t | json }},
+          "tour_trailer_text": {{ 'gvm_calculator.tour_trailer_text' | t | json }},
+          "tour_occupants_title": {{ 'gvm_calculator.tour_occupants_title' | t | json }},
+          "tour_occupants_text": {{ 'gvm_calculator.tour_occupants_text' | t | json }},
+          "tour_accessories_title": {{ 'gvm_calculator.tour_accessories_title' | t | json }},
+          "tour_accessories_text": {{ 'gvm_calculator.tour_accessories_text' | t | json }},
+          "tour_summary_title": {{ 'gvm_calculator.tour_summary_title' | t | json }},
+          "tour_summary_text": {{ 'gvm_calculator.tour_summary_text' | t | json }},
+          "tour_upgrades_title": {{ 'gvm_calculator.tour_upgrades_title' | t | json }},
+          "tour_upgrades_text": {{ 'gvm_calculator.tour_upgrades_text' | t | json }}
+        }
+      </script>
+    </ori-gvm-calculator>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "ORI GVM calculator",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "GVM calculator and load simulator"
+    },
+    {
+      "type": "richtext",
+      "id": "intro",
+      "label": "Introduction",
+      "default": "<p>Model how passengers, cargo, accessories and trailer weight affect your vehicle's GVM, GCM and axle loads before you travel.</p>"
+    },
+    {
+      "type": "richtext",
+      "id": "disclaimer",
+      "label": "Disclaimer",
+      "default": "<p><strong>Estimate only.</strong> Results use representative reference data and do not replace weighbridge measurements, your compliance plate, manufacturer documentation or professional assessment. Confirm all limits for your exact vehicle before modifying, loading or towing.</p>"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Introduction image"
+    },
+    {
+      "type": "text",
+      "id": "image_alt",
+      "label": "Image alt text",
+      "default": "Vehicle load and towing calculator"
+    },
+    {
+      "type": "header",
+      "content": "Quote action"
+    },
+    {
+      "type": "url",
+      "id": "fallback_quote_url",
+      "label": "Fallback quote URL"
+    },
+    {
+      "type": "text",
+      "id": "quote_button_label",
+      "label": "Quote button label",
+      "default": "View pricing and request a quote"
+    },
+    {
+      "type": "header",
+      "content": "Calculator behaviour"
+    },
+    {
+      "type": "range",
+      "id": "warning_threshold",
+      "label": "Near-limit warning starts at",
+      "min": 80,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "default": 95
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_tour",
+      "label": "Enable guided tutorial",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "select",
+      "id": "container",
+      "label": "Container width",
+      "options": [
+        { "value": "container-full", "label": "Full width" },
+        { "value": "container", "label": "Fixed (1200px)" },
+        { "value": "container-narrow", "label": "Narrow" }
+      ],
+      "default": "container-full"
+    },
+    {
+      "type": "select",
+      "id": "color_schema",
+      "label": "Color scheme",
+      "options": [
+        { "value": "", "label": "Default" },
+        { "value": "accent", "label": "Accent" },
+        { "value": "inverse", "label": "Inverse" }
+      ],
+      "default": ""
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "text",
+      "id": "custom_id",
+      "label": "Custom HTML ID"
+    },
+    {
+      "type": "text",
+      "id": "custom_class",
+      "label": "Custom CSS class"
+    }
+  ],
+  "presets": [
+    {
+      "name": "ORI GVM calculator"
+    }
+  ]
+}
+{% endschema %}
