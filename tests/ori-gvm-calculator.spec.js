@@ -72,6 +72,55 @@ test('includes selected ORI-sourced accessories in the load calculation', async 
   await expect(page.getByText('Vehicle total (GVM): 2478 / 3220 kg')).toBeVisible();
 });
 
+test('keeps card headings inside containers and uses the requested ORI teal accents', async ({
+  page,
+}) => {
+  await page.goto(FIXTURE_URL);
+  await page.setViewportSize({ width: 1280, height: 900 });
+  await selectVehicle(page);
+
+  const misplacedHeadings = await page.evaluate(() => {
+    const pairs = [
+      ...Array.from(document.querySelectorAll('.ori-gvm-calculator__card')).map((card) => ({
+        container: card,
+        title: card.querySelector(':scope > .ori-gvm-calculator__card-title'),
+      })),
+      ...Array.from(document.querySelectorAll('.ori-gvm-calculator__accessory-group')).map(
+        (group) => ({
+          container: group,
+          title: group.querySelector(':scope > .ori-gvm-calculator__accessory-title'),
+        })
+      ),
+    ];
+
+    return pairs
+      .filter(({ container, title }) => container && title)
+      .map(({ container, title }) => ({
+        text: title.textContent.trim(),
+        containerTop: container.getBoundingClientRect().top,
+        titleTop: title.getBoundingClientRect().top,
+      }))
+      .filter(({ containerTop, titleTop }) => titleTop < containerTop + 8);
+  });
+
+  expect(misplacedHeadings).toEqual([]);
+
+  const colors = await page.evaluate(() => ({
+    cardTitle: getComputedStyle(document.querySelector('.ori-gvm-calculator__card-title')).color,
+    accessoryTitle: getComputedStyle(
+      document.querySelector('.ori-gvm-calculator__accessory-title')
+    ).color,
+    ringStroke: getComputedStyle(document.querySelector('.ori-gvm-calculator__ring-fill')).stroke,
+    barFill: getComputedStyle(document.querySelector('.ori-gvm-calculator__bar-fill'))
+      .backgroundColor,
+  }));
+
+  expect(colors.cardTitle).toBe('rgb(0, 143, 175)');
+  expect(colors.accessoryTitle).toBe('rgb(0, 143, 175)');
+  expect(colors.ringStroke).toBe('rgb(0, 143, 175)');
+  expect(colors.barFill).toBe('rgb(0, 143, 175)');
+});
+
 test('restores the introduction and clears simulation state', async ({ page }) => {
   await page.goto(FIXTURE_URL);
   await selectVehicle(page);
@@ -180,7 +229,7 @@ test('uses ORI brand variables and stays responsive without page overflow', asyn
     .evaluate((node) => getComputedStyle(node).borderColor);
   expect(titleFont).toContain('Fixture Display');
   expect(bodyFont).toContain('Fixture Body');
-  expect(selectedRatingBorder).toBe('rgb(86, 189, 194)');
+  expect(selectedRatingBorder).toBe('rgb(0, 143, 175)');
   await page.screenshot({
     path: testInfo.outputPath('ori-gvm-calculator-desktop.png'),
     fullPage: true,

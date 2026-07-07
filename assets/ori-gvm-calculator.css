@@ -1,6 +1,7 @@
 .ori-gvm-calculator {
-  --gvm-accent: var(--brand-teal, #56bdc2);
-  --gvm-text: var(--brand-black, #000);
+  --gvm-accent: #008faf;
+  --gvm-heading: #008faf;
+  --gvm-text: var(--color-text-body, var(--brand-black, #000));
   --gvm-surface: var(--color-background, #fff);
   --gvm-surface-muted: #f5f7f8;
   --gvm-border: #dce1e5;
@@ -62,7 +63,7 @@
 .ori-gvm-calculator__card-title,
 .ori-gvm-calculator__accessory-title,
 .ori-gvm-calculator__tour-title {
-  color: inherit;
+  color: var(--gvm-heading);
   font-family: var(--brand-display-font, sans-serif) !important;
   font-weight: 400;
   letter-spacing: 0.02em;
@@ -71,6 +72,10 @@
 
 .ori-gvm-calculator__heading {
   margin: 0 0 20px;
+}
+
+.ori-gvm-calculator__tour-title {
+  color: inherit;
 }
 
 .ori-gvm-calculator__overview,
@@ -462,7 +467,7 @@
 }
 
 .ori-gvm-calculator__ring-fill {
-  stroke: var(--gvm-status-color);
+  stroke: var(--gvm-accent);
   transition: stroke-dasharray 240ms ease;
 }
 
@@ -512,7 +517,7 @@
 
 .ori-gvm-calculator__vertical-fill {
   align-self: flex-end;
-  background: var(--gvm-status-color);
+  background: var(--gvm-accent);
   display: block;
   min-height: 2px;
   transition: height 240ms ease;
@@ -544,7 +549,7 @@
 }
 
 .ori-gvm-calculator__bar-fill {
-  background: var(--gvm-status-color);
+  background: var(--gvm-accent);
   border-radius: inherit;
   display: block;
   height: 100%;

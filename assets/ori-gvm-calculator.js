@@ -421,14 +421,17 @@
     }
 
     renderUpgrades() {
-      var fieldset = element('fieldset', 'ori-gvm-calculator__card ori-gvm-calculator__upgrades');
-      fieldset.dataset.tour = 'gvm-upgrades';
-      var legend = element(
-        'legend',
+      var card = element('section', 'ori-gvm-calculator__card ori-gvm-calculator__upgrades');
+      card.dataset.tour = 'gvm-upgrades';
+      var heading = element(
+        'h3',
         'ori-gvm-calculator__card-title',
         this.t('upgrades_title', 'GVM and towing upgrades')
       );
+      heading.id = 'ori-gvm-upgrades-title-' + this.sectionId;
       var list = element('div', 'ori-gvm-calculator__upgrade-list');
+      list.setAttribute('role', 'radiogroup');
+      list.setAttribute('aria-labelledby', heading.id);
       list.appendChild(
         this.createUpgradeOption(
           '',
@@ -460,8 +463,8 @@
         }.bind(this)
       );
 
-      append(fieldset, [legend, list]);
-      return fieldset;
+      append(card, [heading, list]);
+      return card;
     }
 
     createUpgradeOption(value, name, description, checked) {
@@ -495,31 +498,31 @@
 
     renderLoadInputs() {
       var group = element('div', 'ori-gvm-calculator__load-groups');
-      var trailer = element('fieldset', 'ori-gvm-calculator__card ori-gvm-calculator__load-card');
+      var trailer = element('section', 'ori-gvm-calculator__card ori-gvm-calculator__load-card');
       trailer.dataset.tour = 'trailer-hitch';
-      var trailerLegend = element(
-        'legend',
+      var trailerHeading = element(
+        'h3',
         'ori-gvm-calculator__card-title',
         this.t('trailer_title', 'Trailer and hitch')
       );
       append(trailer, [
-        trailerLegend,
+        trailerHeading,
         this.createNumberField('atm', this.t('atm', 'ATM')),
         this.createNumberField('tbm', this.t('tbm', 'TBM')),
       ]);
 
       var occupants = element(
-        'fieldset',
+        'section',
         'ori-gvm-calculator__card ori-gvm-calculator__load-card'
       );
       occupants.dataset.tour = 'occupants-cargo';
-      var occupantsLegend = element(
-        'legend',
+      var occupantsHeading = element(
+        'h3',
         'ori-gvm-calculator__card-title',
         this.t('occupants_title', 'Occupants and cargo')
       );
       append(occupants, [
-        occupantsLegend,
+        occupantsHeading,
         this.createNumberField('passengersKg', this.t('passengers', 'Passengers')),
         this.createNumberField('cargoRearKg', this.t('cargo_rear', 'Cargo - rear')),
       ]);
@@ -614,9 +617,12 @@
     }
 
     renderAccessoryGroup(zone, titleText) {
-      var group = element('fieldset', 'ori-gvm-calculator__accessory-group');
-      var legend = element('legend', 'ori-gvm-calculator__accessory-title', titleText);
-      group.appendChild(legend);
+      var group = element('div', 'ori-gvm-calculator__accessory-group');
+      var heading = element('h4', 'ori-gvm-calculator__accessory-title', titleText);
+      heading.id = 'ori-gvm-accessory-' + zone + '-' + this.sectionId;
+      group.setAttribute('role', 'group');
+      group.setAttribute('aria-labelledby', heading.id);
+      group.appendChild(heading);
       var items = this.accessoryGroups[zone] || [];
 
       if (items.length === 0) {
