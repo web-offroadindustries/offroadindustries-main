@@ -13,6 +13,19 @@ function readJsonWithOptionalHeader(path) {
   );
 }
 
+function readText(path) {
+  return fs.readFileSync(path, 'utf8');
+}
+
+function readSectionSchema(path) {
+  const content = readText(path);
+  const match = content.match(/{% schema %}([\s\S]*?){% endschema %}/);
+
+  assert.ok(match, `${path} has a schema tag`);
+
+  return JSON.parse(match[1]);
+}
+
 const vehicle = {
   id: 'test-vehicle',
   name: 'Test vehicle',
@@ -170,4 +183,36 @@ test('enables accessories on the dedicated calculator page template', () => {
   const template = readJsonWithOptionalHeader('templates/page.gvm-calculator.json');
 
   assert.equal(template.sections.main.settings.show_accessories, true);
+});
+
+test('exposes merchant-editable calculator data blocks in the section schema', () => {
+  const schema = readSectionSchema('sections/ori-gvm-load-calculator.liquid');
+  const blocks = schema.blocks || [];
+  const blockTypes = new Set(blocks.map((block) => block.type));
+  const customSpec = blocks.find((block) => block.type === 'custom_specification');
+  const customAccessory = blocks.find((block) => block.type === 'custom_accessory');
+
+  assert.ok(blockTypes.has('custom_specification'));
+  assert.ok(blockTypes.has('custom_accessory'));
+
+  assert.deepEqual(
+    customSpec.settings.map((setting) => setting.id).filter(Boolean),
+    [
+      'enabled',
+      'vehicle_id',
+      'name',
+      'description',
+      'gvm',
+      'gcm',
+      'front_axle_limit',
+      'rear_axle_limit',
+      'towing_capacity',
+      'tbm_limit',
+      'quote_url',
+    ]
+  );
+  assert.deepEqual(
+    customAccessory.settings.map((setting) => setting.id).filter(Boolean),
+    ['enabled', 'target', 'zone', 'label', 'mass_kg']
+  );
 });

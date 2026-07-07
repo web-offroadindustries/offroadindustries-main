@@ -64,6 +64,37 @@
     return String(Math.round(Number(value) || 0));
   }
 
+  function positiveNumber(value) {
+    var number = Number(value);
+    return Number.isFinite(number) && number > 0 ? number : 0;
+  }
+
+  function isEnabled(value) {
+    return value === undefined || value === null || String(value).toLowerCase() === 'true';
+  }
+
+  function copyData(data) {
+    return JSON.parse(JSON.stringify(data));
+  }
+
+  function normalizeZone(value) {
+    var zone = String(value || '').toLowerCase();
+
+    return ['front', 'middle', 'rear'].includes(zone) ? zone : '';
+  }
+
+  function defaultAccessoryRatio(zone) {
+    if (zone === 'front') {
+      return -0.2;
+    }
+
+    if (zone === 'rear') {
+      return 1.1;
+    }
+
+    return 0.45;
+  }
+
   function dedupeAccessories(items) {
     var seen = new Set();
     var output = [];
@@ -98,6 +129,7 @@
       this.fallbackQuoteUrl = safeUrl(this.dataset.fallbackQuoteUrl, '/pages/contact');
       this.quoteLabel = this.dataset.quoteLabel || '';
       this.translations = this.parseTranslations();
+      this.customData = this.parseCustomData();
       this.abortController = null;
       this.tour = null;
       this.boundTourKeydown = this.handleTourKeydown.bind(this);
@@ -120,6 +152,20 @@
 
     parseTranslations() {
       var node = this.querySelector('[data-gvm-translations]');
+
+      if (!node) {
+        return {};
+      }
+
+      try {
+        return JSON.parse(node.textContent);
+      } catch (error) {
+        return {};
+      }
+    }
+
+    parseCustomData() {
+      var node = this.querySelector('[data-gvm-custom-data]');
 
       if (!node) {
         return {};
@@ -177,7 +223,7 @@
           throw new Error('Invalid calculator dataset');
         }
 
-        this.data = data;
+        this.data = this.applyCustomData(data);
         this.renderVehicleSelector();
         this.setAttribute('aria-busy', 'false');
       } catch (error) {
@@ -186,6 +232,135 @@
         }
         this.renderLoadError();
       }
+    }
+
+    applyCustomData(data) {
+      var output = copyData(data);
+      var customData = this.customData || {};
+
+      this.applyCustomSpecifications(output, customData.specifications || []);
+      this.applyCustomAccessories(output, customData.accessories || []);
+
+      return output;
+    }
+
+    applyCustomSpecifications(data, specifications) {
+      var vehicles = Array.isArray(data.vehicles) ? data.vehicles : [];
+
+      specifications.forEach(function (specification) {
+        if (!specification || !isEnabled(specification.enabled)) {
+          return;
+        }
+
+        var vehicle = vehicles.find(function (item) {
+          return String(item.id) === String(specification.vehicle_id || '');
+        });
+
+        if (!vehicle || !specification.name) {
+          return;
+        }
+
+        var upgrade = {
+          id:
+            'custom_spec_' +
+            safeIdentifier(specification.id || specification.vehicle_id + '_' + specification.name),
+          name: String(specification.name),
+          description: String(specification.description || ''),
+          gvm: positiveNumber(specification.gvm),
+          gcm: positiveNumber(specification.gcm),
+          front_axle_limit: positiveNumber(specification.front_axle_limit),
+          rear_axle_limit: positiveNumber(specification.rear_axle_limit),
+          towing_capacity: positiveNumber(specification.towing_capacity),
+          tbm_limit: positiveNumber(specification.tbm_limit),
+        };
+
+        if (
+          !upgrade.gvm ||
+          !upgrade.gcm ||
+          !upgrade.front_axle_limit ||
+          !upgrade.rear_axle_limit ||
+          !upgrade.towing_capacity ||
+          !upgrade.tbm_limit
+        ) {
+          return;
+        }
+
+        if (specification.quote_url) {
+          upgrade.quote_url = safeUrl(specification.quote_url, '');
+        }
+
+        vehicle.upgrades = Array.isArray(vehicle.upgrades) ? vehicle.upgrades : [];
+        vehicle.upgrades.push(upgrade);
+      });
+    }
+
+    applyCustomAccessories(data, accessories) {
+      var vehicles = Array.isArray(data.vehicles) ? data.vehicles : [];
+
+      data.accessories = data.accessories || {};
+      data.accessories_by_category = data.accessories_by_category || {};
+
+      accessories.forEach(function (item) {
+        if (!item || !isEnabled(item.enabled)) {
+          return;
+        }
+
+        var zone = normalizeZone(item.zone);
+        var mass = positiveNumber(item.mass_kg);
+
+        if (!zone || !item.label || !mass) {
+          return;
+        }
+
+        var accessory = {
+          id: 'custom_accessory_' + safeIdentifier(item.id || item.label),
+          label: String(item.label),
+          mass_kg: mass,
+          position_ratio:
+            item.position_ratio === undefined || item.position_ratio === null || item.position_ratio === ''
+              ? defaultAccessoryRatio(zone)
+              : Number(item.position_ratio),
+        };
+        var target = String(item.target || 'all').toLowerCase();
+
+        if (!Number.isFinite(accessory.position_ratio)) {
+          accessory.position_ratio = defaultAccessoryRatio(zone);
+        }
+
+        if (target === 'all') {
+          data.accessories[zone] = Array.isArray(data.accessories[zone])
+            ? data.accessories[zone]
+            : [];
+          data.accessories[zone].push(accessory);
+          return;
+        }
+
+        if (target === 'ute' || target === 'wagon') {
+          var category = target === 'ute' ? 'Ute' : 'Wagon';
+          data.accessories_by_category[zone] = data.accessories_by_category[zone] || {};
+          data.accessories_by_category[zone][category] = Array.isArray(
+            data.accessories_by_category[zone][category]
+          )
+            ? data.accessories_by_category[zone][category]
+            : [];
+          data.accessories_by_category[zone][category].push(accessory);
+          return;
+        }
+
+        var vehicle = vehicles.find(function (vehicleItem) {
+          return String(vehicleItem.id).toLowerCase() === target;
+        });
+
+        if (!vehicle) {
+          return;
+        }
+
+        vehicle.accessories = vehicle.accessories || {};
+        vehicle.accessories[zone] = Array.isArray(vehicle.accessories[zone])
+          ? vehicle.accessories[zone]
+          : [];
+        vehicle.accessories[zone].push(accessory);
+      });
     }
 
     renderLoading() {
@@ -322,24 +497,32 @@
     getAccessoryGroups(vehicle) {
       var globalAccessories = this.data.accessories || {};
       var vehicleAccessories = vehicle.accessories || {};
-      var rearByCategory =
-        this.data.accessories_by_category && this.data.accessories_by_category.rear
-          ? this.data.accessories_by_category.rear
-          : {};
       var categoryKey = String(vehicle.category || '').toLowerCase() === 'ute' ? 'Ute' : 'Wagon';
-      var front = vehicleAccessories.front || globalAccessories.front || [];
-      var middle = vehicleAccessories.middle || globalAccessories.middle || [];
-      var rear = vehicleAccessories.rear || [];
-
-      if (rear.length === 0) {
-        rear = (globalAccessories.rear || []).concat(rearByCategory[categoryKey] || []);
-      }
+      var front = this.getAccessoryZone('front', vehicleAccessories, globalAccessories, categoryKey);
+      var middle = this.getAccessoryZone(
+        'middle',
+        vehicleAccessories,
+        globalAccessories,
+        categoryKey
+      );
+      var rear = this.getAccessoryZone('rear', vehicleAccessories, globalAccessories, categoryKey);
 
       return {
         front: dedupeAccessories(front),
         middle: dedupeAccessories(middle),
         rear: dedupeAccessories(rear),
       };
+    }
+
+    getAccessoryZone(zone, vehicleAccessories, globalAccessories, categoryKey) {
+      var categoryAccessories =
+        this.data.accessories_by_category && this.data.accessories_by_category[zone]
+          ? this.data.accessories_by_category[zone][categoryKey] || []
+          : [];
+
+      return (globalAccessories[zone] || [])
+        .concat(categoryAccessories)
+        .concat(vehicleAccessories[zone] || []);
     }
 
     indexAccessories() {
@@ -459,6 +642,9 @@
             this.t('tbm', 'TBM') +
             ' ' +
             rounded(upgrade.tbm_limit);
+          if (upgrade.description) {
+            detail = upgrade.description + ' â€¢ ' + detail;
+          }
           list.appendChild(this.createUpgradeOption(upgrade.id, upgrade.name, detail, false));
         }.bind(this)
       );

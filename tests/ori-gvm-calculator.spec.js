@@ -72,6 +72,21 @@ test('includes selected ORI-sourced accessories in the load calculation', async 
   await expect(page.getByText('Vehicle total (GVM): 2478 / 3220 kg')).toBeVisible();
 });
 
+test('loads merchant-editable custom specifications and accessories', async ({ page }) => {
+  await page.goto(FIXTURE_URL);
+  await selectVehicle(page, 'chevy_silverado_1500_ltz');
+
+  await expect(page.getByLabel(/Client-added 4200kg spec/i)).toBeVisible();
+  await page.getByLabel(/Client-added 4200kg spec/i).check();
+  await expect(page.getByText('Vehicle GVM: 4200 kg')).toBeVisible();
+  await expect(page.getByText('Combined GCM: 9000 kg')).toBeVisible();
+
+  await expect(page.getByLabel(/Client fridge, 30 kg/i)).toBeVisible();
+  await expect(page.getByLabel(/Client canopy, 120 kg/i)).toBeVisible();
+  await page.getByLabel(/Client fridge, 30 kg/i).check();
+  await expect(page.getByText('Vehicle total (GVM): 2608 / 4200 kg')).toBeVisible();
+});
+
 test('keeps card headings inside containers and uses the requested ORI teal accents', async ({
   page,
 }) => {

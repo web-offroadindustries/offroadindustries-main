@@ -70,6 +70,14 @@
         <p class="ori-gvm-calculator__error">{{ 'gvm_calculator.javascript_required' | t }}</p>
       </noscript>
 
+      {%- if section.blocks.size > 0 -%}
+        <div class="ori-gvm-calculator__theme-blocks" hidden>
+          {%- for block in section.blocks -%}
+            <span {{ block.shopify_attributes }}></span>
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+
       <script type="application/json" data-gvm-translations>
         {
           "select_vehicle": {{ 'gvm_calculator.select_vehicle' | t | json }},
@@ -132,6 +140,51 @@
           "tour_summary_text": {{ 'gvm_calculator.tour_summary_text' | t | json }},
           "tour_upgrades_title": {{ 'gvm_calculator.tour_upgrades_title' | t | json }},
           "tour_upgrades_text": {{ 'gvm_calculator.tour_upgrades_text' | t | json }}
+        }
+      </script>
+
+      <script type="application/json" data-gvm-custom-data>
+        {
+          "specifications": [
+            {%- assign first_custom_specification = true -%}
+            {%- for block in section.blocks -%}
+              {%- if block.type == 'custom_specification' -%}
+                {%- unless first_custom_specification -%},{%- endunless -%}
+                {
+                  "id": {{ block.id | json }},
+                  "enabled": {{ block.settings.enabled | json }},
+                  "vehicle_id": {{ block.settings.vehicle_id | json }},
+                  "name": {{ block.settings.name | json }},
+                  "description": {{ block.settings.description | json }},
+                  "gvm": {{ block.settings.gvm | json }},
+                  "gcm": {{ block.settings.gcm | json }},
+                  "front_axle_limit": {{ block.settings.front_axle_limit | json }},
+                  "rear_axle_limit": {{ block.settings.rear_axle_limit | json }},
+                  "towing_capacity": {{ block.settings.towing_capacity | json }},
+                  "tbm_limit": {{ block.settings.tbm_limit | json }},
+                  "quote_url": {{ block.settings.quote_url | json }}
+                }
+                {%- assign first_custom_specification = false -%}
+              {%- endif -%}
+            {%- endfor -%}
+          ],
+          "accessories": [
+            {%- assign first_custom_accessory = true -%}
+            {%- for block in section.blocks -%}
+              {%- if block.type == 'custom_accessory' -%}
+                {%- unless first_custom_accessory -%},{%- endunless -%}
+                {
+                  "id": {{ block.id | json }},
+                  "enabled": {{ block.settings.enabled | json }},
+                  "target": {{ block.settings.target | json }},
+                  "zone": {{ block.settings.zone | json }},
+                  "label": {{ block.settings.label | json }},
+                  "mass_kg": {{ block.settings.mass_kg | json }}
+                }
+                {%- assign first_custom_accessory = false -%}
+              {%- endif -%}
+            {%- endfor -%}
+          ]
         }
       </script>
     </ori-gvm-calculator>
@@ -281,6 +334,142 @@
       "label": "Custom CSS class"
     }
   ],
+  "blocks": [
+    {
+      "type": "custom_specification",
+      "name": "Custom specification",
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "enabled",
+          "label": "Enable this specification",
+          "default": true
+        },
+        {
+          "type": "select",
+          "id": "vehicle_id",
+          "label": "Vehicle/package",
+          "options": [
+            { "value": "ford_f150", "label": "Ford F150" },
+            { "value": "ford_f150_3700", "label": "Ford 3700" },
+            { "value": "ford_f150_4300", "label": "Ford 4300" },
+            { "value": "ford_f150_4000", "label": "Ford 4000" },
+            { "value": "toyota_tundra_3850", "label": "Toyota Tundra 3850" },
+            { "value": "chevy_silverado_2500hd", "label": "Chevrolet Silverado 2500HD" },
+            { "value": "chevy_silverado_1500_ltz", "label": "Chevrolet Silverado 1500 LTZ" }
+          ],
+          "default": "ford_f150"
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Specification name",
+          "default": "Custom GVM specification"
+        },
+        {
+          "type": "text",
+          "id": "description",
+          "label": "Short description",
+          "default": "Added in the Shopify theme editor"
+        },
+        {
+          "type": "number",
+          "id": "gvm",
+          "label": "GVM (kg)",
+          "default": 4000
+        },
+        {
+          "type": "number",
+          "id": "gcm",
+          "label": "GCM (kg)",
+          "default": 8500
+        },
+        {
+          "type": "number",
+          "id": "front_axle_limit",
+          "label": "Front axle limit (kg)",
+          "default": 1700
+        },
+        {
+          "type": "number",
+          "id": "rear_axle_limit",
+          "label": "Rear axle limit (kg)",
+          "default": 2300
+        },
+        {
+          "type": "number",
+          "id": "towing_capacity",
+          "label": "Towing capacity (kg)",
+          "default": 4500
+        },
+        {
+          "type": "number",
+          "id": "tbm_limit",
+          "label": "TBM limit (kg)",
+          "default": 450
+        },
+        {
+          "type": "url",
+          "id": "quote_url",
+          "label": "Quote/product page URL"
+        }
+      ]
+    },
+    {
+      "type": "custom_accessory",
+      "name": "Custom accessory",
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "enabled",
+          "label": "Enable this accessory",
+          "default": true
+        },
+        {
+          "type": "select",
+          "id": "target",
+          "label": "Show for",
+          "options": [
+            { "value": "all", "label": "All vehicles" },
+            { "value": "ute", "label": "All ute vehicles" },
+            { "value": "wagon", "label": "All wagon vehicles" },
+            { "value": "ford_f150", "label": "Ford F150" },
+            { "value": "ford_f150_3700", "label": "Ford 3700" },
+            { "value": "ford_f150_4300", "label": "Ford 4300" },
+            { "value": "ford_f150_4000", "label": "Ford 4000" },
+            { "value": "toyota_tundra_3850", "label": "Toyota Tundra 3850" },
+            { "value": "chevy_silverado_2500hd", "label": "Chevrolet Silverado 2500HD" },
+            { "value": "chevy_silverado_1500_ltz", "label": "Chevrolet Silverado 1500 LTZ" }
+          ],
+          "default": "all"
+        },
+        {
+          "type": "select",
+          "id": "zone",
+          "label": "Accessory position",
+          "options": [
+            { "value": "front", "label": "Front" },
+            { "value": "middle", "label": "Middle" },
+            { "value": "rear", "label": "Rear" }
+          ],
+          "default": "front"
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Accessory name",
+          "default": "Custom accessory"
+        },
+        {
+          "type": "number",
+          "id": "mass_kg",
+          "label": "Weight (kg)",
+          "default": 25
+        }
+      ]
+    }
+  ],
+  "max_blocks": 50,
   "presets": [
     {
       "name": "ORI GVM calculator"

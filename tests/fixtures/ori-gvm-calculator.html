@@ -123,6 +123,44 @@
                 "tour_upgrades_text": "Compare factory and upgrade limits."
               }
             </script>
+
+            <script type="application/json" data-gvm-custom-data>
+              {
+                "specifications": [
+                  {
+                    "id": "fixture-client-spec",
+                    "vehicle_id": "chevy_silverado_1500_ltz",
+                    "name": "Client-added 4200kg spec",
+                    "description": "Editable from the Shopify theme editor",
+                    "gvm": 4200,
+                    "gcm": 9000,
+                    "front_axle_limit": 1800,
+                    "rear_axle_limit": 2400,
+                    "towing_capacity": 4500,
+                    "tbm_limit": 450,
+                    "quote_url": "/pages/contact"
+                  }
+                ],
+                "accessories": [
+                  {
+                    "id": "fixture-client-fridge",
+                    "target": "all",
+                    "zone": "middle",
+                    "label": "Client fridge",
+                    "mass_kg": 30,
+                    "position_ratio": 0.45
+                  },
+                  {
+                    "id": "fixture-client-canopy",
+                    "target": "chevy_silverado_1500_ltz",
+                    "zone": "rear",
+                    "label": "Client canopy",
+                    "mass_kg": 120,
+                    "position_ratio": 1.1
+                  }
+                ]
+              }
+            </script>
           </ori-gvm-calculator>
         </div>
       </section>

@@ -1,7 +1,57 @@
-# GVM calculator vehicle data
+# GVM calculator vehicle and editor data
 
 The calculator vehicle list is maintained in `assets/ori-gvm-calculator-data.json`.
 The accessory list is maintained in the same file under `accessories` and `accessories_by_category`.
+
+## Client editing in Shopify
+
+The calculator section also supports Shopify Theme Editor blocks for common client updates. This is the recommended path when the client wants to add an extra selectable specification or accessory without editing theme files.
+
+In Shopify Admin:
+
+1. Go to **Online Store** > **Themes** > **Customize**.
+2. Open the GVM calculator page template.
+3. Select the **ORI GVM calculator** section.
+4. Use **Add block**.
+5. Choose either **Custom specification** or **Custom accessory**.
+
+### Custom specification block
+
+Use this when the client wants another option inside the **Selected specification** card for an existing dropdown vehicle.
+
+Required fields:
+
+- Vehicle/package - which dropdown vehicle the specification belongs to
+- Specification name - customer-facing option label
+- Short description - optional helper text shown with the ratings
+- GVM (kg)
+- GCM (kg)
+- Front axle limit (kg)
+- Rear axle limit (kg)
+- Towing capacity (kg)
+- TBM limit (kg)
+- Quote/product page URL - optional
+
+The block does not change the vehicle dropdown. It adds another selectable rating option after the vehicle is selected.
+
+### Custom accessory block
+
+Use this when the client wants another checkbox under **Accessories**.
+
+Required fields:
+
+- Show for - all vehicles, all ute vehicles, all wagon vehicles, or one specific vehicle
+- Accessory position - Front, Middle, or Rear
+- Accessory name
+- Weight (kg)
+
+The client should enter actual item mass only. Do not enter spring ratings, payload ratings, tow ratings, or vague capacity values.
+
+The calculator assigns the axle position internally:
+
+- Front - front-mounted accessories ahead of the front axle
+- Middle - cabin/mid-vehicle accessories
+- Rear - tub, tray, canopy, recovery gear, or rear-mounted accessories
 
 ## Editing a vehicle
 
