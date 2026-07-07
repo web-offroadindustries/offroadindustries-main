@@ -133,7 +133,7 @@
     <div class="f-article-template__comment-wrapper">
       <div id="comments" class="container-narrow">
         {%- if article.comments_count > 0 -%}
-          {%- assign anchorId = '#Comments-' | append: article.id -%}
+          {%- assign anchor_id = '#Comments-' | append: article.id -%}
 
           <h2 class="f-article-template__comments-heading-top h3" id="Comments-{{ article.id }}">
             {{ 'blogs.article.comments' | t: count: article.comments_count }}
@@ -159,7 +159,7 @@
                 </article>
               {%- endfor -%}
               <div class="f-pagination__wrapper text-center">
-                {% render 'pagination', paginate: paginate, anchor: anchorId %}
+                {% render 'pagination', paginate: paginate, anchor: anchor_id %}
               </div>
             </div>
           {% endpaginate %}

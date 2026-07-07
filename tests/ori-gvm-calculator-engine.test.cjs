@@ -1,7 +1,30 @@
 const test = require('node:test');
 const assert = require('node:assert/strict');
+const fs = require('node:fs');
 
 const engine = require('../assets/ori-gvm-calculator-engine.js');
+
+function readJsonWithOptionalHeader(path) {
+  return JSON.parse(
+    fs
+      .readFileSync(path, 'utf8')
+      .replace(/^\/\*[\s\S]*?\*\//, '')
+      .trim()
+  );
+}
+
+function readText(path) {
+  return fs.readFileSync(path, 'utf8');
+}
+
+function readSectionSchema(path) {
+  const content = readText(path);
+  const match = content.match(/{% schema %}([\s\S]*?){% endschema %}/);
+
+  assert.ok(match, `${path} has a schema tag`);
+
+  return JSON.parse(match[1]);
+}
 
 const vehicle = {
   id: 'test-vehicle',
@@ -118,22 +141,78 @@ test('validates the required vehicle calculation fields', () => {
 test('ships a complete versioned reference dataset', () => {
   const data = require('../assets/ori-gvm-calculator-data.json');
 
-  assert.equal(data.version, 1);
-  assert.equal(data.source_kind, 'reference_estimates');
-  assert.equal(data.vehicles.length, 8);
+  assert.equal(data.version, 3);
+  assert.equal(data.source_kind, 'ori_published_package_and_accessory_specs');
+  assert.equal(data.vehicles.length, 7);
   assert.deepEqual(
     data.vehicles.map((item) => item.id),
-    ['lc300', 'lc200', 'lcp250', 'lc79', 'hilux', 'ranger_ng', 'everest_ng', 'd-max']
+    [
+      'ford_f150',
+      'ford_f150_3700',
+      'ford_f150_4300',
+      'ford_f150_4000',
+      'toyota_tundra_3850',
+      'chevy_silverado_2500hd',
+      'chevy_silverado_1500_ltz',
+    ]
   );
 
   for (const item of data.vehicles) {
     assert.equal(engine.validateVehicle(item).valid, true, item.id);
     assert.ok(Array.isArray(item.upgrades), item.id);
     assert.ok(item.quote_url.startsWith('/'), item.id);
+    assert.ok(item.source_note.includes('ORI'), item.id);
   }
 
+  assert.ok(data.accessory_source_note.includes('ORI product pages'));
   assert.ok(data.accessories.front.length > 0);
-  assert.ok(data.accessories.middle.length > 0);
-  assert.ok(data.accessories_by_category.rear.Wagon.length > 0);
+  assert.ok(Array.isArray(data.accessories.middle));
+  assert.ok(Array.isArray(data.accessories_by_category.rear.Wagon));
   assert.ok(data.accessories_by_category.rear.Ute.length > 0);
+  assert.equal(
+    data.accessories.front.find((item) => item.id === 'carbon_12k_winch').mass_kg,
+    26.65
+  );
+  assert.equal(
+    data.accessories.front.find((item) => item.id === 'stealth_driving_lights_pair').mass_kg,
+    4.4
+  );
+});
+
+test('enables accessories on the dedicated calculator page template', () => {
+  const template = readJsonWithOptionalHeader('templates/page.gvm-calculator.json');
+
+  assert.equal(template.sections.main.settings.show_accessories, true);
+});
+
+test('exposes merchant-editable calculator data blocks in the section schema', () => {
+  const schema = readSectionSchema('sections/ori-gvm-load-calculator.liquid');
+  const blocks = schema.blocks || [];
+  const blockTypes = new Set(blocks.map((block) => block.type));
+  const customSpec = blocks.find((block) => block.type === 'custom_specification');
+  const customAccessory = blocks.find((block) => block.type === 'custom_accessory');
+
+  assert.ok(blockTypes.has('custom_specification'));
+  assert.ok(blockTypes.has('custom_accessory'));
+
+  assert.deepEqual(
+    customSpec.settings.map((setting) => setting.id).filter(Boolean),
+    [
+      'enabled',
+      'vehicle_id',
+      'name',
+      'description',
+      'gvm',
+      'gcm',
+      'front_axle_limit',
+      'rear_axle_limit',
+      'towing_capacity',
+      'tbm_limit',
+      'quote_url',
+    ]
+  );
+  assert.deepEqual(
+    customAccessory.settings.map((setting) => setting.id).filter(Boolean),
+    ['enabled', 'target', 'zone', 'label', 'mass_kg']
+  );
 });
