@@ -1,386 +1,147 @@
 {
-  "version": 1,
-  "source_kind": "reference_estimates",
+  "version": 2,
+  "source_kind": "ori_published_package_specs",
+  "source_note": "Vehicle limits are taken from ORI published GVM package tables and attached client PDF references. Baseline front and rear axle masses are calculator estimates derived from published kerb weights; confirm exact axle loads by weighbridge for each vehicle.",
   "vehicles": [
     {
-      "id": "lc300",
-      "name": "Toyota LandCruiser 300",
-      "category": "wagon",
-      "quote_url": "/pages/contact",
-      "factory_specs": {
-        "wheelbase_mm": 2850,
-        "hitch_overhang_mm": 1200,
-        "baseline_front_kg": 1390,
-        "baseline_rear_kg": 1160,
-        "gvm": 3280,
-        "gcm": 6800,
-        "front_axle_limit": 1630,
-        "rear_axle_limit": 1930,
-        "towing_capacity": 3500,
-        "tbm_limit": 350
-      },
-      "upgrades": [
-        {
-          "id": "lovells_3805",
-          "name": "Lovells 3805kg",
-          "gvm": 3805,
-          "gcm": 7300,
-          "front_axle_limit": 1700,
-          "rear_axle_limit": 2105,
-          "towing_capacity": 3500,
-          "tbm_limit": 350,
-          "description": "3805kg GVM upgrade"
-        },
-        {
-          "id": "lovells_4205",
-          "name": "Lovells 4205kg",
-          "gvm": 4205,
-          "gcm": 7700,
-          "front_axle_limit": 1800,
-          "rear_axle_limit": 2405,
-          "towing_capacity": 3500,
-          "tbm_limit": 350,
-          "description": "4205kg Platinum Series GVM upgrade"
-        },
-        {
-          "id": "lovells_3805_btc",
-          "name": "Lovells 3805kg with BTC",
-          "gvm": 3805,
-          "gcm": 7800,
-          "front_axle_limit": 1700,
-          "rear_axle_limit": 2105,
-          "towing_capacity": 4000,
-          "tbm_limit": 400,
-          "description": "3805kg GVM upgrade and 4000kg BTC upgrade"
-        },
-        {
-          "id": "lovells_4205_btc",
-          "name": "Lovells 4205kg with BTC",
-          "gvm": 4205,
-          "gcm": 7800,
-          "front_axle_limit": 1800,
-          "rear_axle_limit": 2405,
-          "towing_capacity": 4000,
-          "tbm_limit": 400,
-          "description": "4205kg Platinum Series GVM upgrade and 4000kg BTC upgrade"
-        }
-      ]
-    },
-    {
-      "id": "lc200",
-      "name": "Toyota LandCruiser 200",
-      "category": "wagon",
-      "quote_url": "/pages/contact",
-      "factory_specs": {
-        "wheelbase_mm": 2850,
-        "hitch_overhang_mm": 1200,
-        "baseline_front_kg": 1520,
-        "baseline_rear_kg": 1330,
-        "gvm": 3350,
-        "gcm": 6850,
-        "front_axle_limit": 1630,
-        "rear_axle_limit": 1950,
-        "towing_capacity": 3500,
-        "tbm_limit": 350
-      },
-      "upgrades": [
-        {
-          "id": "lovells_3800",
-          "name": "Lovells 3800kg",
-          "gvm": 3800,
-          "gcm": 6850,
-          "front_axle_limit": 1800,
-          "rear_axle_limit": 2000,
-          "towing_capacity": 3500,
-          "tbm_limit": 350,
-          "description": "3800kg GVM upgrade"
-        },
-        {
-          "id": "lovells_4200",
-          "name": "Lovells 4200kg",
-          "gvm": 4200,
-          "gcm": 6850,
-          "front_axle_limit": 1960,
-          "rear_axle_limit": 2304,
-          "towing_capacity": 3500,
-          "tbm_limit": 350,
-          "description": "4200kg Platinum Series GVM upgrade"
-        }
-      ]
-    },
-    {
-      "id": "lcp250",
-      "name": "Toyota Prado 250",
-      "category": "wagon",
-      "quote_url": "/pages/contact",
-      "factory_specs": {
-        "wheelbase_mm": 2850,
-        "hitch_overhang_mm": 1200,
-        "baseline_front_kg": 1260,
-        "baseline_rear_kg": 1200,
-        "gvm": 3150,
-        "gcm": 6600,
-        "front_axle_limit": 1605,
-        "rear_axle_limit": 1860,
-        "towing_capacity": 3500,
-        "tbm_limit": 350
-      },
-      "upgrades": [
-        {
-          "id": "lovells_3650",
-          "name": "Lovells 3650kg",
-          "gvm": 3650,
-          "gcm": 6800,
-          "front_axle_limit": 1605,
-          "rear_axle_limit": 2045,
-          "towing_capacity": 3500,
-          "tbm_limit": 350,
-          "description": "3650kg GVM upgrade"
-        },
-        {
-          "id": "lovells_3900",
-          "name": "Lovells 3900kg",
-          "gvm": 3900,
-          "gcm": 6800,
-          "front_axle_limit": 1800,
-          "rear_axle_limit": 2100,
-          "towing_capacity": 3500,
-          "tbm_limit": 350,
-          "description": "3900kg GVM upgrade"
-        }
-      ]
-    },
-    {
-      "id": "lc79",
-      "name": "Toyota LandCruiser 79",
+      "id": "ford_f150",
+      "name": "Ford F150",
       "category": "ute",
-      "quote_url": "/pages/contact",
+      "quote_url": "/pages/ford-150-gvm-packages",
+      "source_note": "ORI Ford F150 OEM specification. Kerb weight 2451kg; axle baseline estimated from kerb weight.",
       "factory_specs": {
-        "wheelbase_mm": 3180,
-        "hitch_overhang_mm": 1500,
-        "baseline_front_kg": 1290,
-        "baseline_rear_kg": 900,
-        "gvm": 3510,
-        "gcm": 6800,
-        "front_axle_limit": 1480,
+        "wheelbase_mm": 3683,
+        "hitch_overhang_mm": 1450,
+        "baseline_front_kg": 1348,
+        "baseline_rear_kg": 1103,
+        "gvm": 3220,
+        "gcm": 7720,
+        "front_axle_limit": 1565,
+        "rear_axle_limit": 1565,
+        "towing_capacity": 4500,
+        "tbm_limit": 450
+      },
+      "upgrades": []
+    },
+    {
+      "id": "ford_f150_3700",
+      "name": "Ford 3700",
+      "category": "ute",
+      "quote_url": "/pages/ford-150-gvm-packages",
+      "source_note": "ORI Ford F150 3700kg package specification. Kerb weight 2476kg; axle baseline estimated from kerb weight.",
+      "factory_specs": {
+        "wheelbase_mm": 3683,
+        "hitch_overhang_mm": 1450,
+        "baseline_front_kg": 1362,
+        "baseline_rear_kg": 1114,
+        "gvm": 3700,
+        "gcm": 8200,
+        "front_axle_limit": 1700,
+        "rear_axle_limit": 2000,
+        "towing_capacity": 4500,
+        "tbm_limit": 450
+      },
+      "upgrades": []
+    },
+    {
+      "id": "ford_f150_4300",
+      "name": "Ford 4300",
+      "category": "ute",
+      "quote_url": "/pages/ford-150-gvm-packages",
+      "source_note": "ORI Ford F150 4300kg package specification. Kerb weight 2481kg; axle baseline estimated from kerb weight.",
+      "factory_specs": {
+        "wheelbase_mm": 3683,
+        "hitch_overhang_mm": 1450,
+        "baseline_front_kg": 1365,
+        "baseline_rear_kg": 1116,
+        "gvm": 4300,
+        "gcm": 8800,
+        "front_axle_limit": 1850,
+        "rear_axle_limit": 2450,
+        "towing_capacity": 4500,
+        "tbm_limit": 450
+      },
+      "upgrades": []
+    },
+    {
+      "id": "ford_f150_4000",
+      "name": "Ford 4000",
+      "category": "ute",
+      "quote_url": "/pages/ford-150-gvm-packages",
+      "source_note": "ORI Ford F150 4000kg package specification. Kerb weight 2491kg; axle baseline estimated from kerb weight.",
+      "factory_specs": {
+        "wheelbase_mm": 3683,
+        "hitch_overhang_mm": 1450,
+        "baseline_front_kg": 1370,
+        "baseline_rear_kg": 1121,
+        "gvm": 4000,
+        "gcm": 8500,
+        "front_axle_limit": 1700,
         "rear_axle_limit": 2300,
-        "towing_capacity": 3500,
-        "tbm_limit": 350
+        "towing_capacity": 4500,
+        "tbm_limit": 450
       },
-      "upgrades": [
-        {
-          "id": "lovells_3900",
-          "name": "Lovells 3900kg",
-          "gvm": 3900,
-          "gcm": 7400,
-          "front_axle_limit": 1540,
-          "rear_axle_limit": 2360,
-          "towing_capacity": 3500,
-          "tbm_limit": 350,
-          "description": "3900kg GVM upgrade"
-        },
-        {
-          "id": "lovells_4200",
-          "name": "Lovells 4200kg",
-          "gvm": 4200,
-          "gcm": 7400,
-          "front_axle_limit": 1650,
-          "rear_axle_limit": 2550,
-          "towing_capacity": 3500,
-          "tbm_limit": 350,
-          "description": "4200kg GVM upgrade"
-        }
-      ]
+      "upgrades": []
     },
     {
-      "id": "hilux",
-      "name": "Toyota HiLux",
+      "id": "toyota_tundra_3850",
+      "name": "Toyota Tundra 3850",
       "category": "ute",
-      "quote_url": "/pages/contact",
+      "quote_url": "/pages/toyota-tundra",
+      "source_note": "ORI Toyota Tundra 3850kg package specification. Platinum kerb weight 2864kg used as the conservative baseline; axle baseline estimated from kerb weight.",
       "factory_specs": {
-        "wheelbase_mm": 3085,
-        "hitch_overhang_mm": 1300,
-        "baseline_front_kg": 1230,
-        "baseline_rear_kg": 700,
-        "gvm": 3050,
-        "gcm": 5850,
-        "front_axle_limit": 1480,
-        "rear_axle_limit": 1700,
-        "towing_capacity": 3500,
-        "tbm_limit": 350
+        "wheelbase_mm": 3701,
+        "hitch_overhang_mm": 1450,
+        "baseline_front_kg": 1575,
+        "baseline_rear_kg": 1289,
+        "gvm": 3850,
+        "gcm": 8350,
+        "front_axle_limit": 1850,
+        "rear_axle_limit": 2000,
+        "towing_capacity": 4500,
+        "tbm_limit": 450
       },
-      "upgrades": [
-        {
-          "id": "lovells_3510",
-          "name": "Lovells 3510kg",
-          "gvm": 3510,
-          "gcm": 6550,
-          "front_axle_limit": 1510,
-          "rear_axle_limit": 2000,
-          "towing_capacity": 3500,
-          "tbm_limit": 350,
-          "description": "3510kg GVM upgrade"
-        },
-        {
-          "id": "lovells_3670",
-          "name": "Lovells 3670kg",
-          "gvm": 3670,
-          "gcm": 6550,
-          "front_axle_limit": 1620,
-          "rear_axle_limit": 2050,
-          "towing_capacity": 3500,
-          "tbm_limit": 350,
-          "description": "3670kg GVM upgrade"
-        }
-      ]
+      "upgrades": []
     },
     {
-      "id": "ranger_ng",
-      "name": "Ford Ranger Next Gen",
+      "id": "chevy_silverado_2500hd",
+      "name": "Chevrolet Silverado 2500HD",
       "category": "ute",
-      "quote_url": "/pages/contact",
+      "quote_url": "/pages/chevy-silverado-2500hd-gvm-packages",
+      "source_note": "ORI Chevrolet Silverado 2500HD 6000kg package specification. Kerb weight 3741kg used from the current ORI table; axle baseline estimated from kerb weight.",
       "factory_specs": {
-        "wheelbase_mm": 3270,
-        "hitch_overhang_mm": 1300,
-        "baseline_front_kg": 1290,
-        "baseline_rear_kg": 970,
-        "gvm": 3280,
-        "gcm": 6400,
-        "front_axle_limit": 1490,
-        "rear_axle_limit": 1959,
-        "towing_capacity": 3500,
-        "tbm_limit": 350
+        "wheelbase_mm": 4036,
+        "hitch_overhang_mm": 1550,
+        "baseline_front_kg": 2245,
+        "baseline_rear_kg": 1496,
+        "gvm": 6000,
+        "gcm": 12474,
+        "front_axle_limit": 2722,
+        "rear_axle_limit": 3289,
+        "towing_capacity": 4500,
+        "tbm_limit": 450
       },
-      "upgrades": [
-        {
-          "id": "lovells_3505",
-          "name": "Lovells 3505kg",
-          "gvm": 3505,
-          "gcm": 7005,
-          "front_axle_limit": 1640,
-          "rear_axle_limit": 2005,
-          "towing_capacity": 3500,
-          "tbm_limit": 350,
-          "description": "3505kg GVM upgrade"
-        },
-        {
-          "id": "lovells_3700",
-          "name": "Lovells 3700kg",
-          "gvm": 3700,
-          "gcm": 7200,
-          "front_axle_limit": 1640,
-          "rear_axle_limit": 2120,
-          "towing_capacity": 3500,
-          "tbm_limit": 350,
-          "description": "3700kg GVM upgrade"
-        },
-        {
-          "id": "lovells_4000",
-          "name": "Lovells 4000kg",
-          "gvm": 4000,
-          "gcm": 7500,
-          "front_axle_limit": 1640,
-          "rear_axle_limit": 2360,
-          "towing_capacity": 3500,
-          "tbm_limit": 350,
-          "description": "4000kg GVM upgrade"
-        },
-        {
-          "id": "lovells_3700_btc",
-          "name": "Lovells 3700kg with BTC",
-          "gvm": 3700,
-          "gcm": 7600,
-          "front_axle_limit": 1640,
-          "rear_axle_limit": 2120,
-          "towing_capacity": 4000,
-          "tbm_limit": 400,
-          "description": "3700kg GVM upgrade and 4000kg BTC upgrade"
-        },
-        {
-          "id": "lovells_4000_btc",
-          "name": "Lovells 4000kg with BTC",
-          "gvm": 4000,
-          "gcm": 7600,
-          "front_axle_limit": 1640,
-          "rear_axle_limit": 2360,
-          "towing_capacity": 4000,
-          "tbm_limit": 400,
-          "description": "4000kg GVM upgrade and 4000kg BTC upgrade"
-        }
-      ]
+      "upgrades": []
     },
     {
-      "id": "everest_ng",
-      "name": "Ford Everest Next Gen",
-      "category": "wagon",
-      "quote_url": "/pages/contact",
-      "factory_specs": {
-        "wheelbase_mm": 2900,
-        "hitch_overhang_mm": 1200,
-        "baseline_front_kg": 1240,
-        "baseline_rear_kg": 1150,
-        "gvm": 3150,
-        "gcm": 6250,
-        "front_axle_limit": 1470,
-        "rear_axle_limit": 1770,
-        "towing_capacity": 3500,
-        "tbm_limit": 350
-      },
-      "upgrades": [
-        {
-          "id": "lovells_3510",
-          "name": "Lovells 3510kg",
-          "gvm": 3510,
-          "gcm": 7010,
-          "front_axle_limit": 1540,
-          "rear_axle_limit": 1970,
-          "towing_capacity": 3500,
-          "tbm_limit": 350,
-          "description": "3510kg GVM upgrade"
-        },
-        {
-          "id": "lovells_3800",
-          "name": "Lovells 3800kg",
-          "gvm": 3800,
-          "gcm": 7200,
-          "front_axle_limit": 1680,
-          "rear_axle_limit": 2120,
-          "towing_capacity": 3500,
-          "tbm_limit": 350,
-          "description": "3800kg GVM upgrade"
-        }
-      ]
-    },
-    {
-      "id": "d-max",
-      "name": "Isuzu D-Max",
+      "id": "chevy_silverado_1500_ltz",
+      "name": "Chevrolet Silverado 1500 LTZ",
       "category": "ute",
-      "quote_url": "/pages/contact",
+      "quote_url": "/pages/chevrolet-silverado-1500-gvm-package",
+      "source_note": "ORI Chevrolet Silverado 1500 LTZ Stage 3 3850kg package specification. Kerb weight 2578kg; axle baseline estimated from kerb weight.",
       "factory_specs": {
-        "wheelbase_mm": 3125,
-        "hitch_overhang_mm": 1300,
-        "baseline_front_kg": 1180,
-        "baseline_rear_kg": 945,
-        "gvm": 3100,
-        "gcm": 5950,
-        "front_axle_limit": 1450,
-        "rear_axle_limit": 1910,
-        "towing_capacity": 3500,
-        "tbm_limit": 350
+        "wheelbase_mm": 3745,
+        "hitch_overhang_mm": 1450,
+        "baseline_front_kg": 1418,
+        "baseline_rear_kg": 1160,
+        "gvm": 3850,
+        "gcm": 8350,
+        "front_axle_limit": 1724,
+        "rear_axle_limit": 2126,
+        "towing_capacity": 4500,
+        "tbm_limit": 450
       },
-      "upgrades": [
-        {
-          "id": "lovells_3695",
-          "name": "Lovells 3695kg",
-          "gvm": 3695,
-          "gcm": 6900,
-          "front_axle_limit": 1575,
-          "rear_axle_limit": 2120,
-          "towing_capacity": 3500,
-          "tbm_limit": 350,
-          "description": "3695kg GVM upgrade"
-        }
-      ]
+      "upgrades": []
     }
   ],
   "accessories": {

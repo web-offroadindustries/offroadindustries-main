@@ -118,18 +118,27 @@ test('validates the required vehicle calculation fields', () => {
 test('ships a complete versioned reference dataset', () => {
   const data = require('../assets/ori-gvm-calculator-data.json');
 
-  assert.equal(data.version, 1);
-  assert.equal(data.source_kind, 'reference_estimates');
-  assert.equal(data.vehicles.length, 8);
+  assert.equal(data.version, 2);
+  assert.equal(data.source_kind, 'ori_published_package_specs');
+  assert.equal(data.vehicles.length, 7);
   assert.deepEqual(
     data.vehicles.map((item) => item.id),
-    ['lc300', 'lc200', 'lcp250', 'lc79', 'hilux', 'ranger_ng', 'everest_ng', 'd-max']
+    [
+      'ford_f150',
+      'ford_f150_3700',
+      'ford_f150_4300',
+      'ford_f150_4000',
+      'toyota_tundra_3850',
+      'chevy_silverado_2500hd',
+      'chevy_silverado_1500_ltz',
+    ]
   );
 
   for (const item of data.vehicles) {
     assert.equal(engine.validateVehicle(item).valid, true, item.id);
     assert.ok(Array.isArray(item.upgrades), item.id);
     assert.ok(item.quote_url.startsWith('/'), item.id);
+    assert.ok(item.source_note.includes('ORI'), item.id);
   }
 
   assert.ok(data.accessories.front.length > 0);

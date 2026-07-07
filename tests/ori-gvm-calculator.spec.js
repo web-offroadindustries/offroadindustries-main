@@ -6,8 +6,10 @@ async function resetTour(page) {
   await page.addInitScript(() => localStorage.removeItem('ori_gvm_tour_seen_v1'));
 }
 
-async function selectVehicle(page, vehicleId = 'lc300', closeTour = true) {
-  await page.getByLabel('Select your vehicle').selectOption(vehicleId);
+async function selectVehicle(page, vehicleId = 'ford_f150', closeTour = true) {
+  const select = page.getByLabel('Select ORI vehicle package');
+  await expect(select.locator(`option[value="${vehicleId}"]`)).toHaveCount(1);
+  await select.selectOption(vehicleId);
 
   if (closeTour) {
     const dialog = page.getByRole('dialog', { name: /calculator tutorial/i });
@@ -27,26 +29,36 @@ test.beforeEach(async ({ page }) => {
 
 test('loads a vehicle and recalculates every dependent mass', async ({ page }) => {
   await page.goto(FIXTURE_URL);
-  await expect(page.getByLabel('Select your vehicle')).toBeVisible();
+  const vehicleSelect = page.getByLabel('Select ORI vehicle package');
+  await expect(vehicleSelect).toBeVisible();
+  await expect(vehicleSelect.locator('option')).toContainText([
+    '-- Select a package --',
+    'Ford F150',
+    'Ford 3700',
+    'Ford 4300',
+    'Ford 4000',
+    'Toyota Tundra 3850',
+    'Chevrolet Silverado 2500HD',
+    'Chevrolet Silverado 1500 LTZ',
+  ]);
 
   await selectVehicle(page);
-  await expect(page.getByRole('heading', { name: /Toyota LandCruiser 300/i })).toBeVisible();
-  await expect(page.getByText('Vehicle total (GVM): 2550 / 3280 kg')).toBeVisible();
+  await expect(page.getByRole('heading', { name: /Ford F150/i })).toBeVisible();
+  await expect(page.getByText('Vehicle total (GVM): 2451 / 3220 kg')).toBeVisible();
 
   await page.getByRole('spinbutton', { name: 'ATM', exact: true }).fill('3500');
   await page.getByRole('spinbutton', { name: 'TBM', exact: true }).fill('350');
   await page.getByRole('spinbutton', { name: 'Passengers', exact: true }).fill('300');
   await page.getByRole('spinbutton', { name: 'Cargo - rear', exact: true }).fill('500');
-  await page.getByLabel(/Bull bar, 85 kg/i).check();
 
-  await expect(page.getByText('Vehicle total (GVM): 3785 / 3280 kg')).toBeVisible();
-  await expect(page.getByText('Combined mass (GCM): 6935 / 6800 kg')).toBeVisible();
+  await expect(page.getByText('Vehicle total (GVM): 3601 / 3220 kg')).toBeVisible();
+  await expect(page.getByText('Combined mass (GCM): 6751 / 7720 kg')).toBeVisible();
   await expect(page.getByText('Over limit', { exact: true }).first()).toBeVisible();
 
-  await page.getByLabel(/Lovells 4205kg with BTC/i).check();
-  await expect(page.getByText('Vehicle GVM: 4205 kg')).toBeVisible();
-  await expect(page.getByText('Towing capacity: 4000 kg')).toBeVisible();
-  await expect(page.getByText('Vehicle total (GVM): 3785 / 4205 kg')).toBeVisible();
+  await page.getByLabel('Select ORI vehicle package').selectOption('ford_f150_4300');
+  await expect(page.getByText('Vehicle GVM: 4300 kg')).toBeVisible();
+  await expect(page.getByText('Towing capacity: 4500 kg')).toBeVisible();
+  await expect(page.getByText('Vehicle total (GVM): 2481 / 4300 kg')).toBeVisible();
 });
 
 test('restores the introduction and clears simulation state', async ({ page }) => {
@@ -54,10 +66,10 @@ test('restores the introduction and clears simulation state', async ({ page }) =
   await selectVehicle(page);
   await page.getByLabel('Passengers').fill('250');
 
-  await page.getByLabel('Select your vehicle').selectOption('');
+  await page.getByLabel('Select ORI vehicle package').selectOption('');
 
-  await expect(page.getByRole('heading', { name: 'GVM calculator and load simulator' })).toBeVisible();
-  await expect(page.getByRole('heading', { name: /Toyota LandCruiser 300/i })).toBeHidden();
+  await expect(page.getByRole('heading', { name: 'ORI GVM load calculator' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: /Ford F150/i })).toBeHidden();
 
   await selectVehicle(page);
   await expect(page.getByLabel('Passengers')).toHaveValue('');
@@ -65,18 +77,18 @@ test('restores the introduction and clears simulation state', async ({ page }) =
 
 test('runs the tutorial once and supports manual replay', async ({ page }) => {
   await page.goto(FIXTURE_URL);
-  await selectVehicle(page, 'lc300', false);
+  await selectVehicle(page, 'ford_f150', false);
 
   const dialog = page.getByRole('dialog', { name: /calculator tutorial/i });
   await expect(dialog).toBeVisible();
-  await expect(dialog.getByText('Step 1 of 5')).toBeVisible();
+  await expect(dialog.getByText('Step 1 of 4')).toBeVisible();
   await dialog.getByRole('button', { name: 'Next' }).click();
-  await expect(dialog.getByText('Step 2 of 5')).toBeVisible();
+  await expect(dialog.getByText('Step 2 of 4')).toBeVisible();
   await dialog.getByRole('button', { name: 'Skip' }).click();
   await expect(dialog).toBeHidden();
 
-  await page.getByLabel('Select your vehicle').selectOption('');
-  await selectVehicle(page, 'lc300', false);
+  await page.getByLabel('Select ORI vehicle package').selectOption('');
+  await selectVehicle(page, 'ford_f150', false);
   await expect(dialog).toBeHidden();
 
   await page.getByRole('button', { name: 'How to use this calculator' }).click();
@@ -99,7 +111,7 @@ test('shows a retry state and recovers after a data request fails', async ({ pag
   await page.goto(FIXTURE_URL);
   await expect(page.getByText('Calculator data could not be loaded.')).toBeVisible();
   await page.getByRole('button', { name: 'Try again' }).click();
-  await expect(page.getByLabel('Select your vehicle')).toBeVisible();
+  await expect(page.getByLabel('Select ORI vehicle package')).toBeVisible();
   expect(requests).toBe(2);
 });
 
@@ -112,11 +124,11 @@ test('isolates an invalid vehicle instead of crashing the calculator', async ({ 
   });
 
   await page.goto(FIXTURE_URL);
-  await page.getByLabel('Select your vehicle').selectOption('lc300');
+  await page.getByLabel('Select ORI vehicle package').selectOption('ford_f150');
   await expect(
     page.getByText('This vehicle does not have enough data to calculate safely.')
   ).toBeVisible();
-  await expect(page.getByLabel('Select your vehicle')).toBeVisible();
+  await expect(page.getByLabel('Select ORI vehicle package')).toBeVisible();
 });
 
 test('uses ORI brand variables and stays responsive without page overflow', async ({ page }, testInfo) => {
@@ -151,12 +163,13 @@ test('uses ORI brand variables and stays responsive without page overflow', asyn
   const bodyFont = await page
     .locator('.ori-gvm-calculator__select')
     .evaluate((node) => getComputedStyle(node).fontFamily);
-  const quoteBackground = await page
-    .locator('.ori-gvm-calculator__quote')
-    .evaluate((node) => getComputedStyle(node).backgroundColor);
+  const selectedRatingBorder = await page
+    .locator('.ori-gvm-calculator__upgrade-option')
+    .first()
+    .evaluate((node) => getComputedStyle(node).borderColor);
   expect(titleFont).toContain('Fixture Display');
   expect(bodyFont).toContain('Fixture Body');
-  expect(quoteBackground).toBe('rgb(86, 189, 194)');
+  expect(selectedRatingBorder).toBe('rgb(86, 189, 194)');
   await page.screenshot({
     path: testInfo.outputPath('ori-gvm-calculator-desktop.png'),
     fullPage: true,
