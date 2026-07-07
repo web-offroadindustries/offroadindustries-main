@@ -110,6 +110,7 @@
         },
         "block_support": {
           "type": "text_link",
+          "disabled": true,
           "settings": {
             "side": "right",
             "svg_icon": "support",
