@@ -1,6 +1,7 @@
 # GVM calculator vehicle data
 
 The calculator vehicle list is maintained in `assets/ori-gvm-calculator-data.json`.
+The accessory list is maintained in the same file under `accessories` and `accessories_by_category`.
 
 ## Editing a vehicle
 
@@ -27,6 +28,23 @@ npx playwright test -c ori-gvm-playwright.config.js --timeout=15000
 Pop-Location
 ```
 
+## Editing accessories
+
+Accessories require:
+
+- `id` - unique machine-readable key
+- `label` - customer-facing accessory name
+- `mass_kg` - accessory mass in kg
+- `position_ratio` - estimated fore/aft load position used by the axle calculator
+
+Use only actual item mass values. Do not use spring ratings, load ratings, towing ratings, wheel ratings, or capacity ratings as accessory weights. If the Shopify variant weight looks like a freight placeholder, such as repeated `100000` gram values across unrelated items, do not use it without confirmation.
+
+Current position-ratio conventions:
+
+- `-0.2` - front-mounted accessories ahead of the front axle
+- `1.1` - ute tub/cargo items behind the rear axle
+- `1.4` - tow-hitch/rear-bar-adjacent items further behind the rear axle
+
 ## Current source basis
 
 The current vehicle limits use ORI published GVM package pages and the supplied PDF references for:
@@ -35,5 +53,14 @@ The current vehicle limits use ORI published GVM package pages and the supplied 
 - Toyota Tundra 3850kg package
 - Chevrolet Silverado 2500HD 6000kg package
 - Chevrolet Silverado 1500 LTZ 3850kg package
+
+The current accessory weights use explicit weights from ORI product pages or public Shopify product JSON for:
+
+- Carbon 12K winch kit
+- Warn EVO 12-S winch
+- Stealth 8.5 in driving lights pair
+- Baja Designs S8 10 in light bar
+- Factor 55 winch and recovery hardware
+- Factor 55 recovery bags/kits
 
 The calculator is a planning tool. Final compliance should always be checked against the exact vehicle paperwork and weighbridge measurements.

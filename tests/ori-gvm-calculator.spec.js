@@ -45,6 +45,8 @@ test('loads a vehicle and recalculates every dependent mass', async ({ page }) =
   await selectVehicle(page);
   await expect(page.getByRole('heading', { name: /Ford F150/i })).toBeVisible();
   await expect(page.getByText('Vehicle total (GVM): 2451 / 3220 kg')).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Accessories' })).toBeVisible();
+  await expect(page.getByLabel(/Carbon 12K winch kit, 27 kg/i)).toBeVisible();
 
   await page.getByRole('spinbutton', { name: 'ATM', exact: true }).fill('3500');
   await page.getByRole('spinbutton', { name: 'TBM', exact: true }).fill('350');
@@ -59,6 +61,15 @@ test('loads a vehicle and recalculates every dependent mass', async ({ page }) =
   await expect(page.getByText('Vehicle GVM: 4300 kg')).toBeVisible();
   await expect(page.getByText('Towing capacity: 4500 kg')).toBeVisible();
   await expect(page.getByText('Vehicle total (GVM): 2481 / 4300 kg')).toBeVisible();
+});
+
+test('includes selected ORI-sourced accessories in the load calculation', async ({ page }) => {
+  await page.goto(FIXTURE_URL);
+  await selectVehicle(page);
+
+  await page.getByLabel(/Carbon 12K winch kit, 27 kg/i).check();
+
+  await expect(page.getByText('Vehicle total (GVM): 2478 / 3220 kg')).toBeVisible();
 });
 
 test('restores the introduction and clears simulation state', async ({ page }) => {
@@ -81,9 +92,9 @@ test('runs the tutorial once and supports manual replay', async ({ page }) => {
 
   const dialog = page.getByRole('dialog', { name: /calculator tutorial/i });
   await expect(dialog).toBeVisible();
-  await expect(dialog.getByText('Step 1 of 4')).toBeVisible();
+  await expect(dialog.getByText('Step 1 of 5')).toBeVisible();
   await dialog.getByRole('button', { name: 'Next' }).click();
-  await expect(dialog.getByText('Step 2 of 4')).toBeVisible();
+  await expect(dialog.getByText('Step 2 of 5')).toBeVisible();
   await dialog.getByRole('button', { name: 'Skip' }).click();
   await expect(dialog).toBeHidden();
 

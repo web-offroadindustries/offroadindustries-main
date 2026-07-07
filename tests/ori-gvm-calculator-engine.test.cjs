@@ -1,7 +1,17 @@
 const test = require('node:test');
 const assert = require('node:assert/strict');
+const fs = require('node:fs');
 
 const engine = require('../assets/ori-gvm-calculator-engine.js');
+
+function readJsonWithOptionalHeader(path) {
+  return JSON.parse(
+    fs
+      .readFileSync(path, 'utf8')
+      .replace(/^\/\*[\s\S]*?\*\//, '')
+      .trim()
+  );
+}
 
 const vehicle = {
   id: 'test-vehicle',
@@ -118,8 +128,8 @@ test('validates the required vehicle calculation fields', () => {
 test('ships a complete versioned reference dataset', () => {
   const data = require('../assets/ori-gvm-calculator-data.json');
 
-  assert.equal(data.version, 2);
-  assert.equal(data.source_kind, 'ori_published_package_specs');
+  assert.equal(data.version, 3);
+  assert.equal(data.source_kind, 'ori_published_package_and_accessory_specs');
   assert.equal(data.vehicles.length, 7);
   assert.deepEqual(
     data.vehicles.map((item) => item.id),
@@ -141,8 +151,23 @@ test('ships a complete versioned reference dataset', () => {
     assert.ok(item.source_note.includes('ORI'), item.id);
   }
 
+  assert.ok(data.accessory_source_note.includes('ORI product pages'));
   assert.ok(data.accessories.front.length > 0);
-  assert.ok(data.accessories.middle.length > 0);
-  assert.ok(data.accessories_by_category.rear.Wagon.length > 0);
+  assert.ok(Array.isArray(data.accessories.middle));
+  assert.ok(Array.isArray(data.accessories_by_category.rear.Wagon));
   assert.ok(data.accessories_by_category.rear.Ute.length > 0);
+  assert.equal(
+    data.accessories.front.find((item) => item.id === 'carbon_12k_winch').mass_kg,
+    26.65
+  );
+  assert.equal(
+    data.accessories.front.find((item) => item.id === 'stealth_driving_lights_pair').mass_kg,
+    4.4
+  );
+});
+
+test('enables accessories on the dedicated calculator page template', () => {
+  const template = readJsonWithOptionalHeader('templates/page.gvm-calculator.json');
+
+  assert.equal(template.sections.main.settings.show_accessories, true);
 });

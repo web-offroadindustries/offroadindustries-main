@@ -1,7 +1,8 @@
 {
-  "version": 2,
-  "source_kind": "ori_published_package_specs",
+  "version": 3,
+  "source_kind": "ori_published_package_and_accessory_specs",
   "source_note": "Vehicle limits are taken from ORI published GVM package tables and attached client PDF references. Baseline front and rear axle masses are calculator estimates derived from published kerb weights; confirm exact axle loads by weighbridge for each vehicle.",
+  "accessory_source_note": "Accessory weights use explicit weights published on ORI product pages or public Shopify product JSON. Items with only load ratings, spring ratings, capacity ratings, or apparent placeholder shipping weights are excluded.",
   "vehicles": [
     {
       "id": "ford_f150",
@@ -146,45 +147,28 @@
   ],
   "accessories": {
     "front": [
-      { "id": "bullbar", "label": "Bull bar", "mass_kg": 85, "position_ratio": -0.2 },
-      { "id": "winch", "label": "Winch", "mass_kg": 45, "position_ratio": -0.2 },
-      { "id": "lights", "label": "Lights", "mass_kg": 5, "position_ratio": -0.2 },
-      { "id": "recovery_points", "label": "Recovery points", "mass_kg": 6, "position_ratio": -0.1 },
-      { "id": "uvp", "label": "Under-vehicle protection", "mass_kg": 50, "position_ratio": 0.2 },
-      { "id": "snorkel", "label": "Snorkel", "mass_kg": 10, "position_ratio": 0 }
+      { "id": "carbon_12k_winch", "label": "Carbon 12K winch kit", "mass_kg": 26.65, "position_ratio": -0.2 },
+      { "id": "warn_evo_12s_winch", "label": "Warn EVO 12-S winch", "mass_kg": 24.98, "position_ratio": -0.2 },
+      { "id": "stealth_driving_lights_pair", "label": "Stealth 8.5 in driving lights pair", "mass_kg": 4.4, "position_ratio": -0.2 },
+      { "id": "baja_s8_10_light_bar", "label": "Baja Designs S8 10 in light bar", "mass_kg": 1.09, "position_ratio": -0.2 },
+      { "id": "factor55_flatlink_xxl", "label": "Factor 55 FlatLink XXL", "mass_kg": 1.45, "position_ratio": -0.2 },
+      { "id": "factor55_ultrahook", "label": "Factor 55 UltraHook", "mass_kg": 1.2, "position_ratio": -0.2 },
+      { "id": "factor55_hawse_fairlead", "label": "Factor 55 Hawse fairlead", "mass_kg": 1.18, "position_ratio": -0.2 }
     ],
-    "middle": [
-      { "id": "roofrack", "label": "Roof rack", "mass_kg": 31, "position_ratio": 0.6 },
-      { "id": "repfueltank", "label": "Replacement fuel tank", "mass_kg": 70, "position_ratio": 0.8 },
-      { "id": "sidesteps", "label": "Side steps", "mass_kg": 45, "position_ratio": 0.5 },
-      { "id": "siderailssteps", "label": "Side rails and steps", "mass_kg": 55, "position_ratio": 0.3 },
-      { "id": "powerboards", "label": "Powerboards", "mass_kg": 40, "position_ratio": 0.5 },
-      { "id": "awning270", "label": "270-degree awning", "mass_kg": 20, "position_ratio": 0.6 },
-      { "id": "watertank", "label": "Water tank", "mass_kg": 45, "position_ratio": 0.8 }
-    ],
+    "middle": [],
     "rear": []
   },
   "accessories_by_category": {
     "rear": {
-      "Wagon": [
-        { "id": "drawers", "label": "Drawer system", "mass_kg": 80, "position_ratio": 1.1 },
-        { "id": "electrical", "label": "Electrical system", "mass_kg": 60, "position_ratio": 1.1 },
-        { "id": "fridge", "label": "Fridge", "mass_kg": 25, "position_ratio": 1.1 },
-        { "id": "auxfueltank", "label": "Auxiliary fuel tank", "mass_kg": 185, "position_ratio": 1.1 },
-        { "id": "rearwc", "label": "Twin rear wheel carrier", "mass_kg": 150, "position_ratio": 1.3 },
-        { "id": "rtt-wagon", "label": "Rooftop tent", "mass_kg": 100, "position_ratio": 0.6 }
-      ],
+      "Wagon": [],
       "Ute": [
-        { "id": "tow_bar", "label": "Heavy-duty tow bar", "mass_kg": 50, "position_ratio": 1.4 },
-        { "id": "chas_canopy", "label": "Chassis-mount canopy", "mass_kg": 300, "position_ratio": 1.2 },
-        { "id": "ali_tray", "label": "Aluminium tray", "mass_kg": 100, "position_ratio": 1.2 },
-        { "id": "tray_canopy", "label": "Tray-mount canopy", "mass_kg": 170, "position_ratio": 1.1 },
-        { "id": "rearwc", "label": "Twin rear wheel carrier", "mass_kg": 100, "position_ratio": 1.4 },
-        { "id": "water_tank", "label": "Water tank", "mass_kg": 70, "position_ratio": 1.1 },
-        { "id": "fitout", "label": "Canopy storage system", "mass_kg": 50, "position_ratio": 1.2 },
-        { "id": "can_electrical", "label": "Electrical system", "mass_kg": 60, "position_ratio": 1.1 },
-        { "id": "can_fridge", "label": "Fridge", "mass_kg": 25, "position_ratio": 1.1 },
-        { "id": "rtt-canopy", "label": "Rooftop tent", "mass_kg": 100, "position_ratio": 1.1 }
+        { "id": "factor55_borah_recovery_kit", "label": "Factor 55 Borah recovery kit", "mass_kg": 21.4, "position_ratio": 1.1 },
+        { "id": "factor55_sawtooth_recovery_kit", "label": "Factor 55 Sawtooth recovery kit", "mass_kg": 12.25, "position_ratio": 1.1 },
+        { "id": "factor55_owyhee_recovery_bag", "label": "Factor 55 Owyhee recovery bag", "mass_kg": 7.5, "position_ratio": 1.1 },
+        { "id": "factor55_recovery_bag_large", "label": "Factor 55 large recovery bag", "mass_kg": 2.25, "position_ratio": 1.1 },
+        { "id": "factor55_recovery_bag_medium", "label": "Factor 55 medium recovery bag", "mass_kg": 1.15, "position_ratio": 1.1 },
+        { "id": "factor55_hitchlink_25", "label": "Factor 55 HitchLink 2.5 in", "mass_kg": 1.6, "position_ratio": 1.4 },
+        { "id": "factor55_hitchlink_20", "label": "Factor 55 HitchLink 2.0 in", "mass_kg": 0.86, "position_ratio": 1.4 }
       ]
     }
   }

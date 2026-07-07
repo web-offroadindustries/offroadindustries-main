@@ -21,7 +21,7 @@
         "quote_button_label": "View ORI GVM package",
         "warning_threshold": 95,
         "enable_tour": false,
-        "show_accessories": false,
+        "show_accessories": true,
         "show_quote_button": false,
         "container": "container-full",
         "color_schema": "",
