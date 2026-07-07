@@ -502,7 +502,7 @@
         "text_Uxnd43": {
           "type": "text",
           "settings": {
-            "text": "<p><em>Ever wondered how these monsters get around legally? ORI Stage 6 makes the dream a reality.</em></p><ul><li><strong>GVM Rating:</strong> 3700kg (Approx. 1219kg payload) | <strong>GCM:</strong> 8200kg</li><li><strong>Key Features:</strong> Fox 2.5 Performance Elite with BDS Lift Kit Technology (6-Inch Suspension Lift for 37\" Tyres).</li><li><strong>Best For:</strong> The hardcore enthusiast who demands an absolute monster of a truck that still delivers heavy-duty payload and 4.5T towing capacity.</li><li><strong>The Benefit:</strong> Equipped with a 6” BDS lift kit and 37” tyres, this setup is 100% legal Australia-wide exclusively via ORI's Pre-Rego packages under our SSM approval. Drive anywhere knowing your monster build is completely legal, safe, and fully insured.</li><li><strong>Part Number:</strong> FRD-F150-Stage6-GVM<br/><br/></li></ul>"
+            "text": "<p><em>Ever wondered how these monsters get around legally? ORI Stage 6 makes the dream a reality.</em></p><ul><li><strong>GVM Rating:</strong> 3700kg (Approx. 1219kg payload) | <strong>GCM:</strong> 8200kg</li><li><strong>Key Features:</strong> Fox 2.5 Performance Elite with BDS Lift Kit Technology (6-Inch Suspension Lift for 37\" Tyres).</li><li><strong>Best For:</strong> The hardcore enthusiast who demands an absolute monster of a truck that still delivers heavy-duty payload and 4.5T towing capacity.</li><li><strong>The Benefit:</strong> Equipped with a 6” BDS lift kit and 37” tyres, this setup is 100% legal Australia-wide exclusively via ORI's Pre-Rego packages under our SSM approval. Drive anywhere knowing your monster build is completely legal, safe, and fully insured.</li><li><strong>Part Number:</strong> FRD-F150-Stage6-GVM</li><li>Max tyre size must be run on this SSM. 37x13.5x20 | </li><li>Note: Due to different tie rods, on the new F150, we cannot offer 18\" rims as they hit the tie rods, you can make this work but you need to order previous generation tie rods and rackets to make it work.<br/><br/></li></ul>"
           }
         }
       },
@@ -718,7 +718,7 @@
             "value_4": "35 30 25 18 12 0",
             "value_5": "35 30 25 18 12 0",
             "value_6": "0 Pos 18 12",
-            "value_7": "0 Pos 18 12",
+            "value_7": "Pos 18 12",
             "value_8": "",
             "value_9": "",
             "value_10": ""
@@ -782,7 +782,7 @@
             "value_4": "35x12.5xR18\n35x12.5xR20",
             "value_5": "35x12.5xR18\n35x12.5xR20",
             "value_6": "35x12.5xR18\n35x12.5xR20",
-            "value_7": "37x13.5xR18\n37x13.5xR20",
+            "value_7": "37x13.5xR20",
             "value_8": "",
             "value_9": "",
             "value_10": ""
