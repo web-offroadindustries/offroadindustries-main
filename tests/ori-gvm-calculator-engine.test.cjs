@@ -235,6 +235,25 @@ test('enables accessories on the dedicated calculator page template', () => {
   assert.equal(template.sections.main.settings.show_accessories, true);
 });
 
+test('exposes merchant-editable accessory column labels and default data toggle', () => {
+  const schema = readSectionSchema('sections/ori-gvm-load-calculator.liquid');
+  const settingIds = schema.settings.map((setting) => setting.id).filter(Boolean);
+
+  assert.ok(settingIds.includes('accessory_front_label'));
+  assert.ok(settingIds.includes('accessory_middle_label'));
+  assert.ok(settingIds.includes('accessory_rear_label'));
+  assert.ok(settingIds.includes('use_default_accessories'));
+
+  const defaults = Object.fromEntries(
+    schema.settings.filter((setting) => setting.id).map((setting) => [setting.id, setting.default])
+  );
+
+  assert.equal(defaults.accessory_front_label, 'Front');
+  assert.equal(defaults.accessory_middle_label, 'Middle');
+  assert.equal(defaults.accessory_rear_label, 'Rear');
+  assert.equal(defaults.use_default_accessories, false);
+});
+
 test('exposes merchant-editable calculator data blocks in the section schema', () => {
   const schema = readSectionSchema('sections/ori-gvm-load-calculator.liquid');
   const blocks = schema.blocks || [];

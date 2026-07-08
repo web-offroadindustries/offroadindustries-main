@@ -44,7 +44,10 @@ test('loads a vehicle and recalculates every dependent mass', async ({ page }) =
   await expect(page.getByRole('heading', { name: /Ford F150/i })).toBeVisible();
   await expect(page.getByText('Vehicle total (GVM): 2451 / 3220 kg')).toBeVisible();
   await expect(page.getByRole('heading', { name: 'Accessories' })).toBeVisible();
-  await expect(page.getByLabel(/Carbon 12K winch kit, 27 kg/i)).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Recovery gear' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Cabin storage' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Tray setup' })).toBeVisible();
+  await expect(page.getByLabel(/Client recovery boards, 18 kg/i)).toBeVisible();
 
   await page.getByRole('spinbutton', { name: 'ATM', exact: true }).fill('3500');
   await page.getByRole('spinbutton', { name: 'TBM', exact: true }).fill('350');
@@ -76,13 +79,17 @@ test('shows landing-page stage specifications inside the selected specification 
   await expect(page.getByText('Vehicle total (GVM): 2578 / 4250 kg')).toBeVisible();
 });
 
-test('includes selected ORI-sourced accessories in the load calculation', async ({ page }) => {
+test('uses merchant-managed accessory columns and items in the load calculation', async ({
+  page,
+}) => {
   await page.goto(FIXTURE_URL);
   await selectVehicle(page);
 
-  await page.getByLabel(/Carbon 12K winch kit, 27 kg/i).check();
+  await expect(page.getByLabel(/Carbon 12K winch kit/i)).toHaveCount(0);
+  await expect(page.getByLabel(/Factor 55 Borah recovery kit/i)).toHaveCount(0);
+  await page.getByLabel(/Client recovery boards, 18 kg/i).check();
 
-  await expect(page.getByText('Vehicle total (GVM): 2478 / 3220 kg')).toBeVisible();
+  await expect(page.getByText('Vehicle total (GVM): 2469 / 3220 kg')).toBeVisible();
 });
 
 test('loads merchant-editable custom specifications and accessories', async ({ page }) => {

@@ -125,6 +125,7 @@
       this.warningThreshold = Number(this.dataset.warningThreshold) || 0.95;
       this.enableTour = toBoolean(this.dataset.enableTour);
       this.showAccessories = toBoolean(this.dataset.showAccessories);
+      this.useDefaultAccessories = toBoolean(this.dataset.useDefaultAccessories);
       this.showQuoteButton = toBoolean(this.dataset.showQuoteButton);
       this.fallbackQuoteUrl = safeUrl(this.dataset.fallbackQuoteUrl, '/pages/contact');
       this.quoteLabel = this.dataset.quoteLabel || '';
@@ -238,10 +239,28 @@
       var output = copyData(data);
       var customData = this.customData || {};
 
+      if (!this.useDefaultAccessories) {
+        this.removeDefaultAccessories(output);
+      }
       this.applyCustomSpecifications(output, customData.specifications || []);
       this.applyCustomAccessories(output, customData.accessories || []);
 
       return output;
+    }
+
+    removeDefaultAccessories(data) {
+      data.accessories = {
+        front: [],
+        middle: [],
+        rear: [],
+      };
+      data.accessories_by_category = {};
+
+      (data.vehicles || []).forEach(function (vehicle) {
+        if (vehicle && vehicle.accessories) {
+          vehicle.accessories = {};
+        }
+      });
     }
 
     applyCustomSpecifications(data, specifications) {

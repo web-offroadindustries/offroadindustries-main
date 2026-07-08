@@ -23,6 +23,7 @@
       data-fallback-quote-url="{{ fallback_quote_url | escape }}"
       data-quote-label="{{ section.settings.quote_button_label | escape }}"
       data-show-accessories="{{ section.settings.show_accessories }}"
+      data-use-default-accessories="{{ section.settings.use_default_accessories }}"
       data-show-quote-button="{{ section.settings.show_quote_button }}"
       aria-busy="true"
     >
@@ -91,9 +92,9 @@
           "trailer_title": {{ 'gvm_calculator.trailer_title' | t | json }},
           "occupants_title": {{ 'gvm_calculator.occupants_title' | t | json }},
           "accessories_title": {{ 'gvm_calculator.accessories_title' | t | json }},
-          "front": {{ 'gvm_calculator.front' | t | json }},
-          "middle": {{ 'gvm_calculator.middle' | t | json }},
-          "rear": {{ 'gvm_calculator.rear' | t | json }},
+          "front": {% if section.settings.accessory_front_label != blank %}{{ section.settings.accessory_front_label | json }}{% else %}{{ 'gvm_calculator.front' | t | json }}{% endif %},
+          "middle": {% if section.settings.accessory_middle_label != blank %}{{ section.settings.accessory_middle_label | json }}{% else %}{{ 'gvm_calculator.middle' | t | json }}{% endif %},
+          "rear": {% if section.settings.accessory_rear_label != blank %}{{ section.settings.accessory_rear_label | json }}{% else %}{{ 'gvm_calculator.rear' | t | json }}{% endif %},
           "atm": {{ 'gvm_calculator.atm' | t | json }},
           "tbm": {{ 'gvm_calculator.tbm' | t | json }},
           "passengers": {{ 'gvm_calculator.passengers' | t | json }},
@@ -278,6 +279,30 @@
       "default": true
     },
     {
+      "type": "text",
+      "id": "accessory_front_label",
+      "label": "First accessory column label",
+      "default": "Front"
+    },
+    {
+      "type": "text",
+      "id": "accessory_middle_label",
+      "label": "Second accessory column label",
+      "default": "Middle"
+    },
+    {
+      "type": "text",
+      "id": "accessory_rear_label",
+      "label": "Third accessory column label",
+      "default": "Rear"
+    },
+    {
+      "type": "checkbox",
+      "id": "use_default_accessories",
+      "label": "Show preloaded accessory items",
+      "default": false
+    },
+    {
       "type": "header",
       "content": "Layout"
     },
@@ -444,9 +469,9 @@
           "id": "zone",
           "label": "Accessory position",
           "options": [
-            { "value": "front", "label": "Front" },
-            { "value": "middle", "label": "Middle" },
-            { "value": "rear", "label": "Rear" }
+            { "value": "front", "label": "First column" },
+            { "value": "middle", "label": "Second column" },
+            { "value": "rear", "label": "Third column" }
           ],
           "default": "front"
         },

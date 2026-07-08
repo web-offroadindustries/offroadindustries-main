@@ -12,8 +12,10 @@ In Shopify Admin:
 1. Go to **Online Store** > **Themes** > **Customize**.
 2. Open the GVM calculator page template.
 3. Select the **ORI GVM calculator** section.
-4. Use **Add block**.
-5. Choose either **Custom specification** or **Custom accessory**.
+4. To rename the accessory columns, edit **First accessory column label**, **Second accessory column label**, and **Third accessory column label**.
+5. To let the client fully manage the accessory list from the customizer, keep **Show preloaded accessory items** switched off.
+6. Use **Add block**.
+7. Choose either **Custom specification** or **Custom accessory**.
 
 ### Custom specification block
 
@@ -41,7 +43,7 @@ Use this when the client wants another checkbox under **Accessories**.
 Required fields:
 
 - Show for - all vehicles, all ute vehicles, all wagon vehicles, or one specific vehicle
-- Accessory position - Front, Middle, or Rear
+- Accessory position - First column, Second column, or Third column
 - Accessory name
 - Weight (kg)
 
@@ -49,9 +51,9 @@ The client should enter actual item mass only. Do not enter spring ratings, payl
 
 The calculator assigns the axle position internally:
 
-- Front - front-mounted accessories ahead of the front axle
-- Middle - cabin/mid-vehicle accessories
-- Rear - tub, tray, canopy, recovery gear, or rear-mounted accessories
+- First column - uses the front-mounted accessory axle position by default
+- Second column - uses the cabin/mid-vehicle accessory axle position by default
+- Third column - uses the tub, tray, canopy, recovery gear, or rear-mounted accessory axle position by default
 
 ## Editing a vehicle
 
