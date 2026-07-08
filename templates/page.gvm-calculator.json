@@ -22,7 +22,7 @@
         "show_quote_button": true,
         "warning_threshold": 95,
         "enable_tour": false,
-        "show_accessories": true,
+        "show_accessories": false,
         "accessory_front_label": "Front",
         "accessory_middle_label": "Middle",
         "accessory_rear_label": "Rear",
