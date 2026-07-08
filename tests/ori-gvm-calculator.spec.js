@@ -33,13 +33,11 @@ test('loads a vehicle and recalculates every dependent mass', async ({ page }) =
   await expect(vehicleSelect).toBeVisible();
   await expect(vehicleSelect.locator('option')).toContainText([
     '-- Select a package --',
+    'Chevrolet Silverado 1500',
+    'Chevy Silverado 2500HD',
     'Ford F150',
-    'Ford 3700',
-    'Ford 4300',
-    'Ford 4000',
-    'Toyota Tundra 3850',
-    'Chevrolet Silverado 2500HD',
-    'Chevrolet Silverado 1500 LTZ',
+    'Toyota Tundra',
+    'ORI SSM Chevy Silverado 2500HD',
   ]);
 
   await selectVehicle(page);
@@ -57,10 +55,25 @@ test('loads a vehicle and recalculates every dependent mass', async ({ page }) =
   await expect(page.getByText('Combined mass (GCM): 6751 / 7720 kg')).toBeVisible();
   await expect(page.getByText('Over limit', { exact: true }).first()).toBeVisible();
 
-  await page.getByLabel('Select ORI vehicle package').selectOption('ford_f150_4300');
+  await page.getByLabel(/Stage 3: The Heavy Hauler/i).check();
   await expect(page.getByText('Vehicle GVM: 4300 kg')).toBeVisible();
   await expect(page.getByText('Towing capacity: 4500 kg')).toBeVisible();
-  await expect(page.getByText('Vehicle total (GVM): 2481 / 4300 kg')).toBeVisible();
+  await expect(page.getByText('Vehicle total (GVM): 3631 / 4300 kg')).toBeVisible();
+});
+
+test('shows landing-page stage specifications inside the selected specification card', async ({
+  page,
+}) => {
+  await page.goto(FIXTURE_URL);
+  await selectVehicle(page, 'chevrolet_silverado_1500');
+
+  await expect(page.getByLabel(/Factory \/ OEM rating/i)).toBeChecked();
+  await expect(page.getByLabel(/Stage 4: The Heavy Hauler/i)).toBeVisible();
+  await page.getByLabel(/Stage 4: The Heavy Hauler/i).check();
+
+  await expect(page.getByText('Vehicle GVM: 4250 kg')).toBeVisible();
+  await expect(page.getByText('Combined GCM: 8750 kg')).toBeVisible();
+  await expect(page.getByText('Vehicle total (GVM): 2578 / 4250 kg')).toBeVisible();
 });
 
 test('includes selected ORI-sourced accessories in the load calculation', async ({ page }) => {
@@ -74,7 +87,7 @@ test('includes selected ORI-sourced accessories in the load calculation', async 
 
 test('loads merchant-editable custom specifications and accessories', async ({ page }) => {
   await page.goto(FIXTURE_URL);
-  await selectVehicle(page, 'chevy_silverado_1500_ltz');
+  await selectVehicle(page, 'chevrolet_silverado_1500');
 
   await expect(page.getByLabel(/Client-added 4200kg spec/i)).toBeVisible();
   await page.getByLabel(/Client-added 4200kg spec/i).check();
@@ -84,7 +97,7 @@ test('loads merchant-editable custom specifications and accessories', async ({ p
   await expect(page.getByLabel(/Client fridge, 30 kg/i)).toBeVisible();
   await expect(page.getByLabel(/Client canopy, 120 kg/i)).toBeVisible();
   await page.getByLabel(/Client fridge, 30 kg/i).check();
-  await expect(page.getByText('Vehicle total (GVM): 2608 / 4200 kg')).toBeVisible();
+  await expect(page.getByText('Vehicle total (GVM): 2573 / 4200 kg')).toBeVisible();
 });
 
 test('keeps card headings inside containers and uses the requested ORI teal accents', async ({
@@ -194,7 +207,8 @@ test('isolates an invalid vehicle instead of crashing the calculator', async ({ 
   await page.route('**/ori-gvm-calculator-data.json', async (route) => {
     const response = await route.fetch();
     const data = await response.json();
-    delete data.vehicles[0].factory_specs.wheelbase_mm;
+    const ford = data.vehicles.find((vehicle) => vehicle.id === 'ford_f150');
+    delete ford.factory_specs.wheelbase_mm;
     await route.fulfill({ response, json: data });
   });
 

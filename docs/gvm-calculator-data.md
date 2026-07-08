@@ -55,7 +55,9 @@ The calculator assigns the axle position internally:
 
 ## Editing a vehicle
 
-Each dropdown option is one object in the `vehicles` array. To update a rating, edit the values under `factory_specs`:
+Each dropdown option is one object in the `vehicles` array. The base/OEM rating is stored under `factory_specs`; landing-page stage ratings are stored under that vehicle's `upgrades` array.
+
+To update the base/OEM rating, edit the values under `factory_specs`:
 
 - `gvm` - Gross Vehicle Mass limit in kg
 - `gcm` - Gross Combined Mass limit in kg
@@ -66,6 +68,8 @@ Each dropdown option is one object in the `vehicles` array. To update a rating, 
 - `baseline_front_kg` and `baseline_rear_kg` - estimated unloaded axle weights used by the calculator
 
 Keep `baseline_front_kg + baseline_rear_kg` equal to the published kerb weight for that package. If exact unloaded axle weights are available from a weighbridge, use those instead of the estimated split.
+
+To update a landing-page stage option, edit that stage object under `upgrades`. Stage objects use the same rating fields as `factory_specs`, and may also include `baseline_front_kg` and `baseline_rear_kg` when the landing-page table lists a different kerb weight for that stage.
 
 ## Adding a dropdown option
 
@@ -99,10 +103,11 @@ Current position-ratio conventions:
 
 The current vehicle limits use ORI published GVM package pages and the supplied PDF references for:
 
-- Ford F150 OEM, 3700kg, 4300kg, and 4000kg packages
-- Toyota Tundra 3850kg package
-- Chevrolet Silverado 2500HD 6000kg package
-- Chevrolet Silverado 1500 LTZ 3850kg package
+- Chevrolet Silverado 1500 OEM and Stage 1-5 landing-page specifications
+- Chevy Silverado 2500HD OEM and Stage 1-6.5 landing-page specifications
+- Ford F150 OEM and Stage 1-6 landing-page specifications
+- Toyota Tundra Factory and Stage 1-4 landing-page specifications
+- ORI SSM Chevy Silverado 2500HD Stage 1-6 landing-page specifications, with the SSM page note that it does not expose separate GVM/GCM rows
 
 The current accessory weights use explicit weights from ORI product pages or public Shopify product JSON for:
 

@@ -618,8 +618,9 @@
       list.appendChild(
         this.createUpgradeOption(
           '',
-          this.t('factory_option', 'Factory (no upgrade)'),
-          this.t('factory_description', 'Uses factory capacities'),
+          this.vehicle.factory_option_label || this.t('factory_option', 'Factory (no upgrade)'),
+          this.vehicle.factory_option_description ||
+            this.t('factory_description', 'Uses factory capacities'),
           true
         )
       );

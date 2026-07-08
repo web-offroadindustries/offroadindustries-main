@@ -82,7 +82,7 @@
     };
   }
 
-  function getLimits(vehicle, upgradeId) {
+  function getSelectedSpecification(vehicle, upgradeId) {
     var factorySpecs = vehicle && vehicle.factory_specs ? vehicle.factory_specs : {};
     var upgrades = vehicle && Array.isArray(vehicle.upgrades) ? vehicle.upgrades : [];
     var selected = null;
@@ -93,15 +93,24 @@
       });
     }
 
-    return mapLimits(selected || factorySpecs);
+    return selected || factorySpecs;
+  }
+
+  function getLimits(vehicle, upgradeId) {
+    return mapLimits(getSelectedSpecification(vehicle, upgradeId));
   }
 
   function calculate(vehicle, state) {
     var safeState = state || {};
     var factorySpecs = vehicle && vehicle.factory_specs ? vehicle.factory_specs : {};
+    var selectedSpecs = getSelectedSpecification(vehicle, safeState.selectedUpgradeId);
     var limits = getLimits(vehicle, safeState.selectedUpgradeId);
-    var frontAxle = normalizeMass(factorySpecs.baseline_front_kg);
-    var rearAxle = normalizeMass(factorySpecs.baseline_rear_kg);
+    var frontAxle =
+      normalizeMass(selectedSpecs.baseline_front_kg) ||
+      normalizeMass(factorySpecs.baseline_front_kg);
+    var rearAxle =
+      normalizeMass(selectedSpecs.baseline_rear_kg) ||
+      normalizeMass(factorySpecs.baseline_rear_kg);
     var passengersKg = normalizeMass(safeState.passengersKg);
     var cargoRearKg = normalizeMass(safeState.cargoRearKg);
     var atm = normalizeMass(safeState.atm);
@@ -137,8 +146,10 @@
     rearAxle += tbm * (1 + leverRatio);
 
     var baselineMass =
-      normalizeMass(factorySpecs.baseline_front_kg) +
-      normalizeMass(factorySpecs.baseline_rear_kg);
+      (normalizeMass(selectedSpecs.baseline_front_kg) ||
+        normalizeMass(factorySpecs.baseline_front_kg)) +
+      (normalizeMass(selectedSpecs.baseline_rear_kg) ||
+        normalizeMass(factorySpecs.baseline_rear_kg));
     var vehicleMass = baselineMass + passengersKg + cargoRearKg + accessoryMass + tbm;
     var trailerAxleMass = Math.max(0, atm - tbm);
     var combinedMass = vehicleMass + trailerAxleMass;
@@ -193,6 +204,7 @@
     normalizeMass: normalizeMass,
     splitMass: splitMass,
     validateVehicle: validateVehicle,
+    getSelectedSpecification: getSelectedSpecification,
     getLimits: getLimits,
     calculate: calculate,
     classifyStatus: classifyStatus,
