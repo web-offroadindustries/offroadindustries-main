@@ -250,6 +250,19 @@ test('enables accessories on the dedicated calculator page template', () => {
   assert.equal(template.sections.main.settings.show_accessories, true);
 });
 
+test('enables the selected vehicle package link on the dedicated calculator page template', () => {
+  const template = readJsonWithOptionalHeader('templates/page.gvm-calculator.json');
+  const schema = readSectionSchema('sections/ori-gvm-load-calculator.liquid');
+  const showQuoteSetting = schema.settings.find((setting) => setting.id === 'show_quote_button');
+  const fallbackQuoteSetting = schema.settings.find(
+    (setting) => setting.id === 'fallback_quote_url'
+  );
+
+  assert.equal(template.sections.main.settings.show_quote_button, true);
+  assert.equal(showQuoteSetting.default, true);
+  assert.match(fallbackQuoteSetting.info, /selected vehicle/i);
+});
+
 test('exposes merchant-editable accessory column labels and default data toggle', () => {
   const schema = readSectionSchema('sections/ori-gvm-load-calculator.liquid');
   const settingIds = schema.settings.map((setting) => setting.id).filter(Boolean);

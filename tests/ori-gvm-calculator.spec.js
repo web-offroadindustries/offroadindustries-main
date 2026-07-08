@@ -79,6 +79,20 @@ test('shows landing-page stage specifications inside the selected specification 
   await expect(page.getByText('Vehicle total (GVM): 2578 / 4250 kg')).toBeVisible();
 });
 
+test('links the quote button to the selected vehicle landing page', async ({ page }) => {
+  await page.goto(FIXTURE_URL);
+  await selectVehicle(page, 'chevrolet_silverado_1500');
+
+  const quoteLink = page.getByRole('link', { name: /view ori gvm package/i });
+  await expect(quoteLink).toHaveAttribute('href', '/pages/chevrolet-silverado-1500-gvm-package');
+
+  await page.getByLabel('Select ORI vehicle package').selectOption('toyota_tundra');
+  await expect(quoteLink).toHaveAttribute('href', '/pages/toyota-tundra');
+
+  await page.getByLabel('Select ORI vehicle package').selectOption('ori_ssm_chevy_silverado_2500hd');
+  await expect(quoteLink).toHaveAttribute('href', '/pages/ssm-legal-nb1-chevy-2500hd');
+});
+
 test('uses merchant-managed accessory columns and items in the load calculation', async ({
   page,
 }) => {
