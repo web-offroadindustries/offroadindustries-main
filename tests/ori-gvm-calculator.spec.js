@@ -71,12 +71,16 @@ test('shows landing-page stage specifications inside the selected specification 
   await selectVehicle(page, 'chevrolet_silverado_1500');
 
   await expect(page.getByLabel(/Factory \/ OEM rating/i)).toBeChecked();
-  await expect(page.getByLabel(/Stage 4: The Heavy Hauler/i)).toBeVisible();
-  await page.getByLabel(/Stage 4: The Heavy Hauler/i).check();
+  await expect(page.getByLabel(/Stage 4: The Heavy Hauler \(LTZ\)/i)).toBeVisible();
+  await expect(page.getByLabel(/Stage 4: The Heavy Hauler \(ZR2\)/i)).toBeVisible();
+  await page.getByLabel(/Stage 4: The Heavy Hauler \(LTZ\)/i).check();
 
   await expect(page.getByText('Vehicle GVM: 4250 kg')).toBeVisible();
   await expect(page.getByText('Combined GCM: 8750 kg')).toBeVisible();
   await expect(page.getByText('Vehicle total (GVM): 2578 / 4250 kg')).toBeVisible();
+
+  await page.getByLabel(/Stage 4: The Heavy Hauler \(ZR2\)/i).check();
+  await expect(page.getByText('Combined GCM: 8450 kg')).toBeVisible();
 });
 
 test('links the quote button to the selected vehicle landing page', async ({ page }) => {

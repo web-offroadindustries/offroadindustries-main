@@ -181,7 +181,7 @@ test('validates the required vehicle calculation fields', () => {
 test('ships a complete versioned reference dataset', () => {
   const data = require('../assets/ori-gvm-calculator-data.json');
 
-  assert.equal(data.version, 4);
+  assert.equal(data.version, 5);
   assert.equal(data.source_kind, 'ori_published_landing_page_package_specs');
   assert.equal(data.vehicles.length, 5);
   assert.deepEqual(
@@ -214,7 +214,7 @@ test('ships a complete versioned reference dataset', () => {
 
   const silverado1500 = data.vehicles.find((item) => item.id === 'chevrolet_silverado_1500');
   const silverado1500Stage4 = silverado1500.upgrades.find(
-    (upgrade) => upgrade.id === 'chevrolet_silverado_1500_stage_4'
+    (upgrade) => upgrade.id === 'chevrolet_silverado_1500_stage_4_ltz'
   );
   assert.equal(silverado1500.factory_specs.gvm, 3300);
   assert.equal(silverado1500Stage4.gvm, 4250);
@@ -242,6 +242,45 @@ test('ships a complete versioned reference dataset', () => {
     data.accessories.front.find((item) => item.id === 'stealth_driving_lights_pair').mass_kg,
     4.4
   );
+});
+
+test('uses trim-specific Chevrolet Silverado 1500 GCM ratings for stages 3 to 5', () => {
+  const data = require('../assets/ori-gvm-calculator-data.json');
+  const silverado1500 = data.vehicles.find((item) => item.id === 'chevrolet_silverado_1500');
+  const upgradesById = Object.fromEntries(
+    silverado1500.upgrades.map((upgrade) => [upgrade.id, upgrade])
+  );
+
+  assert.deepEqual(
+    silverado1500.upgrades
+      .filter((upgrade) => upgrade.id.startsWith('chevrolet_silverado_1500_stage_'))
+      .map((upgrade) => upgrade.id),
+    [
+      'chevrolet_silverado_1500_stage_1',
+      'chevrolet_silverado_1500_stage_2',
+      'chevrolet_silverado_1500_stage_3_ltz',
+      'chevrolet_silverado_1500_stage_3_zr2',
+      'chevrolet_silverado_1500_stage_4_ltz',
+      'chevrolet_silverado_1500_stage_4_zr2',
+      'chevrolet_silverado_1500_stage_5_ltz',
+      'chevrolet_silverado_1500_stage_5_zr2',
+    ]
+  );
+
+  assert.equal(upgradesById.chevrolet_silverado_1500_stage_3_ltz.gcm, 8350);
+  assert.equal(upgradesById.chevrolet_silverado_1500_stage_3_zr2.gcm, 8050);
+  assert.equal(upgradesById.chevrolet_silverado_1500_stage_4_ltz.gcm, 8750);
+  assert.equal(upgradesById.chevrolet_silverado_1500_stage_4_zr2.gcm, 8450);
+  assert.equal(upgradesById.chevrolet_silverado_1500_stage_5_ltz.gcm, 8750);
+  assert.equal(upgradesById.chevrolet_silverado_1500_stage_5_zr2.gcm, 8450);
+
+  const zr2Stage4 = engine.calculate(silverado1500, {
+    selectedUpgradeId: 'chevrolet_silverado_1500_stage_4_zr2',
+  });
+
+  assert.equal(zr2Stage4.limits.gcm, 8450);
+  assert.equal(zr2Stage4.limits.gvm, 4250);
+  assert.equal(zr2Stage4.baselineMass, 2578);
 });
 
 test('enables accessories on the dedicated calculator page template', () => {

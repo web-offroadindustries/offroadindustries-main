@@ -1,5 +1,5 @@
 {
-  "version": 4,
+  "version": 5,
   "source_kind": "ori_published_landing_page_package_specs",
   "source_note": "Vehicle limits are taken from the current ORI landing page stage/specification tables for Chevrolet Silverado 1500, Chevy Silverado 2500HD, Ford F150, Toyota Tundra, and ORI SSM Chevy Silverado 2500HD. Baseline front and rear axle masses are calculator estimates derived from published kerb weights; confirm exact axle loads by weighbridge for each vehicle.",
   "accessory_source_note": "Accessory weights use explicit weights published on ORI product pages or public Shopify product JSON. Items with only load ratings, spring ratings, capacity ratings, or apparent placeholder shipping weights are excluded.",
@@ -9,7 +9,7 @@
       "name": "Chevrolet Silverado 1500",
       "category": "ute",
       "quote_url": "/pages/chevrolet-silverado-1500-gvm-package",
-      "source_note": "ORI Chevrolet Silverado 1500 landing page stage/specification table. Stage 3-5 GCM values use the LTZ values listed in the table; ZR2-specific GCM notes are included in the stage descriptions.",
+      "source_note": "ORI Chevrolet Silverado 1500 landing page stage/specification table. Stage 3-5 are split into LTZ and ZR2 options because the published table lists different GCM values for those trims.",
       "factory_option_label": "Factory / OEM rating",
       "factory_option_description": "OEM 3300kg GVM, 7160kg GCM, 2543kg kerb weight",
       "factory_specs": {
@@ -52,9 +52,9 @@
           "tbm_limit": 420
         },
         {
-          "id": "chevrolet_silverado_1500_stage_3",
-          "name": "Stage 3: The Ultimate Tourer",
-          "description": "CHV-1500-Stage3-GVM; 8350kg GCM for LTZ / 8050kg for ZR2",
+          "id": "chevrolet_silverado_1500_stage_3_ltz",
+          "name": "Stage 3: The Ultimate Tourer (LTZ)",
+          "description": "CHV-1500-Stage3-GVM; LTZ 3850kg GVM + 8350kg GCM",
           "baseline_front_kg": 1418,
           "baseline_rear_kg": 1160,
           "gvm": 3850,
@@ -65,9 +65,22 @@
           "tbm_limit": 450
         },
         {
-          "id": "chevrolet_silverado_1500_stage_4",
-          "name": "Stage 4: The Heavy Hauler",
-          "description": "CHV-1500-Stage4-GVM-200 / -400; 8750kg GCM for LTZ / 8450kg for ZR2",
+          "id": "chevrolet_silverado_1500_stage_3_zr2",
+          "name": "Stage 3: The Ultimate Tourer (ZR2)",
+          "description": "CHV-1500-Stage3-GVM; ZR2 3850kg GVM + 8050kg GCM",
+          "baseline_front_kg": 1418,
+          "baseline_rear_kg": 1160,
+          "gvm": 3850,
+          "gcm": 8050,
+          "front_axle_limit": 1724,
+          "rear_axle_limit": 2126,
+          "towing_capacity": 4500,
+          "tbm_limit": 450
+        },
+        {
+          "id": "chevrolet_silverado_1500_stage_4_ltz",
+          "name": "Stage 4: The Heavy Hauler (LTZ)",
+          "description": "CHV-1500-Stage4-GVM-200 / -400; LTZ 4250kg GVM + 8750kg GCM",
           "baseline_front_kg": 1418,
           "baseline_rear_kg": 1160,
           "gvm": 4250,
@@ -78,13 +91,39 @@
           "tbm_limit": 450
         },
         {
-          "id": "chevrolet_silverado_1500_stage_5",
-          "name": "Stage 5: The No Compromise Build",
-          "description": "CHV-1500-Stage5-GVM-200 / -400; 8750kg GCM for LTZ / 8450kg for ZR2",
+          "id": "chevrolet_silverado_1500_stage_4_zr2",
+          "name": "Stage 4: The Heavy Hauler (ZR2)",
+          "description": "CHV-1500-Stage4-GVM-200 / -400; ZR2 4250kg GVM + 8450kg GCM",
+          "baseline_front_kg": 1418,
+          "baseline_rear_kg": 1160,
+          "gvm": 4250,
+          "gcm": 8450,
+          "front_axle_limit": 1770,
+          "rear_axle_limit": 2480,
+          "towing_capacity": 4500,
+          "tbm_limit": 450
+        },
+        {
+          "id": "chevrolet_silverado_1500_stage_5_ltz",
+          "name": "Stage 5: The No Compromise Build (LTZ)",
+          "description": "CHV-1500-Stage5-GVM-200 / -400; LTZ 4250kg GVM + 8750kg GCM",
           "baseline_front_kg": 1418,
           "baseline_rear_kg": 1160,
           "gvm": 4250,
           "gcm": 8750,
+          "front_axle_limit": 1770,
+          "rear_axle_limit": 2480,
+          "towing_capacity": 4500,
+          "tbm_limit": 450
+        },
+        {
+          "id": "chevrolet_silverado_1500_stage_5_zr2",
+          "name": "Stage 5: The No Compromise Build (ZR2)",
+          "description": "CHV-1500-Stage5-GVM-200 / -400; ZR2 4250kg GVM + 8450kg GCM",
+          "baseline_front_kg": 1418,
+          "baseline_rear_kg": 1160,
+          "gvm": 4250,
+          "gcm": 8450,
           "front_axle_limit": 1770,
           "rear_axle_limit": 2480,
           "towing_capacity": 4500,
