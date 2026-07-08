@@ -26,6 +26,21 @@ function readSectionSchema(path) {
   return JSON.parse(match[1]);
 }
 
+function walkFiles(directory, output = []) {
+  for (const entry of fs.readdirSync(directory, { withFileTypes: true })) {
+    const fullPath = `${directory}/${entry.name}`;
+
+    if (entry.isDirectory()) {
+      walkFiles(fullPath, output);
+      continue;
+    }
+
+    output.push(fullPath);
+  }
+
+  return output;
+}
+
 const vehicle = {
   id: 'test-vehicle',
   name: 'Test vehicle',
@@ -308,4 +323,47 @@ test('exposes merchant-editable calculator data blocks in the section schema', (
       'ori_ssm_chevy_silverado_2500hd',
     ]
   );
+});
+
+test('does not ship common mojibake sequences in theme text files', () => {
+  const directories = [
+    'assets',
+    'sections',
+    'snippets',
+    'templates',
+    'locales',
+    'config',
+    'layout',
+    'docs',
+  ];
+  const textExtensions = new Set([
+    '.css',
+    '.js',
+    '.json',
+    '.liquid',
+    '.md',
+    '.svg',
+    '.txt',
+  ]);
+  const mojibakePattern = /â€¢|Ã¢|â‚¬|Â¢|â€™|â€œ|â€|â€“|ï¿½|�/;
+  const matches = [];
+
+  for (const directory of directories) {
+    for (const file of walkFiles(directory)) {
+      if (!textExtensions.has(file.slice(file.lastIndexOf('.')))) {
+        continue;
+      }
+
+      const content = readText(file);
+      const lines = content.split(/\r?\n/);
+
+      lines.forEach((line, index) => {
+        if (mojibakePattern.test(line)) {
+          matches.push(`${file}:${index + 1}: ${line.trim()}`);
+        }
+      });
+    }
+  }
+
+  assert.deepEqual(matches, []);
 });

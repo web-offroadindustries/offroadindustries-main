@@ -663,7 +663,7 @@
             ' ' +
             rounded(upgrade.tbm_limit);
           if (upgrade.description) {
-            detail = upgrade.description + ' â€¢ ' + detail;
+            detail = upgrade.description + ' • ' + detail;
           }
           list.appendChild(this.createUpgradeOption(upgrade.id, upgrade.name, detail, false));
         }.bind(this)
