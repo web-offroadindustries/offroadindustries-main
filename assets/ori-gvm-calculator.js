@@ -817,8 +817,48 @@
       var progressTrack = element('span', 'ori-gvm-calculator__accessory-progress-track');
       var progressFill = element('span', 'ori-gvm-calculator__accessory-progress-fill');
       var grid = element('div', 'ori-gvm-calculator__accessory-static-grid');
+      var staticAccessories = {
+        front: [
+          { name: this.t('static_accessory_carbon_winch', 'Carbon 12K winch kit'), mass: '27 kg' },
+          { name: this.t('static_accessory_warn_winch', 'Warn EVO 12-S winch'), mass: '25 kg' },
+          {
+            name: this.t(
+              'static_accessory_stealth_driving_lights',
+              'Stealth 8.5 in driving lights pair'
+            ),
+            mass: '4 kg',
+          },
+        ],
+        middle: [
+          { name: this.t('static_accessory_roof_rack', 'Roof rack'), mass: '31 kg' },
+          { name: this.t('static_accessory_canopy_platform', 'Canopy platform'), mass: '22 kg' },
+          { name: this.t('static_accessory_recovery_boards', 'Recovery boards'), mass: '18 kg' },
+        ],
+        rear: [
+          {
+            name: this.t('static_accessory_borah_recovery_kit', 'Factor 55 Borah recovery kit'),
+            mass: '21 kg',
+          },
+          {
+            name: this.t(
+              'static_accessory_sawtooth_recovery_kit',
+              'Factor 55 Sawtooth recovery kit'
+            ),
+            mass: '12 kg',
+          },
+          {
+            name: this.t('static_accessory_owyhee_recovery_bag', 'Factor 55 Owyhee recovery bag'),
+            mass: '8 kg',
+          },
+        ],
+      };
+      var staticTitles = {
+        front: this.t('front', 'Front'),
+        middle: this.t('middle', 'Middle'),
+        rear: this.t('rear', 'Rear'),
+      };
 
-      progressFill.style.width = '50%';
+      progressFill.style.width = '80%';
       progressTrack.appendChild(progressFill);
       progress.appendChild(progressTrack);
       progress.setAttribute('aria-hidden', 'true');
@@ -829,15 +869,18 @@
           'ori-gvm-calculator__accessory-static-column ori-gvm-calculator__accessory-static-column--' +
             zone
         );
-        for (var index = 0; index < 3; index += 1) {
+        column.appendChild(
+          element('h4', 'ori-gvm-calculator__accessory-static-heading', staticTitles[zone])
+        );
+        staticAccessories[zone].forEach(function (item) {
           var row = element('div', 'ori-gvm-calculator__accessory-static-row');
           append(row, [
             element('span', 'ori-gvm-calculator__accessory-static-box'),
-            element('span', 'ori-gvm-calculator__accessory-static-line'),
-            element('span', 'ori-gvm-calculator__accessory-static-mass'),
+            element('span', 'ori-gvm-calculator__accessory-static-name', item.name),
+            element('span', 'ori-gvm-calculator__accessory-static-mass', item.mass),
           ]);
           column.appendChild(row);
-        }
+        });
         grid.appendChild(column);
       });
 

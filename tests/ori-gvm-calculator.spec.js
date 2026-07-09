@@ -112,10 +112,26 @@ test('shows static non-interactive accessory placeholders without progress copy'
   await expect(page.getByText('Accessory selector in progress')).toHaveCount(0);
   await expect(page.getByText('20% complete')).toHaveCount(0);
   await expect(page.getByText('Static preview only')).toHaveCount(0);
+  await expect(page.locator('.ori-gvm-calculator__accessories input[type="checkbox"]')).toHaveCount(0);
   await expect(page.locator('.ori-gvm-calculator__accessory-static-row')).toHaveCount(9);
+  await expect(
+    page.locator('.ori-gvm-calculator__accessory-static-row', {
+      hasText: 'Carbon 12K winch kit',
+    })
+  ).toContainText('27 kg');
+  await expect(
+    page.locator('.ori-gvm-calculator__accessory-static-row', {
+      hasText: 'Roof rack',
+    })
+  ).toContainText('31 kg');
+  await expect(
+    page.locator('.ori-gvm-calculator__accessory-static-row', {
+      hasText: 'Factor 55 Borah recovery kit',
+    })
+  ).toContainText('21 kg');
   await expect(page.locator('.ori-gvm-calculator__accessory-progress-fill')).toHaveAttribute(
     'style',
-    /width:\s*50%/
+    /width:\s*80%/
   );
   await expect(page.getByText('Vehicle total (GVM): 2451 / 3220 kg')).toBeVisible();
 });
