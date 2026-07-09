@@ -6,22 +6,19 @@
         "trust_1": {
           "type": "trust_item",
           "settings": {
-            "text": "Federal / SSM Certification",
-            "icon": "✓"
+            "text": "Federal / SSM Certification"
           }
         },
         "trust_2": {
           "type": "trust_item",
           "settings": {
-            "text": "ADR-Tested & Approved",
-            "icon": "✓"
+            "text": "ADR-Tested & Approved"
           }
         },
         "trust_3": {
           "type": "trust_item",
           "settings": {
-            "text": "Australia-Wide Installer Network",
-            "icon": "✓"
+            "text": "Australia-Wide Installer Network"
           }
         }
       },
@@ -244,6 +241,51 @@
     },
     "why_ori": {
       "type": "why-choose",
+      "blocks": {
+        "wc_federal": {
+          "type": "card",
+          "settings": {
+            "heading": "Federal Approvals",
+            "body": "<p>Every ORI package is federally approved under the Second Stage of Manufacture process, so your upgrade is legal Australia-wide.</p>"
+          }
+        },
+        "wc_engineering": {
+          "type": "card",
+          "settings": {
+            "heading": "Engineering Support",
+            "body": "<p>Our engineering team backs every build with the certification and compliance documentation you need.</p>"
+          }
+        },
+        "wc_suspension": {
+          "type": "card",
+          "settings": {
+            "heading": "Premium Suspension Brands",
+            "body": "<p>We fit trusted, proven suspension components chosen to perform in Australian conditions.</p>"
+          }
+        },
+        "wc_network": {
+          "type": "card",
+          "settings": {
+            "heading": "National Installer Network",
+            "body": "<p>Approved specialists in every state and territory fit your package to spec.</p>"
+          }
+        },
+        "wc_towing": {
+          "type": "card",
+          "settings": {
+            "heading": "Towing Expertise",
+            "body": "<p>GVM and GCM upgrades set up for real-world towing, so you can carry and tow more, legally.</p>"
+          }
+        },
+        "wc_offroad": {
+          "type": "card",
+          "settings": {
+            "heading": "Off-Road Capability",
+            "body": "<p>Built for the tracks as well as the highway, without giving up compliance.</p>"
+          }
+        }
+      },
+      "block_order": ["wc_federal", "wc_engineering", "wc_suspension", "wc_network", "wc_towing", "wc_offroad"],
       "settings": {
         "heading": "Why Choose ORI for Your GVM Upgrade?",
         "padding_top": 60,

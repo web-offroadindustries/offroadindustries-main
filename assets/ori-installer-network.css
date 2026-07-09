@@ -1,0 +1,118 @@
+/* ─── ORI Installer Network ───────────────────────────────────────────────
+   State tabs + installer cards. Tab switching is handled by the section's
+   inline script (toggles .is-active and the hidden attribute). */
+
+.ori-installer-network__header {
+  text-align: center;
+  margin-bottom: 34px;
+}
+.ori-installer-network__heading {
+  margin: 0 0 10px;
+  text-transform: uppercase;
+}
+.ori-installer-network__subheading {
+  margin: 0;
+  opacity: 0.8;
+}
+
+/* Tabs */
+.ori-installer-network__tab-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 28px;
+}
+.ori-installer-network__tab-btn {
+  font: inherit;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 10px 20px;
+  border-radius: 999px;
+  border: 1px solid color-mix(in srgb, currentColor 22%, transparent);
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+.ori-installer-network__tab-btn:hover {
+  background: color-mix(in srgb, currentColor 8%, transparent);
+}
+.ori-installer-network__tab-btn.is-active {
+  border-color: currentColor;
+  background: color-mix(in srgb, currentColor 14%, transparent);
+}
+
+/* Panels */
+.ori-installer-network__panel[hidden] {
+  display: none;
+}
+.ori-installer-network__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.ori-installer-card {
+  height: 100%;
+  border: 1px solid color-mix(in srgb, currentColor 12%, transparent);
+  border-radius: 10px;
+  padding: 20px;
+  background: color-mix(in srgb, currentColor 3%, transparent);
+}
+.ori-installer-card__info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.ori-installer-card__name {
+  font-weight: 700;
+  font-size: 16px;
+}
+.ori-installer-card__location,
+.ori-installer-card__phone {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 14px;
+  opacity: 0.85;
+}
+.ori-installer-card__location svg,
+.ori-installer-card__phone svg {
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
+}
+.ori-installer-card__phone {
+  text-decoration: none;
+  color: inherit;
+}
+.ori-installer-card__phone:hover {
+  opacity: 1;
+}
+.ori-installer-card__website {
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.ori-installer-network__footer {
+  text-align: center;
+  margin-top: 32px;
+}
+.ori-installer-network__empty {
+  text-align: center;
+  opacity: 0.7;
+}
+
+@media (max-width: 639px) {
+  .ori-installer-network__list {
+    grid-template-columns: 1fr;
+  }
+}

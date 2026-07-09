@@ -1,3 +1,4 @@
+{{ 'ori-installer-network.css' | asset_url | stylesheet_tag }}
 {%- liquid
   assign section_id = section.settings.custom_id | default: section.id
   assign container  = section.settings.container
@@ -89,7 +90,7 @@
             role="tabpanel"
             id="installer-panel-{{ state | downcase }}-{{ section.id }}"
             aria-labelledby="installer-tab-{{ state | downcase }}-{{ section.id }}"
-            hidden="{% unless forloop.first %}true{% endunless %}"
+            {% unless forloop.first %}hidden{% endunless %}
           >
             <ul class="ori-installer-network__list" role="list">
               {%- for block in section.blocks -%}
