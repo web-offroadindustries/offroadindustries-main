@@ -30,6 +30,7 @@
     --vc-container: {{ section.settings.container_width }}px;
     --vc-img-ratio: {{ img_ratio }};
     --vc-img-radius: {{ section.settings.img_radius }}px;
+    --vc-justify: {{ section.settings.card_alignment | default: 'center' }};
     background: {{ section.settings.bg_color }};
   "
 >
@@ -124,13 +125,19 @@
 <style>
   #VehicleCards-{{ section_id }} .vehicle-cards__actions {
     display: flex;
+    flex-direction: column;
     align-items: center;
     gap: 10px;
+    min-height: 0;
   }
 
-  #VehicleCards-{{ section_id }} .vehicle-cards__actions .vehicle-cards__btn {
-    flex: 1 1 auto;
+  #VehicleCards-{{ section_id }} .vehicle-cards__actions .vehicle-cards__btn,
+  #VehicleCards-{{ section_id }} .vehicle-cards__actions .vehicle-cards__brochure-btn {
+    flex: 0 0 auto;
+    width: auto;
     min-width: 0;
+    min-height: 0;
+    padding: 12px 28px;
     text-align: center;
   }
 
@@ -371,6 +378,18 @@
     { "type": "range", "id": "btn_radius", "label": "Button corner radius", "min": 0, "max": 40, "step": 2, "default": 6 },
     { "type": "range", "id": "btn_size", "label": "Button font size", "min": 10, "max": 18, "step": 1, "default": 12, "unit": "px" },
     { "type": "header", "content": "Layout" },
+    {
+      "type": "select",
+      "id": "card_alignment",
+      "label": "Card alignment",
+      "info": "How the cards sit in the row when they don't fill the full width.",
+      "options": [
+        { "value": "flex-start", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "flex-end", "label": "Right" }
+      ],
+      "default": "center"
+    },
     { "type": "range", "id": "container_width", "label": "Max width", "min": 960, "max": 1600, "step": 20, "default": 1280 },
     { "type": "range", "id": "padding_top", "label": "Padding top", "min": 0, "max": 120, "step": 4, "default": 60 },
     { "type": "range", "id": "padding_bottom", "label": "Padding bottom", "min": 0, "max": 120, "step": 4, "default": 60 },
