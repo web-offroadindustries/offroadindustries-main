@@ -286,12 +286,17 @@ test('uses trim-specific Chevrolet Silverado 1500 GCM ratings for stages 3 to 5'
 test('parks accessories on main by removing display toggles from the template and schema', () => {
   const template = readJsonWithOptionalHeader('templates/page.gvm-calculator.json');
   const schema = readSectionSchema('sections/ori-gvm-load-calculator.liquid');
+  const sectionContent = readText('sections/ori-gvm-load-calculator.liquid');
+  const locale = readJsonWithOptionalHeader('locales/en.default.json');
   const settingIds = schema.settings.map((setting) => setting.id).filter(Boolean);
 
   assert.equal(Object.hasOwn(template.sections.main.settings, 'show_accessories'), false);
   assert.equal(Object.hasOwn(template.sections.main.settings, 'use_default_accessories'), false);
   assert.equal(settingIds.includes('show_accessories'), false);
   assert.equal(settingIds.includes('use_default_accessories'), false);
+  assert.equal(sectionContent.includes('accessories_progress_title'), false);
+  assert.equal(Object.hasOwn(locale.gvm_calculator, 'accessories_progress_title'), false);
+  assert.equal(Object.hasOwn(locale.gvm_calculator, 'accessories_progress_percent'), false);
 });
 
 test('enables the selected vehicle package link on the dedicated calculator page template', () => {

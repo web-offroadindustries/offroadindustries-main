@@ -44,7 +44,10 @@ test('loads a vehicle and recalculates every dependent mass', async ({ page }) =
   await expect(page.getByRole('heading', { name: /Ford F150/i })).toBeVisible();
   await expect(page.getByText('Vehicle total (GVM): 2451 / 3220 kg')).toBeVisible();
   await expect(page.getByRole('heading', { name: 'Accessories' })).toBeVisible();
-  await expect(page.getByText('Accessory selector in progress')).toBeVisible();
+  await expect(page.getByText('Accessory selector in progress')).toHaveCount(0);
+  await expect(page.getByText('20% complete')).toHaveCount(0);
+  await expect(page.getByText('Static preview only')).toHaveCount(0);
+  await expect(page.locator('.ori-gvm-calculator__accessory-static-row')).toHaveCount(9);
   await expect(page.getByLabel(/Client recovery boards, 18 kg/i)).toHaveCount(0);
 
   await page.getByRole('spinbutton', { name: 'ATM', exact: true }).fill('3500');
@@ -95,7 +98,7 @@ test('links the quote button to the selected vehicle landing page', async ({ pag
   await expect(quoteLink).toHaveAttribute('href', '/pages/ssm-legal-nb1-chevy-2500hd');
 });
 
-test('shows a static accessories progress placeholder while accessory selection is parked', async ({
+test('shows static non-interactive accessory placeholders without progress copy', async ({
   page,
 }) => {
   await page.goto(FIXTURE_URL);
@@ -106,9 +109,14 @@ test('shows a static accessories progress placeholder while accessory selection 
   await expect(page.getByLabel(/Client recovery boards, 18 kg/i)).toHaveCount(0);
 
   await expect(page.getByRole('heading', { name: 'Accessories' })).toBeVisible();
-  await expect(page.getByText('Accessory selector in progress')).toBeVisible();
-  await expect(page.getByText('20% complete')).toBeVisible();
-  await expect(page.getByText('Static preview only')).toBeVisible();
+  await expect(page.getByText('Accessory selector in progress')).toHaveCount(0);
+  await expect(page.getByText('20% complete')).toHaveCount(0);
+  await expect(page.getByText('Static preview only')).toHaveCount(0);
+  await expect(page.locator('.ori-gvm-calculator__accessory-static-row')).toHaveCount(9);
+  await expect(page.locator('.ori-gvm-calculator__accessory-progress-fill')).toHaveCSS(
+    'width',
+    /^(1[0-9]|2[0-9]|3[0-9])/
+  );
   await expect(page.getByText('Vehicle total (GVM): 2451 / 3220 kg')).toBeVisible();
 });
 
@@ -161,9 +169,6 @@ test('keeps card headings inside containers and uses the requested ORI teal acce
 
   const colors = await page.evaluate(() => ({
     cardTitle: getComputedStyle(document.querySelector('.ori-gvm-calculator__card-title')).color,
-    accessoryTitle: getComputedStyle(
-      document.querySelector('.ori-gvm-calculator__accessory-placeholder-title')
-    ).color,
     ringStroke: getComputedStyle(document.querySelector('.ori-gvm-calculator__ring-fill')).stroke,
     barFill: getComputedStyle(document.querySelector('.ori-gvm-calculator__bar-fill'))
       .backgroundColor,
@@ -173,7 +178,6 @@ test('keeps card headings inside containers and uses the requested ORI teal acce
   }));
 
   expect(colors.cardTitle).toBe('rgb(0, 143, 175)');
-  expect(colors.accessoryTitle).toBe('rgb(0, 143, 175)');
   expect(colors.ringStroke).toBe('rgb(0, 143, 175)');
   expect(colors.barFill).toBe('rgb(0, 143, 175)');
   expect(colors.accessoryProgress).toBe('rgb(0, 143, 175)');

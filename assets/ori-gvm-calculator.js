@@ -812,46 +812,36 @@
         'ori-gvm-calculator__card-title',
         this.t('accessories_title', 'Accessories')
       );
-      var placeholder = element('div', 'ori-gvm-calculator__accessory-placeholder');
-      var badge = element(
-        'span',
-        'ori-gvm-calculator__accessory-placeholder-badge',
-        this.t('accessories_progress_badge', 'Static preview only')
-      );
-      var title = element(
-        'h4',
-        'ori-gvm-calculator__accessory-placeholder-title',
-        this.t('accessories_progress_title', 'Accessory selector in progress')
-      );
-      var text = element(
-        'p',
-        'ori-gvm-calculator__accessory-placeholder-text',
-        this.t(
-          'accessories_progress_text',
-          'This section is parked while ORI accessory weights and placement data are reviewed.'
-        )
-      );
+      var placeholder = element('div', 'ori-gvm-calculator__accessory-static');
       var progress = element('div', 'ori-gvm-calculator__accessory-progress');
-      var progressLabel = element(
-        'span',
-        'ori-gvm-calculator__accessory-progress-label',
-        this.t('accessories_progress_percent', '20% complete')
-      );
       var progressTrack = element('span', 'ori-gvm-calculator__accessory-progress-track');
       var progressFill = element('span', 'ori-gvm-calculator__accessory-progress-fill');
-      var list = element('ul', 'ori-gvm-calculator__accessory-progress-list');
+      var grid = element('div', 'ori-gvm-calculator__accessory-static-grid');
 
       progressFill.style.width = '20%';
       progressTrack.appendChild(progressFill);
-      append(progress, [progressLabel, progressTrack]);
-      [
-        this.t('accessories_progress_item_front', 'Front accessory weights are being mapped.'),
-        this.t('accessories_progress_item_middle', 'Middle/cabin load placement is being reviewed.'),
-        this.t('accessories_progress_item_rear', 'Rear accessory payload impact is pending QA.'),
-      ].forEach(function (item) {
-        list.appendChild(element('li', '', item));
+      progress.appendChild(progressTrack);
+      progress.setAttribute('aria-hidden', 'true');
+
+      ['front', 'middle', 'rear'].forEach(function (zone) {
+        var column = element(
+          'div',
+          'ori-gvm-calculator__accessory-static-column ori-gvm-calculator__accessory-static-column--' +
+            zone
+        );
+        for (var index = 0; index < 3; index += 1) {
+          var row = element('div', 'ori-gvm-calculator__accessory-static-row');
+          append(row, [
+            element('span', 'ori-gvm-calculator__accessory-static-box'),
+            element('span', 'ori-gvm-calculator__accessory-static-line'),
+            element('span', 'ori-gvm-calculator__accessory-static-mass'),
+          ]);
+          column.appendChild(row);
+        }
+        grid.appendChild(column);
       });
-      append(placeholder, [badge, title, text, progress, list]);
+
+      append(placeholder, [progress, grid]);
       append(card, [heading, placeholder]);
       return card;
     }
