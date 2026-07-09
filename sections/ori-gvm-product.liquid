@@ -1,0 +1,258 @@
+{{ 'ori-gvm-product.css' | asset_url | stylesheet_tag }}
+{%- liquid
+  assign section_id = section.settings.custom_id | default: section.id
+  assign container = section.settings.container | default: 'container'
+  assign hero_image = section.settings.image
+  if hero_image == blank
+    assign hero_image = product.featured_image
+  endif
+  assign benefits = section.blocks | where: 'type', 'benefit'
+  assign included = section.blocks | where: 'type', 'included'
+  assign steps = section.blocks | where: 'type', 'step'
+  assign has_specs = false
+  if section.settings.spec_original_gvm != blank or section.settings.spec_upgraded_gvm != blank or section.settings.spec_payload_gain != blank or section.settings.spec_gcm != blank
+    assign has_specs = true
+  endif
+-%}
+
+<section
+  id="{{ section_id }}"
+  class="ori-gvm-product f-section-padding color-{{ section.settings.color_schema }}"
+  data-section-type="ori-gvm-product"
+  style="--section-padding-top: {{ section.settings.padding_top }}px; --section-padding-bottom: {{ section.settings.padding_bottom }}px;"
+>
+  <div class="{{ container }}">
+
+    {%- comment -%} Product hero {%- endcomment -%}
+    <div class="ori-gvm-product__hero">
+      <div class="ori-gvm-product__hero-media">
+        {%- if hero_image != blank -%}
+          {{
+            hero_image
+            | image_url: width: 1200
+            | image_tag:
+              loading: 'eager',
+              fetchpriority: 'high',
+              class: 'ori-gvm-product__hero-img',
+              widths: '400, 600, 900, 1200',
+              sizes: '(min-width: 990px) 50vw, 100vw',
+              alt: product.title | default: 'GVM upgrade'
+          }}
+        {%- else -%}
+          <div class="ori-gvm-product__hero-placeholder" aria-hidden="true"></div>
+        {%- endif -%}
+      </div>
+
+      <div class="ori-gvm-product__hero-content">
+        {%- if section.settings.eyebrow != blank -%}
+          <span class="ori-gvm-product__eyebrow">{{ section.settings.eyebrow }}</span>
+        {%- endif -%}
+
+        <h1 class="ori-gvm-product__title h2">{{ product.title | default: section.settings.fallback_title }}</h1>
+
+        {%- if section.settings.subtitle != blank -%}
+          <div class="ori-gvm-product__subtitle rte">{{ section.settings.subtitle }}</div>
+        {%- endif -%}
+
+        {%- if section.settings.gvm_value != blank or section.settings.gcm_value != blank or section.settings.payload_value != blank -%}
+          <div class="ori-gvm-product__stats">
+            {%- if section.settings.gvm_value != blank -%}
+              <div class="ori-gvm-product__stat">
+                <span class="ori-gvm-product__stat-label">GVM increase</span>
+                <span class="ori-gvm-product__stat-value">{{ section.settings.gvm_value }}</span>
+              </div>
+            {%- endif -%}
+            {%- if section.settings.gcm_value != blank -%}
+              <div class="ori-gvm-product__stat">
+                <span class="ori-gvm-product__stat-label">GCM increase</span>
+                <span class="ori-gvm-product__stat-value">{{ section.settings.gcm_value }}</span>
+              </div>
+            {%- endif -%}
+            {%- if section.settings.payload_value != blank -%}
+              <div class="ori-gvm-product__stat">
+                <span class="ori-gvm-product__stat-label">Payload gain</span>
+                <span class="ori-gvm-product__stat-value">{{ section.settings.payload_value }}</span>
+              </div>
+            {%- endif -%}
+          </div>
+        {%- endif -%}
+
+        <div class="ori-gvm-product__ctas">
+          {%- if section.settings.quote_label != blank -%}
+            <a href="{{ section.settings.quote_url | default: '/pages/contact' }}" class="btn btn--primary ori-gvm-product__cta">{{ section.settings.quote_label }}</a>
+          {%- endif -%}
+          {%- if section.settings.book_label != blank -%}
+            <a href="{{ section.settings.book_url | default: '/pages/contact' }}" class="btn btn--outline ori-gvm-product__cta">{{ section.settings.book_label }}</a>
+          {%- endif -%}
+        </div>
+      </div>
+    </div>
+
+    {%- comment -%} Key benefits {%- endcomment -%}
+    {%- if benefits.size > 0 -%}
+      <div class="ori-gvm-product__block">
+        <h2 class="ori-gvm-product__block-title h3">{{ section.settings.benefits_heading | default: 'Key benefits' }}</h2>
+        <ul class="ori-gvm-product__benefits" role="list">
+          {%- for block in benefits -%}
+            <li class="ori-gvm-product__benefit" {{ block.shopify_attributes }}>
+              <span class="ori-gvm-product__check" aria-hidden="true">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              </span>
+              <span>{{ block.settings.text }}</span>
+            </li>
+          {%- endfor -%}
+        </ul>
+      </div>
+    {%- endif -%}
+
+    {%- comment -%} What's included {%- endcomment -%}
+    {%- if included.size > 0 -%}
+      <div class="ori-gvm-product__block">
+        <h2 class="ori-gvm-product__block-title h3">{{ section.settings.included_heading | default: "What's included" }}</h2>
+        <ul class="ori-gvm-product__included" role="list">
+          {%- for block in included -%}
+            <li class="ori-gvm-product__included-item" {{ block.shopify_attributes }}>
+              <span class="ori-gvm-product__check" aria-hidden="true">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              </span>
+              <span>{{ block.settings.text }}</span>
+            </li>
+          {%- endfor -%}
+        </ul>
+      </div>
+    {%- endif -%}
+
+    {%- comment -%} Specifications {%- endcomment -%}
+    {%- if has_specs -%}
+      <div class="ori-gvm-product__block">
+        <h2 class="ori-gvm-product__block-title h3">{{ section.settings.specs_heading | default: 'Specifications' }}</h2>
+        <table class="ori-gvm-product__specs">
+          <tbody>
+            {%- if section.settings.spec_original_gvm != blank -%}
+              <tr><th scope="row">Original GVM</th><td>{{ section.settings.spec_original_gvm }}</td></tr>
+            {%- endif -%}
+            {%- if section.settings.spec_upgraded_gvm != blank -%}
+              <tr><th scope="row">Upgraded GVM</th><td>{{ section.settings.spec_upgraded_gvm }}</td></tr>
+            {%- endif -%}
+            {%- if section.settings.spec_payload_gain != blank -%}
+              <tr><th scope="row">Payload gain</th><td>{{ section.settings.spec_payload_gain }}</td></tr>
+            {%- endif -%}
+            {%- if section.settings.spec_gcm != blank -%}
+              <tr><th scope="row">GCM</th><td>{{ section.settings.spec_gcm }}</td></tr>
+            {%- endif -%}
+          </tbody>
+        </table>
+      </div>
+    {%- endif -%}
+
+    {%- comment -%} Installation process {%- endcomment -%}
+    {%- if steps.size > 0 -%}
+      <div class="ori-gvm-product__block">
+        <h2 class="ori-gvm-product__block-title h3">{{ section.settings.install_heading | default: 'Installation process' }}</h2>
+        <ol class="ori-gvm-product__steps">
+          {%- for block in steps -%}
+            <li class="ori-gvm-product__step" {{ block.shopify_attributes }}>
+              {%- if block.settings.heading != blank -%}
+                <h3 class="ori-gvm-product__step-title">{{ block.settings.heading }}</h3>
+              {%- endif -%}
+              {%- if block.settings.text != blank -%}
+                <p class="ori-gvm-product__step-text">{{ block.settings.text }}</p>
+              {%- endif -%}
+            </li>
+          {%- endfor -%}
+        </ol>
+      </div>
+    {%- endif -%}
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "ORI GVM Product",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    { "type": "header", "content": "Hero" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "GVM Upgrade Package" },
+    { "type": "text", "id": "fallback_title", "label": "Fallback title (used if not on a product)", "default": "Toyota Tundra Stage 1 GVM Upgrade" },
+    { "type": "richtext", "id": "subtitle", "label": "Subtitle" },
+    { "type": "image_picker", "id": "image", "label": "Hero image (defaults to product image)" },
+    { "type": "text", "id": "gvm_value", "label": "GVM increase", "default": "3050kg → 3850kg" },
+    { "type": "text", "id": "gcm_value", "label": "GCM increase", "default": "6800kg → 7350kg" },
+    { "type": "text", "id": "payload_value", "label": "Payload gain", "default": "+800kg" },
+    { "type": "header", "content": "Call to action" },
+    { "type": "text", "id": "quote_label", "label": "Primary button label", "default": "Request Quote" },
+    { "type": "url", "id": "quote_url", "label": "Primary button URL" },
+    { "type": "text", "id": "book_label", "label": "Secondary button label", "default": "Book Installation" },
+    { "type": "url", "id": "book_url", "label": "Secondary button URL" },
+    { "type": "header", "content": "Section headings" },
+    { "type": "text", "id": "benefits_heading", "label": "Benefits heading", "default": "Key benefits" },
+    { "type": "text", "id": "included_heading", "label": "What's included heading", "default": "What's included" },
+    { "type": "text", "id": "specs_heading", "label": "Specifications heading", "default": "Specifications" },
+    { "type": "text", "id": "install_heading", "label": "Installation heading", "default": "Installation process" },
+    { "type": "header", "content": "Specifications table" },
+    { "type": "text", "id": "spec_original_gvm", "label": "Original GVM", "default": "3050 kg" },
+    { "type": "text", "id": "spec_upgraded_gvm", "label": "Upgraded GVM", "default": "3850 kg" },
+    { "type": "text", "id": "spec_payload_gain", "label": "Payload gain", "default": "800 kg" },
+    { "type": "text", "id": "spec_gcm", "label": "GCM", "default": "7350 kg" },
+    { "type": "header", "content": "Layout" },
+    {
+      "type": "select",
+      "id": "container",
+      "label": "Container width",
+      "options": [
+        { "value": "container", "label": "Fixed (1200px)" },
+        { "value": "container-narrow", "label": "Narrow" },
+        { "value": "container-full", "label": "Full width" }
+      ],
+      "default": "container"
+    },
+    { "type": "range", "id": "padding_top", "label": "Padding top", "min": 0, "max": 120, "step": 4, "unit": "px", "default": 48 },
+    { "type": "range", "id": "padding_bottom", "label": "Padding bottom", "min": 0, "max": 120, "step": 4, "unit": "px", "default": 48 },
+    { "type": "text", "id": "custom_id", "label": "Custom HTML ID" },
+    { "type": "text", "id": "color_schema", "label": "Color scheme class" }
+  ],
+  "blocks": [
+    {
+      "type": "benefit",
+      "name": "Key benefit",
+      "settings": [
+        { "type": "text", "id": "text", "label": "Benefit", "default": "Increased legal payload" }
+      ]
+    },
+    {
+      "type": "included",
+      "name": "What's included item",
+      "settings": [
+        { "type": "text", "id": "text", "label": "Item", "default": "Fox shocks" }
+      ]
+    },
+    {
+      "type": "step",
+      "name": "Installation step",
+      "settings": [
+        { "type": "text", "id": "heading", "label": "Step heading", "default": "Book your install" },
+        { "type": "textarea", "id": "text", "label": "Step description" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "ORI GVM Product",
+      "blocks": [
+        { "type": "benefit", "settings": { "text": "Increased legal payload" } },
+        { "type": "benefit", "settings": { "text": "Upgraded suspension" } },
+        { "type": "benefit", "settings": { "text": "Federal engineering approval" } },
+        { "type": "included", "settings": { "text": "Fox shocks" } },
+        { "type": "included", "settings": { "text": "BDS components" } },
+        { "type": "included", "settings": { "text": "ORI springs" } },
+        { "type": "included", "settings": { "text": "Engineering certification" } },
+        { "type": "step", "settings": { "heading": "Request a quote", "text": "Send us your vehicle details and we prepare a package quote." } },
+        { "type": "step", "settings": { "heading": "Book your install", "text": "Choose an approved installer near you." } },
+        { "type": "step", "settings": { "heading": "Get certified", "text": "We complete the upgrade and issue engineering certification." } }
+      ]
+    }
+  ]
+}
+{% endschema %}

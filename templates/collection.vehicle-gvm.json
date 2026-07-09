@@ -1,0 +1,105 @@
+{
+  "sections": {
+    "breadcrumb": {
+      "type": "breadcrumb",
+      "settings": {}
+    },
+    "intro": {
+      "type": "ori-gvm-hero",
+      "blocks": {
+        "trust_1": { "type": "trust_item", "settings": { "text": "Federal / SSM Certification" } },
+        "trust_2": { "type": "trust_item", "settings": { "text": "ADR-Tested & Approved" } },
+        "trust_3": { "type": "trust_item", "settings": { "text": "Australia-Wide Installer Network" } }
+      },
+      "block_order": ["trust_1", "trust_2", "trust_3"],
+      "settings": {
+        "badge_text": "Federally Approved | ADR-Tested | SSM Certified",
+        "heading": "Toyota Tundra GVM Upgrades Australia",
+        "heading_size": "h1",
+        "subheading": "<p>Federally approved GVM upgrade packages for the Toyota Tundra. Every stage is ADR-tested, SSM-certified, and installed by our national network of approved specialists.</p>",
+        "btn_1_text": "Request a Quote",
+        "btn_1_url": "/pages/contact",
+        "btn_1_style": "btn--primary",
+        "btn_2_text": "View All GVM Upgrades",
+        "btn_2_url": "/collections/gvm-upgrades",
+        "btn_2_style": "btn--outline",
+        "container": "container",
+        "padding_top": 64,
+        "padding_bottom": 48
+      }
+    },
+    "packages": {
+      "type": "main-collection-product-grid",
+      "settings": {}
+    },
+    "benefits": {
+      "type": "why-choose",
+      "blocks": {
+        "wc_payload": { "type": "card", "settings": { "heading": "More Legal Payload", "body": "<p>Carry more weight legally with a certified GVM increase.</p>" } },
+        "wc_suspension": { "type": "card", "settings": { "heading": "Premium Suspension", "body": "<p>Fox and BDS components tuned for Australian conditions.</p>" } },
+        "wc_certified": { "type": "card", "settings": { "heading": "Federally Certified", "body": "<p>Every package is engineered and approved under the SSM process.</p>" } }
+      },
+      "block_order": ["wc_payload", "wc_suspension", "wc_certified"],
+      "settings": {
+        "heading": "Why Upgrade Your Tundra's GVM?"
+      }
+    },
+    "payload_calculator": {
+      "type": "ori-gvm-load-calculator",
+      "settings": {
+        "heading": "Payload & Load Calculator",
+        "intro": "<p>Model how passengers, cargo, accessories and trailer weight affect your GVM, GCM and axle loads before you travel.</p>",
+        "container": "container"
+      }
+    },
+    "installers": {
+      "type": "ori-installer-network",
+      "blocks": {
+        "installer_vic": { "type": "installer", "settings": { "state": "VIC", "name": "ORI Offroad Industries (HQ)", "suburb": "Melbourne", "phone": "TBC" } },
+        "installer_nsw": { "type": "installer", "settings": { "state": "NSW", "name": "NSW Installer — add via theme editor", "suburb": "Sydney" } },
+        "installer_qld": { "type": "installer", "settings": { "state": "QLD", "name": "QLD Installer — add via theme editor", "suburb": "Brisbane" } }
+      },
+      "block_order": ["installer_vic", "installer_nsw", "installer_qld"],
+      "settings": {
+        "heading": "Installation Locations",
+        "subheading": "Approved installers fit your package in every state and territory."
+      }
+    },
+    "faq": {
+      "type": "ori-faq",
+      "blocks": {
+        "faq_what": { "type": "faq_item", "settings": { "question": "What is a GVM upgrade?", "answer": "<p>A GVM (Gross Vehicle Mass) upgrade increases the maximum legal weight your vehicle can carry, using SSM certification.</p>" } },
+        "faq_payload": { "type": "faq_item", "settings": { "question": "How much payload can I legally gain?", "answer": "<p>Gains vary by vehicle and stage. Contact us for figures specific to your Tundra.</p>" } },
+        "faq_stages": { "type": "faq_item", "settings": { "question": "What is the difference between the stages?", "answer": "<p>Each stage offers a different GVM and suspension package. See the package grid above.</p>" } }
+      },
+      "block_order": ["faq_what", "faq_payload", "faq_stages"],
+      "settings": {
+        "heading": "Frequently Asked Questions",
+        "open_first": true
+      }
+    },
+    "related": {
+      "type": "vehicle-cards",
+      "blocks": {
+        "model_silverado": { "type": "vehicle", "settings": { "name": "Chevrolet Silverado 1500", "btn_label": "View Packages", "btn_url": "/collections/chevy-silverado-1500-gvm-upgrades" } },
+        "model_f150": { "type": "vehicle", "settings": { "name": "Ford F-150", "btn_label": "View Packages", "btn_url": "/collections/ford-f150-gvm-upgrades" } },
+        "model_ram": { "type": "vehicle", "settings": { "name": "RAM 1500", "btn_label": "View Packages", "btn_url": "/collections/ram-1500-gvm-upgrades" } }
+      },
+      "block_order": ["model_silverado", "model_f150", "model_ram"],
+      "settings": {
+        "heading": "Related Models",
+        "card_alignment": "center"
+      }
+    }
+  },
+  "order": [
+    "breadcrumb",
+    "intro",
+    "packages",
+    "benefits",
+    "payload_calculator",
+    "installers",
+    "faq",
+    "related"
+  ]
+}

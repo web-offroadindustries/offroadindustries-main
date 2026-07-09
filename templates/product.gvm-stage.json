@@ -1,0 +1,77 @@
+{
+  "sections": {
+    "main": {
+      "type": "ori-gvm-product",
+      "blocks": {
+        "benefit_payload": { "type": "benefit", "settings": { "text": "Increased legal payload capacity" } },
+        "benefit_suspension": { "type": "benefit", "settings": { "text": "Upgraded Fox / BDS suspension" } },
+        "benefit_approval": { "type": "benefit", "settings": { "text": "Federal engineering approval" } },
+        "included_fox": { "type": "included", "settings": { "text": "Fox shocks" } },
+        "included_bds": { "type": "included", "settings": { "text": "BDS components" } },
+        "included_springs": { "type": "included", "settings": { "text": "ORI springs" } },
+        "included_cert": { "type": "included", "settings": { "text": "Engineering certification" } },
+        "step_quote": { "type": "step", "settings": { "heading": "Request a quote", "text": "Send us your vehicle details and we prepare a package quote." } },
+        "step_book": { "type": "step", "settings": { "heading": "Book your install", "text": "Choose an approved installer near you and book a date." } },
+        "step_certify": { "type": "step", "settings": { "heading": "Get certified", "text": "We complete the upgrade and issue engineering certification." } }
+      },
+      "block_order": [
+        "benefit_payload",
+        "benefit_suspension",
+        "benefit_approval",
+        "included_fox",
+        "included_bds",
+        "included_springs",
+        "included_cert",
+        "step_quote",
+        "step_book",
+        "step_certify"
+      ],
+      "settings": {
+        "eyebrow": "GVM Upgrade Package",
+        "fallback_title": "Toyota Tundra Stage 1 GVM Upgrade",
+        "subtitle": "<p>Federally approved Stage 1 GVM upgrade for the Toyota Tundra, ADR-tested and SSM-certified.</p>",
+        "gvm_value": "3050kg → 3850kg",
+        "gcm_value": "6800kg → 7350kg",
+        "payload_value": "+800kg",
+        "quote_label": "Request Quote",
+        "quote_url": "/pages/contact",
+        "book_label": "Book Installation",
+        "book_url": "/pages/contact",
+        "spec_original_gvm": "3050 kg",
+        "spec_upgraded_gvm": "3850 kg",
+        "spec_payload_gain": "800 kg",
+        "spec_gcm": "7350 kg",
+        "container": "container",
+        "padding_top": 48,
+        "padding_bottom": 24
+      }
+    },
+    "installers": {
+      "type": "ori-installer-network",
+      "blocks": {
+        "installer_vic": { "type": "installer", "settings": { "state": "VIC", "name": "ORI Offroad Industries (HQ)", "suburb": "Melbourne", "phone": "TBC" } },
+        "installer_nsw": { "type": "installer", "settings": { "state": "NSW", "name": "NSW Installer — add via theme editor", "suburb": "Sydney" } },
+        "installer_qld": { "type": "installer", "settings": { "state": "QLD", "name": "QLD Installer — add via theme editor", "suburb": "Brisbane" } }
+      },
+      "block_order": ["installer_vic", "installer_nsw", "installer_qld"],
+      "settings": {
+        "heading": "Approved Installers",
+        "subheading": "This package is fitted by certified specialists across Australia."
+      }
+    },
+    "faq": {
+      "type": "ori-faq",
+      "blocks": {
+        "faq_included": { "type": "faq_item", "settings": { "question": "What is included in this package?", "answer": "<p>Fox shocks, BDS components, ORI springs, and full engineering certification.</p>" } },
+        "faq_legal": { "type": "faq_item", "settings": { "question": "Is this a legal GVM upgrade?", "answer": "<p>Yes. It is federally approved under the Second Stage of Manufacture (SSM) process.</p>" } },
+        "faq_quote": { "type": "faq_item", "settings": { "question": "How do I get a quote?", "answer": "<p>Use the Request Quote button above and send us your vehicle details.</p>" } }
+      },
+      "block_order": ["faq_included", "faq_legal", "faq_quote"],
+      "settings": {
+        "heading": "Frequently Asked Questions",
+        "open_first": true
+      }
+    }
+  },
+  "order": ["main", "installers", "faq"]
+}
