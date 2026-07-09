@@ -43,6 +43,49 @@
         "padding_bottom": 80
       }
     },
+    "brand_tiles": {
+      "type": "vehicle-cards",
+      "blocks": {
+        "brand_toyota": {
+          "type": "vehicle",
+          "settings": {
+            "name": "Toyota GVM Upgrades",
+            "btn_label": "Shop Toyota",
+            "btn_url": "/collections/toyota-gvm-upgrades"
+          }
+        },
+        "brand_ford": {
+          "type": "vehicle",
+          "settings": {
+            "name": "Ford GVM Upgrades",
+            "btn_label": "Shop Ford",
+            "btn_url": "/collections/ford-gvm-upgrades"
+          }
+        },
+        "brand_ram": {
+          "type": "vehicle",
+          "settings": {
+            "name": "RAM GVM Upgrades",
+            "btn_label": "Shop RAM",
+            "btn_url": "/collections/ram-gvm-upgrades"
+          }
+        },
+        "brand_chevy": {
+          "type": "vehicle",
+          "settings": {
+            "name": "Chevy GVM Upgrades",
+            "btn_label": "Shop Chevy",
+            "btn_url": "/collections/chevrolet-gvm-upgrades"
+          }
+        }
+      },
+      "block_order": ["brand_toyota", "brand_ford", "brand_ram", "brand_chevy"],
+      "settings": {
+        "heading": "Shop GVM Upgrades by Manufacturer",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
     "vehicle_tiles": {
       "type": "vehicle-cards",
       "blocks": {
@@ -179,6 +222,7 @@
       "settings": {
         "heading": "Popular GVM Upgrade Packages",
         "subheading": "Federally approved stage packages for Australia's most popular American trucks.",
+        "source": "products",
         "columns": 4,
         "view_all_text": "View All Packages",
         "view_all_url": "/collections/gvm-upgrades",
@@ -190,9 +234,10 @@
     },
     "video_section": {
       "type": "video",
-      "disabled": true,
+      "disabled": false,
       "settings": {
         "heading": "Understanding GVM Upgrades",
+        "description": "<p>Short explainers on how GVM upgrades work, GVM vs GCM, payload gains, and the engineering certification process. Video content to be added.</p>",
         "padding_top": 60,
         "padding_bottom": 60
       }
@@ -232,9 +277,41 @@
             "name": "QLD Installer — add via theme editor",
             "suburb": "Brisbane"
           }
+        },
+        "installer_wa": {
+          "type": "installer",
+          "settings": {
+            "state": "WA",
+            "name": "WA Installer (to be added)",
+            "suburb": "Perth"
+          }
+        },
+        "installer_sa": {
+          "type": "installer",
+          "settings": {
+            "state": "SA",
+            "name": "SA Installer (to be added)",
+            "suburb": "Adelaide"
+          }
+        },
+        "installer_tas": {
+          "type": "installer",
+          "settings": {
+            "state": "TAS",
+            "name": "TAS Installer (to be added)",
+            "suburb": "Hobart"
+          }
+        },
+        "installer_nt": {
+          "type": "installer",
+          "settings": {
+            "state": "NT",
+            "name": "NT Installer (to be added)",
+            "suburb": "Darwin"
+          }
         }
       },
-      "block_order": ["installer_vic", "installer_nsw", "installer_qld"],
+      "block_order": ["installer_vic", "installer_nsw", "installer_qld", "installer_wa", "installer_sa", "installer_tas", "installer_nt"],
       "settings": {
         "heading": "Approved Installer Network",
         "subheading": "ORI packages are installed by certified specialists across every state and territory.",
@@ -280,9 +357,30 @@
             "question": "Will a GVM upgrade affect my warranty?",
             "answer": "<p>ORI's packages are engineered and federally approved under the SSM process. Warranty implications depend on your vehicle manufacturer — we recommend confirming with your dealer before proceeding.</p>"
           }
+        },
+        "faq_6": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Can I increase GVM after vehicle registration?",
+            "answer": "<p>In most cases yes. ORI's SSM upgrades can be applied to already-registered vehicles, with the new GVM certified and recorded. Confirm the exact process for your state with our team.</p>"
+          }
+        },
+        "faq_7": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Do I need engineering certification?",
+            "answer": "<p>ORI's federally approved packages are certified under the Second Stage of Manufacture process, so a separate individual engineering approval is not required. Compliance documentation is supplied with your upgrade.</p>"
+          }
+        },
+        "faq_8": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Can I tow more after a GCM upgrade?",
+            "answer": "<p>A GCM upgrade raises the maximum legal combined weight of your vehicle plus trailer, so in many cases you can legally tow more. Exact figures depend on your vehicle and the package chosen.</p>"
+          }
         }
       },
-      "block_order": ["faq_1", "faq_2", "faq_3", "faq_4", "faq_5"],
+      "block_order": ["faq_1", "faq_2", "faq_3", "faq_4", "faq_5", "faq_6", "faq_7", "faq_8"],
       "settings": {
         "heading": "Frequently Asked Questions",
         "open_first": true,
@@ -295,6 +393,7 @@
   },
   "order": [
     "ori_gvm_hero",
+    "brand_tiles",
     "vehicle_tiles",
     "package_grid",
     "video_section",

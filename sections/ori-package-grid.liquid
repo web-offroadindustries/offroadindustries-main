@@ -2,6 +2,20 @@
   assign section_id = section.settings.custom_id | default: section.id
   assign container  = section.settings.container
   assign cols       = section.settings.columns | default: 3
+  assign source     = section.settings.source | default: 'products'
+  assign products_limit = section.settings.products_limit | default: 12
+
+  # Products source: use the current collection, or an explicitly chosen one.
+  assign pkg_collection = collection
+  if section.settings.collection != blank
+    assign pkg_collection = collections[section.settings.collection]
+  endif
+
+  # Metafield keys (namespace.key) for the figures shown on each product card.
+  assign gvm_mf = section.settings.gvm_metafield | default: 'custom.gvm' | split: '.'
+  assign payload_mf = section.settings.payload_metafield | default: 'custom.payload_gain' | split: '.'
+  assign stage_mf = section.settings.stage_metafield | default: 'custom.stage' | split: '.'
+  assign product_btn_text = section.settings.product_btn_text | default: 'View Package'
 -%}
 
 <div
@@ -29,7 +43,58 @@
       </div>
     {%- endif -%}
 
-    {%- if section.blocks.size > 0 -%}
+    {%- if source == 'products' -%}
+      {%- if pkg_collection != blank and pkg_collection.products.size > 0 -%}
+        <ul class="ori-package-grid__list" role="list">
+          {%- for product in pkg_collection.products limit: products_limit -%}
+            {%- liquid
+              assign gvm_val = product.metafields[gvm_mf[0]][gvm_mf[1]]
+              assign payload_val = product.metafields[payload_mf[0]][payload_mf[1]]
+              assign stage_val = product.metafields[stage_mf[0]][stage_mf[1]]
+            -%}
+            <li class="ori-package-grid__item">
+              <div class="ori-package-card">
+                {%- if product.featured_image != blank -%}
+                  <div class="ori-package-card__image-wrap">
+                    {{-
+                      product.featured_image
+                      | image_url: width: 800
+                      | image_tag:
+                        loading: 'lazy',
+                        class: 'ori-package-card__image',
+                        widths: '400,600,800',
+                        sizes: '(max-width: 749px) calc(100vw - 32px), (max-width: 989px) calc(50vw - 40px), calc(33.3vw - 48px)'
+                    -}}
+                  </div>
+                {%- endif -%}
+                <div class="ori-package-card__body">
+                  {%- if product.vendor != blank -%}
+                    <span class="ori-package-card__vehicle">{{ product.vendor }}</span>
+                  {%- endif -%}
+                  <h3 class="ori-package-card__title h4">{{ product.title }}</h3>
+                  <dl class="ori-package-card__specs">
+                    {%- if gvm_val != blank -%}
+                      <div class="ori-package-card__spec-row"><dt>GVM</dt><dd>{{ gvm_val }}</dd></div>
+                    {%- endif -%}
+                    {%- if payload_val != blank -%}
+                      <div class="ori-package-card__spec-row ori-package-card__spec-row--highlight"><dt>Payload gain</dt><dd>{{ payload_val }}</dd></div>
+                    {%- endif -%}
+                    {%- if stage_val != blank -%}
+                      <div class="ori-package-card__spec-row"><dt>Stage</dt><dd>{{ stage_val }}</dd></div>
+                    {%- endif -%}
+                  </dl>
+                  <a href="{{ product.url }}" class="btn {{ section.settings.product_btn_style }} ori-package-card__cta">
+                    {{- product_btn_text -}}
+                  </a>
+                </div>
+              </div>
+            </li>
+          {%- endfor -%}
+        </ul>
+      {%- elsif request.design_mode -%}
+        <p class="ori-package-grid__empty">No products to show yet. Point this section at a collection that holds the GVM and GCM packages (Collection setting above), then add products to it. This note only appears in the theme editor.</p>
+      {%- endif -%}
+    {%- elsif section.blocks.size > 0 -%}
       <ul class="ori-package-grid__list" role="list">
         {%- for block in section.blocks -%}
           {%- case block.type -%}
@@ -147,6 +212,71 @@
       "type": "text",
       "id": "subheading",
       "label": "Subheading"
+    },
+    {
+      "type": "header",
+      "content": "Products"
+    },
+    {
+      "type": "select",
+      "id": "source",
+      "label": "Card source",
+      "options": [
+        { "value": "products", "label": "Products from a collection" },
+        { "value": "manual", "label": "Manual cards (blocks)" }
+      ],
+      "default": "products"
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection",
+      "info": "Used when the source is Products. Leave blank to use the collection this page belongs to."
+    },
+    {
+      "type": "range",
+      "id": "products_limit",
+      "label": "Max products",
+      "min": 3,
+      "max": 24,
+      "step": 1,
+      "default": 12
+    },
+    {
+      "type": "text",
+      "id": "gvm_metafield",
+      "label": "GVM metafield",
+      "info": "Product metafield (namespace.key) holding the GVM figure.",
+      "default": "custom.gvm"
+    },
+    {
+      "type": "text",
+      "id": "payload_metafield",
+      "label": "Payload gain metafield",
+      "default": "custom.payload_gain"
+    },
+    {
+      "type": "text",
+      "id": "stage_metafield",
+      "label": "Stage metafield",
+      "default": "custom.stage"
+    },
+    {
+      "type": "text",
+      "id": "product_btn_text",
+      "label": "Product button label",
+      "default": "View Package"
+    },
+    {
+      "type": "select",
+      "id": "product_btn_style",
+      "label": "Product button style",
+      "options": [
+        { "value": "btn--primary", "label": "Primary" },
+        { "value": "btn--secondary", "label": "Secondary" },
+        { "value": "btn--outline", "label": "Outline" }
+      ],
+      "default": "btn--primary"
     },
     {
       "type": "header",
