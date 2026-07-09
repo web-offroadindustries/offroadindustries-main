@@ -818,7 +818,7 @@
       var progressFill = element('span', 'ori-gvm-calculator__accessory-progress-fill');
       var grid = element('div', 'ori-gvm-calculator__accessory-static-grid');
 
-      progressFill.style.width = '20%';
+      progressFill.style.width = '50%';
       progressTrack.appendChild(progressFill);
       progress.appendChild(progressTrack);
       progress.setAttribute('aria-hidden', 'true');

@@ -113,9 +113,9 @@ test('shows static non-interactive accessory placeholders without progress copy'
   await expect(page.getByText('20% complete')).toHaveCount(0);
   await expect(page.getByText('Static preview only')).toHaveCount(0);
   await expect(page.locator('.ori-gvm-calculator__accessory-static-row')).toHaveCount(9);
-  await expect(page.locator('.ori-gvm-calculator__accessory-progress-fill')).toHaveCSS(
-    'width',
-    /^(1[0-9]|2[0-9]|3[0-9])/
+  await expect(page.locator('.ori-gvm-calculator__accessory-progress-fill')).toHaveAttribute(
+    'style',
+    /width:\s*50%/
   );
   await expect(page.getByText('Vehicle total (GVM): 2451 / 3220 kg')).toBeVisible();
 });
