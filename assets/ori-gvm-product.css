@@ -26,6 +26,11 @@
   align-items: center;
 }
 .ori-gvm-product__hero-media {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.ori-gvm-product__gallery-main {
   aspect-ratio: 4 / 3;
   border-radius: 14px;
   overflow: hidden;
@@ -37,6 +42,32 @@
   height: 100%;
   object-fit: contain;
   display: block;
+}
+.ori-gvm-product__gallery-thumbs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.ori-gvm-product__thumb {
+  width: 72px;
+  aspect-ratio: 1 / 1;
+  padding: 0;
+  border: 1px solid color-mix(in srgb, currentColor 15%, transparent);
+  border-radius: 8px;
+  overflow: hidden;
+  background: color-mix(in srgb, currentColor 4%, transparent);
+  cursor: pointer;
+  transition: border-color 0.15s ease;
+}
+.ori-gvm-product__thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+.ori-gvm-product__thumb.is-active,
+.ori-gvm-product__thumb:hover {
+  border-color: currentColor;
 }
 .ori-gvm-product__hero-content {
   display: flex;

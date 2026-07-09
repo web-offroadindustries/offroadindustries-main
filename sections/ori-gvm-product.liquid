@@ -27,20 +27,44 @@
     <div class="{{ container }}">
       <div class="ori-gvm-product__hero">
         <div class="ori-gvm-product__hero-media">
-          {%- if hero_image != blank -%}
-            {{
-              hero_image
-              | image_url: width: 1200
-              | image_tag:
-                loading: 'eager',
-                fetchpriority: 'high',
-                class: 'ori-gvm-product__hero-img',
-                widths: '400, 600, 900, 1200',
-                sizes: '(min-width: 990px) 45vw, 100vw',
-                alt: product.title | default: 'GVM upgrade'
-            }}
-          {%- else -%}
-            <div class="ori-gvm-product__hero-placeholder" aria-hidden="true"></div>
+          <div class="ori-gvm-product__gallery-main">
+            {%- if hero_image != blank -%}
+              {{
+                hero_image
+                | image_url: width: 1200
+                | image_tag:
+                  loading: 'eager',
+                  fetchpriority: 'high',
+                  class: 'ori-gvm-product__hero-img',
+                  widths: '400, 600, 900, 1200',
+                  sizes: '(min-width: 990px) 45vw, 100vw',
+                  alt: product.title | default: 'GVM upgrade'
+              }}
+            {%- else -%}
+              <div class="ori-gvm-product__hero-placeholder" aria-hidden="true"></div>
+            {%- endif -%}
+          </div>
+
+          {%- if section.settings.image == blank and product.images.size > 1 -%}
+            <div class="ori-gvm-product__gallery-thumbs">
+              {%- for image in product.images -%}
+                <button
+                  type="button"
+                  class="ori-gvm-product__thumb{% if forloop.first %} is-active{% endif %}"
+                  data-gallery-thumb
+                  data-full="{{ image | image_url: width: 1200 }}"
+                  aria-label="View image {{ forloop.index }}"
+                >
+                  <img
+                    src="{{ image | image_url: width: 200 }}"
+                    alt="{{ product.title | escape }} thumbnail {{ forloop.index }}"
+                    loading="lazy"
+                    width="200"
+                    height="200"
+                  >
+                </button>
+              {%- endfor -%}
+            </div>
           {%- endif -%}
         </div>
 
@@ -184,6 +208,27 @@
   {%- endif -%}
 
 </section>
+
+<script>
+  (function () {
+    var root = document.getElementById({{ section_id | json }});
+    if (!root) return;
+    var main = root.querySelector('.ori-gvm-product__hero-img');
+    var thumbs = root.querySelectorAll('[data-gallery-thumb]');
+    if (!main || !thumbs.length) return;
+    thumbs.forEach(function (thumb) {
+      thumb.addEventListener('click', function () {
+        var full = thumb.getAttribute('data-full');
+        if (full) {
+          main.removeAttribute('srcset');
+          main.setAttribute('src', full);
+        }
+        thumbs.forEach(function (t) { t.classList.remove('is-active'); });
+        thumb.classList.add('is-active');
+      });
+    });
+  })();
+</script>
 
 {% schema %}
 {

@@ -26,6 +26,10 @@
   if show_on_mobile == false and show_on_desktop == false
     assign class = 'f-hidden'
   endif
+  assign is_gvm_stage = false
+  if template.suffix == 'gvm-stage'
+    assign is_gvm_stage = true
+  endif
 -%}
 <script src="{{ 'sticky-atc-bar.js' | asset_url }}" defer="defer"></script>
 {%- unless b2b_user -%}
@@ -54,10 +58,16 @@
           <h3 class="sticky-atc-bar__product-title h6">
             {{ product.title }}
           </h3>
-          {%- render 'price', product: product, use_variant: true -%}
+          {%- unless is_gvm_stage -%}{%- render 'price', product: product, use_variant: true -%}{%- endunless -%}
         </div>
       </div>
       <div class="sticky-atc-bar__form">
+        {%- if is_gvm_stage -%}
+        <div class="sticky-atc-bar__gvm-ctas flex items-center" style="gap:10px;">
+          <a href="{{ section.settings.gvm_quote_url | default: '/pages/contact' }}" class="btn btn--primary">Request Quote</a>
+          <a href="{{ section.settings.gvm_book_url | default: '/pages/contact' }}" class="btn btn--outline">Book Installation</a>
+        </div>
+        {%- else -%}
         {%- assign product_form_id = 'product-form-' | append: section.id -%}
         <product-form class="f-product-form" data-notification-type="toast">
           {%- form 'product',
@@ -160,6 +170,7 @@
             </div>
           {%- endform -%}
         </product-form>
+        {%- endif -%}
       </div>
     </sticky-atc-bar>
     <script type="application/json">
@@ -226,6 +237,20 @@
       "id": "show_quantity",
       "label": "t:sections.sticky-atc-bar.settings.show_quantity.label",
       "default": true
+    },
+    {
+      "type": "header",
+      "content": "GVM stage template"
+    },
+    {
+      "type": "url",
+      "id": "gvm_quote_url",
+      "label": "Request Quote URL (GVM stage template)"
+    },
+    {
+      "type": "url",
+      "id": "gvm_book_url",
+      "label": "Book Installation URL (GVM stage template)"
     }
   ]
 }
