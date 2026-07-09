@@ -1,0 +1,260 @@
+/* ─── ORI GVM Product ─────────────────────────────────────────────────────
+   Quote-based GVM stage product layout, built as full-width bands that
+   alternate white / tint. Neutral tints use color-mix on currentColor so
+   they adapt to the section colour scheme. */
+
+.ori-gvm-product {
+  overflow-x: clip;
+}
+
+/* Full-width bands */
+.ori-gvm-product__band {
+  padding: 52px 0;
+}
+.ori-gvm-product__band--hero {
+  padding-top: 44px;
+}
+.ori-gvm-product__band--alt {
+  background: var(--gvm-tint, #f3f6f7);
+}
+
+/* ── Hero ── */
+.ori-gvm-product__hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 44px;
+  align-items: center;
+}
+.ori-gvm-product__hero-media {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.ori-gvm-product__gallery-main {
+  aspect-ratio: 4 / 3;
+  border-radius: 14px;
+  overflow: hidden;
+  background: color-mix(in srgb, currentColor 6%, transparent);
+}
+.ori-gvm-product__hero-img,
+.ori-gvm-product__hero-placeholder {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+.ori-gvm-product__gallery-thumbs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.ori-gvm-product__thumb {
+  width: 72px;
+  aspect-ratio: 1 / 1;
+  padding: 0;
+  border: 1px solid color-mix(in srgb, currentColor 15%, transparent);
+  border-radius: 8px;
+  overflow: hidden;
+  background: color-mix(in srgb, currentColor 4%, transparent);
+  cursor: pointer;
+  transition: border-color 0.15s ease;
+}
+.ori-gvm-product__thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+.ori-gvm-product__thumb.is-active,
+.ori-gvm-product__thumb:hover {
+  border-color: currentColor;
+}
+.ori-gvm-product__hero-content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.ori-gvm-product__eyebrow {
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  opacity: 0.65;
+}
+.ori-gvm-product__title {
+  margin: 0;
+  text-transform: uppercase;
+  line-height: 1.1;
+}
+.ori-gvm-product__subtitle {
+  margin: 0;
+  line-height: 1.6;
+  opacity: 0.85;
+}
+.ori-gvm-product__subtitle p {
+  margin: 0;
+}
+
+/* Stat cards */
+.ori-gvm-product__stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 4px;
+}
+.ori-gvm-product__stat {
+  flex: 1 1 auto;
+  min-width: 120px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 14px 16px;
+  border: 1px solid color-mix(in srgb, currentColor 12%, transparent);
+  border-radius: 10px;
+  background: color-mix(in srgb, currentColor 3%, transparent);
+}
+.ori-gvm-product__stat-label {
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  opacity: 0.6;
+}
+.ori-gvm-product__stat-value {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.2;
+}
+
+.ori-gvm-product__ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+/* ── Content blocks (uniform, centered heading) ── */
+.ori-gvm-product__block {
+  max-width: 880px;
+  margin: 0 auto;
+}
+.ori-gvm-product__block-title {
+  margin: 0 0 28px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.ori-gvm-product__benefits,
+.ori-gvm-product__included {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px 28px;
+}
+.ori-gvm-product__benefit,
+.ori-gvm-product__included-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  line-height: 1.5;
+}
+.ori-gvm-product__check {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: color-mix(in srgb, currentColor 14%, transparent);
+}
+
+/* Specs table */
+.ori-gvm-product__specs {
+  width: 100%;
+  border-collapse: collapse;
+}
+.ori-gvm-product__specs th,
+.ori-gvm-product__specs td {
+  text-align: left;
+  padding: 14px 4px;
+  border-bottom: 1px solid color-mix(in srgb, currentColor 15%, transparent);
+}
+.ori-gvm-product__specs th {
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-size: 13px;
+  opacity: 0.65;
+  width: 45%;
+}
+.ori-gvm-product__specs td {
+  font-weight: 700;
+}
+
+/* Installation steps */
+.ori-gvm-product__steps {
+  list-style: none;
+  counter-reset: ori-step;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 16px;
+}
+.ori-gvm-product__step {
+  counter-increment: ori-step;
+  position: relative;
+  padding: 18px 20px 18px 64px;
+  border: 1px solid color-mix(in srgb, currentColor 12%, transparent);
+  border-radius: 10px;
+  background: color-mix(in srgb, currentColor 2%, transparent);
+}
+.ori-gvm-product__step::before {
+  content: counter(ori-step);
+  position: absolute;
+  left: 18px;
+  top: 18px;
+  width: 30px;
+  height: 30px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-weight: 700;
+  background: color-mix(in srgb, currentColor 14%, transparent);
+}
+.ori-gvm-product__step-title {
+  margin: 0 0 4px;
+  font-size: 16px;
+  font-weight: 700;
+}
+.ori-gvm-product__step-text {
+  margin: 0;
+  line-height: 1.6;
+  opacity: 0.85;
+}
+
+@media (max-width: 989px) {
+  .ori-gvm-product__hero {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .ori-gvm-product__hero-media {
+    max-width: 560px;
+    margin: 0 auto;
+    width: 100%;
+  }
+  .ori-gvm-product__band {
+    padding: 40px 0;
+  }
+}
+@media (max-width: 639px) {
+  .ori-gvm-product__benefits,
+  .ori-gvm-product__included {
+    grid-template-columns: 1fr;
+  }
+  .ori-gvm-product__ctas .btn {
+    flex: 1 1 auto;
+  }
+}
