@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "ori_gvm_hero": {
@@ -6,23 +15,30 @@
         "trust_1": {
           "type": "trust_item",
           "settings": {
-            "text": "Federal / SSM Certification"
+            "text": "Federal / SSM Certification",
+            "icon": "✓"
           }
         },
         "trust_2": {
           "type": "trust_item",
           "settings": {
-            "text": "ADR-Tested & Approved"
+            "text": "ADR-Tested & Approved",
+            "icon": "✓"
           }
         },
         "trust_3": {
           "type": "trust_item",
           "settings": {
-            "text": "Australia-Wide Installer Network"
+            "text": "Australia-Wide Installer Network",
+            "icon": "✓"
           }
         }
       },
-      "block_order": ["trust_1", "trust_2", "trust_3"],
+      "block_order": [
+        "trust_1",
+        "trust_2",
+        "trust_3"
+      ],
       "settings": {
         "badge_text": "Federally Approved | ADR-Tested | SSM Certified",
         "heading": "GVM Upgrades Australia",
@@ -34,10 +50,13 @@
         "btn_2_text": "Request a Quote",
         "btn_2_url": "/pages/contact",
         "btn_2_style": "btn--outline",
+        "overlay_opacity": 45,
         "container": "container",
         "color_schema": "",
         "padding_top": 80,
-        "padding_bottom": 80
+        "padding_bottom": 80,
+        "custom_id": "",
+        "custom_class": ""
       }
     },
     "brand_tiles": {
@@ -48,7 +67,8 @@
           "settings": {
             "name": "Toyota GVM Upgrades",
             "btn_label": "Shop Toyota",
-            "btn_url": "/collections/toyota-gvm-upgrades"
+            "btn_url": "/collections/toyota-gvm-upgrades",
+            "pdf_url": ""
           }
         },
         "brand_ford": {
@@ -56,7 +76,8 @@
           "settings": {
             "name": "Ford GVM Upgrades",
             "btn_label": "Shop Ford",
-            "btn_url": "/collections/ford-gvm-upgrades"
+            "btn_url": "/collections/ford-gvm-upgrades",
+            "pdf_url": ""
           }
         },
         "brand_ram": {
@@ -64,7 +85,8 @@
           "settings": {
             "name": "RAM GVM Upgrades",
             "btn_label": "Shop RAM",
-            "btn_url": "/collections/ram-gvm-upgrades"
+            "btn_url": "/collections/ram-gvm-upgrades",
+            "pdf_url": ""
           }
         },
         "brand_chevy": {
@@ -72,15 +94,46 @@
           "settings": {
             "name": "Chevy GVM Upgrades",
             "btn_label": "Shop Chevy",
-            "btn_url": "/collections/chevrolet-gvm-upgrades"
+            "btn_url": "/collections/chevrolet-gvm-upgrades",
+            "pdf_url": ""
           }
         }
       },
-      "block_order": ["brand_toyota", "brand_ford", "brand_ram", "brand_chevy"],
+      "block_order": [
+        "brand_toyota",
+        "brand_ford",
+        "brand_ram",
+        "brand_chevy"
+      ],
       "settings": {
+        "eyebrow": "",
         "heading": "Shop GVM Upgrades by Manufacturer",
+        "bg_color": "#ffffff",
+        "heading_color": "#1f1f1f",
+        "heading_size": 36,
+        "eyebrow_color": "#56bdc2",
+        "eyebrow_size": 13,
+        "img_ratio": "square",
+        "img_radius": 10,
+        "card_placeholder_color": "#e5e5e5",
+        "card_bg_color": "#ffffff",
+        "card_border_color": "#e2e2e2",
+        "card_radius": 10,
+        "card_shadow": true,
+        "name_color": "#1f1f1f",
+        "name_size": 18,
+        "default_btn_label": "View Packages",
+        "btn_bg": "#ffffff",
+        "btn_text_color": "#1f1f1f",
+        "btn_border_color": "#1f1f1f",
+        "btn_radius": 6,
+        "btn_size": 12,
+        "container_width": 1280,
         "padding_top": 60,
-        "padding_bottom": 60
+        "padding_bottom": 60,
+        "mobile_layout": "slideshow",
+        "slideshow_animation": "fade",
+        "slideshow_interval": 4
       }
     },
     "vehicle_tiles": {
@@ -91,7 +144,8 @@
           "settings": {
             "name": "Toyota Tundra",
             "btn_label": "View Packages",
-            "btn_url": "/collections/toyota-tundra-gvm-upgrades"
+            "btn_url": "/collections/toyota-tundra-gvm-upgrades",
+            "pdf_url": ""
           }
         },
         "vehicle_silverado1500": {
@@ -99,7 +153,8 @@
           "settings": {
             "name": "Chevrolet Silverado 1500",
             "btn_label": "View Packages",
-            "btn_url": "/collections/chevy-silverado-1500-gvm-upgrades"
+            "btn_url": "/collections/chevy-silverado-1500-gvm-upgrades",
+            "pdf_url": ""
           }
         },
         "vehicle_silverado2500": {
@@ -107,7 +162,8 @@
           "settings": {
             "name": "Chevrolet Silverado 2500HD",
             "btn_label": "View Packages",
-            "btn_url": "/collections/chevy-silverado-2500-gvm-upgrades"
+            "btn_url": "/collections/chevy-silverado-2500-gvm-upgrades",
+            "pdf_url": ""
           }
         },
         "vehicle_f150": {
@@ -115,7 +171,8 @@
           "settings": {
             "name": "Ford F-150",
             "btn_label": "View Packages",
-            "btn_url": "/collections/ford-f150-gvm-upgrades"
+            "btn_url": "/collections/ford-f150-gvm-upgrades",
+            "pdf_url": ""
           }
         },
         "vehicle_ram": {
@@ -123,7 +180,8 @@
           "settings": {
             "name": "RAM 1500",
             "btn_label": "View Packages",
-            "btn_url": "/collections/ram-1500-gvm-upgrades"
+            "btn_url": "/collections/ram-1500-gvm-upgrades",
+            "pdf_url": ""
           }
         },
         "vehicle_ranger": {
@@ -131,7 +189,8 @@
           "settings": {
             "name": "Ford Ranger (Next-Gen)",
             "btn_label": "View Packages",
-            "btn_url": "/collections/ford-ranger-gvm-upgrades"
+            "btn_url": "/collections/ford-ranger-gvm-upgrades",
+            "pdf_url": ""
           }
         },
         "vehicle_hilux": {
@@ -139,7 +198,8 @@
           "settings": {
             "name": "Toyota HiLux",
             "btn_label": "View Packages",
-            "btn_url": "/collections/toyota-hilux-gvm-upgrades"
+            "btn_url": "/collections/toyota-hilux-gvm-upgrades",
+            "pdf_url": ""
           }
         }
       },
@@ -153,9 +213,34 @@
         "vehicle_hilux"
       ],
       "settings": {
+        "eyebrow": "",
         "heading": "GVM Upgrades by Vehicle",
+        "bg_color": "#ffffff",
+        "heading_color": "#1f1f1f",
+        "heading_size": 36,
+        "eyebrow_color": "#56bdc2",
+        "eyebrow_size": 13,
+        "img_ratio": "square",
+        "img_radius": 10,
+        "card_placeholder_color": "#e5e5e5",
+        "card_bg_color": "#ffffff",
+        "card_border_color": "#e2e2e2",
+        "card_radius": 10,
+        "card_shadow": true,
+        "name_color": "#1f1f1f",
+        "name_size": 18,
+        "default_btn_label": "View Packages",
+        "btn_bg": "#ffffff",
+        "btn_text_color": "#1f1f1f",
+        "btn_border_color": "#1f1f1f",
+        "btn_radius": 6,
+        "btn_size": 12,
+        "container_width": 1280,
         "padding_top": 60,
-        "padding_bottom": 60
+        "padding_bottom": 60,
+        "mobile_layout": "slideshow",
+        "slideshow_animation": "fade",
+        "slideshow_interval": 4
       }
     },
     "package_grid": {
@@ -169,6 +254,7 @@
             "gvm_figure": "TBC — request from client",
             "payload_gain": "TBC",
             "stage_label": "Stage 1",
+            "badge": "",
             "btn_text": "View Package",
             "btn_url": "/collections/toyota-tundra-gvm-upgrades",
             "btn_style": "btn--primary"
@@ -196,6 +282,7 @@
             "gvm_figure": "TBC — request from client",
             "payload_gain": "TBC",
             "stage_label": "Stage 1",
+            "badge": "",
             "btn_text": "View Package",
             "btn_url": "/collections/ford-f150-gvm-upgrades",
             "btn_style": "btn--primary"
@@ -209,34 +296,67 @@
             "gvm_figure": "TBC — request from client",
             "payload_gain": "TBC",
             "stage_label": "Stage 1",
+            "badge": "",
             "btn_text": "View Package",
             "btn_url": "/collections/ram-1500-gvm-upgrades",
             "btn_style": "btn--primary"
           }
         }
       },
-      "block_order": ["card_1", "card_2", "card_3", "card_4"],
+      "block_order": [
+        "card_1",
+        "card_2",
+        "card_3",
+        "card_4"
+      ],
       "settings": {
         "heading": "Popular GVM Upgrade Packages",
+        "heading_size": "h2",
         "subheading": "Federally approved stage packages for Australia's most popular American trucks.",
         "source": "products",
-        "columns": 4,
+        "collection": "gvm-upgrades",
+        "products_limit": 12,
+        "gvm_metafield": "custom.gvm",
+        "payload_metafield": "custom.payload_gain",
+        "stage_metafield": "custom.stage",
+        "product_btn_text": "View Package",
+        "product_btn_style": "btn--primary",
         "view_all_text": "View All Packages",
         "view_all_url": "/collections/gvm-upgrades",
         "view_all_style": "btn--outline",
+        "columns": 4,
         "container": "container",
+        "color_schema": "",
         "padding_top": 60,
-        "padding_bottom": 60
+        "padding_bottom": 60,
+        "custom_id": "",
+        "custom_class": ""
       }
     },
     "video_section": {
       "type": "video",
-      "disabled": false,
       "settings": {
+        "container": "container",
+        "section_header_padding_bottom": "medium",
+        "section_header_content_spacing": "medium",
         "heading": "Understanding GVM Upgrades",
+        "highlight_style": "none",
+        "enable_highlight_text_color": false,
+        "heading_size": "h2",
+        "heading_color": "",
+        "subheading": "",
         "description": "<p>Short explainers on how GVM upgrades work, GVM vs GCM, payload gains, and the engineering certification process. Video content to be added.</p>",
+        "video_type": "external",
+        "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+        "video_ratio": "adapt",
+        "autoplay_video": false,
         "padding_top": 60,
-        "padding_bottom": 60
+        "padding_bottom": 60,
+        "show_section_divider": false,
+        "divider_width": "container",
+        "custom_id": "",
+        "custom_class": "",
+        "animations": "inherit"
       }
     },
     "why_ori": {
@@ -246,50 +366,90 @@
           "type": "card",
           "settings": {
             "heading": "Federal Approvals",
-            "body": "<p>Every ORI package is federally approved under the Second Stage of Manufacture process, so your upgrade is legal Australia-wide.</p>"
+            "body": "<p>Every ORI package is federally approved under the Second Stage of Manufacture process, so your upgrade is legal Australia-wide.</p>",
+            "link_label": "",
+            "link_url": ""
           }
         },
         "wc_engineering": {
           "type": "card",
           "settings": {
             "heading": "Engineering Support",
-            "body": "<p>Our engineering team backs every build with the certification and compliance documentation you need.</p>"
+            "body": "<p>Our engineering team backs every build with the certification and compliance documentation you need.</p>",
+            "link_label": "",
+            "link_url": ""
           }
         },
         "wc_suspension": {
           "type": "card",
           "settings": {
             "heading": "Premium Suspension Brands",
-            "body": "<p>We fit trusted, proven suspension components chosen to perform in Australian conditions.</p>"
+            "body": "<p>We fit trusted, proven suspension components chosen to perform in Australian conditions.</p>",
+            "link_label": "",
+            "link_url": ""
           }
         },
         "wc_network": {
           "type": "card",
           "settings": {
             "heading": "National Installer Network",
-            "body": "<p>Approved specialists in every state and territory fit your package to spec.</p>"
+            "body": "<p>Approved specialists in every state and territory fit your package to spec.</p>",
+            "link_label": "",
+            "link_url": ""
           }
         },
         "wc_towing": {
           "type": "card",
           "settings": {
             "heading": "Towing Expertise",
-            "body": "<p>GVM and GCM upgrades set up for real-world towing, so you can carry and tow more, legally.</p>"
+            "body": "<p>GVM and GCM upgrades set up for real-world towing, so you can carry and tow more, legally.</p>",
+            "link_label": "",
+            "link_url": ""
           }
         },
         "wc_offroad": {
           "type": "card",
           "settings": {
             "heading": "Off-Road Capability",
-            "body": "<p>Built for the tracks as well as the highway, without giving up compliance.</p>"
+            "body": "<p>Built for the tracks as well as the highway, without giving up compliance.</p>",
+            "link_label": "",
+            "link_url": ""
           }
         }
       },
-      "block_order": ["wc_federal", "wc_engineering", "wc_suspension", "wc_network", "wc_towing", "wc_offroad"],
+      "block_order": [
+        "wc_federal",
+        "wc_engineering",
+        "wc_suspension",
+        "wc_network",
+        "wc_towing",
+        "wc_offroad"
+      ],
       "settings": {
+        "eyebrow": "",
         "heading": "Why Choose ORI for Your GVM Upgrade?",
+        "bg_color": "#ffffff",
+        "heading_color": "#1f1f1f",
+        "heading_size": 36,
+        "eyebrow_color": "#56bdc2",
+        "eyebrow_size": 13,
+        "card_bg_color": "#ffffff",
+        "card_border_color": "#e2e2e2",
+        "card_radius": 12,
+        "card_shadow": true,
+        "icon_size": 40,
+        "card_heading_color": "#1f1f1f",
+        "card_heading_size": 16,
+        "card_body_color": "#555555",
+        "card_body_size": 14,
+        "link_color": "#1f1f1f",
+        "link_size": 12,
+        "container_width": 1280,
         "padding_top": 60,
-        "padding_bottom": 60
+        "padding_bottom": 60,
+        "mobile_layout": "slideshow",
+        "slideshow_animation": "fade",
+        "slideshow_interval": 4
       }
     },
     "installer_network": {
@@ -301,7 +461,8 @@
             "state": "VIC",
             "name": "ORI Offroad Industries (HQ)",
             "suburb": "Melbourne",
-            "phone": "TBC"
+            "phone": "TBC",
+            "website": ""
           }
         },
         "installer_nsw": {
@@ -309,7 +470,9 @@
           "settings": {
             "state": "NSW",
             "name": "NSW Installer — add via theme editor",
-            "suburb": "Sydney"
+            "suburb": "Sydney",
+            "phone": "",
+            "website": ""
           }
         },
         "installer_qld": {
@@ -317,7 +480,9 @@
           "settings": {
             "state": "QLD",
             "name": "QLD Installer — add via theme editor",
-            "suburb": "Brisbane"
+            "suburb": "Brisbane",
+            "phone": "",
+            "website": ""
           }
         },
         "installer_wa": {
@@ -325,7 +490,9 @@
           "settings": {
             "state": "WA",
             "name": "WA Installer (to be added)",
-            "suburb": "Perth"
+            "suburb": "Perth",
+            "phone": "",
+            "website": ""
           }
         },
         "installer_sa": {
@@ -333,7 +500,9 @@
           "settings": {
             "state": "SA",
             "name": "SA Installer (to be added)",
-            "suburb": "Adelaide"
+            "suburb": "Adelaide",
+            "phone": "",
+            "website": ""
           }
         },
         "installer_tas": {
@@ -341,7 +510,9 @@
           "settings": {
             "state": "TAS",
             "name": "TAS Installer (to be added)",
-            "suburb": "Hobart"
+            "suburb": "Hobart",
+            "phone": "",
+            "website": ""
           }
         },
         "installer_nt": {
@@ -349,17 +520,34 @@
           "settings": {
             "state": "NT",
             "name": "NT Installer (to be added)",
-            "suburb": "Darwin"
+            "suburb": "Darwin",
+            "phone": "",
+            "website": ""
           }
         }
       },
-      "block_order": ["installer_vic", "installer_nsw", "installer_qld", "installer_wa", "installer_sa", "installer_tas", "installer_nt"],
+      "block_order": [
+        "installer_vic",
+        "installer_nsw",
+        "installer_qld",
+        "installer_wa",
+        "installer_sa",
+        "installer_tas",
+        "installer_nt"
+      ],
       "settings": {
         "heading": "Approved Installer Network",
+        "heading_size": "h2",
         "subheading": "ORI packages are installed by certified specialists across every state and territory.",
+        "cta_text": "",
+        "cta_url": "",
+        "cta_style": "btn--outline",
         "container": "container",
+        "color_schema": "",
         "padding_top": 60,
-        "padding_bottom": 60
+        "padding_bottom": 60,
+        "custom_id": "",
+        "custom_class": ""
       }
     },
     "faq": {
@@ -422,14 +610,28 @@
           }
         }
       },
-      "block_order": ["faq_1", "faq_2", "faq_3", "faq_4", "faq_5", "faq_6", "faq_7", "faq_8"],
+      "block_order": [
+        "faq_1",
+        "faq_2",
+        "faq_3",
+        "faq_4",
+        "faq_5",
+        "faq_6",
+        "faq_7",
+        "faq_8"
+      ],
       "settings": {
         "heading": "Frequently Asked Questions",
+        "heading_size": "h2",
+        "subheading": "",
         "open_first": true,
         "emit_schema": true,
         "container": "container-narrow",
+        "color_schema": "",
         "padding_top": 60,
-        "padding_bottom": 60
+        "padding_bottom": 60,
+        "custom_id": "",
+        "custom_class": ""
       }
     }
   },
