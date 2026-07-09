@@ -44,10 +44,8 @@ test('loads a vehicle and recalculates every dependent mass', async ({ page }) =
   await expect(page.getByRole('heading', { name: /Ford F150/i })).toBeVisible();
   await expect(page.getByText('Vehicle total (GVM): 2451 / 3220 kg')).toBeVisible();
   await expect(page.getByRole('heading', { name: 'Accessories' })).toBeVisible();
-  await expect(page.getByRole('heading', { name: 'Recovery gear' })).toBeVisible();
-  await expect(page.getByRole('heading', { name: 'Cabin storage' })).toBeVisible();
-  await expect(page.getByRole('heading', { name: 'Tray setup' })).toBeVisible();
-  await expect(page.getByLabel(/Client recovery boards, 18 kg/i)).toBeVisible();
+  await expect(page.getByText('Accessory selector in progress')).toBeVisible();
+  await expect(page.getByLabel(/Client recovery boards, 18 kg/i)).toHaveCount(0);
 
   await page.getByRole('spinbutton', { name: 'ATM', exact: true }).fill('3500');
   await page.getByRole('spinbutton', { name: 'TBM', exact: true }).fill('350');
@@ -97,7 +95,7 @@ test('links the quote button to the selected vehicle landing page', async ({ pag
   await expect(quoteLink).toHaveAttribute('href', '/pages/ssm-legal-nb1-chevy-2500hd');
 });
 
-test('uses merchant-managed accessory columns and items in the load calculation', async ({
+test('shows a static accessories progress placeholder while accessory selection is parked', async ({
   page,
 }) => {
   await page.goto(FIXTURE_URL);
@@ -105,12 +103,16 @@ test('uses merchant-managed accessory columns and items in the load calculation'
 
   await expect(page.getByLabel(/Carbon 12K winch kit/i)).toHaveCount(0);
   await expect(page.getByLabel(/Factor 55 Borah recovery kit/i)).toHaveCount(0);
-  await page.getByLabel(/Client recovery boards, 18 kg/i).check();
+  await expect(page.getByLabel(/Client recovery boards, 18 kg/i)).toHaveCount(0);
 
-  await expect(page.getByText('Vehicle total (GVM): 2469 / 3220 kg')).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Accessories' })).toBeVisible();
+  await expect(page.getByText('Accessory selector in progress')).toBeVisible();
+  await expect(page.getByText('20% complete')).toBeVisible();
+  await expect(page.getByText('Static preview only')).toBeVisible();
+  await expect(page.getByText('Vehicle total (GVM): 2451 / 3220 kg')).toBeVisible();
 });
 
-test('loads merchant-editable custom specifications and accessories', async ({ page }) => {
+test('loads merchant-editable custom specifications while accessories remain non-interactive', async ({ page }) => {
   await page.goto(FIXTURE_URL);
   await selectVehicle(page, 'chevrolet_silverado_1500');
 
@@ -119,10 +121,9 @@ test('loads merchant-editable custom specifications and accessories', async ({ p
   await expect(page.getByText('Vehicle GVM: 4200 kg')).toBeVisible();
   await expect(page.getByText('Combined GCM: 9000 kg')).toBeVisible();
 
-  await expect(page.getByLabel(/Client fridge, 30 kg/i)).toBeVisible();
-  await expect(page.getByLabel(/Client canopy, 120 kg/i)).toBeVisible();
-  await page.getByLabel(/Client fridge, 30 kg/i).check();
-  await expect(page.getByText('Vehicle total (GVM): 2573 / 4200 kg')).toBeVisible();
+  await expect(page.getByLabel(/Client fridge, 30 kg/i)).toHaveCount(0);
+  await expect(page.getByLabel(/Client canopy, 120 kg/i)).toHaveCount(0);
+  await expect(page.getByText('Vehicle total (GVM): 2543 / 4200 kg')).toBeVisible();
 });
 
 test('keeps card headings inside containers and uses the requested ORI teal accents', async ({
@@ -161,17 +162,21 @@ test('keeps card headings inside containers and uses the requested ORI teal acce
   const colors = await page.evaluate(() => ({
     cardTitle: getComputedStyle(document.querySelector('.ori-gvm-calculator__card-title')).color,
     accessoryTitle: getComputedStyle(
-      document.querySelector('.ori-gvm-calculator__accessory-title')
+      document.querySelector('.ori-gvm-calculator__accessory-placeholder-title')
     ).color,
     ringStroke: getComputedStyle(document.querySelector('.ori-gvm-calculator__ring-fill')).stroke,
     barFill: getComputedStyle(document.querySelector('.ori-gvm-calculator__bar-fill'))
       .backgroundColor,
+    accessoryProgress: getComputedStyle(
+      document.querySelector('.ori-gvm-calculator__accessory-progress-fill')
+    ).backgroundColor,
   }));
 
   expect(colors.cardTitle).toBe('rgb(0, 143, 175)');
   expect(colors.accessoryTitle).toBe('rgb(0, 143, 175)');
   expect(colors.ringStroke).toBe('rgb(0, 143, 175)');
   expect(colors.barFill).toBe('rgb(0, 143, 175)');
+  expect(colors.accessoryProgress).toBe('rgb(0, 143, 175)');
 });
 
 test('restores the introduction and clears simulation state', async ({ page }) => {

@@ -283,10 +283,15 @@ test('uses trim-specific Chevrolet Silverado 1500 GCM ratings for stages 3 to 5'
   assert.equal(zr2Stage4.baselineMass, 2578);
 });
 
-test('enables accessories on the dedicated calculator page template', () => {
+test('parks accessories on main by removing display toggles from the template and schema', () => {
   const template = readJsonWithOptionalHeader('templates/page.gvm-calculator.json');
+  const schema = readSectionSchema('sections/ori-gvm-load-calculator.liquid');
+  const settingIds = schema.settings.map((setting) => setting.id).filter(Boolean);
 
-  assert.equal(template.sections.main.settings.show_accessories, true);
+  assert.equal(Object.hasOwn(template.sections.main.settings, 'show_accessories'), false);
+  assert.equal(Object.hasOwn(template.sections.main.settings, 'use_default_accessories'), false);
+  assert.equal(settingIds.includes('show_accessories'), false);
+  assert.equal(settingIds.includes('use_default_accessories'), false);
 });
 
 test('enables the selected vehicle package link on the dedicated calculator page template', () => {
@@ -302,14 +307,13 @@ test('enables the selected vehicle package link on the dedicated calculator page
   assert.match(fallbackQuoteSetting.info, /selected vehicle/i);
 });
 
-test('exposes merchant-editable accessory column labels and default data toggle', () => {
+test('exposes merchant-editable accessory column labels while the accessory selector is parked', () => {
   const schema = readSectionSchema('sections/ori-gvm-load-calculator.liquid');
   const settingIds = schema.settings.map((setting) => setting.id).filter(Boolean);
 
   assert.ok(settingIds.includes('accessory_front_label'));
   assert.ok(settingIds.includes('accessory_middle_label'));
   assert.ok(settingIds.includes('accessory_rear_label'));
-  assert.ok(settingIds.includes('use_default_accessories'));
 
   const defaults = Object.fromEntries(
     schema.settings.filter((setting) => setting.id).map((setting) => [setting.id, setting.default])
@@ -318,7 +322,6 @@ test('exposes merchant-editable accessory column labels and default data toggle'
   assert.equal(defaults.accessory_front_label, 'Front');
   assert.equal(defaults.accessory_middle_label, 'Middle');
   assert.equal(defaults.accessory_rear_label, 'Rear');
-  assert.equal(defaults.use_default_accessories, false);
 });
 
 test('exposes merchant-editable calculator data blocks in the section schema', () => {

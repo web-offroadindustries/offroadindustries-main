@@ -613,6 +613,74 @@
   margin: 8px 0 0;
 }
 
+.ori-gvm-calculator__accessory-placeholder {
+  background: var(--gvm-surface-muted);
+  border: 1px dashed var(--gvm-accent);
+  border-radius: 12px;
+  display: grid;
+  gap: 12px;
+  padding: 18px;
+}
+
+.ori-gvm-calculator__accessory-placeholder-badge {
+  align-self: start;
+  background: color-mix(in srgb, var(--gvm-accent) 12%, transparent);
+  border: 1px solid color-mix(in srgb, var(--gvm-accent) 42%, transparent);
+  border-radius: 999px;
+  color: var(--gvm-accent);
+  display: inline-flex;
+  font-size: 12px;
+  font-weight: 700;
+  justify-self: start;
+  letter-spacing: 0.04em;
+  padding: 5px 10px;
+  text-transform: uppercase;
+}
+
+.ori-gvm-calculator__accessory-placeholder-title {
+  color: var(--gvm-heading);
+  font-size: clamp(20px, 2vw, 28px);
+  margin: 0;
+}
+
+.ori-gvm-calculator__accessory-placeholder-text {
+  margin: 0;
+}
+
+.ori-gvm-calculator__accessory-progress {
+  display: grid;
+  gap: 8px;
+}
+
+.ori-gvm-calculator__accessory-progress-label {
+  font-weight: 700;
+}
+
+.ori-gvm-calculator__accessory-progress-track {
+  background: #e3e7ea;
+  border: 1px solid var(--gvm-border);
+  border-radius: 999px;
+  display: block;
+  height: 14px;
+  overflow: hidden;
+  width: 100%;
+}
+
+.ori-gvm-calculator__accessory-progress-fill {
+  background: var(--gvm-accent);
+  border-radius: inherit;
+  display: block;
+  height: 100%;
+  min-width: 2px;
+}
+
+.ori-gvm-calculator__accessory-progress-list {
+  display: grid;
+  gap: 6px;
+  margin: 4px 0 0;
+  padding-inline-start: 20px;
+}
+
 .ori-gvm-calculator__tour-overlay {
   align-items: center;
   background: rgba(0, 0, 0, 0.7);

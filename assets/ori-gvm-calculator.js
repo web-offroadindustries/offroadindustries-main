@@ -812,13 +812,47 @@
         'ori-gvm-calculator__card-title',
         this.t('accessories_title', 'Accessories')
       );
-      var grid = element('div', 'ori-gvm-calculator__accessory-grid');
-      append(grid, [
-        this.renderAccessoryGroup('front', this.t('front', 'Front')),
-        this.renderAccessoryGroup('middle', this.t('middle', 'Middle')),
-        this.renderAccessoryGroup('rear', this.t('rear', 'Rear')),
-      ]);
-      append(card, [heading, grid]);
+      var placeholder = element('div', 'ori-gvm-calculator__accessory-placeholder');
+      var badge = element(
+        'span',
+        'ori-gvm-calculator__accessory-placeholder-badge',
+        this.t('accessories_progress_badge', 'Static preview only')
+      );
+      var title = element(
+        'h4',
+        'ori-gvm-calculator__accessory-placeholder-title',
+        this.t('accessories_progress_title', 'Accessory selector in progress')
+      );
+      var text = element(
+        'p',
+        'ori-gvm-calculator__accessory-placeholder-text',
+        this.t(
+          'accessories_progress_text',
+          'This section is parked while ORI accessory weights and placement data are reviewed.'
+        )
+      );
+      var progress = element('div', 'ori-gvm-calculator__accessory-progress');
+      var progressLabel = element(
+        'span',
+        'ori-gvm-calculator__accessory-progress-label',
+        this.t('accessories_progress_percent', '20% complete')
+      );
+      var progressTrack = element('span', 'ori-gvm-calculator__accessory-progress-track');
+      var progressFill = element('span', 'ori-gvm-calculator__accessory-progress-fill');
+      var list = element('ul', 'ori-gvm-calculator__accessory-progress-list');
+
+      progressFill.style.width = '20%';
+      progressTrack.appendChild(progressFill);
+      append(progress, [progressLabel, progressTrack]);
+      [
+        this.t('accessories_progress_item_front', 'Front accessory weights are being mapped.'),
+        this.t('accessories_progress_item_middle', 'Middle/cabin load placement is being reviewed.'),
+        this.t('accessories_progress_item_rear', 'Rear accessory payload impact is pending QA.'),
+      ].forEach(function (item) {
+        list.appendChild(element('li', '', item));
+      });
+      append(placeholder, [badge, title, text, progress, list]);
+      append(card, [heading, placeholder]);
       return card;
     }
 

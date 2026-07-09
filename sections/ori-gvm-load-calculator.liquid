@@ -22,8 +22,8 @@
       data-enable-tour="{{ section.settings.enable_tour }}"
       data-fallback-quote-url="{{ fallback_quote_url | escape }}"
       data-quote-label="{{ section.settings.quote_button_label | escape }}"
-      data-show-accessories="{{ section.settings.show_accessories }}"
-      data-use-default-accessories="{{ section.settings.use_default_accessories }}"
+      data-show-accessories="true"
+      data-use-default-accessories="false"
       data-show-quote-button="{{ section.settings.show_quote_button }}"
       aria-busy="true"
     >
@@ -123,6 +123,13 @@
           "retry": {{ 'gvm_calculator.retry' | t | json }},
           "vehicle_unavailable": {{ 'gvm_calculator.vehicle_unavailable' | t | json }},
           "no_accessories": {{ 'gvm_calculator.no_accessories' | t | json }},
+          "accessories_progress_badge": {{ 'gvm_calculator.accessories_progress_badge' | t | json }},
+          "accessories_progress_title": {{ 'gvm_calculator.accessories_progress_title' | t | json }},
+          "accessories_progress_text": {{ 'gvm_calculator.accessories_progress_text' | t | json }},
+          "accessories_progress_percent": {{ 'gvm_calculator.accessories_progress_percent' | t | json }},
+          "accessories_progress_item_front": {{ 'gvm_calculator.accessories_progress_item_front' | t | json }},
+          "accessories_progress_item_middle": {{ 'gvm_calculator.accessories_progress_item_middle' | t | json }},
+          "accessories_progress_item_rear": {{ 'gvm_calculator.accessories_progress_item_rear' | t | json }},
           "tutorial_step": {{ 'gvm_calculator.tutorial_step' | t | json }},
           "tutorial_of": {{ 'gvm_calculator.tutorial_of' | t | json }},
           "tutorial_close": {{ 'gvm_calculator.tutorial_close' | t | json }},
@@ -274,12 +281,6 @@
       "default": false
     },
     {
-      "type": "checkbox",
-      "id": "show_accessories",
-      "label": "Show accessories section",
-      "default": true
-    },
-    {
       "type": "text",
       "id": "accessory_front_label",
       "label": "First accessory column label",
@@ -296,12 +297,6 @@
       "id": "accessory_rear_label",
       "label": "Third accessory column label",
       "default": "Rear"
-    },
-    {
-      "type": "checkbox",
-      "id": "use_default_accessories",
-      "label": "Show preloaded accessory items",
-      "default": false
     },
     {
       "type": "header",
