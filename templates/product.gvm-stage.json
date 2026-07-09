@@ -41,9 +41,8 @@
         "spec_upgraded_gvm": "3850 kg",
         "spec_payload_gain": "800 kg",
         "spec_gcm": "7350 kg",
-        "container": "container",
-        "padding_top": 48,
-        "padding_bottom": 24
+        "tint_color": "#f3f6f7",
+        "container": "container"
       }
     },
     "installers": {
@@ -56,7 +55,8 @@
       "block_order": ["installer_vic", "installer_nsw", "installer_qld"],
       "settings": {
         "heading": "Approved Installers",
-        "subheading": "This package is fitted by certified specialists across Australia."
+        "subheading": "This package is fitted by certified specialists across Australia.",
+        "bg_color": "#f3f6f7"
       }
     },
     "faq": {
