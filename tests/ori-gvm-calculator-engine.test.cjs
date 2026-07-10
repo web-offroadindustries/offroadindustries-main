@@ -283,7 +283,7 @@ test('uses trim-specific Chevrolet Silverado 1500 GCM ratings for stages 3 to 5'
   assert.equal(zr2Stage4.baselineMass, 2578);
 });
 
-test('parks accessories on main by removing display toggles from the template and schema', () => {
+test('keeps accessories enabled on main without static progress copy', () => {
   const template = readJsonWithOptionalHeader('templates/page.gvm-calculator.json');
   const schema = readSectionSchema('sections/ori-gvm-load-calculator.liquid');
   const sectionContent = readText('sections/ori-gvm-load-calculator.liquid');
@@ -294,6 +294,8 @@ test('parks accessories on main by removing display toggles from the template an
   assert.equal(Object.hasOwn(template.sections.main.settings, 'use_default_accessories'), false);
   assert.equal(settingIds.includes('show_accessories'), false);
   assert.equal(settingIds.includes('use_default_accessories'), false);
+  assert.match(sectionContent, /data-show-accessories="true"/);
+  assert.match(sectionContent, /data-use-default-accessories="false"/);
   assert.equal(sectionContent.includes('accessories_progress_title'), false);
   assert.equal(Object.hasOwn(locale.gvm_calculator, 'accessories_progress_title'), false);
   assert.equal(Object.hasOwn(locale.gvm_calculator, 'accessories_progress_percent'), false);
@@ -359,6 +361,10 @@ test('exposes merchant-editable calculator data blocks in the section schema', (
     customAccessory.settings.map((setting) => setting.id).filter(Boolean),
     ['enabled', 'target', 'zone', 'label', 'mass_kg']
   );
+  const accessoryWeightSetting = customAccessory.settings.find((setting) => setting.id === 'mass_kg');
+  assert.match(accessoryWeightSetting.label, /required/i);
+  assert.match(accessoryWeightSetting.info, /0/i);
+  assert.match(accessoryWeightSetting.info, /empty/i);
 
   assert.deepEqual(
     customSpec.settings.find((setting) => setting.id === 'vehicle_id').options.map((option) => option.value),

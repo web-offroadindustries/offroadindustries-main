@@ -69,6 +69,15 @@
     return Number.isFinite(number) && number > 0 ? number : 0;
   }
 
+  function requiredNonNegativeNumber(value) {
+    if (value === undefined || value === null || value === '') {
+      return null;
+    }
+
+    var number = Number(value);
+    return Number.isFinite(number) && number >= 0 ? number : null;
+  }
+
   function isEnabled(value) {
     return value === undefined || value === null || String(value).toLowerCase() === 'true';
   }
@@ -325,9 +334,9 @@
         }
 
         var zone = normalizeZone(item.zone);
-        var mass = positiveNumber(item.mass_kg);
+        var mass = requiredNonNegativeNumber(item.mass_kg);
 
-        if (!zone || !item.label || !mass) {
+        if (!zone || !item.label || mass === null) {
           return;
         }
 
@@ -812,80 +821,13 @@
         'ori-gvm-calculator__card-title',
         this.t('accessories_title', 'Accessories')
       );
-      var placeholder = element('div', 'ori-gvm-calculator__accessory-static');
-      var progress = element('div', 'ori-gvm-calculator__accessory-progress');
-      var progressTrack = element('span', 'ori-gvm-calculator__accessory-progress-track');
-      var progressFill = element('span', 'ori-gvm-calculator__accessory-progress-fill');
-      var grid = element('div', 'ori-gvm-calculator__accessory-static-grid');
-      var staticAccessories = {
-        front: [
-          { name: this.t('static_accessory_carbon_winch', 'Carbon 12K winch kit'), mass: '27 kg' },
-          { name: this.t('static_accessory_warn_winch', 'Warn EVO 12-S winch'), mass: '25 kg' },
-          {
-            name: this.t(
-              'static_accessory_stealth_driving_lights',
-              'Stealth 8.5 in driving lights pair'
-            ),
-            mass: '4 kg',
-          },
-        ],
-        middle: [
-          { name: this.t('static_accessory_roof_rack', 'Roof rack'), mass: '31 kg' },
-          { name: this.t('static_accessory_canopy_platform', 'Canopy platform'), mass: '22 kg' },
-          { name: this.t('static_accessory_recovery_boards', 'Recovery boards'), mass: '18 kg' },
-        ],
-        rear: [
-          {
-            name: this.t('static_accessory_borah_recovery_kit', 'Factor 55 Borah recovery kit'),
-            mass: '21 kg',
-          },
-          {
-            name: this.t(
-              'static_accessory_sawtooth_recovery_kit',
-              'Factor 55 Sawtooth recovery kit'
-            ),
-            mass: '12 kg',
-          },
-          {
-            name: this.t('static_accessory_owyhee_recovery_bag', 'Factor 55 Owyhee recovery bag'),
-            mass: '8 kg',
-          },
-        ],
-      };
-      var staticTitles = {
-        front: this.t('front', 'Front'),
-        middle: this.t('middle', 'Middle'),
-        rear: this.t('rear', 'Rear'),
-      };
-
-      progressFill.style.width = '80%';
-      progressTrack.appendChild(progressFill);
-      progress.appendChild(progressTrack);
-      progress.setAttribute('aria-hidden', 'true');
-
-      ['front', 'middle', 'rear'].forEach(function (zone) {
-        var column = element(
-          'div',
-          'ori-gvm-calculator__accessory-static-column ori-gvm-calculator__accessory-static-column--' +
-            zone
-        );
-        column.appendChild(
-          element('h4', 'ori-gvm-calculator__accessory-static-heading', staticTitles[zone])
-        );
-        staticAccessories[zone].forEach(function (item) {
-          var row = element('div', 'ori-gvm-calculator__accessory-static-row');
-          append(row, [
-            element('span', 'ori-gvm-calculator__accessory-static-box'),
-            element('span', 'ori-gvm-calculator__accessory-static-name', item.name),
-            element('span', 'ori-gvm-calculator__accessory-static-mass', item.mass),
-          ]);
-          column.appendChild(row);
-        });
-        grid.appendChild(column);
-      });
-
-      append(placeholder, [progress, grid]);
-      append(card, [heading, placeholder]);
+      var grid = element('div', 'ori-gvm-calculator__accessory-grid');
+      append(grid, [
+        this.renderAccessoryGroup('front', this.t('front', 'Front')),
+        this.renderAccessoryGroup('middle', this.t('middle', 'Middle')),
+        this.renderAccessoryGroup('rear', this.t('rear', 'Rear')),
+      ]);
+      append(card, [heading, grid]);
       return card;
     }
 
@@ -1299,10 +1241,10 @@
       step.element.classList.add('ori-gvm-calculator__tour-highlight');
       tour.highlighted = step.element;
 
-      var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       step.element.scrollIntoView({
-        behavior: reduceMotion ? 'auto' : 'smooth',
+        behavior: 'auto',
         block: 'center',
+        inline: 'nearest',
       });
 
       clear(tour.dialog);
@@ -1387,7 +1329,54 @@
       );
       append(actions, [back, skip, next]);
       append(tour.dialog, [header, body, actions]);
+      this.positionTourDialog(step.element);
       closeButton.focus();
+    }
+
+    positionTourDialog(target) {
+      if (!this.tour || !target) {
+        return;
+      }
+
+      var dialog = this.tour.dialog;
+      var margin = 16;
+      var gap = 16;
+      var viewportWidth = window.innerWidth || document.documentElement.clientWidth;
+      var viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+      var targetRect = target.getBoundingClientRect();
+      var dialogRect = dialog.getBoundingClientRect();
+      var dialogWidth = Math.min(dialogRect.width, viewportWidth - margin * 2);
+      var dialogHeight = Math.min(dialogRect.height, viewportHeight - margin * 2);
+      var maxLeft = Math.max(margin, viewportWidth - dialogWidth - margin);
+      var maxTop = Math.max(margin, viewportHeight - dialogHeight - margin);
+      var left = Math.min(
+        Math.max(margin, targetRect.left + targetRect.width / 2 - dialogWidth / 2),
+        maxLeft
+      );
+      var top;
+
+      if (targetRect.top - dialogHeight - gap >= margin) {
+        top = targetRect.top - dialogHeight - gap;
+      } else if (targetRect.bottom + dialogHeight + gap <= viewportHeight - margin) {
+        top = targetRect.bottom + gap;
+      } else if (targetRect.left - dialogWidth - gap >= margin) {
+        left = targetRect.left - dialogWidth - gap;
+        top = Math.min(
+          Math.max(margin, targetRect.top + targetRect.height / 2 - dialogHeight / 2),
+          maxTop
+        );
+      } else if (targetRect.right + dialogWidth + gap <= viewportWidth - margin) {
+        left = targetRect.right + gap;
+        top = Math.min(
+          Math.max(margin, targetRect.top + targetRect.height / 2 - dialogHeight / 2),
+          maxTop
+        );
+      } else {
+        top = targetRect.top > viewportHeight / 2 ? margin : maxTop;
+      }
+
+      dialog.style.left = left + 'px';
+      dialog.style.top = Math.min(Math.max(margin, top), maxTop) + 'px';
     }
 
     handleTourKeydown(event) {

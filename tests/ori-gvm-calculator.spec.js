@@ -47,8 +47,14 @@ test('loads a vehicle and recalculates every dependent mass', async ({ page }) =
   await expect(page.getByText('Accessory selector in progress')).toHaveCount(0);
   await expect(page.getByText('20% complete')).toHaveCount(0);
   await expect(page.getByText('Static preview only')).toHaveCount(0);
-  await expect(page.locator('.ori-gvm-calculator__accessory-static-row')).toHaveCount(9);
-  await expect(page.getByLabel(/Client recovery boards, 18 kg/i)).toHaveCount(0);
+  await expect(page.locator('.ori-gvm-calculator__accessory-static-row')).toHaveCount(0);
+
+  const recoveryBoards = page.getByLabel(/Client recovery boards, 18 kg/i);
+  await expect(recoveryBoards).toBeVisible();
+  await recoveryBoards.check();
+  await expect(page.getByText('Vehicle total (GVM): 2469 / 3220 kg')).toBeVisible();
+  await recoveryBoards.uncheck();
+  await expect(page.getByText('Vehicle total (GVM): 2451 / 3220 kg')).toBeVisible();
 
   await page.getByRole('spinbutton', { name: 'ATM', exact: true }).fill('3500');
   await page.getByRole('spinbutton', { name: 'TBM', exact: true }).fill('350');
@@ -98,45 +104,34 @@ test('links the quote button to the selected vehicle landing page', async ({ pag
   await expect(quoteLink).toHaveAttribute('href', '/pages/ssm-legal-nb1-chevy-2500hd');
 });
 
-test('shows static non-interactive accessory placeholders without progress copy', async ({
+test('shows functional merchant-editable accessories without static progress copy', async ({
   page,
 }) => {
   await page.goto(FIXTURE_URL);
   await selectVehicle(page);
 
-  await expect(page.getByLabel(/Carbon 12K winch kit/i)).toHaveCount(0);
-  await expect(page.getByLabel(/Factor 55 Borah recovery kit/i)).toHaveCount(0);
-  await expect(page.getByLabel(/Client recovery boards, 18 kg/i)).toHaveCount(0);
-
   await expect(page.getByRole('heading', { name: 'Accessories' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Recovery gear' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Cabin storage' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Tray setup' })).toBeVisible();
   await expect(page.getByText('Accessory selector in progress')).toHaveCount(0);
   await expect(page.getByText('20% complete')).toHaveCount(0);
   await expect(page.getByText('Static preview only')).toHaveCount(0);
-  await expect(page.locator('.ori-gvm-calculator__accessories input[type="checkbox"]')).toHaveCount(0);
-  await expect(page.locator('.ori-gvm-calculator__accessory-static-row')).toHaveCount(9);
-  await expect(
-    page.locator('.ori-gvm-calculator__accessory-static-row', {
-      hasText: 'Carbon 12K winch kit',
-    })
-  ).toContainText('27 kg');
-  await expect(
-    page.locator('.ori-gvm-calculator__accessory-static-row', {
-      hasText: 'Roof rack',
-    })
-  ).toContainText('31 kg');
-  await expect(
-    page.locator('.ori-gvm-calculator__accessory-static-row', {
-      hasText: 'Factor 55 Borah recovery kit',
-    })
-  ).toContainText('21 kg');
-  await expect(page.locator('.ori-gvm-calculator__accessory-progress-fill')).toHaveAttribute(
-    'style',
-    /width:\s*80%/
-  );
+  await expect(page.locator('.ori-gvm-calculator__accessory-static-row')).toHaveCount(0);
+  await expect(page.locator('.ori-gvm-calculator__accessory-progress-fill')).toHaveCount(0);
+  await expect(page.locator('.ori-gvm-calculator__accessories input[type="checkbox"]')).toHaveCount(3);
+
+  await expect(page.getByLabel(/Client recovery boards, 18 kg/i)).toBeVisible();
+  await expect(page.getByLabel(/Client fridge, 30 kg/i)).toBeVisible();
+  await expect(page.getByLabel(/Client zero-weight item, 0 kg/i)).toBeVisible();
+  await expect(page.getByLabel(/Client empty-weight item/i)).toHaveCount(0);
+
+  await expect(page.getByText('Vehicle total (GVM): 2451 / 3220 kg')).toBeVisible();
+  await page.getByLabel(/Client zero-weight item, 0 kg/i).check();
   await expect(page.getByText('Vehicle total (GVM): 2451 / 3220 kg')).toBeVisible();
 });
 
-test('loads merchant-editable custom specifications while accessories remain non-interactive', async ({ page }) => {
+test('loads merchant-editable custom specifications and accessories', async ({ page }) => {
   await page.goto(FIXTURE_URL);
   await selectVehicle(page, 'chevrolet_silverado_1500');
 
@@ -145,9 +140,13 @@ test('loads merchant-editable custom specifications while accessories remain non
   await expect(page.getByText('Vehicle GVM: 4200 kg')).toBeVisible();
   await expect(page.getByText('Combined GCM: 9000 kg')).toBeVisible();
 
-  await expect(page.getByLabel(/Client fridge, 30 kg/i)).toHaveCount(0);
-  await expect(page.getByLabel(/Client canopy, 120 kg/i)).toHaveCount(0);
+  await expect(page.getByLabel(/Client fridge, 30 kg/i)).toBeVisible();
+  await expect(page.getByLabel(/Client canopy, 120 kg/i)).toBeVisible();
   await expect(page.getByText('Vehicle total (GVM): 2543 / 4200 kg')).toBeVisible();
+  await page.getByLabel(/Client fridge, 30 kg/i).check();
+  await expect(page.getByText('Vehicle total (GVM): 2573 / 4200 kg')).toBeVisible();
+  await page.getByLabel(/Client canopy, 120 kg/i).check();
+  await expect(page.getByText('Vehicle total (GVM): 2693 / 4200 kg')).toBeVisible();
 });
 
 test('keeps card headings inside containers and uses the requested ORI teal accents', async ({
@@ -188,15 +187,15 @@ test('keeps card headings inside containers and uses the requested ORI teal acce
     ringStroke: getComputedStyle(document.querySelector('.ori-gvm-calculator__ring-fill')).stroke,
     barFill: getComputedStyle(document.querySelector('.ori-gvm-calculator__bar-fill'))
       .backgroundColor,
-    accessoryProgress: getComputedStyle(
-      document.querySelector('.ori-gvm-calculator__accessory-progress-fill')
-    ).backgroundColor,
+    accessoryCheckbox: getComputedStyle(
+      document.querySelector('.ori-gvm-calculator__checkbox')
+    ).accentColor,
   }));
 
   expect(colors.cardTitle).toBe('rgb(0, 143, 175)');
   expect(colors.ringStroke).toBe('rgb(0, 143, 175)');
   expect(colors.barFill).toBe('rgb(0, 143, 175)');
-  expect(colors.accessoryProgress).toBe('rgb(0, 143, 175)');
+  expect(colors.accessoryCheckbox).toBe('rgb(0, 143, 175)');
 });
 
 test('restores the introduction and clears simulation state', async ({ page }) => {
@@ -214,6 +213,7 @@ test('restores the introduction and clears simulation state', async ({ page }) =
 });
 
 test('runs the tutorial once and supports manual replay', async ({ page }) => {
+  await page.setViewportSize({ width: 1748, height: 682 });
   await page.goto(FIXTURE_URL);
   await selectVehicle(page, 'ford_f150', false);
 
@@ -222,6 +222,25 @@ test('runs the tutorial once and supports manual replay', async ({ page }) => {
   await expect(dialog.getByText('Step 1 of 5')).toBeVisible();
   await dialog.getByRole('button', { name: 'Next' }).click();
   await expect(dialog.getByText('Step 2 of 5')).toBeVisible();
+  await dialog.getByRole('button', { name: 'Next' }).click();
+  await expect(dialog.getByText('Step 3 of 5')).toBeVisible();
+  await page.waitForTimeout(600);
+  const stepThreeOverlapsAccessories = await page.evaluate(() => {
+    const dialogRect = document
+      .querySelector('.ori-gvm-calculator__tour-dialog')
+      .getBoundingClientRect();
+    const accessoriesRect = document
+      .querySelector('[data-tour="accessories"]')
+      .getBoundingClientRect();
+
+    return !(
+      dialogRect.right <= accessoriesRect.left ||
+      dialogRect.left >= accessoriesRect.right ||
+      dialogRect.bottom <= accessoriesRect.top ||
+      dialogRect.top >= accessoriesRect.bottom
+    );
+  });
+  expect(stepThreeOverlapsAccessories).toBe(false);
   await dialog.getByRole('button', { name: 'Skip' }).click();
   await expect(dialog).toBeHidden();
 
