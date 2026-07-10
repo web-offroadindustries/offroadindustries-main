@@ -11,27 +11,6 @@
   "sections": {
     "main": {
       "type": "ori-gvm-load-calculator",
-      "settings": {
-        "heading": "ORI GVM load calculator",
-        "intro": "<p>Choose an ORI vehicle package, enter your trailer, passengers and cargo, then check the estimated load against the published GVM, GCM and axle ratings.</p>",
-        "disclaimer": "<p><strong>Planning guide only.</strong> Results use published ORI package specifications plus estimated axle splits from kerb weight. Confirm your exact vehicle, compliance paperwork and weighbridge weights before modifying, loading or towing.</p>",
-        "image": "shopify://shop_images/dv8-2024-2026-chevy-silverado-25003500-spec-series-front-bumperdv8fbcs2-04-5467357.png",
-        "image_alt": "Vehicle load and towing calculator",
-        "fallback_quote_url": "/pages/contact",
-        "quote_button_label": "View ORI GVM package",
-        "show_quote_button": true,
-        "warning_threshold": 95,
-        "enable_tour": true,
-        "accessory_front_label": "Front",
-        "accessory_middle_label": "Middle",
-        "accessory_rear_label": "Tub",
-        "container": "container-full",
-        "color_schema": "",
-        "padding_top": 60,
-        "padding_bottom": 60,
-        "custom_id": "",
-        "custom_class": ""
-      },
       "blocks": {
         "accessory_bullbar": {
           "type": "custom_accessory",
@@ -156,7 +135,28 @@
         "accessory_middle_roof_rack",
         "accessory_bedrack_system",
         "accessory_roof_top_tent"
-      ]
+      ],
+      "settings": {
+        "heading": "ORI GVM load calculator",
+        "intro": "<p>Choose an ORI vehicle package, enter your trailer, passengers and cargo, then check the estimated load against the published GVM, GCM and axle ratings.</p>",
+        "disclaimer": "<p><strong>Planning guide only.</strong> Results use published ORI package specifications plus estimated axle splits from kerb weight. Confirm your exact vehicle, compliance paperwork and weighbridge weights before modifying, loading or towing.</p>",
+        "image": "shopify://shop_images/dv8-2024-2026-chevy-silverado-25003500-spec-series-front-bumperdv8fbcs2-04-5467357.png",
+        "image_alt": "Vehicle load and towing calculator",
+        "fallback_quote_url": "/pages/contact",
+        "quote_button_label": "View ORI GVM package",
+        "show_quote_button": true,
+        "warning_threshold": 95,
+        "enable_tour": true,
+        "accessory_front_label": "Front",
+        "accessory_middle_label": "Middle",
+        "accessory_rear_label": "Tub",
+        "container": "container-full",
+        "color_schema": "",
+        "padding_top": 60,
+        "padding_bottom": 60,
+        "custom_id": "",
+        "custom_class": ""
+      }
     }
   },
   "order": [
