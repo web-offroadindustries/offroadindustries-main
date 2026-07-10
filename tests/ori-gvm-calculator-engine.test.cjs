@@ -294,11 +294,44 @@ test('keeps accessories enabled on main without static progress copy', () => {
   assert.equal(Object.hasOwn(template.sections.main.settings, 'use_default_accessories'), false);
   assert.equal(settingIds.includes('show_accessories'), false);
   assert.equal(settingIds.includes('use_default_accessories'), false);
+  assert.equal(template.sections.main.settings.accessory_front_label, 'Front');
+  assert.equal(template.sections.main.settings.accessory_middle_label, 'Middle');
+  assert.equal(template.sections.main.settings.accessory_rear_label, 'Tub');
   assert.match(sectionContent, /data-show-accessories="true"/);
   assert.match(sectionContent, /data-use-default-accessories="false"/);
   assert.equal(sectionContent.includes('accessories_progress_title'), false);
   assert.equal(Object.hasOwn(locale.gvm_calculator, 'accessories_progress_title'), false);
   assert.equal(Object.hasOwn(locale.gvm_calculator, 'accessories_progress_percent'), false);
+});
+
+test('ships requested default accessory blocks', () => {
+  const template = readJsonWithOptionalHeader('templates/page.gvm-calculator.json');
+  const section = template.sections.main;
+  const blocks = section.blocks || {};
+  const blockOrder = section.block_order || [];
+  const accessories = blockOrder.map((id) => blocks[id]).filter((block) => block.type === 'custom_accessory');
+
+  assert.deepEqual(
+    accessories.map((block) => [
+      block.settings.zone,
+      block.settings.label,
+      block.settings.mass_kg,
+      block.settings.target,
+    ]),
+    [
+      ['front', 'Bullbar', 60, 'all'],
+      ['front', 'Winch', 40, 'all'],
+      ['front', 'Lights', 15, 'all'],
+      ['middle', 'Under seat battery', 100, 'all'],
+      ['rear', 'Roller Shutter', 60, 'all'],
+      ['rear', 'Fridge Slide & Fridge', 60, 'all'],
+      ['rear', 'Tray Canopy Basic', 600, 'all'],
+      ['rear', 'Tray Canopy Touring Edition', 1000, 'all'],
+      ['rear', 'Middle Roof rack', 40, 'all'],
+      ['rear', 'Bedrack System', 70, 'all'],
+      ['rear', 'Roof Top tent', 100, 'all'],
+    ]
+  );
 });
 
 test('enables the selected vehicle package link on the dedicated calculator page template', () => {
@@ -328,7 +361,7 @@ test('exposes merchant-editable accessory column labels while the accessory sele
 
   assert.equal(defaults.accessory_front_label, 'Front');
   assert.equal(defaults.accessory_middle_label, 'Middle');
-  assert.equal(defaults.accessory_rear_label, 'Rear');
+  assert.equal(defaults.accessory_rear_label, 'Tub');
 });
 
 test('exposes merchant-editable calculator data blocks in the section schema', () => {

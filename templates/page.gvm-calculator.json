@@ -24,14 +24,139 @@
         "enable_tour": true,
         "accessory_front_label": "Front",
         "accessory_middle_label": "Middle",
-        "accessory_rear_label": "Rear",
+        "accessory_rear_label": "Tub",
         "container": "container-full",
         "color_schema": "",
         "padding_top": 60,
         "padding_bottom": 60,
         "custom_id": "",
         "custom_class": ""
-      }
+      },
+      "blocks": {
+        "accessory_bullbar": {
+          "type": "custom_accessory",
+          "settings": {
+            "enabled": true,
+            "target": "all",
+            "zone": "front",
+            "label": "Bullbar",
+            "mass_kg": 60
+          }
+        },
+        "accessory_winch": {
+          "type": "custom_accessory",
+          "settings": {
+            "enabled": true,
+            "target": "all",
+            "zone": "front",
+            "label": "Winch",
+            "mass_kg": 40
+          }
+        },
+        "accessory_lights": {
+          "type": "custom_accessory",
+          "settings": {
+            "enabled": true,
+            "target": "all",
+            "zone": "front",
+            "label": "Lights",
+            "mass_kg": 15
+          }
+        },
+        "accessory_under_seat_battery": {
+          "type": "custom_accessory",
+          "settings": {
+            "enabled": true,
+            "target": "all",
+            "zone": "middle",
+            "label": "Under seat battery",
+            "mass_kg": 100
+          }
+        },
+        "accessory_roller_shutter": {
+          "type": "custom_accessory",
+          "settings": {
+            "enabled": true,
+            "target": "all",
+            "zone": "rear",
+            "label": "Roller Shutter",
+            "mass_kg": 60
+          }
+        },
+        "accessory_fridge_slide_fridge": {
+          "type": "custom_accessory",
+          "settings": {
+            "enabled": true,
+            "target": "all",
+            "zone": "rear",
+            "label": "Fridge Slide & Fridge",
+            "mass_kg": 60
+          }
+        },
+        "accessory_tray_canopy_basic": {
+          "type": "custom_accessory",
+          "settings": {
+            "enabled": true,
+            "target": "all",
+            "zone": "rear",
+            "label": "Tray Canopy Basic",
+            "mass_kg": 600
+          }
+        },
+        "accessory_tray_canopy_touring": {
+          "type": "custom_accessory",
+          "settings": {
+            "enabled": true,
+            "target": "all",
+            "zone": "rear",
+            "label": "Tray Canopy Touring Edition",
+            "mass_kg": 1000
+          }
+        },
+        "accessory_middle_roof_rack": {
+          "type": "custom_accessory",
+          "settings": {
+            "enabled": true,
+            "target": "all",
+            "zone": "rear",
+            "label": "Middle Roof rack",
+            "mass_kg": 40
+          }
+        },
+        "accessory_bedrack_system": {
+          "type": "custom_accessory",
+          "settings": {
+            "enabled": true,
+            "target": "all",
+            "zone": "rear",
+            "label": "Bedrack System",
+            "mass_kg": 70
+          }
+        },
+        "accessory_roof_top_tent": {
+          "type": "custom_accessory",
+          "settings": {
+            "enabled": true,
+            "target": "all",
+            "zone": "rear",
+            "label": "Roof Top tent",
+            "mass_kg": 100
+          }
+        }
+      },
+      "block_order": [
+        "accessory_bullbar",
+        "accessory_winch",
+        "accessory_lights",
+        "accessory_under_seat_battery",
+        "accessory_roller_shutter",
+        "accessory_fridge_slide_fridge",
+        "accessory_tray_canopy_basic",
+        "accessory_tray_canopy_touring",
+        "accessory_middle_roof_rack",
+        "accessory_bedrack_system",
+        "accessory_roof_top_tent"
+      ]
     }
   },
   "order": [
