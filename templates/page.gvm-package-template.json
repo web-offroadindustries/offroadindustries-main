@@ -1048,9 +1048,270 @@
         "row_VrmHhK",
         "row_zxBAzG"
       ],
+      "disabled": true,
       "name": "GVM Comparison",
       "settings": {
         "anchor_id": "compare",
+        "heading": "",
+        "details_heading": "",
+        "columns": "9",
+        "col_title_1": "OEM",
+        "col_title_2": "Stage 1",
+        "col_title_3": "Stage 2",
+        "col_title_4": "Stage 3",
+        "col_title_5": "",
+        "col_title_6": "Stage 4",
+        "col_title_7": "STAGE 5",
+        "col_title_8": "STAGE 6",
+        "col_title_9": "",
+        "col_title_10": "STAGE 9",
+        "container_width": "90%",
+        "heading_color": "#111111",
+        "text_color": "#111111",
+        "line_color": "#111111",
+        "mobile_card_bg": "#f5f3ee",
+        "mobile_card_text": "#111111",
+        "padding_top": 0,
+        "padding_bottom": 40
+      }
+    },
+    "gvm_comparison_tt8dam": {
+      "type": "gvm-comparison",
+      "blocks": {
+        "row_X9jJdd": {
+          "type": "row",
+          "settings": {
+            "label": "Suspension Type",
+            "value_1": "",
+            "value_2": "Torsion",
+            "value_3": "Torsion",
+            "value_4": "Coilover",
+            "value_5": "",
+            "value_6": "Torsion",
+            "value_7": "Torsion",
+            "value_8": "Coilover",
+            "value_9": "",
+            "value_10": ""
+          }
+        },
+        "row_qCKWJ9": {
+          "type": "row",
+          "disabled": true,
+          "settings": {
+            "label": "Gross Vehicle Mass (GVM)",
+            "value_1": "4495 KG NB1\n5148 KG NB2",
+            "value_2": "5500 KG",
+            "value_3": "6000 KG",
+            "value_4": "6000 KG",
+            "value_5": "6000 KG",
+            "value_6": "6000 KG",
+            "value_7": "6000 KG",
+            "value_8": "6000 KG",
+            "value_9": "6000 KG",
+            "value_10": ""
+          }
+        },
+        "row_TjWEfJ": {
+          "type": "row",
+          "settings": {
+            "label": "Braked Towing Capacity (BTC)",
+            "value_1": "4500 KG",
+            "value_2": "4500 KG",
+            "value_3": "4500 KG",
+            "value_4": "4500 KG",
+            "value_5": "4500 KG",
+            "value_6": "4500 KG",
+            "value_7": "4500 KG",
+            "value_8": "4500 KG",
+            "value_9": "4500 KG",
+            "value_10": ""
+          }
+        },
+        "row_BBAHNY": {
+          "type": "row",
+          "settings": {
+            "label": "Kerb Weight",
+            "value_1": "3661 KG",
+            "value_2": "3741 KG",
+            "value_3": "3741 KG",
+            "value_4": "3741 KG",
+            "value_5": "3741 KG",
+            "value_6": "3741 KG",
+            "value_7": "3741 KG",
+            "value_8": "3741 KG",
+            "value_9": "3741 KG",
+            "value_10": ""
+          }
+        },
+        "row_aPmfKm": {
+          "type": "row",
+          "disabled": true,
+          "settings": {
+            "label": "Payload (bases on kerb weight) FROM NB1",
+            "value_1": "NB1 733 KG\nNB2 1386 KG",
+            "value_2": "1708 KG",
+            "value_3": "2198 KG",
+            "value_4": "2190 KG",
+            "value_5": "2190 KG",
+            "value_6": "2138",
+            "value_7": "2138",
+            "value_8": "2138",
+            "value_9": "2138",
+            "value_10": ""
+          }
+        },
+        "row_HVhPzj": {
+          "type": "row",
+          "disabled": true,
+          "settings": {
+            "label": "Payload Increase (%)",
+            "value_1": "",
+            "value_2": "133%",
+            "value_3": "199%",
+            "value_4": "198%",
+            "value_5": "198%",
+            "value_6": "192%",
+            "value_7": "192%",
+            "value_8": "192%",
+            "value_9": "192%",
+            "value_10": ""
+          }
+        },
+        "row_ymzJfi": {
+          "type": "row",
+          "settings": {
+            "label": "Front Axle Capacity",
+            "value_1": "2540 KG",
+            "value_2": "2540 KG",
+            "value_3": "2722 KG",
+            "value_4": "2722 KG",
+            "value_5": "2722 KG",
+            "value_6": "2722 KG",
+            "value_7": "2722 KG",
+            "value_8": "2722 KG",
+            "value_9": "2722 KG",
+            "value_10": ""
+          }
+        },
+        "row_aVdtFK": {
+          "type": "row",
+          "settings": {
+            "label": "Rear Axle Capacity",
+            "value_1": "2994 KG",
+            "value_2": "2994 KG",
+            "value_3": "3289 KG",
+            "value_4": "3289 KG",
+            "value_5": "3289 KG",
+            "value_6": "3289 KG",
+            "value_7": "3289 KG",
+            "value_8": "3289 KG",
+            "value_9": "3289 KG",
+            "value_10": ""
+          }
+        },
+        "row_ACwjmn": {
+          "type": "row",
+          "settings": {
+            "label": "Wheel Offsets",
+            "value_1": "POS 47",
+            "value_2": "Pos 12 / 18 Zero",
+            "value_3": "Pos 12 / 18 Zero",
+            "value_4": "Pos 12 / 18 Zero",
+            "value_5": "Pos 12 / 18 Zero",
+            "value_6": "Zero",
+            "value_7": "Zero",
+            "value_8": "Zero",
+            "value_9": "Zero",
+            "value_10": ""
+          }
+        },
+        "row_9PzBit": {
+          "type": "row",
+          "disabled": true,
+          "settings": {
+            "label": "Wheel Load Rating",
+            "value_1": "",
+            "value_2": "1600 KG",
+            "value_3": "1644 KG",
+            "value_4": "1644 KG",
+            "value_5": "1644 KG",
+            "value_6": "1644 KG",
+            "value_7": "1644 KG",
+            "value_8": "1644 KG",
+            "value_9": "1644 KG",
+            "value_10": ""
+          }
+        },
+        "row_XN4ctk": {
+          "type": "row",
+          "settings": {
+            "label": "Tyre Load Rating",
+            "value_1": "",
+            "value_2": "128Q",
+            "value_3": "128Q",
+            "value_4": "128Q",
+            "value_5": "128Q",
+            "value_6": "128Q",
+            "value_7": "128Q",
+            "value_8": "128Q",
+            "value_9": "128Q",
+            "value_10": ""
+          }
+        },
+        "row_tCenrj": {
+          "type": "row",
+          "settings": {
+            "label": "Requires Wheel/ Tyre Upgrade",
+            "value_1": "",
+            "value_2": "Yes",
+            "value_3": "Yes",
+            "value_4": "Yes",
+            "value_5": "Yes",
+            "value_6": "Yes",
+            "value_7": "Yes",
+            "value_8": "Yes",
+            "value_9": "Yes",
+            "value_10": ""
+          }
+        },
+        "row_EeJwFd": {
+          "type": "row",
+          "settings": {
+            "label": "Maximum Tyre Size",
+            "value_1": "",
+            "value_2": "35x12.5xR18 | 35x12.5xR20",
+            "value_3": "35x12.5xR18 | 35x12.5xR20\n37x12.5xR18 | 37x12.5R20",
+            "value_4": "37x12.5xR18 | 37x12.5xR20\n37x13.5xR18 | 37x13.5xR20",
+            "value_5": "37x12.5xR18 | 37x12.5xR20\n37x13.5xR18 | 37x13.5xR20",
+            "value_6": "37x12.5xR18 | 37x12.5xR20\n37x13.5xR18 | 37x13.5xR20",
+            "value_7": "37x12.5xR18 | 37x12.5xR20\n37x13.5xR18 | 37x13.5xR20",
+            "value_8": "37x12.5xR18 | 37x12.5xR20\n37x13.5xR18 | 37x13.5xR20",
+            "value_9": "37x12.5xR18 | 37x12.5xR20\n37x13.5xR18 | 37x13.5xR20",
+            "value_10": ""
+          }
+        }
+      },
+      "block_order": [
+        "row_X9jJdd",
+        "row_qCKWJ9",
+        "row_TjWEfJ",
+        "row_BBAHNY",
+        "row_aPmfKm",
+        "row_HVhPzj",
+        "row_ymzJfi",
+        "row_aVdtFK",
+        "row_ACwjmn",
+        "row_9PzBit",
+        "row_XN4ctk",
+        "row_tCenrj",
+        "row_EeJwFd"
+      ],
+      "custom_css": [
+        "#ssm-package-details{}"
+      ],
+      "name": "GVM Comparison",
+      "settings": {
+        "anchor_id": "ssm-package-details",
         "heading": "",
         "details_heading": "",
         "columns": "9",
@@ -1823,6 +2084,7 @@
     "collapsible_tabs_UDrTRf",
     "rich_text_rnLAPH",
     "gvm_comparison_FfmTMw",
+    "gvm_comparison_tt8dam",
     "gvm_comparison_RXeVcA",
     "rich_text_4AxLyp",
     "wheel_comparison_grid_qGx6nc",
