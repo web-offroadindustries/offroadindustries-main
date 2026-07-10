@@ -1307,7 +1307,7 @@
         "row_EeJwFd"
       ],
       "custom_css": [
-        "#ssm-package-details .gvm-compare__row .gvm-compare__cell:nth-child(6),#ssm-package-details .gvm-compare__row .gvm-compare__cell:nth-child(10){display: none;}"
+        "#ssm-package-details .gvm-compare__row .gvm-compare__cell:nth-child(6),#ssm-package-details .gvm-compare__row .gvm-compare__cell:nth-child(10) {display: none;}"
       ],
       "name": "GVM Comparison",
       "settings": {
@@ -1616,6 +1616,9 @@
         "row_YMC4Cg",
         "row_nkM7rU",
         "row_ft3LzT"
+      ],
+      "custom_css": [
+        "#compare1 .gvm-compare__row .gvm-compare__cell:nth-child(6),#compare1 .gvm-compare__row .gvm-compare__cell:nth-child(10) {display: none;}"
       ],
       "name": "GVM Comparison",
       "settings": {
