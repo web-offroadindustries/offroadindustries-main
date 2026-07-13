@@ -25,8 +25,12 @@ test('homepage waits for interaction before autoplay and theme-owned third parti
   const firstIndex = await hero.locator('.f-slideshow__slide.is-selected').getAttribute('data-index');
   const videoUrl = await hero.evaluate((node) => {
     const template = node.querySelector('deferred-media template');
-    return template?.content.querySelector('video')?.src || '';
+    const video = template?.content.querySelector('video');
+    const source = video?.querySelector('source[src], source[data-src]');
+    const mediaUrl = video?.currentSrc || video?.src || source?.src || source?.dataset.src || '';
+    return mediaUrl ? new URL(mediaUrl, document.baseURI).href : '';
   });
+  expect(videoUrl, 'The deferred slideshow video must expose an absolute media URL').toMatch(/^https?:\/\//);
 
   await page.waitForTimeout(6000);
   await expect(hero.locator('.f-slideshow__slide.is-selected')).toHaveAttribute('data-index', firstIndex);
@@ -34,28 +38,50 @@ test('homepage waits for interaction before autoplay and theme-owned third parti
   expect(requests.filter((url) => url.includes('gtm.js?id=GTM-PNBCJ3H'))).toHaveLength(0);
   expect(requests.filter((url) => url.includes('connect.podium.com/widget.js'))).toHaveLength(0);
 
-  await page.evaluate(() => {
-    document.body.dispatchEvent(new PointerEvent('pointerdown', { bubbles: true }));
-  });
+  const initialScrollY = await page.evaluate(() => window.scrollY);
+  await page.mouse.wheel(0, 200);
+  await expect.poll(() => page.evaluate(() => window.scrollY)).toBeGreaterThan(initialScrollY);
   await page.waitForTimeout(5400);
   await expect(hero.locator('.f-slideshow__slide.is-selected')).not.toHaveAttribute('data-index', firstIndex);
 
   await expect.poll(() => requests.filter((url) => url.includes('gtm.js?id=GTM-PNBCJ3H')).length).toBe(1);
   await expect.poll(() => requests.filter((url) => url.includes('connect.podium.com/widget.js')).length).toBe(1);
-  if (videoUrl) await expect.poll(() => requests.includes(videoUrl)).toBe(true);
+  await expect.poll(() => requests.includes(videoUrl)).toBe(true);
 
   await page.waitForTimeout(1000);
   const cls = await page.evaluate(() => window.__coreWebVitalsCls);
   expect(cls).toBeLessThan(0.1);
 });
 
-test('homepage omits Bold preload hints while product pages retain them', async ({ page }) => {
-  await page.goto(BASE_URL, { waitUntil: 'domcontentloaded' });
-  await expect(page.locator('link[rel="preload"][href*="options.shopapps.site"]')).toHaveCount(0);
+test('homepage omits early Bold hints and requests while product pages retain them', async ({ page }) => {
+  const requests = [];
+  page.on('request', (request) => requests.push(request.url()));
 
-  const productPath = await page.locator('a[href*="/products/"]').first().getAttribute('href');
-  expect(productPath).toBeTruthy();
-  await page.goto(new URL(productPath, BASE_URL).href, { waitUntil: 'domcontentloaded' });
+  await page.goto(BASE_URL, { waitUntil: 'domcontentloaded' });
+  await page.waitForTimeout(1000);
+  await expect(page.locator('link[rel="preconnect"][href*="options.shopapps.site"]')).toHaveCount(0);
+  await expect(page.locator('link[rel="preload"][href*="options.shopapps.site"]')).toHaveCount(0);
+  expect(requests.filter((url) => url.includes('options.shopapps.site'))).toHaveLength(0);
+
+  const homepageOrigin = new URL(page.url()).origin;
+  const productLinks = page.locator('a.product-card__link[href*="/products/"]:visible');
+  let productLink = null;
+  for (let index = 0; index < await productLinks.count(); index += 1) {
+    const candidate = productLinks.nth(index);
+    const href = await candidate.getAttribute('href');
+    const target = await candidate.getAttribute('target');
+    if (href && (!target || target === '_self') && new URL(href, page.url()).origin === homepageOrigin) {
+      productLink = candidate;
+      break;
+    }
+  }
+  expect(productLink, 'A visible, same-origin product card link is required').not.toBeNull();
+  await expect(productLink).toBeVisible();
+  await Promise.all([
+    page.waitForURL((url) => url.pathname.includes('/products/'), { waitUntil: 'domcontentloaded' }),
+    productLink.click(),
+  ]);
+  expect(new URL(page.url()).origin).toBe(homepageOrigin);
 
   await expect(page.locator('link[rel="preconnect"][href="https://options.shopapps.site"]')).toHaveCount(1);
   await expect(page.locator('link[rel="preload"][href*="options.shopapps.site/js/options.js"]')).toHaveCount(1);
