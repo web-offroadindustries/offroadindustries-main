@@ -253,6 +253,10 @@
         "tinyseo_heading_one_block_dgpt3L",
         "easysearch_ymm_easysearch_widget_3eeiFK"
       ],
+      "custom_css": [
+        ".f-apps-wrapper { min-height: 440px; }",
+        "@media (min-width: 768px) { .f-apps-wrapper { min-height: 218px; } }"
+      ],
       "settings": {
         "container": "container",
         "color_schema": "scheme-10",
