@@ -65,19 +65,28 @@
       window.dataLayer.push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
       (function() {
         var gtmLoaded = false;
+        var interactionEvents = ['scroll', 'pointerdown', 'click', 'keydown'];
+
+        function removeInteractionListeners() {
+          interactionEvents.forEach(function(eventName) {
+            window.removeEventListener(eventName, loadGTM);
+          });
+        }
+
         function loadGTM() {
           if (gtmLoaded) return;
           gtmLoaded = true;
+          removeInteractionListeners();
           var f = document.getElementsByTagName('script')[0];
           var j = document.createElement('script');
           j.async = true;
           j.src = 'https://www.googletagmanager.com/gtm.js?id=GTM-PNBCJ3H';
           f.parentNode.insertBefore(j, f);
         }
-        ['scroll','click','keydown','touchstart','mousemove'].forEach(function(e) {
-          window.addEventListener(e, loadGTM, {once: true, passive: true});
+
+        interactionEvents.forEach(function(eventName) {
+          window.addEventListener(eventName, loadGTM, { passive: true });
         });
-        setTimeout(loadGTM, 8000);
       })();
     </script>
     <!-- End Google Tag Manager -->
@@ -437,20 +446,29 @@
     {% comment %} WebChat — load after first user interaction to avoid blocking initial render {% endcomment %}
     <script>
       (function() {
-        var loaded = false;
+        var podiumLoaded = false;
+        var interactionEvents = ['scroll', 'pointerdown', 'click', 'keydown'];
+
+        function removeInteractionListeners() {
+          interactionEvents.forEach(function(eventName) {
+            document.removeEventListener(eventName, loadPodium);
+          });
+        }
+
         function loadPodium() {
-          if (loaded) return;
-          loaded = true;
+          if (podiumLoaded) return;
+          podiumLoaded = true;
+          removeInteractionListeners();
           var s = document.createElement('script');
           s.src = 'https://connect.podium.com/widget.js#ORG_TOKEN=211a92b8-ab89-45c7-ba01-acab8089df3d';
           s.id = 'podium-widget';
           s.setAttribute('data-organization-api-token', '211a92b8-ab89-45c7-ba01-acab8089df3d');
           document.body.appendChild(s);
         }
-        ['mousemove','scroll','touchstart','keydown','click'].forEach(function(e) {
-          document.addEventListener(e, loadPodium, { once: true, passive: true });
+
+        interactionEvents.forEach(function(eventName) {
+          document.addEventListener(eventName, loadPodium, { passive: true });
         });
-        setTimeout(loadPodium, 8000);
       })();
     </script>
 
