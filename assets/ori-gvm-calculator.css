@@ -363,6 +363,40 @@
   overflow-wrap: anywhere;
 }
 
+.ori-gvm-calculator__copy-summary {
+  appearance: none;
+  background: transparent;
+  border: 1px solid var(--gvm-accent);
+  border-radius: 999px;
+  color: var(--gvm-accent);
+  cursor: pointer;
+  display: inline-flex;
+  font-family: var(--brand-body-font, sans-serif);
+  font-size: 13px;
+  font-weight: 700;
+  justify-content: center;
+  line-height: 1.2;
+  margin: 0 0 18px;
+  max-width: 100%;
+  padding: 9px 14px;
+  text-align: center;
+  transition: background 160ms ease, color 160ms ease, border-color 160ms ease;
+}
+
+.ori-gvm-calculator__copy-summary:hover,
+.ori-gvm-calculator__copy-summary:focus-visible {
+  background: var(--gvm-accent);
+  color: #fff;
+}
+
+.ori-gvm-calculator__copy-status {
+  color: var(--gvm-accent);
+  font-size: 13px;
+  line-height: 1.4;
+  margin: 12px 0 0;
+  min-height: 18px;
+}
+
 .ori-gvm-calculator__chips {
   display: flex;
   flex-wrap: wrap;

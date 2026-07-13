@@ -206,6 +206,8 @@
       this.accessoriesById = new Map();
       this.numberInputs = {};
       this.summaryLines = {};
+      this.lastResult = null;
+      this.copySummaryStatus = null;
     }
 
     async loadData() {
@@ -776,6 +778,11 @@
         this.t('summary_title', 'Summary and compliance')
       );
       var limits = element('div', 'ori-gvm-calculator__summary-grid');
+      var copyButton = element(
+        'button',
+        'ori-gvm-calculator__copy-summary',
+        this.t('copy_summary', 'Copy load summary')
+      );
       var definitions = [
         ['vehicleGvm', this.t('vehicle_gvm', 'Vehicle GVM')],
         ['combinedGcm', this.t('combined_gcm', 'Combined GCM')],
@@ -797,7 +804,12 @@
 
       this.complianceChips = element('div', 'ori-gvm-calculator__chips');
       this.complianceChips.setAttribute('aria-live', 'polite');
-      append(card, [heading, limits, this.complianceChips]);
+      this.copySummaryStatus = element('p', 'ori-gvm-calculator__copy-status');
+      this.copySummaryStatus.setAttribute('role', 'status');
+      this.copySummaryStatus.setAttribute('aria-live', 'polite');
+      copyButton.type = 'button';
+      copyButton.addEventListener('click', this.copyLoadSummary.bind(this));
+      append(card, [heading, copyButton, limits, this.complianceChips, this.copySummaryStatus]);
       return card;
     }
 
@@ -902,6 +914,7 @@
         cargoRearKg: this.state.cargoRearKg,
         selectedAccessories: this.selectedAccessories(),
       });
+      this.lastResult = result;
       var limits = result.limits;
 
       this.setSummaryLine('vehicleGvm', limits.gvm, true);
@@ -933,6 +946,154 @@
       );
 
       this.renderVisuals(result);
+    }
+
+    selectedSpecificationLabel() {
+      if (!this.state.selectedUpgradeId) {
+        return this.vehicle.factory_option_label || this.t('factory_option', 'Factory (no upgrade)');
+      }
+
+      var selectedUpgrade = (this.vehicle.upgrades || []).find(
+        function (upgrade) {
+          return String(upgrade.id) === String(this.state.selectedUpgradeId);
+        }.bind(this)
+      );
+
+      return selectedUpgrade && selectedUpgrade.name
+        ? selectedUpgrade.name
+        : this.vehicle.factory_option_label || this.t('factory_option', 'Factory (no upgrade)');
+    }
+
+    formatLimitLine(label, value, limit) {
+      return (
+        label +
+        ': ' +
+        rounded(value) +
+        ' / ' +
+        rounded(limit) +
+        ' ' +
+        this.t('kg', 'kg') +
+        ' (' +
+        this.statusLabel(ENGINE.classifyStatus(value, limit, this.warningThreshold)) +
+        ')'
+      );
+    }
+
+    buildLoadSummaryText() {
+      var result = this.lastResult;
+      var selectedAccessories = this.selectedAccessories();
+
+      if (!this.vehicle || !result) {
+        return '';
+      }
+
+      var lines = [
+        'ORI GVM load summary',
+        'Vehicle: ' + this.vehicle.name,
+        'Specification: ' + this.selectedSpecificationLabel(),
+        this.t('atm', 'ATM') + ': ' + rounded(result.atm) + ' ' + this.t('kg', 'kg'),
+        this.t('tbm', 'TBM') + ': ' + rounded(result.tbm) + ' ' + this.t('kg', 'kg'),
+        this.t('passengers', 'Passengers') +
+          ': ' +
+          rounded(result.passengerMass) +
+          ' ' +
+          this.t('kg', 'kg'),
+        this.t('cargo_rear', 'Cargo - rear') +
+          ': ' +
+          rounded(result.cargoMass) +
+          ' ' +
+          this.t('kg', 'kg'),
+        '',
+        this.t('accessories_title', 'Accessories') + ':',
+      ];
+
+      if (selectedAccessories.length > 0) {
+        selectedAccessories.forEach(
+          function (accessory) {
+            lines.push(
+              '- ' +
+                (accessory.label || accessory.id) +
+                ': ' +
+                rounded(accessory.mass_kg) +
+                ' ' +
+                this.t('kg', 'kg')
+            );
+          }.bind(this)
+        );
+      } else {
+        lines.push('- None selected');
+      }
+
+      lines.push(
+        '',
+        'Results:',
+        this.formatLimitLine(
+          this.t('front_axle', 'Front axle'),
+          result.frontAxle,
+          result.limits.frontAxleLimit
+        ),
+        this.formatLimitLine(
+          this.t('rear_axle', 'Rear axle'),
+          result.rearAxle,
+          result.limits.rearAxleLimit
+        ),
+        this.formatLimitLine(
+          this.t('vehicle_total', 'Vehicle total (GVM)'),
+          result.vehicleMass,
+          result.limits.gvm
+        ),
+        this.formatLimitLine(
+          this.t('combined_mass', 'Combined mass (GCM)'),
+          result.combinedMass,
+          result.limits.gcm
+        ),
+        this.formatLimitLine(this.t('atm', 'ATM'), result.atm, result.limits.towingCapacity),
+        this.formatLimitLine(this.t('tbm', 'TBM'), result.tbm, result.limits.tbmLimit)
+      );
+
+      return lines.join('\n');
+    }
+
+    fallbackCopyText(text) {
+      var textarea = document.createElement('textarea');
+      textarea.value = text;
+      textarea.setAttribute('readonly', 'readonly');
+      textarea.style.position = 'fixed';
+      textarea.style.left = '-9999px';
+      textarea.style.top = '0';
+      document.body.appendChild(textarea);
+      textarea.select();
+      var copied = document.execCommand('copy');
+      document.body.removeChild(textarea);
+
+      if (!copied) {
+        throw new Error('Copy command failed');
+      }
+    }
+
+    showCopyStatus(message) {
+      if (this.copySummaryStatus) {
+        this.copySummaryStatus.textContent = message;
+      }
+    }
+
+    async copyLoadSummary() {
+      var text = this.buildLoadSummaryText();
+
+      if (!text) {
+        return;
+      }
+
+      try {
+        if (navigator.clipboard && typeof navigator.clipboard.writeText === 'function') {
+          await navigator.clipboard.writeText(text);
+        } else {
+          this.fallbackCopyText(text);
+        }
+        this.showCopyStatus(this.t('copy_success', 'Load summary copied'));
+      } catch (error) {
+        this.showCopyStatus(this.t('copy_error', 'Could not copy load summary'));
+      }
     }
 
     setSummaryLine(key, value, hasValue) {

@@ -131,6 +131,45 @@ test('shows functional merchant-editable accessories without static progress cop
   await expect(page.getByText('Vehicle total (GVM): 2451 / 3220 kg')).toBeVisible();
 });
 
+test('copies the selected vehicle load summary for quoting support', async ({ page }) => {
+  await page.addInitScript(() => {
+    window.__copiedText = '';
+    Object.defineProperty(navigator, 'clipboard', {
+      configurable: true,
+      value: {
+        writeText: async (text) => {
+          window.__copiedText = text;
+        },
+      },
+    });
+  });
+
+  await page.goto(FIXTURE_URL);
+  await selectVehicle(page);
+
+  await page.getByLabel(/Client recovery boards, 18 kg/i).check();
+  await page.getByRole('spinbutton', { name: 'ATM', exact: true }).fill('3500');
+  await page.getByRole('spinbutton', { name: 'TBM', exact: true }).fill('350');
+  await page.getByRole('spinbutton', { name: 'Passengers', exact: true }).fill('300');
+  await page.getByRole('spinbutton', { name: 'Cargo - rear', exact: true }).fill('500');
+  await page.getByLabel(/Stage 3: The Heavy Hauler/i).check();
+
+  await page.getByRole('button', { name: 'Copy load summary' }).click();
+
+  await expect(page.getByText('Load summary copied')).toBeVisible();
+  const copiedText = await page.evaluate(() => window.__copiedText);
+  expect(copiedText).toContain('ORI GVM load summary');
+  expect(copiedText).toContain('Vehicle: Ford F150');
+  expect(copiedText).toContain('Specification: Stage 3: The Heavy Hauler');
+  expect(copiedText).toContain('ATM: 3500 kg');
+  expect(copiedText).toContain('TBM: 350 kg');
+  expect(copiedText).toContain('Passengers: 300 kg');
+  expect(copiedText).toContain('Cargo - rear: 500 kg');
+  expect(copiedText).toContain('- Client recovery boards: 18 kg');
+  expect(copiedText).toContain('Vehicle total (GVM): 3649 / 4300 kg (Within limit)');
+  expect(copiedText).toContain('Combined mass (GCM): 6799 / 8800 kg (Within limit)');
+});
+
 test('loads merchant-editable custom specifications and accessories', async ({ page }) => {
   await page.goto(FIXTURE_URL);
   await selectVehicle(page, 'chevrolet_silverado_1500');
