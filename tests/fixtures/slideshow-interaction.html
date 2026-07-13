@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Slideshow interaction fixture</title>
+  </head>
+  <body>
+    <slideshow-component
+      id="hero"
+      data-media-loading
+      data-autoplay-after-interaction="200"
+    >
+      <flickity-component>
+        <div class="f-slideshow__slide" data-index="0"><img alt="First slide"></div>
+        <div class="f-slideshow__slide" data-index="1">
+          <deferred-media>
+            <template><video muted playsinline></video></template>
+          </deferred-media>
+        </div>
+      </flickity-component>
+      <div class="f-slideshow__content-wrapper" data-text-color="#000"></div>
+      <div class="f-slideshow__content-wrapper" data-text-color="#000"></div>
+    </slideshow-component>
+    <button id="next-slide" type="button">Next slide</button>
+
+    <script>
+      window.FoxThemeSettings = { isMobile: false };
+      window.queryDomNodes = function queryDomNodes(selectors, context) {
+        return Object.fromEntries(
+          Object.entries(selectors).map(([key, selector]) => [
+            key,
+            Array.isArray(selector)
+              ? Array.from(context.querySelectorAll(selector[0]))
+              : context.querySelector(selector),
+          ]),
+        );
+      };
+
+      HTMLMediaElement.prototype.play = () => Promise.resolve();
+      HTMLMediaElement.prototype.pause = () => {};
+
+      class DeferredMedia extends HTMLElement {
+        constructor() {
+          super();
+          this.loadCount = 0;
+        }
+
+        loadContent() {
+          this.loadCount += 1;
+          const template = this.querySelector('template');
+          if (template) {
+            this.appendChild(template.content.cloneNode(true));
+            template.remove();
+          }
+        }
+      }
+      customElements.define('deferred-media', DeferredMedia);
+
+      class FakeSlider {
+        constructor(element) {
+          this.element = element;
+          this.options = { autoPlay: false };
+          this.selectedIndex = 0;
+          this.selectedElement = element.querySelectorAll('.f-slideshow__slide')[0];
+          this.handlers = {};
+          this.playCalls = 0;
+          this.timer = null;
+        }
+
+        on(name, callback) {
+          this.handlers[name] = callback;
+        }
+
+        playPlayer() {
+          this.playCalls += 1;
+          clearTimeout(this.timer);
+          this.timer = setTimeout(() => this.next(), this.options.autoPlay);
+        }
+
+        stopPlayer() {
+          clearTimeout(this.timer);
+        }
+
+        next() {
+          const slides = this.element.querySelectorAll('.f-slideshow__slide');
+          this.selectedIndex = (this.selectedIndex + 1) % slides.length;
+          this.selectedElement = slides[this.selectedIndex];
+          if (this.handlers.change) this.handlers.change(this.selectedIndex);
+        }
+      }
+
+      class FakeFlickity extends HTMLElement {
+        connectedCallback() {
+          if (new URLSearchParams(window.location.search).get('missing') === '1') {
+            this.slider = { instance: null };
+            return;
+          }
+          this.slider = { instance: new FakeSlider(this) };
+        }
+      }
+      customElements.define('flickity-component', FakeFlickity);
+
+      document.querySelector('#next-slide').addEventListener('click', () => {
+        document.querySelector('flickity-component').slider.instance.next();
+      });
+    </script>
+    <script src="../../assets/slideshow-component.js"></script>
+  </body>
+</html>

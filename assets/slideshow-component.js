@@ -21,6 +21,13 @@ if (!customElements.get("slideshow-component")) {
       this._reducedMotion =
         typeof window.matchMedia === 'function' &&
         window.matchMedia('(prefers-reduced-motion: reduce)').matches
+      this._autoplayInteractionEvents = ['scroll', 'pointerdown', 'click', 'keydown']
+      this._autoplayInteractionSeen = false
+      this._sliderReady = false
+      this._sliderInitAttempts = 0
+      this._sliderInitStartedAt = Date.now()
+      this._onAutoplayInteraction = this._handleAutoplayInteraction.bind(this)
+      this._watchForAutoplayInteraction()
 
       // Bound handlers so add/removeEventListener use the same reference.
       this._onPointerEnter = this._pauseActiveVideo.bind(this)
@@ -32,6 +39,7 @@ if (!customElements.get("slideshow-component")) {
     disconnectedCallback() {
       clearInterval(this.check)
       this._clearVideoWatch()
+      this._removeAutoplayInteractionListeners()
       this.removeEventListener('mouseenter', this._onPointerEnter)
       this.removeEventListener('mouseleave', this._onPointerLeave)
       this.removeEventListener('focusin', this._onPointerEnter)
@@ -40,6 +48,7 @@ if (!customElements.get("slideshow-component")) {
 
     init() {
       this.check = setInterval(() => {
+        this._sliderInitAttempts += 1
         this.slider = this.domNodes.flickity.slider && this.domNodes.flickity.slider.instance
         if (this.slider && typeof this.slider == 'object') {
           clearInterval(this.check)
@@ -54,10 +63,18 @@ if (!customElements.get("slideshow-component")) {
           this.addEventListener('focusin', this._onPointerEnter)
           this.addEventListener('focusout', this._onPointerLeave)
 
+          this._sliderReady = true
           this.playVideo()
+          this._startDeferredAutoplay()
           if (this.domNodes.pageCounter) {
             this.domNodes.flickity.insertBefore(this.domNodes.pageCounter, null)
           }
+        } else if (
+          this._sliderInitAttempts >= 100 ||
+          Date.now() - this._sliderInitStartedAt >= 10000
+        ) {
+          clearInterval(this.check)
+          this.removeAttribute('data-media-loading')
         }
       }, 100)
     }
@@ -82,6 +99,44 @@ if (!customElements.get("slideshow-component")) {
       }
 
       this.playVideo()
+    }
+
+    get deferredAutoplaySpeed() {
+      const speed = Number(this.dataset.autoplayAfterInteraction)
+      return Number.isFinite(speed) && speed > 0 ? speed : 0
+    }
+
+    _watchForAutoplayInteraction() {
+      if (!this.deferredAutoplaySpeed || this._reducedMotion) return
+      this._autoplayInteractionEvents.forEach((eventName) => {
+        window.addEventListener(eventName, this._onAutoplayInteraction, { passive: true })
+      })
+    }
+
+    _handleAutoplayInteraction() {
+      if (this._autoplayInteractionSeen) return
+      this._autoplayInteractionSeen = true
+      this._removeAutoplayInteractionListeners()
+      this._startDeferredAutoplay()
+    }
+
+    _startDeferredAutoplay() {
+      if (
+        !this._autoplayInteractionSeen ||
+        !this._sliderReady ||
+        !this.slider ||
+        this._reducedMotion ||
+        !this.deferredAutoplaySpeed
+      ) return
+
+      this.slider.options.autoPlay = this.deferredAutoplaySpeed
+      this.slider.playPlayer()
+    }
+
+    _removeAutoplayInteractionListeners() {
+      this._autoplayInteractionEvents.forEach((eventName) => {
+        window.removeEventListener(eventName, this._onAutoplayInteraction)
+      })
     }
 
     get autoplayEnabled() {

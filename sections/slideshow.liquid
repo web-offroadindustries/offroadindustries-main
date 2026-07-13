@@ -39,8 +39,13 @@
   endif
 
   assign autoplay = false
+  assign autoplay_after_interaction = false
   if section.settings.autoplay
     assign autoplay = section.settings.autorotate_speed | times: 1000
+    if section.settings.defer_autoplay_until_interaction
+      assign autoplay_after_interaction = autoplay
+      assign autoplay = false
+    endif
   endif
 
   assign flickity_classes = ''
@@ -106,6 +111,7 @@
       class="f-slideshow-wrapper f-slideshow-wrapper--{{ slideshow_height }}{{ slideshow_class }}"
       data-mobile-stack="{{ show_text_below }}"
       data-media-loading
+      data-autoplay-after-interaction="{{ autoplay_after_interaction }}"
       style="--number-slides: {{ section.blocks.size }}; --pagination-background: {{ pagination_background }}; --slider-controls-color: {{ section.blocks.first.settings.text_color }};"
     >
       <flickity-component
@@ -463,6 +469,13 @@
       "id": "autoplay",
       "label": "t:sections.slideshow.settings.auto_rotate.label",
       "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "defer_autoplay_until_interaction",
+      "label": "Start autoplay after first visitor interaction",
+      "default": false,
+      "visible_if": "{{ section.settings.autoplay == true }}"
     },
     {
       "type": "range",

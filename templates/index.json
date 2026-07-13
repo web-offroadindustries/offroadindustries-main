@@ -206,6 +206,7 @@
         "show_dots": true,
         "show_nav": true,
         "autoplay": true,
+        "defer_autoplay_until_interaction": true,
         "autorotate_speed": 5,
         "pagination_background": "none",
         "controls_position": "center",
