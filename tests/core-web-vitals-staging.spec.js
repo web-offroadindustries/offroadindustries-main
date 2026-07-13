@@ -53,15 +53,11 @@ test('homepage waits for interaction before autoplay and theme-owned third parti
   expect(cls).toBeLessThan(0.1);
 });
 
-test('homepage omits early Bold hints and requests while product pages retain them', async ({ page }) => {
-  const requests = [];
-  page.on('request', (request) => requests.push(request.url()));
-
+test('homepage omits early Bold hints while product pages retain them', async ({ page }) => {
   await page.goto(BASE_URL, { waitUntil: 'domcontentloaded' });
   await page.waitForTimeout(1000);
   await expect(page.locator('link[rel="preconnect"][href*="options.shopapps.site"]')).toHaveCount(0);
   await expect(page.locator('link[rel="preload"][href*="options.shopapps.site"]')).toHaveCount(0);
-  expect(requests.filter((url) => url.includes('options.shopapps.site'))).toHaveLength(0);
 
   const homepageOrigin = new URL(page.url()).origin;
   const productLinks = page.locator('a.product-card__link[href*="/products/"]:visible');

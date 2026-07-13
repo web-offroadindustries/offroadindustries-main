@@ -62,6 +62,9 @@ function runLoader(script) {
   return { window, document, inserted, scheduled };
 }
 
+const approvedEvents = ['scroll', 'pointerdown', 'click', 'keydown'];
+const forbiddenEvents = ['mousemove', 'touchstart'];
+
 for (const scenario of [
   {
     name: 'GTM',
@@ -73,23 +76,43 @@ for (const scenario of [
     name: 'Podium',
     marker: '{% comment %} WebChat',
     target: 'document',
-    expectedSrc: 'https://connect.podium.com/widget.js#ORG_TOKEN=',
+    expectedSrc: 'https://connect.podium.com/widget.js#ORG_TOKEN=211a92b8-ab89-45c7-ba01-acab8089df3d',
   },
 ]) {
-  test(`${scenario.name} loads once after meaningful interaction and never from a timeout`, () => {
-    const harness = runLoader(extractScript(scenario.marker));
-    assert.equal(harness.inserted.length, 0);
-    assert.equal(harness.scheduled.length, 0);
+  test(`${scenario.name} honors only approved interaction triggers and never uses a timeout`, () => {
+    const script = extractScript(scenario.marker);
 
-    const target = harness[scenario.target];
-    target.dispatch('pointerdown');
-    assert.equal(harness.inserted.length, 1);
-    assert.match(harness.inserted[0].src, new RegExp(scenario.expectedSrc.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')));
+    for (const trigger of approvedEvents) {
+      const harness = runLoader(script);
+      const target = harness[scenario.target];
 
-    target.dispatch('scroll');
-    target.dispatch('click');
-    target.dispatch('keydown');
-    assert.equal(harness.inserted.length, 1);
-    assert.equal(target.listenerCount('mousemove'), 0);
+      assert.equal(harness.inserted.length, 0, `${trigger} starts with no insertion`);
+      assert.equal(harness.scheduled.length, 0, `${trigger} starts with no fallback`);
+      for (const approvedEvent of approvedEvents) {
+        assert.equal(target.listenerCount(approvedEvent), 1, `${approvedEvent} is registered`);
+      }
+
+      target.dispatch(trigger);
+      assert.equal(harness.inserted.length, 1, `${trigger} inserts exactly once`);
+      assert.equal(harness.inserted[0].src, scenario.expectedSrc, `${trigger} inserts the correct URL`);
+      assert.equal(harness.scheduled.length, 0, `${trigger} schedules no fallback`);
+
+      for (const subsequentEvent of approvedEvents) target.dispatch(subsequentEvent);
+      assert.equal(harness.inserted.length, 1, `${trigger} remains idempotent`);
+      assert.equal(harness.scheduled.length, 0, `${trigger} remains timeout-free`);
+      for (const approvedEvent of approvedEvents) {
+        assert.equal(target.listenerCount(approvedEvent), 0, `${approvedEvent} listener is removed`);
+      }
+    }
+
+    for (const forbiddenEvent of forbiddenEvents) {
+      const harness = runLoader(script);
+      const target = harness[scenario.target];
+
+      assert.equal(target.listenerCount(forbiddenEvent), 0, `${forbiddenEvent} is not registered`);
+      target.dispatch(forbiddenEvent);
+      assert.equal(harness.inserted.length, 0, `${forbiddenEvent} causes no insertion`);
+      assert.equal(harness.scheduled.length, 0, `${forbiddenEvent} schedules no fallback`);
+    }
   });
 }
