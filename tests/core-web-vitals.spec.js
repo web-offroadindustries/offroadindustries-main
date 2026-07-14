@@ -10,7 +10,9 @@ async function sliderState(page) {
     return {
       activateCalls: slider.activateCalls,
       autoPlay: slider.options.autoPlay,
+      deactivateCalls: slider.deactivateCalls,
       pauseCalls: slider.pauseCalls,
+      playerActive: slider.isPlayerActive,
       selectedIndex: slider.selectedIndex,
       playCalls: slider.playCalls,
       videoLoads: deferredMedia.loadCount,
@@ -80,9 +82,9 @@ test('interaction converts a video-first slide to duration-based advancement', a
   await expect.poll(() => sliderState(page)).toMatchObject({
     autoPlay: false,
     selectedIndex: 0,
-    videoLoads: 1,
-    videoLoop: true,
-    videoPlayCalls: 1,
+    videoLoads: 0,
+    videoLoop: null,
+    videoPlayCalls: 0,
     videoTracked: false,
   });
 
@@ -90,9 +92,9 @@ test('interaction converts a video-first slide to duration-based advancement', a
   await expect.poll(() => sliderState(page), { timeout: 500 }).toMatchObject({
     autoPlay: 1000,
     selectedIndex: 0,
-    videoLoads: 2,
+    videoLoads: 1,
     videoLoop: false,
-    videoPlayCalls: 2,
+    videoPlayCalls: 1,
     videoTracked: true,
   });
 
@@ -104,6 +106,118 @@ test('interaction converts a video-first slide to duration-based advancement', a
     selectedIndex: 1,
     videoTracked: false,
   });
+});
+
+test('legacy homepage markup defers autoplay and video until interaction', async ({ page }) => {
+  await page.goto(`${FIXTURE_URL}?legacyMarkup=1&videoFirst=1&autoplay=5000`);
+  await expect(page.locator('#hero')).not.toHaveAttribute('data-media-loading', '');
+
+  await page.waitForTimeout(260);
+  await expect.poll(() => sliderState(page)).toMatchObject({
+    autoPlay: false,
+    selectedIndex: 0,
+    playCalls: 0,
+    videoLoads: 0,
+    videoPlayCalls: 0,
+    videoTracked: false,
+  });
+
+  await page.evaluate(() => window.dispatchEvent(new Event('scroll')));
+  await expect.poll(() => sliderState(page)).toMatchObject({
+    autoPlay: 5000,
+    selectedIndex: 0,
+    videoLoads: 1,
+    videoLoop: false,
+    videoPlayCalls: 1,
+    videoTracked: true,
+  });
+});
+
+test('legacy homepage arrows work immediately and start deferred autoplay', async ({ page }) => {
+  await page.goto(`${FIXTURE_URL}?legacyMarkup=1&autoplay=5000`);
+  await page.getByRole('button', { name: 'Next slide' }).click();
+
+  await expect.poll(() => sliderState(page)).toMatchObject({
+    autoPlay: 5000,
+    selectedIndex: 1,
+    videoLoop: false,
+    videoTracked: true,
+  });
+});
+
+test('legacy homepage resets an already-active Flickity player before deferring it', async ({ page }) => {
+  await page.goto(`${FIXTURE_URL}?legacyMarkup=1&autoplay=5000&preActivated=1`);
+  await expect(page.locator('#hero')).not.toHaveAttribute('data-media-loading', '');
+
+  await expect.poll(() => sliderState(page)).toMatchObject({
+    autoPlay: false,
+    deactivateCalls: 1,
+    playerActive: false,
+    playCalls: 0,
+  });
+
+  await page.evaluate(() => window.dispatchEvent(new Event('scroll')));
+  await expect.poll(() => sliderState(page)).toMatchObject({
+    activateCalls: 1,
+    autoPlay: 5000,
+    deactivateCalls: 1,
+    playerActive: true,
+    playCalls: 1,
+  });
+});
+
+test('legacy homepage respects reduced motion after interaction', async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  await page.goto(`${FIXTURE_URL}?legacyMarkup=1&autoplay=5000`);
+  await page.evaluate(() => window.dispatchEvent(new PointerEvent('pointerdown')));
+  await page.waitForTimeout(260);
+
+  await expect.poll(() => sliderState(page)).toMatchObject({
+    autoPlay: false,
+    selectedIndex: 0,
+    playCalls: 0,
+    videoLoads: 0,
+  });
+});
+
+test('legacy homepage markup promotes only the first slide image', async ({ page }) => {
+  await page.goto(`${FIXTURE_URL}?legacyMarkup=1`);
+
+  const firstImage = page.getByAltText('First slide');
+  await expect(firstImage).toHaveAttribute('loading', 'eager');
+  await expect(firstImage).toHaveAttribute('fetchpriority', 'high');
+  await expect(page.getByAltText('Later slide')).toHaveAttribute('loading', 'lazy');
+  await expect(page.getByAltText('Later slide')).toHaveAttribute('fetchpriority', 'low');
+});
+
+test('legacy homepage does not promote a later image when the first slide is video-only', async ({ page }) => {
+  await page.goto(`${FIXTURE_URL}?legacyMarkup=1&videoOnlyFirst=1`);
+
+  await expect(page.getByAltText('Later slide')).toHaveAttribute('loading', 'lazy');
+  await expect(page.getByAltText('Later slide')).toHaveAttribute('fetchpriority', 'low');
+});
+
+test('legacy homepage promotes every responsive image in the first slide', async ({ page }) => {
+  await page.goto(`${FIXTURE_URL}?legacyMarkup=1&responsiveFirst=1`);
+
+  await expect(page.getByAltText('First slide', { exact: true })).toHaveAttribute('loading', 'eager');
+  await expect(page.getByAltText('First slide', { exact: true })).toHaveAttribute('fetchpriority', 'high');
+  await expect(page.getByAltText('First slide mobile')).toHaveAttribute('loading', 'eager');
+  await expect(page.getByAltText('First slide mobile')).toHaveAttribute('fetchpriority', 'high');
+  await expect(page.getByAltText('Later slide')).toHaveAttribute('loading', 'lazy');
+  await expect(page.getByAltText('Later slide')).toHaveAttribute('fetchpriority', 'low');
+});
+
+test('legacy slideshow markup outside the homepage keeps its configured behavior', async ({ page }) => {
+  await page.goto(`${FIXTURE_URL}?legacyMarkup=1&nonHomepage=1&autoplay=200`);
+  await expect(page.locator('#hero')).not.toHaveAttribute('data-media-loading', '');
+
+  await expect.poll(() => sliderState(page)).toMatchObject({
+    autoPlay: 200,
+    videoLoads: 0,
+  });
+  await expect(page.getByAltText('First slide')).toHaveAttribute('loading', 'lazy');
+  await expect(page.getByAltText('First slide')).toHaveAttribute('fetchpriority', 'low');
 });
 
 test('deferred autoplay falls back when Flickity lacks activatePlayer', async ({ page }) => {

@@ -12,6 +12,19 @@ if (!customElements.get("slideshow-component")) {
       this.domNodes = queryDomNodes(this.selectors, this)
       this.prevIndex = 0
 
+      // Some Shopify deployments can briefly serve this updated asset with the
+      // previous slideshow Liquid. Keep the homepage safe during that window:
+      // recover the configured interval from Flickity's markup, disable its
+      // eager player, and prioritize the LCP image. Explicit deferred-autoplay
+      // markup remains authoritative, and slideshows on every other page keep
+      // their existing behaviour.
+      this._legacyHomepageFallback =
+        document.body.classList.contains('template-index') &&
+        !this.hasAttribute('data-autoplay-after-interaction')
+      this._legacyHomepageAutoplaySpeed = 0
+      this._legacyHomepagePlayerDisabled = false
+      if (this._legacyHomepageFallback) this._prepareLegacyHomepageFallback()
+
       // Video-aware autoplay state.
       this._currentVideo = null
       this._onVideoEnd = null
@@ -52,6 +65,7 @@ if (!customElements.get("slideshow-component")) {
         this.slider = this.domNodes.flickity.slider && this.domNodes.flickity.slider.instance
         if (this.slider && typeof this.slider == 'object') {
           clearInterval(this.check)
+          if (this._legacyHomepageFallback) this._disableLegacyHomepageAutoplay()
           this.removeAttribute('data-media-loading')
           this.slider.on('change', this.handleChange.bind(this))
           this.domNodes.contents[0].classList.add('selected')
@@ -64,7 +78,10 @@ if (!customElements.get("slideshow-component")) {
           this.addEventListener('focusout', this._onPointerLeave)
 
           this._sliderReady = true
-          this.playVideo()
+          // Loading a video here defeats deferred autoplay. Wait for the same
+          // interaction that starts the player; non-deferred slideshows retain
+          // their original eager video behaviour.
+          if (!this.deferredAutoplaySpeed || this._autoplayInteractionSeen) this.playVideo()
           this._startDeferredAutoplay()
           if (this.domNodes.pageCounter) {
             this.domNodes.flickity.insertBefore(this.domNodes.pageCounter, null)
@@ -102,8 +119,58 @@ if (!customElements.get("slideshow-component")) {
     }
 
     get deferredAutoplaySpeed() {
+      if (this._legacyHomepageAutoplaySpeed > 0) return this._legacyHomepageAutoplaySpeed
       const speed = Number(this.dataset.autoplayAfterInteraction)
       return Number.isFinite(speed) && speed > 0 ? speed : 0
+    }
+
+    _prepareLegacyHomepageFallback() {
+      const flickity = this.domNodes.flickity
+      if (!flickity) return
+
+      try {
+        const options = JSON.parse(flickity.dataset.sliderOptions || '{}')
+        const speed = Number(options.autoPlay)
+        if (Number.isFinite(speed) && speed > 0) {
+          this._legacyHomepageAutoplaySpeed = speed
+          options.autoPlay = false
+          flickity.dataset.sliderOptions = JSON.stringify(options)
+        }
+      } catch (_) {
+        // Invalid options are left to Flickity's existing error handling.
+      }
+
+      const firstSlide = this.querySelector('.f-slideshow__slide')
+      if (firstSlide) {
+        firstSlide.querySelectorAll('img').forEach((image) => {
+          image.setAttribute('loading', 'eager')
+          image.setAttribute('fetchpriority', 'high')
+        })
+      }
+
+      this._disableLegacyHomepageAutoplay()
+    }
+
+    _disableLegacyHomepageAutoplay() {
+      if (this._legacyHomepagePlayerDisabled) return
+      const flickity = this.domNodes.flickity
+      const slider = flickity && flickity.slider && flickity.slider.instance
+      if (!slider || !slider.options) return
+
+      const speed = Number(slider.options.autoPlay)
+      if (!this._legacyHomepageAutoplaySpeed && Number.isFinite(speed) && speed > 0) {
+        this._legacyHomepageAutoplaySpeed = speed
+      }
+      slider.options.autoPlay = false
+      // An already-active Flickity Player ignores activatePlayer(). Fully
+      // deactivate it now so the first interaction can activate it again and
+      // restore pause-on-hover. Older Flickity builds fall back to stopPlayer.
+      if (typeof slider.deactivatePlayer === 'function') {
+        slider.deactivatePlayer()
+      } else if (typeof slider.stopPlayer === 'function') {
+        slider.stopPlayer()
+      }
+      this._legacyHomepagePlayerDisabled = true
     }
 
     _watchForAutoplayInteraction() {
