@@ -23,6 +23,17 @@ async function sliderState(page) {
   });
 }
 
+async function reservationState(page) {
+  await page.evaluate(() => customElements.whenDefined('slideshow-component'));
+  return page.locator('#hero flickity-component').evaluate((flickity) => ({
+    aspectRatio: getComputedStyle(flickity).aspectRatio,
+    display: getComputedStyle(flickity).display,
+    enabled: flickity.classList.contains('flickity-enabled'),
+    height: flickity.getBoundingClientRect().height,
+    width: flickity.getBoundingClientRect().width,
+  }));
+}
+
 test('first interaction starts autoplay without immediately skipping the current slide', async ({ page }) => {
   await page.goto(FIXTURE_URL);
   await expect(page.locator('#hero')).not.toHaveAttribute('data-media-loading', '');
@@ -206,6 +217,50 @@ test('legacy homepage promotes every responsive image in the first slide', async
   await expect(page.getByAltText('First slide mobile')).toHaveAttribute('fetchpriority', 'high');
   await expect(page.getByAltText('Later slide')).toHaveAttribute('loading', 'lazy');
   await expect(page.getByAltText('Later slide')).toHaveAttribute('fetchpriority', 'low');
+});
+
+test('legacy adapt homepage reserves the desktop CSS ratio before Flickity initializes', async ({ page }) => {
+  await page.setViewportSize({ width: 1280, height: 720 });
+  await page.goto(`${FIXTURE_URL}?legacyMarkup=1&responsiveFirst=1&missing=1`);
+
+  const state = await reservationState(page);
+  expect(state.display).toBe('block');
+  expect(state.enabled).toBe(false);
+  expect(state.width).toBeCloseTo(1280, 0);
+  expect(state.height).toBeCloseTo(640, 0);
+  expect(state.width / state.height).toBeCloseTo(2, 2);
+});
+
+test('legacy adapt homepage reserves the mobile CSS ratio before Flickity initializes', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto(`${FIXTURE_URL}?legacyMarkup=1&responsiveFirst=1&missing=1`);
+
+  const state = await reservationState(page);
+  expect(state.display).toBe('block');
+  expect(state.enabled).toBe(false);
+  expect(state.width).toBeCloseTo(390, 0);
+  expect(state.height).toBeCloseTo(312, 0);
+  expect(state.width / state.height).toBeCloseTo(1.25, 2);
+});
+
+test('CSS reservation is scoped away from non-homepage, non-adapt, and explicit markup', async ({ page }) => {
+  await page.goto(`${FIXTURE_URL}?legacyMarkup=1&nonHomepage=1&responsiveFirst=1&missing=1`);
+  expect((await reservationState(page)).aspectRatio).toBe('auto');
+
+  await page.goto(`${FIXTURE_URL}?legacyMarkup=1&nonAdapt=1&responsiveFirst=1&missing=1`);
+  expect((await reservationState(page)).aspectRatio).toBe('auto');
+
+  await page.goto(`${FIXTURE_URL}?homepage=1&responsiveFirst=1&missing=1`);
+  expect((await reservationState(page)).aspectRatio).toBe('auto');
+});
+
+test('legacy homepage CSS reservation stops after Flickity initializes', async ({ page }) => {
+  await page.goto(`${FIXTURE_URL}?legacyMarkup=1&responsiveFirst=1`);
+  await expect(page.locator('#hero')).not.toHaveAttribute('data-media-loading', '');
+
+  const state = await reservationState(page);
+  expect(state.enabled).toBe(true);
+  expect(state.aspectRatio).toBe('auto');
 });
 
 test('legacy slideshow markup outside the homepage keeps its configured behavior', async ({ page }) => {

@@ -157,6 +157,20 @@
 .f-slideshow__slides:not(.f-slideshow-wrapper--adapt) {
   height: var(--slide-height);
 }
+/* Reserve the legacy homepage's adaptive hero before Flickity creates its
+   viewport. The legacy Liquid already exposes these ratios inline, so this
+   works before JavaScript and releases completely once Flickity is enabled. */
+body.template-index .f-slideshow .f-slideshow-wrapper--adapt:not([data-autoplay-after-interaction]) > .f-slideshow__slides:not(.flickity-enabled) {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: var(--aspect-ratio);
+}
+@media (max-width: 767.98px) {
+  body.template-index .f-slideshow .f-slideshow-wrapper--adapt:not([data-autoplay-after-interaction]) > .f-slideshow__slides:not(.flickity-enabled) {
+    aspect-ratio: var(--aspect-ratio-mobile);
+  }
+}
 .f-slideshow__slides:not(.flickity-enabled) .f-slideshow__slide:not(:first-child) {
   display: none;
 }

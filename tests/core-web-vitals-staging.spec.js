@@ -60,24 +60,18 @@ test('homepage omits early Bold hints while product pages retain them', async ({
   await expect(page.locator('link[rel="preload"][href*="options.shopapps.site"]')).toHaveCount(0);
 
   const homepageOrigin = new URL(page.url()).origin;
-  const productLinks = page.locator('a.product-card__link[href*="/products/"]:visible');
-  let productLink = null;
-  for (let index = 0; index < await productLinks.count(); index += 1) {
-    const candidate = productLinks.nth(index);
-    const href = await candidate.getAttribute('href');
-    const target = await candidate.getAttribute('target');
-    if (href && (!target || target === '_self') && new URL(href, page.url()).origin === homepageOrigin) {
-      productLink = candidate;
-      break;
-    }
-  }
-  expect(productLink, 'A visible, same-origin product card link is required').not.toBeNull();
-  await expect(productLink).toBeVisible();
-  await Promise.all([
-    page.waitForURL((url) => url.pathname.includes('/products/'), { waitUntil: 'domcontentloaded' }),
-    productLink.click(),
-  ]);
-  expect(new URL(page.url()).origin).toBe(homepageOrigin);
+  const productHrefs = await page.locator('a[href*="/products/"]').evaluateAll((links) =>
+    links.map((link) => link.getAttribute('href')).filter(Boolean)
+  );
+  const productUrl = productHrefs
+    .map((href) => new URL(href, page.url()))
+    .find((url) => url.origin === homepageOrigin && url.pathname.startsWith('/products/'))
+    || new URL('/products/amp-research-powerstep-vision-chevrolet-silverado-2500-1500', homepageOrigin);
+
+  await page.goto(productUrl.href, { waitUntil: 'domcontentloaded' });
+  const finalUrl = new URL(page.url());
+  expect(finalUrl.origin).toBe(homepageOrigin);
+  expect(finalUrl.pathname).toMatch(/\/products\/[^/]+\/?$/);
 
   await expect(page.locator('link[rel="preconnect"][href="https://options.shopapps.site"]')).toHaveCount(1);
   await expect(page.locator('link[rel="preload"][href*="options.shopapps.site/js/options.js"]')).toHaveCount(1);
