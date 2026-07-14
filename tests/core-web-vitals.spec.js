@@ -34,6 +34,29 @@ async function reservationState(page) {
   }));
 }
 
+async function mobileStackTextState(page) {
+  await page.evaluate(() => customElements.whenDefined('slideshow-component'));
+  return page.locator('#hero').evaluate((hero) => {
+    const text = hero.querySelector('.f-slideshow__text');
+    const wrappers = Array.from(text.querySelectorAll('.f-slideshow__content-wrapper'));
+    const firstContent = wrappers[0].querySelector('.f-slideshow__content');
+    const cta = wrappers[0].querySelector('a');
+    cta.focus();
+    const ctaFocused = document.activeElement === cta;
+    cta.blur();
+    return {
+      contentDisplay: getComputedStyle(firstContent).display,
+      ctaFocused,
+      firstDisplay: getComputedStyle(wrappers[0]).display,
+      firstOpacity: getComputedStyle(wrappers[0]).opacity,
+      firstSelected: wrappers[0].classList.contains('selected'),
+      firstVisibility: getComputedStyle(wrappers[0]).visibility,
+      secondDisplay: getComputedStyle(wrappers[1]).display,
+      textHeight: text.getBoundingClientRect().height,
+    };
+  });
+}
+
 test('first interaction starts autoplay without immediately skipping the current slide', async ({ page }) => {
   await page.goto(FIXTURE_URL);
   await expect(page.locator('#hero')).not.toHaveAttribute('data-media-loading', '');
@@ -261,6 +284,43 @@ test('legacy homepage CSS reservation stops after Flickity initializes', async (
   const state = await reservationState(page);
   expect(state.enabled).toBe(true);
   expect(state.aspectRatio).toBe('auto');
+});
+
+test('legacy mobile-stack homepage reserves first-slide text height through initialization', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto(`${FIXTURE_URL}?legacyMarkup=1&mobileStack=1&missing=1`);
+
+  const before = await mobileStackTextState(page);
+  expect(before.contentDisplay).toBe('block');
+  expect(before.ctaFocused).toBe(false);
+  expect(before.firstDisplay).toBe('block');
+  expect(before.firstSelected).toBe(false);
+  expect(before.firstVisibility).toBe('hidden');
+  expect(before.secondDisplay).toBe('none');
+  expect(before.textHeight).toBeGreaterThan(50);
+
+  await page.goto(`${FIXTURE_URL}?legacyMarkup=1&mobileStack=1`);
+  await expect(page.locator('#hero')).not.toHaveAttribute('data-media-loading', '');
+  const after = await mobileStackTextState(page);
+  expect(after.contentDisplay).toBe('block');
+  expect(after.firstDisplay).toBe('block');
+  expect(after.firstSelected).toBe(true);
+  expect(after.firstVisibility).toBe('visible');
+  expect(after.secondDisplay).toBe('none');
+  expect(after.textHeight).toBeCloseTo(before.textHeight, 0);
+});
+
+test('mobile-stack text reservation excludes non-homepage, non-adapt, and explicit markup', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+
+  await page.goto(`${FIXTURE_URL}?legacyMarkup=1&nonHomepage=1&mobileStack=1&missing=1`);
+  expect((await mobileStackTextState(page)).textHeight).toBe(0);
+
+  await page.goto(`${FIXTURE_URL}?legacyMarkup=1&nonAdapt=1&mobileStack=1&missing=1`);
+  expect((await mobileStackTextState(page)).textHeight).toBe(0);
+
+  await page.goto(`${FIXTURE_URL}?homepage=1&mobileStack=1&missing=1`);
+  expect((await mobileStackTextState(page)).textHeight).toBe(0);
 });
 
 test('legacy slideshow markup outside the homepage keeps its configured behavior', async ({ page }) => {

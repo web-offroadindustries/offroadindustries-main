@@ -305,6 +305,19 @@ body.template-index .f-slideshow .f-slideshow-wrapper--adapt:not([data-autoplay-
     display: none;
     padding: 2rem 1.5rem 0;
   }
+  /* Legacy mobile-stack heroes add their first text panel only after slider
+     setup, which shifts every section below the hero. Reserve that exact panel
+     before Flickity, and bridge the short enabled/loading handoff until the
+     component selects it. Later panels remain display:none. */
+  body.template-index .f-slideshow .f-slideshow-wrapper--adapt.f-slideshow--mobile-stack:not([data-autoplay-after-interaction]) > .f-slideshow__slides:not(.flickity-enabled) + .f-slideshow__text,
+  body.template-index .f-slideshow .f-slideshow-wrapper--adapt.f-slideshow--mobile-stack:not([data-autoplay-after-interaction])[data-media-loading] > .f-slideshow__slides.flickity-enabled + .f-slideshow__text {
+    display: flex;
+  }
+  body.template-index .f-slideshow .f-slideshow-wrapper--adapt.f-slideshow--mobile-stack:not([data-autoplay-after-interaction]) > .f-slideshow__slides:not(.flickity-enabled) + .f-slideshow__text > .f-slideshow__content-wrapper:first-child,
+  body.template-index .f-slideshow .f-slideshow-wrapper--adapt.f-slideshow--mobile-stack:not([data-autoplay-after-interaction])[data-media-loading] > .f-slideshow__slides.flickity-enabled + .f-slideshow__text > .f-slideshow__content-wrapper:first-child {
+    display: block;
+    visibility: hidden;
+  }
   .f-slideshow--mobile-stack .f-slideshow__content-wrapper.f-slideshow__content--out {
     display: block;
     animation: f-fade-out 0.45s ease;

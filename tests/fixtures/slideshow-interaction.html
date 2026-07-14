@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Slideshow interaction fixture</title>
+    <style>.hidden { display: none; } body { margin: 0; }</style>
     <link rel="stylesheet" href="../../assets/slideshow-component.css">
-    <style>body { margin: 0; }</style>
   </head>
   <body>
     <div class="f-slideshow">
@@ -31,11 +31,25 @@
           </deferred-media>
         </div>
       </flickity-component>
-      <div class="f-slideshow__content-wrapper" data-text-color="#000"></div>
-      <div class="f-slideshow__content-wrapper" data-text-color="#000"></div>
+      <div class="f-slideshow__text">
+        <div class="f-slideshow__content-wrapper" data-text-color="#000">
+          <div class="f-slideshow__content f-text-blocks hidden">
+            <h2 class="f-slideshow__title">Choose your offroad vehicle</h2>
+            <div class="f-slideshow__description">Engineered upgrades for touring and towing.</div>
+            <div class="f-slideshow__btn-group">
+              <div class="f-slideshow__btn"><a href="#packages">View GVM packages</a></div>
+            </div>
+          </div>
+        </div>
+        <div class="f-slideshow__content-wrapper" data-text-color="#000">
+          <div class="f-slideshow__content f-text-blocks hidden">
+            <h2 class="f-slideshow__title">Built for the next track</h2>
+          </div>
+        </div>
+      </div>
     </slideshow-component>
     </div>
-    <button id="next-slide" type="button">Next slide</button>
+    <button id="next-slide" type="button" style="position: relative; z-index: 1;">Next slide</button>
 
     <script>
       window.FoxThemeSettings = { isMobile: false };
@@ -73,6 +87,9 @@
       }
       if (fixtureParams.get('nonAdapt') === '1') {
         document.querySelector('#hero').classList.remove('f-slideshow-wrapper--adapt');
+      }
+      if (fixtureParams.get('mobileStack') === '1') {
+        document.querySelector('#hero').classList.add('f-slideshow--mobile-stack');
       }
       if (fixtureParams.get('videoOnlyFirst') === '1') {
         const flickity = document.querySelector('flickity-component');
