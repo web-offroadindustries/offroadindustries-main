@@ -14,7 +14,7 @@ test.beforeEach(async ({ page }) => {
   });
 });
 
-test('homepage waits for interaction before autoplay and theme-owned third parties', async ({ page }) => {
+test('homepage waits for interaction before autoplay and theme-owned third parties', async ({ page, browserName }, testInfo) => {
   const requests = [];
   page.on('request', (request) => requests.push(request.url()));
 
@@ -34,19 +34,50 @@ test('homepage waits for interaction before autoplay and theme-owned third parti
 
   await page.waitForTimeout(6000);
   await expect(hero.locator('.f-slideshow__slide.is-selected')).toHaveAttribute('data-index', firstIndex);
+  await expect(hero.locator('deferred-media > video')).toHaveCount(0);
   expect(requests).not.toContain(videoUrl);
   expect(requests.filter((url) => url.includes('gtm.js?id=GTM-PNBCJ3H'))).toHaveLength(0);
   expect(requests.filter((url) => url.includes('connect.podium.com/widget.js'))).toHaveLength(0);
 
-  const initialScrollY = await page.evaluate(() => window.scrollY);
-  await page.mouse.wheel(0, 200);
-  await expect.poll(() => page.evaluate(() => window.scrollY)).toBeGreaterThan(initialScrollY);
+  if (testInfo.project.name === 'safari-mobile') {
+    const safeTapPoint = await page.evaluate(() => {
+      const interactiveSelector = 'a, button, input, select, textarea, label, summary, iframe, video, [role="button"], [onclick]';
+      for (let y = 1; y < window.innerHeight; y += 20) {
+        for (let x = 1; x < window.innerWidth; x += 20) {
+          const target = document.elementFromPoint(x, y);
+          if (target && !target.closest(interactiveSelector)) return { x, y };
+        }
+      }
+      return null;
+    });
+    expect(safeTapPoint, 'The mobile viewport must expose a safe non-link tap point').not.toBeNull();
+    const urlBeforeTap = page.url();
+    await page.touchscreen.tap(safeTapPoint.x, safeTapPoint.y);
+    await page.waitForTimeout(250);
+    expect(page.url()).toBe(urlBeforeTap);
+  } else {
+    const initialScrollY = await page.evaluate(() => window.scrollY);
+    await page.mouse.wheel(0, 200);
+    await expect.poll(() => page.evaluate(() => window.scrollY)).toBeGreaterThan(initialScrollY);
+  }
   await page.waitForTimeout(5400);
   await expect(hero.locator('.f-slideshow__slide.is-selected')).not.toHaveAttribute('data-index', firstIndex);
 
   await expect.poll(() => requests.filter((url) => url.includes('gtm.js?id=GTM-PNBCJ3H')).length).toBe(1);
   await expect.poll(() => requests.filter((url) => url.includes('connect.podium.com/widget.js')).length).toBe(1);
-  await expect.poll(() => requests.includes(videoUrl)).toBe(true);
+  if (browserName === 'webkit') {
+    const selectedVideo = hero.locator('.f-slideshow__slide.is-selected deferred-media > video');
+    await expect(selectedVideo).toHaveCount(1);
+    await expect.poll(() => selectedVideo.evaluate((video) => {
+      const mediaUrl = video.currentSrc || video.src;
+      return {
+        src: mediaUrl ? new URL(mediaUrl, document.baseURI).href : '',
+        paused: video.paused,
+      };
+    })).toEqual({ src: videoUrl, paused: false });
+  } else {
+    await expect.poll(() => requests.includes(videoUrl)).toBe(true);
+  }
 
   await page.waitForTimeout(1000);
   const cls = await page.evaluate(() => window.__coreWebVitalsCls);
