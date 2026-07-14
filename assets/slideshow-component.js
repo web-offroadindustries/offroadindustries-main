@@ -130,7 +130,12 @@ if (!customElements.get("slideshow-component")) {
       ) return
 
       this.slider.options.autoPlay = this.deferredAutoplaySpeed
-      this.slider.playPlayer()
+      if (typeof this.slider.activatePlayer === 'function') {
+        this.slider.activatePlayer()
+      } else {
+        this.slider.playPlayer()
+      }
+      if (this.slider.selectedElement.querySelector('deferred-media')) this.playVideo()
     }
 
     _removeAutoplayInteractionListeners() {

@@ -14,7 +14,7 @@
         <div class="f-slideshow__slide" data-index="0"><img alt="First slide"></div>
         <div class="f-slideshow__slide" data-index="1">
           <deferred-media>
-            <template><video muted playsinline></video></template>
+            <template><video muted playsinline loop></video></template>
           </deferred-media>
         </div>
       </flickity-component>
@@ -36,8 +36,23 @@
         );
       };
 
-      HTMLMediaElement.prototype.play = () => Promise.resolve();
-      HTMLMediaElement.prototype.pause = () => {};
+      const fixtureParams = new URLSearchParams(window.location.search);
+      const fixtureAutoplay = Number(fixtureParams.get('autoplay'));
+      if (Number.isFinite(fixtureAutoplay) && fixtureAutoplay > 0) {
+        document.querySelector('#hero').dataset.autoplayAfterInteraction = fixtureAutoplay;
+      }
+      if (fixtureParams.get('videoFirst') === '1') {
+        const flickity = document.querySelector('flickity-component');
+        flickity.prepend(flickity.querySelector('[data-index="1"]'));
+      }
+
+      HTMLMediaElement.prototype.play = function play() {
+        this.playCount = (this.playCount || 0) + 1;
+        return Promise.resolve();
+      };
+      HTMLMediaElement.prototype.pause = function pause() {
+        this.pauseCount = (this.pauseCount || 0) + 1;
+      };
 
       class DeferredMedia extends HTMLElement {
         constructor() {
@@ -51,6 +66,7 @@
           if (template) {
             this.appendChild(template.content.cloneNode(true));
             template.remove();
+            this.setAttribute('loaded', '');
           }
         }
       }
@@ -59,12 +75,17 @@
       class FakeSlider {
         constructor(element) {
           this.element = element;
-          this.options = { autoPlay: false };
+          this.options = { autoPlay: false, pauseAutoPlayOnHover: true };
           this.selectedIndex = 0;
           this.selectedElement = element.querySelectorAll('.f-slideshow__slide')[0];
           this.handlers = {};
+          this.activateCalls = 0;
+          this.pauseCalls = 0;
           this.playCalls = 0;
           this.timer = null;
+          this._onMouseEnter = this.onmouseenter.bind(this);
+          this._onMouseLeave = this.onmouseleave.bind(this);
+          if (fixtureParams.get('legacyPlayer') === '1') this.activatePlayer = undefined;
         }
 
         on(name, callback) {
@@ -73,12 +94,39 @@
 
         playPlayer() {
           this.playCalls += 1;
+          this.scheduleNext();
+        }
+
+        activatePlayer() {
+          this.activateCalls += 1;
+          if (!this.options.autoPlay) return;
+          this.playPlayer();
+          this.element.addEventListener('mouseenter', this._onMouseEnter);
+        }
+
+        scheduleNext() {
           clearTimeout(this.timer);
-          this.timer = setTimeout(() => this.next(), this.options.autoPlay);
+          this.timer = setTimeout(() => {
+            this.timer = null;
+            this.next();
+          }, this.options.autoPlay);
         }
 
         stopPlayer() {
           clearTimeout(this.timer);
+          this.timer = null;
+        }
+
+        onmouseenter() {
+          if (!this.options.pauseAutoPlayOnHover) return;
+          this.pauseCalls += 1;
+          this.stopPlayer();
+          this.element.addEventListener('mouseleave', this._onMouseLeave);
+        }
+
+        onmouseleave() {
+          this.scheduleNext();
+          this.element.removeEventListener('mouseleave', this._onMouseLeave);
         }
 
         next() {
@@ -91,7 +139,7 @@
 
       class FakeFlickity extends HTMLElement {
         connectedCallback() {
-          if (new URLSearchParams(window.location.search).get('missing') === '1') {
+          if (fixtureParams.get('missing') === '1') {
             this.slider = { instance: null };
             return;
           }
