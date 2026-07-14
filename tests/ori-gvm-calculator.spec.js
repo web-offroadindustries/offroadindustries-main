@@ -329,17 +329,7 @@ test('isolates an invalid vehicle instead of crashing the calculator', async ({ 
 });
 
 test('uses ORI brand variables and stays responsive without page overflow', async ({ page }, testInfo) => {
-  await page.goto(FIXTURE_URL);
-  await page.evaluate(() => {
-    document.documentElement.style.setProperty(
-      '--brand-display-font',
-      '"Fixture Display", sans-serif'
-    );
-    document.documentElement.style.setProperty(
-      '--brand-body-font',
-      '"Fixture Body", sans-serif'
-    );
-  });
+  await page.goto(`${FIXTURE_URL}?fixtureFonts=1`);
   await selectVehicle(page);
 
   await page.setViewportSize({ width: 1280, height: 900 });

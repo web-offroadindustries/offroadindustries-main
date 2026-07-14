@@ -24,6 +24,18 @@
         width: 100%;
       }
     </style>
+    <script>
+      if (new URLSearchParams(window.location.search).has('fixtureFonts')) {
+        document.documentElement.style.setProperty(
+          '--brand-display-font',
+          '"Fixture Display", sans-serif'
+        );
+        document.documentElement.style.setProperty(
+          '--brand-body-font',
+          '"Fixture Body", sans-serif'
+        );
+      }
+    </script>
     <link rel="stylesheet" href="../../assets/ori-gvm-calculator.css">
     <script src="../../assets/ori-gvm-calculator-engine.js" defer></script>
     <script src="../../assets/ori-gvm-calculator.js" defer></script>
