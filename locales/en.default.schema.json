@@ -933,6 +933,12 @@
         },
         "mobile_bottom_padding": {
           "label": "Mobile bottom padding"
+        },
+        "top_padding_mobile": {
+          "label": "Mobile padding top"
+        },
+        "bottom_padding_mobile": {
+          "label": "Mobile padding bottom"
         }
       },
       "color_schema": {
@@ -1093,6 +1099,18 @@
         },
         "show_all_button_on_top": {
           "label": "Show on heading section"
+        },
+        "size": {
+          "label": "Button size",
+          "option__1": {
+            "label": "Small"
+          },
+          "option__2": {
+            "label": "Medium"
+          },
+          "option__3": {
+            "label": "Large"
+          }
         }
       },
       "icon": {
@@ -1505,7 +1523,8 @@
         },
         "vertical_content_padding": {
           "label": "Vertical content padding"
-        }
+        },
+        "name": "Spacing"
       },
       "sizes": {
         "icon_size": {
@@ -2619,6 +2638,15 @@
             "label": "Right"
           },
           "label": "Desktop image position"
+        },
+        "image_position": {
+          "label": "Image position",
+          "option__1": {
+            "label": "Left"
+          },
+          "option__2": {
+            "label": "Right"
+          }
         }
       },
       "blocks": {
@@ -2646,6 +2674,9 @@
           "name": "Subheading",
           "settings": {
             "heading": {
+              "label": "Subheading"
+            },
+            "subheading": {
               "label": "Subheading"
             }
           }
