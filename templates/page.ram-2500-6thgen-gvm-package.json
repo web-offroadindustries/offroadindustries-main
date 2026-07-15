@@ -20,7 +20,7 @@
         "slide_ram6g_1": {
           "type": "slide",
           "settings": {
-            "background": "shopify://shop_images/1920x1080px_RAM.png",
+            "background": "shopify://shop_images/2000x560_-_RAM_2500_NB2_-_5900.png",
             "image_overlay_opacity": 0,
             "content_position": "center",
             "text_alignment": "center",
@@ -460,6 +460,65 @@
         "enable_lightbox": true,
         "image_width": "50%",
         "image_position": "left",
+        "vertical_alignment": "center",
+        "align_content_container": "none",
+        "show_image_padding": true,
+        "column_gap": "medium",
+        "row_gap": "medium",
+        "padding_left": 0,
+        "padding_right": 0,
+        "mobile_padding_left": 15,
+        "mobile_padding_right": 15,
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "padding_top_mobile": 60,
+        "padding_bottom_mobile": 60,
+        "show_section_divider": false,
+        "divider_width": "container",
+        "custom_id": "",
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "image_with_text_hg33cm": {
+      "type": "image-with-text",
+      "blocks": {
+        "subheading_CjaDiT": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "Stage 6: Installed & Engineered — Contact for Pricing",
+            "subheading_size": "h5"
+          }
+        },
+        "heading_bDWERU": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>Stage 6: </strong>",
+            "highlight_style": "none",
+            "enable_highlight_text_color": false,
+            "heading_size": "h2"
+          }
+        },
+        "text_yEHxmz": {
+          "type": "text",
+          "settings": {
+            "text": "<p><em>The absolute peak RAM 2500 6th Gen package — race-bred suspension technology combined with Australia's highest legal GVM rating.</em></p>"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_CjaDiT",
+        "heading_bDWERU",
+        "text_yEHxmz"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "container": "container",
+        "color_schema": "",
+        "image": "shopify://shop_images/STAGE_6_RAM_2500_6th_GEN_ALL_PRODUCTS-2.png",
+        "enable_lightbox": true,
+        "image_width": "50%",
+        "image_position": "right",
         "vertical_alignment": "center",
         "align_content_container": "none",
         "show_image_padding": true,
@@ -1332,6 +1391,7 @@
     "image_with_text_ram6g_s3",
     "image_with_text_ram6g_s4",
     "image_with_text_qBLYdb",
+    "image_with_text_hg33cm",
     "rich_text_ram6g_spec_heading",
     "gvm_comparison_ram6g_specs",
     "gvm_comparison_ram6g_components",
