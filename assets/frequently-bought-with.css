@@ -32,9 +32,23 @@
   margin-bottom: 20px;
 }
 
-.fbw__heading {
+/* Heading takes the remaining space so alignment (left/center/right) is honoured.
+   Higher specificity than the theme's `.h2` so size/weight/color overrides win. */
+.fbw__widget .fbw__heading {
+  flex: 1 1 auto;
   margin: 0;
   color: var(--color-text-heading, inherit);
+  /* Fluid size: clamps between the mobile and desktop settings (375px -> 1440px). */
+  font-size: clamp(
+    calc(var(--fbw-heading-min, 22) * 1px),
+    calc(
+      var(--fbw-heading-min, 22) * 1px +
+        (var(--fbw-heading-max, 34) - var(--fbw-heading-min, 22)) *
+        ((100vw - 375px) / 1065)
+    ),
+    calc(var(--fbw-heading-max, 34) * 1px)
+  );
+  line-height: 1.15;
 }
 
 /* Controls stay hidden until JS is ready, and are hidden when nothing overflows.
@@ -54,23 +68,40 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 44px;
-  height: 44px;
+  width: 38px;
+  height: 38px;
   padding: 0;
   border-radius: 50%;
-  border: 1px solid var(--color-border, rgba(0, 0, 0, 0.15));
-  background-color: var(--color-btn-bg, #111);
-  color: var(--color-btn-text, #fff);
+  border: none;
+  /* Site branding: primary brand accent, with the scheme background as the icon. */
+  background-color: var(--color-primary, var(--color-btn-bg, #111));
+  color: var(--color-background, #fff);
   cursor: pointer;
   -webkit-appearance: none;
   appearance: none;
-  transition: opacity 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.fbw__nav:hover {
+  opacity: 0.88;
+}
+
+.fbw__nav:active {
+  transform: scale(0.96);
 }
 
 .fbw__nav .f-icon-svg {
   display: block;
-  width: 20px;
-  height: 20px;
+  width: 17px;
+  height: 17px;
+}
+
+/* Keep a comfortable tap target on touch screens. */
+@media (max-width: 767px) {
+  .fbw__nav {
+    width: 42px;
+    height: 42px;
+  }
 }
 
 .fbw__nav:focus-visible {

@@ -15,6 +15,12 @@
     assign heading = 'Frequently Bought With'
   endif
 
+  assign heading_size_mobile = section.settings.heading_size_mobile | default: 22
+  assign heading_size_desktop = section.settings.heading_size_desktop | default: 34
+  assign heading_align = section.settings.heading_alignment | default: 'left'
+  assign heading_weight = section.settings.heading_weight
+  assign heading_color = section.settings.heading_color
+
   comment
     Product source priority:
     1. Specific products (product_list) win when at least one is chosen.
@@ -24,19 +30,43 @@
     so `!= blank` is a reliable "has products" test.
   endcomment
   assign product_source = null
-  assign source_count = 0
   if section.settings.product_list != blank
     assign product_source = section.settings.product_list
-    assign source_count = section.settings.product_list.size
   elsif section.settings.collection != blank and section.settings.collection.all_products_count > 0
     assign product_source = section.settings.collection.products
-    assign source_count = section.settings.collection.all_products_count
   endif
 
   assign max_items = 12
-  assign display_count = source_count | at_most: max_items
 -%}
-{%- if product_source or request.design_mode -%}
+{%- comment -%} Build slides first: skip sold-out products and de-duplicate. {%- endcomment -%}
+{%- capture fbw_slides -%}
+  {%- assign seen = '' -%}
+  {%- if product_source -%}
+    {%- for product in product_source limit: max_items -%}
+      {%- if product.available -%}
+        {%- assign dedupe_key = ',' | append: product.id | append: ',' -%}
+        {%- unless seen contains dedupe_key -%}
+          {%- assign seen = seen | append: dedupe_key -%}
+          <li class="fbw__slide">
+            {%- render 'product-card',
+              product: product,
+              color_schema: section.settings.color_schema,
+              image_ratio: image_ratio,
+              show_vendor: show_vendor,
+              section_index: section.index,
+              index: forloop.index
+            -%}
+          </li>
+        {%- endunless -%}
+      {%- endif -%}
+    {%- endfor -%}
+  {%- endif -%}
+{%- endcapture -%}
+{%- assign has_slides = false -%}
+{%- if fbw_slides contains 'fbw__slide' -%}
+  {%- assign has_slides = true -%}
+{%- endif -%}
+{%- if has_slides or request.design_mode -%}
   {{ 'frequently-bought-with.css' | asset_url | stylesheet_tag }}
 {%- endif -%}
 <section
@@ -47,7 +77,7 @@
   style="--section-padding-top: {{ section.settings.padding_top }}px; --section-padding-bottom: {{ section.settings.padding_bottom }}px;"
 >
   <div class="{{ container }}">
-    {%- if product_source -%}
+    {%- if has_slides -%}
       <link
         rel="stylesheet"
         href="{{ 'modal-component.css' | asset_url }}"
@@ -61,11 +91,20 @@
         role="region"
         aria-labelledby="{{ section_id }}-title"
         data-per-view="{{ visible }}"
-        data-count="{{ display_count }}"
         style="--fbw-per-view-desktop: {{ visible }};"
       >
         <div class="fbw__header">
-          <h2 id="{{ section_id }}-title" class="fbw__heading h2">{{ heading | escape }}</h2>
+          <h2
+            id="{{ section_id }}-title"
+            class="fbw__heading h2"
+            style="
+              --fbw-heading-min: {{ heading_size_mobile }};
+              --fbw-heading-max: {{ heading_size_desktop }};
+              text-align: {{ heading_align }};
+              {%- if heading_weight != blank %} font-weight: {{ heading_weight }};{% endif -%}
+              {%- if heading_color != blank %} color: {{ heading_color }};{% endif -%}
+            "
+          >{{ heading | escape }}</h2>
           <div class="fbw__controls">
             <button
               type="button"
@@ -97,23 +136,7 @@
             data-fbw-track
             role="list"
           >
-            {%- assign seen = '' -%}
-            {%- for product in product_source limit: max_items -%}
-              {%- assign dedupe_key = ',' | append: product.id | append: ',' -%}
-              {%- unless seen contains dedupe_key -%}
-                {%- assign seen = seen | append: dedupe_key -%}
-                <li class="fbw__slide">
-                  {%- render 'product-card',
-                    product: product,
-                    color_schema: section.settings.color_schema,
-                    image_ratio: image_ratio,
-                    show_vendor: show_vendor,
-                    section_index: section.index,
-                    index: forloop.index
-                  -%}
-                </li>
-              {%- endunless -%}
-            {%- endfor -%}
+            {{- fbw_slides -}}
           </ul>
         </div>
       </frequently-bought-with>
@@ -153,13 +176,67 @@
       "id": "product_list",
       "label": "Specific products",
       "limit": 10,
-      "info": "Select up to 10 products. When set, these are shown and the fallback collection is ignored."
+      "info": "Select up to 10 products. When set, these are shown and the fallback collection is ignored. Sold-out products are never displayed."
     },
     {
       "type": "collection",
       "id": "collection",
       "label": "Fallback collection",
       "info": "Used only when no specific products are selected."
+    },
+    {
+      "type": "header",
+      "content": "Heading style"
+    },
+    {
+      "type": "range",
+      "id": "heading_size_mobile",
+      "label": "Heading size (mobile)",
+      "min": 14,
+      "max": 48,
+      "step": 1,
+      "default": 22,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "heading_size_desktop",
+      "label": "Heading size (desktop)",
+      "min": 16,
+      "max": 72,
+      "step": 1,
+      "default": 34,
+      "unit": "px",
+      "info": "The heading scales fluidly between the mobile and desktop sizes using CSS clamp()."
+    },
+    {
+      "type": "select",
+      "id": "heading_weight",
+      "label": "Heading weight",
+      "default": "",
+      "options": [
+        { "value": "", "label": "Theme default" },
+        { "value": "400", "label": "Regular" },
+        { "value": "600", "label": "Semi-bold" },
+        { "value": "700", "label": "Bold" }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "heading_alignment",
+      "label": "Heading alignment",
+      "default": "left",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "right", "label": "Right" }
+      ]
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading color",
+      "info": "Leave blank to match your theme's other headings."
     },
     {
       "type": "header",
