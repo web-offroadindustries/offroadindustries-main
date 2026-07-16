@@ -1,0 +1,148 @@
+/* Frequently Bought With - section-scoped carousel styles */
+
+.fbw__widget {
+  position: relative;
+  max-width: 100%;
+  /* Mobile-first: one large card with a peek of the next. */
+  --fbw-gap: 12px;
+  --fbw-per-view: 1.2;
+}
+
+@media (min-width: 768px) {
+  .fbw__widget {
+    --fbw-gap: 16px;
+    --fbw-per-view: 2.2;
+  }
+}
+
+@media (min-width: 1024px) {
+  .fbw__widget {
+    --fbw-gap: 20px;
+    /* Merchant-selected count (1-6) applies from desktop up. */
+    --fbw-per-view: var(--fbw-per-view-desktop, 4);
+  }
+}
+
+/* Header: heading on one side, controls on the other */
+.fbw__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.fbw__heading {
+  margin: 0;
+  color: var(--color-text-heading, inherit);
+}
+
+/* Controls stay hidden until JS is ready, and are hidden when nothing overflows.
+   Without JS the track is still scrollable by touch/trackpad/keyboard. */
+.fbw__controls {
+  display: none;
+  align-items: center;
+  gap: 8px;
+  flex: 0 0 auto;
+}
+
+.fbw--ready:not(.fbw--no-controls) .fbw__controls {
+  display: inline-flex;
+}
+
+.fbw__nav {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border-radius: 50%;
+  border: 1px solid var(--color-border, rgba(0, 0, 0, 0.15));
+  background-color: var(--color-btn-bg, #111);
+  color: var(--color-btn-text, #fff);
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+  transition: opacity 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+}
+
+.fbw__nav .f-icon-svg {
+  display: block;
+  width: 20px;
+  height: 20px;
+}
+
+.fbw__nav:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+.fbw__nav[disabled],
+.fbw__nav[aria-disabled="true"] {
+  opacity: 0.3;
+  cursor: default;
+  pointer-events: none;
+}
+
+/* Track */
+.fbw__viewport {
+  position: relative;
+}
+
+.fbw__track {
+  display: flex;
+  gap: var(--fbw-gap);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* legacy Edge */
+}
+
+.fbw__track::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  display: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .fbw__track {
+    scroll-behavior: smooth;
+  }
+}
+
+.fbw__slide {
+  flex: 0 0
+    calc((100% - (var(--fbw-per-view) - 1) * var(--fbw-gap)) / var(--fbw-per-view));
+  min-width: 0; /* stops flex items from forcing page overflow */
+  scroll-snap-align: start;
+}
+
+.fbw__slide > .product-card {
+  height: 100%;
+  width: 100%;
+}
+
+/* Theme editor placeholder (never shown on the live storefront) */
+.fbw__placeholder {
+  border: 1px dashed var(--color-border, currentColor);
+  border-radius: 6px;
+  padding: 32px;
+  text-align: center;
+  opacity: 0.85;
+}
+
+.fbw__placeholder-title {
+  margin: 0 0 6px;
+  font-weight: 600;
+}
+
+.fbw__placeholder-text {
+  margin: 0;
+  font-size: 14px;
+}
