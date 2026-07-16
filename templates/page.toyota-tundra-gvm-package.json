@@ -1186,37 +1186,6 @@
         "custom_class": "",
         "animations": "inherit"
       }
-    },
-    "frequently_bought_with_6CitdL": {
-      "type": "frequently-bought-with",
-      "name": "Frequently Bought With",
-      "settings": {
-        "heading": "Frequently Bought With",
-        "product_list": [
-          "10-inch-led-light-bar-driving-combo-baja-amber-lens-pattern-s8-series-baja-designs",
-          "10-inch-led-light-bar-driving-combo-pattern-s8-series-baja-designs",
-          "10-stealth-d-series-led-light-bar",
-          "10-stealth-e-series-led-light-bar",
-          "10-stealth-s-series-led-light-bar-1",
-          "11-15-gm-hd-4-5in-torsion-bar-system",
-          "2-flush-stealth-w-series-led-work-light"
-        ],
-        "collection": "",
-        "heading_size_mobile": 22,
-        "heading_size_desktop": 34,
-        "heading_weight": "",
-        "heading_alignment": "left",
-        "heading_color": "",
-        "products_per_view": 4,
-        "pcard_image_ratio": "",
-        "show_vendor": false,
-        "container": "container",
-        "color_schema": "",
-        "padding_top": 40,
-        "padding_bottom": 40,
-        "custom_id": "",
-        "custom_class": ""
-      }
     }
   },
   "order": [
@@ -1234,7 +1203,6 @@
     "gvm_comparison_RXeVcA",
     "contact_form_v4_3VcJeR",
     "rich_text_4AxLyp",
-    "logo_list_8XphYi",
-    "frequently_bought_with_6CitdL"
+    "logo_list_8XphYi"
   ]
 }
