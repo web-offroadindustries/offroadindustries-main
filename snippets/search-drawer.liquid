@@ -62,6 +62,7 @@
           >
           <span class="input-focus-border"></span>
           <input type="hidden" name="options[prefix]" value="last">
+          <input type="hidden" name="options[unavailable_products]" value="show">
         </div>
         <drawer-closer
           class="f-drawer__close btn btn--plain"
@@ -94,7 +95,7 @@
             <ul class="list-none flex flex-wrap">
               {% for keyword in keywords %}
                 <li>
-                  <a href="{{ routes.search_url }}?type=product&options%5Bprefix%5D=last&q={{- keyword | strip -}}">
+                  <a href="{{ routes.search_url }}?type=product&options%5Bprefix%5D=last&options%5Bunavailable_products%5D=show&q={{- keyword | strip -}}">
                     {{- keyword | strip -}}
                   </a>
                 </li>

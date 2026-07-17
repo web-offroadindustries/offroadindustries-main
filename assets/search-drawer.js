@@ -159,7 +159,7 @@ class PredictiveSearch extends HTMLElement {
 			this.renderSearchResults(this.cachedResults[queryKey])
 			return
 		}
-		const url = `${this.predictive_search_url}?q=${encodeURIComponent(searchTerm)}&section_id=predictive-search`
+		const url = `${this.predictive_search_url}?q=${encodeURIComponent(searchTerm)}&resources[options][unavailable_products]=show&section_id=predictive-search`
 		fetch(url)
 			.then((res) => {
 				if (!res.ok) {
