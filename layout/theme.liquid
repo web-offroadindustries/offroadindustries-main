@@ -65,7 +65,7 @@
       window.dataLayer.push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
       (function() {
         var gtmLoaded = false;
-        var interactionEvents = ['scroll', 'pointerdown', 'click', 'keydown'];
+        var interactionEvents = ['wheel', 'pointerdown', 'touchstart', 'keydown'];
 
         function removeInteractionListeners() {
           interactionEvents.forEach(function(eventName) {
@@ -449,7 +449,7 @@
     <script>
       (function() {
         var podiumLoaded = false;
-        var interactionEvents = ['scroll', 'pointerdown', 'click', 'keydown'];
+        var interactionEvents = ['wheel', 'pointerdown', 'touchstart', 'keydown'];
 
         function removeInteractionListeners() {
           interactionEvents.forEach(function(eventName) {

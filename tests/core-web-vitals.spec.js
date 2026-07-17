@@ -70,6 +70,14 @@ test('first interaction starts autoplay without immediately skipping the current
   });
 
   await page.evaluate(() => window.dispatchEvent(new Event('scroll')));
+  await page.waitForTimeout(250);
+  await expect.poll(() => sliderState(page)).toMatchObject({
+    autoPlay: false,
+    selectedIndex: 0,
+    videoLoads: 0,
+  });
+
+  await page.evaluate(() => window.dispatchEvent(new WheelEvent('wheel')));
   await expect.poll(() => sliderState(page)).toMatchObject({
     autoPlay: 200,
     selectedIndex: 0,
@@ -89,7 +97,7 @@ test('deferred autoplay activates Flickity hover pause exactly once', async ({ p
   await expect(page.locator('#hero')).not.toHaveAttribute('data-media-loading', '');
 
   await page.evaluate(() => {
-    window.dispatchEvent(new Event('scroll'));
+    window.dispatchEvent(new WheelEvent('wheel'));
     window.dispatchEvent(new KeyboardEvent('keydown'));
     document.querySelector('flickity-component').dispatchEvent(new Event('mouseenter'));
   });
@@ -122,7 +130,7 @@ test('interaction converts a video-first slide to duration-based advancement', a
     videoTracked: false,
   });
 
-  await page.evaluate(() => window.dispatchEvent(new Event('scroll')));
+  await page.evaluate(() => window.dispatchEvent(new WheelEvent('wheel')));
   await expect.poll(() => sliderState(page), { timeout: 500 }).toMatchObject({
     autoPlay: 1000,
     selectedIndex: 0,
@@ -156,7 +164,7 @@ test('legacy homepage markup defers autoplay and video until interaction', async
     videoTracked: false,
   });
 
-  await page.evaluate(() => window.dispatchEvent(new Event('scroll')));
+  await page.evaluate(() => window.dispatchEvent(new WheelEvent('wheel')));
   await expect.poll(() => sliderState(page)).toMatchObject({
     autoPlay: 5000,
     selectedIndex: 0,
@@ -190,7 +198,7 @@ test('legacy homepage resets an already-active Flickity player before deferring 
     playCalls: 0,
   });
 
-  await page.evaluate(() => window.dispatchEvent(new Event('scroll')));
+  await page.evaluate(() => window.dispatchEvent(new WheelEvent('wheel')));
   await expect.poll(() => sliderState(page)).toMatchObject({
     activateCalls: 1,
     autoPlay: 5000,
@@ -339,7 +347,7 @@ test('deferred autoplay falls back when Flickity lacks activatePlayer', async ({
   await page.goto(`${FIXTURE_URL}?legacyPlayer=1`);
   await expect(page.locator('#hero')).not.toHaveAttribute('data-media-loading', '');
 
-  await page.evaluate(() => window.dispatchEvent(new Event('scroll')));
+  await page.evaluate(() => window.dispatchEvent(new WheelEvent('wheel')));
   await expect.poll(() => sliderState(page)).toMatchObject({
     activateCalls: 0,
     autoPlay: 200,

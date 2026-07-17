@@ -40,3 +40,12 @@ test('Bold connection and preload hints are product-only while runtime includes 
   assert.doesNotMatch(productBlockRemoved, /rel="preconnect" href="https:\/\/options\.shopapps\.site"/);
   assert.doesNotMatch(productBlockRemoved, /rel="preload" href="https:\/\/options\.shopapps\.site\/js\/options\.js"/);
 });
+
+test('slideshow offers a 1200px image candidate for high-density mobile screens', () => {
+  const liquid = read('sections/slideshow.liquid');
+  const widths = Array.from(liquid.matchAll(/widths: '([^']+)'/g), (match) => match[1]);
+  const expected = '375, 550, 750, 1100, 1200, 1500, 1780, 2000, 3000, 3840';
+
+  assert.equal(widths.length, 2, 'desktop and mobile slideshow images define widths');
+  assert.deepEqual(widths, [expected, expected]);
+});

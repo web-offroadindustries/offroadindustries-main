@@ -62,8 +62,8 @@ function runLoader(script) {
   return { window, document, inserted, scheduled };
 }
 
-const approvedEvents = ['scroll', 'pointerdown', 'click', 'keydown'];
-const forbiddenEvents = ['mousemove', 'touchstart'];
+const approvedEvents = ['wheel', 'pointerdown', 'touchstart', 'keydown'];
+const forbiddenEvents = ['scroll', 'click', 'mousemove'];
 
 for (const scenario of [
   {

@@ -34,7 +34,7 @@ if (!customElements.get("slideshow-component")) {
       this._reducedMotion =
         typeof window.matchMedia === 'function' &&
         window.matchMedia('(prefers-reduced-motion: reduce)').matches
-      this._autoplayInteractionEvents = ['scroll', 'pointerdown', 'click', 'keydown']
+      this._autoplayInteractionEvents = ['wheel', 'pointerdown', 'touchstart', 'keydown']
       this._autoplayInteractionSeen = false
       this._sliderReady = false
       this._sliderInitAttempts = 0

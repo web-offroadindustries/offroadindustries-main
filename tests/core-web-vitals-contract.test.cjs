@@ -47,6 +47,12 @@ test('homepage keeps five-second autoplay but defers its start until interaction
   const javascript = read('assets/slideshow-component.js');
   assert.match(javascript, /_watchForAutoplayInteraction\(\)/);
   assert.match(javascript, /_startDeferredAutoplay\(\)/);
+  assert.match(
+    javascript,
+    /_autoplayInteractionEvents = \['wheel', 'pointerdown', 'touchstart', 'keydown'\]/,
+  );
+  assert.doesNotMatch(javascript, /_autoplayInteractionEvents = \[[^\]]*'scroll'/);
+  assert.doesNotMatch(javascript, /_autoplayInteractionEvents = \[[^\]]*'click'/);
 });
 
 test('slideshow keeps only the initially visible image eager and high priority', () => {
