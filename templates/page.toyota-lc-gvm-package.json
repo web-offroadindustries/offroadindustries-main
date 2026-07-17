@@ -789,6 +789,40 @@
         "padding_bottom": 40
       }
     },
+    "frequently_bought_with_rJHRpy": {
+      "type": "frequently-bought-with",
+      "name": "Frequently Bought With",
+      "settings": {
+        "heading": "Frequently Bought With",
+        "product_list": [
+          "addictive-desert-designs-toyota-tundra-stealth-fighter-winch-bar-2022-2025",
+          "afe-momentum-gt-orange-edition-cold-air-intake-system-toyota-tundra-limited-platinum",
+          "afe-scorcher-blue-bluetooth-power-module-to-suit-toyota-tundra-22-limited-platinum",
+          "amp-research-bedstep-toyota-tundra-limited-platinum-22",
+          "ori-toyota-tundra-roller-shutter-22",
+          "amp-research-bedstep2-toyota-tundra-limited-platinum-22",
+          "bajakits-rear-sway-bar-end-links-22-toyota-tundra",
+          "bajakits-rear-shock-guards-22-toyota-tundra",
+          "realtruck-amp-research-powerstep-vision-toyota-tundra-22",
+          "realtruck-avs-weather-shield-toyota-tundra-2022"
+        ],
+        "collection": "",
+        "heading_size_mobile": 22,
+        "heading_size_desktop": 34,
+        "heading_weight": "",
+        "heading_alignment": "left",
+        "heading_color": "",
+        "products_per_view": 4,
+        "pcard_image_ratio": "",
+        "show_vendor": false,
+        "container": "container",
+        "color_schema": "",
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "custom_id": "",
+        "custom_class": ""
+      }
+    },
     "contact_form_v4_VyXUiB": {
       "type": "contact-form-v4",
       "blocks": {
@@ -1029,6 +1063,7 @@
     "rich_text_rnLAPH",
     "gvm_comparison_FfmTMw",
     "gvm_comparison_RXeVcA",
+    "frequently_bought_with_rJHRpy",
     "contact_form_v4_VyXUiB",
     "rich_text_4AxLyp",
     "logo_list_8XphYi"
