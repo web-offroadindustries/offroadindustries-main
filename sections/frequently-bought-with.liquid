@@ -38,27 +38,25 @@
 
   assign max_items = 12
 -%}
-{%- comment -%} Build slides first: skip sold-out products and de-duplicate. {%- endcomment -%}
+{%- comment -%} Build slides first so the empty state can be detected; de-duplicate products. {%- endcomment -%}
 {%- capture fbw_slides -%}
   {%- assign seen = '' -%}
   {%- if product_source -%}
     {%- for product in product_source limit: max_items -%}
-      {%- if product.available -%}
-        {%- assign dedupe_key = ',' | append: product.id | append: ',' -%}
-        {%- unless seen contains dedupe_key -%}
-          {%- assign seen = seen | append: dedupe_key -%}
-          <li class="fbw__slide">
-            {%- render 'product-card',
-              product: product,
-              color_schema: section.settings.color_schema,
-              image_ratio: image_ratio,
-              show_vendor: show_vendor,
-              section_index: section.index,
-              index: forloop.index
-            -%}
-          </li>
-        {%- endunless -%}
-      {%- endif -%}
+      {%- assign dedupe_key = ',' | append: product.id | append: ',' -%}
+      {%- unless seen contains dedupe_key -%}
+        {%- assign seen = seen | append: dedupe_key -%}
+        <li class="fbw__slide">
+          {%- render 'product-card',
+            product: product,
+            color_schema: section.settings.color_schema,
+            image_ratio: image_ratio,
+            show_vendor: show_vendor,
+            section_index: section.index,
+            index: forloop.index
+          -%}
+        </li>
+      {%- endunless -%}
     {%- endfor -%}
   {%- endif -%}
 {%- endcapture -%}
@@ -176,7 +174,7 @@
       "id": "product_list",
       "label": "Specific products",
       "limit": 10,
-      "info": "Select up to 10 products. When set, these are shown and the fallback collection is ignored. Sold-out products are never displayed."
+      "info": "Select up to 10 products. When set, these are shown and the fallback collection is ignored."
     },
     {
       "type": "collection",
