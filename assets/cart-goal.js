@@ -53,10 +53,10 @@ if (!customElements.get("f-cart-goal")) {
         this.dataset.total = this.cartTotal;
       } else {
         let spend = (this.goal - this.cartTotal) * 100;
-        this.querySelector(this.selectors.leftToSpend).innerHTML = formatMoney(
-          spend,
-          this.money_format
-        );
+        const leftToSpend = this.querySelector(this.selectors.leftToSpend);
+        if (leftToSpend) {
+          leftToSpend.innerHTML = formatMoney(spend, this.money_format);
+        }
         this.classList.remove("f-cartgoal--done", "shakeY");
         this.style.setProperty("--progress", `${this.percent}%`);
         this.dataset.total = this.cartTotal;

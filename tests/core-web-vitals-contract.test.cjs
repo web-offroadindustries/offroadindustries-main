@@ -62,3 +62,13 @@ test('slideshow keeps only the initially visible image eager and high priority',
   assert.match(liquid, /if is_hero_slide[\s\S]*assign loading = 'eager'[\s\S]*assign fetchpriority = 'high'/);
   assert.match(liquid, /<deferred-media[\s\S]*<template>[\s\S]*<video/);
 });
+
+test('cart goal tolerates themes that omit the optional amount message', () => {
+  const javascript = read('assets/cart-goal.js');
+
+  assert.match(
+    javascript,
+    /const leftToSpend = this\.querySelector\(this\.selectors\.leftToSpend\);/,
+  );
+  assert.match(javascript, /if \(leftToSpend\) \{/);
+});
