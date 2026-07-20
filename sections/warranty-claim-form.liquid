@@ -76,6 +76,16 @@
     margin-top: 0.375rem;
     line-height: 1.45;
   }
+  .f-warranty-claim__photo-list {
+    margin: 0.35rem 0 1rem;
+    padding-left: 1.25rem;
+    font-size: 0.85rem;
+    color: var(--color-foreground-secondary, #6b7280);
+    line-height: 1.5;
+  }
+  .f-warranty-claim__photo-list li {
+    margin-bottom: 0.25rem;
+  }
   .f-warranty-claim__submit-wrap {
     padding-top: 0.75rem;
   }
@@ -132,50 +142,120 @@
 
             <div class="f-flex flex-wrap f-warranty-claim__fields">
 
-              <!-- Personal Information -->
+              <!-- Claim -->
               <div class="f-warranty-claim__group-header is-first">
-                <span class="f-warranty-claim__group-title">Personal Information</span>
+                <span class="f-warranty-claim__group-title">Claim</span>
               </div>
 
               <div class="form-field w-full sm:w-1/2">
-                <label class="form-label" for="{{ form_id }}-first-name">
-                  {{ section.settings.label_first_name }}
+                <label class="form-label" for="{{ form_id }}-claim-date">Claim Date</label>
+                <input class="form-control" type="date" id="{{ form_id }}-claim-date" name="contact[Claim Date]">
+              </div>
+
+              <div class="form-field w-full sm:w-1/2">
+                <label class="form-label" for="{{ form_id }}-invoice">Dealer Invoice Number</label>
+                <input class="form-control" type="text" id="{{ form_id }}-invoice" name="contact[Dealer Invoice Number]" placeholder="Invoice #">
+              </div>
+
+              <div class="form-field w-full sm:w-1/2">
+                <label class="form-label" for="{{ form_id }}-part">
+                  Part Number
                   <span aria-hidden="true">*</span>
                 </label>
-                <input
-                  class="form-control"
-                  type="text"
-                  id="{{ form_id }}-first-name"
-                  name="contact[First Name]"
-                  required
-                  aria-required="true"
-                  autocomplete="given-name"
-                  placeholder="{{ section.settings.placeholder_first_name }}"
-                  value="{% if customer %}{{ customer.first_name }}{% endif %}"
-                >
+                <input class="form-control" type="text" id="{{ form_id }}-part" name="contact[Part Number]" required aria-required="true" placeholder="Part number">
               </div>
 
               <div class="form-field w-full sm:w-1/2">
-                <label class="form-label" for="{{ form_id }}-last-name">
-                  {{ section.settings.label_last_name }}
+                <label class="form-label" for="{{ form_id }}-qty">Quantity</label>
+                <input class="form-control" type="number" min="1" id="{{ form_id }}-qty" name="contact[Quantity]" placeholder="1">
+              </div>
+
+              <div class="form-field w-full sm:w-1/2">
+                <label class="form-label" for="{{ form_id }}-batch">
+                  Batch Code
                   <span aria-hidden="true">*</span>
                 </label>
-                <input
-                  class="form-control"
-                  type="text"
-                  id="{{ form_id }}-last-name"
-                  name="contact[Last Name]"
-                  required
-                  aria-required="true"
-                  autocomplete="family-name"
-                  placeholder="{{ section.settings.placeholder_last_name }}"
-                  value="{% if customer %}{{ customer.last_name }}{% endif %}"
-                >
+                <input class="form-control" type="text" id="{{ form_id }}-batch" name="contact[Batch Code]" required aria-required="true" placeholder="Batch code">
+              </div>
+
+              <!-- Vehicle Details -->
+              <div class="f-warranty-claim__group-header">
+                <span class="f-warranty-claim__group-title">Vehicle Details</span>
               </div>
 
               <div class="form-field w-full sm:w-1/2">
+                <label class="form-label" for="{{ form_id }}-make">Make</label>
+                <input class="form-control" type="text" id="{{ form_id }}-make" name="contact[Vehicle Make]">
+              </div>
+
+              <div class="form-field w-full sm:w-1/2">
+                <label class="form-label" for="{{ form_id }}-model">Model</label>
+                <input class="form-control" type="text" id="{{ form_id }}-model" name="contact[Vehicle Model]">
+              </div>
+
+              <div class="form-field w-full sm:w-1/2">
+                <label class="form-label" for="{{ form_id }}-rego">Registration Number</label>
+                <input class="form-control" type="text" id="{{ form_id }}-rego" name="contact[Registration Number]">
+              </div>
+
+              <div class="form-field w-full sm:w-1/2">
+                <label class="form-label" for="{{ form_id }}-year">Year</label>
+                <input class="form-control" type="text" inputmode="numeric" id="{{ form_id }}-year" name="contact[Year]" placeholder="e.g. 2022">
+              </div>
+
+              <div class="form-field w-full sm:w-1/2">
+                <label class="form-label" for="{{ form_id }}-state">Registration State</label>
+                <select class="form-control" id="{{ form_id }}-state" name="contact[Registration State]">
+                  <option value="" disabled selected>Select state</option>
+                  <option value="ACT">ACT</option>
+                  <option value="NSW">NSW</option>
+                  <option value="NT">NT</option>
+                  <option value="QLD">QLD</option>
+                  <option value="SA">SA</option>
+                  <option value="TAS">TAS</option>
+                  <option value="VIC">VIC</option>
+                  <option value="WA">WA</option>
+                </select>
+              </div>
+
+              <div class="form-field w-full sm:w-1/2">
+                <label class="form-label" for="{{ form_id }}-install-date">Install Date</label>
+                <input class="form-control" type="date" id="{{ form_id }}-install-date" name="contact[Install Date]">
+              </div>
+
+              <div class="form-field w-full sm:w-1/2">
+                <label class="form-label" for="{{ form_id }}-distance">Miles/KM Since Install</label>
+                <input class="form-control" type="text" inputmode="numeric" id="{{ form_id }}-distance" name="contact[Miles/KM Since Install]">
+              </div>
+
+              <div class="form-field w-full sm:w-1/2">
+                <label class="form-label" for="{{ form_id }}-failure-date">Failure Date</label>
+                <input class="form-control" type="date" id="{{ form_id }}-failure-date" name="contact[Failure Date]">
+              </div>
+
+              <!-- FOX Authorized Dealer Information -->
+              <div class="f-warranty-claim__group-header">
+                <span class="f-warranty-claim__group-title">FOX Authorized Dealer Information</span>
+              </div>
+
+              <div class="form-field w-full">
+                <label class="form-label" for="{{ form_id }}-dealer-company">Company Name</label>
+                <input class="form-control" type="text" id="{{ form_id }}-dealer-company" name="contact[Dealer Company Name]">
+              </div>
+
+              <div class="form-field w-full sm:w-1/2">
+                <label class="form-label" for="{{ form_id }}-dealer-person">Contact Person</label>
+                <input class="form-control" type="text" id="{{ form_id }}-dealer-person" name="contact[Dealer Contact Person]">
+              </div>
+
+              <div class="form-field w-full sm:w-1/2">
+                <label class="form-label" for="{{ form_id }}-dealer-number">Contact Number</label>
+                <input class="form-control" type="tel" id="{{ form_id }}-dealer-number" name="contact[Dealer Contact Number]" pattern="[0-9\-\+\(\)\s]*">
+              </div>
+
+              <div class="form-field w-full">
                 <label class="form-label" for="{{ form_id }}-email">
-                  {{ section.settings.label_email }}
+                  Contact Email
                   <span aria-hidden="true">*</span>
                 </label>
                 <input
@@ -188,7 +268,7 @@
                   autocomplete="email"
                   spellcheck="false"
                   autocapitalize="off"
-                  placeholder="{{ section.settings.placeholder_email }}"
+                  placeholder="your@email.com"
                   value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
                 >
                 {%- if form.errors contains 'email' -%}
@@ -199,104 +279,34 @@
                 {%- endif -%}
               </div>
 
-              <div class="form-field w-full sm:w-1/2">
-                <label class="form-label" for="{{ form_id }}-phone">
-                  {{ section.settings.label_phone }}
-                </label>
-                <input
-                  class="form-control"
-                  type="tel"
-                  id="{{ form_id }}-phone"
-                  name="contact[phone]"
-                  autocomplete="tel"
-                  pattern="[0-9\-\+\(\)\s]*"
-                  placeholder="{{ section.settings.placeholder_phone }}"
-                  value="{% if form.phone %}{{ form.phone }}{% elsif customer %}{{ customer.phone }}{% endif %}"
-                >
-              </div>
-
-              <!-- Order Details -->
+              <!-- Installer Details -->
               <div class="f-warranty-claim__group-header">
-                <span class="f-warranty-claim__group-title">Order Details</span>
-              </div>
-
-              <div class="form-field w-full sm:w-1/2">
-                <label class="form-label" for="{{ form_id }}-order-number">
-                  {{ section.settings.label_order_number }}
-                  <span aria-hidden="true">*</span>
-                </label>
-                <input
-                  class="form-control"
-                  type="text"
-                  id="{{ form_id }}-order-number"
-                  name="contact[Order Number]"
-                  required
-                  aria-required="true"
-                  placeholder="{{ section.settings.placeholder_order_number }}"
-                >
-              </div>
-
-              <div class="form-field w-full sm:w-1/2">
-                <label class="form-label" for="{{ form_id }}-purchase-date">
-                  {{ section.settings.label_purchase_date }}
-                  <span aria-hidden="true">*</span>
-                </label>
-                <input
-                  class="form-control"
-                  type="date"
-                  id="{{ form_id }}-purchase-date"
-                  name="contact[Purchase Date]"
-                  required
-                  aria-required="true"
-                >
+                <span class="f-warranty-claim__group-title">Installer Details</span>
               </div>
 
               <div class="form-field w-full">
-                <label class="form-label" for="{{ form_id }}-product">
-                  {{ section.settings.label_product }}
-                  <span aria-hidden="true">*</span>
-                </label>
-                <input
-                  class="form-control"
-                  type="text"
-                  id="{{ form_id }}-product"
-                  name="contact[Product Name or SKU]"
-                  required
-                  aria-required="true"
-                  placeholder="{{ section.settings.placeholder_product }}"
-                >
+                <label class="form-label" for="{{ form_id }}-installer-name">Installer Name</label>
+                <input class="form-control" type="text" id="{{ form_id }}-installer-name" name="contact[Installer Name]">
               </div>
 
-              <!-- Claim Details -->
+              <div class="form-field w-full sm:w-1/2">
+                <label class="form-label" for="{{ form_id }}-installer-person">Contact Person</label>
+                <input class="form-control" type="text" id="{{ form_id }}-installer-person" name="contact[Installer Contact Person]">
+              </div>
+
+              <div class="form-field w-full sm:w-1/2">
+                <label class="form-label" for="{{ form_id }}-installer-number">Contact Number</label>
+                <input class="form-control" type="tel" id="{{ form_id }}-installer-number" name="contact[Installer Contact Number]" pattern="[0-9\-\+\(\)\s]*">
+              </div>
+
+              <!-- Failure Description -->
               <div class="f-warranty-claim__group-header">
-                <span class="f-warranty-claim__group-title">Claim Details</span>
-              </div>
-
-              <div class="form-field w-full">
-                <label class="form-label" for="{{ form_id }}-claim-type">
-                  {{ section.settings.label_claim_type }}
-                  <span aria-hidden="true">*</span>
-                </label>
-                <select
-                  class="form-control"
-                  id="{{ form_id }}-claim-type"
-                  name="contact[Claim Type]"
-                  required
-                  aria-required="true"
-                >
-                  <option value="" disabled selected>{{ section.settings.placeholder_claim_type }}</option>
-                  <option value="Manufacturing Defect">Manufacturing Defect</option>
-                  <option value="Shipping Damage">Shipping Damage</option>
-                  <option value="Missing Parts or Accessories">Missing Parts or Accessories</option>
-                  <option value="Incorrect Item Received">Incorrect Item Received</option>
-                  <option value="Fit or Compatibility Issue">Fit or Compatibility Issue</option>
-                  <option value="Other">Other</option>
-                </select>
+                <span class="f-warranty-claim__group-title">Failure Description</span>
               </div>
 
               <div class="form-field w-full">
                 <label class="form-label" for="{{ form_id }}-body">
-                  {{ section.settings.label_description }}
+                  Detailed description of failure
                   <span aria-hidden="true">*</span>
                 </label>
                 <textarea
@@ -306,24 +316,30 @@
                   required
                   aria-required="true"
                   rows="6"
-                  placeholder="{{ section.settings.placeholder_description }}"
+                  placeholder="Describe the failure, when it occurred, and the conditions of use."
                 >{{- form.body -}}</textarea>
               </div>
 
+              <!-- Required photos -->
+              <div class="f-warranty-claim__group-header">
+                <span class="f-warranty-claim__group-title">Required photos</span>
+              </div>
+
               <div class="form-field w-full">
-                <label class="form-label" for="{{ form_id }}-photo-link">
-                  {{ section.settings.label_photo_link }}
-                </label>
-                <input
-                  class="form-control"
-                  type="url"
-                  id="{{ form_id }}-photo-link"
-                  name="contact[Photo or Evidence Link]"
-                  placeholder="{{ section.settings.placeholder_photo_link }}"
-                >
-                {%- if section.settings.photo_link_hint != blank -%}
-                  <p class="f-warranty-claim__hint">{{ section.settings.photo_link_hint }}</p>
-                {%- endif -%}
+                <p class="f-warranty-claim__hint" style="margin-top: 0;">
+                  Please attach the below photos for your claim to progress further:
+                </p>
+                <ol class="f-warranty-claim__photo-list">
+                  <li>Minimum one photo of entire unit</li>
+                  <li>Photo of part number</li>
+                  <li>Photo of batch code</li>
+                  <li>Minimum one photo of failure</li>
+                </ol>
+                <label class="form-label" for="{{ form_id }}-photo-link">Photo links (Google Drive / Dropbox)</label>
+                <input class="form-control" type="url" id="{{ form_id }}-photo-link" name="contact[Photo Links]" placeholder="https://drive.google.com/...">
+                <p class="f-warranty-claim__hint">
+                  Upload the four photos to Google Drive or Dropbox and paste the shared link here. You can also email them to us after submitting.
+                </p>
               </div>
 
               <div class="form-field w-full flex justify-center f-warranty-claim__submit-wrap">
@@ -345,10 +361,12 @@
     var form = document.getElementById('{{ form_id }}');
     if (!form) return;
     form.addEventListener('submit', function () {
-      var first = (form.querySelector('[name="contact[First Name]"]') || {}).value || '';
-      var last = (form.querySelector('[name="contact[Last Name]"]') || {}).value || '';
+      var company = (form.querySelector('[name="contact[Dealer Company Name]"]') || {}).value || '';
+      var person = (form.querySelector('[name="contact[Dealer Contact Person]"]') || {}).value || '';
       var combined = document.getElementById('{{ form_id }}-combined-name');
-      if (combined) combined.value = [first.trim(), last.trim()].filter(Boolean).join(' ');
+      if (combined) {
+        combined.value = [company.trim(), person.trim()].filter(Boolean).join(' - ') || 'Warranty claim';
+      }
     });
   })();
 </script>
@@ -410,7 +428,7 @@
       "type": "inline_richtext",
       "id": "heading",
       "label": "Heading",
-      "default": "Submit a Warranty Claim"
+      "default": "Warranty Claim Form"
     },
     {
       "type": "select",
@@ -455,7 +473,7 @@
       "type": "richtext",
       "id": "description",
       "label": "Description",
-      "default": "<p>Please fill out the form below and our team will review your claim within 2–3 business days.</p>"
+      "default": "<p>Complete the form below to submit your warranty claim. Fields marked with an asterisk are required.</p>"
     },
     {
       "type": "header",
@@ -564,130 +582,6 @@
       "step": 1,
       "default": 17,
       "unit": "px"
-    },
-    {
-      "type": "header",
-      "content": "Field labels"
-    },
-    {
-      "type": "text",
-      "id": "label_first_name",
-      "label": "First name label",
-      "default": "First Name"
-    },
-    {
-      "type": "text",
-      "id": "placeholder_first_name",
-      "label": "First name placeholder",
-      "default": "First Name"
-    },
-    {
-      "type": "text",
-      "id": "label_last_name",
-      "label": "Last name label",
-      "default": "Last Name"
-    },
-    {
-      "type": "text",
-      "id": "placeholder_last_name",
-      "label": "Last name placeholder",
-      "default": "Last Name"
-    },
-    {
-      "type": "text",
-      "id": "label_email",
-      "label": "Email label",
-      "default": "Email Address"
-    },
-    {
-      "type": "text",
-      "id": "placeholder_email",
-      "label": "Email placeholder",
-      "default": "your@email.com"
-    },
-    {
-      "type": "text",
-      "id": "label_phone",
-      "label": "Phone label",
-      "default": "Phone Number"
-    },
-    {
-      "type": "text",
-      "id": "placeholder_phone",
-      "label": "Phone placeholder",
-      "default": "Phone (optional)"
-    },
-    {
-      "type": "text",
-      "id": "label_order_number",
-      "label": "Order number label",
-      "default": "Order Number"
-    },
-    {
-      "type": "text",
-      "id": "placeholder_order_number",
-      "label": "Order number placeholder",
-      "default": "#ORI-12345"
-    },
-    {
-      "type": "text",
-      "id": "label_purchase_date",
-      "label": "Purchase date label",
-      "default": "Purchase Date"
-    },
-    {
-      "type": "text",
-      "id": "label_product",
-      "label": "Product label",
-      "default": "Product Name / SKU"
-    },
-    {
-      "type": "text",
-      "id": "placeholder_product",
-      "label": "Product placeholder",
-      "default": "e.g. ORI Strut Kit – Ford Ranger PX3"
-    },
-    {
-      "type": "text",
-      "id": "label_claim_type",
-      "label": "Claim type label",
-      "default": "Claim Type"
-    },
-    {
-      "type": "text",
-      "id": "placeholder_claim_type",
-      "label": "Claim type placeholder",
-      "default": "Select a claim type"
-    },
-    {
-      "type": "text",
-      "id": "label_description",
-      "label": "Description label",
-      "default": "Description of Issue"
-    },
-    {
-      "type": "text",
-      "id": "placeholder_description",
-      "label": "Description placeholder",
-      "default": "Please describe the issue in detail, including when it occurred and any relevant conditions."
-    },
-    {
-      "type": "text",
-      "id": "label_photo_link",
-      "label": "Photo link label",
-      "default": "Photo / Evidence Link (optional)"
-    },
-    {
-      "type": "text",
-      "id": "placeholder_photo_link",
-      "label": "Photo link placeholder",
-      "default": "https://drive.google.com/..."
-    },
-    {
-      "type": "text",
-      "id": "photo_link_hint",
-      "label": "Photo link hint text",
-      "default": "Upload photos to Google Drive or Dropbox and paste the shared link here."
     },
     {
       "type": "header",
