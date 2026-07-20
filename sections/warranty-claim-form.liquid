@@ -84,6 +84,24 @@
     padding-top: 0.9rem;
     padding-bottom: 0.9rem;
   }
+  /* Adjustable font sizes: fluid clamp() between the mobile and desktop settings.
+     Uses px so it is not shrunk by the theme's root font-size. */
+  #{{ section_id }} .section__heading {
+    font-size: clamp(calc(var(--wc-heading-min, 28) * 1px), calc(var(--wc-heading-min, 28) * 1px + (var(--wc-heading-max, 40) - var(--wc-heading-min, 28)) * ((100vw - 375px) / 1065)), calc(var(--wc-heading-max, 40) * 1px));
+  }
+  #{{ section_id }} .section__subheading {
+    font-size: clamp(calc(var(--wc-sub-min, 15) * 1px), calc(var(--wc-sub-min, 15) * 1px + (var(--wc-sub-max, 18) - var(--wc-sub-min, 15)) * ((100vw - 375px) / 1065)), calc(var(--wc-sub-max, 18) * 1px));
+  }
+  #{{ section_id }} .section__description,
+  #{{ section_id }} .section__description p {
+    font-size: clamp(calc(var(--wc-desc-min, 15) * 1px), calc(var(--wc-desc-min, 15) * 1px + (var(--wc-desc-max, 17) - var(--wc-desc-min, 15)) * ((100vw - 375px) / 1065)), calc(var(--wc-desc-max, 17) * 1px));
+  }
+  #{{ section_id }} .form-label {
+    font-size: clamp(calc(var(--wc-label-min, 15) * 1px), calc(var(--wc-label-min, 15) * 1px + (var(--wc-label-max, 16) - var(--wc-label-min, 15)) * ((100vw - 375px) / 1065)), calc(var(--wc-label-max, 16) * 1px));
+  }
+  #{{ section_id }} .form-control {
+    font-size: clamp(calc(var(--wc-input-min, 16) * 1px), calc(var(--wc-input-min, 16) * 1px + (var(--wc-input-max, 17) - var(--wc-input-min, 16)) * ((100vw - 375px) / 1065)), calc(var(--wc-input-max, 17) * 1px));
+  }
 </style>
 {% render 'divider',
   show_divider: section.settings.show_section_divider,
@@ -92,7 +110,7 @@
 <div
   id="{{ section_id }}"
   class="f-warranty-claim f-section-padding color-{{ section.settings.color_schema }}{{ custom_class }}"
-  style="--section-padding-top: {{ section.settings.padding_top }}px; --section-padding-bottom: {{ section.settings.padding_bottom }}px;"
+  style="--section-padding-top: {{ section.settings.padding_top }}px; --section-padding-bottom: {{ section.settings.padding_bottom }}px; --wc-heading-min: {{ section.settings.heading_size_min }}; --wc-heading-max: {{ section.settings.heading_size_max }}; --wc-sub-min: {{ section.settings.subheading_size_min }}; --wc-sub-max: {{ section.settings.subheading_size_max }}; --wc-desc-min: {{ section.settings.desc_size_min }}; --wc-desc-max: {{ section.settings.desc_size_max }}; --wc-label-min: {{ section.settings.label_size_min }}; --wc-label-max: {{ section.settings.label_size_max }}; --wc-input-min: {{ section.settings.input_size_min }}; --wc-input-max: {{ section.settings.input_size_max }};"
 >
   <div class="{{ section.settings.container }}">
     {% render 'index-section-header',
@@ -438,6 +456,114 @@
       "id": "description",
       "label": "Description",
       "default": "<p>Please fill out the form below and our team will review your claim within 2–3 business days.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Font sizes"
+    },
+    {
+      "type": "paragraph",
+      "content": "Each size scales fluidly between the mobile and desktop values using CSS clamp()."
+    },
+    {
+      "type": "range",
+      "id": "heading_size_min",
+      "label": "Heading size (mobile)",
+      "min": 14,
+      "max": 60,
+      "step": 1,
+      "default": 28,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "heading_size_max",
+      "label": "Heading size (desktop)",
+      "min": 16,
+      "max": 80,
+      "step": 1,
+      "default": 40,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "subheading_size_min",
+      "label": "Subheading size (mobile)",
+      "min": 10,
+      "max": 32,
+      "step": 1,
+      "default": 15,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "subheading_size_max",
+      "label": "Subheading size (desktop)",
+      "min": 12,
+      "max": 40,
+      "step": 1,
+      "default": 18,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "desc_size_min",
+      "label": "Description size (mobile)",
+      "min": 10,
+      "max": 28,
+      "step": 1,
+      "default": 15,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "desc_size_max",
+      "label": "Description size (desktop)",
+      "min": 12,
+      "max": 32,
+      "step": 1,
+      "default": 17,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "label_size_min",
+      "label": "Field label size (mobile)",
+      "min": 10,
+      "max": 24,
+      "step": 1,
+      "default": 15,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "label_size_max",
+      "label": "Field label size (desktop)",
+      "min": 12,
+      "max": 28,
+      "step": 1,
+      "default": 16,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "input_size_min",
+      "label": "Input text size (mobile)",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "default": 16,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "input_size_max",
+      "label": "Input text size (desktop)",
+      "min": 14,
+      "max": 28,
+      "step": 1,
+      "default": 17,
+      "unit": "px"
     },
     {
       "type": "header",
