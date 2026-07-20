@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main": {
@@ -28,26 +37,16 @@
         "heading_color": "",
         "subheading": "",
         "description": "<p>Please fill out the form below and our team will review your claim within 2–3 business days. Have your order number and product details ready before submitting.</p>",
-        "label_first_name": "First Name",
-        "placeholder_first_name": "First Name",
-        "label_last_name": "Last Name",
-        "placeholder_last_name": "Last Name",
-        "label_email": "Email Address",
-        "placeholder_email": "your@email.com",
-        "label_phone": "Phone Number",
-        "placeholder_phone": "Phone (optional)",
-        "label_order_number": "Order Number",
-        "placeholder_order_number": "#ORI-12345",
-        "label_purchase_date": "Purchase Date",
-        "label_product": "Product Name / SKU",
-        "placeholder_product": "e.g. ORI Strut Kit – Ford Ranger PX3",
-        "label_claim_type": "Claim Type",
-        "placeholder_claim_type": "Select a claim type",
-        "label_description": "Description of Issue",
-        "placeholder_description": "Please describe the issue in detail, including when it occurred and any relevant conditions.",
-        "label_photo_link": "Photo / Evidence Link (optional)",
-        "placeholder_photo_link": "https://drive.google.com/...",
-        "photo_link_hint": "Upload photos to Google Drive or Dropbox and paste the shared link here.",
+        "heading_size_min": 28,
+        "heading_size_max": 40,
+        "subheading_size_min": 15,
+        "subheading_size_max": 18,
+        "desc_size_min": 15,
+        "desc_size_max": 17,
+        "label_size_min": 15,
+        "label_size_max": 17,
+        "input_size_min": 16,
+        "input_size_max": 17,
         "button_label": "Submit Claim",
         "button_style": "btn--primary",
         "padding_top": 60,
@@ -118,7 +117,13 @@
           }
         }
       },
-      "block_order": ["faq_1", "faq_2", "faq_3", "faq_4", "faq_5"],
+      "block_order": [
+        "faq_1",
+        "faq_2",
+        "faq_3",
+        "faq_4",
+        "faq_5"
+      ],
       "settings": {
         "container": "container",
         "color_schema": "",
