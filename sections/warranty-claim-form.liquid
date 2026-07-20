@@ -19,6 +19,13 @@
     assign motion_delay = motion_delay | plus: 50
   endif
   assign form_id = 'WarrantyClaimForm-' | append: section.id
+
+  assign logo = section.settings.logo
+  assign logo_position = section.settings.logo_position | default: 'above'
+  assign header_align = 'center'
+  if logo != blank and logo_position != 'above'
+    assign header_align = 'left'
+  endif
 -%}
 <style>
   .f-warranty-claim__card {
@@ -32,6 +39,41 @@
     .f-warranty-claim__card {
       padding: 1.75rem 1.25rem;
       border-radius: 8px;
+    }
+  }
+  .f-warranty-claim__header-wrap {
+    display: flex;
+    gap: 1rem 1.75rem;
+    margin-bottom: 0.5rem;
+  }
+  .f-warranty-claim__header-wrap--above {
+    flex-direction: column;
+    align-items: center;
+  }
+  .f-warranty-claim__header-wrap--left {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+  .f-warranty-claim__header-wrap--right {
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: center;
+  }
+  .f-warranty-claim__logo {
+    flex: 0 0 auto;
+  }
+  .f-warranty-claim__logo img {
+    display: block;
+    width: var(--wc-logo-width, 160px);
+    max-width: 100%;
+    height: auto;
+  }
+  @media (max-width: 749px) {
+    .f-warranty-claim__header-wrap--left,
+    .f-warranty-claim__header-wrap--right {
+      flex-direction: column;
+      align-items: center;
     }
   }
   .f-warranty-claim__fields {
@@ -123,11 +165,24 @@
   style="--section-padding-top: {{ section.settings.padding_top }}px; --section-padding-bottom: {{ section.settings.padding_bottom }}px; --wc-heading-min: {{ section.settings.heading_size_min }}; --wc-heading-max: {{ section.settings.heading_size_max }}; --wc-sub-min: {{ section.settings.subheading_size_min }}; --wc-sub-max: {{ section.settings.subheading_size_max }}; --wc-desc-min: {{ section.settings.desc_size_min }}; --wc-desc-max: {{ section.settings.desc_size_max }}; --wc-label-min: {{ section.settings.label_size_min }}; --wc-label-max: {{ section.settings.label_size_max }}; --wc-input-min: {{ section.settings.input_size_min }}; --wc-input-max: {{ section.settings.input_size_max }};"
 >
   <div class="{{ section.settings.container }}">
-    {% render 'index-section-header',
-      section_settings: section.settings,
-      animation_effect: animation_effect,
-      header_alignment: 'center'
-    %}
+    <div class="f-warranty-claim__header-wrap f-warranty-claim__header-wrap--{{ logo_position }}">
+      {%- if logo != blank -%}
+        <div class="f-warranty-claim__logo" style="--wc-logo-width: {{ section.settings.logo_width }}px;">
+          <img
+            src="{{ logo | image_url: width: 600 }}"
+            alt="{{ logo.alt | default: 'Logo' | escape }}"
+            width="{{ logo.width }}"
+            height="{{ logo.height }}"
+            loading="lazy"
+          >
+        </div>
+      {%- endif -%}
+      {% render 'index-section-header',
+        section_settings: section.settings,
+        animation_effect: animation_effect,
+        header_alignment: header_align
+      %}
+    </div>
     <div class="flex justify-center">
       <motion-element
         data-motion="{{ animation_effect }}"
@@ -474,6 +529,36 @@
       "id": "description",
       "label": "Description",
       "default": "<p>Complete the form below to submit your warranty claim. Fields marked with an asterisk are required.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Logo"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo image"
+    },
+    {
+      "type": "select",
+      "id": "logo_position",
+      "label": "Logo position",
+      "options": [
+        { "value": "above", "label": "Above heading" },
+        { "value": "left", "label": "Left of heading" },
+        { "value": "right", "label": "Right of heading" }
+      ],
+      "default": "above"
+    },
+    {
+      "type": "range",
+      "id": "logo_width",
+      "label": "Logo width",
+      "min": 60,
+      "max": 400,
+      "step": 10,
+      "default": 160,
+      "unit": "px"
     },
     {
       "type": "header",
