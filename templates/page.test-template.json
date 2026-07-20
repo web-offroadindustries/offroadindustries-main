@@ -11,6 +11,7 @@
   "sections": {
     "hero_JfeqW9": {
       "type": "hero",
+      "disabled": true,
       "name": "t:sections.hero.presets.name",
       "settings": {
         "container": "container-full",
@@ -34,6 +35,7 @@
     },
     "main": {
       "type": "main-page",
+      "disabled": true,
       "settings": {}
     },
     "multicolumn_AcQKEk": {
@@ -123,6 +125,7 @@
         "column_nNUN6a",
         "column_mfLAKJ"
       ],
+      "disabled": true,
       "name": "t:sections.multicolumn.name",
       "settings": {
         "container": "container",
@@ -153,11 +156,50 @@
         "custom_class": "",
         "animations": "inherit"
       }
+    },
+    "gvm_order_form_PUpQMq": {
+      "type": "gvm-order-form",
+      "name": "GVM Order Form",
+      "settings": {
+        "container": "container",
+        "color_schema": "",
+        "section_header_padding_bottom": "medium",
+        "section_header_content_spacing": "medium",
+        "heading": "GVM Order Request",
+        "highlight_style": "none",
+        "enable_highlight_text_color": false,
+        "heading_size": "h2",
+        "heading_color": "",
+        "subheading": "",
+        "description": "<p>Please provide the details required for your new GVM order request. Orders will not be processed until all information is received.</p>",
+        "logo_position": "above",
+        "logo_width": 160,
+        "heading_size_min": 28,
+        "heading_size_max": 40,
+        "subheading_size_min": 15,
+        "subheading_size_max": 18,
+        "desc_size_min": 15,
+        "desc_size_max": 17,
+        "label_size_min": 15,
+        "label_size_max": 16,
+        "input_size_min": 16,
+        "input_size_max": 17,
+        "button_label": "Submit Order Request",
+        "button_style": "btn--primary",
+        "padding_top": 60,
+        "padding_bottom": 80,
+        "show_section_divider": false,
+        "divider_width": "container",
+        "custom_id": "",
+        "custom_class": "",
+        "animations": "inherit"
+      }
     }
   },
   "order": [
     "hero_JfeqW9",
     "main",
-    "multicolumn_AcQKEk"
+    "multicolumn_AcQKEk",
+    "gvm_order_form_PUpQMq"
   ]
 }
