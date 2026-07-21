@@ -217,6 +217,9 @@
   .f-wc-upload__item.is-error {
     border-color: #dc2626;
   }
+  .f-wc-upload__item.is-error .f-wc-upload__name {
+    color: #dc2626;
+  }
   .f-wc-upload__thumb {
     flex: 0 0 auto;
     width: 44px;
@@ -264,20 +267,30 @@
     background: var(--color-primary, currentColor);
     transition: width 0.15s ease;
   }
-  .f-wc-upload__remove {
-    flex: 0 0 auto;
-    width: 26px;
-    height: 26px;
+  #{{ section_id }} .f-wc-upload__remove {
+    flex: 0 0 30px;
+    width: 30px;
+    min-width: 30px;
+    max-width: 30px;
+    height: 30px;
+    padding: 0;
+    margin: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     line-height: 1;
-    font-size: 1.25rem;
+    font-size: 1.2rem;
     border: none;
     border-radius: 50%;
     background: transparent;
+    box-shadow: none;
+    -webkit-appearance: none;
+    appearance: none;
     color: var(--color-foreground-secondary, #6b7280);
     cursor: pointer;
   }
-  .f-wc-upload__remove:hover {
-    background: rgba(0, 0, 0, 0.06);
+  #{{ section_id }} .f-wc-upload__remove:hover {
+    background: rgba(0, 0, 0, 0.08);
     color: var(--color-text-heading, inherit);
   }
   .f-wc-upload__status {
@@ -716,14 +729,22 @@
 
         var xhr = new XMLHttpRequest();
         xhr.open('POST', 'https://api.cloudinary.com/v1_1/' + this.cloudName + '/auto/upload');
+        xhr.timeout = 180000;
         xhr.upload.onprogress = function (evt) {
           if (evt.lengthComputable) {
-            barFill.style.width = Math.round((evt.loaded / evt.total) * 100) + '%';
+            barFill.style.width = Math.round((evt.loaded / evt.total) * 90) + '%';
           }
+        };
+        xhr.upload.onload = function () {
+          // all bytes sent; now waiting on Cloudinary to process and respond
+          barFill.style.width = '95%';
+          item.classList.add('is-processing');
+          if (self.inFlight > 0) self._setStatus('Processing ' + self.inFlight + ' file(s)...');
         };
         xhr.onload = function () {
           self.inFlight--;
-          var ok = false;
+          item.classList.remove('is-processing');
+          var ok = false, errMsg = '';
           try {
             var res = JSON.parse(xhr.responseText);
             if (xhr.status >= 200 && xhr.status < 300 && res.secure_url) {
@@ -731,11 +752,13 @@
               self._attachHidden(id, res.secure_url);
               item.classList.add('is-done');
               barFill.style.width = '100%';
+            } else if (res && res.error && res.error.message) {
+              errMsg = res.error.message;
             }
           } catch (err) {}
           if (!ok) {
             item.classList.add('is-error');
-            meta.textContent = file.name + ' - upload failed';
+            meta.textContent = file.name + (errMsg ? ' - ' + errMsg : ' - upload failed (' + xhr.status + ')');
           } else {
             self.completed++;
           }
@@ -743,8 +766,16 @@
         };
         xhr.onerror = function () {
           self.inFlight--;
+          item.classList.remove('is-processing');
           item.classList.add('is-error');
-          meta.textContent = file.name + ' - upload failed';
+          meta.textContent = file.name + ' - upload failed (network or blocked)';
+          self._finishStatus();
+        };
+        xhr.ontimeout = function () {
+          self.inFlight--;
+          item.classList.remove('is-processing');
+          item.classList.add('is-error');
+          meta.textContent = file.name + ' - upload timed out';
           self._finishStatus();
         };
         remove.addEventListener('click', function () {
