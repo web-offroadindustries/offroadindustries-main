@@ -190,7 +190,7 @@
 
               <!-- Order details -->
               <div class="f-gvm-order__group-header is-first">
-                <span class="f-gvm-order__group-title">Order Details</span>
+                <span class="f-gvm-order__group-title">{{ section.settings.order_details_title | default: 'Order Details' | escape }}</span>
               </div>
 
               <div class="form-field w-full sm:w-1/2">
@@ -217,7 +217,7 @@
 
               <!-- Vehicle information -->
               <div class="f-gvm-order__group-header">
-                <span class="f-gvm-order__group-title">Vehicle Information</span>
+                <span class="f-gvm-order__group-title">{{ section.settings.vehicle_info_title | default: 'Vehicle Information' | escape }}</span>
               </div>
 
               <div class="form-field w-full sm:w-1/2">
@@ -235,7 +235,16 @@
                 <select class="form-control" id="{{ form_id }}-wheelbase" name="contact[Wheelbase (F-150 only)]">
                   <option value="" disabled selected>Select an option</option>
                   <option value="SWB">SWB</option>
-                  <option value="LWB and trim">LWB and trim</option>
+                  <option value="LWB">LWB</option>
+                  <option value="N/A">N/A</option>
+                </select>
+                <p class="f-gvm-order__hint">Only required for F-150 orders.</p>
+              </div>
+
+              <div class="form-field w-full sm:w-1/2">
+                <label class="form-label" for="{{ form_id }}-trim">Trim (F-150 only)</label>
+                <select class="form-control" id="{{ form_id }}-trim" name="contact[Trim (F-150 only)]">
+                  <option value="" disabled selected>Select an option</option>
                   <option value="XLT">XLT</option>
                   <option value="Lariat">Lariat</option>
                   <option value="Platinum">Platinum</option>
@@ -274,7 +283,7 @@
 
               <!-- Your details -->
               <div class="f-gvm-order__group-header">
-                <span class="f-gvm-order__group-title">Your Details</span>
+                <span class="f-gvm-order__group-title">{{ section.settings.your_details_title | default: 'Your Details' | escape }}</span>
               </div>
 
               <div class="form-field w-full sm:w-1/2">
@@ -450,6 +459,28 @@
       "id": "description",
       "label": "Description",
       "default": "<p>Please provide the details required for your new GVM order request. Orders will not be processed until all information is received.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Section labels"
+    },
+    {
+      "type": "text",
+      "id": "order_details_title",
+      "label": "Order details label",
+      "default": "Order Details"
+    },
+    {
+      "type": "text",
+      "id": "vehicle_info_title",
+      "label": "Vehicle information label",
+      "default": "Vehicle Information"
+    },
+    {
+      "type": "text",
+      "id": "your_details_title",
+      "label": "Your details label",
+      "default": "Your Details"
     },
     {
       "type": "header",
