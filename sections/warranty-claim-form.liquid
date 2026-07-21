@@ -164,6 +164,13 @@
   #{{ section_id }} .form-control {
     font-size: clamp(calc(var(--wc-input-min, 16) * 1px), calc(var(--wc-input-min, 16) * 1px + (var(--wc-input-max, 17) - var(--wc-input-min, 16)) * ((100vw - 375px) / 1065)), calc(var(--wc-input-max, 17) * 1px));
   }
+  #{{ section_id }} .f-warranty-claim__group-title {
+    font-size: clamp(calc(var(--wc-grouptitle-min, 11) * 1px), calc(var(--wc-grouptitle-min, 11) * 1px + (var(--wc-grouptitle-max, 12) - var(--wc-grouptitle-min, 11)) * ((100vw - 375px) / 1065)), calc(var(--wc-grouptitle-max, 12) * 1px));
+  }
+  #{{ section_id }} .f-warranty-claim__hint,
+  #{{ section_id }} .f-warranty-claim__photo-list {
+    font-size: clamp(calc(var(--wc-hint-min, 13) * 1px), calc(var(--wc-hint-min, 13) * 1px + (var(--wc-hint-max, 14) - var(--wc-hint-min, 13)) * ((100vw - 375px) / 1065)), calc(var(--wc-hint-max, 14) * 1px));
+  }
   /* Photo uploader */
   .f-wc-upload {
     display: block;
@@ -292,7 +299,7 @@
 <div
   id="{{ section_id }}"
   class="f-warranty-claim f-section-padding color-{{ section.settings.color_schema }}{{ custom_class }}"
-  style="--section-padding-top: {{ section.settings.padding_top }}px; --section-padding-bottom: {{ section.settings.padding_bottom }}px; --wc-heading-min: {{ section.settings.heading_size_min }}; --wc-heading-max: {{ section.settings.heading_size_max }}; --wc-sub-min: {{ section.settings.subheading_size_min }}; --wc-sub-max: {{ section.settings.subheading_size_max }}; --wc-desc-min: {{ section.settings.desc_size_min }}; --wc-desc-max: {{ section.settings.desc_size_max }}; --wc-label-min: {{ section.settings.label_size_min }}; --wc-label-max: {{ section.settings.label_size_max }}; --wc-input-min: {{ section.settings.input_size_min }}; --wc-input-max: {{ section.settings.input_size_max }};"
+  style="--section-padding-top: {{ section.settings.padding_top }}px; --section-padding-bottom: {{ section.settings.padding_bottom }}px; --wc-heading-min: {{ section.settings.heading_size_min }}; --wc-heading-max: {{ section.settings.heading_size_max }}; --wc-sub-min: {{ section.settings.subheading_size_min }}; --wc-sub-max: {{ section.settings.subheading_size_max }}; --wc-desc-min: {{ section.settings.desc_size_min }}; --wc-desc-max: {{ section.settings.desc_size_max }}; --wc-label-min: {{ section.settings.label_size_min }}; --wc-label-max: {{ section.settings.label_size_max }}; --wc-input-min: {{ section.settings.input_size_min }}; --wc-input-max: {{ section.settings.input_size_max }}; --wc-grouptitle-min: {{ section.settings.section_label_size_min }}; --wc-grouptitle-max: {{ section.settings.section_label_size_max }}; --wc-hint-min: {{ section.settings.helper_size_min }}; --wc-hint-max: {{ section.settings.helper_size_max }};"
 >
   <div class="{{ section.settings.container }}">
     <div class="f-warranty-claim__header-wrap f-warranty-claim__header-wrap--{{ logo_position }}">
@@ -826,6 +833,47 @@
       "max": 28,
       "step": 1,
       "default": 17,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "section_label_size_min",
+      "label": "Section label size (mobile)",
+      "info": "The small uppercase group titles, e.g. REQUIRED PHOTOS.",
+      "min": 9,
+      "max": 24,
+      "step": 1,
+      "default": 11,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "section_label_size_max",
+      "label": "Section label size (desktop)",
+      "min": 10,
+      "max": 28,
+      "step": 1,
+      "default": 12,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "helper_size_min",
+      "label": "Photo checklist & helper text size (mobile)",
+      "min": 10,
+      "max": 26,
+      "step": 1,
+      "default": 13,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "helper_size_max",
+      "label": "Photo checklist & helper text size (desktop)",
+      "min": 12,
+      "max": 30,
+      "step": 1,
+      "default": 14,
       "unit": "px"
     },
     {
