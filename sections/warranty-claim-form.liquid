@@ -26,7 +26,17 @@
   if logo != blank and logo_position != 'above'
     assign header_align = 'left'
   endif
+
+  assign cloud_name = section.settings.cloudinary_cloud_name
+  assign upload_preset = section.settings.cloudinary_upload_preset
+  assign uploads_enabled = false
+  if cloud_name != blank and upload_preset != blank
+    assign uploads_enabled = true
+  endif
 -%}
+{%- if uploads_enabled -%}
+  {{ 'warranty-photo-upload.js' | asset_url | script_tag }}
+{%- endif -%}
 <style>
   .f-warranty-claim__card {
     background: var(--color-background, #fff);
@@ -153,6 +163,126 @@
   }
   #{{ section_id }} .form-control {
     font-size: clamp(calc(var(--wc-input-min, 16) * 1px), calc(var(--wc-input-min, 16) * 1px + (var(--wc-input-max, 17) - var(--wc-input-min, 16)) * ((100vw - 375px) / 1065)), calc(var(--wc-input-max, 17) * 1px));
+  }
+  /* Photo uploader */
+  .f-wc-upload {
+    display: block;
+  }
+  .f-wc-upload__dropzone {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    text-align: center;
+    padding: 1.75rem 1.25rem;
+    border: 2px dashed var(--color-border, #d1d5db);
+    border-radius: 10px;
+    color: var(--color-foreground-secondary, #6b7280);
+    cursor: pointer;
+    transition: border-color 0.15s ease, background-color 0.15s ease;
+  }
+  .f-wc-upload__dropzone:hover,
+  .f-wc-upload__dropzone.is-dragover {
+    border-color: var(--color-primary, currentColor);
+    background: rgba(0, 0, 0, 0.02);
+  }
+  .f-wc-upload__cta {
+    font-weight: 600;
+    color: var(--color-text-heading, inherit);
+  }
+  .f-wc-upload__meta {
+    font-size: 0.8125rem;
+  }
+  .f-wc-upload__list {
+    list-style: none;
+    margin: 1rem 0 0;
+    padding: 0;
+    display: grid;
+    gap: 0.625rem;
+  }
+  .f-wc-upload__item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.5rem 0.625rem;
+    border: 1px solid var(--color-border, #e5e7eb);
+    border-radius: 8px;
+    position: relative;
+  }
+  .f-wc-upload__item.is-error {
+    border-color: #dc2626;
+  }
+  .f-wc-upload__thumb {
+    flex: 0 0 auto;
+    width: 44px;
+    height: 44px;
+    border-radius: 6px;
+    overflow: hidden;
+    background: var(--color-background-secondary, #f3f4f6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    color: var(--color-foreground-secondary, #6b7280);
+  }
+  .f-wc-upload__thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .f-wc-upload__name {
+    flex: 1 1 auto;
+    min-width: 0;
+    font-size: 0.85rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .f-wc-upload__progress {
+    flex: 0 0 80px;
+    height: 4px;
+    border-radius: 4px;
+    background: var(--color-border, #e5e7eb);
+    overflow: hidden;
+  }
+  .f-wc-upload__item.is-done .f-wc-upload__progress,
+  .f-wc-upload__item.is-error .f-wc-upload__progress {
+    display: none;
+  }
+  .f-wc-upload__progress-fill {
+    display: block;
+    width: 0;
+    height: 100%;
+    background: var(--color-primary, currentColor);
+    transition: width 0.15s ease;
+  }
+  .f-wc-upload__remove {
+    flex: 0 0 auto;
+    width: 26px;
+    height: 26px;
+    line-height: 1;
+    font-size: 1.25rem;
+    border: none;
+    border-radius: 50%;
+    background: transparent;
+    color: var(--color-foreground-secondary, #6b7280);
+    cursor: pointer;
+  }
+  .f-wc-upload__remove:hover {
+    background: rgba(0, 0, 0, 0.06);
+    color: var(--color-text-heading, inherit);
+  }
+  .f-wc-upload__status {
+    margin-top: 0.625rem;
+    font-size: 0.8125rem;
+    color: var(--color-foreground-secondary, #6b7280);
+  }
+  .f-wc-upload__status.is-error {
+    color: #dc2626;
   }
 </style>
 {% render 'divider',
@@ -390,11 +520,41 @@
                   <li>Photo of batch code</li>
                   <li>Minimum one photo of failure</li>
                 </ol>
-                <label class="form-label" for="{{ form_id }}-photo-link">Photo links (Google Drive / Dropbox)</label>
-                <input class="form-control" type="url" id="{{ form_id }}-photo-link" name="contact[Photo Links]" placeholder="https://drive.google.com/...">
-                <p class="f-warranty-claim__hint">
-                  Upload the four photos to Google Drive or Dropbox and paste the shared link here. You can also email them to us after submitting.
-                </p>
+                {%- if uploads_enabled -%}
+                  <photo-uploader
+                    class="f-wc-upload"
+                    data-cloud-name="{{ cloud_name | escape }}"
+                    data-upload-preset="{{ upload_preset | escape }}"
+                    data-max-files="{{ section.settings.max_files }}"
+                    data-max-size-mb="{{ section.settings.max_file_size }}"
+                    data-require="{% if section.settings.require_photo %}true{% else %}false{% endif %}"
+                  >
+                    <input
+                      class="f-wc-upload__input visually-hidden"
+                      type="file"
+                      id="{{ form_id }}-photos"
+                      accept="image/*,.heic,.heif,.pdf"
+                      multiple
+                      data-uploader-input
+                    >
+                    <label class="f-wc-upload__dropzone" for="{{ form_id }}-photos" data-uploader-dropzone>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line>
+                      </svg>
+                      <span class="f-wc-upload__cta">Click to upload or drag your photos here</span>
+                      <span class="f-wc-upload__meta">JPG, PNG, HEIC or PDF up to {{ section.settings.max_file_size }}MB each (max {{ section.settings.max_files }} files)</span>
+                    </label>
+                    <ul class="f-wc-upload__list" data-uploader-list></ul>
+                    <div data-uploader-hidden hidden></div>
+                    <p class="f-wc-upload__status" data-uploader-status aria-live="polite"></p>
+                  </photo-uploader>
+                {%- else -%}
+                  <label class="form-label" for="{{ form_id }}-photo-link">Photo links (Google Drive / Dropbox)</label>
+                  <input class="form-control" type="url" id="{{ form_id }}-photo-link" name="contact[Photo Links]" placeholder="https://drive.google.com/...">
+                  <p class="f-warranty-claim__hint">
+                    Upload the four photos to Google Drive or Dropbox and paste the shared link here. You can also email them to us after submitting.
+                  </p>
+                {%- endif -%}
               </div>
 
               <div class="form-field w-full flex justify-center f-warranty-claim__submit-wrap">
@@ -667,6 +827,49 @@
       "step": 1,
       "default": 17,
       "unit": "px"
+    },
+    {
+      "type": "header",
+      "content": "Customer photo uploads"
+    },
+    {
+      "type": "paragraph",
+      "content": "Let customers upload photos directly (no Drive/Dropbox links). Create a free Cloudinary account, add an unsigned upload preset, then paste your cloud name and preset name below. Leave blank to keep the link field."
+    },
+    {
+      "type": "text",
+      "id": "cloudinary_cloud_name",
+      "label": "Cloudinary cloud name"
+    },
+    {
+      "type": "text",
+      "id": "cloudinary_upload_preset",
+      "label": "Cloudinary upload preset (unsigned)"
+    },
+    {
+      "type": "range",
+      "id": "max_files",
+      "label": "Maximum files",
+      "min": 1,
+      "max": 12,
+      "step": 1,
+      "default": 8
+    },
+    {
+      "type": "range",
+      "id": "max_file_size",
+      "label": "Maximum size per file",
+      "min": 1,
+      "max": 25,
+      "step": 1,
+      "default": 10,
+      "unit": "MB"
+    },
+    {
+      "type": "checkbox",
+      "id": "require_photo",
+      "label": "Require at least one photo",
+      "default": true
     },
     {
       "type": "header",
