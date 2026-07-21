@@ -147,6 +147,9 @@
   #{{ section_id }} .f-gvm-order__group-title {
     font-size: clamp(calc(var(--gvm-grouptitle-min, 11) * 1px), calc(var(--gvm-grouptitle-min, 11) * 1px + (var(--gvm-grouptitle-max, 12) - var(--gvm-grouptitle-min, 11)) * ((100vw - 375px) / 1065)), calc(var(--gvm-grouptitle-max, 12) * 1px));
   }
+  #{{ section_id }} .f-gvm-order__hint {
+    font-size: clamp(calc(var(--gvm-hint-min, 13) * 1px), calc(var(--gvm-hint-min, 13) * 1px + (var(--gvm-hint-max, 14) - var(--gvm-hint-min, 13)) * ((100vw - 375px) / 1065)), calc(var(--gvm-hint-max, 14) * 1px));
+  }
 </style>
 {% render 'divider',
   show_divider: section.settings.show_section_divider,
@@ -155,7 +158,7 @@
 <div
   id="{{ section_id }}"
   class="f-gvm-order f-section-padding color-{{ section.settings.color_schema }}{{ custom_class }}"
-  style="--section-padding-top: {{ section.settings.padding_top }}px; --section-padding-bottom: {{ section.settings.padding_bottom }}px; --gvm-heading-min: {{ section.settings.heading_size_min }}; --gvm-heading-max: {{ section.settings.heading_size_max }}; --gvm-sub-min: {{ section.settings.subheading_size_min }}; --gvm-sub-max: {{ section.settings.subheading_size_max }}; --gvm-desc-min: {{ section.settings.desc_size_min }}; --gvm-desc-max: {{ section.settings.desc_size_max }}; --gvm-label-min: {{ section.settings.label_size_min }}; --gvm-label-max: {{ section.settings.label_size_max }}; --gvm-input-min: {{ section.settings.input_size_min }}; --gvm-input-max: {{ section.settings.input_size_max }}; --gvm-grouptitle-min: {{ section.settings.section_label_size_min }}; --gvm-grouptitle-max: {{ section.settings.section_label_size_max }};"
+  style="--section-padding-top: {{ section.settings.padding_top }}px; --section-padding-bottom: {{ section.settings.padding_bottom }}px; --gvm-heading-min: {{ section.settings.heading_size_min }}; --gvm-heading-max: {{ section.settings.heading_size_max }}; --gvm-sub-min: {{ section.settings.subheading_size_min }}; --gvm-sub-max: {{ section.settings.subheading_size_max }}; --gvm-desc-min: {{ section.settings.desc_size_min }}; --gvm-desc-max: {{ section.settings.desc_size_max }}; --gvm-label-min: {{ section.settings.label_size_min }}; --gvm-label-max: {{ section.settings.label_size_max }}; --gvm-input-min: {{ section.settings.input_size_min }}; --gvm-input-max: {{ section.settings.input_size_max }}; --gvm-grouptitle-min: {{ section.settings.section_label_size_min }}; --gvm-grouptitle-max: {{ section.settings.section_label_size_max }}; --gvm-hint-min: {{ section.settings.helper_size_min }}; --gvm-hint-max: {{ section.settings.helper_size_max }};"
 >
   <div class="{{ section.settings.container }}">
     <div class="f-gvm-order__header-wrap f-gvm-order__header-wrap--{{ logo_position }}">
@@ -642,6 +645,27 @@
       "max": 28,
       "step": 1,
       "default": 12,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "helper_size_min",
+      "label": "Helper text size (mobile)",
+      "info": "The small note under a field, e.g. Only required for F-150 orders.",
+      "min": 10,
+      "max": 26,
+      "step": 1,
+      "default": 13,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "helper_size_max",
+      "label": "Helper text size (desktop)",
+      "min": 12,
+      "max": 30,
+      "step": 1,
+      "default": 14,
       "unit": "px"
     },
     {
