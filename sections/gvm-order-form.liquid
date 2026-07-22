@@ -29,16 +29,27 @@
 -%}
 <style>
   .f-gvm-order__card {
+    position: relative;
+    overflow: hidden;
     background: var(--color-background, #fff);
-    border: 1px solid rgba(0, 0, 0, 0.08);
-    border-radius: 12px;
-    padding: 3rem 3.5rem;
-    box-shadow: 0 4px 32px rgba(0, 0, 0, 0.07), 0 1px 4px rgba(0, 0, 0, 0.04);
+    border: 1px solid var(--color-border, rgba(0, 0, 0, 0.08));
+    border-radius: 16px;
+    padding: 2.75rem 3rem;
+    box-shadow: 0 12px 44px rgba(15, 23, 42, 0.08), 0 2px 8px rgba(15, 23, 42, 0.04);
+  }
+  .f-gvm-order__card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--color-primary, var(--color-text-heading, #111827));
   }
   @media (max-width: 749px) {
     .f-gvm-order__card {
-      padding: 1.75rem 1.25rem;
-      border-radius: 8px;
+      padding: 1.5rem 1.15rem;
+      border-radius: 12px;
     }
   }
   .f-gvm-order__header-wrap {
@@ -77,31 +88,87 @@
     }
   }
   .f-gvm-order__fields {
-    row-gap: 1.375rem;
+    row-gap: 1.25rem;
     column-gap: 1.5rem;
   }
-  .f-gvm-order__group-header {
-    width: 100%;
-    margin-top: 1.25rem;
+  /* Vertical stepper: numbered sections joined by a connector line */
+  .f-gvm-order__steps {
+    display: block;
   }
-  .f-gvm-order__group-header.is-first {
-    margin-top: 0;
+  .f-gvm-order__step {
+    display: grid;
+    grid-template-columns: 2.25rem 1fr;
+    column-gap: 1.15rem;
+  }
+  .f-gvm-order__step-marker {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .f-gvm-order__step-num {
+    flex: 0 0 auto;
+    width: 2.25rem;
+    height: 2.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: var(--color-text-heading, #111827);
+    color: var(--color-background, #fff);
+    font-weight: 700;
+    font-size: 0.9rem;
+    line-height: 1;
+  }
+  .f-gvm-order__step-line {
+    flex: 1 1 auto;
+    width: 2px;
+    margin-top: 0.5rem;
+    background: var(--color-border, #e5e7eb);
+  }
+  .f-gvm-order__step:last-of-type .f-gvm-order__step-line {
+    display: none;
+  }
+  .f-gvm-order__step-body {
+    min-width: 0;
+    padding-bottom: 2rem;
+  }
+  .f-gvm-order__step:last-of-type .f-gvm-order__step-body {
+    padding-bottom: 0;
+  }
+  .f-gvm-order__step-header {
+    min-height: 2.25rem;
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
   }
   .f-gvm-order__group-title {
     display: block;
     font-size: 0.68rem;
     font-weight: 700;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: var(--color-foreground-secondary, #9ca3af);
-    padding-bottom: 0.75rem;
-    border-bottom: 1px solid var(--color-border, #e5e7eb);
+    color: var(--color-text-heading, #111827);
   }
   .f-gvm-order .form-label {
     font-weight: 600;
     font-size: 0.875rem;
     margin-bottom: 0.4rem;
     display: block;
+  }
+  .f-gvm-order .form-label span[aria-hidden="true"] {
+    color: #dc2626;
+  }
+  #{{ section_id }} .form-control {
+    width: 100%;
+    border-radius: 8px;
+    border: 1px solid var(--color-border, #d8dbe0);
+    background-color: var(--color-background, #fff);
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  }
+  #{{ section_id }} .form-control:focus {
+    outline: none;
+    border-color: var(--color-text-heading, #111827);
+    box-shadow: 0 0 0 3px rgba(17, 24, 39, 0.08);
   }
   .f-gvm-order select.form-control {
     appearance: none;
@@ -118,13 +185,44 @@
     margin-top: 0.375rem;
     line-height: 1.45;
   }
-  .f-gvm-order__submit-wrap {
-    padding-top: 0.75rem;
+  .f-gvm-order__footer {
+    margin-top: 0.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--color-border, #e5e7eb);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.85rem;
   }
-  .f-gvm-order__submit-wrap .btn {
-    min-width: 220px;
-    padding-top: 0.9rem;
-    padding-bottom: 0.9rem;
+  .f-gvm-order__footer .btn {
+    min-width: 260px;
+    padding-top: 0.95rem;
+    padding-bottom: 0.95rem;
+  }
+  .f-gvm-order__required-note {
+    font-size: 0.8125rem;
+    color: var(--color-foreground-secondary, #6b7280);
+    margin: 0;
+  }
+  @media (max-width: 749px) {
+    .f-gvm-order__step {
+      grid-template-columns: 1.75rem 1fr;
+      column-gap: 0.75rem;
+    }
+    .f-gvm-order__step-body {
+      padding-bottom: 1.5rem;
+    }
+    .f-gvm-order__step-num {
+      width: 1.75rem;
+      height: 1.75rem;
+      font-size: 0.8rem;
+    }
+    .f-gvm-order__step-header {
+      min-height: 1.75rem;
+    }
+    .f-gvm-order__footer .btn {
+      min-width: 100%;
+    }
   }
   /* Adjustable font sizes: fluid clamp() between the mobile and desktop settings.
      Uses px so it is not shrunk by the theme's root font-size. */
@@ -192,153 +290,181 @@
             <input type="hidden" name="contact[name]" id="{{ form_id }}-combined-name">
             <input type="hidden" name="contact[Request Type]" value="GVM Order Request">
 
-            <div class="f-flex flex-wrap f-gvm-order__fields">
+            <div class="f-gvm-order__steps">
 
-              <!-- Order details -->
-              <div class="f-gvm-order__group-header is-first">
-                <span class="f-gvm-order__group-title">{{ section.settings.order_details_title | default: 'Order Details' | escape }}</span>
-              </div>
+              <!-- Step 1: Order details -->
+              <section class="f-gvm-order__step">
+                <div class="f-gvm-order__step-marker">
+                  <span class="f-gvm-order__step-num">1</span>
+                  <span class="f-gvm-order__step-line" aria-hidden="true"></span>
+                </div>
+                <div class="f-gvm-order__step-body">
+                  <div class="f-gvm-order__step-header">
+                    <span class="f-gvm-order__group-title">{{ section.settings.order_details_title | default: 'Order Details' | escape }}</span>
+                  </div>
+                  <div class="f-flex flex-wrap f-gvm-order__fields">
+                    <div class="form-field w-full sm:w-1/2">
+                      <label class="form-label" for="{{ form_id }}-po">
+                        Order Number (PO)
+                        <span aria-hidden="true">*</span>
+                      </label>
+                      <input class="form-control" type="text" id="{{ form_id }}-po" name="contact[Order Number (PO)]" required aria-required="true" placeholder="PO number">
+                    </div>
 
-              <div class="form-field w-full sm:w-1/2">
-                <label class="form-label" for="{{ form_id }}-po">
-                  Order Number (PO)
-                  <span aria-hidden="true">*</span>
-                </label>
-                <input class="form-control" type="text" id="{{ form_id }}-po" name="contact[Order Number (PO)]" required aria-required="true" placeholder="PO number">
-              </div>
+                    <div class="form-field w-full sm:w-1/2">
+                      <label class="form-label" for="{{ form_id }}-date-required">Date Required</label>
+                      <input class="form-control" type="date" id="{{ form_id }}-date-required" name="contact[Date Required]">
+                    </div>
 
-              <div class="form-field w-full sm:w-1/2">
-                <label class="form-label" for="{{ form_id }}-date-required">Date Required</label>
-                <input class="form-control" type="date" id="{{ form_id }}-date-required" name="contact[Date Required]">
-              </div>
+                    <div class="form-field w-full sm:w-1/2">
+                      <label class="form-label" for="{{ form_id }}-rego-status">Pre or Post Rego</label>
+                      <select class="form-control" id="{{ form_id }}-rego-status" name="contact[Pre or Post Rego]">
+                        <option value="" disabled selected>Select an option</option>
+                        <option value="Pre Rego">Pre Rego</option>
+                        <option value="Post Rego">Post Rego</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </section>
 
-              <div class="form-field w-full sm:w-1/2">
-                <label class="form-label" for="{{ form_id }}-rego-status">Pre or Post Rego</label>
-                <select class="form-control" id="{{ form_id }}-rego-status" name="contact[Pre or Post Rego]">
-                  <option value="" disabled selected>Select an option</option>
-                  <option value="Pre Rego">Pre Rego</option>
-                  <option value="Post Rego">Post Rego</option>
-                </select>
-              </div>
+              <!-- Step 2: Vehicle information -->
+              <section class="f-gvm-order__step">
+                <div class="f-gvm-order__step-marker">
+                  <span class="f-gvm-order__step-num">2</span>
+                  <span class="f-gvm-order__step-line" aria-hidden="true"></span>
+                </div>
+                <div class="f-gvm-order__step-body">
+                  <div class="f-gvm-order__step-header">
+                    <span class="f-gvm-order__group-title">{{ section.settings.vehicle_info_title | default: 'Vehicle Information' | escape }}</span>
+                  </div>
+                  <div class="f-flex flex-wrap f-gvm-order__fields">
+                    <div class="form-field w-full sm:w-1/2">
+                      <label class="form-label" for="{{ form_id }}-brand-model">Brand / Model</label>
+                      <input class="form-control" type="text" id="{{ form_id }}-brand-model" name="contact[Brand / Model]">
+                    </div>
 
-              <!-- Vehicle information -->
-              <div class="f-gvm-order__group-header">
-                <span class="f-gvm-order__group-title">{{ section.settings.vehicle_info_title | default: 'Vehicle Information' | escape }}</span>
-              </div>
+                    <div class="form-field w-full sm:w-1/2">
+                      <label class="form-label" for="{{ form_id }}-build-date">Build Date (Month/Year)</label>
+                      <input class="form-control" type="text" id="{{ form_id }}-build-date" name="contact[Build Date (Month/Year)]" placeholder="e.g. 03/2023">
+                    </div>
 
-              <div class="form-field w-full sm:w-1/2">
-                <label class="form-label" for="{{ form_id }}-brand-model">Brand / Model</label>
-                <input class="form-control" type="text" id="{{ form_id }}-brand-model" name="contact[Brand / Model]">
-              </div>
+                    <div class="form-field w-full sm:w-1/2">
+                      <label class="form-label" for="{{ form_id }}-wheelbase">Wheelbase (F-150 only)</label>
+                      <select class="form-control" id="{{ form_id }}-wheelbase" name="contact[Wheelbase (F-150 only)]">
+                        <option value="" disabled selected>Select an option</option>
+                        <option value="SWB">SWB</option>
+                        <option value="LWB">LWB</option>
+                        <option value="N/A">N/A</option>
+                      </select>
+                      <p class="f-gvm-order__hint">Only required for F-150 orders.</p>
+                    </div>
 
-              <div class="form-field w-full sm:w-1/2">
-                <label class="form-label" for="{{ form_id }}-build-date">Build Date (Month/Year)</label>
-                <input class="form-control" type="text" id="{{ form_id }}-build-date" name="contact[Build Date (Month/Year)]" placeholder="e.g. 03/2023">
-              </div>
+                    <div class="form-field w-full sm:w-1/2">
+                      <label class="form-label" for="{{ form_id }}-trim">Trim (F-150 only)</label>
+                      <select class="form-control" id="{{ form_id }}-trim" name="contact[Trim (F-150 only)]">
+                        <option value="" disabled selected>Select an option</option>
+                        <option value="XLT">XLT</option>
+                        <option value="Lariat">Lariat</option>
+                        <option value="Platinum">Platinum</option>
+                        <option value="N/A">N/A</option>
+                      </select>
+                      <p class="f-gvm-order__hint">Only required for F-150 orders.</p>
+                    </div>
 
-              <div class="form-field w-full sm:w-1/2">
-                <label class="form-label" for="{{ form_id }}-wheelbase">Wheelbase (F-150 only)</label>
-                <select class="form-control" id="{{ form_id }}-wheelbase" name="contact[Wheelbase (F-150 only)]">
-                  <option value="" disabled selected>Select an option</option>
-                  <option value="SWB">SWB</option>
-                  <option value="LWB">LWB</option>
-                  <option value="N/A">N/A</option>
-                </select>
-                <p class="f-gvm-order__hint">Only required for F-150 orders.</p>
-              </div>
+                    <div class="form-field w-full sm:w-1/2">
+                      <label class="form-label" for="{{ form_id }}-vin">VIN Number</label>
+                      <input class="form-control" type="text" id="{{ form_id }}-vin" name="contact[VIN Number]">
+                    </div>
 
-              <div class="form-field w-full sm:w-1/2">
-                <label class="form-label" for="{{ form_id }}-trim">Trim (F-150 only)</label>
-                <select class="form-control" id="{{ form_id }}-trim" name="contact[Trim (F-150 only)]">
-                  <option value="" disabled selected>Select an option</option>
-                  <option value="XLT">XLT</option>
-                  <option value="Lariat">Lariat</option>
-                  <option value="Platinum">Platinum</option>
-                  <option value="N/A">N/A</option>
-                </select>
-                <p class="f-gvm-order__hint">Only required for F-150 orders.</p>
-              </div>
+                    <div class="form-field w-full sm:w-1/2">
+                      <label class="form-label" for="{{ form_id }}-kit-number">ORI Kit Number</label>
+                      <input class="form-control" type="text" id="{{ form_id }}-kit-number" name="contact[ORI Kit Number]">
+                    </div>
 
-              <div class="form-field w-full sm:w-1/2">
-                <label class="form-label" for="{{ form_id }}-vin">VIN Number</label>
-                <input class="form-control" type="text" id="{{ form_id }}-vin" name="contact[VIN Number]">
-              </div>
+                    <div class="form-field w-full">
+                      <label class="form-label" for="{{ form_id }}-kit-setup">Kit &amp; Setup Details</label>
+                      <textarea class="form-control form-control--textarea" id="{{ form_id }}-kit-setup" name="contact[Kit & Setup Details]" rows="3"></textarea>
+                    </div>
 
-              <div class="form-field w-full">
-                <label class="form-label" for="{{ form_id }}-kit-setup">Kit &amp; Setup Details</label>
-                <textarea class="form-control form-control--textarea" id="{{ form_id }}-kit-setup" name="contact[Kit & Setup Details]" rows="3"></textarea>
-              </div>
+                    <div class="form-field w-full">
+                      <label class="form-label" for="{{ form_id }}-wheel-tyre">Wheel &amp; Tyre Information</label>
+                      <textarea class="form-control form-control--textarea" id="{{ form_id }}-wheel-tyre" name="contact[Wheel & Tyre Information]" rows="3"></textarea>
+                      <p class="f-gvm-order__hint">
+                        If not OE, please specify tyre size and wheel offset to ensure flare/clearance compliance.
+                      </p>
+                    </div>
 
-              <div class="form-field w-full sm:w-1/2">
-                <label class="form-label" for="{{ form_id }}-kit-number">ORI Kit Number</label>
-                <input class="form-control" type="text" id="{{ form_id }}-kit-number" name="contact[ORI Kit Number]">
-              </div>
+                    <div class="form-field w-full">
+                      <label class="form-label" for="{{ form_id }}-notes">Additional Notes</label>
+                      <textarea class="form-control form-control--textarea" id="{{ form_id }}-notes" name="contact[body]" rows="4" placeholder="Anything else we should know about this order.">{{- form.body -}}</textarea>
+                    </div>
+                  </div>
+                </div>
+              </section>
 
-              <div class="form-field w-full">
-                <label class="form-label" for="{{ form_id }}-wheel-tyre">Wheel &amp; Tyre Information</label>
-                <textarea class="form-control form-control--textarea" id="{{ form_id }}-wheel-tyre" name="contact[Wheel & Tyre Information]" rows="3"></textarea>
-                <p class="f-gvm-order__hint">
-                  If not OE, please specify tyre size and wheel offset to ensure flare/clearance compliance.
-                </p>
-              </div>
+              <!-- Step 3: Your details -->
+              <section class="f-gvm-order__step">
+                <div class="f-gvm-order__step-marker">
+                  <span class="f-gvm-order__step-num">3</span>
+                  <span class="f-gvm-order__step-line" aria-hidden="true"></span>
+                </div>
+                <div class="f-gvm-order__step-body">
+                  <div class="f-gvm-order__step-header">
+                    <span class="f-gvm-order__group-title">{{ section.settings.your_details_title | default: 'Your Details' | escape }}</span>
+                  </div>
+                  <div class="f-flex flex-wrap f-gvm-order__fields">
+                    <div class="form-field w-full sm:w-1/2">
+                      <label class="form-label" for="{{ form_id }}-company">Dealer / Company Name</label>
+                      <input class="form-control" type="text" id="{{ form_id }}-company" name="contact[Dealer / Company Name]">
+                    </div>
 
-              <div class="form-field w-full">
-                <label class="form-label" for="{{ form_id }}-notes">Additional Notes</label>
-                <textarea class="form-control form-control--textarea" id="{{ form_id }}-notes" name="contact[body]" rows="4" placeholder="Anything else we should know about this order.">{{- form.body -}}</textarea>
-              </div>
+                    <div class="form-field w-full sm:w-1/2">
+                      <label class="form-label" for="{{ form_id }}-contact-person">Contact Person</label>
+                      <input class="form-control" type="text" id="{{ form_id }}-contact-person" name="contact[Contact Person]">
+                    </div>
 
-              <!-- Your details -->
-              <div class="f-gvm-order__group-header">
-                <span class="f-gvm-order__group-title">{{ section.settings.your_details_title | default: 'Your Details' | escape }}</span>
-              </div>
+                    <div class="form-field w-full sm:w-1/2">
+                      <label class="form-label" for="{{ form_id }}-phone">Contact Number</label>
+                      <input class="form-control" type="tel" id="{{ form_id }}-phone" name="contact[Contact Number]" pattern="[0-9\-\+\(\)\s]*">
+                    </div>
 
-              <div class="form-field w-full sm:w-1/2">
-                <label class="form-label" for="{{ form_id }}-company">Dealer / Company Name</label>
-                <input class="form-control" type="text" id="{{ form_id }}-company" name="contact[Dealer / Company Name]">
-              </div>
+                    <div class="form-field w-full sm:w-1/2">
+                      <label class="form-label" for="{{ form_id }}-email">
+                        Contact Email
+                        <span aria-hidden="true">*</span>
+                      </label>
+                      <input
+                        class="form-control{% if form.errors contains 'email' %} form-control--error{% endif %}"
+                        type="email"
+                        id="{{ form_id }}-email"
+                        name="contact[email]"
+                        required
+                        aria-required="true"
+                        autocomplete="email"
+                        spellcheck="false"
+                        autocapitalize="off"
+                        placeholder="your@email.com"
+                        value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
+                      >
+                      {%- if form.errors contains 'email' -%}
+                        <p class="form-message form-message--error" id="{{ form_id }}-email-error">
+                          <span class="visually-hidden">{{ 'accessibility.error' | t }}</span>
+                          <span>{{ form.errors.translated_fields.email | capitalize }} {{ form.errors.messages.email }}</span>
+                        </p>
+                      {%- endif -%}
+                    </div>
+                  </div>
+                </div>
+              </section>
 
-              <div class="form-field w-full sm:w-1/2">
-                <label class="form-label" for="{{ form_id }}-contact-person">Contact Person</label>
-                <input class="form-control" type="text" id="{{ form_id }}-contact-person" name="contact[Contact Person]">
-              </div>
+            </div>
 
-              <div class="form-field w-full sm:w-1/2">
-                <label class="form-label" for="{{ form_id }}-phone">Contact Number</label>
-                <input class="form-control" type="tel" id="{{ form_id }}-phone" name="contact[Contact Number]" pattern="[0-9\-\+\(\)\s]*">
-              </div>
-
-              <div class="form-field w-full sm:w-1/2">
-                <label class="form-label" for="{{ form_id }}-email">
-                  Contact Email
-                  <span aria-hidden="true">*</span>
-                </label>
-                <input
-                  class="form-control{% if form.errors contains 'email' %} form-control--error{% endif %}"
-                  type="email"
-                  id="{{ form_id }}-email"
-                  name="contact[email]"
-                  required
-                  aria-required="true"
-                  autocomplete="email"
-                  spellcheck="false"
-                  autocapitalize="off"
-                  placeholder="your@email.com"
-                  value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
-                >
-                {%- if form.errors contains 'email' -%}
-                  <p class="form-message form-message--error" id="{{ form_id }}-email-error">
-                    <span class="visually-hidden">{{ 'accessibility.error' | t }}</span>
-                    <span>{{ form.errors.translated_fields.email | capitalize }} {{ form.errors.messages.email }}</span>
-                  </p>
-                {%- endif -%}
-              </div>
-
-              <div class="form-field w-full flex justify-center f-gvm-order__submit-wrap">
-                <button type="submit" class="btn {{ section.settings.button_style }}">
-                  {{ section.settings.button_label | default: 'Submit Order Request' }}
-                </button>
-              </div>
-
+            <div class="f-gvm-order__footer">
+              <button type="submit" class="btn {{ section.settings.button_style }}">
+                {{ section.settings.button_label | default: 'Submit Order Request' }}
+              </button>
+              <p class="f-gvm-order__required-note">Fields marked <span aria-hidden="true" style="color:#dc2626;">*</span> are required.</p>
             </div>
           {%- endform -%}
         </div>

@@ -36,16 +36,27 @@
 -%}
 <style>
   .f-warranty-claim__card {
+    position: relative;
+    overflow: hidden;
     background: var(--color-background, #fff);
-    border: 1px solid rgba(0, 0, 0, 0.08);
-    border-radius: 12px;
-    padding: 3rem 3.5rem;
-    box-shadow: 0 4px 32px rgba(0, 0, 0, 0.07), 0 1px 4px rgba(0, 0, 0, 0.04);
+    border: 1px solid var(--color-border, rgba(0, 0, 0, 0.08));
+    border-radius: 16px;
+    padding: 2.75rem 3rem;
+    box-shadow: 0 12px 44px rgba(15, 23, 42, 0.08), 0 2px 8px rgba(15, 23, 42, 0.04);
+  }
+  .f-warranty-claim__card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--color-primary, var(--color-text-heading, #111827));
   }
   @media (max-width: 749px) {
     .f-warranty-claim__card {
-      padding: 1.75rem 1.25rem;
-      border-radius: 8px;
+      padding: 1.5rem 1.15rem;
+      border-radius: 12px;
     }
   }
   .f-warranty-claim__header-wrap {
@@ -84,31 +95,87 @@
     }
   }
   .f-warranty-claim__fields {
-    row-gap: 1.375rem;
+    row-gap: 1.25rem;
     column-gap: 1.5rem;
   }
-  .f-warranty-claim__group-header {
-    width: 100%;
-    margin-top: 1.25rem;
+  /* Vertical stepper: numbered sections joined by a connector line */
+  .f-warranty-claim__steps {
+    display: block;
   }
-  .f-warranty-claim__group-header.is-first {
-    margin-top: 0;
+  .f-warranty-claim__step {
+    display: grid;
+    grid-template-columns: 2.25rem 1fr;
+    column-gap: 1.15rem;
+  }
+  .f-warranty-claim__step-marker {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .f-warranty-claim__step-num {
+    flex: 0 0 auto;
+    width: 2.25rem;
+    height: 2.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: var(--color-text-heading, #111827);
+    color: var(--color-background, #fff);
+    font-weight: 700;
+    font-size: 0.9rem;
+    line-height: 1;
+  }
+  .f-warranty-claim__step-line {
+    flex: 1 1 auto;
+    width: 2px;
+    margin-top: 0.5rem;
+    background: var(--color-border, #e5e7eb);
+  }
+  .f-warranty-claim__step:last-of-type .f-warranty-claim__step-line {
+    display: none;
+  }
+  .f-warranty-claim__step-body {
+    min-width: 0;
+    padding-bottom: 2rem;
+  }
+  .f-warranty-claim__step:last-of-type .f-warranty-claim__step-body {
+    padding-bottom: 0;
+  }
+  .f-warranty-claim__step-header {
+    min-height: 2.25rem;
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
   }
   .f-warranty-claim__group-title {
     display: block;
     font-size: 0.68rem;
     font-weight: 700;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: var(--color-foreground-secondary, #9ca3af);
-    padding-bottom: 0.75rem;
-    border-bottom: 1px solid var(--color-border, #e5e7eb);
+    color: var(--color-text-heading, #111827);
   }
   .f-warranty-claim .form-label {
     font-weight: 600;
     font-size: 0.875rem;
     margin-bottom: 0.4rem;
     display: block;
+  }
+  .f-warranty-claim .form-label span[aria-hidden="true"] {
+    color: #dc2626;
+  }
+  #{{ section_id }} .form-control {
+    width: 100%;
+    border-radius: 8px;
+    border: 1px solid var(--color-border, #d8dbe0);
+    background-color: var(--color-background, #fff);
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  }
+  #{{ section_id }} .form-control:focus {
+    outline: none;
+    border-color: var(--color-text-heading, #111827);
+    box-shadow: 0 0 0 3px rgba(17, 24, 39, 0.08);
   }
   .f-warranty-claim select.form-control {
     appearance: none;
@@ -135,13 +202,44 @@
   .f-warranty-claim__photo-list li {
     margin-bottom: 0.25rem;
   }
-  .f-warranty-claim__submit-wrap {
-    padding-top: 0.75rem;
+  .f-warranty-claim__footer {
+    margin-top: 0.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--color-border, #e5e7eb);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.85rem;
   }
-  .f-warranty-claim__submit-wrap .btn {
-    min-width: 220px;
-    padding-top: 0.9rem;
-    padding-bottom: 0.9rem;
+  .f-warranty-claim__footer .btn {
+    min-width: 260px;
+    padding-top: 0.95rem;
+    padding-bottom: 0.95rem;
+  }
+  .f-warranty-claim__required-note {
+    font-size: 0.8125rem;
+    color: var(--color-foreground-secondary, #6b7280);
+    margin: 0;
+  }
+  @media (max-width: 749px) {
+    .f-warranty-claim__step {
+      grid-template-columns: 1.75rem 1fr;
+      column-gap: 0.75rem;
+    }
+    .f-warranty-claim__step-body {
+      padding-bottom: 1.5rem;
+    }
+    .f-warranty-claim__step-num {
+      width: 1.75rem;
+      height: 1.75rem;
+      font-size: 0.8rem;
+    }
+    .f-warranty-claim__step-header {
+      min-height: 1.75rem;
+    }
+    .f-warranty-claim__footer .btn {
+      min-width: 100%;
+    }
   }
   /* Adjustable font sizes: fluid clamp() between the mobile and desktop settings.
      Uses px so it is not shrunk by the theme's root font-size. */
@@ -342,244 +440,298 @@
             {% render 'form-status', form: form, form_id: form_id %}
             <input type="hidden" name="contact[name]" id="{{ form_id }}-combined-name">
 
-            <div class="f-flex flex-wrap f-warranty-claim__fields">
+            <div class="f-warranty-claim__steps">
 
-              <!-- Claim -->
-              <div class="f-warranty-claim__group-header is-first">
-                <span class="f-warranty-claim__group-title">Claim</span>
-              </div>
+              <!-- Step 1: Claim -->
+              <section class="f-warranty-claim__step">
+                <div class="f-warranty-claim__step-marker">
+                  <span class="f-warranty-claim__step-num">1</span>
+                  <span class="f-warranty-claim__step-line" aria-hidden="true"></span>
+                </div>
+                <div class="f-warranty-claim__step-body">
+                  <div class="f-warranty-claim__step-header">
+                    <span class="f-warranty-claim__group-title">Claim</span>
+                  </div>
+                  <div class="f-flex flex-wrap f-warranty-claim__fields">
+                    <div class="form-field w-full sm:w-1/2">
+                      <label class="form-label" for="{{ form_id }}-claim-date">Claim Date</label>
+                      <input class="form-control" type="date" id="{{ form_id }}-claim-date" name="contact[Claim Date]">
+                    </div>
 
-              <div class="form-field w-full sm:w-1/2">
-                <label class="form-label" for="{{ form_id }}-claim-date">Claim Date</label>
-                <input class="form-control" type="date" id="{{ form_id }}-claim-date" name="contact[Claim Date]">
-              </div>
+                    <div class="form-field w-full sm:w-1/2">
+                      <label class="form-label" for="{{ form_id }}-invoice">Dealer Invoice Number</label>
+                      <input class="form-control" type="text" id="{{ form_id }}-invoice" name="contact[Dealer Invoice Number]" placeholder="Invoice #">
+                    </div>
 
-              <div class="form-field w-full sm:w-1/2">
-                <label class="form-label" for="{{ form_id }}-invoice">Dealer Invoice Number</label>
-                <input class="form-control" type="text" id="{{ form_id }}-invoice" name="contact[Dealer Invoice Number]" placeholder="Invoice #">
-              </div>
+                    <div class="form-field w-full sm:w-1/2">
+                      <label class="form-label" for="{{ form_id }}-part">
+                        Part Number
+                        <span aria-hidden="true">*</span>
+                      </label>
+                      <input class="form-control" type="text" id="{{ form_id }}-part" name="contact[Part Number]" required aria-required="true" placeholder="Part number">
+                    </div>
 
-              <div class="form-field w-full sm:w-1/2">
-                <label class="form-label" for="{{ form_id }}-part">
-                  Part Number
-                  <span aria-hidden="true">*</span>
-                </label>
-                <input class="form-control" type="text" id="{{ form_id }}-part" name="contact[Part Number]" required aria-required="true" placeholder="Part number">
-              </div>
+                    <div class="form-field w-full sm:w-1/2">
+                      <label class="form-label" for="{{ form_id }}-qty">Quantity</label>
+                      <input class="form-control" type="number" min="1" id="{{ form_id }}-qty" name="contact[Quantity]" placeholder="1">
+                    </div>
 
-              <div class="form-field w-full sm:w-1/2">
-                <label class="form-label" for="{{ form_id }}-qty">Quantity</label>
-                <input class="form-control" type="number" min="1" id="{{ form_id }}-qty" name="contact[Quantity]" placeholder="1">
-              </div>
+                    <div class="form-field w-full sm:w-1/2">
+                      <label class="form-label" for="{{ form_id }}-batch">
+                        Batch Code
+                        <span aria-hidden="true">*</span>
+                      </label>
+                      <input class="form-control" type="text" id="{{ form_id }}-batch" name="contact[Batch Code]" required aria-required="true" placeholder="Batch code">
+                    </div>
+                  </div>
+                </div>
+              </section>
 
-              <div class="form-field w-full sm:w-1/2">
-                <label class="form-label" for="{{ form_id }}-batch">
-                  Batch Code
-                  <span aria-hidden="true">*</span>
-                </label>
-                <input class="form-control" type="text" id="{{ form_id }}-batch" name="contact[Batch Code]" required aria-required="true" placeholder="Batch code">
-              </div>
+              <!-- Step 2: Vehicle Details -->
+              <section class="f-warranty-claim__step">
+                <div class="f-warranty-claim__step-marker">
+                  <span class="f-warranty-claim__step-num">2</span>
+                  <span class="f-warranty-claim__step-line" aria-hidden="true"></span>
+                </div>
+                <div class="f-warranty-claim__step-body">
+                  <div class="f-warranty-claim__step-header">
+                    <span class="f-warranty-claim__group-title">Vehicle Details</span>
+                  </div>
+                  <div class="f-flex flex-wrap f-warranty-claim__fields">
+                    <div class="form-field w-full sm:w-1/2">
+                      <label class="form-label" for="{{ form_id }}-make">Make</label>
+                      <input class="form-control" type="text" id="{{ form_id }}-make" name="contact[Vehicle Make]">
+                    </div>
 
-              <!-- Vehicle Details -->
-              <div class="f-warranty-claim__group-header">
-                <span class="f-warranty-claim__group-title">Vehicle Details</span>
-              </div>
+                    <div class="form-field w-full sm:w-1/2">
+                      <label class="form-label" for="{{ form_id }}-model">Model</label>
+                      <input class="form-control" type="text" id="{{ form_id }}-model" name="contact[Vehicle Model]">
+                    </div>
 
-              <div class="form-field w-full sm:w-1/2">
-                <label class="form-label" for="{{ form_id }}-make">Make</label>
-                <input class="form-control" type="text" id="{{ form_id }}-make" name="contact[Vehicle Make]">
-              </div>
+                    <div class="form-field w-full sm:w-1/2">
+                      <label class="form-label" for="{{ form_id }}-rego">Registration Number</label>
+                      <input class="form-control" type="text" id="{{ form_id }}-rego" name="contact[Registration Number]">
+                    </div>
 
-              <div class="form-field w-full sm:w-1/2">
-                <label class="form-label" for="{{ form_id }}-model">Model</label>
-                <input class="form-control" type="text" id="{{ form_id }}-model" name="contact[Vehicle Model]">
-              </div>
+                    <div class="form-field w-full sm:w-1/2">
+                      <label class="form-label" for="{{ form_id }}-year">Year</label>
+                      <input class="form-control" type="text" inputmode="numeric" id="{{ form_id }}-year" name="contact[Year]" placeholder="e.g. 2022">
+                    </div>
 
-              <div class="form-field w-full sm:w-1/2">
-                <label class="form-label" for="{{ form_id }}-rego">Registration Number</label>
-                <input class="form-control" type="text" id="{{ form_id }}-rego" name="contact[Registration Number]">
-              </div>
+                    <div class="form-field w-full sm:w-1/2">
+                      <label class="form-label" for="{{ form_id }}-state">Registration State</label>
+                      <select class="form-control" id="{{ form_id }}-state" name="contact[Registration State]">
+                        <option value="" disabled selected>Select state</option>
+                        <option value="ACT">ACT</option>
+                        <option value="NSW">NSW</option>
+                        <option value="NT">NT</option>
+                        <option value="QLD">QLD</option>
+                        <option value="SA">SA</option>
+                        <option value="TAS">TAS</option>
+                        <option value="VIC">VIC</option>
+                        <option value="WA">WA</option>
+                      </select>
+                    </div>
 
-              <div class="form-field w-full sm:w-1/2">
-                <label class="form-label" for="{{ form_id }}-year">Year</label>
-                <input class="form-control" type="text" inputmode="numeric" id="{{ form_id }}-year" name="contact[Year]" placeholder="e.g. 2022">
-              </div>
+                    <div class="form-field w-full sm:w-1/2">
+                      <label class="form-label" for="{{ form_id }}-install-date">Install Date</label>
+                      <input class="form-control" type="date" id="{{ form_id }}-install-date" name="contact[Install Date]">
+                    </div>
 
-              <div class="form-field w-full sm:w-1/2">
-                <label class="form-label" for="{{ form_id }}-state">Registration State</label>
-                <select class="form-control" id="{{ form_id }}-state" name="contact[Registration State]">
-                  <option value="" disabled selected>Select state</option>
-                  <option value="ACT">ACT</option>
-                  <option value="NSW">NSW</option>
-                  <option value="NT">NT</option>
-                  <option value="QLD">QLD</option>
-                  <option value="SA">SA</option>
-                  <option value="TAS">TAS</option>
-                  <option value="VIC">VIC</option>
-                  <option value="WA">WA</option>
-                </select>
-              </div>
+                    <div class="form-field w-full sm:w-1/2">
+                      <label class="form-label" for="{{ form_id }}-distance">Miles/KM Since Install</label>
+                      <input class="form-control" type="text" inputmode="numeric" id="{{ form_id }}-distance" name="contact[Miles/KM Since Install]">
+                    </div>
 
-              <div class="form-field w-full sm:w-1/2">
-                <label class="form-label" for="{{ form_id }}-install-date">Install Date</label>
-                <input class="form-control" type="date" id="{{ form_id }}-install-date" name="contact[Install Date]">
-              </div>
+                    <div class="form-field w-full sm:w-1/2">
+                      <label class="form-label" for="{{ form_id }}-failure-date">Failure Date</label>
+                      <input class="form-control" type="date" id="{{ form_id }}-failure-date" name="contact[Failure Date]">
+                    </div>
+                  </div>
+                </div>
+              </section>
 
-              <div class="form-field w-full sm:w-1/2">
-                <label class="form-label" for="{{ form_id }}-distance">Miles/KM Since Install</label>
-                <input class="form-control" type="text" inputmode="numeric" id="{{ form_id }}-distance" name="contact[Miles/KM Since Install]">
-              </div>
+              <!-- Step 3: FOX Authorized Dealer Information -->
+              <section class="f-warranty-claim__step">
+                <div class="f-warranty-claim__step-marker">
+                  <span class="f-warranty-claim__step-num">3</span>
+                  <span class="f-warranty-claim__step-line" aria-hidden="true"></span>
+                </div>
+                <div class="f-warranty-claim__step-body">
+                  <div class="f-warranty-claim__step-header">
+                    <span class="f-warranty-claim__group-title">FOX Authorized Dealer Information</span>
+                  </div>
+                  <div class="f-flex flex-wrap f-warranty-claim__fields">
+                    <div class="form-field w-full">
+                      <label class="form-label" for="{{ form_id }}-dealer-company">Company Name</label>
+                      <input class="form-control" type="text" id="{{ form_id }}-dealer-company" name="contact[Dealer Company Name]">
+                    </div>
 
-              <div class="form-field w-full sm:w-1/2">
-                <label class="form-label" for="{{ form_id }}-failure-date">Failure Date</label>
-                <input class="form-control" type="date" id="{{ form_id }}-failure-date" name="contact[Failure Date]">
-              </div>
+                    <div class="form-field w-full sm:w-1/2">
+                      <label class="form-label" for="{{ form_id }}-dealer-person">Contact Person</label>
+                      <input class="form-control" type="text" id="{{ form_id }}-dealer-person" name="contact[Dealer Contact Person]">
+                    </div>
 
-              <!-- FOX Authorized Dealer Information -->
-              <div class="f-warranty-claim__group-header">
-                <span class="f-warranty-claim__group-title">FOX Authorized Dealer Information</span>
-              </div>
+                    <div class="form-field w-full sm:w-1/2">
+                      <label class="form-label" for="{{ form_id }}-dealer-number">Contact Number</label>
+                      <input class="form-control" type="tel" id="{{ form_id }}-dealer-number" name="contact[Dealer Contact Number]" pattern="[0-9\-\+\(\)\s]*">
+                    </div>
 
-              <div class="form-field w-full">
-                <label class="form-label" for="{{ form_id }}-dealer-company">Company Name</label>
-                <input class="form-control" type="text" id="{{ form_id }}-dealer-company" name="contact[Dealer Company Name]">
-              </div>
+                    <div class="form-field w-full">
+                      <label class="form-label" for="{{ form_id }}-email">
+                        Contact Email
+                        <span aria-hidden="true">*</span>
+                      </label>
+                      <input
+                        class="form-control{% if form.errors contains 'email' %} form-control--error{% endif %}"
+                        type="email"
+                        id="{{ form_id }}-email"
+                        name="contact[email]"
+                        required
+                        aria-required="true"
+                        autocomplete="email"
+                        spellcheck="false"
+                        autocapitalize="off"
+                        placeholder="your@email.com"
+                        value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
+                      >
+                      {%- if form.errors contains 'email' -%}
+                        <p class="form-message form-message--error" id="{{ form_id }}-email-error">
+                          <span class="visually-hidden">{{ 'accessibility.error' | t }}</span>
+                          <span>{{ form.errors.translated_fields.email | capitalize }} {{ form.errors.messages.email }}</span>
+                        </p>
+                      {%- endif -%}
+                    </div>
+                  </div>
+                </div>
+              </section>
 
-              <div class="form-field w-full sm:w-1/2">
-                <label class="form-label" for="{{ form_id }}-dealer-person">Contact Person</label>
-                <input class="form-control" type="text" id="{{ form_id }}-dealer-person" name="contact[Dealer Contact Person]">
-              </div>
+              <!-- Step 4: Installer Details -->
+              <section class="f-warranty-claim__step">
+                <div class="f-warranty-claim__step-marker">
+                  <span class="f-warranty-claim__step-num">4</span>
+                  <span class="f-warranty-claim__step-line" aria-hidden="true"></span>
+                </div>
+                <div class="f-warranty-claim__step-body">
+                  <div class="f-warranty-claim__step-header">
+                    <span class="f-warranty-claim__group-title">Installer Details</span>
+                  </div>
+                  <div class="f-flex flex-wrap f-warranty-claim__fields">
+                    <div class="form-field w-full">
+                      <label class="form-label" for="{{ form_id }}-installer-name">Installer Name</label>
+                      <input class="form-control" type="text" id="{{ form_id }}-installer-name" name="contact[Installer Name]">
+                    </div>
 
-              <div class="form-field w-full sm:w-1/2">
-                <label class="form-label" for="{{ form_id }}-dealer-number">Contact Number</label>
-                <input class="form-control" type="tel" id="{{ form_id }}-dealer-number" name="contact[Dealer Contact Number]" pattern="[0-9\-\+\(\)\s]*">
-              </div>
+                    <div class="form-field w-full sm:w-1/2">
+                      <label class="form-label" for="{{ form_id }}-installer-person">Contact Person</label>
+                      <input class="form-control" type="text" id="{{ form_id }}-installer-person" name="contact[Installer Contact Person]">
+                    </div>
 
-              <div class="form-field w-full">
-                <label class="form-label" for="{{ form_id }}-email">
-                  Contact Email
-                  <span aria-hidden="true">*</span>
-                </label>
-                <input
-                  class="form-control{% if form.errors contains 'email' %} form-control--error{% endif %}"
-                  type="email"
-                  id="{{ form_id }}-email"
-                  name="contact[email]"
-                  required
-                  aria-required="true"
-                  autocomplete="email"
-                  spellcheck="false"
-                  autocapitalize="off"
-                  placeholder="your@email.com"
-                  value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
-                >
-                {%- if form.errors contains 'email' -%}
-                  <p class="form-message form-message--error" id="{{ form_id }}-email-error">
-                    <span class="visually-hidden">{{ 'accessibility.error' | t }}</span>
-                    <span>{{ form.errors.translated_fields.email | capitalize }} {{ form.errors.messages.email }}</span>
-                  </p>
-                {%- endif -%}
-              </div>
+                    <div class="form-field w-full sm:w-1/2">
+                      <label class="form-label" for="{{ form_id }}-installer-number">Contact Number</label>
+                      <input class="form-control" type="tel" id="{{ form_id }}-installer-number" name="contact[Installer Contact Number]" pattern="[0-9\-\+\(\)\s]*">
+                    </div>
+                  </div>
+                </div>
+              </section>
 
-              <!-- Installer Details -->
-              <div class="f-warranty-claim__group-header">
-                <span class="f-warranty-claim__group-title">Installer Details</span>
-              </div>
+              <!-- Step 5: Failure Description -->
+              <section class="f-warranty-claim__step">
+                <div class="f-warranty-claim__step-marker">
+                  <span class="f-warranty-claim__step-num">5</span>
+                  <span class="f-warranty-claim__step-line" aria-hidden="true"></span>
+                </div>
+                <div class="f-warranty-claim__step-body">
+                  <div class="f-warranty-claim__step-header">
+                    <span class="f-warranty-claim__group-title">Failure Description</span>
+                  </div>
+                  <div class="f-flex flex-wrap f-warranty-claim__fields">
+                    <div class="form-field w-full">
+                      <label class="form-label" for="{{ form_id }}-body">
+                        Detailed description of failure
+                        <span aria-hidden="true">*</span>
+                      </label>
+                      <textarea
+                        class="form-control form-control--textarea"
+                        id="{{ form_id }}-body"
+                        name="contact[body]"
+                        required
+                        aria-required="true"
+                        rows="6"
+                        placeholder="Describe the failure, when it occurred, and the conditions of use."
+                      >{{- form.body -}}</textarea>
+                    </div>
+                  </div>
+                </div>
+              </section>
 
-              <div class="form-field w-full">
-                <label class="form-label" for="{{ form_id }}-installer-name">Installer Name</label>
-                <input class="form-control" type="text" id="{{ form_id }}-installer-name" name="contact[Installer Name]">
-              </div>
+              <!-- Step 6: Required photos -->
+              <section class="f-warranty-claim__step">
+                <div class="f-warranty-claim__step-marker">
+                  <span class="f-warranty-claim__step-num">6</span>
+                  <span class="f-warranty-claim__step-line" aria-hidden="true"></span>
+                </div>
+                <div class="f-warranty-claim__step-body">
+                  <div class="f-warranty-claim__step-header">
+                    <span class="f-warranty-claim__group-title">Required photos</span>
+                  </div>
+                  <div class="f-flex flex-wrap f-warranty-claim__fields">
+                    <div class="form-field w-full">
+                      <p class="f-warranty-claim__hint" style="margin-top: 0;">
+                        Please attach the below photos for your claim to progress further:
+                      </p>
+                      <ol class="f-warranty-claim__photo-list">
+                        <li>Minimum one photo of entire unit</li>
+                        <li>Photo of part number</li>
+                        <li>Photo of batch code</li>
+                        <li>Minimum one photo of failure</li>
+                      </ol>
+                      {%- if uploads_enabled -%}
+                        <photo-uploader
+                          class="f-wc-upload"
+                          data-cloud-name="{{ cloud_name | escape }}"
+                          data-upload-preset="{{ upload_preset | escape }}"
+                          data-max-files="{{ section.settings.max_files }}"
+                          data-max-size-mb="{{ section.settings.max_file_size }}"
+                          data-require="{% if section.settings.require_photo %}true{% else %}false{% endif %}"
+                        >
+                          <input
+                            class="f-wc-upload__input visually-hidden"
+                            type="file"
+                            id="{{ form_id }}-photos"
+                            accept="image/*,.heic,.heif,.pdf"
+                            multiple
+                            data-uploader-input
+                          >
+                          <label class="f-wc-upload__dropzone" for="{{ form_id }}-photos" data-uploader-dropzone>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line>
+                            </svg>
+                            <span class="f-wc-upload__cta">Click to upload or drag your photos here</span>
+                            <span class="f-wc-upload__meta">JPG, PNG, HEIC or PDF up to {{ section.settings.max_file_size }}MB each (max {{ section.settings.max_files }} files)</span>
+                          </label>
+                          <ul class="f-wc-upload__list" data-uploader-list></ul>
+                          <p class="f-wc-upload__status" data-uploader-status aria-live="polite"></p>
+                        </photo-uploader>
+                      {%- else -%}
+                        <label class="form-label" for="{{ form_id }}-photo-link">Photo links (Google Drive / Dropbox)</label>
+                        <input class="form-control" type="url" id="{{ form_id }}-photo-link" name="contact[Photo Links]" placeholder="https://drive.google.com/...">
+                        <p class="f-warranty-claim__hint">
+                          Upload the four photos to Google Drive or Dropbox and paste the shared link here. You can also email them to us after submitting.
+                        </p>
+                      {%- endif -%}
+                    </div>
+                  </div>
+                </div>
+              </section>
 
-              <div class="form-field w-full sm:w-1/2">
-                <label class="form-label" for="{{ form_id }}-installer-person">Contact Person</label>
-                <input class="form-control" type="text" id="{{ form_id }}-installer-person" name="contact[Installer Contact Person]">
-              </div>
+            </div>
 
-              <div class="form-field w-full sm:w-1/2">
-                <label class="form-label" for="{{ form_id }}-installer-number">Contact Number</label>
-                <input class="form-control" type="tel" id="{{ form_id }}-installer-number" name="contact[Installer Contact Number]" pattern="[0-9\-\+\(\)\s]*">
-              </div>
-
-              <!-- Failure Description -->
-              <div class="f-warranty-claim__group-header">
-                <span class="f-warranty-claim__group-title">Failure Description</span>
-              </div>
-
-              <div class="form-field w-full">
-                <label class="form-label" for="{{ form_id }}-body">
-                  Detailed description of failure
-                  <span aria-hidden="true">*</span>
-                </label>
-                <textarea
-                  class="form-control form-control--textarea"
-                  id="{{ form_id }}-body"
-                  name="contact[body]"
-                  required
-                  aria-required="true"
-                  rows="6"
-                  placeholder="Describe the failure, when it occurred, and the conditions of use."
-                >{{- form.body -}}</textarea>
-              </div>
-
-              <!-- Required photos -->
-              <div class="f-warranty-claim__group-header">
-                <span class="f-warranty-claim__group-title">Required photos</span>
-              </div>
-
-              <div class="form-field w-full">
-                <p class="f-warranty-claim__hint" style="margin-top: 0;">
-                  Please attach the below photos for your claim to progress further:
-                </p>
-                <ol class="f-warranty-claim__photo-list">
-                  <li>Minimum one photo of entire unit</li>
-                  <li>Photo of part number</li>
-                  <li>Photo of batch code</li>
-                  <li>Minimum one photo of failure</li>
-                </ol>
-                {%- if uploads_enabled -%}
-                  <photo-uploader
-                    class="f-wc-upload"
-                    data-cloud-name="{{ cloud_name | escape }}"
-                    data-upload-preset="{{ upload_preset | escape }}"
-                    data-max-files="{{ section.settings.max_files }}"
-                    data-max-size-mb="{{ section.settings.max_file_size }}"
-                    data-require="{% if section.settings.require_photo %}true{% else %}false{% endif %}"
-                  >
-                    <input
-                      class="f-wc-upload__input visually-hidden"
-                      type="file"
-                      id="{{ form_id }}-photos"
-                      accept="image/*,.heic,.heif,.pdf"
-                      multiple
-                      data-uploader-input
-                    >
-                    <label class="f-wc-upload__dropzone" for="{{ form_id }}-photos" data-uploader-dropzone>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line>
-                      </svg>
-                      <span class="f-wc-upload__cta">Click to upload or drag your photos here</span>
-                      <span class="f-wc-upload__meta">JPG, PNG, HEIC or PDF up to {{ section.settings.max_file_size }}MB each (max {{ section.settings.max_files }} files)</span>
-                    </label>
-                    <ul class="f-wc-upload__list" data-uploader-list></ul>
-                    <div data-uploader-hidden hidden></div>
-                    <p class="f-wc-upload__status" data-uploader-status aria-live="polite"></p>
-                  </photo-uploader>
-                {%- else -%}
-                  <label class="form-label" for="{{ form_id }}-photo-link">Photo links (Google Drive / Dropbox)</label>
-                  <input class="form-control" type="url" id="{{ form_id }}-photo-link" name="contact[Photo Links]" placeholder="https://drive.google.com/...">
-                  <p class="f-warranty-claim__hint">
-                    Upload the four photos to Google Drive or Dropbox and paste the shared link here. You can also email them to us after submitting.
-                  </p>
-                {%- endif -%}
-              </div>
-
-              <div class="form-field w-full flex justify-center f-warranty-claim__submit-wrap">
-                <button type="submit" class="btn {{ section.settings.button_style }}">
-                  {{ section.settings.button_label | default: 'Submit Claim' }}
-                </button>
-              </div>
-
+            <div class="f-warranty-claim__footer">
+              <button type="submit" class="btn {{ section.settings.button_style }}">
+                {{ section.settings.button_label | default: 'Submit Claim' }}
+              </button>
+              <p class="f-warranty-claim__required-note">Fields marked <span aria-hidden="true" style="color:#dc2626;">*</span> are required.</p>
             </div>
           {%- endform -%}
         </div>
@@ -607,8 +759,10 @@
 <script>
   /* <photo-uploader> - direct browser-to-Cloudinary upload.
      Shopify's contact form cannot receive files, so photos upload straight to
-     Cloudinary (unsigned preset) and the secure URLs are written into hidden
-     contact[Photo N] fields, arriving in the warranty email as links. */
+     Cloudinary (unsigned preset) and the secure URLs are delivered two ways for
+     reliability: (1) a single contact[Photo Links] field attached DIRECTLY to the
+     <form> (fields nested inside a custom element can be dropped from the POST),
+     and (2) folded into contact[body] on submit, which Shopify always emails. */
   (function () {
     if (customElements.get('photo-uploader')) return;
     class PhotoUploader extends HTMLElement {
@@ -622,15 +776,21 @@
         this.input = this.querySelector('[data-uploader-input]');
         this.dropzone = this.querySelector('[data-uploader-dropzone]');
         this.list = this.querySelector('[data-uploader-list]');
-        this.hidden = this.querySelector('[data-uploader-hidden]');
         this.status = this.querySelector('[data-uploader-status]');
         this.form = this.closest('form');
 
         this.seq = 0;
-        this.completed = 0;
         this.inFlight = 0;
+        this.uploads = {}; // item id -> Cloudinary secure_url
 
         if (!this.input || !this.cloudName || !this.preset) return;
+
+        // Post the links through a field attached DIRECTLY to the <form> (not
+        // nested inside this custom element) so it is always included in the POST.
+        this.linksField = document.createElement('input');
+        this.linksField.type = 'hidden';
+        this.linksField.name = 'contact[Photo Links]';
+        (this.form || this).appendChild(this.linksField);
 
         this._onChange = this._onChange.bind(this);
         this._onDragOver = this._onDragOver.bind(this);
@@ -749,7 +909,7 @@
             var res = JSON.parse(xhr.responseText);
             if (xhr.status >= 200 && xhr.status < 300 && res.secure_url) {
               ok = true;
-              self._attachHidden(id, res.secure_url);
+              self._register(id, res.secure_url);
               item.classList.add('is-done');
               barFill.style.width = '100%';
             } else if (res && res.error && res.error.message) {
@@ -759,8 +919,6 @@
           if (!ok) {
             item.classList.add('is-error');
             meta.textContent = file.name + (errMsg ? ' - ' + errMsg : ' - upload failed (' + xhr.status + ')');
-          } else {
-            self.completed++;
           }
           self._finishStatus();
         };
@@ -780,11 +938,8 @@
         };
         remove.addEventListener('click', function () {
           try { xhr.abort(); } catch (e) {}
-          var wasDone = item.classList.contains('is-done');
-          var hiddenField = self.hidden.querySelector('[data-hidden-for="' + id + '"]');
-          if (hiddenField) hiddenField.parentNode.removeChild(hiddenField);
-          item.parentNode.removeChild(item);
-          if (wasDone && self.completed > 0) self.completed--;
+          self._unregister(id);
+          if (item.parentNode) item.parentNode.removeChild(item);
           self._finishStatus();
         });
 
@@ -793,14 +948,20 @@
         data.append('upload_preset', this.preset);
         xhr.send(data);
       }
-      _attachHidden(id, url) {
-        var index = this.hidden.querySelectorAll('input').length + 1;
-        var field = document.createElement('input');
-        field.type = 'hidden';
-        field.name = 'contact[Photo ' + index + ']';
-        field.value = url;
-        field.dataset.hiddenFor = id;
-        this.hidden.appendChild(field);
+      _register(id, url) {
+        this.uploads[id] = url;
+        this._sync();
+      }
+      _unregister(id) {
+        delete this.uploads[id];
+        this._sync();
+      }
+      _urls() {
+        var self = this;
+        return Object.keys(this.uploads).map(function (k) { return self.uploads[k]; });
+      }
+      _sync() {
+        if (this.linksField) this.linksField.value = this._urls().join('\n');
       }
       _setStatus(msg, isError) {
         if (!this.status) return;
@@ -816,7 +977,7 @@
         }
       }
       _uploadedCount() {
-        return this.hidden ? this.hidden.querySelectorAll('input').length : 0;
+        return this._urls().length;
       }
       _onSubmit(e) {
         if (this.inFlight > 0) {
@@ -831,6 +992,17 @@
           e.stopImmediatePropagation();
           this._setStatus('Please attach at least one photo before submitting.', true);
           this.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          return;
+        }
+        // Guaranteed fallback: fold the links into the message body too, which
+        // Shopify always includes in the notification email.
+        var urls = this._urls();
+        if (this.form && urls.length) {
+          var body = this.form.querySelector('[name="contact[body]"]');
+          if (body && body.value.indexOf(urls[0]) === -1) {
+            var prefix = body.value ? body.value.replace(/\s+$/, '') + '\n\n' : '';
+            body.value = prefix + 'Attached photos:\n' + urls.join('\n');
+          }
         }
       }
     }
