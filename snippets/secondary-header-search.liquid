@@ -1,0 +1,55 @@
+{%- comment -%}
+  Secondary-header search box.
+  Renders the theme's instant-search (predictive) dropdown when
+  Theme settings > Search > "Enable predictive search" is on; otherwise a plain
+  native search form. Powered by Shopify native search / Search & Discovery.
+  Params:
+    block - the 'search' block (for settings + shopify_attributes)
+    pos   - 'l' or 'r' (keeps input ids unique between the two placements)
+{%- endcomment -%}
+{%- liquid
+  assign ps = settings.predictive_search_enabled
+  assign input_id = 'SecondarySearch-' | append: pos | append: '-' | append: block.id
+-%}
+<div class="secondary-header__item secondary-header__item--search" style="--sh-search-max: {{ block.settings.search_max_width }}px; --sh-block-icon-size: {{ block.settings.icon_size }}px;" {{ block.shopify_attributes }}>
+  {%- if ps -%}<predictive-search class="secondary-header__predictive" data-loading-text="{{ 'accessibility.loading' | t }}">{%- endif -%}
+    <form action="{{ routes.search_url }}" method="get" role="search" class="secondary-header__search-form">
+      <label class="visually-hidden" for="{{ input_id }}">{{ 'general.search.search' | t }}</label>
+      <input
+        id="{{ input_id }}"
+        class="secondary-header__search-input snize-exclude-input"
+        type="search"
+        name="q"
+        autocomplete="off"
+        placeholder="{{ block.settings.placeholder }}"
+        {%- if ps %}
+        role="combobox"
+        aria-expanded="false"
+        aria-owns="f-predictive-search-results"
+        aria-controls="f-predictive-search-results"
+        aria-haspopup="listbox"
+        aria-autocomplete="list"
+        autocorrect="off"
+        autocapitalize="off"
+        spellcheck="false"
+        data-predictive-search-input
+        {%- endif %}
+      >
+      <input type="hidden" name="options[prefix]" value="last">
+      <input type="hidden" name="options[unavailable_products]" value="show">
+      <button type="submit" class="secondary-header__search-btn" aria-label="{{ 'general.search.search' | t }}">
+        <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" role="presentation" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      </button>
+      {%- if ps -%}
+        <div class="f-predictive-search secondary-header__predictive-results" tabindex="-1" data-predictive-search>
+          <div class="f-predictive-search__loading-state">
+            {% comment %}theme-check-disable{% endcomment %}
+            {{ 'icon-spinner.svg' | inline_asset_content }}
+            {% comment %}theme-check-enable{% endcomment %}
+          </div>
+        </div>
+        <span class="visually-hidden" role="status" aria-hidden="true" data-predictive-search-status></span>
+      {%- endif -%}
+    </form>
+  {%- if ps -%}</predictive-search>{%- endif -%}
+</div>

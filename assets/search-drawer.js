@@ -1,3 +1,4 @@
+if (!customElements.get('predictive-search')) {
 class PredictiveSearch extends HTMLElement {
 	constructor() {
 		super()
@@ -258,3 +259,4 @@ class PredictiveSearch extends HTMLElement {
 }
 
 customElements.define('predictive-search', PredictiveSearch)
+}
