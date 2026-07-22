@@ -204,7 +204,7 @@
         "animations": "inherit"
       }
     },
-    "warranty_claim_form_WQ4d6R": {
+    "warranty_claim_form_XdRwym": {
       "type": "warranty-claim-form",
       "name": "Warranty Claim Form",
       "settings": {
@@ -282,6 +282,101 @@
         "custom_class": "",
         "animations": "inherit"
       }
+    },
+    "gvm_order_form_KxAwaF": {
+      "type": "gvm-order-form",
+      "name": "GVM Order Form",
+      "settings": {
+        "container": "container",
+        "color_schema": "",
+        "layout_mode": "single",
+        "section_header_padding_bottom": "medium",
+        "section_header_content_spacing": "medium",
+        "heading": "GVM Order Request",
+        "highlight_style": "none",
+        "enable_highlight_text_color": false,
+        "heading_size": "h2",
+        "heading_color": "",
+        "subheading": "",
+        "description": "<p>Please provide the details required for your new GVM order request. Orders will not be processed until all information is received.</p>",
+        "order_details_title": "Order Details",
+        "vehicle_info_title": "Vehicle Information",
+        "your_details_title": "Your Details",
+        "logo": "shopify://shop_images/gvm-gcm-logo-black.webp",
+        "logo_position": "above",
+        "logo_width": 240,
+        "heading_size_min": 28,
+        "heading_size_max": 40,
+        "subheading_size_min": 15,
+        "subheading_size_max": 18,
+        "desc_size_min": 15,
+        "desc_size_max": 17,
+        "label_size_min": 15,
+        "label_size_max": 16,
+        "input_size_min": 16,
+        "input_size_max": 17,
+        "section_label_size_min": 11,
+        "section_label_size_max": 12,
+        "helper_size_min": 13,
+        "helper_size_max": 14,
+        "button_label": "Submit Order Request",
+        "button_style": "btn--primary",
+        "padding_top": 60,
+        "padding_bottom": 80,
+        "show_section_divider": false,
+        "divider_width": "container",
+        "custom_id": "",
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "warranty_claim_form_WQ4d6R": {
+      "type": "warranty-claim-form",
+      "name": "Warranty Claim Form",
+      "settings": {
+        "container": "container",
+        "color_schema": "",
+        "layout_mode": "single",
+        "section_header_padding_bottom": "medium",
+        "section_header_content_spacing": "medium",
+        "heading": "Warranty Claim Form",
+        "highlight_style": "none",
+        "enable_highlight_text_color": false,
+        "heading_size": "h2",
+        "heading_color": "",
+        "subheading": "",
+        "description": "<p>Complete the form below to submit your warranty claim. Fields marked with an asterisk are required.</p>",
+        "logo_position": "above",
+        "logo_width": 160,
+        "heading_size_min": 28,
+        "heading_size_max": 40,
+        "subheading_size_min": 15,
+        "subheading_size_max": 18,
+        "desc_size_min": 15,
+        "desc_size_max": 17,
+        "label_size_min": 15,
+        "label_size_max": 16,
+        "input_size_min": 16,
+        "input_size_max": 17,
+        "section_label_size_min": 11,
+        "section_label_size_max": 12,
+        "helper_size_min": 13,
+        "helper_size_max": 14,
+        "cloudinary_cloud_name": "lp3j7byr",
+        "cloudinary_upload_preset": "warranty_uploads",
+        "max_files": 8,
+        "max_file_size": 10,
+        "require_photo": true,
+        "button_label": "Submit Claim",
+        "button_style": "btn--primary",
+        "padding_top": 60,
+        "padding_bottom": 80,
+        "show_section_divider": false,
+        "divider_width": "container",
+        "custom_id": "",
+        "custom_class": "",
+        "animations": "inherit"
+      }
     }
   },
   "order": [
@@ -289,7 +384,9 @@
     "main",
     "multicolumn_AcQKEk",
     "gvm_order_form_PUpQMq",
-    "warranty_claim_form_WQ4d6R",
-    "rich_text_mXHwap"
+    "warranty_claim_form_XdRwym",
+    "rich_text_mXHwap",
+    "gvm_order_form_KxAwaF",
+    "warranty_claim_form_WQ4d6R"
   ]
 }
