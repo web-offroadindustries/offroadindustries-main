@@ -399,6 +399,103 @@
   .f-wc-upload__status.is-error {
     color: #dc2626;
   }
+  /* ---- Wizard mode (added by JS; without JS every step stays visible) ---- */
+  .f-warranty-claim.is-wizard .f-warranty-claim__step { display: none; }
+  .f-warranty-claim.is-wizard .f-warranty-claim__step.is-active { display: block; }
+  .f-warranty-claim.is-wizard .f-warranty-claim__step-marker { display: none; }
+  .f-warranty-claim.is-wizard .f-warranty-claim__step-body { padding-bottom: 0; }
+  .f-warranty-claim.is-wizard .f-warranty-claim__footer { display: none; }
+  .f-warranty-claim__progress {
+    display: flex;
+    list-style: none;
+    margin: 0 0 1rem;
+    padding: 0;
+  }
+  .f-warranty-claim__pstep {
+    flex: 1 1 0;
+    min-width: 0;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    text-align: center;
+  }
+  .f-warranty-claim__pstep::before {
+    content: "";
+    position: absolute;
+    top: 1rem;
+    right: 50%;
+    width: 100%;
+    height: 2px;
+    background: var(--color-border, #e5e7eb);
+  }
+  .f-warranty-claim__pstep:first-child::before { display: none; }
+  .f-warranty-claim__pstep.is-done::before,
+  .f-warranty-claim__pstep.is-active::before { background: var(--color-primary, var(--color-text-heading, #111827)); }
+  .f-warranty-claim__pdot {
+    position: relative;
+    z-index: 1;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    font-weight: 700;
+    font-size: 0.8rem;
+    background: var(--color-background, #fff);
+    border: 2px solid var(--color-border, #e5e7eb);
+    color: var(--color-foreground-secondary, #9ca3af);
+    transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+  }
+  .f-warranty-claim__pstep.is-active .f-warranty-claim__pdot {
+    background: var(--color-text-heading, #111827);
+    border-color: var(--color-text-heading, #111827);
+    color: var(--color-background, #fff);
+  }
+  .f-warranty-claim__pstep.is-done .f-warranty-claim__pdot {
+    background: var(--color-primary, var(--color-text-heading, #111827));
+    border-color: var(--color-primary, var(--color-text-heading, #111827));
+    color: #fff;
+  }
+  .f-warranty-claim__plabel {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    line-height: 1.25;
+    color: var(--color-foreground-secondary, #9ca3af);
+    max-width: 12ch;
+  }
+  .f-warranty-claim__pstep.is-active .f-warranty-claim__plabel { color: var(--color-text-heading, #111827); }
+  .f-warranty-claim__pstep.is-clickable { cursor: pointer; }
+  .f-warranty-claim__pcaption {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--color-foreground-secondary, #6b7280);
+    margin: 0 0 1.5rem;
+  }
+  .f-warranty-claim__wnav {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1.75rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--color-border, #e5e7eb);
+  }
+  .f-warranty-claim__wnav .btn { min-width: 150px; padding-top: 0.85rem; padding-bottom: 0.85rem; }
+  .f-warranty-claim__next { margin-left: auto; }
+  .f-warranty-claim__back[hidden] { display: none; }
+  .f-warranty-claim__wnote {
+    text-align: center;
+    font-size: 0.8125rem;
+    color: var(--color-foreground-secondary, #6b7280);
+    margin: 1rem 0 0;
+  }
+  @media (max-width: 749px) {
+    .f-warranty-claim__plabel { display: none; }
+    .f-warranty-claim__wnav .btn { min-width: 0; flex: 1 1 0; }
+  }
 </style>
 {% render 'divider',
   show_divider: section.settings.show_section_divider,
@@ -1011,6 +1108,134 @@
 </script>
 {%- endif -%}
 
+{%- if section.settings.layout_mode == 'wizard' -%}
+<script>
+  /* Multi-step wizard: shows one section at a time with Back/Next, validating
+     each step before advancing. Progressive enhancement — if this script does
+     not run, every section stays visible and the form submits as a single page. */
+  (function () {
+    var P = 'f-warranty-claim';
+    var root = document.getElementById('{{ section_id }}');
+    if (!root) return;
+    var form = root.querySelector('form');
+    var stepsWrap = root.querySelector('.' + P + '__steps');
+    var footer = root.querySelector('.' + P + '__footer');
+    if (!form || !stepsWrap || !footer) return;
+    var steps = [].slice.call(stepsWrap.querySelectorAll('.' + P + '__step'));
+    if (steps.length < 2) return;
+    var submitBtn = footer.querySelector('[type="submit"]');
+    var submitLabel = submitBtn ? (submitBtn.textContent || 'Submit').trim() : 'Submit';
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // Preserve original `required` so hidden steps never block the native submit.
+    [].slice.call(form.querySelectorAll('[required]')).forEach(function (c) {
+      c.setAttribute('data-wizard-req', '1');
+    });
+
+    var current = 0, furthest = 0;
+
+    var prog = document.createElement('ol');
+    prog.className = P + '__progress';
+    var items = steps.map(function (step, i) {
+      var t = step.querySelector('.' + P + '__group-title');
+      var label = t ? t.textContent.trim() : ('Step ' + (i + 1));
+      var li = document.createElement('li');
+      li.className = P + '__pstep';
+      var dot = document.createElement('span');
+      dot.className = P + '__pdot';
+      dot.textContent = String(i + 1);
+      var lab = document.createElement('span');
+      lab.className = P + '__plabel';
+      lab.textContent = label;
+      li.appendChild(dot);
+      li.appendChild(lab);
+      li.addEventListener('click', function () { if (i <= furthest) goTo(i); });
+      prog.appendChild(li);
+      return { li: li, dot: dot, label: label };
+    });
+
+    var caption = document.createElement('p');
+    caption.className = P + '__pcaption';
+
+    var nav = document.createElement('div');
+    nav.className = P + '__wnav';
+    var back = document.createElement('button');
+    back.type = 'button';
+    back.className = 'btn btn--secondary ' + P + '__back';
+    back.textContent = 'Back';
+    var next = document.createElement('button');
+    next.type = 'button';
+    next.className = 'btn btn--primary ' + P + '__next';
+    next.textContent = 'Next';
+    nav.appendChild(back);
+    nav.appendChild(next);
+
+    var note = document.createElement('p');
+    note.className = P + '__wnote';
+    note.innerHTML = 'Fields marked <span aria-hidden="true" style="color:#dc2626;">*</span> are required.';
+
+    stepsWrap.parentNode.insertBefore(prog, stepsWrap);
+    stepsWrap.parentNode.insertBefore(caption, stepsWrap);
+    footer.parentNode.insertBefore(nav, footer);
+    footer.parentNode.insertBefore(note, footer);
+
+    root.classList.add('is-wizard');
+
+    back.addEventListener('click', function () { goTo(current - 1); });
+    next.addEventListener('click', function () {
+      if (!validateStep(steps[current])) return;
+      if (current === steps.length - 1) {
+        if (form.requestSubmit) form.requestSubmit(submitBtn || undefined);
+        else if (submitBtn) submitBtn.click();
+        else form.submit();
+        return;
+      }
+      goTo(current + 1);
+    });
+
+    function validateStep(step) {
+      var cs = [].slice.call(step.querySelectorAll('input, select, textarea'));
+      for (var i = 0; i < cs.length; i++) {
+        if (cs[i].willValidate && !cs[i].checkValidity()) {
+          cs[i].reportValidity();
+          return false;
+        }
+      }
+      return true;
+    }
+
+    function goTo(index, initial) {
+      if (index < 0 || index >= steps.length) return;
+      current = index;
+      if (index > furthest) furthest = index;
+      steps.forEach(function (s, i) {
+        var active = i === index;
+        s.classList.toggle('is-active', active);
+        [].slice.call(s.querySelectorAll('[data-wizard-req]')).forEach(function (c) {
+          if (active) c.setAttribute('required', ''); else c.removeAttribute('required');
+        });
+      });
+      items.forEach(function (p, i) {
+        p.li.classList.toggle('is-active', i === index);
+        p.li.classList.toggle('is-done', i < index);
+        p.li.classList.toggle('is-clickable', i <= furthest);
+        p.dot.innerHTML = (i < index) ? '&#10003;' : String(i + 1);
+      });
+      back.hidden = index === 0;
+      next.textContent = (index === steps.length - 1) ? submitLabel : 'Next';
+      caption.textContent = 'Step ' + (index + 1) + ' of ' + steps.length + ' — ' + items[index].label;
+      if (!initial) {
+        var f = steps[index].querySelector('input, select, textarea');
+        if (f) { try { f.focus({ preventScroll: true }); } catch (e) { f.focus(); } }
+        try { prog.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'nearest' }); } catch (e) {}
+      }
+    }
+
+    goTo(0, true);
+  })();
+</script>
+{%- endif -%}
+
 {% schema %}
 {
   "name": "Warranty Claim Form",
@@ -1038,6 +1263,17 @@
       "id": "color_schema",
       "label": "Color scheme",
       "default": "background-1"
+    },
+    {
+      "type": "select",
+      "id": "layout_mode",
+      "label": "Form layout",
+      "info": "Multi-step shows one section at a time with Next/Back. Single page shows every section stacked on one page.",
+      "options": [
+        { "value": "wizard", "label": "Multi-step (one section at a time)" },
+        { "value": "single", "label": "Single page (all sections)" }
+      ],
+      "default": "wizard"
     },
     {
       "type": "header",
