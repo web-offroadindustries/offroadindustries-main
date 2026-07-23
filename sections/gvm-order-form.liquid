@@ -476,6 +476,16 @@
                       </select>
                     </div>
 
+                    <div class="form-field w-full f-gvm-order__dep is-hidden" data-gvm-field="kit">
+                      <label class="form-label" for="{{ form_id }}-gvm-kit">
+                        Which GVM Kit are you ordering?
+                        <span aria-hidden="true">*</span>
+                      </label>
+                      <select class="form-control" id="{{ form_id }}-gvm-kit" name="contact[GVM Kit]" required aria-required="true" disabled data-gvm-kit>
+                        <option value="" disabled selected>Select GVM kit...</option>
+                      </select>
+                    </div>
+
                     <div class="form-field w-full sm:w-1/2">
                       <label class="form-label" for="{{ form_id }}-build-date">Build Date (Month/Year)</label>
                       <input class="form-control" type="text" id="{{ form_id }}-build-date" name="contact[Build Date (Month/Year)]" placeholder="e.g. 03/2023">
@@ -484,11 +494,6 @@
                     <div class="form-field w-full sm:w-1/2">
                       <label class="form-label" for="{{ form_id }}-vin">VIN Number</label>
                       <input class="form-control" type="text" id="{{ form_id }}-vin" name="contact[VIN Number]">
-                    </div>
-
-                    <div class="form-field w-full sm:w-1/2">
-                      <label class="form-label" for="{{ form_id }}-kit-number">ORI Kit Number</label>
-                      <input class="form-control" type="text" id="{{ form_id }}-kit-number" name="contact[ORI Kit Number]">
                     </div>
 
                     <div class="form-field w-full">
@@ -609,24 +614,66 @@
     // Vehicle list (approved by ORI). Add a "wheelbase" array to any model that
     // needs it; leave it out and that menu simply never appears for that model.
     var VEHICLES = {
-      "Ford": { "F150": { "trims": ["XLT", "Lariat", "Platinum"], "wheelbase": ["SWB", "LWB"] } },
-      "Chevrolet": {
-        "Silverado 1500": { "trims": ["Trail Boss", "LTZ", "ZR2"] },
-        "Silverado 2500": { "trims": ["LTZ"] }
+      "Ford": {
+        "F150": {
+          "trims": ["XLT", "Lariat", "Platinum"],
+          "wheelbase": ["SWB", "LWB"],
+          "kits": [
+            "FRD-F150-Stage1-GVM", "FRD-F150-Stage2-GVM",
+            "FRD-F150-Stage3-GVM-200", "FRD-F150-Stage3-GVM-400",
+            "FRD-F150-Stage4-GVM-200", "FRD-F150-Stage4-GVM-400",
+            "FRD-F150-Stage5-GVM-200", "FRD-F150-Stage5-GVM-400",
+            "FRD-F150-Stage6-GVM"
+          ]
+        }
       },
-      "Toyota": { "Tundra": { "trims": ["Platinum", "Limited"] } },
-      "RAM": { "2500": { "trims": ["Laramie"] } }
+      "Chevrolet": {
+        "Silverado 1500": {
+          "trims": ["Trail Boss", "LTZ", "ZR2"],
+          "kits": [
+            "CHV-1500-Stage1-GVM", "CHV-1500-Stage2-GVM", "CHV-1500-Stage3-GVM",
+            "CHV-1500-Stage4-GVM-200", "CHV-1500-Stage4-GVM-400",
+            "CHV-1500-Stage5-GVM-200", "CHV-1500-Stage5-GVM-400"
+          ]
+        },
+        "Silverado 2500": {
+          "trims": ["LTZ"],
+          "kits": [
+            "CHV-2500-Stage1-GVM", "CHV-2500-Stage2-GVM",
+            "CHV-2500-Stage3-GVM", "CHV-2500-Stage3-GVM-K",
+            "CHV-2500-Stage4-GVM", "CHV-2500-Stage5-GVM",
+            "CHV-2500-Stage6-GVM", "CHV-2500-Stage6-GVM-K"
+          ]
+        }
+      },
+      "Toyota": {
+        "Tundra": {
+          "trims": ["Platinum", "Limited"],
+          "kits": ["TUN-Stage1-GVM", "TUN-Stage2-GVM", "TUN-Stage3-GVM", "TUN-Stage4-GVM"]
+        }
+      },
+      "RAM": {
+        "2500": {
+          "trims": ["Laramie"],
+          "kits": [
+            "RAM-2500-Stage1-GVM", "RAM-2500-Stage2-GVM", "RAM-2500-Stage3-GVM",
+            "RAM-2500-Stage4-GVM", "RAM-2500-Stage5-GVM"
+          ]
+        }
+      }
     };
 
     var makeEl = form.querySelector('[data-gvm-make]');
     var modelEl = form.querySelector('[data-gvm-model]');
     var trimEl = form.querySelector('[data-gvm-trim]');
     var wbEl = form.querySelector('[data-gvm-wheelbase]');
-    if (!makeEl || !modelEl || !trimEl || !wbEl) return;
+    var kitEl = form.querySelector('[data-gvm-kit]');
+    if (!makeEl || !modelEl || !trimEl || !wbEl || !kitEl) return;
 
     var fModel = form.querySelector('[data-gvm-field="model"]');
     var fTrim = form.querySelector('[data-gvm-field="trim"]');
     var fWb = form.querySelector('[data-gvm-field="wheelbase"]');
+    var fKit = form.querySelector('[data-gvm-field="kit"]');
 
     function fill(select, items, placeholder) {
       select.innerHTML = '';
@@ -655,6 +702,7 @@
     makeEl.addEventListener('change', function () {
       resetField(fTrim, trimEl, 'Select trim...');
       resetField(fWb, wbEl, 'Select wheelbase...');
+      resetField(fKit, kitEl, 'Select GVM kit...');
       if (!makeEl.value || !VEHICLES[makeEl.value]) {
         resetField(fModel, modelEl, 'Select model...');
         return;
@@ -669,10 +717,17 @@
       var model = models[modelEl.value];
       if (!modelEl.value || !model) {
         resetField(fTrim, trimEl, 'Select trim...');
+        resetField(fKit, kitEl, 'Select GVM kit...');
         return;
       }
       fill(trimEl, model.trims || [], 'Select trim...');
       openField(fTrim, trimEl);
+      if (model.kits && model.kits.length) {
+        fill(kitEl, model.kits, 'Select GVM kit...');
+        openField(fKit, kitEl);
+      } else {
+        resetField(fKit, kitEl, 'Select GVM kit...');
+      }
     });
 
     trimEl.addEventListener('change', function () {
