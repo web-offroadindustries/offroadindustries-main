@@ -91,6 +91,9 @@
     row-gap: 1.25rem;
     column-gap: 1.5rem;
   }
+  .f-gvm-order__dep.is-hidden {
+    display: none;
+  }
   /* Vertical stepper: numbered sections joined by a connector line */
   .f-gvm-order__steps {
     display: block;
@@ -436,37 +439,46 @@
                     <span class="f-gvm-order__group-title">{{ section.settings.vehicle_info_title | default: 'Vehicle Information' | escape }}</span>
                   </div>
                   <div class="f-flex flex-wrap f-gvm-order__fields">
-                    <div class="form-field w-full sm:w-1/2">
-                      <label class="form-label" for="{{ form_id }}-brand-model">Brand / Model</label>
-                      <input class="form-control" type="text" id="{{ form_id }}-brand-model" name="contact[Brand / Model]">
+                    <div class="form-field w-full" data-gvm-field="make">
+                      <label class="form-label" for="{{ form_id }}-make">
+                        Make
+                        <span aria-hidden="true">*</span>
+                      </label>
+                      <select class="form-control" id="{{ form_id }}-make" name="contact[Vehicle Make]" required aria-required="true" data-gvm-make>
+                        <option value="" disabled selected>Select make...</option>
+                      </select>
+                    </div>
+
+                    <div class="form-field w-full f-gvm-order__dep is-hidden" data-gvm-field="model">
+                      <label class="form-label" for="{{ form_id }}-model">
+                        Model
+                        <span aria-hidden="true">*</span>
+                      </label>
+                      <select class="form-control" id="{{ form_id }}-model" name="contact[Vehicle Model]" required aria-required="true" disabled data-gvm-model>
+                        <option value="" disabled selected>Select model...</option>
+                      </select>
+                    </div>
+
+                    <div class="form-field w-full f-gvm-order__dep is-hidden" data-gvm-field="trim">
+                      <label class="form-label" for="{{ form_id }}-trim">
+                        Trim
+                        <span aria-hidden="true">*</span>
+                      </label>
+                      <select class="form-control" id="{{ form_id }}-trim" name="contact[Trim]" required aria-required="true" disabled data-gvm-trim>
+                        <option value="" disabled selected>Select trim...</option>
+                      </select>
+                    </div>
+
+                    <div class="form-field w-full f-gvm-order__dep is-hidden" data-gvm-field="wheelbase">
+                      <label class="form-label" for="{{ form_id }}-wheelbase">Wheelbase</label>
+                      <select class="form-control" id="{{ form_id }}-wheelbase" name="contact[Wheelbase]" disabled data-gvm-wheelbase>
+                        <option value="" disabled selected>Select wheelbase...</option>
+                      </select>
                     </div>
 
                     <div class="form-field w-full sm:w-1/2">
                       <label class="form-label" for="{{ form_id }}-build-date">Build Date (Month/Year)</label>
                       <input class="form-control" type="text" id="{{ form_id }}-build-date" name="contact[Build Date (Month/Year)]" placeholder="e.g. 03/2023">
-                    </div>
-
-                    <div class="form-field w-full sm:w-1/2">
-                      <label class="form-label" for="{{ form_id }}-wheelbase">Wheelbase (F-150 only)</label>
-                      <select class="form-control" id="{{ form_id }}-wheelbase" name="contact[Wheelbase (F-150 only)]">
-                        <option value="" disabled selected>Select an option</option>
-                        <option value="SWB">SWB</option>
-                        <option value="LWB">LWB</option>
-                        <option value="N/A">N/A</option>
-                      </select>
-                      <p class="f-gvm-order__hint">Only required for F-150 orders.</p>
-                    </div>
-
-                    <div class="form-field w-full sm:w-1/2">
-                      <label class="form-label" for="{{ form_id }}-trim">Trim (F-150 only)</label>
-                      <select class="form-control" id="{{ form_id }}-trim" name="contact[Trim (F-150 only)]">
-                        <option value="" disabled selected>Select an option</option>
-                        <option value="XLT">XLT</option>
-                        <option value="Lariat">Lariat</option>
-                        <option value="Platinum">Platinum</option>
-                        <option value="N/A">N/A</option>
-                      </select>
-                      <p class="f-gvm-order__hint">Only required for F-150 orders.</p>
                     </div>
 
                     <div class="form-field w-full sm:w-1/2">
@@ -580,6 +592,97 @@
       var combined = document.getElementById('{{ form_id }}-combined-name');
       if (combined) {
         combined.value = [company.trim(), person.trim()].filter(Boolean).join(' - ') || 'GVM order request';
+      }
+    });
+  })();
+</script>
+
+<script>
+  /* Vehicle cascade: Make -> Model -> Trim -> Wheelbase dependent dropdowns.
+     Runs in both the multi-step and single-page layouts. Each menu reveals and
+     populates once the one above it is chosen. Downstream menus stay disabled
+     while hidden, so a hidden required menu can never block submission. */
+  (function () {
+    var form = document.getElementById('{{ form_id }}');
+    if (!form) return;
+
+    // Vehicle list (approved by ORI). Add a "wheelbase" array to any model that
+    // needs it; leave it out and that menu simply never appears for that model.
+    var VEHICLES = {
+      "Ford": { "F150": { "trims": ["XLT", "Lariat", "Platinum"], "wheelbase": ["SWB", "LWB"] } },
+      "Chevrolet": {
+        "Silverado 1500": { "trims": ["Trail Boss", "LTZ", "ZR2"] },
+        "Silverado 2500": { "trims": ["LTZ"] }
+      },
+      "Toyota": { "Tundra": { "trims": ["Platinum", "Limited"] } },
+      "RAM": { "2500": { "trims": ["Laramie"] } }
+    };
+
+    var makeEl = form.querySelector('[data-gvm-make]');
+    var modelEl = form.querySelector('[data-gvm-model]');
+    var trimEl = form.querySelector('[data-gvm-trim]');
+    var wbEl = form.querySelector('[data-gvm-wheelbase]');
+    if (!makeEl || !modelEl || !trimEl || !wbEl) return;
+
+    var fModel = form.querySelector('[data-gvm-field="model"]');
+    var fTrim = form.querySelector('[data-gvm-field="trim"]');
+    var fWb = form.querySelector('[data-gvm-field="wheelbase"]');
+
+    function fill(select, items, placeholder) {
+      select.innerHTML = '';
+      var ph = document.createElement('option');
+      ph.value = ''; ph.disabled = true; ph.selected = true; ph.textContent = placeholder;
+      select.appendChild(ph);
+      items.forEach(function (item) {
+        var o = document.createElement('option');
+        o.value = item; o.textContent = item;
+        select.appendChild(o);
+      });
+    }
+    function resetField(field, select, placeholder) {
+      fill(select, [], placeholder);
+      select.value = '';
+      select.disabled = true;
+      field.classList.add('is-hidden');
+    }
+    function openField(field, select) {
+      select.disabled = false;
+      field.classList.remove('is-hidden');
+    }
+
+    fill(makeEl, Object.keys(VEHICLES), 'Select make...');
+
+    makeEl.addEventListener('change', function () {
+      resetField(fTrim, trimEl, 'Select trim...');
+      resetField(fWb, wbEl, 'Select wheelbase...');
+      if (!makeEl.value || !VEHICLES[makeEl.value]) {
+        resetField(fModel, modelEl, 'Select model...');
+        return;
+      }
+      fill(modelEl, Object.keys(VEHICLES[makeEl.value]), 'Select model...');
+      openField(fModel, modelEl);
+    });
+
+    modelEl.addEventListener('change', function () {
+      resetField(fWb, wbEl, 'Select wheelbase...');
+      var models = VEHICLES[makeEl.value] || {};
+      var model = models[modelEl.value];
+      if (!modelEl.value || !model) {
+        resetField(fTrim, trimEl, 'Select trim...');
+        return;
+      }
+      fill(trimEl, model.trims || [], 'Select trim...');
+      openField(fTrim, trimEl);
+    });
+
+    trimEl.addEventListener('change', function () {
+      var models = VEHICLES[makeEl.value] || {};
+      var model = models[modelEl.value];
+      if (trimEl.value && model && model.wheelbase) {
+        fill(wbEl, model.wheelbase, 'Select wheelbase...');
+        openField(fWb, wbEl);
+      } else {
+        resetField(fWb, wbEl, 'Select wheelbase...');
       }
     });
   })();
