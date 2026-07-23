@@ -203,7 +203,8 @@
     padding-bottom: 0.95rem;
   }
   .f-gvm-order__required-note {
-    font-size: 0.8125rem;
+    font-size: 1rem;
+    font-weight: 500;
     color: var(--color-foreground-secondary, #6b7280);
     margin: 0;
   }
@@ -322,7 +323,7 @@
   .f-gvm-order__pstep.is-active .f-gvm-order__plabel { color: var(--color-text-heading, #111827); }
   .f-gvm-order__pstep.is-clickable { cursor: pointer; }
   .f-gvm-order__pcaption {
-    font-size: 0.8125rem;
+    font-size: 0.95rem;
     font-weight: 600;
     color: var(--color-foreground-secondary, #6b7280);
     margin: 0 0 1.5rem;
@@ -340,7 +341,8 @@
   .f-gvm-order__back[hidden] { display: none; }
   .f-gvm-order__wnote {
     text-align: center;
-    font-size: 0.8125rem;
+    font-size: 1rem;
+    font-weight: 500;
     color: var(--color-foreground-secondary, #6b7280);
     margin: 1rem 0 0;
   }
@@ -417,8 +419,11 @@
                     </div>
 
                     <div class="form-field w-full sm:w-1/2">
-                      <label class="form-label" for="{{ form_id }}-rego-status">Pre or Post Rego</label>
-                      <select class="form-control" id="{{ form_id }}-rego-status" name="contact[Pre or Post Rego]">
+                      <label class="form-label" for="{{ form_id }}-rego-status">
+                        Pre or Post Rego
+                        <span aria-hidden="true">*</span>
+                      </label>
+                      <select class="form-control" id="{{ form_id }}-rego-status" name="contact[Pre or Post Rego]" required aria-required="true">
                         <option value="" disabled selected>Select an option</option>
                         <option value="Pre Rego">Pre Rego</option>
                         <option value="Post Rego">Post Rego</option>
@@ -492,8 +497,11 @@
                     </div>
 
                     <div class="form-field w-full sm:w-1/2">
-                      <label class="form-label" for="{{ form_id }}-vin">VIN Number</label>
-                      <input class="form-control" type="text" id="{{ form_id }}-vin" name="contact[VIN Number]">
+                      <label class="form-label" for="{{ form_id }}-vin">
+                        VIN Number
+                        <span aria-hidden="true">*</span>
+                      </label>
+                      <input class="form-control" type="text" id="{{ form_id }}-vin" name="contact[VIN Number]" required aria-required="true">
                     </div>
 
                     <div class="form-field w-full">
@@ -647,7 +655,10 @@
         },
         "Silverado 2500HD NB1": {
           "trims": ["LTZ"],
-          "kits": ["NB1 kit list to be provided by ORI"]
+          "kits": [
+            "CHV-2500-STAGE-1-NB1", "CHV-2500-STAGE-2-NB1", "CHV-2500-STAGE-3-NB1",
+            "CHV-2500-STAGE-4-NB1", "CHV-2500-STAGE-5-NB1", "CHV-2500-STAGE-6-NB1"
+          ]
         }
       },
       "Toyota": {
