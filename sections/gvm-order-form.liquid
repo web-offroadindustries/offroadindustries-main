@@ -516,11 +516,37 @@
                       <textarea class="form-control form-control--textarea" id="{{ form_id }}-kit-setup" name="contact[Kit & Setup Details or Other Orders]" rows="3"></textarea>
                     </div>
 
+                    <div class="form-field w-full sm:w-1/2">
+                      <label class="form-label" for="{{ form_id }}-wheel-size">Wheel / Rim Size</label>
+                      <select class="form-control" id="{{ form_id }}-wheel-size" name="contact[Wheel / Rim Size]">
+                        <option value="" disabled selected>Select size...</option>
+                        <option value="17&quot;">17"</option>
+                        <option value="18&quot;">18"</option>
+                        <option value="20&quot;">20"</option>
+                        <option value="Other">Other (add in Wheel &amp; Tyre Information)</option>
+                      </select>
+                    </div>
+
+                    <div class="form-field w-full sm:w-1/2">
+                      <label class="form-label" for="{{ form_id }}-rim-width">Rim Width</label>
+                      <select class="form-control" id="{{ form_id }}-rim-width" name="contact[Rim Width]">
+                        <option value="" disabled selected>Select width...</option>
+                        <option value="8.5&quot;">8.5"</option>
+                        <option value="9&quot;">9"</option>
+                        <option value="Other">Other (add in Wheel &amp; Tyre Information)</option>
+                      </select>
+                    </div>
+
+                    <div class="form-field w-full sm:w-1/2">
+                      <label class="form-label" for="{{ form_id }}-offset">Wheel Offset</label>
+                      <input class="form-control" type="text" id="{{ form_id }}-offset" name="contact[Wheel Offset]" placeholder="e.g. +12 (manual entry)">
+                    </div>
+
                     <div class="form-field w-full">
                       <label class="form-label" for="{{ form_id }}-wheel-tyre">Wheel &amp; Tyre Information</label>
                       <textarea class="form-control form-control--textarea" id="{{ form_id }}-wheel-tyre" name="contact[Wheel & Tyre Information]" rows="3"></textarea>
                       <p class="f-gvm-order__hint">
-                        If not OE, please specify tyre size and wheel offset to ensure flare/clearance compliance.
+                        If not OE, please specify tyre size and any wheel or rim details not listed above, to ensure flare/clearance compliance.
                       </p>
                     </div>
 
