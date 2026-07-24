@@ -252,6 +252,13 @@
   #{{ section_id }} .f-gvm-order__hint {
     font-size: clamp(calc(var(--gvm-hint-min, 13) * 1px), calc(var(--gvm-hint-min, 13) * 1px + (var(--gvm-hint-max, 14) - var(--gvm-hint-min, 13)) * ((100vw - 375px) / 1065)), calc(var(--gvm-hint-max, 14) * 1px));
   }
+  #{{ section_id }} .f-gvm-order__plabel {
+    font-size: clamp(calc(var(--gvm-plabel-min, 11) * 1px), calc(var(--gvm-plabel-min, 11) * 1px + (var(--gvm-plabel-max, 12) - var(--gvm-plabel-min, 11)) * ((100vw - 375px) / 1065)), calc(var(--gvm-plabel-max, 12) * 1px));
+  }
+  #{{ section_id }} .f-gvm-order__wnote,
+  #{{ section_id }} .f-gvm-order__required-note {
+    font-size: clamp(calc(var(--gvm-wnote-min, 15) * 1px), calc(var(--gvm-wnote-min, 15) * 1px + (var(--gvm-wnote-max, 16) - var(--gvm-wnote-min, 15)) * ((100vw - 375px) / 1065)), calc(var(--gvm-wnote-max, 16) * 1px));
+  }
   /* ---- Wizard mode (added by JS; without JS every step stays visible) ---- */
   .f-gvm-order.is-wizard .f-gvm-order__step { display: none; }
   .f-gvm-order.is-wizard .f-gvm-order__step.is-active { display: block; }
@@ -358,7 +365,7 @@
 <div
   id="{{ section_id }}"
   class="f-gvm-order f-section-padding color-{{ section.settings.color_schema }}{{ custom_class }}"
-  style="--section-padding-top: {{ section.settings.padding_top }}px; --section-padding-bottom: {{ section.settings.padding_bottom }}px; --gvm-heading-min: {{ section.settings.heading_size_min }}; --gvm-heading-max: {{ section.settings.heading_size_max }}; --gvm-sub-min: {{ section.settings.subheading_size_min }}; --gvm-sub-max: {{ section.settings.subheading_size_max }}; --gvm-desc-min: {{ section.settings.desc_size_min }}; --gvm-desc-max: {{ section.settings.desc_size_max }}; --gvm-label-min: {{ section.settings.label_size_min }}; --gvm-label-max: {{ section.settings.label_size_max }}; --gvm-input-min: {{ section.settings.input_size_min }}; --gvm-input-max: {{ section.settings.input_size_max }}; --gvm-grouptitle-min: {{ section.settings.section_label_size_min }}; --gvm-grouptitle-max: {{ section.settings.section_label_size_max }}; --gvm-hint-min: {{ section.settings.helper_size_min }}; --gvm-hint-max: {{ section.settings.helper_size_max }};"
+  style="--section-padding-top: {{ section.settings.padding_top }}px; --section-padding-bottom: {{ section.settings.padding_bottom }}px; --gvm-heading-min: {{ section.settings.heading_size_min }}; --gvm-heading-max: {{ section.settings.heading_size_max }}; --gvm-sub-min: {{ section.settings.subheading_size_min }}; --gvm-sub-max: {{ section.settings.subheading_size_max }}; --gvm-desc-min: {{ section.settings.desc_size_min }}; --gvm-desc-max: {{ section.settings.desc_size_max }}; --gvm-label-min: {{ section.settings.label_size_min }}; --gvm-label-max: {{ section.settings.label_size_max }}; --gvm-input-min: {{ section.settings.input_size_min }}; --gvm-input-max: {{ section.settings.input_size_max }}; --gvm-grouptitle-min: {{ section.settings.section_label_size_min }}; --gvm-grouptitle-max: {{ section.settings.section_label_size_max }}; --gvm-hint-min: {{ section.settings.helper_size_min }}; --gvm-hint-max: {{ section.settings.helper_size_max }}; --gvm-plabel-min: {{ section.settings.progress_label_size_min }}; --gvm-plabel-max: {{ section.settings.progress_label_size_max }}; --gvm-wnote-min: {{ section.settings.required_note_size_min }}; --gvm-wnote-max: {{ section.settings.required_note_size_max }};"
 >
   <div class="{{ section.settings.container }}">
     <div class="f-gvm-order__header-wrap f-gvm-order__header-wrap--{{ logo_position }}">
@@ -1204,6 +1211,47 @@
       "max": 30,
       "step": 1,
       "default": 14,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "progress_label_size_min",
+      "label": "Step label size (mobile)",
+      "info": "The step names under the numbered progress bar, e.g. ORDER DETAILS. Multi-step layout only.",
+      "min": 8,
+      "max": 20,
+      "step": 1,
+      "default": 11,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "progress_label_size_max",
+      "label": "Step label size (desktop)",
+      "min": 9,
+      "max": 24,
+      "step": 1,
+      "default": 12,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "required_note_size_min",
+      "label": "\"Fields marked * are required\" size (mobile)",
+      "min": 10,
+      "max": 28,
+      "step": 1,
+      "default": 15,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "required_note_size_max",
+      "label": "\"Fields marked * are required\" size (desktop)",
+      "min": 12,
+      "max": 32,
+      "step": 1,
+      "default": 16,
       "unit": "px"
     },
     {
