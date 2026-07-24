@@ -193,6 +193,8 @@ class SiteNav extends HTMLElement {
   constructor() {
     super();
     this._boundEnter = this.onMenuItemEnter.bind(this);
+    this._boundSiblingEnter = this.onSiblingItemEnter.bind(this);
+    this._boundNavLeave = this.onNavLeave.bind(this);
   }
 
   connectedCallback() {
@@ -215,6 +217,14 @@ class SiteNav extends HTMLElement {
 
     // Bind hover behavior
     this.bindMegaItems();
+
+    // Backstop: leaving the whole nav (open dropdowns are descendants, so this
+    // fires only once the pointer is truly outside both the menu and any open
+    // panel) always closes an open mega, even on a fast flick-out where no
+    // in-zone mousemove event fires.
+    if (this.isHover) {
+      this.addEventListener("mouseleave", this._boundNavLeave);
+    }
   }
 
   normalizeText(str) {
@@ -280,16 +290,35 @@ class SiteNav extends HTMLElement {
     this.megaItems = Array.from(this.querySelectorAll(".f-site-nav__item--mega"));
 
     this.megaItems.forEach((li) => {
+      // A legacy item promoted to mega may already carry the sibling-close
+      // listener from an earlier pass; drop it so it does not close its own
+      // panel on enter.
+      if (li.dataset.siblingBound === "1") {
+        li.removeEventListener("mouseenter", this._boundSiblingEnter);
+        li.dataset.siblingBound = "";
+      }
       if (li.dataset.megaBound === "1") return;
       li.dataset.megaBound = "1";
       // Only mouseenter — the global safe-zone tracker handles closing
       li.addEventListener("mouseenter", this._boundEnter);
+    });
+
+    // Close an open mega as soon as the pointer enters a different top-level
+    // item that is NOT a mega (e.g. a standard dropdown). The full-width mega
+    // panel otherwise keeps the pointer inside the hover safe zone, so moving
+    // sideways to a sibling never triggers a close.
+    Array.from(this.querySelectorAll(".f-site-nav__item")).forEach((li) => {
+      if (li.classList.contains("f-site-nav__item--mega")) return;
+      if (li.dataset.siblingBound === "1") return;
+      li.dataset.siblingBound = "1";
+      li.addEventListener("mouseenter", this._boundSiblingEnter);
     });
   }
 
   onMenuItemEnter(evt) {
     // Stop any in-progress close tracker for the previous item
     this._stopGlobalHover();
+    clearTimeout(this._navLeaveTimer);
 
     const li = evt.currentTarget;
     if (!li) return;
@@ -320,6 +349,25 @@ class SiteNav extends HTMLElement {
       // Start tracking once the dropdown is visible so getBoundingClientRect is accurate
       this._startGlobalHover(li, dropdown);
     }, 10);
+  }
+
+  onSiblingItemEnter() {
+    // Pointer moved onto a non-mega top-level item. If a mega is currently
+    // open, close it right away.
+    const anyOpen =
+      (this.megaItems || []).some((li) =>
+        li.classList.contains(this.classes.itemActive)
+      ) || !!this._globalHoverLi;
+    if (anyOpen) this.closeMegaDropdowns();
+  }
+
+  onNavLeave() {
+    // Left the entire nav subtree (dropdowns are descendants, so this only
+    // fires once the pointer is outside the menu and any open panel).
+    clearTimeout(this._navLeaveTimer);
+    this._navLeaveTimer = setTimeout(() => {
+      this.closeMegaDropdowns();
+    }, 200);
   }
 
   /**
@@ -401,6 +449,14 @@ class SiteNav extends HTMLElement {
 
   disconnectedCallback() {
     this._stopGlobalHover();
+    clearTimeout(this._navLeaveTimer);
+    this.removeEventListener("mouseleave", this._boundNavLeave);
+
+    Array.from(this.querySelectorAll(".f-site-nav__item")).forEach((li) => {
+      li.removeEventListener("mouseenter", this._boundSiblingEnter);
+      li.dataset.siblingBound = "";
+    });
+
     if (!this.megaItems) return;
 
     this.megaItems.forEach((li) => {
