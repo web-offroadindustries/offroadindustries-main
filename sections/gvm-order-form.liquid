@@ -537,8 +537,11 @@
                   </div>
                   <div class="f-flex flex-wrap f-gvm-order__fields">
                     <div class="form-field w-full sm:w-1/2">
-                      <label class="form-label" for="{{ form_id }}-company">Dealer / Company Name</label>
-                      <input class="form-control" type="text" id="{{ form_id }}-company" name="contact[Dealer / Company Name]">
+                      <label class="form-label" for="{{ form_id }}-company">
+                        Dealer / Company Name
+                        <span aria-hidden="true">*</span>
+                      </label>
+                      <input class="form-control" type="text" id="{{ form_id }}-company" name="contact[Dealer / Company Name]" required aria-required="true">
                     </div>
 
                     <div class="form-field w-full sm:w-1/2">
