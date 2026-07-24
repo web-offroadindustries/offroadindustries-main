@@ -224,49 +224,6 @@
   line-height: 1.3;
   white-space: nowrap;
 }
-/* Instant-search (predictive) dropdown for the header search box */
-.secondary-header predictive-search {
-  position: relative;
-  display: block;
-  width: 100%;
-  text-align: left;
-}
-.secondary-header predictive-search:not([open]) .f-predictive-search {
-  display: none;
-}
-.secondary-header .f-predictive-search.secondary-header__predictive-results {
-  position: absolute;
-  top: calc(100% + 8px);
-  left: auto;
-  right: 0;
-  width: 360px;
-  max-width: 90vw;
-  max-height: 72vh;
-  overflow-x: hidden;
-  overflow-y: auto;
-  background: #ffffff;
-  color: #1a1a1a;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
-  box-shadow: 0 16px 44px rgba(0, 0, 0, 0.22);
-  padding: 14px 16px;
-  font-size: 14px;
-  line-height: 1.4;
-  text-align: left;
-  z-index: 1000;
-}
-.secondary-header .secondary-header__predictive-results,
-.secondary-header .secondary-header__predictive-results a,
-.secondary-header .secondary-header__predictive-results h2,
-.secondary-header .secondary-header__predictive-results h3,
-.secondary-header .secondary-header__predictive-results p {
-  color: #1a1a1a;
-}
-@media screen and (max-width: 749px) {
-  .secondary-header .f-predictive-search.secondary-header__predictive-results {
-    width: 300px;
-  }
-}
 </style>
 
 {%- liquid
@@ -276,13 +233,6 @@
     assign hide_class = ' secondary-header--hide-mobile'
   endif
 -%}
-
-{%- if settings.predictive_search_enabled -%}
-  <link rel="stylesheet" href="{{ 'search.css' | asset_url }}" media="print" onload="this.media='all'">
-  <link rel="stylesheet" href="{{ 'search-drawer.css' | asset_url }}" media="print" onload="this.media='all'">
-  <noscript>{{ 'search.css' | asset_url | stylesheet_tag }}{{ 'search-drawer.css' | asset_url | stylesheet_tag }}</noscript>
-  <script src="{{ 'search-drawer.js' | asset_url }}" defer="defer"></script>
-{%- endif -%}
 
 <div
   class="secondary-header{{ hide_class }}"
@@ -326,7 +276,17 @@
                   {%- endif -%}
                 </div>
               {%- when 'search' -%}
-                {% render 'secondary-header-search', block: block, pos: 'l' %}
+                <div class="secondary-header__item secondary-header__item--search" style="--sh-search-max: {{ block.settings.search_max_width }}px; --sh-block-icon-size: {{ block.settings.icon_size }}px;" {{ block.shopify_attributes }}>
+                  <form action="{{ routes.search_url }}" method="get" role="search" class="secondary-header__search-form">
+                    <label class="visually-hidden" for="SecondarySearch-l-{{ block.id }}">{{ 'general.search.search' | t }}</label>
+                    <input id="SecondarySearch-l-{{ block.id }}" class="secondary-header__search-input snize-exclude-input" type="search" name="q" autocomplete="off" placeholder="{{ block.settings.placeholder }}">
+                    <input type="hidden" name="options[prefix]" value="last">
+                    <input type="hidden" name="options[unavailable_products]" value="show">
+                    <button type="submit" class="secondary-header__search-btn" aria-label="{{ 'general.search.search' | t }}">
+                      <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" role="presentation" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                    </button>
+                  </form>
+                </div>
             {%- endcase -%}
           {%- endif -%}
         {%- endfor -%}
@@ -365,7 +325,17 @@
                   {%- endif -%}
                 </div>
               {%- when 'search' -%}
-                {% render 'secondary-header-search', block: block, pos: 'r' %}
+                <div class="secondary-header__item secondary-header__item--search" style="--sh-search-max: {{ block.settings.search_max_width }}px; --sh-block-icon-size: {{ block.settings.icon_size }}px;" {{ block.shopify_attributes }}>
+                  <form action="{{ routes.search_url }}" method="get" role="search" class="secondary-header__search-form">
+                    <label class="visually-hidden" for="SecondarySearch-r-{{ block.id }}">{{ 'general.search.search' | t }}</label>
+                    <input id="SecondarySearch-r-{{ block.id }}" class="secondary-header__search-input snize-exclude-input" type="search" name="q" autocomplete="off" placeholder="{{ block.settings.placeholder }}">
+                    <input type="hidden" name="options[prefix]" value="last">
+                    <input type="hidden" name="options[unavailable_products]" value="show">
+                    <button type="submit" class="secondary-header__search-btn" aria-label="{{ 'general.search.search' | t }}">
+                      <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" role="presentation" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                    </button>
+                  </form>
+                </div>
             {%- endcase -%}
           {%- endif -%}
         {%- endfor -%}
