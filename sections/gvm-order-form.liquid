@@ -557,21 +557,11 @@
 
                     <div class="form-field w-full f-gvm-order__dep is-hidden" data-gvm-field="trim">
                       <label class="form-label" for="{{ form_id }}-trim">
-                        Trim
+                        <span data-gvm-trim-label>Trim</span>
                         <span aria-hidden="true">*</span>
                       </label>
                       <select class="form-control" id="{{ form_id }}-trim" name="contact[Trim]" required aria-required="true" disabled data-gvm-trim>
                         <option value="" disabled selected>Select trim...</option>
-                      </select>
-                    </div>
-
-                    <div class="form-field w-full f-gvm-order__dep is-hidden" data-gvm-field="wheelbase">
-                      <label class="form-label" for="{{ form_id }}-wheelbase">
-                        Wheelbase
-                        <span aria-hidden="true">*</span>
-                      </label>
-                      <select class="form-control" id="{{ form_id }}-wheelbase" name="contact[Wheelbase]" required aria-required="true" disabled data-gvm-wheelbase>
-                        <option value="" disabled selected>Select wheelbase...</option>
                       </select>
                     </div>
 
@@ -741,21 +731,27 @@
 </script>
 
 <script>
-  /* Vehicle cascade: Make -> Model -> Trim -> Wheelbase dependent dropdowns.
+  /* Vehicle cascade: Make -> Model -> Trim -> GVM Kit dependent dropdowns.
      Runs in both the multi-step and single-page layouts. Each menu reveals and
      populates once the one above it is chosen. Downstream menus stay disabled
-     while hidden, so a hidden required menu can never block submission. */
+     while hidden, so a hidden required menu can never block submission.
+     Some models (e.g. Ford F150) fold wheelbase into the trim options and
+     relabel that menu via a per-model "trimLabel". */
   (function () {
     var form = document.getElementById('{{ form_id }}');
     if (!form) return;
 
-    // Vehicle list (approved by ORI). Add a "wheelbase" array to any model that
-    // needs it; leave it out and that menu simply never appears for that model.
+    // Vehicle list (approved by ORI). A model may set "trimLabel" to rename the
+    // trim menu (used for Ford F150, which combines trim and wheelbase).
     var VEHICLES = {
       "Ford": {
         "F150": {
-          "trims": ["XLT", "Lariat", "Platinum"],
-          "wheelbase": ["SWB", "LWB"],
+          "trimLabel": "Trim and Wheelbase",
+          "trims": [
+            "XLT - Short", "XLT - Long",
+            "Lariat - Short", "Lariat - Long",
+            "Platinum - Short", "Platinum - Long"
+          ],
           "kits": [
             "FRD-F150-Stage1-GVM", "FRD-F150-Stage2-GVM",
             "FRD-F150-Stage3-GVM-200", "FRD-F150-Stage3-GVM-400",
@@ -811,14 +807,17 @@
     var makeEl = form.querySelector('[data-gvm-make]');
     var modelEl = form.querySelector('[data-gvm-model]');
     var trimEl = form.querySelector('[data-gvm-trim]');
-    var wbEl = form.querySelector('[data-gvm-wheelbase]');
     var kitEl = form.querySelector('[data-gvm-kit]');
-    if (!makeEl || !modelEl || !trimEl || !wbEl || !kitEl) return;
+    if (!makeEl || !modelEl || !trimEl || !kitEl) return;
 
+    var trimLabelEl = form.querySelector('[data-gvm-trim-label]');
     var fModel = form.querySelector('[data-gvm-field="model"]');
     var fTrim = form.querySelector('[data-gvm-field="trim"]');
-    var fWb = form.querySelector('[data-gvm-field="wheelbase"]');
     var fKit = form.querySelector('[data-gvm-field="kit"]');
+
+    function setTrimLabel(text) {
+      if (trimLabelEl) trimLabelEl.textContent = text || 'Trim';
+    }
 
     function fill(select, items, placeholder) {
       select.innerHTML = '';
@@ -845,8 +844,8 @@
     fill(makeEl, Object.keys(VEHICLES), 'Select make...');
 
     makeEl.addEventListener('change', function () {
+      setTrimLabel('Trim');
       resetField(fTrim, trimEl, 'Select trim...');
-      resetField(fWb, wbEl, 'Select wheelbase...');
       resetField(fKit, kitEl, 'Select GVM kit...');
       if (!makeEl.value || !VEHICLES[makeEl.value]) {
         resetField(fModel, modelEl, 'Select model...');
@@ -857,32 +856,23 @@
     });
 
     modelEl.addEventListener('change', function () {
-      resetField(fWb, wbEl, 'Select wheelbase...');
       var models = VEHICLES[makeEl.value] || {};
       var model = models[modelEl.value];
       if (!modelEl.value || !model) {
+        setTrimLabel('Trim');
         resetField(fTrim, trimEl, 'Select trim...');
         resetField(fKit, kitEl, 'Select GVM kit...');
         return;
       }
-      fill(trimEl, model.trims || [], 'Select trim...');
+      var trimText = model.trimLabel || 'Trim';
+      setTrimLabel(trimText);
+      fill(trimEl, model.trims || [], 'Select ' + trimText.toLowerCase() + '...');
       openField(fTrim, trimEl);
       if (model.kits && model.kits.length) {
         fill(kitEl, model.kits, 'Select GVM kit...');
         openField(fKit, kitEl);
       } else {
         resetField(fKit, kitEl, 'Select GVM kit...');
-      }
-    });
-
-    trimEl.addEventListener('change', function () {
-      var models = VEHICLES[makeEl.value] || {};
-      var model = models[modelEl.value];
-      if (trimEl.value && model && model.wheelbase) {
-        fill(wbEl, model.wheelbase, 'Select wheelbase...');
-        openField(fWb, wbEl);
-      } else {
-        resetField(fWb, wbEl, 'Select wheelbase...');
       }
     });
   })();
