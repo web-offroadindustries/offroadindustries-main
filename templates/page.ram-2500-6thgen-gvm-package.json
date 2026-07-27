@@ -220,7 +220,7 @@
       "settings": {
         "container": "container",
         "color_schema": "",
-        "image": "shopify://shop_images/STAGE_1_RAM_2500_6th_GEN_all_products.png",
+        "image": "shopify://shop_images/STAGE_1_RAM_2500_6th_GEN_all_products_225a0b8f-fa3c-4251-afb7-bfacc1c7226d.png",
         "enable_lightbox": true,
         "image_width": "50%",
         "image_position": "left",
@@ -279,7 +279,7 @@
       "settings": {
         "container": "container",
         "color_schema": "",
-        "image": "shopify://shop_images/STAGE_2_RAM_2500_6th_GEN_all_products.png",
+        "image": "shopify://shop_images/STAGE_2_RAM_2500_6th_GEN_all_products_7a1ca581-3860-4d9a-9782-108ef1936c4a.png",
         "enable_lightbox": true,
         "image_width": "50%",
         "image_position": "right",
@@ -338,7 +338,7 @@
       "settings": {
         "container": "container",
         "color_schema": "",
-        "image": "shopify://shop_images/STAGE_3_RAM_2500_6th_GEN_ALL_PRODUCTS.png",
+        "image": "shopify://shop_images/STAGE_3_RAM_2500_6th_GEN_ALL_PRODUCTS_cc1f801f-cedc-4752-aaa8-a3d8deca9277.png",
         "enable_lightbox": true,
         "image_width": "50%",
         "image_position": "left",
@@ -397,7 +397,7 @@
       "settings": {
         "container": "container",
         "color_schema": "",
-        "image": "shopify://shop_images/STAGE_4_RAM_2500_6th_GEN_ALL_PRODUCTS.png",
+        "image": "shopify://shop_images/STAGE_4_RAM_2500_6th_GEN_ALL_PRODUCTS_cbabc287-9006-400a-8dd5-f46418a51c80.png",
         "enable_lightbox": true,
         "image_width": "50%",
         "image_position": "right",
@@ -456,7 +456,7 @@
       "settings": {
         "container": "container",
         "color_schema": "",
-        "image": "shopify://shop_images/STAGE_5_RAM_2500_6th_GEN_ALL_PRODUCTS.png",
+        "image": "shopify://shop_images/STAGE_5_RAM_2500_6th_GEN_ALL_PRODUCTS_7f84b61b-5713-49ec-8d49-abfc94692303.png",
         "enable_lightbox": true,
         "image_width": "50%",
         "image_position": "left",
@@ -515,7 +515,7 @@
       "settings": {
         "container": "container",
         "color_schema": "",
-        "image": "shopify://shop_images/STAGE_6_RAM_2500_6th_GEN_ALL_PRODUCTS-2.png",
+        "image": "shopify://shop_images/STAGE_6_RAM_2500_6th_GEN_ALL_PRODUCTS-2_435e34f8-2a82-4691-a218-61f7ca383dc3.png",
         "enable_lightbox": true,
         "image_width": "50%",
         "image_position": "right",
