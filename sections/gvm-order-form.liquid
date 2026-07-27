@@ -235,7 +235,7 @@
     color: var(--color-text-heading, #111827);
     letter-spacing: -0.01em;
   }
-  .f-gvm-order__note-content p { font-size: 1rem; margin: 0 0 0.5rem; }
+  .f-gvm-order__note-content p { margin: 0 0 0.5rem; }
   .f-gvm-order__note a {
     color: var(--color-link, var(--color-primary, #111827));
     font-weight: 600;
@@ -246,7 +246,6 @@
     .f-gvm-order__note { padding: 1rem 1.05rem; gap: 0.7rem; }
     .f-gvm-order__note-icon { width: 1.4rem; height: 1.4rem; }
     .f-gvm-order__note-title { font-size: 1.02rem; }
-    .f-gvm-order__note-content p { font-size: 0.95rem; }
   }
   .f-gvm-order__footer {
     margin-top: 0.5rem;
@@ -318,6 +317,9 @@
   #{{ section_id }} .f-gvm-order__wnote,
   #{{ section_id }} .f-gvm-order__required-note {
     font-size: clamp(calc(var(--gvm-wnote-min, 15) * 1px), calc(var(--gvm-wnote-min, 15) * 1px + (var(--gvm-wnote-max, 16) - var(--gvm-wnote-min, 15)) * ((100vw - 375px) / 1065)), calc(var(--gvm-wnote-max, 16) * 1px));
+  }
+  #{{ section_id }} .f-gvm-order__note-content p {
+    font-size: clamp(calc(var(--gvm-note-min, 15) * 1px), calc(var(--gvm-note-min, 15) * 1px + (var(--gvm-note-max, 16) - var(--gvm-note-min, 15)) * ((100vw - 375px) / 1065)), calc(var(--gvm-note-max, 16) * 1px));
   }
   /* ---- Wizard mode (added by JS; without JS every step stays visible) ---- */
   .f-gvm-order.is-wizard .f-gvm-order__step { display: none; }
@@ -425,7 +427,7 @@
 <div
   id="{{ section_id }}"
   class="f-gvm-order f-section-padding color-{{ section.settings.color_schema }}{{ custom_class }}"
-  style="--section-padding-top: {{ section.settings.padding_top }}px; --section-padding-bottom: {{ section.settings.padding_bottom }}px; --gvm-heading-min: {{ section.settings.heading_size_min }}; --gvm-heading-max: {{ section.settings.heading_size_max }}; --gvm-sub-min: {{ section.settings.subheading_size_min }}; --gvm-sub-max: {{ section.settings.subheading_size_max }}; --gvm-desc-min: {{ section.settings.desc_size_min }}; --gvm-desc-max: {{ section.settings.desc_size_max }}; --gvm-label-min: {{ section.settings.label_size_min }}; --gvm-label-max: {{ section.settings.label_size_max }}; --gvm-input-min: {{ section.settings.input_size_min }}; --gvm-input-max: {{ section.settings.input_size_max }}; --gvm-grouptitle-min: {{ section.settings.section_label_size_min }}; --gvm-grouptitle-max: {{ section.settings.section_label_size_max }}; --gvm-hint-min: {{ section.settings.helper_size_min }}; --gvm-hint-max: {{ section.settings.helper_size_max }}; --gvm-plabel-min: {{ section.settings.progress_label_size_min }}; --gvm-plabel-max: {{ section.settings.progress_label_size_max }}; --gvm-wnote-min: {{ section.settings.required_note_size_min }}; --gvm-wnote-max: {{ section.settings.required_note_size_max }};"
+  style="--section-padding-top: {{ section.settings.padding_top }}px; --section-padding-bottom: {{ section.settings.padding_bottom }}px; --gvm-heading-min: {{ section.settings.heading_size_min }}; --gvm-heading-max: {{ section.settings.heading_size_max }}; --gvm-sub-min: {{ section.settings.subheading_size_min }}; --gvm-sub-max: {{ section.settings.subheading_size_max }}; --gvm-desc-min: {{ section.settings.desc_size_min }}; --gvm-desc-max: {{ section.settings.desc_size_max }}; --gvm-label-min: {{ section.settings.label_size_min }}; --gvm-label-max: {{ section.settings.label_size_max }}; --gvm-input-min: {{ section.settings.input_size_min }}; --gvm-input-max: {{ section.settings.input_size_max }}; --gvm-grouptitle-min: {{ section.settings.section_label_size_min }}; --gvm-grouptitle-max: {{ section.settings.section_label_size_max }}; --gvm-hint-min: {{ section.settings.helper_size_min }}; --gvm-hint-max: {{ section.settings.helper_size_max }}; --gvm-plabel-min: {{ section.settings.progress_label_size_min }}; --gvm-plabel-max: {{ section.settings.progress_label_size_max }}; --gvm-wnote-min: {{ section.settings.required_note_size_min }}; --gvm-wnote-max: {{ section.settings.required_note_size_max }}; --gvm-note-min: {{ section.settings.note_body_size_min }}; --gvm-note-max: {{ section.settings.note_body_size_max }};"
 >
   <div class="{{ section.settings.container }}">
     <div class="f-gvm-order__header-wrap f-gvm-order__header-wrap--{{ logo_position }}">
@@ -1386,6 +1388,27 @@
       "id": "required_note_size_max",
       "label": "\"Fields marked * are required\" size (desktop)",
       "min": 12,
+      "max": 32,
+      "step": 1,
+      "default": 16,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "note_body_size_min",
+      "label": "First-step note text size (mobile)",
+      "info": "The body text of the \"Vehicle Details Required\" note.",
+      "min": 12,
+      "max": 28,
+      "step": 1,
+      "default": 15,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "note_body_size_max",
+      "label": "First-step note text size (desktop)",
+      "min": 13,
       "max": 32,
       "step": 1,
       "default": 16,
