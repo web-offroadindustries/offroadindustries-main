@@ -203,6 +203,23 @@
     margin-top: 0.375rem;
     line-height: 1.45;
   }
+  .f-gvm-order__note {
+    background: color-mix(in srgb, var(--color-primary, #111827) 6%, transparent);
+    border: 1px solid var(--color-border, #e5e7eb);
+    border-left: 3px solid var(--color-primary, var(--color-text-heading, #111827));
+    border-radius: 8px;
+    padding: 0.8rem 1rem;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: var(--color-text, #374151);
+  }
+  .f-gvm-order__note > :first-child { margin-top: 0; }
+  .f-gvm-order__note > :last-child { margin-bottom: 0; }
+  .f-gvm-order__note a {
+    color: var(--color-link, var(--color-primary, #111827));
+    font-weight: 600;
+    text-decoration: underline;
+  }
   .f-gvm-order__footer {
     margin-top: 0.5rem;
     padding-top: 1.5rem;
@@ -519,6 +536,17 @@
                       </select>
                     </div>
 
+                    {%- if section.settings.vehicle_note_text != blank or section.settings.vehicle_note_link_url != blank -%}
+                      <div class="form-field w-full">
+                        <div class="f-gvm-order__note">
+                          {%- if section.settings.vehicle_note_text != blank -%}{{ section.settings.vehicle_note_text }} {% endif -%}
+                          {%- if section.settings.vehicle_note_link_url != blank -%}
+                            <a href="{{ section.settings.vehicle_note_link_url }}" target="_blank" rel="noopener noreferrer">{{ section.settings.vehicle_note_link_label | default: 'RAV Public Search' }}</a>
+                          {%- endif -%}
+                        </div>
+                      </div>
+                    {%- endif -%}
+
                     <div class="form-field w-full sm:w-1/2">
                       <label class="form-label" for="{{ form_id }}-build-date">
                         Build Date (Month/Year)
@@ -545,7 +573,6 @@
                         <option value="17&quot;">17"</option>
                         <option value="18&quot;">18"</option>
                         <option value="20&quot;">20"</option>
-                        <option value="Other">Other</option>
                       </select>
                     </div>
 
@@ -1082,6 +1109,29 @@
       "id": "your_details_title",
       "label": "Last page label",
       "default": "Workshop Details"
+    },
+    {
+      "type": "header",
+      "content": "Vehicle step note"
+    },
+    {
+      "type": "text",
+      "id": "vehicle_note_text",
+      "label": "Note text",
+      "info": "Shown above the Build Date and VIN fields on the vehicle step. Leave the text and link both blank to hide the note.",
+      "default": "Get your build date and VIN from the"
+    },
+    {
+      "type": "text",
+      "id": "vehicle_note_link_label",
+      "label": "Note link label",
+      "default": "RAV Public Search"
+    },
+    {
+      "type": "text",
+      "id": "vehicle_note_link_url",
+      "label": "Note link URL",
+      "default": "https://www.rover.infrastructure.gov.au/RAVPublicSearch/"
     },
     {
       "type": "header",
