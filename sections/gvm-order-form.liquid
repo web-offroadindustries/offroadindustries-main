@@ -215,6 +215,12 @@
   }
   .f-gvm-order__note > :first-child { margin-top: 0; }
   .f-gvm-order__note > :last-child { margin-bottom: 0; }
+  .f-gvm-order__note-title {
+    font-weight: 700;
+    font-size: 0.95rem;
+    margin: 0 0 0.35rem;
+    color: var(--color-text-heading, #111827);
+  }
   .f-gvm-order__note a {
     color: var(--color-link, var(--color-primary, #111827));
     font-weight: 600;
@@ -444,13 +450,13 @@
                     <span class="f-gvm-order__group-title">{{ section.settings.order_details_title | default: 'Order Details' | escape }}</span>
                   </div>
                   <div class="f-flex flex-wrap f-gvm-order__fields">
-                    {%- if section.settings.vehicle_note_text != blank or section.settings.vehicle_note_link_url != blank -%}
+                    {%- if section.settings.vehicle_note_title != blank or section.settings.vehicle_note_body != blank -%}
                       <div class="form-field w-full">
                         <div class="f-gvm-order__note">
-                          {%- if section.settings.vehicle_note_text != blank -%}{{ section.settings.vehicle_note_text }} {% endif -%}
-                          {%- if section.settings.vehicle_note_link_url != blank -%}
-                            <a href="{{ section.settings.vehicle_note_link_url }}" target="_blank" rel="noopener noreferrer">{{ section.settings.vehicle_note_link_label | default: 'RAV Public Search' }}</a>
+                          {%- if section.settings.vehicle_note_title != blank -%}
+                            <p class="f-gvm-order__note-title">{{ section.settings.vehicle_note_title | escape }}</p>
                           {%- endif -%}
+                          {{ section.settings.vehicle_note_body }}
                         </div>
                       </div>
                     {%- endif -%}
@@ -686,6 +692,11 @@
   (function () {
     var form = document.getElementById('{{ form_id }}');
     if (!form) return;
+    // Note links open in a new tab (theme richtext strips the target attribute)
+    [].slice.call(form.querySelectorAll('.f-gvm-order__note a')).forEach(function (a) {
+      a.setAttribute('target', '_blank');
+      a.setAttribute('rel', 'noopener noreferrer');
+    });
     form.addEventListener('submit', function () {
       var company = (form.querySelector('[name="contact[Company Name]"]') || {}).value || '';
       var person = (form.querySelector('[name="contact[Workshop Contact]"]') || {}).value || '';
@@ -1116,22 +1127,17 @@
     },
     {
       "type": "text",
-      "id": "vehicle_note_text",
-      "label": "Note text",
-      "info": "Shown at the top of the first step. Leave the text and link both blank to hide the note.",
-      "default": "Get your build date and VIN from the"
+      "id": "vehicle_note_title",
+      "label": "Note heading",
+      "info": "Shown at the top of the first step. Leave the heading and body both blank to hide the note.",
+      "default": "Vehicle Details Required"
     },
     {
-      "type": "text",
-      "id": "vehicle_note_link_label",
-      "label": "Note link label",
-      "default": "RAV Public Search"
-    },
-    {
-      "type": "text",
-      "id": "vehicle_note_link_url",
-      "label": "Note link URL",
-      "default": "https://www.rover.infrastructure.gov.au/RAVPublicSearch/"
+      "type": "richtext",
+      "id": "vehicle_note_body",
+      "label": "Note body",
+      "info": "Links open in a new tab so the form is not lost.",
+      "default": "<p>To ensure your ORI GVM upgrade is processed accurately, we need your exact VIN and Build Date. Please verify your vehicle details using the <a href=\"https://www.rover.infrastructure.gov.au/RAVPublicSearch/\">RAV Public Search database</a> before entering them below.</p>"
     },
     {
       "type": "header",
