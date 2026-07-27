@@ -444,6 +444,17 @@
                     <span class="f-gvm-order__group-title">{{ section.settings.order_details_title | default: 'Order Details' | escape }}</span>
                   </div>
                   <div class="f-flex flex-wrap f-gvm-order__fields">
+                    {%- if section.settings.vehicle_note_text != blank or section.settings.vehicle_note_link_url != blank -%}
+                      <div class="form-field w-full">
+                        <div class="f-gvm-order__note">
+                          {%- if section.settings.vehicle_note_text != blank -%}{{ section.settings.vehicle_note_text }} {% endif -%}
+                          {%- if section.settings.vehicle_note_link_url != blank -%}
+                            <a href="{{ section.settings.vehicle_note_link_url }}" target="_blank" rel="noopener noreferrer">{{ section.settings.vehicle_note_link_label | default: 'RAV Public Search' }}</a>
+                          {%- endif -%}
+                        </div>
+                      </div>
+                    {%- endif -%}
+
                     <div class="form-field w-full sm:w-1/2">
                       <label class="form-label" for="{{ form_id }}-po">
                         Order Number (PO)
@@ -535,17 +546,6 @@
                         <option value="" disabled selected>Select GVM kit...</option>
                       </select>
                     </div>
-
-                    {%- if section.settings.vehicle_note_text != blank or section.settings.vehicle_note_link_url != blank -%}
-                      <div class="form-field w-full">
-                        <div class="f-gvm-order__note">
-                          {%- if section.settings.vehicle_note_text != blank -%}{{ section.settings.vehicle_note_text }} {% endif -%}
-                          {%- if section.settings.vehicle_note_link_url != blank -%}
-                            <a href="{{ section.settings.vehicle_note_link_url }}" target="_blank" rel="noopener noreferrer">{{ section.settings.vehicle_note_link_label | default: 'RAV Public Search' }}</a>
-                          {%- endif -%}
-                        </div>
-                      </div>
-                    {%- endif -%}
 
                     <div class="form-field w-full sm:w-1/2">
                       <label class="form-label" for="{{ form_id }}-build-date">
@@ -1112,13 +1112,13 @@
     },
     {
       "type": "header",
-      "content": "Vehicle step note"
+      "content": "Note on the first step"
     },
     {
       "type": "text",
       "id": "vehicle_note_text",
       "label": "Note text",
-      "info": "Shown above the Build Date and VIN fields on the vehicle step. Leave the text and link both blank to hide the note.",
+      "info": "Shown at the top of the first step. Leave the text and link both blank to hide the note.",
       "default": "Get your build date and VIN from the"
     },
     {
