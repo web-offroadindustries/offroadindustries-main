@@ -152,6 +152,21 @@
     text-transform: uppercase;
     color: var(--color-text-heading, #111827);
   }
+  /* Prominent header, used on the final Workshop Details step */
+  .f-gvm-order__step-header--lead {
+    min-height: 0;
+    align-items: flex-start;
+    margin-bottom: 1.35rem;
+    padding-bottom: 0.85rem;
+    border-bottom: 2px solid var(--color-primary, var(--color-text-heading, #111827));
+  }
+  #{{ section_id }} .f-gvm-order__step-header--lead .f-gvm-order__group-title--lead {
+    font-size: clamp(19px, calc(17px + 0.9vw), 24px);
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    text-transform: none;
+    line-height: 1.2;
+  }
   .f-gvm-order .form-label {
     font-weight: 600;
     font-size: 0.875rem;
@@ -421,8 +436,11 @@
                     </div>
 
                     <div class="form-field w-full sm:w-1/2">
-                      <label class="form-label" for="{{ form_id }}-date-required">Date Required</label>
-                      <input class="form-control" type="date" id="{{ form_id }}-date-required" name="contact[Date Required]">
+                      <label class="form-label" for="{{ form_id }}-date-required">
+                        Date Required
+                        <span aria-hidden="true">*</span>
+                      </label>
+                      <input class="form-control" type="date" id="{{ form_id }}-date-required" name="contact[Date Required]" required aria-required="true">
                     </div>
 
                     <div class="form-field w-full sm:w-1/2">
@@ -482,8 +500,11 @@
                     </div>
 
                     <div class="form-field w-full f-gvm-order__dep is-hidden" data-gvm-field="wheelbase">
-                      <label class="form-label" for="{{ form_id }}-wheelbase">Wheelbase</label>
-                      <select class="form-control" id="{{ form_id }}-wheelbase" name="contact[Wheelbase]" disabled data-gvm-wheelbase>
+                      <label class="form-label" for="{{ form_id }}-wheelbase">
+                        Wheelbase
+                        <span aria-hidden="true">*</span>
+                      </label>
+                      <select class="form-control" id="{{ form_id }}-wheelbase" name="contact[Wheelbase]" required aria-required="true" disabled data-gvm-wheelbase>
                         <option value="" disabled selected>Select wheelbase...</option>
                       </select>
                     </div>
@@ -499,8 +520,11 @@
                     </div>
 
                     <div class="form-field w-full sm:w-1/2">
-                      <label class="form-label" for="{{ form_id }}-build-date">Build Date (Month/Year)</label>
-                      <input class="form-control" type="text" id="{{ form_id }}-build-date" name="contact[Build Date (Month/Year)]" placeholder="e.g. 03/2023">
+                      <label class="form-label" for="{{ form_id }}-build-date">
+                        Build Date (Month/Year)
+                        <span aria-hidden="true">*</span>
+                      </label>
+                      <input class="form-control" type="text" id="{{ form_id }}-build-date" name="contact[Build Date (Month/Year)]" required aria-required="true" placeholder="e.g. 03/2023">
                     </div>
 
                     <div class="form-field w-full sm:w-1/2">
@@ -512,8 +536,11 @@
                     </div>
 
                     <div class="form-field w-full sm:w-1/2">
-                      <label class="form-label" for="{{ form_id }}-wheel-size">Wheel / Rim Size</label>
-                      <select class="form-control" id="{{ form_id }}-wheel-size" name="contact[Wheel / Rim Size]">
+                      <label class="form-label" for="{{ form_id }}-wheel-size">
+                        Wheel / Rim Size
+                        <span aria-hidden="true">*</span>
+                      </label>
+                      <select class="form-control" id="{{ form_id }}-wheel-size" name="contact[Wheel / Rim Size]" required aria-required="true">
                         <option value="" disabled selected>Select size...</option>
                         <option value="17&quot;">17"</option>
                         <option value="18&quot;">18"</option>
@@ -523,18 +550,27 @@
                     </div>
 
                     <div class="form-field w-full sm:w-1/2">
-                      <label class="form-label" for="{{ form_id }}-tyre-size">Tyre Size</label>
-                      <input class="form-control" type="text" id="{{ form_id }}-tyre-size" name="contact[Tyre Size]" placeholder="e.g. 35x12.18 (optional)">
+                      <label class="form-label" for="{{ form_id }}-tyre-size">
+                        Tyre Size
+                        <span aria-hidden="true">*</span>
+                      </label>
+                      <input class="form-control" type="text" id="{{ form_id }}-tyre-size" name="contact[Tyre Size]" required aria-required="true" placeholder="e.g. 35x12.18">
                     </div>
 
                     <div class="form-field w-full sm:w-1/2">
-                      <label class="form-label" for="{{ form_id }}-offset">Wheel Offset</label>
-                      <input class="form-control" type="text" id="{{ form_id }}-offset" name="contact[Wheel Offset]" placeholder="e.g. +12 (manual entry)">
+                      <label class="form-label" for="{{ form_id }}-offset">
+                        Wheel Offset
+                        <span aria-hidden="true">*</span>
+                      </label>
+                      <input class="form-control" type="text" id="{{ form_id }}-offset" name="contact[Wheel Offset]" required aria-required="true" placeholder="e.g. +12">
                     </div>
 
                     <div class="form-field w-full">
-                      <label class="form-label" for="{{ form_id }}-notes">Additional Notes</label>
-                      <textarea class="form-control form-control--textarea" id="{{ form_id }}-notes" name="contact[body]" rows="4" placeholder="Anything else we should know about this order.">{{- form.body -}}</textarea>
+                      <label class="form-label" for="{{ form_id }}-notes">
+                        Additional Notes
+                        <span aria-hidden="true">*</span>
+                      </label>
+                      <textarea class="form-control form-control--textarea" id="{{ form_id }}-notes" name="contact[body]" rows="4" required aria-required="true" placeholder="Anything else we should know about this order.">{{- form.body -}}</textarea>
                     </div>
                   </div>
                 </div>
@@ -547,26 +583,32 @@
                   <span class="f-gvm-order__step-line" aria-hidden="true"></span>
                 </div>
                 <div class="f-gvm-order__step-body">
-                  <div class="f-gvm-order__step-header">
-                    <span class="f-gvm-order__group-title">{{ section.settings.your_details_title | default: 'Workshop Details' | escape }}</span>
+                  <div class="f-gvm-order__step-header f-gvm-order__step-header--lead">
+                    <span class="f-gvm-order__group-title f-gvm-order__group-title--lead">{{ section.settings.your_details_title | default: 'Workshop Details' | escape }}</span>
                   </div>
                   <div class="f-flex flex-wrap f-gvm-order__fields">
-                    <div class="form-field w-full sm:w-1/2">
+                    <div class="form-field w-full">
                       <label class="form-label" for="{{ form_id }}-company">
-                        Dealer / Company Name
+                        Company Name
                         <span aria-hidden="true">*</span>
                       </label>
-                      <input class="form-control" type="text" id="{{ form_id }}-company" name="contact[Dealer / Company Name]" required aria-required="true">
+                      <input class="form-control" type="text" id="{{ form_id }}-company" name="contact[Company Name]" required aria-required="true">
                     </div>
 
                     <div class="form-field w-full sm:w-1/2">
-                      <label class="form-label" for="{{ form_id }}-contact-person">Workshop Contact</label>
-                      <input class="form-control" type="text" id="{{ form_id }}-contact-person" name="contact[Workshop Contact]">
+                      <label class="form-label" for="{{ form_id }}-contact-person">
+                        Workshop Contact
+                        <span aria-hidden="true">*</span>
+                      </label>
+                      <input class="form-control" type="text" id="{{ form_id }}-contact-person" name="contact[Workshop Contact]" required aria-required="true">
                     </div>
 
                     <div class="form-field w-full sm:w-1/2">
-                      <label class="form-label" for="{{ form_id }}-phone">Workshop Number</label>
-                      <input class="form-control" type="tel" id="{{ form_id }}-phone" name="contact[Workshop Number]" pattern="[0-9\-\+\(\)\s]*">
+                      <label class="form-label" for="{{ form_id }}-phone">
+                        Workshop Number
+                        <span aria-hidden="true">*</span>
+                      </label>
+                      <input class="form-control" type="tel" id="{{ form_id }}-phone" name="contact[Workshop Number]" required aria-required="true" pattern="[0-9\-\+\(\)\s]*">
                     </div>
 
                     <div class="form-field w-full sm:w-1/2">
@@ -618,7 +660,7 @@
     var form = document.getElementById('{{ form_id }}');
     if (!form) return;
     form.addEventListener('submit', function () {
-      var company = (form.querySelector('[name="contact[Dealer / Company Name]"]') || {}).value || '';
+      var company = (form.querySelector('[name="contact[Company Name]"]') || {}).value || '';
       var person = (form.querySelector('[name="contact[Workshop Contact]"]') || {}).value || '';
       var combined = document.getElementById('{{ form_id }}-combined-name');
       if (combined) {
