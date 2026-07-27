@@ -207,8 +207,7 @@
     display: flex;
     align-items: flex-start;
     gap: 0.9rem;
-    background: #f5f7f9;
-    background: color-mix(in srgb, var(--color-primary, #111827) 5%, var(--color-background, #fff));
+    background: var(--gvm-note-bg, #FEF3C7);
     border: 1px solid var(--color-border, #e5e7eb);
     border-left: 4px solid var(--color-primary, var(--color-text-heading, #111827));
     border-radius: 10px;
@@ -427,7 +426,7 @@
 <div
   id="{{ section_id }}"
   class="f-gvm-order f-section-padding color-{{ section.settings.color_schema }}{{ custom_class }}"
-  style="--section-padding-top: {{ section.settings.padding_top }}px; --section-padding-bottom: {{ section.settings.padding_bottom }}px; --gvm-heading-min: {{ section.settings.heading_size_min }}; --gvm-heading-max: {{ section.settings.heading_size_max }}; --gvm-sub-min: {{ section.settings.subheading_size_min }}; --gvm-sub-max: {{ section.settings.subheading_size_max }}; --gvm-desc-min: {{ section.settings.desc_size_min }}; --gvm-desc-max: {{ section.settings.desc_size_max }}; --gvm-label-min: {{ section.settings.label_size_min }}; --gvm-label-max: {{ section.settings.label_size_max }}; --gvm-input-min: {{ section.settings.input_size_min }}; --gvm-input-max: {{ section.settings.input_size_max }}; --gvm-grouptitle-min: {{ section.settings.section_label_size_min }}; --gvm-grouptitle-max: {{ section.settings.section_label_size_max }}; --gvm-hint-min: {{ section.settings.helper_size_min }}; --gvm-hint-max: {{ section.settings.helper_size_max }}; --gvm-plabel-min: {{ section.settings.progress_label_size_min }}; --gvm-plabel-max: {{ section.settings.progress_label_size_max }}; --gvm-wnote-min: {{ section.settings.required_note_size_min }}; --gvm-wnote-max: {{ section.settings.required_note_size_max }}; --gvm-note-min: {{ section.settings.note_body_size_min }}; --gvm-note-max: {{ section.settings.note_body_size_max }};"
+  style="--section-padding-top: {{ section.settings.padding_top }}px; --section-padding-bottom: {{ section.settings.padding_bottom }}px; --gvm-heading-min: {{ section.settings.heading_size_min }}; --gvm-heading-max: {{ section.settings.heading_size_max }}; --gvm-sub-min: {{ section.settings.subheading_size_min }}; --gvm-sub-max: {{ section.settings.subheading_size_max }}; --gvm-desc-min: {{ section.settings.desc_size_min }}; --gvm-desc-max: {{ section.settings.desc_size_max }}; --gvm-label-min: {{ section.settings.label_size_min }}; --gvm-label-max: {{ section.settings.label_size_max }}; --gvm-input-min: {{ section.settings.input_size_min }}; --gvm-input-max: {{ section.settings.input_size_max }}; --gvm-grouptitle-min: {{ section.settings.section_label_size_min }}; --gvm-grouptitle-max: {{ section.settings.section_label_size_max }}; --gvm-hint-min: {{ section.settings.helper_size_min }}; --gvm-hint-max: {{ section.settings.helper_size_max }}; --gvm-plabel-min: {{ section.settings.progress_label_size_min }}; --gvm-plabel-max: {{ section.settings.progress_label_size_max }}; --gvm-wnote-min: {{ section.settings.required_note_size_min }}; --gvm-wnote-max: {{ section.settings.required_note_size_max }}; --gvm-note-min: {{ section.settings.note_body_size_min }}; --gvm-note-max: {{ section.settings.note_body_size_max }}; --gvm-note-bg: {{ section.settings.note_bg_color | default: '#FEF3C7' }};"
 >
   <div class="{{ section.settings.container }}">
     <div class="f-gvm-order__header-wrap f-gvm-order__header-wrap--{{ logo_position }}">
@@ -1171,6 +1170,12 @@
       "label": "Note body",
       "info": "Links open in a new tab so the form is not lost.",
       "default": "<p>To ensure your ORI GVM upgrade is processed accurately, we need your exact VIN and Build Date. Please verify your vehicle details using the <a href=\"https://www.rover.infrastructure.gov.au/RAVPublicSearch/\">RAV Public Search database</a> before entering them below.</p>"
+    },
+    {
+      "type": "color",
+      "id": "note_bg_color",
+      "label": "Note background color",
+      "default": "#FEF3C7"
     },
     {
       "type": "header",
