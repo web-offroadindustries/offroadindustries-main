@@ -129,6 +129,11 @@
   }
 }
 
+/* Slideshow dots are injected by JS on every viewport but are only meant for
+   the mobile slideshow. Hide them by default so they don't show as unstyled
+   boxes on desktop; the mobile media query below reveals and styles them. */
+.why-choose__dots { display: none; }
+
 /* ── Mobile Slideshow ────────────────────────────────────────────────────── */
 @media (max-width: 639px) {
   /* Override swipe-carousel styles when in slideshow mode */
