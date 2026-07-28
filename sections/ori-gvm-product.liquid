@@ -9,8 +9,35 @@
   assign benefits = section.blocks | where: 'type', 'benefit'
   assign included = section.blocks | where: 'type', 'included'
   assign steps = section.blocks | where: 'type', 'step'
+
+  # Per-product figures: prefer the product's own metafields (namespace custom),
+  # fall back to the section settings so pages without metafields keep working.
+  assign mf = product.metafields.custom
+  assign spec_original_gvm = mf.original_gvm.value | default: section.settings.spec_original_gvm
+  assign spec_upgraded_gvm = mf.upgraded_gvm.value | default: section.settings.spec_upgraded_gvm
+  assign spec_payload_gain = mf.payload_gain.value | default: section.settings.spec_payload_gain
+  assign spec_gcm = mf.upgraded_gcm.value | default: section.settings.spec_gcm
+
+  # Hero "increase" stats, built from the atomic metafields when both ends exist.
+  assign gvm_increase = section.settings.gvm_value
+  if mf.original_gvm.value != blank and mf.upgraded_gvm.value != blank
+    assign gvm_increase = mf.original_gvm.value | append: ' → ' | append: mf.upgraded_gvm.value
+  endif
+  assign gcm_increase = section.settings.gcm_value
+  if mf.original_gcm.value != blank and mf.upgraded_gcm.value != blank
+    assign gcm_increase = mf.original_gcm.value | append: ' → ' | append: mf.upgraded_gcm.value
+  endif
+  assign payload_display = section.settings.payload_value
+  if mf.payload_gain.value != blank
+    assign payload_display = mf.payload_gain.value | prepend: '+'
+  endif
+
+  assign has_stats = false
+  if gvm_increase != blank or gcm_increase != blank or payload_display != blank
+    assign has_stats = true
+  endif
   assign has_specs = false
-  if section.settings.spec_original_gvm != blank or section.settings.spec_upgraded_gvm != blank or section.settings.spec_payload_gain != blank or section.settings.spec_gcm != blank
+  if spec_original_gvm != blank or spec_upgraded_gvm != blank or spec_payload_gain != blank or spec_gcm != blank
     assign has_specs = true
   endif
 -%}
@@ -79,24 +106,24 @@
             <div class="ori-gvm-product__subtitle rte">{{ section.settings.subtitle }}</div>
           {%- endif -%}
 
-          {%- if section.settings.gvm_value != blank or section.settings.gcm_value != blank or section.settings.payload_value != blank -%}
+          {%- if has_stats -%}
             <div class="ori-gvm-product__stats">
-              {%- if section.settings.gvm_value != blank -%}
+              {%- if gvm_increase != blank -%}
                 <div class="ori-gvm-product__stat">
                   <span class="ori-gvm-product__stat-label">GVM increase</span>
-                  <span class="ori-gvm-product__stat-value">{{ section.settings.gvm_value }}</span>
+                  <span class="ori-gvm-product__stat-value">{{ gvm_increase }}</span>
                 </div>
               {%- endif -%}
-              {%- if section.settings.gcm_value != blank -%}
+              {%- if gcm_increase != blank -%}
                 <div class="ori-gvm-product__stat">
                   <span class="ori-gvm-product__stat-label">GCM increase</span>
-                  <span class="ori-gvm-product__stat-value">{{ section.settings.gcm_value }}</span>
+                  <span class="ori-gvm-product__stat-value">{{ gcm_increase }}</span>
                 </div>
               {%- endif -%}
-              {%- if section.settings.payload_value != blank -%}
+              {%- if payload_display != blank -%}
                 <div class="ori-gvm-product__stat">
                   <span class="ori-gvm-product__stat-label">Payload gain</span>
-                  <span class="ori-gvm-product__stat-value">{{ section.settings.payload_value }}</span>
+                  <span class="ori-gvm-product__stat-value">{{ payload_display }}</span>
                 </div>
               {%- endif -%}
             </div>
@@ -165,17 +192,17 @@
           <h2 class="ori-gvm-product__block-title h3">{{ section.settings.specs_heading | default: 'Specifications' }}</h2>
           <table class="ori-gvm-product__specs">
             <tbody>
-              {%- if section.settings.spec_original_gvm != blank -%}
-                <tr><th scope="row">Original GVM</th><td>{{ section.settings.spec_original_gvm }}</td></tr>
+              {%- if spec_original_gvm != blank -%}
+                <tr><th scope="row">Original GVM</th><td>{{ spec_original_gvm }}</td></tr>
               {%- endif -%}
-              {%- if section.settings.spec_upgraded_gvm != blank -%}
-                <tr><th scope="row">Upgraded GVM</th><td>{{ section.settings.spec_upgraded_gvm }}</td></tr>
+              {%- if spec_upgraded_gvm != blank -%}
+                <tr><th scope="row">Upgraded GVM</th><td>{{ spec_upgraded_gvm }}</td></tr>
               {%- endif -%}
-              {%- if section.settings.spec_payload_gain != blank -%}
-                <tr><th scope="row">Payload gain</th><td>{{ section.settings.spec_payload_gain }}</td></tr>
+              {%- if spec_payload_gain != blank -%}
+                <tr><th scope="row">Payload gain</th><td>{{ spec_payload_gain }}</td></tr>
               {%- endif -%}
-              {%- if section.settings.spec_gcm != blank -%}
-                <tr><th scope="row">GCM</th><td>{{ section.settings.spec_gcm }}</td></tr>
+              {%- if spec_gcm != blank -%}
+                <tr><th scope="row">GCM</th><td>{{ spec_gcm }}</td></tr>
               {%- endif -%}
             </tbody>
           </table>
