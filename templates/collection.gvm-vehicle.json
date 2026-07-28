@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "breadcrumb": {
@@ -15,24 +24,47 @@
         "slide_1": {
           "type": "slide",
           "settings": {
-            "title": "{{ collection.title }}",
-            "heading_size": "h1",
-            "heading_color": "#ffffff",
+            "background": "shopify://shop_images/RAM-2500-2inch-lift_photo-GVM.png",
             "image_overlay_opacity": 45,
             "content_position": "center-bottom",
             "text_alignment": "center",
+            "text_color": "#000000",
+            "title": "{{ collection.title }}",
+            "heading_size": "h1",
+            "heading_color": "#ffffff",
+            "subheading": "",
+            "description": "",
+            "desc_size": "text-desc-base",
             "button_text_1": "View Packages",
-            "button_style_1": "btn--primary"
+            "button_link_1": "shopify://pages/ori-gvm-upgrades",
+            "button_style_1": "btn--primary",
+            "button_size_1": "",
+            "button_text_2": "",
+            "button_link_2": "",
+            "button_style_2": "btn--primary",
+            "button_size_2": ""
           }
         }
       },
-      "block_order": ["slide_1"],
+      "block_order": [
+        "slide_1"
+      ],
       "settings": {
         "container": "container-full",
         "slideshow_height": "medium",
         "show_dots": false,
         "show_nav": false,
-        "autoplay": false
+        "autoplay": false,
+        "autorotate_speed": 3,
+        "pagination_background": "light",
+        "controls_position": "center",
+        "pagination_style": "dots",
+        "show_text_below": false,
+        "text_alignment_mobile": "center",
+        "accessibility_info": "Slideshow about our brand",
+        "custom_id": "",
+        "custom_class": "",
+        "enable_bg_zoom_effect": false
       }
     },
     "collection_intro": {
@@ -45,12 +77,20 @@
           }
         }
       },
-      "block_order": ["text_intro"],
+      "block_order": [
+        "text_intro"
+      ],
       "settings": {
         "container": "container-narrow",
+        "color_schema": "",
         "text_alignment": "center",
         "padding_top": 48,
-        "padding_bottom": 24
+        "padding_bottom": 24,
+        "show_section_divider": false,
+        "divider_width": "container",
+        "custom_id": "",
+        "custom_class": "",
+        "animations": "inherit"
       }
     },
     "product_grid": {
@@ -64,6 +104,18 @@
         "enable_product_count": true,
         "enable_filtering": false,
         "enable_sorting": false,
+        "sidebar_position": "left",
+        "group_collapsible": true,
+        "default_state_collapsible": "collapsed",
+        "open_first_group": true,
+        "filter_group_heading_size": "h5",
+        "show_results_count": true,
+        "filter_color_type": "inline",
+        "enable_tag_filter": false,
+        "show_tag_filter_with_facets": false,
+        "tag_filter_heading": "By Vehicle",
+        "tag_filter_exclude_prefixes": "spo-,filter-",
+        "tag_filter_include_prefixes": "",
         "paginate_type": "number",
         "padding_top": 24,
         "padding_bottom": 60
@@ -74,6 +126,8 @@
       "settings": {
         "heading": "Estimate Your Payload Gain",
         "intro": "<p>Select an upgrade stage below to see indicative payload figures. Contact ORI for your certified vehicle-specific numbers.</p>",
+        "custom_id": "",
+        "color_schema": "1",
         "container": "container-narrow",
         "padding_top": 60,
         "padding_bottom": 60
@@ -83,10 +137,18 @@
       "type": "ori-installer-network",
       "settings": {
         "heading": "Approved Installer Network",
+        "heading_size": "h2",
         "subheading": "ORI packages are installed by certified specialists across every state and territory.",
+        "cta_text": "",
+        "cta_url": "",
+        "cta_style": "btn--outline",
         "container": "container",
+        "color_schema": "",
+        "bg_color": "",
         "padding_top": 60,
-        "padding_bottom": 60
+        "padding_bottom": 60,
+        "custom_id": "",
+        "custom_class": ""
       }
     },
     "faq": {
@@ -114,22 +176,58 @@
           }
         }
       },
-      "block_order": ["faq_1", "faq_2", "faq_3"],
+      "block_order": [
+        "faq_1",
+        "faq_2",
+        "faq_3"
+      ],
       "settings": {
         "heading": "Frequently Asked Questions",
+        "heading_size": "h2",
+        "subheading": "",
         "open_first": true,
         "emit_schema": true,
         "container": "container-narrow",
+        "color_schema": "",
+        "bg_color": "",
         "padding_top": 60,
-        "padding_bottom": 60
+        "padding_bottom": 60,
+        "custom_id": "",
+        "custom_class": ""
       }
     },
     "related_vehicles": {
       "type": "vehicle-cards",
       "settings": {
+        "eyebrow": "",
         "heading": "Explore Other Vehicles",
+        "bg_color": "#ffffff",
+        "heading_color": "#1f1f1f",
+        "heading_size": 36,
+        "eyebrow_color": "#56bdc2",
+        "eyebrow_size": 13,
+        "img_ratio": "square",
+        "img_radius": 10,
+        "card_placeholder_color": "#e5e5e5",
+        "card_bg_color": "#ffffff",
+        "card_border_color": "#e2e2e2",
+        "card_radius": 10,
+        "card_shadow": true,
+        "name_color": "#1f1f1f",
+        "name_size": 18,
+        "default_btn_label": "View Packages",
+        "btn_bg": "#ffffff",
+        "btn_text_color": "#1f1f1f",
+        "btn_border_color": "#1f1f1f",
+        "btn_radius": 6,
+        "btn_size": 12,
+        "card_alignment": "center",
+        "container_width": 1280,
         "padding_top": 60,
-        "padding_bottom": 60
+        "padding_bottom": 60,
+        "mobile_layout": "slideshow",
+        "slideshow_animation": "fade",
+        "slideshow_interval": 4
       }
     }
   },
