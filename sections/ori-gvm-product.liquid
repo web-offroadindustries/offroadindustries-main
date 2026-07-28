@@ -14,6 +14,7 @@
   # fall back to the section settings so pages without metafields keep working.
   assign mf = product.metafields.custom
   assign stage_summary = mf.stage_summary.value
+  assign price_display = mf.price.value | default: section.settings.price
   assign spec_original_gvm = mf.original_gvm.value | default: section.settings.spec_original_gvm
   assign spec_upgraded_gvm = mf.upgraded_gvm.value | default: section.settings.spec_upgraded_gvm
   assign spec_payload_gain = mf.payload_gain.value | default: section.settings.spec_payload_gain
@@ -128,6 +129,15 @@
                   <span class="ori-gvm-product__stat-label">Payload gain</span>
                   <span class="ori-gvm-product__stat-value">{{ payload_display }}</span>
                 </div>
+              {%- endif -%}
+            </div>
+          {%- endif -%}
+
+          {%- if price_display != blank -%}
+            <div class="ori-gvm-product__price">
+              <span class="ori-gvm-product__price-amount">{{ price_display }}</span>
+              {%- if section.settings.price_note != blank -%}
+                <span class="ori-gvm-product__price-note">{{ section.settings.price_note }}</span>
               {%- endif -%}
             </div>
           {%- endif -%}
@@ -274,6 +284,9 @@
     { "type": "text", "id": "gvm_value", "label": "GVM increase", "default": "3050kg → 3850kg" },
     { "type": "text", "id": "gcm_value", "label": "GCM increase", "default": "6800kg → 7350kg" },
     { "type": "text", "id": "payload_value", "label": "Payload gain", "default": "+800kg" },
+    { "type": "header", "content": "Price (optional)" },
+    { "type": "text", "id": "price", "label": "Price", "info": "Best set per product via the custom.price metafield. Leave blank to hide the price.", "default": "" },
+    { "type": "text", "id": "price_note", "label": "Price note", "info": "Small caption shown beside the price, e.g. Installed & engineered.", "default": "Installed & engineered" },
     { "type": "header", "content": "Call to action" },
     { "type": "text", "id": "quote_label", "label": "Primary button label", "default": "Request Quote" },
     { "type": "url", "id": "quote_url", "label": "Primary button URL" },
