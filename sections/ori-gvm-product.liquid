@@ -13,6 +13,7 @@
   # Per-product figures: prefer the product's own metafields (namespace custom),
   # fall back to the section settings so pages without metafields keep working.
   assign mf = product.metafields.custom
+  assign stage_summary = mf.stage_summary.value
   assign spec_original_gvm = mf.original_gvm.value | default: section.settings.spec_original_gvm
   assign spec_upgraded_gvm = mf.upgraded_gvm.value | default: section.settings.spec_upgraded_gvm
   assign spec_payload_gain = mf.payload_gain.value | default: section.settings.spec_payload_gain
@@ -102,7 +103,9 @@
 
           <h1 class="ori-gvm-product__title h2">{{ product.title | default: section.settings.fallback_title }}</h1>
 
-          {%- if section.settings.subtitle != blank -%}
+          {%- if stage_summary != blank -%}
+            <div class="ori-gvm-product__subtitle rte">{{ stage_summary | newline_to_br }}</div>
+          {%- elsif section.settings.subtitle != blank -%}
             <div class="ori-gvm-product__subtitle rte">{{ section.settings.subtitle }}</div>
           {%- endif -%}
 
