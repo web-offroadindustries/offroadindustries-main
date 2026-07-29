@@ -2,7 +2,7 @@
 {%- liquid
   assign section_id = section.settings.custom_id | default: section.id
   assign container  = section.settings.container
-  assign cols       = section.settings.columns | default: 3
+  assign cols       = section.settings.columns | default: 5
   assign source     = section.settings.source | default: 'products'
   assign products_limit = section.settings.products_limit | default: 12
 
@@ -348,9 +348,9 @@
       "id": "columns",
       "label": "Columns (desktop)",
       "min": 2,
-      "max": 4,
+      "max": 5,
       "step": 1,
-      "default": 3
+      "default": 5
     },
     {
       "type": "select",
