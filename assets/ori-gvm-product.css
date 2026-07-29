@@ -95,6 +95,35 @@
   margin: 0;
 }
 
+/* Step (variant) selector */
+.ori-gvm-product__steps-select {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 4px;
+}
+.ori-gvm-product__step-btn {
+  appearance: none;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 700;
+  line-height: 1;
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: 1px solid color-mix(in srgb, currentColor 22%, transparent);
+  background: transparent;
+  color: inherit;
+  transition: border-color 0.15s ease, background 0.15s ease, color 0.15s ease;
+}
+.ori-gvm-product__step-btn:hover {
+  border-color: currentColor;
+}
+.ori-gvm-product__step-btn.is-active {
+  background: var(--color-btn-bg, currentColor);
+  color: var(--color-btn-text, #fff);
+  border-color: transparent;
+}
+
 /* Stat cards */
 .ori-gvm-product__stats {
   display: flex;

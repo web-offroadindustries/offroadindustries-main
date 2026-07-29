@@ -1,0 +1,73 @@
+{%- comment -%}
+  Emits a single variant's resolved GVM/GCM figures as a JSON object, used by
+  ori-gvm-product.liquid to switch the page content per Step variant with JS.
+
+  Accepts:
+    variant - the product variant
+    s       - section.settings (for fallbacks)
+
+  Resolution order for each figure: variant metafield (custom then ori), then
+  product metafield (custom then ori), then the section setting fallback.
+{%- endcomment -%}
+{%- liquid
+  assign vmf = variant.metafields.custom
+  assign vmfo = variant.metafields.ori
+  assign vproduct = variant.product
+  assign pmf = vproduct.metafields.custom
+  assign pmfo = vproduct.metafields.ori
+
+  assign r_title = vmf.stage_title.value | default: vmfo.stage_title.value | default: pmf.stage_title.value | default: pmfo.stage_title.value | default: vproduct.title | default: s.fallback_title
+  assign r_summary = vmf.stage_summary.value | default: vmfo.stage_summary.value | default: pmf.stage_summary.value | default: pmfo.stage_summary.value | default: s.subtitle
+
+  assign r_original_gvm = vmf.original_gvm.value | default: vmfo.original_gvm.value | default: pmf.original_gvm.value | default: pmfo.original_gvm.value | default: s.spec_original_gvm
+  assign r_upgraded_gvm = vmf.upgraded_gvm.value | default: vmfo.upgraded_gvm.value | default: pmf.upgraded_gvm.value | default: pmfo.upgraded_gvm.value | default: s.spec_upgraded_gvm
+  assign r_original_gcm = vmf.original_gcm.value | default: vmfo.original_gcm.value | default: pmf.original_gcm.value | default: pmfo.original_gcm.value
+  assign r_upgraded_gcm = vmf.upgraded_gcm.value | default: vmfo.upgraded_gcm.value | default: pmf.upgraded_gcm.value | default: pmfo.upgraded_gcm.value | default: s.spec_gcm
+  assign r_payload = vmf.payload_gain.value | default: vmfo.payload_gain.value | default: pmf.payload_gain.value | default: pmfo.payload_gain.value | default: s.spec_payload_gain
+
+  assign r_eff_gvm = r_upgraded_gvm | default: r_original_gvm
+  assign r_eff_gcm = r_upgraded_gcm | default: r_original_gcm
+
+  assign r_gvm = ''
+  assign r_gvm_label = 'GVM'
+  if r_original_gvm != blank and r_upgraded_gvm != blank
+    assign r_gvm = r_original_gvm | append: ' → ' | append: r_upgraded_gvm
+    assign r_gvm_label = 'GVM increase'
+  elsif r_eff_gvm != blank
+    assign r_gvm = r_eff_gvm
+  endif
+
+  assign r_gcm = ''
+  assign r_gcm_label = 'GCM'
+  if r_original_gcm != blank and r_upgraded_gcm != blank
+    assign r_gcm = r_original_gcm | append: ' → ' | append: r_upgraded_gcm
+    assign r_gcm_label = 'GCM increase'
+  elsif r_eff_gcm != blank
+    assign r_gcm = r_eff_gcm
+  endif
+
+  assign r_payload_display = ''
+  if r_payload != blank
+    assign r_payload_display = r_payload | prepend: '+'
+  endif
+
+  assign r_spec_upgraded_gvm = r_upgraded_gvm | default: r_original_gvm
+  assign r_spec_gcm = r_upgraded_gcm | default: r_original_gcm
+
+  assign r_price = ''
+  if variant.price > 0
+    assign r_price = variant.price | money
+  endif
+
+  assign r_image = ''
+  if variant.image != blank
+    assign r_image = variant.image | image_url: width: 1200
+  elsif s.image != blank
+    assign r_image = s.image | image_url: width: 1200
+  elsif vproduct.featured_image != blank
+    assign r_image = vproduct.featured_image | image_url: width: 1200
+  endif
+
+  assign r_summary_html = r_summary | newline_to_br
+-%}
+{"title": {{ r_title | json }}, "summary": {{ r_summary_html | json }}, "price": {{ r_price | json }}, "image": {{ r_image | json }}, "gvm": {{ r_gvm | json }}, "gvmLabel": {{ r_gvm_label | json }}, "gcm": {{ r_gcm | json }}, "gcmLabel": {{ r_gcm_label | json }}, "payload": {{ r_payload_display | json }}, "specOriginalGvm": {{ r_original_gvm | json }}, "specUpgradedGvm": {{ r_spec_upgraded_gvm | json }}, "specPayload": {{ r_payload | json }}, "specGcm": {{ r_spec_gcm | json }}}

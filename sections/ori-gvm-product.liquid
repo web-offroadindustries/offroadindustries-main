@@ -2,32 +2,48 @@
 {%- liquid
   assign section_id = section.settings.custom_id | default: section.id
   assign container = section.settings.container | default: 'container'
+
+  assign current_variant = product.selected_or_first_available_variant
+  assign has_variants = false
+  if product.variants.size > 1
+    assign has_variants = true
+  endif
+
   assign hero_image = section.settings.image
   if hero_image == blank
-    assign hero_image = product.featured_image
+    if current_variant.image != blank
+      assign hero_image = current_variant.image
+    else
+      assign hero_image = product.featured_image
+    endif
   endif
   assign benefits = section.blocks | where: 'type', 'benefit'
   assign included = section.blocks | where: 'type', 'included'
   assign steps = section.blocks | where: 'type', 'step'
   assign stage_cards = section.blocks | where: 'type', 'stage_card'
 
-  # Per-product figures: prefer the product's own metafields (namespace custom),
-  # fall back to the section settings so pages without metafields keep working.
-  # Read figures from the product metafields. Some products store these under
-  # the "custom" namespace, others under "ori" (create-products.mjs), so prefer
-  # custom and fall back to ori for each key.
+  # Per-figure resolution: variant metafields first (so each Step can differ),
+  # then product metafields, each across the custom and ori namespaces, then
+  # the section settings. current_variant drives the initial server render; the
+  # JSON blob further down carries every variant's values for instant switching.
+  assign vmf = current_variant.metafields.custom
+  assign vmfo = current_variant.metafields.ori
   assign mf = product.metafields.custom
   assign mfo = product.metafields.ori
-  assign m_stage_summary = mf.stage_summary.value | default: mfo.stage_summary.value
+  assign m_title = vmf.stage_title.value | default: vmfo.stage_title.value | default: mf.stage_title.value | default: mfo.stage_title.value | default: product.title | default: section.settings.fallback_title
+  assign m_stage_summary = vmf.stage_summary.value | default: vmfo.stage_summary.value | default: mf.stage_summary.value | default: mfo.stage_summary.value
   assign m_price = mf.price.value | default: mfo.price.value
-  assign m_original_gvm = mf.original_gvm.value | default: mfo.original_gvm.value
-  assign m_upgraded_gvm = mf.upgraded_gvm.value | default: mfo.upgraded_gvm.value
-  assign m_original_gcm = mf.original_gcm.value | default: mfo.original_gcm.value
-  assign m_upgraded_gcm = mf.upgraded_gcm.value | default: mfo.upgraded_gcm.value
-  assign m_payload_gain = mf.payload_gain.value | default: mfo.payload_gain.value
+  assign m_original_gvm = vmf.original_gvm.value | default: vmfo.original_gvm.value | default: mf.original_gvm.value | default: mfo.original_gvm.value
+  assign m_upgraded_gvm = vmf.upgraded_gvm.value | default: vmfo.upgraded_gvm.value | default: mf.upgraded_gvm.value | default: mfo.upgraded_gvm.value
+  assign m_original_gcm = vmf.original_gcm.value | default: vmfo.original_gcm.value | default: mf.original_gcm.value | default: mfo.original_gcm.value
+  assign m_upgraded_gcm = vmf.upgraded_gcm.value | default: vmfo.upgraded_gcm.value | default: mf.upgraded_gcm.value | default: mfo.upgraded_gcm.value
+  assign m_payload_gain = vmf.payload_gain.value | default: vmfo.payload_gain.value | default: mf.payload_gain.value | default: mfo.payload_gain.value
 
   assign stage_summary = m_stage_summary
   assign price_display = m_price | default: section.settings.price
+  if has_variants and current_variant.price > 0
+    assign price_display = current_variant.price | money
+  endif
   assign spec_original_gvm = m_original_gvm | default: section.settings.spec_original_gvm
   # Upgraded figures fall back to the original value when left blank, so the
   # page still shows a figure instead of an empty stat card / spec row.
@@ -110,7 +126,7 @@
             {%- endif -%}
           </div>
 
-          {%- if section.settings.image == blank and product.images.size > 1 -%}
+          {%- if section.settings.image == blank and product.images.size > 1 and has_variants == false -%}
             <div class="ori-gvm-product__gallery-thumbs">
               {%- for image in product.images -%}
                 <button
@@ -138,16 +154,28 @@
             <span class="ori-gvm-product__eyebrow">{{ section.settings.eyebrow }}</span>
           {%- endif -%}
 
-          <h1 class="ori-gvm-product__title h2">{{ product.title | default: section.settings.fallback_title }}</h1>
+          <h1 class="ori-gvm-product__title h2" data-gvm-title>{{ m_title }}</h1>
 
-          {%- if stage_summary != blank -%}
-            <div class="ori-gvm-product__subtitle rte">{{ stage_summary | newline_to_br }}</div>
-          {%- elsif section.settings.subtitle != blank -%}
-            <div class="ori-gvm-product__subtitle rte">{{ section.settings.subtitle }}</div>
+          {%- if stage_summary != blank or section.settings.subtitle != blank or has_variants -%}
+            <div class="ori-gvm-product__subtitle rte" data-gvm-summary>
+              {%- if stage_summary != blank -%}{{ stage_summary | newline_to_br }}{%- elsif section.settings.subtitle != blank -%}{{ section.settings.subtitle }}{%- endif -%}
+            </div>
           {%- endif -%}
 
-          {%- if has_stats -%}
-            <div class="ori-gvm-product__stats">
+          {%- if has_variants -%}
+            <div class="ori-gvm-product__steps-select" data-gvm-steps role="group" aria-label="Choose stage">
+              {%- for v in product.variants -%}
+                <button
+                  type="button"
+                  class="ori-gvm-product__step-btn{% if v.id == current_variant.id %} is-active{% endif %}"
+                  data-gvm-step="{{ v.id }}"
+                >{{ v.title }}</button>
+              {%- endfor -%}
+            </div>
+          {%- endif -%}
+
+          {%- if has_stats or has_variants -%}
+            <div class="ori-gvm-product__stats" data-gvm-stats>
               {%- if gvm_increase != blank -%}
                 <div class="ori-gvm-product__stat">
                   <span class="ori-gvm-product__stat-label">{{ gvm_stat_label }}</span>
@@ -169,9 +197,9 @@
             </div>
           {%- endif -%}
 
-          {%- if price_display != blank -%}
-            <div class="ori-gvm-product__price">
-              <span class="ori-gvm-product__price-amount">{{ price_display }}</span>
+          {%- if price_display != blank or has_variants -%}
+            <div class="ori-gvm-product__price" data-gvm-price-wrap{% if price_display == blank %} hidden{% endif %}>
+              <span class="ori-gvm-product__price-amount" data-gvm-price>{{ price_display }}</span>
               {%- if section.settings.price_note != blank -%}
                 <span class="ori-gvm-product__price-note">{{ section.settings.price_note }}</span>
               {%- endif -%}
@@ -280,13 +308,13 @@
   {%- endif -%}
 
   {%- comment -%} Specifications band {%- endcomment -%}
-  {%- if has_specs -%}
-    <div class="ori-gvm-product__band ori-gvm-product__band--alt">
+  {%- if has_specs or has_variants -%}
+    <div class="ori-gvm-product__band ori-gvm-product__band--alt" data-gvm-specs-band{% if has_specs == false %} hidden{% endif %}>
       <div class="{{ container }}">
         <div class="ori-gvm-product__block">
           <h2 class="ori-gvm-product__block-title h3">{{ section.settings.specs_heading | default: 'Specifications' }}</h2>
           <table class="ori-gvm-product__specs">
-            <tbody>
+            <tbody data-gvm-specs>
               {%- if spec_original_gvm != blank -%}
                 <tr><th scope="row">Original GVM</th><td>{{ spec_original_gvm }}</td></tr>
               {%- endif -%}
@@ -329,6 +357,16 @@
     </div>
   {%- endif -%}
 
+  {%- if has_variants -%}
+    <script type="application/json" data-gvm-variants>
+      {
+        {%- for v in product.variants -%}
+          {{ v.id | json }}: {% render 'ori-gvm-variant-json', variant: v, s: section.settings %}{%- unless forloop.last -%},{%- endunless -%}
+        {%- endfor -%}
+      }
+    </script>
+  {%- endif -%}
+
 </section>
 
 <script>
@@ -336,17 +374,110 @@
     var root = document.getElementById({{ section_id | json }});
     if (!root) return;
     var main = root.querySelector('.ori-gvm-product__hero-img');
+
+    // Thumbnail gallery (only present when the product has no variants).
     var thumbs = root.querySelectorAll('[data-gallery-thumb]');
-    if (!main || !thumbs.length) return;
-    thumbs.forEach(function (thumb) {
-      thumb.addEventListener('click', function () {
-        var full = thumb.getAttribute('data-full');
-        if (full) {
-          main.removeAttribute('srcset');
-          main.setAttribute('src', full);
+    if (main && thumbs.length) {
+      thumbs.forEach(function (thumb) {
+        thumb.addEventListener('click', function () {
+          var full = thumb.getAttribute('data-full');
+          if (full) {
+            main.removeAttribute('srcset');
+            main.setAttribute('src', full);
+          }
+          thumbs.forEach(function (t) { t.classList.remove('is-active'); });
+          thumb.classList.add('is-active');
+        });
+      });
+    }
+
+    // Variant (Step) switching: swap title, summary, stats, specs, price, image.
+    var stepButtons = root.querySelectorAll('[data-gvm-step]');
+    var dataEl = root.querySelector('[data-gvm-variants]');
+    if (!stepButtons.length || !dataEl) return;
+
+    var VARIANTS;
+    try { VARIANTS = JSON.parse(dataEl.textContent); } catch (e) { return; }
+
+    var titleEl = root.querySelector('[data-gvm-title]');
+    var summaryEl = root.querySelector('[data-gvm-summary]');
+    var statsEl = root.querySelector('[data-gvm-stats]');
+    var priceWrap = root.querySelector('[data-gvm-price-wrap]');
+    var priceEl = root.querySelector('[data-gvm-price]');
+    var specsBand = root.querySelector('[data-gvm-specs-band]');
+    var specsBody = root.querySelector('[data-gvm-specs]');
+
+    function esc(s) {
+      var d = document.createElement('div');
+      d.textContent = s == null ? '' : s;
+      return d.innerHTML;
+    }
+
+    function statCard(label, value) {
+      return '<div class="ori-gvm-product__stat">' +
+        '<span class="ori-gvm-product__stat-label">' + esc(label) + '</span>' +
+        '<span class="ori-gvm-product__stat-value">' + esc(value) + '</span></div>';
+    }
+
+    function renderStats(d) {
+      var html = '';
+      if (d.gvm) html += statCard(d.gvmLabel || 'GVM', d.gvm);
+      if (d.gcm) html += statCard(d.gcmLabel || 'GCM', d.gcm);
+      if (d.payload) html += statCard('Payload gain', d.payload);
+      return html;
+    }
+
+    function specRow(label, value) {
+      return '<tr><th scope="row">' + esc(label) + '</th><td>' + esc(value) + '</td></tr>';
+    }
+
+    function renderSpecs(d) {
+      var html = '';
+      if (d.specOriginalGvm) html += specRow('Original GVM', d.specOriginalGvm);
+      if (d.specUpgradedGvm && d.specUpgradedGvm !== d.specOriginalGvm) html += specRow('Upgraded GVM', d.specUpgradedGvm);
+      if (d.specPayload) html += specRow('Payload gain', d.specPayload);
+      if (d.specGcm) html += specRow('GCM', d.specGcm);
+      return html;
+    }
+
+    function apply(id) {
+      var d = VARIANTS[id];
+      if (!d) return;
+      if (titleEl) titleEl.textContent = d.title || '';
+      if (summaryEl) summaryEl.innerHTML = d.summary || '';
+      if (statsEl) statsEl.innerHTML = renderStats(d);
+      if (priceEl) {
+        priceEl.textContent = d.price || '';
+        if (priceWrap) {
+          if (d.price) { priceWrap.removeAttribute('hidden'); }
+          else { priceWrap.setAttribute('hidden', ''); }
         }
-        thumbs.forEach(function (t) { t.classList.remove('is-active'); });
-        thumb.classList.add('is-active');
+      }
+      if (specsBody) {
+        var specsHtml = renderSpecs(d);
+        specsBody.innerHTML = specsHtml;
+        if (specsBand) {
+          if (specsHtml) { specsBand.removeAttribute('hidden'); }
+          else { specsBand.setAttribute('hidden', ''); }
+        }
+      }
+      if (main && d.image) {
+        main.removeAttribute('srcset');
+        main.setAttribute('src', d.image);
+      }
+    }
+
+    stepButtons.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var id = btn.getAttribute('data-gvm-step');
+        stepButtons.forEach(function (b) { b.classList.remove('is-active'); });
+        btn.classList.add('is-active');
+        apply(id);
+        try {
+          var url = new URL(window.location.href);
+          url.searchParams.set('variant', id);
+          window.history.replaceState({}, '', url.toString());
+        } catch (e) {}
       });
     });
   })();
