@@ -221,7 +221,7 @@
         "view_all_text": "",
         "view_all_url": "",
         "view_all_style": "btn--outline",
-        "columns": 3,
+        "columns": 5,
         "container": "container",
         "color_schema": "",
         "padding_top": 60,
