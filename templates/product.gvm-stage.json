@@ -204,6 +204,7 @@
         "package_card_AXLXAD",
         "package_card_VN4q3N"
       ],
+      "disabled": true,
       "name": "ORI Package Grid",
       "settings": {
         "heading": "GVM & GCM Upgrade Packages",
