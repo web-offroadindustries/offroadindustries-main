@@ -13,38 +13,61 @@
 
   # Per-product figures: prefer the product's own metafields (namespace custom),
   # fall back to the section settings so pages without metafields keep working.
+  # Read figures from the product metafields. Some products store these under
+  # the "custom" namespace, others under "ori" (create-products.mjs), so prefer
+  # custom and fall back to ori for each key.
   assign mf = product.metafields.custom
-  assign stage_summary = mf.stage_summary.value
-  assign price_display = mf.price.value | default: section.settings.price
-  assign spec_original_gvm = mf.original_gvm.value | default: section.settings.spec_original_gvm
+  assign mfo = product.metafields.ori
+  assign m_stage_summary = mf.stage_summary.value | default: mfo.stage_summary.value
+  assign m_price = mf.price.value | default: mfo.price.value
+  assign m_original_gvm = mf.original_gvm.value | default: mfo.original_gvm.value
+  assign m_upgraded_gvm = mf.upgraded_gvm.value | default: mfo.upgraded_gvm.value
+  assign m_original_gcm = mf.original_gcm.value | default: mfo.original_gcm.value
+  assign m_upgraded_gcm = mf.upgraded_gcm.value | default: mfo.upgraded_gcm.value
+  assign m_payload_gain = mf.payload_gain.value | default: mfo.payload_gain.value
+
+  assign stage_summary = m_stage_summary
+  assign price_display = m_price | default: section.settings.price
+  assign spec_original_gvm = m_original_gvm | default: section.settings.spec_original_gvm
   # Upgraded figures fall back to the original value when left blank, so the
   # page still shows a figure instead of an empty stat card / spec row.
-  assign spec_upgraded_gvm = mf.upgraded_gvm.value | default: section.settings.spec_upgraded_gvm | default: mf.original_gvm.value
-  assign spec_payload_gain = mf.payload_gain.value | default: section.settings.spec_payload_gain
-  assign spec_gcm = mf.upgraded_gcm.value | default: section.settings.spec_gcm | default: mf.original_gcm.value
+  assign spec_upgraded_gvm = m_upgraded_gvm | default: section.settings.spec_upgraded_gvm | default: m_original_gvm
+  assign spec_payload_gain = m_payload_gain | default: section.settings.spec_payload_gain
+  assign spec_gcm = m_upgraded_gcm | default: section.settings.spec_gcm | default: m_original_gcm
 
   # Effective upgraded figures: use the upgraded metafield, else fall back to
   # the original so a missing upgrade value still displays something.
-  assign eff_upgraded_gvm = mf.upgraded_gvm.value | default: mf.original_gvm.value
-  assign eff_upgraded_gcm = mf.upgraded_gcm.value | default: mf.original_gcm.value
+  assign eff_upgraded_gvm = m_upgraded_gvm | default: m_original_gvm
+  assign eff_upgraded_gcm = m_upgraded_gcm | default: m_original_gcm
 
   # Hero "increase" stats: show original → upgraded when a real upgrade exists,
   # otherwise show whichever single figure is available.
   assign gvm_increase = section.settings.gvm_value
-  if mf.original_gvm.value != blank and mf.upgraded_gvm.value != blank
-    assign gvm_increase = mf.original_gvm.value | append: ' → ' | append: mf.upgraded_gvm.value
+  if m_original_gvm != blank and m_upgraded_gvm != blank
+    assign gvm_increase = m_original_gvm | append: ' → ' | append: m_upgraded_gvm
   elsif eff_upgraded_gvm != blank
     assign gvm_increase = eff_upgraded_gvm
   endif
   assign gcm_increase = section.settings.gcm_value
-  if mf.original_gcm.value != blank and mf.upgraded_gcm.value != blank
-    assign gcm_increase = mf.original_gcm.value | append: ' → ' | append: mf.upgraded_gcm.value
+  if m_original_gcm != blank and m_upgraded_gcm != blank
+    assign gcm_increase = m_original_gcm | append: ' → ' | append: m_upgraded_gcm
   elsif eff_upgraded_gcm != blank
     assign gcm_increase = eff_upgraded_gcm
   endif
   assign payload_display = section.settings.payload_value
-  if mf.payload_gain.value != blank
-    assign payload_display = mf.payload_gain.value | prepend: '+'
+  if m_payload_gain != blank
+    assign payload_display = m_payload_gain | prepend: '+'
+  endif
+
+  # Stat card labels: "... increase" only when we show an original → upgraded
+  # change, otherwise the plain figure label.
+  assign gvm_stat_label = 'GVM'
+  if m_original_gvm != blank and m_upgraded_gvm != blank
+    assign gvm_stat_label = 'GVM increase'
+  endif
+  assign gcm_stat_label = 'GCM'
+  if m_original_gcm != blank and m_upgraded_gcm != blank
+    assign gcm_stat_label = 'GCM increase'
   endif
 
   assign has_stats = false
@@ -127,13 +150,13 @@
             <div class="ori-gvm-product__stats">
               {%- if gvm_increase != blank -%}
                 <div class="ori-gvm-product__stat">
-                  <span class="ori-gvm-product__stat-label">GVM increase</span>
+                  <span class="ori-gvm-product__stat-label">{{ gvm_stat_label }}</span>
                   <span class="ori-gvm-product__stat-value">{{ gvm_increase }}</span>
                 </div>
               {%- endif -%}
               {%- if gcm_increase != blank -%}
                 <div class="ori-gvm-product__stat">
-                  <span class="ori-gvm-product__stat-label">GCM increase</span>
+                  <span class="ori-gvm-product__stat-label">{{ gcm_stat_label }}</span>
                   <span class="ori-gvm-product__stat-value">{{ gcm_increase }}</span>
                 </div>
               {%- endif -%}
