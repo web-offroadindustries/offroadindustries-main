@@ -1,0 +1,378 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "breadcrumb": {
+      "type": "breadcrumb",
+      "settings": {
+        "brc_container": "container",
+        "brc_text_alignment": "start",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "intro": {
+      "type": "ori-gvm-hero",
+      "blocks": {
+        "trust_1": {
+          "type": "trust_item",
+          "settings": {
+            "text": "Federal / SSM Certification",
+            "icon": "✓"
+          }
+        },
+        "trust_2": {
+          "type": "trust_item",
+          "settings": {
+            "text": "ADR-Tested & Approved",
+            "icon": "✓"
+          }
+        },
+        "trust_3": {
+          "type": "trust_item",
+          "settings": {
+            "text": "Australia-Wide Installer Network",
+            "icon": "✓"
+          }
+        }
+      },
+      "block_order": [
+        "trust_1",
+        "trust_2",
+        "trust_3"
+      ],
+      "settings": {
+        "badge_text": "Federally Approved | ADR-Tested | SSM Certified",
+        "heading": "Chevrolet Silverado 2500HD GVM Upgrades Australia",
+        "heading_size": "h1",
+        "subheading": "<p>Federally approved GVM upgrade packages for the Chevrolet Silverado 2500HD. Every stage is ADR-tested, SSM-certified, and installed by our national network of approved specialists.</p>",
+        "btn_1_text": "Request a Quote",
+        "btn_1_url": "/pages/contact",
+        "btn_1_style": "btn--primary",
+        "btn_2_text": "View All GVM Upgrades",
+        "btn_2_url": "/collections/gvm-upgrades",
+        "btn_2_style": "btn--outline",
+        "overlay_opacity": 45,
+        "container": "container",
+        "color_schema": "",
+        "padding_top": 64,
+        "padding_bottom": 48,
+        "custom_id": "",
+        "custom_class": ""
+      }
+    },
+    "packages": {
+      "type": "main-collection-product-grid",
+      "settings": {
+        "container": "container",
+        "products_per_page": 16,
+        "columns": 4,
+        "column_gap": "medium",
+        "row_gap": "medium",
+        "enable_product_count": true,
+        "enable_filtering": true,
+        "enable_sorting": true,
+        "sidebar_position": "left",
+        "group_collapsible": true,
+        "default_state_collapsible": "collapsed",
+        "open_first_group": true,
+        "filter_group_heading_size": "h5",
+        "show_results_count": true,
+        "filter_color_type": "inline",
+        "enable_tag_filter": false,
+        "show_tag_filter_with_facets": false,
+        "tag_filter_heading": "By Vehicle",
+        "tag_filter_exclude_prefixes": "spo-,filter-",
+        "tag_filter_include_prefixes": "",
+        "paginate_type": "number",
+        "padding_top": 0,
+        "padding_bottom": 60
+      }
+    },
+    "benefits": {
+      "type": "why-choose",
+      "blocks": {
+        "wc_payload": {
+          "type": "card",
+          "settings": {
+            "heading": "More Legal Payload",
+            "body": "<p>Carry more weight legally with a certified GVM increase.</p>",
+            "link_label": "",
+            "link_url": ""
+          }
+        },
+        "wc_suspension": {
+          "type": "card",
+          "settings": {
+            "heading": "Premium Suspension",
+            "body": "<p>Fox and BDS components tuned for Australian conditions.</p>",
+            "link_label": "",
+            "link_url": ""
+          }
+        },
+        "wc_certified": {
+          "type": "card",
+          "settings": {
+            "heading": "Federally Certified",
+            "body": "<p>Every package is engineered and approved under the SSM process.</p>",
+            "link_label": "",
+            "link_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "wc_payload",
+        "wc_suspension",
+        "wc_certified"
+      ],
+      "settings": {
+        "eyebrow": "",
+        "heading": "Why Upgrade Your Silverado 2500HD's GVM?",
+        "bg_color": "#ffffff",
+        "heading_color": "#1f1f1f",
+        "heading_size": 36,
+        "eyebrow_color": "#56bdc2",
+        "eyebrow_size": 13,
+        "card_bg_color": "#ffffff",
+        "card_border_color": "#e2e2e2",
+        "card_radius": 12,
+        "card_shadow": true,
+        "icon_size": 40,
+        "card_heading_color": "#1f1f1f",
+        "card_heading_size": 16,
+        "card_body_color": "#555555",
+        "card_body_size": 14,
+        "link_color": "#1f1f1f",
+        "link_size": 12,
+        "container_width": 1280,
+        "padding_top": 60,
+        "padding_bottom": 60,
+        "mobile_layout": "slideshow",
+        "slideshow_animation": "fade",
+        "slideshow_interval": 4
+      }
+    },
+    "payload_calculator": {
+      "type": "ori-gvm-load-calculator",
+      "settings": {
+        "heading": "Payload & Load Calculator",
+        "intro": "<p>Model how passengers, cargo, accessories and trailer weight affect your GVM, GCM and axle loads before you travel.</p>",
+        "disclaimer": "<p><strong>Planning guide only.</strong> Results use published ORI package specifications plus estimated axle splits from kerb weight. Confirm your exact vehicle, compliance paperwork and weighbridge weights before modifying, loading or towing.</p>",
+        "image_alt": "Vehicle load and towing calculator",
+        "fallback_quote_url": "",
+        "quote_button_label": "View ORI GVM package",
+        "show_quote_button": true,
+        "warning_threshold": 95,
+        "enable_tour": false,
+        "accessory_front_label": "Front",
+        "accessory_middle_label": "Middle",
+        "accessory_rear_label": "Rear",
+        "container": "container",
+        "color_schema": "",
+        "padding_top": 60,
+        "padding_bottom": 60,
+        "custom_id": "",
+        "custom_class": ""
+      }
+    },
+    "installers": {
+      "type": "ori-installer-network",
+      "blocks": {
+        "installer_vic": {
+          "type": "installer",
+          "settings": {
+            "state": "VIC",
+            "name": "ORI Offroad Industries (HQ)",
+            "suburb": "Melbourne",
+            "phone": "TBC",
+            "website": ""
+          }
+        },
+        "installer_nsw": {
+          "type": "installer",
+          "settings": {
+            "state": "NSW",
+            "name": "NSW Installer — add via theme editor",
+            "suburb": "Sydney",
+            "phone": "",
+            "website": ""
+          }
+        },
+        "installer_qld": {
+          "type": "installer",
+          "settings": {
+            "state": "QLD",
+            "name": "QLD Installer — add via theme editor",
+            "suburb": "Brisbane",
+            "phone": "",
+            "website": ""
+          }
+        }
+      },
+      "block_order": [
+        "installer_vic",
+        "installer_nsw",
+        "installer_qld"
+      ],
+      "settings": {
+        "heading": "Installation Locations",
+        "heading_size": "h2",
+        "subheading": "Approved installers fit your package in every state and territory.",
+        "cta_text": "",
+        "cta_url": "",
+        "cta_style": "btn--outline",
+        "container": "container",
+        "color_schema": "",
+        "bg_color": "",
+        "padding_top": 60,
+        "padding_bottom": 60,
+        "custom_id": "",
+        "custom_class": ""
+      }
+    },
+    "faq": {
+      "type": "ori-faq",
+      "blocks": {
+        "faq_what": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What is a GVM upgrade?",
+            "answer": "<p>A GVM (Gross Vehicle Mass) upgrade increases the maximum legal weight your vehicle can carry, using SSM certification.</p>"
+          }
+        },
+        "faq_payload": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How much payload can I legally gain?",
+            "answer": "<p>Gains vary by vehicle and stage. Contact us for figures specific to your Silverado 2500HD.</p>"
+          }
+        },
+        "faq_stages": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What is the difference between the stages?",
+            "answer": "<p>Each stage offers a different GVM and suspension package. See the package grid above.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_what",
+        "faq_payload",
+        "faq_stages"
+      ],
+      "settings": {
+        "heading": "Frequently Asked Questions",
+        "heading_size": "h2",
+        "subheading": "",
+        "open_first": true,
+        "emit_schema": true,
+        "container": "container-narrow",
+        "color_schema": "",
+        "bg_color": "",
+        "padding_top": 60,
+        "padding_bottom": 60,
+        "custom_id": "",
+        "custom_class": ""
+      }
+    },
+    "related": {
+      "type": "vehicle-cards",
+      "blocks": {
+        "model_1": {
+          "type": "vehicle",
+          "settings": {
+            "image": "shopify://shop_images/Chevy-Silverado-1500--tile-ad---20260505-4.png",
+            "name": "Chevrolet Silverado 1500",
+            "btn_label": "View Packages",
+            "btn_url": "/collections/chevrolet-silverado-1500-gvm-upgrades",
+            "pdf_url": ""
+          }
+        },
+        "model_2": {
+          "type": "vehicle",
+          "settings": {
+            "image": "shopify://shop_images/FORD-F150---tile-ad---20260505-4-1.png",
+            "name": "Ford F-150",
+            "btn_label": "View Packages",
+            "btn_url": "/collections/ford-f150-gvm-upgrades",
+            "pdf_url": ""
+          }
+        },
+        "model_3": {
+          "type": "vehicle",
+          "settings": {
+            "image": "shopify://shop_images/Toyota-Tundra--tile-ad---20260505-4-1.png",
+            "name": "Toyota Tundra",
+            "btn_label": "View Packages",
+            "btn_url": "/collections/toyota-tundra-gvm-upgrades",
+            "pdf_url": ""
+          }
+        },
+        "model_4": {
+          "type": "vehicle",
+          "settings": {
+            "image": "shopify://shop_images/RAM_2500_TILE.webp",
+            "name": "RAM 2500",
+            "btn_label": "View Packages",
+            "btn_url": "/collections/ram-2500-gvm-upgrades",
+            "pdf_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "model_1",
+        "model_2",
+        "model_3",
+        "model_4"
+      ],
+      "settings": {
+        "eyebrow": "",
+        "heading": "Related Models",
+        "bg_color": "#ffffff",
+        "heading_color": "#1f1f1f",
+        "heading_size": 36,
+        "eyebrow_color": "#56bdc2",
+        "eyebrow_size": 13,
+        "img_ratio": "square",
+        "img_radius": 10,
+        "card_placeholder_color": "#e5e5e5",
+        "card_bg_color": "#ffffff",
+        "card_border_color": "#e2e2e2",
+        "card_radius": 10,
+        "card_shadow": true,
+        "name_color": "#1f1f1f",
+        "name_size": 18,
+        "default_btn_label": "View Packages",
+        "btn_bg": "#ffffff",
+        "btn_text_color": "#1f1f1f",
+        "btn_border_color": "#1f1f1f",
+        "btn_radius": 6,
+        "btn_size": 12,
+        "card_alignment": "center",
+        "container_width": 1280,
+        "padding_top": 60,
+        "padding_bottom": 60,
+        "mobile_layout": "slideshow",
+        "slideshow_animation": "fade",
+        "slideshow_interval": 4
+      }
+    }
+  },
+  "order": [
+    "breadcrumb",
+    "intro",
+    "packages",
+    "benefits",
+    "payload_calculator",
+    "installers",
+    "faq",
+    "related"
+  ]
+}
