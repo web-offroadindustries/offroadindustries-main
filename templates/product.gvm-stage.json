@@ -330,12 +330,42 @@
         "custom_id": "",
         "custom_class": ""
       }
+    },
+    "product_recently_viewed_4ecpYd": {
+      "type": "product-recently-viewed",
+      "name": "t:sections.product-recently-viewed.name",
+      "settings": {
+        "section_header_padding_bottom": "medium",
+        "section_header_content_spacing": "medium",
+        "heading": "Recently viewed products",
+        "highlight_style": "none",
+        "enable_highlight_text_color": false,
+        "heading_size": "h2",
+        "heading_color": "",
+        "description": "",
+        "container": "container",
+        "color_schema": "",
+        "columns": 4,
+        "column_gap": "medium",
+        "row_gap": "medium",
+        "enable_slider": true,
+        "show_nav": true,
+        "show_dots": false,
+        "enable_swipe_mobile": true,
+        "column_mobile": "1",
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "show_section_divider": false,
+        "divider_width": "container",
+        "animations": "inherit"
+      }
     }
   },
   "order": [
     "main",
     "ori_package_grid_RVbeB9",
     "installers",
-    "faq"
+    "faq",
+    "product_recently_viewed_4ecpYd"
   ]
 }
