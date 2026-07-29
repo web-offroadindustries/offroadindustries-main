@@ -3,7 +3,7 @@
   assign section_id = section.settings.custom_id | default: section.id
   assign container = section.settings.container | default: 'container'
 
-  assign current_variant = product.selected_or_first_available_variant
+  assign current_variant = product.selected_or_first_available_variant | default: product.variants.first
   assign has_variants = false
   if product.variants.size > 1
     assign has_variants = true
