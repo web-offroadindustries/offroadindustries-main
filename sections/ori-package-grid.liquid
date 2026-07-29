@@ -14,9 +14,21 @@
 
   # Metafield keys (namespace.key) for the figures shown on each product card.
   assign gvm_mf = section.settings.gvm_metafield | default: 'custom.gvm' | split: '.'
+  assign gcm_mf = section.settings.gcm_metafield | default: 'custom.upgraded_gcm' | split: '.'
   assign payload_mf = section.settings.payload_metafield | default: 'custom.payload_gain' | split: '.'
   assign stage_mf = section.settings.stage_metafield | default: 'custom.stage' | split: '.'
   assign product_btn_text = section.settings.product_btn_text | default: 'View Package'
+
+  # Manual Package card blocks always take priority when present, so cards the
+  # merchant adds show immediately without having to flip the Card source toggle.
+  # With no blocks added, cards are pulled from the collection (products source).
+  assign use_manual = false
+  if section.blocks.size > 0
+    assign use_manual = true
+  endif
+  if source == 'manual'
+    assign use_manual = true
+  endif
 -%}
 
 <div
@@ -44,12 +56,98 @@
       </div>
     {%- endif -%}
 
-    {%- if source == 'products' -%}
+    {%- if use_manual -%}
+      {%- if section.blocks.size > 0 -%}
+        <ul class="ori-package-grid__list" role="list">
+          {%- for block in section.blocks -%}
+            {%- case block.type -%}
+
+              {%- when 'package_card' -%}
+                <li class="ori-package-grid__item" {{ block.shopify_attributes }}>
+                  <div class="ori-package-card">
+
+                    {%- if block.settings.image != blank -%}
+                      <div class="ori-package-card__image-wrap">
+                        {{-
+                          block.settings.image
+                          | image_url: width: 800
+                          | image_tag:
+                            loading: 'lazy',
+                            class: 'ori-package-card__image',
+                            widths: '400,600,800',
+                            sizes: '(max-width: 749px) calc(100vw - 32px), (max-width: 989px) calc(50vw - 40px), calc(33.3vw - 48px)'
+                        -}}
+                      </div>
+                    {%- endif -%}
+
+                    <div class="ori-package-card__body">
+
+                      {%- if block.settings.vehicle_label != blank -%}
+                        <span class="ori-package-card__vehicle">{{ block.settings.vehicle_label }}</span>
+                      {%- endif -%}
+
+                      {%- if block.settings.title != blank -%}
+                        <h3 class="ori-package-card__title h4">{{ block.settings.title }}</h3>
+                      {%- endif -%}
+
+                      <dl class="ori-package-card__specs">
+                        {%- if block.settings.gvm_figure != blank -%}
+                          <div class="ori-package-card__spec-row">
+                            <dt>GVM</dt>
+                            <dd>{{ block.settings.gvm_figure }}</dd>
+                          </div>
+                        {%- endif -%}
+                        {%- if block.settings.gcm_figure != blank -%}
+                          <div class="ori-package-card__spec-row">
+                            <dt>GCM</dt>
+                            <dd>{{ block.settings.gcm_figure }}</dd>
+                          </div>
+                        {%- endif -%}
+                        {%- if block.settings.payload_gain != blank -%}
+                          <div class="ori-package-card__spec-row ori-package-card__spec-row--highlight">
+                            <dt>Payload gain</dt>
+                            <dd>{{ block.settings.payload_gain }}</dd>
+                          </div>
+                        {%- endif -%}
+                        {%- if block.settings.stage_label != blank -%}
+                          <div class="ori-package-card__spec-row">
+                            <dt>Stage</dt>
+                            <dd>{{ block.settings.stage_label }}</dd>
+                          </div>
+                        {%- endif -%}
+                      </dl>
+
+                      {%- if block.settings.badge != blank -%}
+                        <span class="ori-package-card__badge">{{ block.settings.badge }}</span>
+                      {%- endif -%}
+
+                      {%- if block.settings.btn_text != blank and block.settings.btn_url != blank -%}
+                        <a
+                          href="{{ block.settings.btn_url }}"
+                          class="btn {{ block.settings.btn_style }} ori-package-card__cta"
+                        >
+                          {{- block.settings.btn_text -}}
+                        </a>
+                      {%- endif -%}
+
+                    </div>
+                  </div>
+                </li>
+
+            {%- endcase -%}
+          {%- endfor -%}
+        </ul>
+      {%- elsif request.design_mode -%}
+        <p class="ori-package-grid__empty">Manual cards mode is on. Click "Add Package card" to add a card. This note only appears in the theme editor.</p>
+      {%- endif -%}
+
+    {%- else -%}
       {%- if pkg_collection != blank and pkg_collection.products.size > 0 -%}
         <ul class="ori-package-grid__list" role="list">
           {%- for product in pkg_collection.products limit: products_limit -%}
             {%- liquid
               assign gvm_val = product.metafields[gvm_mf[0]][gvm_mf[1]]
+              assign gcm_val = product.metafields[gcm_mf[0]][gcm_mf[1]]
               assign payload_val = product.metafields[payload_mf[0]][payload_mf[1]]
               assign stage_val = product.metafields[stage_mf[0]][stage_mf[1]]
             -%}
@@ -77,6 +175,9 @@
                     {%- if gvm_val != blank -%}
                       <div class="ori-package-card__spec-row"><dt>GVM</dt><dd>{{ gvm_val }}</dd></div>
                     {%- endif -%}
+                    {%- if gcm_val != blank -%}
+                      <div class="ori-package-card__spec-row"><dt>GCM</dt><dd>{{ gcm_val }}</dd></div>
+                    {%- endif -%}
                     {%- if payload_val != blank -%}
                       <div class="ori-package-card__spec-row ori-package-card__spec-row--highlight"><dt>Payload gain</dt><dd>{{ payload_val }}</dd></div>
                     {%- endif -%}
@@ -93,82 +194,8 @@
           {%- endfor -%}
         </ul>
       {%- elsif request.design_mode -%}
-        <p class="ori-package-grid__empty">No products to show yet. Point this section at a collection that holds the GVM and GCM packages (Collection setting above), then add products to it. This note only appears in the theme editor.</p>
+        <p class="ori-package-grid__empty">No products to show yet. Either add Package card blocks below for manual cards, or point this section at a collection that holds the GVM and GCM packages (Collection setting above). This note only appears in the theme editor.</p>
       {%- endif -%}
-    {%- elsif section.blocks.size > 0 -%}
-      <ul class="ori-package-grid__list" role="list">
-        {%- for block in section.blocks -%}
-          {%- case block.type -%}
-
-            {%- when 'package_card' -%}
-              <li class="ori-package-grid__item" {{ block.shopify_attributes }}>
-                <div class="ori-package-card">
-
-                  {%- if block.settings.image != blank -%}
-                    <div class="ori-package-card__image-wrap">
-                      {{-
-                        block.settings.image
-                        | image_url: width: 800
-                        | image_tag:
-                          loading: 'lazy',
-                          class: 'ori-package-card__image',
-                          widths: '400,600,800',
-                          sizes: '(max-width: 749px) calc(100vw - 32px), (max-width: 989px) calc(50vw - 40px), calc(33.3vw - 48px)'
-                      -}}
-                    </div>
-                  {%- endif -%}
-
-                  <div class="ori-package-card__body">
-
-                    {%- if block.settings.vehicle_label != blank -%}
-                      <span class="ori-package-card__vehicle">{{ block.settings.vehicle_label }}</span>
-                    {%- endif -%}
-
-                    {%- if block.settings.title != blank -%}
-                      <h3 class="ori-package-card__title h4">{{ block.settings.title }}</h3>
-                    {%- endif -%}
-
-                    <dl class="ori-package-card__specs">
-                      {%- if block.settings.gvm_figure != blank -%}
-                        <div class="ori-package-card__spec-row">
-                          <dt>GVM</dt>
-                          <dd>{{ block.settings.gvm_figure }}</dd>
-                        </div>
-                      {%- endif -%}
-                      {%- if block.settings.payload_gain != blank -%}
-                        <div class="ori-package-card__spec-row ori-package-card__spec-row--highlight">
-                          <dt>Payload gain</dt>
-                          <dd>{{ block.settings.payload_gain }}</dd>
-                        </div>
-                      {%- endif -%}
-                      {%- if block.settings.stage_label != blank -%}
-                        <div class="ori-package-card__spec-row">
-                          <dt>Stage</dt>
-                          <dd>{{ block.settings.stage_label }}</dd>
-                        </div>
-                      {%- endif -%}
-                    </dl>
-
-                    {%- if block.settings.badge != blank -%}
-                      <span class="ori-package-card__badge">{{ block.settings.badge }}</span>
-                    {%- endif -%}
-
-                    {%- if block.settings.btn_text != blank and block.settings.btn_url != blank -%}
-                      <a
-                        href="{{ block.settings.btn_url }}"
-                        class="btn {{ block.settings.btn_style }} ori-package-card__cta"
-                      >
-                        {{- block.settings.btn_text -}}
-                      </a>
-                    {%- endif -%}
-
-                  </div>
-                </div>
-              </li>
-
-          {%- endcase -%}
-        {%- endfor -%}
-      </ul>
     {%- endif -%}
 
     {%- if section.settings.view_all_text != blank and section.settings.view_all_url != blank -%}
@@ -222,17 +249,18 @@
       "type": "select",
       "id": "source",
       "label": "Card source",
+      "info": "If you add Package card blocks below, they always show. With no blocks added, cards are pulled from the collection.",
       "options": [
         { "value": "products", "label": "Products from a collection" },
         { "value": "manual", "label": "Manual cards (blocks)" }
       ],
-      "default": "products"
+      "default": "manual"
     },
     {
       "type": "collection",
       "id": "collection",
       "label": "Collection",
-      "info": "Used when the source is Products. Leave blank to use the collection this page belongs to."
+      "info": "Used when there are no manual cards. Leave blank to use the collection this page belongs to."
     },
     {
       "type": "range",
@@ -249,6 +277,13 @@
       "label": "GVM metafield",
       "info": "Product metafield (namespace.key) holding the GVM figure.",
       "default": "custom.gvm"
+    },
+    {
+      "type": "text",
+      "id": "gcm_metafield",
+      "label": "GCM metafield",
+      "info": "Product metafield (namespace.key) holding the GCM figure.",
+      "default": "custom.upgraded_gcm"
     },
     {
       "type": "text",
@@ -401,6 +436,12 @@
         },
         {
           "type": "text",
+          "id": "gcm_figure",
+          "label": "GCM figure",
+          "info": "e.g. 8,200 kg"
+        },
+        {
+          "type": "text",
           "id": "payload_gain",
           "label": "Payload gain",
           "info": "e.g. +450 kg",
@@ -427,7 +468,8 @@
         {
           "type": "url",
           "id": "btn_url",
-          "label": "Button URL"
+          "label": "Button URL",
+          "info": "Link this card to a collection, page, or product."
         },
         {
           "type": "select",
@@ -453,6 +495,7 @@
             "vehicle_label": "Toyota Tundra",
             "title": "Stage 1 GVM Upgrade",
             "gvm_figure": "4,200 kg",
+            "gcm_figure": "8,200 kg",
             "payload_gain": "+450 kg",
             "stage_label": "Stage 1",
             "btn_text": "View Package"
@@ -464,6 +507,7 @@
             "vehicle_label": "Chevrolet Silverado 1500",
             "title": "Stage 2 GVM Upgrade",
             "gvm_figure": "4,400 kg",
+            "gcm_figure": "8,400 kg",
             "payload_gain": "+600 kg",
             "stage_label": "Stage 2",
             "badge": "Most Popular",
@@ -476,6 +520,7 @@
             "vehicle_label": "Ford F150",
             "title": "Stage 1 GVM Upgrade",
             "gvm_figure": "4,100 kg",
+            "gcm_figure": "8,100 kg",
             "payload_gain": "+400 kg",
             "stage_label": "Stage 1",
             "btn_text": "View Package"
