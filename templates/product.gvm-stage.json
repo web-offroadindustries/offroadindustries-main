@@ -21,7 +21,12 @@
         "included_cert": { "type": "included", "settings": { "text": "Engineering certification" } },
         "step_quote": { "type": "step", "settings": { "heading": "Request a quote", "text": "Send us your vehicle details and we prepare a package quote." } },
         "step_book": { "type": "step", "settings": { "heading": "Book your install", "text": "Choose an approved installer near you and book a date." } },
-        "step_certify": { "type": "step", "settings": { "heading": "Get certified", "text": "We complete the upgrade and issue engineering certification." } }
+        "step_certify": { "type": "step", "settings": { "heading": "Get certified", "text": "We complete the upgrade and issue engineering certification." } },
+        "stagecard_silverado1500": { "type": "stage_card", "settings": { "image": "shopify://shop_images/Chevy-Silverado-1500--tile-ad---20260505-4.png", "vehicle_label": "Chevrolet Silverado 1500", "gvm_figure": "3,650 kg", "gcm_figure": "8,150 kg", "link_url": "/collections/chevrolet-silverado-1500-gvm-upgrades" } },
+        "stagecard_silverado2500": { "type": "stage_card", "settings": { "image": "shopify://shop_images/Chevy-2500--tile-ad---20260505-4_7ce36d9a-1565-4823-b14a-b3e36018df11.png", "vehicle_label": "Chevrolet Silverado 2500HD", "gvm_figure": "5,500 kg", "gcm_figure": "12,474 kg", "link_url": "/collections/chevrolet-silverado-2500hd-gvm-upgrades" } },
+        "stagecard_f150": { "type": "stage_card", "settings": { "image": "shopify://shop_images/FORD-F150---tile-ad---20260505-4-1.png", "vehicle_label": "Ford F-150", "gvm_figure": "3,700 kg", "gcm_figure": "8,200 kg", "link_url": "/collections/ford-f150-gvm-upgrades" } },
+        "stagecard_tundra": { "type": "stage_card", "settings": { "image": "shopify://shop_images/Toyota-Tundra--tile-ad---20260505-4-1.png", "vehicle_label": "Toyota Tundra", "gvm_figure": "3,850 kg", "gcm_figure": "8,350 kg", "link_url": "/collections/toyota-tundra-gvm-upgrades" } },
+        "stagecard_ram2500": { "type": "stage_card", "settings": { "image": "shopify://shop_images/RAM_2500_TILE.webp", "vehicle_label": "RAM 2500 6th Gen", "gvm_figure": "TBC", "gcm_figure": "TBC", "link_url": "/collections/ram-2500-gvm-upgrades" } }
       },
       "block_order": [
         "benefit_payload",
@@ -33,7 +38,12 @@
         "included_cert",
         "step_quote",
         "step_book",
-        "step_certify"
+        "step_certify",
+        "stagecard_silverado1500",
+        "stagecard_silverado2500",
+        "stagecard_f150",
+        "stagecard_tundra",
+        "stagecard_ram2500"
       ],
       "settings": {
         "eyebrow": "GVM Upgrade Package",
