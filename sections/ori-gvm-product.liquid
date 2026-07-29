@@ -17,18 +17,30 @@
   assign stage_summary = mf.stage_summary.value
   assign price_display = mf.price.value | default: section.settings.price
   assign spec_original_gvm = mf.original_gvm.value | default: section.settings.spec_original_gvm
-  assign spec_upgraded_gvm = mf.upgraded_gvm.value | default: section.settings.spec_upgraded_gvm
+  # Upgraded figures fall back to the original value when left blank, so the
+  # page still shows a figure instead of an empty stat card / spec row.
+  assign spec_upgraded_gvm = mf.upgraded_gvm.value | default: section.settings.spec_upgraded_gvm | default: mf.original_gvm.value
   assign spec_payload_gain = mf.payload_gain.value | default: section.settings.spec_payload_gain
-  assign spec_gcm = mf.upgraded_gcm.value | default: section.settings.spec_gcm
+  assign spec_gcm = mf.upgraded_gcm.value | default: section.settings.spec_gcm | default: mf.original_gcm.value
 
-  # Hero "increase" stats, built from the atomic metafields when both ends exist.
+  # Effective upgraded figures: use the upgraded metafield, else fall back to
+  # the original so a missing upgrade value still displays something.
+  assign eff_upgraded_gvm = mf.upgraded_gvm.value | default: mf.original_gvm.value
+  assign eff_upgraded_gcm = mf.upgraded_gcm.value | default: mf.original_gcm.value
+
+  # Hero "increase" stats: show original → upgraded when a real upgrade exists,
+  # otherwise show whichever single figure is available.
   assign gvm_increase = section.settings.gvm_value
   if mf.original_gvm.value != blank and mf.upgraded_gvm.value != blank
     assign gvm_increase = mf.original_gvm.value | append: ' → ' | append: mf.upgraded_gvm.value
+  elsif eff_upgraded_gvm != blank
+    assign gvm_increase = eff_upgraded_gvm
   endif
   assign gcm_increase = section.settings.gcm_value
   if mf.original_gcm.value != blank and mf.upgraded_gcm.value != blank
     assign gcm_increase = mf.original_gcm.value | append: ' → ' | append: mf.upgraded_gcm.value
+  elsif eff_upgraded_gcm != blank
+    assign gcm_increase = eff_upgraded_gcm
   endif
   assign payload_display = section.settings.payload_value
   if mf.payload_gain.value != blank
@@ -255,7 +267,7 @@
               {%- if spec_original_gvm != blank -%}
                 <tr><th scope="row">Original GVM</th><td>{{ spec_original_gvm }}</td></tr>
               {%- endif -%}
-              {%- if spec_upgraded_gvm != blank -%}
+              {%- if spec_upgraded_gvm != blank and spec_upgraded_gvm != spec_original_gvm -%}
                 <tr><th scope="row">Upgraded GVM</th><td>{{ spec_upgraded_gvm }}</td></tr>
               {%- endif -%}
               {%- if spec_payload_gain != blank -%}
