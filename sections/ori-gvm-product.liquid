@@ -40,8 +40,10 @@
   assign m_payload_gain = vmf.payload_gain.value | default: vmfo.payload_gain.value | default: mf.payload_gain.value | default: mfo.payload_gain.value
 
   assign stage_summary = m_stage_summary
+  # Price: use the selected variant's price (for single-variant products this is
+  # the product price), falling back to the price metafield / section setting.
   assign price_display = m_price | default: section.settings.price
-  if has_variants and current_variant.price > 0
+  if current_variant.price > 0
     assign price_display = current_variant.price | money
   endif
   assign spec_original_gvm = m_original_gvm | default: section.settings.spec_original_gvm
@@ -127,27 +129,34 @@
             {%- endif -%}
           </div>
 
-          {%- if has_variants -%}
-            {%- comment -%} Variant image thumbnails: clicking one switches the whole page. {%- endcomment -%}
+          {%- if has_variants and product.images.size > 0 -%}
+            {%- comment -%}
+              All product images as thumbnails. A thumbnail tied to a variant
+              switches the whole page on click; other images (e.g. the main
+              product image) just show in the main view.
+            {%- endcomment -%}
             <div class="ori-gvm-product__gallery-thumbs" data-gvm-var-thumbs>
-              {%- for v in product.variants -%}
-                {%- assign v_thumb = v.image | default: v.featured_image | default: product.featured_image -%}
-                {%- if v_thumb != blank -%}
-                  <button
-                    type="button"
-                    class="ori-gvm-product__thumb{% if v.id == current_variant.id %} is-active{% endif %}"
-                    data-gvm-step="{{ v.id }}"
-                    aria-label="{{ v.title | escape }}"
+              {%- for image in product.images -%}
+                {%- assign img_vid = '' -%}
+                {%- for v in product.variants -%}
+                  {%- if v.image != blank and v.image.id == image.id -%}
+                    {%- assign img_vid = v.id -%}
+                  {%- endif -%}
+                {%- endfor -%}
+                <button
+                  type="button"
+                  class="ori-gvm-product__thumb{% if hero_image != blank and image.id == hero_image.id %} is-active{% endif %}"
+                  {% if img_vid != '' %}data-gvm-step="{{ img_vid }}"{% else %}data-gallery-thumb data-full="{{ image | image_url: width: 1200 }}"{% endif %}
+                  aria-label="{{ image.alt | default: product.title | escape }}"
+                >
+                  <img
+                    src="{{ image | image_url: width: 200 }}"
+                    alt="{{ image.alt | default: product.title | escape }}"
+                    loading="lazy"
+                    width="200"
+                    height="200"
                   >
-                    <img
-                      src="{{ v_thumb | image_url: width: 200 }}"
-                      alt="{{ v.title | escape }}"
-                      loading="lazy"
-                      width="200"
-                      height="200"
-                    >
-                  </button>
-                {%- endif -%}
+                </button>
               {%- endfor -%}
             </div>
           {%- elsif section.settings.image == blank and product.images.size > 1 -%}
@@ -398,18 +407,19 @@
     var root = document.getElementById({{ section_id | json }});
     if (!root) return;
     var main = root.querySelector('.ori-gvm-product__hero-img');
+    var thumbEls = root.querySelectorAll('.ori-gvm-product__gallery-thumbs .ori-gvm-product__thumb');
 
-    // Thumbnail gallery (only present when the product has no variants).
-    var thumbs = root.querySelectorAll('[data-gallery-thumb]');
-    if (main && thumbs.length) {
-      thumbs.forEach(function (thumb) {
+    // Plain gallery thumbnails (images not tied to a variant) just swap the main image.
+    var galleryThumbs = root.querySelectorAll('[data-gallery-thumb]');
+    if (main && galleryThumbs.length) {
+      galleryThumbs.forEach(function (thumb) {
         thumb.addEventListener('click', function () {
           var full = thumb.getAttribute('data-full');
           if (full) {
             main.removeAttribute('srcset');
             main.setAttribute('src', full);
           }
-          thumbs.forEach(function (t) { t.classList.remove('is-active'); });
+          thumbEls.forEach(function (t) { t.classList.remove('is-active'); });
           thumb.classList.add('is-active');
         });
       });
@@ -491,11 +501,14 @@
       }
     }
 
-    // Highlight every control (Step button + image thumbnail) for the chosen id.
+    // Highlight the chosen variant across the Step buttons and its thumbnail,
+    // and clear any plain gallery-thumbnail highlight.
     function setActive(id) {
       stepButtons.forEach(function (b) {
-        if (b.getAttribute('data-gvm-step') === id) { b.classList.add('is-active'); }
-        else { b.classList.remove('is-active'); }
+        b.classList.toggle('is-active', b.getAttribute('data-gvm-step') === id);
+      });
+      thumbEls.forEach(function (t) {
+        if (!t.hasAttribute('data-gvm-step')) { t.classList.remove('is-active'); }
       });
     }
 
@@ -529,7 +542,7 @@
     { "type": "text", "id": "gcm_value", "label": "GCM increase", "default": "6800kg → 7350kg" },
     { "type": "text", "id": "payload_value", "label": "Payload gain", "default": "+800kg" },
     { "type": "header", "content": "Price (optional)" },
-    { "type": "checkbox", "id": "show_price", "label": "Show price", "info": "Off by default. Turn on to display the price (variant price when the product has variants).", "default": false },
+    { "type": "checkbox", "id": "show_price", "label": "Show price", "info": "Shows the selected variant's price (or the product price when there are no variants). Uncheck to hide.", "default": true },
     { "type": "text", "id": "price", "label": "Price", "info": "Used when there are no variants. Best set per product via the custom.price metafield." },
     { "type": "text", "id": "price_note", "label": "Price note", "info": "Small caption shown beside the price, e.g. Installed & engineered.", "default": "Installed & engineered" },
     { "type": "header", "content": "Call to action" },
