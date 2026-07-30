@@ -40,6 +40,7 @@
   assign m_payload_gain = vmf.payload_gain.value | default: vmfo.payload_gain.value | default: mf.payload_gain.value | default: mfo.payload_gain.value
 
   assign stage_summary = m_stage_summary
+  assign sku_display = current_variant.sku
   # Price: use the selected variant's price (for single-variant products this is
   # the product price), falling back to the price metafield / section setting.
   assign price_display = m_price | default: section.settings.price
@@ -204,6 +205,13 @@
                   data-gvm-step="{{ v.id }}"
                 >{{ v.title }}</button>
               {%- endfor -%}
+            </div>
+          {%- endif -%}
+
+          {%- if sku_display != blank or has_variants -%}
+            <div class="ori-gvm-product__sku" data-gvm-sku-wrap{% if sku_display == blank %} hidden{% endif %}>
+              <span class="ori-gvm-product__sku-label">SKU</span>
+              <span class="ori-gvm-product__sku-value" data-gvm-sku>{{ sku_display }}</span>
             </div>
           {%- endif -%}
 
@@ -438,6 +446,8 @@
     var statsEl = root.querySelector('[data-gvm-stats]');
     var priceWrap = root.querySelector('[data-gvm-price-wrap]');
     var priceEl = root.querySelector('[data-gvm-price]');
+    var skuWrap = root.querySelector('[data-gvm-sku-wrap]');
+    var skuEl = root.querySelector('[data-gvm-sku]');
     var specsBand = root.querySelector('[data-gvm-specs-band]');
     var specsBody = root.querySelector('[data-gvm-specs]');
 
@@ -485,6 +495,13 @@
         if (priceWrap) {
           if (d.price) { priceWrap.removeAttribute('hidden'); }
           else { priceWrap.setAttribute('hidden', ''); }
+        }
+      }
+      if (skuEl) {
+        skuEl.textContent = d.sku || '';
+        if (skuWrap) {
+          if (d.sku) { skuWrap.removeAttribute('hidden'); }
+          else { skuWrap.setAttribute('hidden', ''); }
         }
       }
       if (specsBody) {
