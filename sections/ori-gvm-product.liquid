@@ -1,0 +1,650 @@
+{{ 'ori-gvm-product.css' | asset_url | stylesheet_tag }}
+{%- liquid
+  assign section_id = section.settings.custom_id | default: section.id
+  assign container = section.settings.container | default: 'container'
+
+  assign current_variant = product.selected_or_first_available_variant | default: product.variants.first
+  assign has_variants = false
+  if product.variants.size > 1
+    assign has_variants = true
+  endif
+
+  assign hero_image = section.settings.image
+  if hero_image == blank
+    if current_variant.image != blank
+      assign hero_image = current_variant.image
+    else
+      assign hero_image = product.featured_image
+    endif
+  endif
+  assign benefits = section.blocks | where: 'type', 'benefit'
+  assign included = section.blocks | where: 'type', 'included'
+  assign steps = section.blocks | where: 'type', 'step'
+  assign stage_cards = section.blocks | where: 'type', 'stage_card'
+
+  # Per-figure resolution: variant metafields first (so each Step can differ),
+  # then product metafields, each across the custom and ori namespaces, then
+  # the section settings. current_variant drives the initial server render; the
+  # JSON blob further down carries every variant's values for instant switching.
+  assign vmf = current_variant.metafields.custom
+  assign vmfo = current_variant.metafields.ori
+  assign mf = product.metafields.custom
+  assign mfo = product.metafields.ori
+  assign m_title = vmf.stage_title.value | default: vmfo.stage_title.value | default: mf.stage_title.value | default: mfo.stage_title.value | default: product.title | default: section.settings.fallback_title
+  assign m_stage_summary = vmf.stage_summary.value | default: vmfo.stage_summary.value | default: mf.stage_summary.value | default: mfo.stage_summary.value
+  assign m_price = mf.price.value | default: mfo.price.value
+  assign m_original_gvm = vmf.original_gvm.value | default: vmfo.original_gvm.value | default: mf.original_gvm.value | default: mfo.original_gvm.value
+  assign m_upgraded_gvm = vmf.upgraded_gvm.value | default: vmfo.upgraded_gvm.value | default: mf.upgraded_gvm.value | default: mfo.upgraded_gvm.value
+  assign m_original_gcm = vmf.original_gcm.value | default: vmfo.original_gcm.value | default: mf.original_gcm.value | default: mfo.original_gcm.value
+  assign m_upgraded_gcm = vmf.upgraded_gcm.value | default: vmfo.upgraded_gcm.value | default: mf.upgraded_gcm.value | default: mfo.upgraded_gcm.value
+  assign m_payload_gain = vmf.payload_gain.value | default: vmfo.payload_gain.value | default: mf.payload_gain.value | default: mfo.payload_gain.value
+
+  assign stage_summary = m_stage_summary
+  assign sku_display = current_variant.sku
+  # Price: use the selected variant's price (for single-variant products this is
+  # the product price), falling back to the price metafield / section setting.
+  assign price_display = m_price | default: section.settings.price
+  if current_variant.price > 0
+    assign price_display = current_variant.price | money
+  endif
+  assign spec_original_gvm = m_original_gvm | default: section.settings.spec_original_gvm
+  # Upgraded figures fall back to the original value when left blank, so the
+  # page still shows a figure instead of an empty stat card / spec row.
+  assign spec_upgraded_gvm = m_upgraded_gvm | default: section.settings.spec_upgraded_gvm | default: m_original_gvm
+  assign spec_payload_gain = m_payload_gain | default: section.settings.spec_payload_gain
+  assign spec_gcm = m_upgraded_gcm | default: section.settings.spec_gcm | default: m_original_gcm
+
+  # Effective upgraded figures: use the upgraded metafield, else fall back to
+  # the original so a missing upgrade value still displays something.
+  assign eff_upgraded_gvm = m_upgraded_gvm | default: m_original_gvm
+  assign eff_upgraded_gcm = m_upgraded_gcm | default: m_original_gcm
+
+  # Hero "increase" stats: show original → upgraded when a real upgrade exists,
+  # otherwise show whichever single figure is available.
+  assign gvm_increase = section.settings.gvm_value
+  if m_original_gvm != blank and m_upgraded_gvm != blank
+    assign gvm_increase = m_original_gvm | append: ' → ' | append: m_upgraded_gvm
+  elsif eff_upgraded_gvm != blank
+    assign gvm_increase = eff_upgraded_gvm
+  endif
+  assign gcm_increase = section.settings.gcm_value
+  if m_original_gcm != blank and m_upgraded_gcm != blank
+    assign gcm_increase = m_original_gcm | append: ' → ' | append: m_upgraded_gcm
+  elsif eff_upgraded_gcm != blank
+    assign gcm_increase = eff_upgraded_gcm
+  endif
+  assign payload_display = section.settings.payload_value
+  if m_payload_gain != blank
+    assign payload_display = m_payload_gain | prepend: '+'
+  endif
+
+  # Stat card labels: "... increase" only when we show an original → upgraded
+  # change, otherwise the plain figure label.
+  assign gvm_stat_label = 'GVM'
+  if m_original_gvm != blank and m_upgraded_gvm != blank
+    assign gvm_stat_label = 'GVM increase'
+  endif
+  assign gcm_stat_label = 'GCM'
+  if m_original_gcm != blank and m_upgraded_gcm != blank
+    assign gcm_stat_label = 'GCM increase'
+  endif
+
+  assign has_stats = false
+  if gvm_increase != blank or gcm_increase != blank or payload_display != blank
+    assign has_stats = true
+  endif
+  assign has_specs = false
+  if spec_original_gvm != blank or spec_upgraded_gvm != blank or spec_payload_gain != blank or spec_gcm != blank
+    assign has_specs = true
+  endif
+-%}
+
+<section
+  id="{{ section_id }}"
+  class="ori-gvm-product color-{{ section.settings.color_schema }}"
+  data-section-type="ori-gvm-product"
+  data-gvm-build="variant-steps-1"
+  style="--gvm-tint: {{ section.settings.tint_color | default: '#f3f6f7' }};"
+>
+
+  {%- comment -%} Hero band {%- endcomment -%}
+  <div class="ori-gvm-product__band ori-gvm-product__band--hero">
+    <div class="{{ container }}">
+      <div class="ori-gvm-product__hero">
+        <div class="ori-gvm-product__hero-media">
+          <div class="ori-gvm-product__gallery-main">
+            {%- if hero_image != blank -%}
+              {{
+                hero_image
+                | image_url: width: 1200
+                | image_tag:
+                  loading: 'eager',
+                  fetchpriority: 'high',
+                  class: 'ori-gvm-product__hero-img',
+                  widths: '400, 600, 900, 1200',
+                  sizes: '(min-width: 990px) 45vw, 100vw',
+                  alt: product.title | default: 'GVM upgrade'
+              }}
+            {%- else -%}
+              <div class="ori-gvm-product__hero-placeholder" aria-hidden="true"></div>
+            {%- endif -%}
+          </div>
+
+          {%- if has_variants and product.images.size > 0 -%}
+            {%- comment -%}
+              All product images as thumbnails. A thumbnail tied to a variant
+              switches the whole page on click; other images (e.g. the main
+              product image) just show in the main view.
+            {%- endcomment -%}
+            <div class="ori-gvm-product__gallery-thumbs" data-gvm-var-thumbs>
+              {%- for image in product.images -%}
+                {%- assign img_vid = '' -%}
+                {%- for v in product.variants -%}
+                  {%- if v.image != blank and v.image.id == image.id -%}
+                    {%- assign img_vid = v.id -%}
+                  {%- endif -%}
+                {%- endfor -%}
+                <button
+                  type="button"
+                  class="ori-gvm-product__thumb{% if hero_image != blank and image.id == hero_image.id %} is-active{% endif %}"
+                  {% if img_vid != '' %}data-gvm-step="{{ img_vid }}"{% else %}data-gallery-thumb data-full="{{ image | image_url: width: 1200 }}"{% endif %}
+                  aria-label="{{ image.alt | default: product.title | escape }}"
+                >
+                  <img
+                    src="{{ image | image_url: width: 200 }}"
+                    alt="{{ image.alt | default: product.title | escape }}"
+                    loading="lazy"
+                    width="200"
+                    height="200"
+                  >
+                </button>
+              {%- endfor -%}
+            </div>
+          {%- elsif section.settings.image == blank and product.images.size > 1 -%}
+            <div class="ori-gvm-product__gallery-thumbs">
+              {%- for image in product.images -%}
+                <button
+                  type="button"
+                  class="ori-gvm-product__thumb{% if forloop.first %} is-active{% endif %}"
+                  data-gallery-thumb
+                  data-full="{{ image | image_url: width: 1200 }}"
+                  aria-label="View image {{ forloop.index }}"
+                >
+                  <img
+                    src="{{ image | image_url: width: 200 }}"
+                    alt="{{ product.title | escape }} thumbnail {{ forloop.index }}"
+                    loading="lazy"
+                    width="200"
+                    height="200"
+                  >
+                </button>
+              {%- endfor -%}
+            </div>
+          {%- endif -%}
+        </div>
+
+        <div class="ori-gvm-product__hero-content">
+          {%- if section.settings.eyebrow != blank -%}
+            <span class="ori-gvm-product__eyebrow">{{ section.settings.eyebrow }}</span>
+          {%- endif -%}
+
+          <h1 class="ori-gvm-product__title h2" data-gvm-title>{{ m_title }}</h1>
+
+          {%- if stage_summary != blank or section.settings.subtitle != blank or has_variants -%}
+            <div class="ori-gvm-product__subtitle rte" data-gvm-summary>
+              {%- if stage_summary != blank -%}{{ stage_summary | newline_to_br }}{%- elsif section.settings.subtitle != blank -%}{{ section.settings.subtitle }}{%- endif -%}
+            </div>
+          {%- endif -%}
+
+          {%- if has_variants -%}
+            <div class="ori-gvm-product__steps-select" data-gvm-steps role="group" aria-label="Choose stage">
+              {%- for v in product.variants -%}
+                <button
+                  type="button"
+                  class="ori-gvm-product__step-btn{% if v.id == current_variant.id %} is-active{% endif %}"
+                  data-gvm-step="{{ v.id }}"
+                >{{ v.title }}</button>
+              {%- endfor -%}
+            </div>
+          {%- endif -%}
+
+          {%- if sku_display != blank or has_variants -%}
+            <div class="ori-gvm-product__sku" data-gvm-sku-wrap{% if sku_display == blank %} hidden{% endif %}>
+              <span class="ori-gvm-product__sku-label">SKU</span>
+              <span class="ori-gvm-product__sku-value" data-gvm-sku>{{ sku_display }}</span>
+            </div>
+          {%- endif -%}
+
+          {%- if has_stats or has_variants -%}
+            <div class="ori-gvm-product__stats" data-gvm-stats>
+              {%- if gvm_increase != blank -%}
+                <div class="ori-gvm-product__stat">
+                  <span class="ori-gvm-product__stat-label">{{ gvm_stat_label }}</span>
+                  <span class="ori-gvm-product__stat-value">{{ gvm_increase }}</span>
+                </div>
+              {%- endif -%}
+              {%- if gcm_increase != blank -%}
+                <div class="ori-gvm-product__stat">
+                  <span class="ori-gvm-product__stat-label">{{ gcm_stat_label }}</span>
+                  <span class="ori-gvm-product__stat-value">{{ gcm_increase }}</span>
+                </div>
+              {%- endif -%}
+              {%- if payload_display != blank -%}
+                <div class="ori-gvm-product__stat">
+                  <span class="ori-gvm-product__stat-label">Payload gain</span>
+                  <span class="ori-gvm-product__stat-value">{{ payload_display }}</span>
+                </div>
+              {%- endif -%}
+            </div>
+          {%- endif -%}
+
+          {%- if section.settings.show_price -%}
+            <div class="ori-gvm-product__price" data-gvm-price-wrap{% if price_display == blank %} hidden{% endif %}>
+              <span class="ori-gvm-product__price-amount" data-gvm-price>{{ price_display }}</span>
+              {%- if section.settings.price_note != blank -%}
+                <span class="ori-gvm-product__price-note">{{ section.settings.price_note }}</span>
+              {%- endif -%}
+            </div>
+          {%- endif -%}
+
+          <div class="ori-gvm-product__ctas">
+            {%- if section.settings.quote_label != blank -%}
+              <a href="{{ section.settings.quote_url | default: '/pages/contact' }}" class="btn btn--primary ori-gvm-product__cta">{{ section.settings.quote_label }}</a>
+            {%- endif -%}
+            {%- if section.settings.book_label != blank -%}
+              <a href="{{ section.settings.book_url | default: '/pages/contact' }}" class="btn btn--outline ori-gvm-product__cta">{{ section.settings.book_label }}</a>
+            {%- endif -%}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {%- comment -%} Stage / vehicle cards (added as blocks, shown before Key benefits) {%- endcomment -%}
+  {%- if stage_cards.size > 0 -%}
+    <div class="ori-gvm-product__band">
+      <div class="{{ container }}">
+        <div class="ori-gvm-product__block">
+          {%- if section.settings.stage_cards_heading != blank -%}
+            <h2 class="ori-gvm-product__block-title h3">{{ section.settings.stage_cards_heading }}</h2>
+          {%- endif -%}
+          <ul class="ori-gvm-product__stagecards" role="list">
+            {%- for block in stage_cards -%}
+              <li class="ori-gvm-product__stagecard" {{ block.shopify_attributes }}>
+                <a class="ori-gvm-product__stagecard-link" href="{{ block.settings.link_url | default: '#' }}">
+                  {%- if block.settings.image != blank -%}
+                    <span class="ori-gvm-product__stagecard-media">
+                      {{-
+                        block.settings.image
+                        | image_url: width: 500
+                        | image_tag:
+                          loading: 'lazy',
+                          class: 'ori-gvm-product__stagecard-img',
+                          widths: '200,300,500',
+                          sizes: '(max-width: 749px) 40vw, 200px',
+                          alt: block.settings.vehicle_label | default: 'GVM package'
+                      -}}
+                    </span>
+                  {%- endif -%}
+                  <span class="ori-gvm-product__stagecard-body">
+                    {%- if block.settings.vehicle_label != blank -%}
+                      <span class="ori-gvm-product__stagecard-vehicle">{{ block.settings.vehicle_label }}</span>
+                    {%- endif -%}
+                    {%- if block.settings.gvm_figure != blank -%}
+                      <span class="ori-gvm-product__stagecard-spec"><span>GVM</span><strong>{{ block.settings.gvm_figure }}</strong></span>
+                    {%- endif -%}
+                    {%- if block.settings.gcm_figure != blank -%}
+                      <span class="ori-gvm-product__stagecard-spec"><span>GCM</span><strong>{{ block.settings.gcm_figure }}</strong></span>
+                    {%- endif -%}
+                  </span>
+                </a>
+              </li>
+            {%- endfor -%}
+          </ul>
+        </div>
+      </div>
+    </div>
+  {%- endif -%}
+
+  {%- comment -%} Key benefits band {%- endcomment -%}
+  {%- if benefits.size > 0 -%}
+    <div class="ori-gvm-product__band ori-gvm-product__band--alt">
+      <div class="{{ container }}">
+        <div class="ori-gvm-product__block">
+          <h2 class="ori-gvm-product__block-title h3">{{ section.settings.benefits_heading | default: 'Key benefits' }}</h2>
+          <ul class="ori-gvm-product__benefits" role="list">
+            {%- for block in benefits -%}
+              <li class="ori-gvm-product__benefit" {{ block.shopify_attributes }}>
+                <span class="ori-gvm-product__check" aria-hidden="true">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                </span>
+                <span>{{ block.settings.text }}</span>
+              </li>
+            {%- endfor -%}
+          </ul>
+        </div>
+      </div>
+    </div>
+  {%- endif -%}
+
+  {%- comment -%} What's included band {%- endcomment -%}
+  {%- if included.size > 0 -%}
+    <div class="ori-gvm-product__band">
+      <div class="{{ container }}">
+        <div class="ori-gvm-product__block">
+          <h2 class="ori-gvm-product__block-title h3">{{ section.settings.included_heading | default: "What's included" }}</h2>
+          <ul class="ori-gvm-product__included" role="list">
+            {%- for block in included -%}
+              <li class="ori-gvm-product__included-item" {{ block.shopify_attributes }}>
+                <span class="ori-gvm-product__check" aria-hidden="true">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                </span>
+                <span>{{ block.settings.text }}</span>
+              </li>
+            {%- endfor -%}
+          </ul>
+        </div>
+      </div>
+    </div>
+  {%- endif -%}
+
+  {%- comment -%} Specifications band {%- endcomment -%}
+  {%- if has_specs or has_variants -%}
+    <div class="ori-gvm-product__band ori-gvm-product__band--alt" data-gvm-specs-band{% if has_specs == false %} hidden{% endif %}>
+      <div class="{{ container }}">
+        <div class="ori-gvm-product__block">
+          <h2 class="ori-gvm-product__block-title h3">{{ section.settings.specs_heading | default: 'Specifications' }}</h2>
+          <table class="ori-gvm-product__specs">
+            <tbody data-gvm-specs>
+              {%- if spec_original_gvm != blank -%}
+                <tr><th scope="row">Original GVM</th><td>{{ spec_original_gvm }}</td></tr>
+              {%- endif -%}
+              {%- if spec_upgraded_gvm != blank and spec_upgraded_gvm != spec_original_gvm -%}
+                <tr><th scope="row">Upgraded GVM</th><td>{{ spec_upgraded_gvm }}</td></tr>
+              {%- endif -%}
+              {%- if spec_payload_gain != blank -%}
+                <tr><th scope="row">Payload gain</th><td>{{ spec_payload_gain }}</td></tr>
+              {%- endif -%}
+              {%- if spec_gcm != blank -%}
+                <tr><th scope="row">GCM</th><td>{{ spec_gcm }}</td></tr>
+              {%- endif -%}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  {%- endif -%}
+
+  {%- comment -%} Installation process band {%- endcomment -%}
+  {%- if steps.size > 0 -%}
+    <div class="ori-gvm-product__band">
+      <div class="{{ container }}">
+        <div class="ori-gvm-product__block">
+          <h2 class="ori-gvm-product__block-title h3">{{ section.settings.install_heading | default: 'Installation process' }}</h2>
+          <ol class="ori-gvm-product__steps">
+            {%- for block in steps -%}
+              <li class="ori-gvm-product__step" {{ block.shopify_attributes }}>
+                {%- if block.settings.heading != blank -%}
+                  <h3 class="ori-gvm-product__step-title">{{ block.settings.heading }}</h3>
+                {%- endif -%}
+                {%- if block.settings.text != blank -%}
+                  <p class="ori-gvm-product__step-text">{{ block.settings.text }}</p>
+                {%- endif -%}
+              </li>
+            {%- endfor -%}
+          </ol>
+        </div>
+      </div>
+    </div>
+  {%- endif -%}
+
+  {%- if has_variants -%}
+    <script type="application/json" data-gvm-variants>
+      {
+        {%- for v in product.variants -%}
+          "{{ v.id }}": {% render 'ori-gvm-variant-json', variant: v, s: section.settings %}{%- unless forloop.last -%},{%- endunless -%}
+        {%- endfor -%}
+      }
+    </script>
+  {%- endif -%}
+
+</section>
+
+<script>
+  (function () {
+    var root = document.getElementById({{ section_id | json }});
+    if (!root) return;
+    var main = root.querySelector('.ori-gvm-product__hero-img');
+    var thumbEls = root.querySelectorAll('.ori-gvm-product__gallery-thumbs .ori-gvm-product__thumb');
+
+    // Plain gallery thumbnails (images not tied to a variant) just swap the main image.
+    var galleryThumbs = root.querySelectorAll('[data-gallery-thumb]');
+    if (main && galleryThumbs.length) {
+      galleryThumbs.forEach(function (thumb) {
+        thumb.addEventListener('click', function () {
+          var full = thumb.getAttribute('data-full');
+          if (full) {
+            main.removeAttribute('srcset');
+            main.setAttribute('src', full);
+          }
+          thumbEls.forEach(function (t) { t.classList.remove('is-active'); });
+          thumb.classList.add('is-active');
+        });
+      });
+    }
+
+    // Variant (Step) switching: swap title, summary, stats, specs, price, image.
+    var stepButtons = root.querySelectorAll('[data-gvm-step]');
+    var dataEl = root.querySelector('[data-gvm-variants]');
+    if (!stepButtons.length || !dataEl) return;
+
+    var VARIANTS;
+    try { VARIANTS = JSON.parse(dataEl.textContent); } catch (e) { return; }
+
+    var titleEl = root.querySelector('[data-gvm-title]');
+    var summaryEl = root.querySelector('[data-gvm-summary]');
+    var statsEl = root.querySelector('[data-gvm-stats]');
+    var priceWrap = root.querySelector('[data-gvm-price-wrap]');
+    var priceEl = root.querySelector('[data-gvm-price]');
+    var skuWrap = root.querySelector('[data-gvm-sku-wrap]');
+    var skuEl = root.querySelector('[data-gvm-sku]');
+    var specsBand = root.querySelector('[data-gvm-specs-band]');
+    var specsBody = root.querySelector('[data-gvm-specs]');
+
+    function esc(s) {
+      var d = document.createElement('div');
+      d.textContent = s == null ? '' : s;
+      return d.innerHTML;
+    }
+
+    function statCard(label, value) {
+      return '<div class="ori-gvm-product__stat">' +
+        '<span class="ori-gvm-product__stat-label">' + esc(label) + '</span>' +
+        '<span class="ori-gvm-product__stat-value">' + esc(value) + '</span></div>';
+    }
+
+    function renderStats(d) {
+      var html = '';
+      if (d.gvm) html += statCard(d.gvmLabel || 'GVM', d.gvm);
+      if (d.gcm) html += statCard(d.gcmLabel || 'GCM', d.gcm);
+      if (d.payload) html += statCard('Payload gain', d.payload);
+      return html;
+    }
+
+    function specRow(label, value) {
+      return '<tr><th scope="row">' + esc(label) + '</th><td>' + esc(value) + '</td></tr>';
+    }
+
+    function renderSpecs(d) {
+      var html = '';
+      if (d.specOriginalGvm) html += specRow('Original GVM', d.specOriginalGvm);
+      if (d.specUpgradedGvm && d.specUpgradedGvm !== d.specOriginalGvm) html += specRow('Upgraded GVM', d.specUpgradedGvm);
+      if (d.specPayload) html += specRow('Payload gain', d.specPayload);
+      if (d.specGcm) html += specRow('GCM', d.specGcm);
+      return html;
+    }
+
+    function apply(id) {
+      var d = VARIANTS[id];
+      if (!d) return;
+      if (titleEl) titleEl.textContent = d.title || '';
+      if (summaryEl) summaryEl.innerHTML = d.summary || '';
+      if (statsEl) statsEl.innerHTML = renderStats(d);
+      if (priceEl) {
+        priceEl.textContent = d.price || '';
+        if (priceWrap) {
+          if (d.price) { priceWrap.removeAttribute('hidden'); }
+          else { priceWrap.setAttribute('hidden', ''); }
+        }
+      }
+      if (skuEl) {
+        skuEl.textContent = d.sku || '';
+        if (skuWrap) {
+          if (d.sku) { skuWrap.removeAttribute('hidden'); }
+          else { skuWrap.setAttribute('hidden', ''); }
+        }
+      }
+      if (specsBody) {
+        var specsHtml = renderSpecs(d);
+        specsBody.innerHTML = specsHtml;
+        if (specsBand) {
+          if (specsHtml) { specsBand.removeAttribute('hidden'); }
+          else { specsBand.setAttribute('hidden', ''); }
+        }
+      }
+      if (main && d.image) {
+        main.removeAttribute('srcset');
+        main.setAttribute('src', d.image);
+      }
+    }
+
+    // Highlight the chosen variant across the Step buttons and its thumbnail,
+    // and clear any plain gallery-thumbnail highlight.
+    function setActive(id) {
+      stepButtons.forEach(function (b) {
+        b.classList.toggle('is-active', b.getAttribute('data-gvm-step') === id);
+      });
+      thumbEls.forEach(function (t) {
+        if (!t.hasAttribute('data-gvm-step')) { t.classList.remove('is-active'); }
+      });
+    }
+
+    stepButtons.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var id = btn.getAttribute('data-gvm-step');
+        setActive(id);
+        apply(id);
+        try {
+          var url = new URL(window.location.href);
+          url.searchParams.set('variant', id);
+          window.history.replaceState({}, '', url.toString());
+        } catch (e) {}
+      });
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "ORI GVM Product",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    { "type": "header", "content": "Hero" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "GVM Upgrade Package" },
+    { "type": "text", "id": "fallback_title", "label": "Fallback title (used if not on a product)", "default": "Toyota Tundra Stage 1 GVM Upgrade" },
+    { "type": "richtext", "id": "subtitle", "label": "Subtitle" },
+    { "type": "image_picker", "id": "image", "label": "Hero image (defaults to product image)" },
+    { "type": "text", "id": "gvm_value", "label": "GVM increase", "default": "3050kg → 3850kg" },
+    { "type": "text", "id": "gcm_value", "label": "GCM increase", "default": "6800kg → 7350kg" },
+    { "type": "text", "id": "payload_value", "label": "Payload gain", "default": "+800kg" },
+    { "type": "header", "content": "Price (optional)" },
+    { "type": "checkbox", "id": "show_price", "label": "Show price", "info": "Shows the selected variant's price (or the product price when there are no variants). Uncheck to hide.", "default": true },
+    { "type": "text", "id": "price", "label": "Price", "info": "Used when there are no variants. Best set per product via the custom.price metafield." },
+    { "type": "text", "id": "price_note", "label": "Price note", "info": "Small caption shown beside the price, e.g. Installed & engineered.", "default": "Installed & engineered" },
+    { "type": "header", "content": "Call to action" },
+    { "type": "text", "id": "quote_label", "label": "Primary button label", "default": "Request Quote" },
+    { "type": "url", "id": "quote_url", "label": "Primary button URL" },
+    { "type": "text", "id": "book_label", "label": "Secondary button label", "default": "Book Installation" },
+    { "type": "url", "id": "book_url", "label": "Secondary button URL" },
+    { "type": "header", "content": "Section headings" },
+    { "type": "text", "id": "benefits_heading", "label": "Benefits heading", "default": "Key benefits" },
+    { "type": "text", "id": "included_heading", "label": "What's included heading", "default": "What's included" },
+    { "type": "text", "id": "specs_heading", "label": "Specifications heading", "default": "Specifications" },
+    { "type": "text", "id": "install_heading", "label": "Installation heading", "default": "Installation process" },
+    { "type": "text", "id": "stage_cards_heading", "label": "Stage cards heading", "info": "Shown above the vehicle cards, before Key benefits. Add Stage card blocks to populate the row.", "default": "GVM Upgrades by Vehicle" },
+    { "type": "header", "content": "Specifications table" },
+    { "type": "text", "id": "spec_original_gvm", "label": "Original GVM", "default": "3050 kg" },
+    { "type": "text", "id": "spec_upgraded_gvm", "label": "Upgraded GVM", "default": "3850 kg" },
+    { "type": "text", "id": "spec_payload_gain", "label": "Payload gain", "default": "800 kg" },
+    { "type": "text", "id": "spec_gcm", "label": "GCM", "default": "7350 kg" },
+    { "type": "header", "content": "Appearance" },
+    { "type": "color", "id": "tint_color", "label": "Alternating band colour", "default": "#f3f6f7" },
+    {
+      "type": "select",
+      "id": "container",
+      "label": "Container width",
+      "options": [
+        { "value": "container", "label": "Fixed (1200px)" },
+        { "value": "container-narrow", "label": "Narrow" },
+        { "value": "container-full", "label": "Full width" }
+      ],
+      "default": "container"
+    },
+    { "type": "text", "id": "custom_id", "label": "Custom HTML ID" },
+    { "type": "text", "id": "color_schema", "label": "Color scheme class" }
+  ],
+  "blocks": [
+    {
+      "type": "benefit",
+      "name": "Key benefit",
+      "settings": [
+        { "type": "text", "id": "text", "label": "Benefit", "default": "Increased legal payload" }
+      ]
+    },
+    {
+      "type": "included",
+      "name": "What's included item",
+      "settings": [
+        { "type": "text", "id": "text", "label": "Item", "default": "Fox shocks" }
+      ]
+    },
+    {
+      "type": "step",
+      "name": "Installation step",
+      "settings": [
+        { "type": "text", "id": "heading", "label": "Step heading", "default": "Book your install" },
+        { "type": "textarea", "id": "text", "label": "Step description" }
+      ]
+    },
+    {
+      "type": "stage_card",
+      "name": "Stage card",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Card image" },
+        { "type": "text", "id": "vehicle_label", "label": "Vehicle", "info": "e.g. Chevrolet Silverado 1500" },
+        { "type": "text", "id": "gvm_figure", "label": "GVM figure", "info": "e.g. 3,650 kg" },
+        { "type": "text", "id": "gcm_figure", "label": "GCM figure", "info": "e.g. 8,150 kg" },
+        { "type": "url", "id": "link_url", "label": "Links to" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "ORI GVM Product",
+      "blocks": [
+        { "type": "benefit", "settings": { "text": "Increased legal payload" } },
+        { "type": "benefit", "settings": { "text": "Upgraded suspension" } },
+        { "type": "benefit", "settings": { "text": "Federal engineering approval" } },
+        { "type": "included", "settings": { "text": "Fox shocks" } },
+        { "type": "included", "settings": { "text": "BDS components" } },
+        { "type": "included", "settings": { "text": "ORI springs" } },
+        { "type": "included", "settings": { "text": "Engineering certification" } },
+        { "type": "step", "settings": { "heading": "Request a quote", "text": "Send us your vehicle details and we prepare a package quote." } },
+        { "type": "step", "settings": { "heading": "Book your install", "text": "Choose an approved installer near you." } },
+        { "type": "step", "settings": { "heading": "Get certified", "text": "We complete the upgrade and issue engineering certification." } }
+      ]
+    }
+  ]
+}
+{% endschema %}

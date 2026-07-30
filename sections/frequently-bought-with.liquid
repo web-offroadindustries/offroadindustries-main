@@ -1,0 +1,334 @@
+{%- liquid
+  assign section_id = section.settings.custom_id | default: section.id
+  assign custom_class = section.settings.custom_class
+  unless custom_class == blank
+    assign custom_class = custom_class | prepend: ' '
+  endunless
+
+  assign container = section.settings.container
+  assign visible = section.settings.products_per_view | default: 4
+  assign image_ratio = section.settings.pcard_image_ratio
+  assign show_vendor = section.settings.show_vendor
+
+  assign heading = section.settings.heading
+  if heading == blank
+    assign heading = 'Frequently Bought With'
+  endif
+
+  assign heading_size_mobile = section.settings.heading_size_mobile | default: 22
+  assign heading_size_desktop = section.settings.heading_size_desktop | default: 34
+  assign heading_align = section.settings.heading_alignment | default: 'left'
+  assign heading_weight = section.settings.heading_weight
+  assign heading_color = section.settings.heading_color
+
+  comment
+    Product source priority:
+    1. Specific products (product_list) win when at least one is chosen.
+    2. Otherwise fall back to the selected collection.
+    3. The two sources are never combined.
+    An unset list/collection is `blank` in Liquid (empty arrays count as blank),
+    so `!= blank` is a reliable "has products" test.
+  endcomment
+  assign product_source = null
+  if section.settings.product_list != blank
+    assign product_source = section.settings.product_list
+  elsif section.settings.collection != blank and section.settings.collection.all_products_count > 0
+    assign product_source = section.settings.collection.products
+  endif
+
+  assign max_items = 12
+-%}
+{%- comment -%} Build slides first so the empty state can be detected; de-duplicate products. {%- endcomment -%}
+{%- capture fbw_slides -%}
+  {%- assign seen = '' -%}
+  {%- if product_source -%}
+    {%- for product in product_source limit: max_items -%}
+      {%- assign dedupe_key = ',' | append: product.id | append: ',' -%}
+      {%- unless seen contains dedupe_key -%}
+        {%- assign seen = seen | append: dedupe_key -%}
+        <li class="fbw__slide">
+          {%- render 'product-card',
+            product: product,
+            color_schema: section.settings.color_schema,
+            image_ratio: image_ratio,
+            show_vendor: show_vendor,
+            section_index: section.index,
+            index: forloop.index
+          -%}
+        </li>
+      {%- endunless -%}
+    {%- endfor -%}
+  {%- endif -%}
+{%- endcapture -%}
+{%- assign has_slides = false -%}
+{%- if fbw_slides contains 'fbw__slide' -%}
+  {%- assign has_slides = true -%}
+{%- endif -%}
+{%- if has_slides or request.design_mode -%}
+  {{ 'frequently-bought-with.css' | asset_url | stylesheet_tag }}
+{%- endif -%}
+<section
+  id="{{ section_id }}"
+  data-section-id="{{ section.id }}"
+  data-section-type="frequently-bought-with"
+  class="fbw f-section-padding color-{{ section.settings.color_schema }}{{ custom_class }}"
+  style="--section-padding-top: {{ section.settings.padding_top }}px; --section-padding-bottom: {{ section.settings.padding_bottom }}px;"
+>
+  <div class="{{ container }}">
+    {%- if has_slides -%}
+      <link
+        rel="stylesheet"
+        href="{{ 'modal-component.css' | asset_url }}"
+        media="print"
+        onload="this.media='all'"
+      >
+      <noscript>{{ 'modal-component.css' | asset_url | stylesheet_tag }}</noscript>
+
+      <frequently-bought-with
+        class="fbw__widget"
+        role="region"
+        aria-labelledby="{{ section_id }}-title"
+        data-per-view="{{ visible }}"
+        style="--fbw-per-view-desktop: {{ visible }};"
+      >
+        <div class="fbw__header">
+          <h2
+            id="{{ section_id }}-title"
+            class="fbw__heading h2"
+            style="
+              --fbw-heading-min: {{ heading_size_mobile }};
+              --fbw-heading-max: {{ heading_size_desktop }};
+              text-align: {{ heading_align }};
+              {%- if heading_weight != blank %} font-weight: {{ heading_weight }};{% endif -%}
+              {%- if heading_color != blank %} color: {{ heading_color }};{% endif -%}
+            "
+          >{{ heading | escape }}</h2>
+          <div class="fbw__controls">
+            <button
+              type="button"
+              class="fbw__nav fbw__nav--prev"
+              data-fbw-prev
+              aria-label="{{ 'general.pagination.previous' | t }}"
+              aria-controls="{{ section_id }}-track"
+              disabled
+              aria-disabled="true"
+            >
+              {%- render 'icon-chevron-left' -%}
+            </button>
+            <button
+              type="button"
+              class="fbw__nav fbw__nav--next"
+              data-fbw-next
+              aria-label="{{ 'general.pagination.next' | t }}"
+              aria-controls="{{ section_id }}-track"
+            >
+              {%- render 'icon-chevron-right' -%}
+            </button>
+          </div>
+        </div>
+
+        <div class="fbw__viewport">
+          <ul
+            id="{{ section_id }}-track"
+            class="fbw__track"
+            data-fbw-track
+            role="list"
+          >
+            {{- fbw_slides -}}
+          </ul>
+        </div>
+      </frequently-bought-with>
+      <script src="{{ 'frequently-bought-with.js' | asset_url }}" defer="defer"></script>
+    {%- elsif request.design_mode -%}
+      <div class="fbw__placeholder">
+        <p class="fbw__placeholder-title">{{ heading | escape }}</p>
+        <p class="fbw__placeholder-text">
+          Select up to 10 specific products, or choose a fallback collection, to display this widget.
+        </p>
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Frequently Bought With",
+  "tag": "section",
+  "class": "shopify-section--frequently-bought-with",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Frequently Bought With"
+    },
+    {
+      "type": "product_list",
+      "id": "product_list",
+      "label": "Specific products",
+      "limit": 10,
+      "info": "Select up to 10 products. When set, these are shown and the fallback collection is ignored."
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Fallback collection",
+      "info": "Used only when no specific products are selected."
+    },
+    {
+      "type": "header",
+      "content": "Heading style"
+    },
+    {
+      "type": "range",
+      "id": "heading_size_mobile",
+      "label": "Heading size (mobile)",
+      "min": 14,
+      "max": 48,
+      "step": 1,
+      "default": 22,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "heading_size_desktop",
+      "label": "Heading size (desktop)",
+      "min": 16,
+      "max": 72,
+      "step": 1,
+      "default": 34,
+      "unit": "px",
+      "info": "The heading scales fluidly between the mobile and desktop sizes using CSS clamp()."
+    },
+    {
+      "type": "select",
+      "id": "heading_weight",
+      "label": "Heading weight",
+      "default": "",
+      "options": [
+        { "value": "", "label": "Theme default" },
+        { "value": "400", "label": "Regular" },
+        { "value": "600", "label": "Semi-bold" },
+        { "value": "700", "label": "Bold" }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "heading_alignment",
+      "label": "Heading alignment",
+      "default": "left",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "right", "label": "Right" }
+      ]
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading color",
+      "info": "Leave blank to match your theme's other headings."
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "products_per_view",
+      "label": "Products visible (desktop)",
+      "min": 1,
+      "max": 6,
+      "step": 1,
+      "default": 4,
+      "info": "Fewer products are shown automatically on tablet and mobile."
+    },
+    {
+      "type": "select",
+      "id": "pcard_image_ratio",
+      "label": "Image ratio",
+      "default": "",
+      "options": [
+        { "value": "", "label": "Default (theme setting)" },
+        { "value": "adapt", "label": "Adapt to image" },
+        { "value": "1/1", "label": "Square (1:1)" },
+        { "value": "3/4", "label": "Portrait (3:4)" },
+        { "value": "4/3", "label": "Landscape (4:3)" }
+      ]
+    },
+    {
+      "type": "checkbox",
+      "id": "show_vendor",
+      "label": "Show product vendor",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Section"
+    },
+    {
+      "type": "select",
+      "id": "container",
+      "label": "Width",
+      "options": [
+        { "value": "container", "label": "Fixed" },
+        { "value": "container-fluid", "label": "Stretched" },
+        { "value": "container-full", "label": "Full width" }
+      ],
+      "default": "container"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_schema",
+      "label": "Color scheme",
+      "default": "background-1"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Top padding",
+      "default": 40,
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Bottom padding",
+      "default": 40,
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px"
+    },
+    {
+      "type": "header",
+      "content": "Advanced"
+    },
+    {
+      "type": "text",
+      "id": "custom_id",
+      "label": "Custom id"
+    },
+    {
+      "type": "text",
+      "id": "custom_class",
+      "label": "Custom class"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Frequently Bought With"
+    }
+  ]
+}
+{% endschema %}

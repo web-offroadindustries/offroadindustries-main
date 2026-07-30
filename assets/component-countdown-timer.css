@@ -1,0 +1,91 @@
+.f-countdown-timer {
+  display: block;
+}
+.f-countdown-timer__inner {
+  display: inline-grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+}
+@media (max-width: 639.98px) {
+  .f-countdown-timer__inner {
+    display: grid;
+    gap: 0.8rem;
+  }
+}
+.f-countdown-timer__block {
+  min-width: 55px;
+  display: inline-flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--btn-rounded);
+}
+.f-countdown-timer__block:last-child .f-countdown-timer__time::after {
+  display: none;
+}
+.f-countdown-timer--highlight .f-countdown-timer__block {
+  padding: 8px 5px 5px;
+  background-color: #fff5f4;
+  border: 1px solid #ffd7d6;
+  margin: 0;
+}
+@media (min-width: 768px) {
+  .f-countdown-timer--highlight .f-countdown-timer__block {
+    min-width: 70px;
+    min-height: 70px;
+  }
+}
+.f-countdown-timer--highlight .f-countdown-timer__block span {
+  color: rgb(var(--color-base-text));
+}
+@media (max-width: 639.98px) {
+  .f-countdown-timer__block span {
+    font-size: 1.2rem;
+  }
+}
+.f-countdown-timer__time {
+  width: 100%;
+  line-height: 1;
+  position: relative;
+  text-align: center;
+}
+.f-countdown-timer__time::after {
+  content: ":";
+  position: absolute;
+  top: 50%;
+  inset-inline-end: -0.5rem;
+  font-size: 0.5em;
+  transform: translateY(-50%);
+}
+.f-countdown-timer--highlight .f-countdown-timer__time {
+  line-height: 26px;
+  color: #ff706b;
+}
+.f-countdown-timer--highlight .f-countdown-timer__time::after {
+  display: none;
+}
+@media (min-width: 1024px) {
+  .f-countdown-timer__spacing--small {
+    gap: 2rem;
+  }
+  .f-countdown-timer__spacing--small .f-countdown-timer__time::after {
+    inset-inline-end: -1.3rem;
+  }
+  .f-countdown-timer__spacing--medium {
+    gap: 4rem;
+  }
+  .f-countdown-timer__spacing--medium .f-countdown-timer__time::after {
+    inset-inline-end: -2.3rem;
+  }
+  .f-countdown-timer__spacing--large {
+    gap: 6rem;
+  }
+  .f-countdown-timer__spacing--large .f-countdown-timer__time::after {
+    inset-inline-end: -3.3rem;
+  }
+}
+@media (max-width: 639.98px) {
+  .f-countdown-timer__block {
+    min-width: 45px;
+  }
+}

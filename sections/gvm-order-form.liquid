@@ -1,0 +1,1517 @@
+{%- liquid
+  assign section_id = section.settings.custom_id | default: section.id
+  assign custom_class = section.settings.custom_class
+  unless custom_class == blank
+    assign custom_class = custom_class | prepend: ' '
+  endunless
+  assign animation_effect = settings.animations
+  if animation_effect != 'none' and section.settings.animations != 'inherit'
+    assign animation_effect = section.settings.animations
+  endif
+  assign motion_delay = 0
+  if section.settings.heading != blank
+    assign motion_delay = motion_delay | plus: 50
+  endif
+  if section.settings.subheading != blank
+    assign motion_delay = motion_delay | plus: 50
+  endif
+  if section.settings.description != blank
+    assign motion_delay = motion_delay | plus: 50
+  endif
+  assign form_id = 'GvmOrderForm-' | append: section.id
+
+  assign logo = section.settings.logo
+  assign logo_position = section.settings.logo_position | default: 'above'
+  assign header_align = 'center'
+  if logo != blank and logo_position != 'above'
+    assign header_align = 'left'
+  endif
+-%}
+<style>
+  .f-gvm-order__card {
+    position: relative;
+    overflow: hidden;
+    background: var(--color-background, #fff);
+    border: 1px solid var(--color-border, rgba(0, 0, 0, 0.08));
+    border-radius: 16px;
+    padding: 2.75rem 3rem;
+    box-shadow: 0 12px 44px rgba(15, 23, 42, 0.08), 0 2px 8px rgba(15, 23, 42, 0.04);
+  }
+  .f-gvm-order__card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--color-primary, var(--color-text-heading, #111827));
+  }
+  @media (max-width: 749px) {
+    .f-gvm-order__card {
+      padding: 1.5rem 1.15rem;
+      border-radius: 12px;
+    }
+  }
+  .f-gvm-order__header-wrap {
+    display: flex;
+    gap: 1rem 1.75rem;
+    margin-bottom: 0.5rem;
+  }
+  .f-gvm-order__header-wrap--above {
+    flex-direction: column;
+    align-items: center;
+  }
+  .f-gvm-order__header-wrap--left {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+  .f-gvm-order__header-wrap--right {
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: center;
+  }
+  .f-gvm-order__logo {
+    flex: 0 0 auto;
+  }
+  .f-gvm-order__logo img {
+    display: block;
+    width: var(--gvm-logo-width, 160px);
+    max-width: 100%;
+    height: auto;
+  }
+  @media (max-width: 749px) {
+    .f-gvm-order__header-wrap--left,
+    .f-gvm-order__header-wrap--right {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+  .f-gvm-order__fields {
+    row-gap: 1.25rem;
+    column-gap: 1.5rem;
+  }
+  .f-gvm-order__dep.is-hidden {
+    display: none;
+  }
+  /* Vertical stepper: numbered sections joined by a connector line */
+  .f-gvm-order__steps {
+    display: block;
+  }
+  .f-gvm-order__step {
+    display: grid;
+    grid-template-columns: 2.25rem 1fr;
+    column-gap: 1.15rem;
+  }
+  .f-gvm-order__step-marker {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .f-gvm-order__step-num {
+    flex: 0 0 auto;
+    width: 2.25rem;
+    height: 2.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: var(--color-text-heading, #111827);
+    color: var(--color-background, #fff);
+    font-weight: 700;
+    font-size: 0.9rem;
+    line-height: 1;
+  }
+  .f-gvm-order__step-line {
+    flex: 1 1 auto;
+    width: 2px;
+    margin-top: 0.5rem;
+    background: var(--color-border, #e5e7eb);
+  }
+  .f-gvm-order__step:last-of-type .f-gvm-order__step-line {
+    display: none;
+  }
+  .f-gvm-order__step-body {
+    min-width: 0;
+    padding-bottom: 2rem;
+  }
+  .f-gvm-order__step:last-of-type .f-gvm-order__step-body {
+    padding-bottom: 0;
+  }
+  .f-gvm-order__step-header {
+    min-height: 2.25rem;
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+  .f-gvm-order__group-title {
+    display: block;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-text-heading, #111827);
+  }
+  /* Prominent header, used on the final Workshop Details step */
+  .f-gvm-order__step-header--lead {
+    min-height: 0;
+    align-items: flex-start;
+    margin-bottom: 1.35rem;
+    padding-bottom: 0.85rem;
+    border-bottom: 2px solid var(--color-primary, var(--color-text-heading, #111827));
+  }
+  #{{ section_id }} .f-gvm-order__step-header--lead .f-gvm-order__group-title--lead {
+    font-size: clamp(19px, calc(17px + 0.9vw), 24px);
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    text-transform: none;
+    line-height: 1.2;
+  }
+  .f-gvm-order .form-label {
+    font-weight: 600;
+    font-size: 0.875rem;
+    margin-bottom: 0.4rem;
+    display: block;
+  }
+  .f-gvm-order .form-label span[aria-hidden="true"] {
+    color: #dc2626;
+  }
+  #{{ section_id }} .form-control {
+    width: 100%;
+    border-radius: 8px;
+    border: 1px solid var(--color-border, #d8dbe0);
+    background-color: var(--color-background, #fff);
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  }
+  #{{ section_id }} .form-control:focus {
+    outline: none;
+    border-color: var(--color-text-heading, #111827);
+    box-shadow: 0 0 0 3px rgba(17, 24, 39, 0.08);
+  }
+  .f-gvm-order select.form-control {
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' viewBox='0 0 24 24'%3E%3Cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.875rem center;
+    padding-right: 2.5rem;
+    cursor: pointer;
+  }
+  .f-gvm-order__hint {
+    font-size: 0.8125rem;
+    color: var(--color-foreground-secondary, #6b7280);
+    margin-top: 0.375rem;
+    line-height: 1.45;
+  }
+  .f-gvm-order__note {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.9rem;
+    background: var(--gvm-note-bg, #FEF3C7);
+    border: 1px solid var(--color-border, #e5e7eb);
+    border-left: 4px solid var(--color-primary, var(--color-text-heading, #111827));
+    border-radius: 10px;
+    padding: 1.15rem 1.35rem;
+    line-height: 1.55;
+    color: var(--color-text, #374151);
+    box-shadow: 0 2px 10px rgba(15, 23, 42, 0.05);
+  }
+  .f-gvm-order__note-icon {
+    flex: 0 0 auto;
+    width: 1.65rem;
+    height: 1.65rem;
+    margin-top: 0.05rem;
+    color: var(--color-primary, var(--color-text-heading, #111827));
+  }
+  .f-gvm-order__note-icon svg { display: block; width: 100%; height: 100%; }
+  .f-gvm-order__note-content { min-width: 0; }
+  .f-gvm-order__note-content > :first-child { margin-top: 0; }
+  .f-gvm-order__note-content > :last-child { margin-bottom: 0; }
+  .f-gvm-order__note-title {
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin: 0 0 0.4rem;
+    color: var(--color-text-heading, #111827);
+    letter-spacing: -0.01em;
+  }
+  .f-gvm-order__note-content p { margin: 0 0 0.5rem; }
+  .f-gvm-order__note a {
+    color: var(--color-link, var(--color-primary, #111827));
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  @media (max-width: 749px) {
+    .f-gvm-order__note { padding: 1rem 1.05rem; gap: 0.7rem; }
+    .f-gvm-order__note-icon { width: 1.4rem; height: 1.4rem; }
+    .f-gvm-order__note-title { font-size: 1.02rem; }
+  }
+  .f-gvm-order__footer {
+    margin-top: 0.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--color-border, #e5e7eb);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.85rem;
+  }
+  .f-gvm-order__footer .btn {
+    min-width: 260px;
+    padding-top: 0.95rem;
+    padding-bottom: 0.95rem;
+  }
+  .f-gvm-order__required-note {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--color-foreground-secondary, #6b7280);
+    margin: 0;
+  }
+  @media (max-width: 749px) {
+    .f-gvm-order__step {
+      grid-template-columns: 1.75rem 1fr;
+      column-gap: 0.75rem;
+    }
+    .f-gvm-order__step-body {
+      padding-bottom: 1.5rem;
+    }
+    .f-gvm-order__step-num {
+      width: 1.75rem;
+      height: 1.75rem;
+      font-size: 0.8rem;
+    }
+    .f-gvm-order__step-header {
+      min-height: 1.75rem;
+    }
+    .f-gvm-order__footer .btn {
+      min-width: 100%;
+    }
+  }
+  /* Adjustable font sizes: fluid clamp() between the mobile and desktop settings.
+     Uses px so it is not shrunk by the theme's root font-size. */
+  #{{ section_id }} .section__heading {
+    font-size: clamp(calc(var(--gvm-heading-min, 28) * 1px), calc(var(--gvm-heading-min, 28) * 1px + (var(--gvm-heading-max, 40) - var(--gvm-heading-min, 28)) * ((100vw - 375px) / 1065)), calc(var(--gvm-heading-max, 40) * 1px));
+  }
+  #{{ section_id }} .section__subheading {
+    font-size: clamp(calc(var(--gvm-sub-min, 15) * 1px), calc(var(--gvm-sub-min, 15) * 1px + (var(--gvm-sub-max, 18) - var(--gvm-sub-min, 15)) * ((100vw - 375px) / 1065)), calc(var(--gvm-sub-max, 18) * 1px));
+  }
+  #{{ section_id }} .section__description,
+  #{{ section_id }} .section__description p {
+    font-size: clamp(calc(var(--gvm-desc-min, 15) * 1px), calc(var(--gvm-desc-min, 15) * 1px + (var(--gvm-desc-max, 17) - var(--gvm-desc-min, 15)) * ((100vw - 375px) / 1065)), calc(var(--gvm-desc-max, 17) * 1px));
+  }
+  #{{ section_id }} .form-label {
+    font-size: clamp(calc(var(--gvm-label-min, 15) * 1px), calc(var(--gvm-label-min, 15) * 1px + (var(--gvm-label-max, 16) - var(--gvm-label-min, 15)) * ((100vw - 375px) / 1065)), calc(var(--gvm-label-max, 16) * 1px));
+  }
+  #{{ section_id }} .form-control {
+    font-size: clamp(calc(var(--gvm-input-min, 16) * 1px), calc(var(--gvm-input-min, 16) * 1px + (var(--gvm-input-max, 17) - var(--gvm-input-min, 16)) * ((100vw - 375px) / 1065)), calc(var(--gvm-input-max, 17) * 1px));
+  }
+  #{{ section_id }} .f-gvm-order__group-title {
+    font-size: clamp(calc(var(--gvm-grouptitle-min, 11) * 1px), calc(var(--gvm-grouptitle-min, 11) * 1px + (var(--gvm-grouptitle-max, 12) - var(--gvm-grouptitle-min, 11)) * ((100vw - 375px) / 1065)), calc(var(--gvm-grouptitle-max, 12) * 1px));
+  }
+  #{{ section_id }} .f-gvm-order__hint {
+    font-size: clamp(calc(var(--gvm-hint-min, 13) * 1px), calc(var(--gvm-hint-min, 13) * 1px + (var(--gvm-hint-max, 14) - var(--gvm-hint-min, 13)) * ((100vw - 375px) / 1065)), calc(var(--gvm-hint-max, 14) * 1px));
+  }
+  #{{ section_id }} .f-gvm-order__plabel {
+    font-size: clamp(calc(var(--gvm-plabel-min, 11) * 1px), calc(var(--gvm-plabel-min, 11) * 1px + (var(--gvm-plabel-max, 12) - var(--gvm-plabel-min, 11)) * ((100vw - 375px) / 1065)), calc(var(--gvm-plabel-max, 12) * 1px));
+  }
+  #{{ section_id }} .f-gvm-order__wnote,
+  #{{ section_id }} .f-gvm-order__required-note {
+    font-size: clamp(calc(var(--gvm-wnote-min, 15) * 1px), calc(var(--gvm-wnote-min, 15) * 1px + (var(--gvm-wnote-max, 16) - var(--gvm-wnote-min, 15)) * ((100vw - 375px) / 1065)), calc(var(--gvm-wnote-max, 16) * 1px));
+  }
+  #{{ section_id }} .f-gvm-order__note-content p {
+    font-size: clamp(calc(var(--gvm-note-min, 15) * 1px), calc(var(--gvm-note-min, 15) * 1px + (var(--gvm-note-max, 16) - var(--gvm-note-min, 15)) * ((100vw - 375px) / 1065)), calc(var(--gvm-note-max, 16) * 1px));
+  }
+  /* ---- Wizard mode (added by JS; without JS every step stays visible) ---- */
+  .f-gvm-order.is-wizard .f-gvm-order__step { display: none; }
+  .f-gvm-order.is-wizard .f-gvm-order__step.is-active { display: block; }
+  .f-gvm-order.is-wizard .f-gvm-order__step-marker { display: none; }
+  .f-gvm-order.is-wizard .f-gvm-order__step-body { padding-bottom: 0; }
+  .f-gvm-order.is-wizard .f-gvm-order__footer { display: none; }
+  .f-gvm-order__progress {
+    display: flex;
+    list-style: none;
+    margin: 0 0 1rem;
+    padding: 0;
+  }
+  .f-gvm-order__pstep {
+    flex: 1 1 0;
+    min-width: 0;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    text-align: center;
+  }
+  .f-gvm-order__pstep::before {
+    content: "";
+    position: absolute;
+    top: 1rem;
+    right: 50%;
+    width: 100%;
+    height: 2px;
+    background: var(--color-border, #e5e7eb);
+  }
+  .f-gvm-order__pstep:first-child::before { display: none; }
+  .f-gvm-order__pstep.is-done::before,
+  .f-gvm-order__pstep.is-active::before { background: var(--color-primary, var(--color-text-heading, #111827)); }
+  .f-gvm-order__pdot {
+    position: relative;
+    z-index: 1;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    font-weight: 700;
+    font-size: 0.8rem;
+    background: var(--color-background, #fff);
+    border: 2px solid var(--color-border, #e5e7eb);
+    color: var(--color-foreground-secondary, #9ca3af);
+    transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+  }
+  .f-gvm-order__pstep.is-active .f-gvm-order__pdot {
+    background: var(--color-text-heading, #111827);
+    border-color: var(--color-text-heading, #111827);
+    color: var(--color-background, #fff);
+  }
+  .f-gvm-order__pstep.is-done .f-gvm-order__pdot {
+    background: var(--color-primary, var(--color-text-heading, #111827));
+    border-color: var(--color-primary, var(--color-text-heading, #111827));
+    color: #fff;
+  }
+  .f-gvm-order__plabel {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    line-height: 1.25;
+    color: var(--color-foreground-secondary, #9ca3af);
+    max-width: 12ch;
+  }
+  .f-gvm-order__pstep.is-active .f-gvm-order__plabel { color: var(--color-text-heading, #111827); }
+  .f-gvm-order__pstep.is-clickable { cursor: pointer; }
+  .f-gvm-order__pcaption {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--color-foreground-secondary, #6b7280);
+    margin: 0 0 1.5rem;
+  }
+  .f-gvm-order__wnav {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1.75rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--color-border, #e5e7eb);
+  }
+  .f-gvm-order__wnav .btn { min-width: 150px; padding-top: 0.85rem; padding-bottom: 0.85rem; }
+  .f-gvm-order__next { margin-left: auto; }
+  .f-gvm-order__back[hidden] { display: none; }
+  .f-gvm-order__wnote {
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--color-foreground-secondary, #6b7280);
+    margin: 1rem 0 0;
+  }
+  @media (max-width: 749px) {
+    .f-gvm-order__plabel { display: none; }
+    .f-gvm-order__wnav .btn { min-width: 0; flex: 1 1 0; }
+  }
+</style>
+{% render 'divider',
+  show_divider: section.settings.show_section_divider,
+  divider_width: section.settings.divider_width
+%}
+<div
+  id="{{ section_id }}"
+  class="f-gvm-order f-section-padding color-{{ section.settings.color_schema }}{{ custom_class }}"
+  style="--section-padding-top: {{ section.settings.padding_top }}px; --section-padding-bottom: {{ section.settings.padding_bottom }}px; --gvm-heading-min: {{ section.settings.heading_size_min }}; --gvm-heading-max: {{ section.settings.heading_size_max }}; --gvm-sub-min: {{ section.settings.subheading_size_min }}; --gvm-sub-max: {{ section.settings.subheading_size_max }}; --gvm-desc-min: {{ section.settings.desc_size_min }}; --gvm-desc-max: {{ section.settings.desc_size_max }}; --gvm-label-min: {{ section.settings.label_size_min }}; --gvm-label-max: {{ section.settings.label_size_max }}; --gvm-input-min: {{ section.settings.input_size_min }}; --gvm-input-max: {{ section.settings.input_size_max }}; --gvm-grouptitle-min: {{ section.settings.section_label_size_min }}; --gvm-grouptitle-max: {{ section.settings.section_label_size_max }}; --gvm-hint-min: {{ section.settings.helper_size_min }}; --gvm-hint-max: {{ section.settings.helper_size_max }}; --gvm-plabel-min: {{ section.settings.progress_label_size_min }}; --gvm-plabel-max: {{ section.settings.progress_label_size_max }}; --gvm-wnote-min: {{ section.settings.required_note_size_min }}; --gvm-wnote-max: {{ section.settings.required_note_size_max }}; --gvm-note-min: {{ section.settings.note_body_size_min }}; --gvm-note-max: {{ section.settings.note_body_size_max }}; --gvm-note-bg: {{ section.settings.note_bg_color | default: '#FEF3C7' }};"
+>
+  <div class="{{ section.settings.container }}">
+    <div class="f-gvm-order__header-wrap f-gvm-order__header-wrap--{{ logo_position }}">
+      {%- if logo != blank -%}
+        <div class="f-gvm-order__logo" style="--gvm-logo-width: {{ section.settings.logo_width }}px;">
+          <img
+            src="{{ logo | image_url: width: 600 }}"
+            alt="{{ logo.alt | default: 'Logo' | escape }}"
+            width="{{ logo.width }}"
+            height="{{ logo.height }}"
+            loading="lazy"
+          >
+        </div>
+      {%- endif -%}
+      {% render 'index-section-header',
+        section_settings: section.settings,
+        animation_effect: animation_effect,
+        header_alignment: header_align
+      %}
+    </div>
+    <div class="flex justify-center">
+      <motion-element
+        data-motion="{{ animation_effect }}"
+        data-motion-delay="{{ motion_delay }}"
+        class="block f-gvm-order__wrapper"
+        style="width: 900px; max-width: 100%;"
+      >
+        <div class="f-gvm-order__card">
+          {%- form 'contact', id: form_id -%}
+            {% render 'form-status', form: form, form_id: form_id %}
+            <input type="hidden" name="contact[name]" id="{{ form_id }}-combined-name">
+            <input type="hidden" name="contact[Request Type]" value="GVM Order Request">
+
+            <div class="f-gvm-order__steps">
+
+              <!-- Step 1: Order details -->
+              <section class="f-gvm-order__step">
+                <div class="f-gvm-order__step-marker">
+                  <span class="f-gvm-order__step-num">1</span>
+                  <span class="f-gvm-order__step-line" aria-hidden="true"></span>
+                </div>
+                <div class="f-gvm-order__step-body">
+                  <div class="f-gvm-order__step-header">
+                    <span class="f-gvm-order__group-title">{{ section.settings.order_details_title | default: 'Order Details' | escape }}</span>
+                  </div>
+                  <div class="f-flex flex-wrap f-gvm-order__fields">
+                    {%- if section.settings.vehicle_note_title != blank or section.settings.vehicle_note_body != blank -%}
+                      <div class="form-field w-full">
+                        <div class="f-gvm-order__note">
+                          <span class="f-gvm-order__note-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"></circle>
+                              <path d="M12 11v5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path>
+                              <circle cx="12" cy="7.75" r="1.15" fill="currentColor"></circle>
+                            </svg>
+                          </span>
+                          <div class="f-gvm-order__note-content">
+                            {%- if section.settings.vehicle_note_title != blank -%}
+                              <p class="f-gvm-order__note-title">{{ section.settings.vehicle_note_title | escape }}</p>
+                            {%- endif -%}
+                            {{ section.settings.vehicle_note_body }}
+                          </div>
+                        </div>
+                      </div>
+                    {%- endif -%}
+
+                    <div class="form-field w-full sm:w-1/2">
+                      <label class="form-label" for="{{ form_id }}-po">
+                        Order Number (PO)
+                        <span aria-hidden="true">*</span>
+                      </label>
+                      <input class="form-control" type="text" id="{{ form_id }}-po" name="contact[Order Number (PO)]" required aria-required="true" placeholder="PO number">
+                    </div>
+
+                    <div class="form-field w-full sm:w-1/2">
+                      <label class="form-label" for="{{ form_id }}-date-required">
+                        Date Required
+                        <span aria-hidden="true">*</span>
+                      </label>
+                      <input class="form-control" type="date" id="{{ form_id }}-date-required" name="contact[Date Required]" required aria-required="true">
+                    </div>
+
+                    <div class="form-field w-full sm:w-1/2">
+                      <label class="form-label" for="{{ form_id }}-rego-status">
+                        Pre or Post Rego
+                        <span aria-hidden="true">*</span>
+                      </label>
+                      <select class="form-control" id="{{ form_id }}-rego-status" name="contact[Pre or Post Rego]" required aria-required="true">
+                        <option value="" disabled selected>Select an option</option>
+                        <option value="Pre Rego">Pre Rego</option>
+                        <option value="Post Rego">Post Rego</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              <!-- Step 2: Vehicle information -->
+              <section class="f-gvm-order__step">
+                <div class="f-gvm-order__step-marker">
+                  <span class="f-gvm-order__step-num">2</span>
+                  <span class="f-gvm-order__step-line" aria-hidden="true"></span>
+                </div>
+                <div class="f-gvm-order__step-body">
+                  <div class="f-gvm-order__step-header">
+                    <span class="f-gvm-order__group-title">{{ section.settings.vehicle_info_title | default: 'Vehicle Information' | escape }}</span>
+                  </div>
+                  <div class="f-flex flex-wrap f-gvm-order__fields">
+                    <div class="form-field w-full" data-gvm-field="make">
+                      <label class="form-label" for="{{ form_id }}-make">
+                        Make
+                        <span aria-hidden="true">*</span>
+                      </label>
+                      <select class="form-control" id="{{ form_id }}-make" name="contact[Vehicle Make]" required aria-required="true" data-gvm-make>
+                        <option value="" disabled selected>Select make...</option>
+                      </select>
+                    </div>
+
+                    <div class="form-field w-full f-gvm-order__dep is-hidden" data-gvm-field="model">
+                      <label class="form-label" for="{{ form_id }}-model">
+                        Model
+                        <span aria-hidden="true">*</span>
+                      </label>
+                      <select class="form-control" id="{{ form_id }}-model" name="contact[Vehicle Model]" required aria-required="true" disabled data-gvm-model>
+                        <option value="" disabled selected>Select model...</option>
+                      </select>
+                    </div>
+
+                    <div class="form-field w-full f-gvm-order__dep is-hidden" data-gvm-field="trim">
+                      <label class="form-label" for="{{ form_id }}-trim">
+                        <span data-gvm-trim-label>Trim</span>
+                        <span aria-hidden="true">*</span>
+                      </label>
+                      <select class="form-control" id="{{ form_id }}-trim" name="contact[Trim]" required aria-required="true" disabled data-gvm-trim>
+                        <option value="" disabled selected>Select trim...</option>
+                      </select>
+                    </div>
+
+                    <div class="form-field w-full f-gvm-order__dep is-hidden" data-gvm-field="kit">
+                      <label class="form-label" for="{{ form_id }}-gvm-kit">
+                        Which GVM Kit are you ordering?
+                        <span aria-hidden="true">*</span>
+                      </label>
+                      <select class="form-control" id="{{ form_id }}-gvm-kit" name="contact[GVM Kit]" required aria-required="true" disabled data-gvm-kit>
+                        <option value="" disabled selected>Select GVM kit...</option>
+                      </select>
+                    </div>
+
+                    <div class="form-field w-full sm:w-1/2">
+                      <label class="form-label" for="{{ form_id }}-build-date">
+                        Build Date (Month/Year)
+                        <span aria-hidden="true">*</span>
+                      </label>
+                      <input class="form-control" type="text" id="{{ form_id }}-build-date" name="contact[Build Date (Month/Year)]" required aria-required="true" placeholder="e.g. 03/2023">
+                    </div>
+
+                    <div class="form-field w-full sm:w-1/2">
+                      <label class="form-label" for="{{ form_id }}-vin">
+                        VIN Number
+                        <span aria-hidden="true">*</span>
+                      </label>
+                      <input class="form-control" type="text" id="{{ form_id }}-vin" name="contact[VIN Number]" required aria-required="true">
+                    </div>
+
+                    <div class="form-field w-full sm:w-1/2">
+                      <label class="form-label" for="{{ form_id }}-wheel-size">
+                        Wheel / Rim Size
+                        <span aria-hidden="true">*</span>
+                      </label>
+                      <select class="form-control" id="{{ form_id }}-wheel-size" name="contact[Wheel / Rim Size]" required aria-required="true">
+                        <option value="" disabled selected>Select size...</option>
+                        <option value="17&quot;">17"</option>
+                        <option value="18&quot;">18"</option>
+                        <option value="20&quot;">20"</option>
+                      </select>
+                    </div>
+
+                    <div class="form-field w-full sm:w-1/2">
+                      <label class="form-label" for="{{ form_id }}-tyre-size">
+                        Tyre Size
+                        <span aria-hidden="true">*</span>
+                      </label>
+                      <input class="form-control" type="text" id="{{ form_id }}-tyre-size" name="contact[Tyre Size]" required aria-required="true" placeholder="e.g. 35x12.18">
+                    </div>
+
+                    <div class="form-field w-full sm:w-1/2">
+                      <label class="form-label" for="{{ form_id }}-offset">
+                        Wheel Offset
+                        <span aria-hidden="true">*</span>
+                      </label>
+                      <input class="form-control" type="text" id="{{ form_id }}-offset" name="contact[Wheel Offset]" required aria-required="true" placeholder="e.g. +12">
+                    </div>
+
+                    <div class="form-field w-full">
+                      <label class="form-label" for="{{ form_id }}-notes">
+                        Additional Notes
+                        <span aria-hidden="true">*</span>
+                      </label>
+                      <textarea class="form-control form-control--textarea" id="{{ form_id }}-notes" name="contact[body]" rows="4" required aria-required="true" placeholder="Anything else we should know about this order.">{{- form.body -}}</textarea>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              <!-- Step 3: Your details -->
+              <section class="f-gvm-order__step">
+                <div class="f-gvm-order__step-marker">
+                  <span class="f-gvm-order__step-num">3</span>
+                  <span class="f-gvm-order__step-line" aria-hidden="true"></span>
+                </div>
+                <div class="f-gvm-order__step-body">
+                  <div class="f-gvm-order__step-header f-gvm-order__step-header--lead">
+                    <span class="f-gvm-order__group-title f-gvm-order__group-title--lead">{{ section.settings.your_details_title | default: 'Workshop Details' | escape }}</span>
+                  </div>
+                  <div class="f-flex flex-wrap f-gvm-order__fields">
+                    <div class="form-field w-full">
+                      <label class="form-label" for="{{ form_id }}-company">
+                        Company Name
+                        <span aria-hidden="true">*</span>
+                      </label>
+                      <input class="form-control" type="text" id="{{ form_id }}-company" name="contact[Company Name]" required aria-required="true">
+                    </div>
+
+                    <div class="form-field w-full sm:w-1/2">
+                      <label class="form-label" for="{{ form_id }}-contact-person">
+                        Workshop Contact
+                        <span aria-hidden="true">*</span>
+                      </label>
+                      <input class="form-control" type="text" id="{{ form_id }}-contact-person" name="contact[Workshop Contact]" required aria-required="true">
+                    </div>
+
+                    <div class="form-field w-full sm:w-1/2">
+                      <label class="form-label" for="{{ form_id }}-phone">
+                        Workshop Number
+                        <span aria-hidden="true">*</span>
+                      </label>
+                      <input class="form-control" type="tel" id="{{ form_id }}-phone" name="contact[Workshop Number]" required aria-required="true" pattern="[0-9\-\+\(\)\s]*">
+                    </div>
+
+                    <div class="form-field w-full sm:w-1/2">
+                      <label class="form-label" for="{{ form_id }}-email">
+                        Workshop Email
+                        <span aria-hidden="true">*</span>
+                      </label>
+                      <input
+                        class="form-control{% if form.errors contains 'email' %} form-control--error{% endif %}"
+                        type="email"
+                        id="{{ form_id }}-email"
+                        name="contact[email]"
+                        required
+                        aria-required="true"
+                        autocomplete="email"
+                        spellcheck="false"
+                        autocapitalize="off"
+                        placeholder="your@email.com"
+                        value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
+                      >
+                      {%- if form.errors contains 'email' -%}
+                        <p class="form-message form-message--error" id="{{ form_id }}-email-error">
+                          <span class="visually-hidden">{{ 'accessibility.error' | t }}</span>
+                          <span>{{ form.errors.translated_fields.email | capitalize }} {{ form.errors.messages.email }}</span>
+                        </p>
+                      {%- endif -%}
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+            </div>
+
+            <div class="f-gvm-order__footer">
+              <button type="submit" class="btn {{ section.settings.button_style }}">
+                {{ section.settings.button_label | default: 'Submit Order Request' }}
+              </button>
+              <p class="f-gvm-order__required-note">Fields marked <span aria-hidden="true" style="color:#dc2626;">*</span> are required.</p>
+            </div>
+          {%- endform -%}
+        </div>
+      </motion-element>
+    </div>
+  </div>
+</div>
+
+<script>
+  (function () {
+    var form = document.getElementById('{{ form_id }}');
+    if (!form) return;
+    // Note links open in a new tab (theme richtext strips the target attribute)
+    [].slice.call(form.querySelectorAll('.f-gvm-order__note a')).forEach(function (a) {
+      a.setAttribute('target', '_blank');
+      a.setAttribute('rel', 'noopener noreferrer');
+    });
+    form.addEventListener('submit', function () {
+      var company = (form.querySelector('[name="contact[Company Name]"]') || {}).value || '';
+      var person = (form.querySelector('[name="contact[Workshop Contact]"]') || {}).value || '';
+      var combined = document.getElementById('{{ form_id }}-combined-name');
+      if (combined) {
+        combined.value = [company.trim(), person.trim()].filter(Boolean).join(' - ') || 'GVM order request';
+      }
+    });
+  })();
+</script>
+
+<script>
+  /* Vehicle cascade: Make -> Model -> Trim -> GVM Kit dependent dropdowns.
+     Runs in both the multi-step and single-page layouts. Each menu reveals and
+     populates once the one above it is chosen. Downstream menus stay disabled
+     while hidden, so a hidden required menu can never block submission.
+     Some models (e.g. Ford F150) fold wheelbase into the trim options and
+     relabel that menu via a per-model "trimLabel". */
+  (function () {
+    var form = document.getElementById('{{ form_id }}');
+    if (!form) return;
+
+    // Vehicle list (approved by ORI). A model may set "trimLabel" to rename the
+    // trim menu (used for Ford F150, which combines trim and wheelbase).
+    var VEHICLES = {
+      "Ford": {
+        "F150": {
+          "trimLabel": "Trim and Wheelbase",
+          "trims": [
+            "XLT - Short", "XLT - Long",
+            "Lariat - Short", "Lariat - Long",
+            "Platinum - Short", "Platinum - Long"
+          ],
+          "kits": [
+            "FRD-F150-Stage1-GVM", "FRD-F150-Stage2-GVM",
+            "FRD-F150-Stage3-GVM-200", "FRD-F150-Stage3-GVM-400",
+            "FRD-F150-Stage4-GVM-200", "FRD-F150-Stage4-GVM-400",
+            "FRD-F150-Stage5-GVM-200", "FRD-F150-Stage5-GVM-400",
+            "FRD-F150-Stage6-GVM"
+          ]
+        }
+      },
+      "Chevrolet": {
+        "Silverado 1500": {
+          "trims": ["Trail Boss", "LTZ", "ZR2"],
+          "kits": [
+            "CHV-1500-Stage1-GVM", "CHV-1500-Stage2-GVM", "CHV-1500-Stage3-GVM",
+            "CHV-1500-Stage4-GVM-200", "CHV-1500-Stage4-GVM-400",
+            "CHV-1500-Stage5-GVM-200", "CHV-1500-Stage5-GVM-400"
+          ]
+        },
+        "Silverado 2500HD": {
+          "trims": ["LTZ"],
+          "kits": [
+            "CHV-2500-Stage1-GVM", "CHV-2500-Stage2-GVM",
+            "CHV-2500-Stage3-GVM", "CHV-2500-Stage3-GVM-K",
+            "CHV-2500-Stage4-GVM", "CHV-2500-Stage5-GVM",
+            "CHV-2500-Stage6-GVM", "CHV-2500-Stage6-GVM-K"
+          ]
+        },
+        "Silverado 2500HD NB1": {
+          "trims": ["LTZ"],
+          "kits": [
+            "CHV-2500-STAGE-1-NB1", "CHV-2500-STAGE-2-NB1", "CHV-2500-STAGE-3-NB1",
+            "CHV-2500-STAGE-4-NB1", "CHV-2500-STAGE-5-NB1", "CHV-2500-STAGE-6-NB1"
+          ]
+        }
+      },
+      "Toyota": {
+        "Tundra": {
+          "trims": ["Platinum", "Limited"],
+          "kits": ["TUN-Stage1-GVM", "TUN-Stage2-GVM", "TUN-Stage3-GVM", "TUN-Stage4-GVM"]
+        }
+      },
+      "RAM": {
+        "2500": {
+          "trims": ["Laramie"],
+          "kits": [
+            "RAM-2500-Stage1-GVM", "RAM-2500-Stage2-GVM", "RAM-2500-Stage3-GVM",
+            "RAM-2500-Stage4-GVM", "RAM-2500-Stage5-GVM"
+          ]
+        }
+      }
+    };
+
+    var makeEl = form.querySelector('[data-gvm-make]');
+    var modelEl = form.querySelector('[data-gvm-model]');
+    var trimEl = form.querySelector('[data-gvm-trim]');
+    var kitEl = form.querySelector('[data-gvm-kit]');
+    if (!makeEl || !modelEl || !trimEl || !kitEl) return;
+
+    var trimLabelEl = form.querySelector('[data-gvm-trim-label]');
+    var fModel = form.querySelector('[data-gvm-field="model"]');
+    var fTrim = form.querySelector('[data-gvm-field="trim"]');
+    var fKit = form.querySelector('[data-gvm-field="kit"]');
+
+    function setTrimLabel(text) {
+      if (trimLabelEl) trimLabelEl.textContent = text || 'Trim';
+    }
+
+    function fill(select, items, placeholder) {
+      select.innerHTML = '';
+      var ph = document.createElement('option');
+      ph.value = ''; ph.disabled = true; ph.selected = true; ph.textContent = placeholder;
+      select.appendChild(ph);
+      items.forEach(function (item) {
+        var o = document.createElement('option');
+        o.value = item; o.textContent = item;
+        select.appendChild(o);
+      });
+    }
+    function resetField(field, select, placeholder) {
+      fill(select, [], placeholder);
+      select.value = '';
+      select.disabled = true;
+      field.classList.add('is-hidden');
+    }
+    function openField(field, select) {
+      select.disabled = false;
+      field.classList.remove('is-hidden');
+    }
+
+    fill(makeEl, Object.keys(VEHICLES), 'Select make...');
+
+    makeEl.addEventListener('change', function () {
+      setTrimLabel('Trim');
+      resetField(fTrim, trimEl, 'Select trim...');
+      resetField(fKit, kitEl, 'Select GVM kit...');
+      if (!makeEl.value || !VEHICLES[makeEl.value]) {
+        resetField(fModel, modelEl, 'Select model...');
+        return;
+      }
+      fill(modelEl, Object.keys(VEHICLES[makeEl.value]), 'Select model...');
+      openField(fModel, modelEl);
+    });
+
+    modelEl.addEventListener('change', function () {
+      var models = VEHICLES[makeEl.value] || {};
+      var model = models[modelEl.value];
+      if (!modelEl.value || !model) {
+        setTrimLabel('Trim');
+        resetField(fTrim, trimEl, 'Select trim...');
+        resetField(fKit, kitEl, 'Select GVM kit...');
+        return;
+      }
+      var trimText = model.trimLabel || 'Trim';
+      setTrimLabel(trimText);
+      fill(trimEl, model.trims || [], 'Select ' + trimText.toLowerCase() + '...');
+      openField(fTrim, trimEl);
+      if (model.kits && model.kits.length) {
+        fill(kitEl, model.kits, 'Select GVM kit...');
+        openField(fKit, kitEl);
+      } else {
+        resetField(fKit, kitEl, 'Select GVM kit...');
+      }
+    });
+  })();
+</script>
+
+{%- if section.settings.layout_mode == 'wizard' -%}
+<script>
+  /* Multi-step wizard: shows one section at a time with Back/Next, validating
+     each step before advancing. Progressive enhancement — if this script does
+     not run, every section stays visible and the form submits as a single page. */
+  (function () {
+    var P = 'f-gvm-order';
+    var root = document.getElementById('{{ section_id }}');
+    if (!root) return;
+    var form = root.querySelector('form');
+    var stepsWrap = root.querySelector('.' + P + '__steps');
+    var footer = root.querySelector('.' + P + '__footer');
+    if (!form || !stepsWrap || !footer) return;
+    var steps = [].slice.call(stepsWrap.querySelectorAll('.' + P + '__step'));
+    if (steps.length < 2) return;
+    var submitBtn = footer.querySelector('[type="submit"]');
+    var submitLabel = submitBtn ? (submitBtn.textContent || 'Submit').trim() : 'Submit';
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // Preserve original `required` so hidden steps never block the native submit.
+    [].slice.call(form.querySelectorAll('[required]')).forEach(function (c) {
+      c.setAttribute('data-wizard-req', '1');
+    });
+
+    var current = 0, furthest = 0;
+
+    var prog = document.createElement('ol');
+    prog.className = P + '__progress';
+    var items = steps.map(function (step, i) {
+      var t = step.querySelector('.' + P + '__group-title');
+      var label = t ? t.textContent.trim() : ('Step ' + (i + 1));
+      var li = document.createElement('li');
+      li.className = P + '__pstep';
+      var dot = document.createElement('span');
+      dot.className = P + '__pdot';
+      dot.textContent = String(i + 1);
+      var lab = document.createElement('span');
+      lab.className = P + '__plabel';
+      lab.textContent = label;
+      li.appendChild(dot);
+      li.appendChild(lab);
+      li.addEventListener('click', function () { if (i <= furthest) goTo(i); });
+      prog.appendChild(li);
+      return { li: li, dot: dot, label: label };
+    });
+
+    var caption = document.createElement('p');
+    caption.className = P + '__pcaption';
+
+    var nav = document.createElement('div');
+    nav.className = P + '__wnav';
+    var back = document.createElement('button');
+    back.type = 'button';
+    back.className = 'btn btn--secondary ' + P + '__back';
+    back.textContent = 'Back';
+    var next = document.createElement('button');
+    next.type = 'button';
+    next.className = 'btn btn--primary ' + P + '__next';
+    next.textContent = 'Next';
+    nav.appendChild(back);
+    nav.appendChild(next);
+
+    var note = document.createElement('p');
+    note.className = P + '__wnote';
+    note.innerHTML = 'Fields marked <span aria-hidden="true" style="color:#dc2626;">*</span> are required.';
+
+    stepsWrap.parentNode.insertBefore(prog, stepsWrap);
+    stepsWrap.parentNode.insertBefore(caption, stepsWrap);
+    footer.parentNode.insertBefore(nav, footer);
+    footer.parentNode.insertBefore(note, footer);
+
+    root.classList.add('is-wizard');
+
+    back.addEventListener('click', function () { goTo(current - 1); });
+    next.addEventListener('click', function () {
+      if (!validateStep(steps[current])) return;
+      if (current === steps.length - 1) {
+        if (form.requestSubmit) form.requestSubmit(submitBtn || undefined);
+        else if (submitBtn) submitBtn.click();
+        else form.submit();
+        return;
+      }
+      goTo(current + 1);
+    });
+
+    function validateStep(step) {
+      var cs = [].slice.call(step.querySelectorAll('input, select, textarea'));
+      for (var i = 0; i < cs.length; i++) {
+        if (cs[i].willValidate && !cs[i].checkValidity()) {
+          cs[i].reportValidity();
+          return false;
+        }
+      }
+      return true;
+    }
+
+    function goTo(index, initial) {
+      if (index < 0 || index >= steps.length) return;
+      current = index;
+      if (index > furthest) furthest = index;
+      steps.forEach(function (s, i) {
+        var active = i === index;
+        s.classList.toggle('is-active', active);
+        [].slice.call(s.querySelectorAll('[data-wizard-req]')).forEach(function (c) {
+          if (active) c.setAttribute('required', ''); else c.removeAttribute('required');
+        });
+      });
+      items.forEach(function (p, i) {
+        p.li.classList.toggle('is-active', i === index);
+        p.li.classList.toggle('is-done', i < index);
+        p.li.classList.toggle('is-clickable', i <= furthest);
+        p.dot.innerHTML = (i < index) ? '&#10003;' : String(i + 1);
+      });
+      back.hidden = index === 0;
+      next.textContent = (index === steps.length - 1) ? submitLabel : 'Next';
+      caption.textContent = 'Step ' + (index + 1) + ' of ' + steps.length + ' — ' + items[index].label;
+      if (!initial) {
+        var f = steps[index].querySelector('input, select, textarea');
+        if (f) { try { f.focus({ preventScroll: true }); } catch (e) { f.focus(); } }
+        try { prog.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'nearest' }); } catch (e) {}
+      }
+    }
+
+    goTo(0, true);
+  })();
+</script>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "GVM Order Form",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "header",
+      "content": "General"
+    },
+    {
+      "type": "select",
+      "id": "container",
+      "options": [
+        { "value": "container", "label": "Fixed" },
+        { "value": "container-fluid", "label": "Stretched" },
+        { "value": "container-full", "label": "Full width" }
+      ],
+      "default": "container",
+      "label": "Container"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_schema",
+      "label": "Color scheme",
+      "default": "background-1"
+    },
+    {
+      "type": "select",
+      "id": "layout_mode",
+      "label": "Form layout",
+      "info": "Multi-step shows one section at a time with Next/Back. Single page shows every section stacked on one page.",
+      "options": [
+        { "value": "wizard", "label": "Multi-step (one section at a time)" },
+        { "value": "single", "label": "Single page (all sections)" }
+      ],
+      "default": "wizard"
+    },
+    {
+      "type": "header",
+      "content": "Section header"
+    },
+    {
+      "type": "select",
+      "id": "section_header_padding_bottom",
+      "label": "Header bottom spacing",
+      "options": [
+        { "value": "small", "label": "Small" },
+        { "value": "medium", "label": "Medium" },
+        { "value": "large", "label": "Large" }
+      ],
+      "default": "medium"
+    },
+    {
+      "type": "select",
+      "id": "section_header_content_spacing",
+      "label": "Content spacing",
+      "options": [
+        { "value": "small", "label": "Small" },
+        { "value": "medium", "label": "Medium" }
+      ],
+      "default": "medium"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "GVM Order Request"
+    },
+    {
+      "type": "select",
+      "id": "highlight_style",
+      "label": "Highlight style",
+      "options": [
+        { "value": "none", "label": "None" },
+        { "value": "drawer_line", "label": "Drawer line" },
+        { "value": "underline", "label": "Underline" }
+      ],
+      "default": "none"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_highlight_text_color",
+      "label": "Enable highlight text color",
+      "default": false
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "label": "Heading size",
+      "default": "h2",
+      "options": [
+        { "value": "h3", "label": "H3" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h1", "label": "H1" },
+        { "value": "h0", "label": "H0" }
+      ]
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading color"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description",
+      "default": "<p>Please provide the details required for your new GVM order request. Orders will not be processed until all information is received.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Section labels"
+    },
+    {
+      "type": "text",
+      "id": "order_details_title",
+      "label": "Order details label",
+      "default": "Order Details"
+    },
+    {
+      "type": "text",
+      "id": "vehicle_info_title",
+      "label": "Vehicle information label",
+      "default": "Vehicle Information"
+    },
+    {
+      "type": "text",
+      "id": "your_details_title",
+      "label": "Last page label",
+      "default": "Workshop Details"
+    },
+    {
+      "type": "header",
+      "content": "Note on the first step"
+    },
+    {
+      "type": "text",
+      "id": "vehicle_note_title",
+      "label": "Note heading",
+      "info": "Shown at the top of the first step. Leave the heading and body both blank to hide the note.",
+      "default": "Vehicle Details Required"
+    },
+    {
+      "type": "richtext",
+      "id": "vehicle_note_body",
+      "label": "Note body",
+      "info": "Links open in a new tab so the form is not lost.",
+      "default": "<p>To ensure your ORI GVM upgrade is processed accurately, we need your exact VIN and Build Date. Please verify your vehicle details using the <a href=\"https://www.rover.infrastructure.gov.au/RAVPublicSearch/\">RAV Public Search database</a> before entering them below.</p>"
+    },
+    {
+      "type": "color",
+      "id": "note_bg_color",
+      "label": "Note background color",
+      "default": "#FEF3C7"
+    },
+    {
+      "type": "header",
+      "content": "Logo"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo image"
+    },
+    {
+      "type": "select",
+      "id": "logo_position",
+      "label": "Logo position",
+      "options": [
+        { "value": "above", "label": "Above heading" },
+        { "value": "left", "label": "Left of heading" },
+        { "value": "right", "label": "Right of heading" }
+      ],
+      "default": "above"
+    },
+    {
+      "type": "range",
+      "id": "logo_width",
+      "label": "Logo width",
+      "min": 60,
+      "max": 400,
+      "step": 10,
+      "default": 160,
+      "unit": "px"
+    },
+    {
+      "type": "header",
+      "content": "Font sizes"
+    },
+    {
+      "type": "paragraph",
+      "content": "Each size scales fluidly between the mobile and desktop values using CSS clamp()."
+    },
+    {
+      "type": "range",
+      "id": "heading_size_min",
+      "label": "Heading size (mobile)",
+      "min": 14,
+      "max": 60,
+      "step": 1,
+      "default": 28,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "heading_size_max",
+      "label": "Heading size (desktop)",
+      "min": 16,
+      "max": 80,
+      "step": 1,
+      "default": 40,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "subheading_size_min",
+      "label": "Subheading size (mobile)",
+      "min": 10,
+      "max": 32,
+      "step": 1,
+      "default": 15,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "subheading_size_max",
+      "label": "Subheading size (desktop)",
+      "min": 12,
+      "max": 40,
+      "step": 1,
+      "default": 18,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "desc_size_min",
+      "label": "Description size (mobile)",
+      "min": 10,
+      "max": 28,
+      "step": 1,
+      "default": 15,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "desc_size_max",
+      "label": "Description size (desktop)",
+      "min": 12,
+      "max": 32,
+      "step": 1,
+      "default": 17,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "label_size_min",
+      "label": "Field label size (mobile)",
+      "min": 10,
+      "max": 24,
+      "step": 1,
+      "default": 15,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "label_size_max",
+      "label": "Field label size (desktop)",
+      "min": 12,
+      "max": 28,
+      "step": 1,
+      "default": 16,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "input_size_min",
+      "label": "Input text size (mobile)",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "default": 16,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "input_size_max",
+      "label": "Input text size (desktop)",
+      "min": 14,
+      "max": 28,
+      "step": 1,
+      "default": 17,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "section_label_size_min",
+      "label": "Section label size (mobile)",
+      "info": "The small uppercase labels, e.g. VEHICLE INFORMATION.",
+      "min": 9,
+      "max": 24,
+      "step": 1,
+      "default": 11,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "section_label_size_max",
+      "label": "Section label size (desktop)",
+      "min": 10,
+      "max": 28,
+      "step": 1,
+      "default": 12,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "helper_size_min",
+      "label": "Helper text size (mobile)",
+      "info": "The small note under a field, e.g. Only required for F-150 orders.",
+      "min": 10,
+      "max": 26,
+      "step": 1,
+      "default": 13,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "helper_size_max",
+      "label": "Helper text size (desktop)",
+      "min": 12,
+      "max": 30,
+      "step": 1,
+      "default": 14,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "progress_label_size_min",
+      "label": "Step label size (mobile)",
+      "info": "The step names under the numbered progress bar, e.g. ORDER DETAILS. Multi-step layout only.",
+      "min": 8,
+      "max": 20,
+      "step": 1,
+      "default": 11,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "progress_label_size_max",
+      "label": "Step label size (desktop)",
+      "min": 9,
+      "max": 24,
+      "step": 1,
+      "default": 12,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "required_note_size_min",
+      "label": "\"Fields marked * are required\" size (mobile)",
+      "min": 10,
+      "max": 28,
+      "step": 1,
+      "default": 15,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "required_note_size_max",
+      "label": "\"Fields marked * are required\" size (desktop)",
+      "min": 12,
+      "max": 32,
+      "step": 1,
+      "default": 16,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "note_body_size_min",
+      "label": "First-step note text size (mobile)",
+      "info": "The body text of the \"Vehicle Details Required\" note.",
+      "min": 12,
+      "max": 28,
+      "step": 1,
+      "default": 15,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "note_body_size_max",
+      "label": "First-step note text size (desktop)",
+      "min": 13,
+      "max": 32,
+      "step": 1,
+      "default": 16,
+      "unit": "px"
+    },
+    {
+      "type": "header",
+      "content": "Submit button"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Submit Order Request"
+    },
+    {
+      "type": "select",
+      "id": "button_style",
+      "label": "Button style",
+      "options": [
+        { "value": "btn--primary", "label": "Primary" },
+        { "value": "btn--secondary", "label": "Secondary" },
+        { "value": "btn--white", "label": "White" },
+        { "value": "btn--underline", "label": "Underline" }
+      ],
+      "default": "btn--primary"
+    },
+    {
+      "type": "header",
+      "content": "Section padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding top",
+      "default": 60,
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding bottom",
+      "default": 80,
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px"
+    },
+    {
+      "type": "header",
+      "content": "Divider"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_section_divider",
+      "default": false,
+      "label": "Show divider"
+    },
+    {
+      "type": "select",
+      "id": "divider_width",
+      "options": [
+        { "value": "container", "label": "Fixed" },
+        { "value": "container-fluid", "label": "Stretched" },
+        { "value": "container-full", "label": "Full width" }
+      ],
+      "default": "container",
+      "label": "Divider width"
+    },
+    {
+      "type": "header",
+      "content": "Custom attributes"
+    },
+    {
+      "type": "text",
+      "id": "custom_id",
+      "label": "Custom ID"
+    },
+    {
+      "type": "text",
+      "id": "custom_class",
+      "label": "Custom class"
+    },
+    {
+      "type": "header",
+      "content": "Animations"
+    },
+    {
+      "type": "select",
+      "id": "animations",
+      "label": "Animation",
+      "default": "inherit",
+      "options": [
+        { "value": "inherit", "label": "Inherit" },
+        { "value": "fade-in", "label": "Fade in" },
+        { "value": "fade-in-up", "label": "Fade in up" },
+        { "value": "fade-in-left", "label": "Fade in left" },
+        { "value": "fade-in-right", "label": "Fade in right" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "GVM Order Form"
+    }
+  ]
+}
+{% endschema %}

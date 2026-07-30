@@ -1,0 +1,456 @@
+{% liquid
+  assign section_id = section.id
+  assign form_id = 'DealerConversionForm-' | append: section_id
+  assign mobile_form_first = false
+  if section.settings.mobile_order == 'form_first'
+    assign mobile_form_first = true
+  endif
+  assign hero_points = section.settings.hero_points | newline_to_br | split: '<br />'
+%}
+
+<section id="DealerConversionHeroForm-{{ section_id }}" class="dealer-conversion-hero-form">
+  {% if section.settings.background_image != blank %}
+    <div class="dealer-conversion-hero-form__bg">
+      {{ section.settings.background_image | image_url: width: 2200 | image_tag: loading: 'eager', class: 'dealer-conversion-hero-form__bg-image', widths: '900, 1200, 1600, 2200' }}
+    </div>
+  {% endif %}
+  <div class="dealer-conversion-hero-form__overlay"></div>
+
+  <div class="dealer-conversion-hero-form__container{% if mobile_form_first %} dealer-conversion-hero-form__container--mobile-reverse{% endif %}">
+    <div class="dealer-conversion-hero-form__content">
+      {% if section.settings.eyebrow != blank %}
+        <p class="dealer-conversion-hero-form__eyebrow">{{ section.settings.eyebrow }}</p>
+      {% endif %}
+      {% if section.settings.heading != blank %}
+        <h1 class="dealer-conversion-hero-form__heading">{{ section.settings.heading }}</h1>
+      {% endif %}
+      {% if section.settings.text != blank %}
+        <div class="dealer-conversion-hero-form__text rte">{{ section.settings.text }}</div>
+      {% endif %}
+
+      {% assign points_visible = false %}
+      {% for item in hero_points %}
+        {% assign point = item | strip %}
+        {% if point != blank %}{% assign points_visible = true %}{% break %}{% endif %}
+      {% endfor %}
+      {% if points_visible %}
+        <ul class="dealer-conversion-hero-form__points" role="list">
+          {% for item in hero_points %}
+            {% assign point = item | strip %}
+            {% if point != blank %}
+              <li class="dealer-conversion-hero-form__point">
+                <span class="dealer-conversion-hero-form__point-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><path d="M9.55 17.6 4.95 13l1.4-1.4 3.2 3.2 8.1-8.1 1.4 1.4-9.5 9.5Z" fill="currentColor"/></svg>
+                </span>
+                <span>{{ point }}</span>
+              </li>
+            {% endif %}
+          {% endfor %}
+        </ul>
+      {% endif %}
+
+      <div class="dealer-conversion-hero-form__stats">
+        {% if section.settings.stat_1_value != blank or section.settings.stat_1_label != blank %}
+          <div class="dealer-conversion-hero-form__stat">
+            {% if section.settings.stat_1_value != blank %}<div class="dealer-conversion-hero-form__stat-value">{{ section.settings.stat_1_value }}</div>{% endif %}
+            {% if section.settings.stat_1_label != blank %}<div class="dealer-conversion-hero-form__stat-label">{{ section.settings.stat_1_label }}</div>{% endif %}
+          </div>
+        {% endif %}
+        {% if section.settings.stat_2_value != blank or section.settings.stat_2_label != blank %}
+          <div class="dealer-conversion-hero-form__stat">
+            {% if section.settings.stat_2_value != blank %}<div class="dealer-conversion-hero-form__stat-value">{{ section.settings.stat_2_value }}</div>{% endif %}
+            {% if section.settings.stat_2_label != blank %}<div class="dealer-conversion-hero-form__stat-label">{{ section.settings.stat_2_label }}</div>{% endif %}
+          </div>
+        {% endif %}
+        {% if section.settings.stat_3_value != blank or section.settings.stat_3_label != blank %}
+          <div class="dealer-conversion-hero-form__stat">
+            {% if section.settings.stat_3_value != blank %}<div class="dealer-conversion-hero-form__stat-value">{{ section.settings.stat_3_value }}</div>{% endif %}
+            {% if section.settings.stat_3_label != blank %}<div class="dealer-conversion-hero-form__stat-label">{{ section.settings.stat_3_label }}</div>{% endif %}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+
+    <div class="dealer-conversion-hero-form__form-card">
+      {% if section.settings.form_heading != blank %}
+        <h2 class="dealer-conversion-hero-form__form-title">{{ section.settings.form_heading }}</h2>
+      {% endif %}
+      {% if section.settings.form_text != blank %}
+        <div class="dealer-conversion-hero-form__form-text rte">{{ section.settings.form_text }}</div>
+      {% endif %}
+
+      <div class="dealer-conversion-hero-form__klaviyo-wrap">
+        <div class="klaviyo-form-WwjwUL"></div>
+      </div>
+
+    </div>
+  </div>
+
+  <style>
+    #DealerConversionHeroForm-{{ section_id }} {
+      position: relative;
+      overflow: hidden;
+      background: {{ section.settings.fallback_bg_color }};
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+    #DealerConversionHeroForm-{{ section_id }} .dealer-conversion-hero-form__bg,
+    #DealerConversionHeroForm-{{ section_id }} .dealer-conversion-hero-form__overlay {
+      position: absolute;
+      inset: 0;
+    }
+    #DealerConversionHeroForm-{{ section_id }} .dealer-conversion-hero-form__bg-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    #DealerConversionHeroForm-{{ section_id }} .dealer-conversion-hero-form__overlay {
+      background: linear-gradient(90deg, {{ section.settings.overlay_color }} 0%, rgba(16,24,32,.72) 45%, rgba(16,24,32,.35) 100%);
+      opacity: {{ section.settings.overlay_opacity | divided_by: 100.0 }};
+    }
+    #DealerConversionHeroForm-{{ section_id }} .dealer-conversion-hero-form__container {
+      position: relative;
+      z-index: 1;
+      max-width: {{ section.settings.container_width }}px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 520px);
+      gap: 34px;
+      align-items: center;
+    }
+    #DealerConversionHeroForm-{{ section_id }} .dealer-conversion-hero-form__content { max-width: 720px; }
+    #DealerConversionHeroForm-{{ section_id }} .dealer-conversion-hero-form__eyebrow {
+      margin: 0 0 10px;
+      font-family: "Geomanist", sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: {{ section.settings.eyebrow_color }};
+    }
+    #DealerConversionHeroForm-{{ section_id }} .dealer-conversion-hero-form__heading {
+      margin: 0 0 16px;
+      font-family: "Evogria", sans-serif;
+      font-size: {{ section.settings.heading_size }}px;
+      line-height: 1.02;
+      text-transform: uppercase;
+      color: {{ section.settings.hero_heading_color }};
+    }
+    #DealerConversionHeroForm-{{ section_id }} .dealer-conversion-hero-form__text,
+    #DealerConversionHeroForm-{{ section_id }} .dealer-conversion-hero-form__form-text {
+      font-family: "Geomanist", sans-serif;
+      font-size: 17px;
+      line-height: 1.75;
+      color: {{ section.settings.hero_text_color }};
+    }
+    #DealerConversionHeroForm-{{ section_id }} .dealer-conversion-hero-form__text > *:first-child,
+    #DealerConversionHeroForm-{{ section_id }} .dealer-conversion-hero-form__form-text > *:first-child { margin-top: 0; }
+    #DealerConversionHeroForm-{{ section_id }} .dealer-conversion-hero-form__points {
+      list-style: none;
+      margin: 24px 0 0;
+      padding: 0;
+      display: grid;
+      gap: 12px;
+    }
+    #DealerConversionHeroForm-{{ section_id }} .dealer-conversion-hero-form__point {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      font-family: "Geomanist", sans-serif;
+      font-size: 16px;
+      line-height: 1.55;
+      color: {{ section.settings.hero_text_color }};
+    }
+    #DealerConversionHeroForm-{{ section_id }} .dealer-conversion-hero-form__point-icon {
+      width: 20px;
+      height: 20px;
+      flex: 0 0 20px;
+      color: {{ section.settings.eyebrow_color }};
+      margin-top: 2px;
+    }
+    #DealerConversionHeroForm-{{ section_id }} .dealer-conversion-hero-form__point-icon svg { width: 100%; height: 100%; display: block; }
+    #DealerConversionHeroForm-{{ section_id }} .dealer-conversion-hero-form__stats {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 28px;
+      max-width: 680px;
+    }
+    #DealerConversionHeroForm-{{ section_id }} .dealer-conversion-hero-form__stat {
+      padding: 18px 16px;
+      border: 1px solid rgba(255,255,255,.18);
+      border-radius: 14px;
+      background: rgba(255,255,255,.08);
+      backdrop-filter: blur(6px);
+    }
+    #DealerConversionHeroForm-{{ section_id }} .dealer-conversion-hero-form__stat-value {
+      font-family: "Evogria", sans-serif;
+      font-size: 24px;
+      line-height: 1;
+      text-transform: uppercase;
+      color: {{ section.settings.hero_heading_color }};
+    }
+    #DealerConversionHeroForm-{{ section_id }} .dealer-conversion-hero-form__stat-label {
+      margin-top: 8px;
+      font-family: "Geomanist", sans-serif;
+      font-size: 14px;
+      line-height: 1.45;
+      color: {{ section.settings.hero_text_color }};
+    }
+    #DealerConversionHeroForm-{{ section_id }} .dealer-conversion-hero-form__form-card {
+      padding: 28px;
+      border: 1px solid {{ section.settings.form_card_border }};
+      border-radius: {{ section.settings.form_card_radius }}px;
+      background: {{ section.settings.form_card_bg }};
+      box-shadow: 0 16px 40px rgba(0,0,0,.12);
+    }
+    #DealerConversionHeroForm-{{ section_id }} .dealer-conversion-hero-form__form-title {
+      margin: 0 0 10px;
+      font-family: "Evogria", sans-serif;
+      font-size: 28px;
+      line-height: 1.05;
+      text-transform: uppercase;
+      color: {{ section.settings.form_heading_color }};
+    }
+    #DealerConversionHeroForm-{{ section_id }} .dealer-conversion-hero-form__form-text { color: {{ section.settings.form_text_color }}; }
+    #DealerConversionHeroForm-{{ section_id }} .dealer-conversion-hero-form__success,
+    #DealerConversionHeroForm-{{ section_id }} .dealer-conversion-hero-form__errors {
+      margin-bottom: 14px;
+      padding: 12px 14px;
+      border-radius: 8px;
+      font-family: "Geomanist", sans-serif;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+    #DealerConversionHeroForm-{{ section_id }} .dealer-conversion-hero-form__success { background: #eaf8f8; color: #114b4f; }
+    #DealerConversionHeroForm-{{ section_id }} .dealer-conversion-hero-form__errors { background: #fbe9e9; color: #7d1e1e; }
+    #DealerConversionHeroForm-{{ section_id }} .dealer-conversion-hero-form__fields {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+    #DealerConversionHeroForm-{{ section_id }} .dealer-conversion-hero-form__field--full { grid-column: 1 / -1; }
+    #DealerConversionHeroForm-{{ section_id }} .dealer-conversion-hero-form__label {
+      display: block;
+      margin-bottom: 6px;
+      font-family: "Geomanist", sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      line-height: 1.3;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: {{ section.settings.label_color }};
+    }
+    #DealerConversionHeroForm-{{ section_id }} .dealer-conversion-hero-form__input,
+    #DealerConversionHeroForm-{{ section_id }} .dealer-conversion-hero-form__select,
+    #DealerConversionHeroForm-{{ section_id }} .dealer-conversion-hero-form__textarea {
+      width: 100%;
+      min-height: 48px;
+      padding: 12px 14px;
+      border: 1px solid {{ section.settings.input_border_color }};
+      border-radius: {{ section.settings.input_radius }}px;
+      background: {{ section.settings.input_bg_color }};
+      color: {{ section.settings.input_text_color }};
+      font-family: "Geomanist", sans-serif;
+      font-size: 15px;
+      line-height: 1.45;
+      box-sizing: border-box;
+    }
+    #DealerConversionHeroForm-{{ section_id }} .dealer-conversion-hero-form__textarea { min-height: auto; resize: vertical; }
+    #DealerConversionHeroForm-{{ section_id }} .dealer-conversion-hero-form__input:focus,
+    #DealerConversionHeroForm-{{ section_id }} .dealer-conversion-hero-form__select:focus,
+    #DealerConversionHeroForm-{{ section_id }} .dealer-conversion-hero-form__textarea:focus {
+      outline: none;
+      border-color: {{ section.settings.input_focus_color }};
+    }
+    #DealerConversionHeroForm-{{ section_id }} .dealer-conversion-hero-form__checkbox {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      font-family: "Geomanist", sans-serif;
+      font-size: 14px;
+      line-height: 1.5;
+      color: {{ section.settings.form_text_color }};
+    }
+    #DealerConversionHeroForm-{{ section_id }} .dealer-conversion-hero-form__button {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      min-height: 54px;
+      margin-top: 18px;
+      border: 0;
+      border-radius: {{ section.settings.button_radius }}px;
+      background: {{ section.settings.button_bg }};
+      color: {{ section.settings.button_text }};
+      font-family: "Geomanist", sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+    #DealerConversionHeroForm-{{ section_id }} .dealer-conversion-hero-form__honeypot {
+      position: absolute !important;
+      left: -9999px !important;
+      width: 1px !important;
+      height: 1px !important;
+      opacity: 0 !important;
+      pointer-events: none !important;
+    }
+    @media (max-width: 989px) {
+      #DealerConversionHeroForm-{{ section_id }} .dealer-conversion-hero-form__container { grid-template-columns: 1fr; }
+      #DealerConversionHeroForm-{{ section_id }} .dealer-conversion-hero-form__heading { font-size: {{ section.settings.heading_size_mobile }}px; }
+      #DealerConversionHeroForm-{{ section_id }} .dealer-conversion-hero-form__stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      #DealerConversionHeroForm-{{ section_id }} .dealer-conversion-hero-form__container--mobile-reverse > :first-child { order: 2; }
+      #DealerConversionHeroForm-{{ section_id }} .dealer-conversion-hero-form__container--mobile-reverse > :last-child { order: 1; }
+    }
+    @media (max-width: 749px) {
+      #DealerConversionHeroForm-{{ section_id }} .dealer-conversion-hero-form__container { padding: 0 16px; }
+      #DealerConversionHeroForm-{{ section_id }} .dealer-conversion-hero-form__stats,
+      #DealerConversionHeroForm-{{ section_id }} .dealer-conversion-hero-form__fields { grid-template-columns: 1fr; }
+      #DealerConversionHeroForm-{{ section_id }} .dealer-conversion-hero-form__form-card { padding: 22px 20px; }
+    }
+    #DealerConversionHeroForm-{{ section_id }} .dealer-conversion-hero-form__klaviyo-wrap {
+      margin-top: 14px;
+    }
+    #DealerConversionHeroForm-{{ section_id }} .dealer-conversion-hero-form__klaviyo-wrap .klaviyo-form-WwjwUL {
+      width: 100%;
+    }
+  </style>
+  <script>
+    (function () {
+      var form = document.getElementById({{ form_id | json }});
+      if (!form || !form.dataset.klaviyoEndpoint) return;
+      if (form.dataset.klaviyoBound === 'true') return;
+
+      form.dataset.klaviyoBound = 'true';
+
+      var submitButton = form.querySelector('button[type="submit"]');
+
+      form.addEventListener('submit', async function (event) {
+        if (form.dataset.klaviyoForwarded === 'true') return;
+
+        event.preventDefault();
+
+        if (submitButton) {
+          submitButton.disabled = true;
+          submitButton.setAttribute('aria-busy', 'true');
+        }
+
+        var payload = {
+          firstName: form.querySelector('[name="contact[First Name]"]')?.value || '',
+          lastName: form.querySelector('[name="contact[Last Name]"]')?.value || '',
+          businessName: form.querySelector('[name="contact[Business Name]"]')?.value || '',
+          businessLocation: form.querySelector('[name="contact[Business Location]"]')?.value || '',
+          email: form.querySelector('[name="contact[email]"]')?.value || '',
+          phone: form.querySelector('[name="contact[Phone]"]')?.value || '',
+          businessType: form.querySelector('[name="contact[Business Type]"]')?.value || '',
+          brandsOfInterest: form.querySelector('[name="contact[Brands of Interest]"]')?.value || '',
+          message: form.querySelector('[name="contact[body]"]')?.value || '',
+          dealerConsent: !!form.querySelector('[name="contact[Dealer Consent]"]:checked'),
+          sourceUrl: window.location.href
+        };
+
+        try {
+          await fetch(form.dataset.klaviyoEndpoint, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload),
+            keepalive: true
+          });
+        } catch (error) {
+          console.warn('Klaviyo dealer sync failed', error);
+        } finally {
+          form.dataset.klaviyoForwarded = 'true';
+          HTMLFormElement.prototype.submit.call(form);
+        }
+      });
+    })();
+  </script>
+</section>
+
+{% schema %}
+{
+  "name": "Dealer conversion",
+  "settings": [
+    { "type": "text", "id": "klaviyo_endpoint", "label": "Klaviyo endpoint URL" },
+    { "type": "image_picker", "id": "background_image", "label": "Background image" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Dealer applications open" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Apply to stock premium suspension, GVM and 4x4 upgrade categories" },
+    { "type": "range", "id": "heading_size", "label": "Heading size desktop", "min": 34, "max": 80, "step": 2, "default": 58 },
+    { "type": "range", "id": "heading_size_mobile", "label": "Heading size mobile", "min": 28, "max": 48, "step": 2, "default": 36 },
+    { "type": "richtext", "id": "text", "label": "Content", "default": "<p>This is the higher-conversion sample because the offer, trust signals and enquiry form are all above the fold.</p>" },
+    { "type": "textarea", "id": "hero_points", "label": "Bullet points (one per line)", "default": "Clear trade-focused value proposition\nForm visible immediately on desktop\nSimple path for qualified dealer enquiries" },
+    { "type": "select", "id": "mobile_order", "label": "Mobile order", "options": [{"value":"content_first","label":"Content first"},{"value":"form_first","label":"Form first"}], "default": "content_first" },
+    { "type": "text", "id": "stat_1_value", "label": "Stat 1 value", "default": "4x4" },
+    { "type": "text", "id": "stat_1_label", "label": "Stat 1 label", "default": "Specialist positioning" },
+    { "type": "text", "id": "stat_2_value", "label": "Stat 2 value", "default": "Trade" },
+    { "type": "text", "id": "stat_2_label", "label": "Stat 2 label", "default": "Dealer-focused applications" },
+    { "type": "text", "id": "stat_3_value", "label": "Stat 3 value", "default": "Fast" },
+    { "type": "text", "id": "stat_3_label", "label": "Stat 3 label", "default": "Application path" },
+    { "type": "text", "id": "form_heading", "label": "Form heading", "default": "Apply for a dealer account" },
+    { "type": "richtext", "id": "form_text", "label": "Form text", "default": "<p>Tell us about your business and our team will review your enquiry.</p>" },
+    { "type": "text", "id": "button_label", "label": "Button label", "default": "Submit application" },
+    { "type": "text", "id": "success_message", "label": "Success message", "default": "Thanks for your enquiry. Our team has received your details and will be in touch soon." },
+    { "type": "text", "id": "label_first_name", "label": "Label: First name", "default": "First name" },
+    { "type": "text", "id": "placeholder_first_name", "label": "Placeholder: First name", "default": "Enter first name" },
+    { "type": "checkbox", "id": "required_first_name", "label": "Require first name", "default": true },
+    { "type": "text", "id": "label_last_name", "label": "Label: Last name", "default": "Last name" },
+    { "type": "text", "id": "placeholder_last_name", "label": "Placeholder: Last name", "default": "Enter last name" },
+    { "type": "checkbox", "id": "required_last_name", "label": "Require last name", "default": true },
+    { "type": "text", "id": "label_business_name", "label": "Label: Business name", "default": "Business name" },
+    { "type": "text", "id": "placeholder_business_name", "label": "Placeholder: Business name", "default": "Enter business name" },
+    { "type": "checkbox", "id": "required_business_name", "label": "Require business name", "default": true },
+    { "type": "text", "id": "label_location", "label": "Label: Business location", "default": "Business location" },
+    { "type": "text", "id": "placeholder_location", "label": "Placeholder: Business location", "default": "City, State / Region" },
+    { "type": "checkbox", "id": "required_location", "label": "Require business location", "default": true },
+    { "type": "text", "id": "label_email", "label": "Label: Email", "default": "Email" },
+    { "type": "text", "id": "placeholder_email", "label": "Placeholder: Email", "default": "Enter email address" },
+    { "type": "text", "id": "label_phone", "label": "Label: Phone", "default": "Phone" },
+    { "type": "text", "id": "placeholder_phone", "label": "Placeholder: Phone", "default": "Enter phone number" },
+    { "type": "checkbox", "id": "required_phone", "label": "Require phone", "default": true },
+    { "type": "text", "id": "label_business_type", "label": "Label: Business type", "default": "Business type" },
+    { "type": "text", "id": "business_type_placeholder", "label": "Placeholder: Business type", "default": "Select business type" },
+    { "type": "textarea", "id": "business_type_options", "label": "Business type options (one per line)", "default": "4x4 retailer\nWorkshop / installer\nSuspension specialist\nOnline store\nFleet / commercial\nOther" },
+    { "type": "checkbox", "id": "required_business_type", "label": "Require business type", "default": true },
+    { "type": "text", "id": "label_brands", "label": "Label: Brands of interest", "default": "Brands / categories of interest" },
+    { "type": "text", "id": "placeholder_brands", "label": "Placeholder: Brands of interest", "default": "Example: BDS, Fox, GVM upgrades" },
+    { "type": "text", "id": "label_message", "label": "Label: Message", "default": "Tell us about your business" },
+    { "type": "text", "id": "placeholder_message", "label": "Placeholder: Message", "default": "Tell us about your business, customers and what you want to stock." },
+    { "type": "range", "id": "message_rows", "label": "Message rows", "min": 3, "max": 10, "step": 1, "default": 4 },
+    { "type": "checkbox", "id": "show_consent", "label": "Show consent checkbox", "default": true },
+    { "type": "checkbox", "id": "required_consent", "label": "Require consent checkbox", "default": true },
+    { "type": "text", "id": "consent_label", "label": "Consent label", "default": "I agree to be contacted about my dealer enquiry." },
+    { "type": "color", "id": "fallback_bg_color", "label": "Fallback background", "default": "#101820" },
+    { "type": "color", "id": "overlay_color", "label": "Overlay color", "default": "#101820" },
+    { "type": "range", "id": "overlay_opacity", "label": "Overlay opacity", "min": 0, "max": 100, "step": 5, "default": 0 },
+    { "type": "color", "id": "eyebrow_color", "label": "Eyebrow color", "default": "#56bdc2" },
+    { "type": "color", "id": "hero_heading_color", "label": "Hero heading color", "default": "#ffffff" },
+    { "type": "color", "id": "hero_text_color", "label": "Hero text color", "default": "#ffffff" },
+    { "type": "color", "id": "form_card_bg", "label": "Form card background", "default": "#ffffff" },
+    { "type": "color", "id": "form_card_border", "label": "Form card border", "default": "#d9d9d9" },
+    { "type": "range", "id": "form_card_radius", "label": "Form card radius", "min": 0, "max": 30, "step": 1, "default": 16 },
+    { "type": "color", "id": "form_heading_color", "label": "Form heading color", "default": "#101820" },
+    { "type": "color", "id": "form_text_color", "label": "Form text color", "default": "#333333" },
+    { "type": "color", "id": "label_color", "label": "Field label color", "default": "#101820" },
+    { "type": "color", "id": "input_bg_color", "label": "Input background", "default": "#ffffff" },
+    { "type": "color", "id": "input_border_color", "label": "Input border", "default": "#c9c9c9" },
+    { "type": "color", "id": "input_focus_color", "label": "Input focus color", "default": "#56bdc2" },
+    { "type": "color", "id": "input_text_color", "label": "Input text color", "default": "#1f1f1f" },
+    { "type": "range", "id": "input_radius", "label": "Input radius", "min": 0, "max": 24, "step": 1, "default": 8 },
+    { "type": "color", "id": "button_bg", "label": "Button background", "default": "#56bdc2" },
+    { "type": "color", "id": "button_text", "label": "Button text", "default": "#101820" },
+    { "type": "range", "id": "button_radius", "label": "Button radius", "min": 0, "max": 24, "step": 1, "default": 8 },
+    { "type": "range", "id": "container_width", "label": "Container width", "min": 980, "max": 1600, "step": 20, "default": 1280 },
+    { "type": "range", "id": "padding_top", "label": "Padding top", "min": 0, "max": 180, "step": 4, "default": 88 },
+    { "type": "range", "id": "padding_bottom", "label": "Padding bottom", "min": 0, "max": 180, "step": 4, "default": 88 }
+  ],
+  "presets": [
+    { "name": "Dealer conversion" }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,502 @@
+{%- liquid
+  assign container = section.settings.container | default: 'container'
+  assign authorized = false
+  if customer.b2b? or customer.tags contains 'b2b'
+    assign authorized = true
+  endif
+
+  assign catalog_collection = collections[section.settings.catalog_collection]
+  if catalog_collection == blank
+    assign catalog_collection = collections.all
+  endif
+
+  assign bulk_enabled = section.settings.bulk_discount_enabled
+  assign bulk_qty     = section.settings.bulk_discount_qty | default: 5
+  assign bulk_pct     = section.settings.bulk_discount_pct | default: 10
+  assign columns      = section.settings.grid_columns | default: 4
+
+  if section.settings.shipping_calc_variant_id != blank
+    assign first_variant_id = section.settings.shipping_calc_variant_id
+  else
+    assign first_variant_id = catalog_collection.products.first.selected_or_first_available_variant.id
+  endif
+-%}
+
+<div
+  class="b2b-catalog-page f-section-padding"
+  style="--section-padding-top: {{ section.settings.padding_top }}px; --section-padding-bottom: {{ section.settings.padding_bottom }}px;"
+>
+  <div class="{{ container }}">
+
+    {%- if authorized -%}
+
+      {%- comment -%} ── Page header ───────────────────────────────────────────── {%- endcomment -%}
+      <div class="b2b-catalog__page-header">
+        <div class="b2b-catalog__page-header-text">
+          <h1 class="b2b-catalog__page-title">{{ section.settings.heading }}</h1>
+          {%- if section.settings.subheading != blank -%}
+            <p class="b2b-catalog__page-sub">{{ section.settings.subheading }}</p>
+          {%- endif -%}
+          {%- if customer.current_company != blank -%}
+            <p class="b2b-catalog__company-info">
+              <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+              <span>{{ customer.current_company.name }}</span>
+              {%- if customer.current_location != blank and customer.current_location.name != customer.current_company.name -%}
+                <span class="b2b-catalog__company-sep">·</span>
+                <span>{{ customer.current_location.name }}</span>
+              {%- endif -%}
+            </p>
+          {%- endif -%}
+        </div>
+        <div class="b2b-catalog__legend">
+          <span class="b2b-stock-badge">In Stock</span>
+          <span class="b2b-stock-badge b2b-stock-badge--low">Low Stock</span>
+          <span class="b2b-stock-badge b2b-stock-badge--out">Out of Stock</span>
+        </div>
+      </div>
+
+      {%- comment -%} ── Bulk discount banner ─────────────────────────────────── {%- endcomment -%}
+      {%- if bulk_enabled -%}
+        <div class="b2b-catalog__bulk-banner">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><path d="M12 22V7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
+          <span><strong>Bulk Discount:</strong> Order {{ bulk_qty }}+ of any item and save {{ bulk_pct }}% — applied automatically at checkout.</span>
+        </div>
+      {%- endif -%}
+
+{%- paginate catalog_collection.products by section.settings.per_page -%}
+
+        {%- comment -%} ── Stats bar ────────────────────────────────────────────── {%- endcomment -%}
+        <div class="b2b-catalog__stats">
+          <span>{{ catalog_collection.products_count }} product{{ catalog_collection.products_count | plural: '', 's' }}</span>
+          {%- if paginate.pages > 1 -%}
+            <span class="b2b-catalog__stats-sep">·</span>
+            <span>Page {{ paginate.current_page }} of {{ paginate.pages }}</span>
+          {%- endif -%}
+        </div>
+
+        {%- comment -%} ── Product grid ──────────────────────────────────────────── {%- endcomment -%}
+        {%- if catalog_collection.products_count > 0 -%}
+          <div class="b2b-catalog__grid" style="--b2b-cols: {{ columns }};">
+
+            {%- for product in catalog_collection.products -%}
+              {%- liquid
+                assign fv = product.selected_or_first_available_variant
+                assign fv_qty = fv.inventory_quantity | default: 0
+                if fv.inventory_management != 'shopify' or fv.inventory_policy == 'continue'
+                  assign fv_stock_class = 'b2b-stock-badge'
+                  assign fv_stock_label = 'Available'
+                  assign fv_stock_show_qty = false
+                elsif fv_qty > 10
+                  assign fv_stock_class = 'b2b-stock-badge'
+                  assign fv_stock_label = 'In Stock'
+                  assign fv_stock_show_qty = true
+                elsif fv_qty > 0
+                  assign fv_stock_class = 'b2b-stock-badge b2b-stock-badge--low'
+                  assign fv_stock_label = 'Low Stock'
+                  assign fv_stock_show_qty = true
+                else
+                  assign fv_stock_class = 'b2b-stock-badge b2b-stock-badge--out'
+                  assign fv_stock_label = 'Out of Stock'
+                  assign fv_stock_show_qty = false
+                endif
+                assign has_compare = false
+                if fv.compare_at_price > fv.price
+                  assign has_compare = true
+                endif
+              -%}
+
+              <div class="b2b-catalog__card">
+
+                <a href="{{ product.url }}" class="b2b-catalog__card-img-wrap" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
+                  {%- if product.featured_image -%}
+                    <img
+                      src="{{ product.featured_image | image_url: width: 500 }}"
+                      alt="{{ product.featured_image.alt | escape }}"
+                      width="500"
+                      height="375"
+                      class="b2b-catalog__card-img"
+                      loading="lazy"
+                      decoding="async"
+                    >
+                  {%- else -%}
+                    <span class="b2b-catalog__card-img-placeholder" aria-hidden="true"></span>
+                  {%- endif -%}
+                </a>
+
+                <div class="b2b-catalog__card-body">
+
+                  <a href="{{ product.url }}" class="b2b-catalog__card-title" target="_blank" rel="noopener noreferrer">{{ product.title }}</a>
+
+                  {%- if product.variants.size > 1 -%}
+                    <select class="b2b-catalog__variant-select form-control" aria-label="Select variant">
+                      {%- for variant in product.variants -%}
+                        {%- liquid
+                          assign v_qty = variant.inventory_quantity | default: 0
+                          if variant.inventory_management != 'shopify' or variant.inventory_policy == 'continue'
+                            assign v_sc = 'b2b-stock-badge'
+                            assign v_sl = 'Available'
+                            assign v_ss = false
+                          elsif v_qty > 10
+                            assign v_sc = 'b2b-stock-badge'
+                            assign v_sl = 'In Stock'
+                            assign v_ss = true
+                          elsif v_qty > 0
+                            assign v_sc = 'b2b-stock-badge b2b-stock-badge--low'
+                            assign v_sl = 'Low Stock'
+                            assign v_ss = true
+                          else
+                            assign v_sc = 'b2b-stock-badge b2b-stock-badge--out'
+                            assign v_sl = 'Out of Stock'
+                            assign v_ss = false
+                          endif
+                        -%}
+                        <option
+                          value="{{ variant.id }}"
+                          data-sku="{{ variant.sku | escape }}"
+                          data-price="{{ variant.price }}"
+                          data-compare="{{ variant.compare_at_price | default: 0 }}"
+                          data-stock-class="{{ v_sc }}"
+                          data-stock-label="{{ v_sl }}"
+                          data-stock-qty="{{ v_qty }}"
+                          data-stock-show="{{ v_ss }}"
+                          {%- if variant == fv %} selected{%- endif -%}
+                        >{{ variant.title }}</option>
+                      {%- endfor -%}
+                    </select>
+                  {%- endif -%}
+
+                  <div class="b2b-catalog__card-pricing">
+                    {%- if has_compare -%}
+                      <span class="b2b-catalog__card-retail" data-retail>{{ fv.compare_at_price | money }}</span>
+                      <span class="b2b-catalog__card-retail-label">RRP</span>
+                    {%- else -%}
+                      <span class="b2b-catalog__card-retail" data-retail style="display:none;"></span>
+                      <span class="b2b-catalog__card-retail-label" style="display:none;"></span>
+                    {%- endif -%}
+                    <span class="b2b-catalog__card-price" data-price>{{ fv.price | money }}</span>
+                  </div>
+
+                  <div class="b2b-catalog__card-sku">SKU: <span data-sku>{{ fv.sku | default: '—' }}</span></div>
+
+                  <span class="{{ fv_stock_class }}" data-stock>{{ fv_stock_label }}{%- if fv_stock_show_qty -%}&nbsp;({{ fv_qty }}){%- endif -%}</span>
+
+                </div>
+              </div>
+
+            {%- endfor -%}
+
+          </div>
+
+          {%- comment -%} ── Pagination ────────────────────────────────────────── {%- endcomment -%}
+          {%- if paginate.pages > 1 -%}
+            <nav class="b2b-catalog__pagination" aria-label="Product catalog pages">
+              {%- if paginate.previous -%}
+                <a href="{{ paginate.previous.url }}" class="btn btn--outline b2b-catalog__page-btn">
+                  ← Previous
+                </a>
+              {%- else -%}
+                <span class="btn btn--outline b2b-catalog__page-btn b2b-catalog__page-btn--disabled" aria-disabled="true">← Previous</span>
+              {%- endif -%}
+
+              <span class="b2b-catalog__page-info">
+                {{ paginate.current_page }} / {{ paginate.pages }}
+              </span>
+
+              {%- if paginate.next -%}
+                <a href="{{ paginate.next.url }}" class="btn btn--outline b2b-catalog__page-btn">
+                  Next →
+                </a>
+              {%- else -%}
+                <span class="btn btn--outline b2b-catalog__page-btn b2b-catalog__page-btn--disabled" aria-disabled="true">Next →</span>
+              {%- endif -%}
+            </nav>
+          {%- endif -%}
+
+        {%- else -%}
+          <p class="b2b-catalog__empty">No products available at this time. Please check back later.</p>
+        {%- endif -%}
+
+      {%- endpaginate -%}
+
+      {%- comment -%} ── Footer CTA ───────────────────────────────────────────── {%- endcomment -%}
+      {%- if section.settings.show_cta -%}
+        <div class="b2b-catalog__footer-cta">
+          <p>{{ section.settings.cta_text }}</p>
+          <a href="{{ section.settings.cta_link }}" class="btn btn--primary">
+            {{ section.settings.cta_label }}
+          </a>
+        </div>
+      {%- endif -%}
+
+    {%- elsif customer -%}
+
+      {%- comment -%} Logged in but not a B2B account — send to account dashboard {%- endcomment -%}
+      <script>window.location.replace('/account');</script>
+
+    {%- else -%}
+
+      {%- comment -%} Not logged in {%- endcomment -%}
+      <div class="b2b-pending">
+        <h1 class="b2b-pending__title">{{ section.settings.gate_heading }}</h1>
+        <p class="b2b-pending__body">{{ section.settings.gate_body }}</p>
+        <a
+          href="/account/login?return_url=/pages/b2b-catalog"
+          class="btn btn--primary"
+        >{{ section.settings.gate_btn_label }}</a>
+        {%- if section.settings.cta_link != blank -%}
+          <a href="{{ section.settings.cta_link }}" class="b2b-pending__link">Not a wholesale customer? Contact us to apply.</a>
+        {%- endif -%}
+      </div>
+      <script>
+        try { localStorage.setItem('b2b_redirect', JSON.stringify({ url: '/pages/b2b-catalog', ts: Date.now() })); } catch (e) {}
+      </script>
+
+    {%- endif -%}
+
+  </div>
+</div>
+
+{%- if first_variant_id != blank -%}
+<script>window.B2BShippingRefVariant = {{ first_variant_id | json }};</script>
+{%- endif -%}
+
+<script>
+(function () {
+  function fmtMoney(cents) {
+    var fmt = window.FoxThemeSettings && window.FoxThemeSettings.money_format;
+    if (window.Shopify && window.Shopify.formatMoney) {
+      return window.Shopify.formatMoney(cents, fmt || '${{amount}} AUD');
+    }
+    return '$' + (cents / 100).toFixed(2);
+  }
+
+  function initCard(card) {
+    var sel = card.querySelector('.b2b-catalog__variant-select');
+    if (!sel) return;
+    sel.addEventListener('change', function () {
+      var opt   = sel.options[sel.selectedIndex];
+      var price   = parseInt(opt.dataset.price, 10)   || 0;
+      var compare = parseInt(opt.dataset.compare, 10) || 0;
+      var sku         = opt.dataset.sku       || '—';
+      var stockClass  = opt.dataset.stockClass;
+      var stockLabel  = opt.dataset.stockLabel;
+      var stockQty    = parseInt(opt.dataset.stockQty, 10) || 0;
+      var stockShow   = opt.dataset.stockShow === 'true';
+
+      var priceEl       = card.querySelector('[data-price]');
+      var retailEl      = card.querySelector('[data-retail]');
+      var retailLabelEl = card.querySelector('.b2b-catalog__card-retail-label');
+      var skuEl         = card.querySelector('[data-sku]');
+      var stockEl       = card.querySelector('[data-stock]');
+
+      if (priceEl) priceEl.textContent = fmtMoney(price);
+
+      if (compare > price) {
+        if (retailEl)      { retailEl.textContent = fmtMoney(compare); retailEl.style.display = ''; }
+        if (retailLabelEl) retailLabelEl.style.display = '';
+      } else {
+        if (retailEl)      retailEl.style.display = 'none';
+        if (retailLabelEl) retailLabelEl.style.display = 'none';
+      }
+
+      if (skuEl) skuEl.textContent = sku;
+
+      if (stockEl) {
+        stockEl.className   = stockClass;
+        stockEl.textContent = stockLabel + (stockShow && stockQty > 0 ? ' (' + stockQty + ')' : '');
+      }
+    });
+  }
+
+  document.querySelectorAll('.b2b-catalog__card').forEach(initCard);
+
+  // Move cards with no product image to the end of the grid
+  var grid = document.querySelector('.b2b-catalog__grid');
+  if (grid) {
+    var noImage = grid.querySelectorAll('.b2b-catalog__card-img-placeholder');
+    noImage.forEach(function (placeholder) {
+      grid.appendChild(placeholder.closest('.b2b-catalog__card'));
+    });
+  }
+}());
+</script>
+
+{% schema %}
+{
+  "name": "B2B Product Catalog",
+  "settings": [
+    {
+      "type": "select",
+      "id": "container",
+      "label": "Container width",
+      "options": [
+        { "value": "container", "label": "Fixed" },
+        { "value": "container-fluid", "label": "Stretched" }
+      ],
+      "default": "container-fluid"
+    },
+    {
+      "type": "header",
+      "content": "Catalog (shown to B2B contacts)"
+    },
+    {
+      "type": "collection",
+      "id": "catalog_collection",
+      "label": "Catalog collection",
+      "info": "Choose a specific collection to display. Leave blank to show all products."
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Page heading",
+      "default": "Product Catalog"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Stock availability and pricing shown below. Contact us to place an order."
+    },
+    {
+      "type": "range",
+      "id": "per_page",
+      "label": "Products per page",
+      "min": 10,
+      "max": 50,
+      "step": 5,
+      "default": 25
+    },
+    {
+      "type": "header",
+      "content": "Grid Layout"
+    },
+    {
+      "type": "select",
+      "id": "grid_columns",
+      "label": "Columns (desktop)",
+      "options": [
+        { "value": "3", "label": "3 columns" },
+        { "value": "4", "label": "4 columns" },
+        { "value": "5", "label": "5 columns" }
+      ],
+      "default": "4"
+    },
+    {
+      "type": "header",
+      "content": "Bulk Discount"
+    },
+    {
+      "type": "checkbox",
+      "id": "bulk_discount_enabled",
+      "label": "Show bulk discount banner",
+      "default": false,
+      "info": "Display only — set up the actual discount in Shopify Admin > Discounts"
+    },
+    {
+      "type": "range",
+      "id": "bulk_discount_qty",
+      "label": "Minimum quantity for discount",
+      "min": 2,
+      "max": 50,
+      "step": 1,
+      "default": 5
+    },
+    {
+      "type": "range",
+      "id": "bulk_discount_pct",
+      "label": "Discount percentage",
+      "min": 5,
+      "max": 50,
+      "step": 5,
+      "default": 10,
+      "unit": "%"
+    },
+    {
+      "type": "header",
+      "content": "Shipping Estimator"
+    },
+    {
+      "type": "text",
+      "id": "shipping_calc_variant_id",
+      "label": "Reference variant ID",
+      "info": "Variant ID of a product registered in Machship. This item is temporarily added to cart when calculating rates, then removed. Find it in Shopify Admin → Products → [product] → click a variant → copy the number at the end of the URL (/variants/XXXXXXXXXX). Leave blank to use the first product in the catalog."
+    },
+    {
+      "type": "header",
+      "content": "Login Gate (shown to guests)"
+    },
+    {
+      "type": "text",
+      "id": "gate_heading",
+      "label": "Gate heading",
+      "default": "Wholesale Portal"
+    },
+    {
+      "type": "textarea",
+      "id": "gate_body",
+      "label": "Gate description",
+      "default": "Log in with your wholesale account to access pricing, stock availability, and the full product catalog."
+    },
+    {
+      "type": "text",
+      "id": "gate_btn_label",
+      "label": "Login button label",
+      "default": "Log In to View Catalog"
+    },
+    {
+      "type": "header",
+      "content": "Contact CTA"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_cta",
+      "label": "Show contact CTA (catalog footer)",
+      "default": true
+    },
+    {
+      "type": "textarea",
+      "id": "cta_text",
+      "label": "CTA description",
+      "default": "Ready to place an order? Get in touch with our team."
+    },
+    {
+      "type": "text",
+      "id": "cta_label",
+      "label": "Button label",
+      "default": "Contact Us to Order"
+    },
+    {
+      "type": "url",
+      "id": "cta_link",
+      "label": "Button link"
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "default": 40,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "default": 60,
+      "unit": "px"
+    }
+  ],
+  "presets": [
+    { "name": "B2B Product Catalog" }
+  ]
+}
+{% endschema %}

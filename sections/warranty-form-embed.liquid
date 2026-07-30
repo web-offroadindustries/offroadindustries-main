@@ -1,0 +1,209 @@
+{%- liquid
+  assign section_id = section.settings.custom_id | default: section.id
+  assign custom_class = section.settings.custom_class
+  unless custom_class == blank
+    assign custom_class = custom_class | prepend: ' '
+  endunless
+  assign container = section.settings.container
+  assign heading = section.settings.heading
+
+  assign app_block_count = 0
+  for block in section.blocks
+    if block.type == '@app'
+      assign app_block_count = app_block_count | plus: 1
+    endif
+  endfor
+-%}
+{{ 'warranty-form-embed.css' | asset_url | stylesheet_tag }}
+<section
+  id="{{ section_id }}"
+  data-section-id="{{ section.id }}"
+  data-section-type="warranty-form-embed"
+  class="warranty-embed f-section-padding color-{{ section.settings.color_schema }}{{ custom_class }}"
+  style="--section-padding-top: {{ section.settings.padding_top }}px; --section-padding-bottom: {{ section.settings.padding_bottom }}px;"
+>
+  <div class="{{ container }}">
+    <div class="warranty-embed__inner">
+      {%- if heading != blank -%}
+        <h2 class="warranty-embed__heading h2">{{ heading | escape }}</h2>
+      {%- endif -%}
+      {%- if section.settings.intro != blank -%}
+        <div class="warranty-embed__intro rte">{{ section.settings.intro }}</div>
+      {%- endif -%}
+
+      {%- if app_block_count > 0 -%}
+        <div class="warranty-embed__form">
+          {%- for block in section.blocks -%}
+            {%- if block.type == '@app' -%}
+              <div {{ block.shopify_attributes }}>{%- render block -%}</div>
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+      {%- elsif request.design_mode -%}
+        <div class="warranty-embed__placeholder">
+          <p class="warranty-embed__placeholder-title">No form connected yet</p>
+          <p>
+            Use "Add block" in this section and choose your Shopify Forms block to place the
+            warranty claim form here.
+          </p>
+        </div>
+      {%- endif -%}
+
+      {%- if section.settings.show_requirements -%}
+        <div class="warranty-embed__requirements">
+          {%- if section.settings.requirements_heading != blank -%}
+            <p class="warranty-embed__requirements-title">
+              {{- section.settings.requirements_heading | escape -}}
+            </p>
+          {%- endif -%}
+          <ol class="warranty-embed__requirements-list">
+            {%- for i in (1..4) -%}
+              {%- assign key = 'requirement_' | append: i -%}
+              {%- assign line = section.settings[key] -%}
+              {%- if line != blank -%}
+                <li>{{ line | escape }}</li>
+              {%- endif -%}
+            {%- endfor -%}
+          </ol>
+        </div>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "Warranty Form (embed)",
+  "tag": "section",
+  "class": "shopify-section--warranty-form-embed",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Warranty Claim Form"
+    },
+    {
+      "type": "richtext",
+      "id": "intro",
+      "label": "Intro text",
+      "default": "<p>Complete the form below to submit your warranty claim. Please attach the required photos so we can process your claim.</p>"
+    },
+    {
+      "type": "paragraph",
+      "content": "Use Add block below and choose your Shopify Forms block to place the actual form inside this section."
+    },
+    {
+      "type": "header",
+      "content": "Required photos"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_requirements",
+      "label": "Show required photos list",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "requirements_heading",
+      "label": "Photos heading",
+      "default": "Please attach the below photos for your claim to progress further:"
+    },
+    {
+      "type": "text",
+      "id": "requirement_1",
+      "label": "Requirement 1",
+      "default": "Minimum one photo of entire unit"
+    },
+    {
+      "type": "text",
+      "id": "requirement_2",
+      "label": "Requirement 2",
+      "default": "Photo of part number"
+    },
+    {
+      "type": "text",
+      "id": "requirement_3",
+      "label": "Requirement 3",
+      "default": "Photo of batch code"
+    },
+    {
+      "type": "text",
+      "id": "requirement_4",
+      "label": "Requirement 4",
+      "default": "Minimum one photo of failure"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "select",
+      "id": "container",
+      "label": "Width",
+      "options": [
+        { "value": "container", "label": "Fixed" },
+        { "value": "container-fluid", "label": "Stretched" },
+        { "value": "container-full", "label": "Full width" }
+      ],
+      "default": "container"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_schema",
+      "label": "Color scheme",
+      "default": "background-1"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Top padding",
+      "default": 48,
+      "min": 0,
+      "max": 120,
+      "step": 2,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Bottom padding",
+      "default": 60,
+      "min": 0,
+      "max": 120,
+      "step": 2,
+      "unit": "px"
+    },
+    {
+      "type": "header",
+      "content": "Advanced"
+    },
+    {
+      "type": "text",
+      "id": "custom_id",
+      "label": "Custom id"
+    },
+    {
+      "type": "text",
+      "id": "custom_class",
+      "label": "Custom class"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "@app"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Warranty Form (embed)"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,280 @@
+{{ 'ori-faq.css' | asset_url | stylesheet_tag }}
+{%- liquid
+  assign section_id = section.settings.custom_id | default: section.id
+  assign container  = section.settings.container
+  assign faq_blocks = section.blocks | where: 'type', 'faq_item'
+-%}
+
+<div
+  id="{{ section_id }}"
+  class="ori-faq f-section-padding color-{{ section.settings.color_schema }}"
+  data-section-type="ori-faq"
+  style="
+    --section-padding-top: {{ section.settings.padding_top }}px;
+    --section-padding-bottom: {{ section.settings.padding_bottom }}px;
+    {%- if section.settings.bg_color != blank %} background: {{ section.settings.bg_color }};{% endif -%}
+  "
+>
+  <div class="{{ container }}">
+
+    {%- if section.settings.heading != blank or section.settings.subheading != blank -%}
+      <div class="ori-faq__header f-section-header">
+        {%- if section.settings.heading != blank -%}
+          <h2 class="ori-faq__heading {{ section.settings.heading_size }}">
+            {{ section.settings.heading }}
+          </h2>
+        {%- endif -%}
+        {%- if section.settings.subheading != blank -%}
+          <p class="ori-faq__subheading">{{ section.settings.subheading }}</p>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+
+    {%- if faq_blocks.size > 0 -%}
+      <div class="ori-faq__list" data-ori-faq>
+        {%- for block in faq_blocks -%}
+          {%- if block.settings.question != blank and block.settings.answer != blank -%}
+            <details
+              class="ori-faq__item collapsible-item"
+              {{ block.shopify_attributes }}
+              {%- if section.settings.open_first and forloop.first %} open{%- endif -%}
+            >
+              <summary class="ori-faq__question collapsible-item__summary">
+                <span>{{ block.settings.question }}</span>
+                <span class="ori-faq__icon" aria-hidden="true">
+                  <svg class="ori-faq__icon-plus" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                  <svg class="ori-faq__icon-minus" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                </span>
+              </summary>
+              <div class="ori-faq__answer rte">
+                {{ block.settings.answer }}
+              </div>
+            </details>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+
+  </div>
+</div>
+
+{%- comment -%} FAQPage JSON-LD — emitted only when there are FAQ blocks {%- endcomment -%}
+{%- if faq_blocks.size > 0 and section.settings.emit_schema -%}
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {%- for block in faq_blocks -%}
+          {%- if block.settings.question != blank and block.settings.answer != blank -%}
+            {
+              "@type": "Question",
+              "name": {{ block.settings.question | json }},
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": {{ block.settings.answer | strip_html | json }}
+              }
+            }{%- unless forloop.last -%},{%- endunless -%}
+          {%- endif -%}
+        {%- endfor -%}
+      ]
+    }
+  </script>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "ORI FAQ",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section header"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Frequently Asked Questions"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "label": "Heading size",
+      "options": [
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" }
+      ],
+      "default": "h2"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading"
+    },
+    {
+      "type": "header",
+      "content": "Behaviour"
+    },
+    {
+      "type": "checkbox",
+      "id": "open_first",
+      "label": "Open first item by default",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "emit_schema",
+      "label": "Output FAQPage JSON-LD (structured data)",
+      "default": true,
+      "info": "Enables Google FAQ rich results for this section. Only enable on one FAQ section per page."
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "select",
+      "id": "container",
+      "label": "Container width",
+      "options": [
+        { "value": "container-full", "label": "Full width" },
+        { "value": "container", "label": "Fixed (1200px)" },
+        { "value": "container-narrow", "label": "Narrow (800px)" }
+      ],
+      "default": "container-narrow"
+    },
+    {
+      "type": "select",
+      "id": "color_schema",
+      "label": "Color scheme",
+      "options": [
+        { "value": "", "label": "Default" },
+        { "value": "accent", "label": "Accent" },
+        { "value": "inverse", "label": "Inverse" }
+      ],
+      "default": ""
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background colour",
+      "info": "Optional. Leave blank to inherit the page background."
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "text",
+      "id": "custom_id",
+      "label": "Custom HTML ID"
+    },
+    {
+      "type": "text",
+      "id": "custom_class",
+      "label": "Custom CSS class"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "faq_item",
+      "name": "FAQ item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "question",
+          "label": "Question",
+          "default": "What is a GVM upgrade?"
+        },
+        {
+          "type": "richtext",
+          "id": "answer",
+          "label": "Answer",
+          "default": "<p>A GVM (Gross Vehicle Mass) upgrade increases the maximum legal weight your vehicle can carry. ORI's federally approved packages use SSM (Second Stage of Manufacture) certification to reclassify your vehicle from NB1 to NB2, giving you more legal payload capacity.</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "ORI FAQ",
+      "blocks": [
+        {
+          "type": "faq_item",
+          "settings": {
+            "question": "What is a GVM upgrade?",
+            "answer": "<p>A GVM (Gross Vehicle Mass) upgrade increases the maximum legal weight your vehicle can carry. ORI's federally approved packages use SSM (Second Stage of Manufacture) certification to reclassify your vehicle from NB1 to NB2, giving you more legal payload capacity.</p>"
+          }
+        },
+        {
+          "type": "faq_item",
+          "settings": {
+            "question": "How much payload can I legally gain?",
+            "answer": "<p>Payload gains vary by vehicle and stage. Typical Stage 1 packages add 300–600 kg of legal payload. The exact figure is stamped on your updated compliance plate after SSM certification. Contact ORI for vehicle-specific figures.</p>"
+          }
+        },
+        {
+          "type": "faq_item",
+          "settings": {
+            "question": "What is the difference between GVM and GCM?",
+            "answer": "<p>GVM (Gross Vehicle Mass) is the maximum legal weight of your vehicle fully loaded. GCM (Gross Combined Mass) is the maximum legal combined weight of your vehicle plus a trailer. A GCM upgrade lets you legally tow more.</p>"
+          }
+        },
+        {
+          "type": "faq_item",
+          "settings": {
+            "question": "Can I upgrade my GVM after the vehicle is already registered?",
+            "answer": "<p>Yes. ORI's SSM (Second Stage of Manufacture) process can be applied to registered vehicles. Pre-registration upgrades are generally cleaner administratively, but post-registration upgrades are legal and common — your compliance plate is updated to reflect the new GVM.</p>"
+          }
+        },
+        {
+          "type": "faq_item",
+          "settings": {
+            "question": "Will a GVM upgrade affect my warranty?",
+            "answer": "<p>ORI's packages are engineered and federally approved. However, warranty implications depend on your vehicle manufacturer. We recommend confirming with your dealer before proceeding. ORI's SSM certification is a recognised legal process and does not void your vehicle's ADR compliance.</p>"
+          }
+        },
+        {
+          "type": "faq_item",
+          "settings": {
+            "question": "Which vehicles can be upgraded?",
+            "answer": "<p>ORI currently offers federally approved GVM upgrade packages for: Toyota Tundra, Chevrolet Silverado 1500, Chevrolet Silverado 2500HD/3500HD, Ford F-150, Ford F-250/F-350/F-450, RAM 1500, Next-Gen Ford Ranger, and Toyota HiLux. More platforms are in development.</p>"
+          }
+        },
+        {
+          "type": "faq_item",
+          "settings": {
+            "question": "Can I tow more after a GCM upgrade?",
+            "answer": "<p>Yes. A GCM (Gross Combined Mass) upgrade increases your legal towing capacity. Combined with a GVM upgrade, you can carry more in the tub and tow a heavier trailer — legally and safely, with full federal certification.</p>"
+          }
+        },
+        {
+          "type": "faq_item",
+          "settings": {
+            "question": "Does ORI require engineering certification?",
+            "answer": "<p>All ORI packages go through the SSM (Second Stage of Manufacture) process, which includes independent engineering sign-off, ADR testing, and VTA (Vehicle Type Approval) certification. You receive a VTA approval number and an updated compliance plate.</p>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

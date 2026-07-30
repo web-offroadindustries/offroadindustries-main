@@ -1,0 +1,61 @@
+<script src="{{ 'b2b-shipping-calc.js' | asset_url }}" defer="defer"></script>
+<b2b-shipping-calc
+  class="b2b-shipping-calc"
+  data-variant-id="{{ product.selected_or_first_available_variant.id }}"
+>
+  <h3 class="b2b-shipping-calc__title">Estimate Shipping</h3>
+  <div class="b2b-shipping-calc__form">
+
+    <div class="b2b-shipping-calc__field">
+      <label for="B2BCountry-{{ section.id }}">Country</label>
+      <select
+        id="B2BCountry-{{ section.id }}"
+        data-country
+        data-default="{{ settings.cart_default_country }}"
+        class="form-control"
+      >
+        <option value="">Select country…</option>
+      </select>
+    </div>
+
+    <div class="b2b-shipping-calc__field" data-province-wrapper style="display:none;">
+      <label for="B2BProvince-{{ section.id }}">State / Province</label>
+      <select id="B2BProvince-{{ section.id }}" data-province class="form-control"></select>
+    </div>
+
+    <div class="b2b-shipping-calc__field">
+      <label for="B2BCity-{{ section.id }}">Suburb / City</label>
+      <input
+        id="B2BCity-{{ section.id }}"
+        type="text"
+        data-city
+        class="form-control"
+        placeholder="e.g. Melbourne"
+      >
+    </div>
+
+    <div class="b2b-shipping-calc__field">
+      <label for="B2BZip-{{ section.id }}">Postcode / ZIP</label>
+      <input
+        id="B2BZip-{{ section.id }}"
+        type="text"
+        data-zip
+        class="form-control"
+        placeholder="e.g. 2000"
+        autocapitalize="characters"
+      >
+    </div>
+
+    <button type="button" data-calc-btn class="btn btn--secondary b2b-shipping-calc__btn">
+      <span>Calculate Shipping</span>
+      {% comment %} theme-check-disable {% endcomment %}
+      {{ 'icon-spinner.svg' | inline_asset_content }}
+      {% comment %} theme-check-enable {% endcomment %}
+    </button>
+
+  </div>
+
+  <div data-result class="b2b-shipping-calc__result"></div>
+
+  <template>{{ all_country_option_tags }}</template>
+</b2b-shipping-calc>

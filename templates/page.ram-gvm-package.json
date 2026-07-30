@@ -1,0 +1,1283 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    },
+    "slideshow_CtnG98": {
+      "type": "slideshow",
+      "blocks": {
+        "slide_bW6A4P": {
+          "type": "slide",
+          "settings": {
+            "background": "shopify://shop_images/1920x1080px_RAM.png",
+            "image_overlay_opacity": 0,
+            "content_position": "center",
+            "text_alignment": "center",
+            "text_color": "#000000",
+            "title": "",
+            "heading_size": "h2",
+            "heading_color": "",
+            "subheading": "",
+            "description": "",
+            "desc_size": "text-desc-base",
+            "button_text_1": "",
+            "button_link_1": "",
+            "button_style_1": "btn--primary",
+            "button_size_1": "",
+            "button_text_2": "",
+            "button_link_2": "",
+            "button_style_2": "btn--primary",
+            "button_size_2": ""
+          }
+        }
+      },
+      "block_order": [
+        "slide_bW6A4P"
+      ],
+      "name": "t:sections.slideshow.name",
+      "settings": {
+        "container": "container-full",
+        "slideshow_height": "adapt",
+        "show_dots": false,
+        "show_nav": false,
+        "autoplay": false,
+        "autorotate_speed": 3,
+        "pagination_background": "light",
+        "controls_position": "center",
+        "pagination_style": "dots",
+        "show_text_below": false,
+        "text_alignment_mobile": "center",
+        "accessibility_info": "Slideshow about our brand",
+        "custom_id": "",
+        "custom_class": "",
+        "enable_bg_zoom_effect": false
+      }
+    },
+    "jump_links_UeawGp": {
+      "type": "jump-links",
+      "blocks": {
+        "link_C8imG8": {
+          "type": "link",
+          "settings": {
+            "label": "GVM Packages",
+            "target_id": "gvmpackages"
+          }
+        },
+        "link_y9rErk": {
+          "type": "link",
+          "settings": {
+            "label": "GVM Specification",
+            "target_id": "gvmspecification"
+          }
+        },
+        "link_8FKHCp": {
+          "type": "link",
+          "settings": {
+            "label": "Suspension Collection",
+            "target_id": "suspensioncollection"
+          }
+        },
+        "link_KmD9dx": {
+          "type": "link",
+          "settings": {
+            "label": "GVM Experts",
+            "target_id": "gvmexperts"
+          }
+        }
+      },
+      "block_order": [
+        "link_C8imG8",
+        "link_y9rErk",
+        "link_8FKHCp",
+        "link_KmD9dx"
+      ],
+      "name": "Jump links",
+      "settings": {
+        "container_mode": "full",
+        "container_width": "1200",
+        "bg_color": "#ffffff",
+        "text_color": "#111111",
+        "hover_color": "#111111",
+        "active_color": "#111111",
+        "border_color": "#0000001f",
+        "pad_y": 10,
+        "offset": 0,
+        "duration": 650
+      }
+    },
+    "rich_text_FfDANG": {
+      "type": "rich-text",
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "container": "container",
+        "color_schema": "",
+        "text_alignment": "left",
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "show_section_divider": false,
+        "divider_width": "container",
+        "custom_id": "",
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "rich_text_GbXVUF": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_XhCLHT": {
+          "type": "heading",
+          "settings": {
+            "heading": "RAM 2500 GVM Upgrades: Carry More, Tow Better, Travel Farther",
+            "highlight_style": "none",
+            "enable_highlight_text_color": true,
+            "heading_size": "h1",
+            "heading_color": "#56bdc2"
+          }
+        },
+        "text_CfcJd4": {
+          "type": "text",
+          "settings": {
+            "text": "<p>If you’re ready to get the most from your Ram 2500, getting a GVM upgrade is for you. It isn’t just an upgrade or numbers on paper, Ram 2500 GVM upgrades give you  about changing a number on paper, more support, more rugged potential, and even greater abilities to haul heavy loads of gear. Generally, when you drive your Ram 2500 off the lot, you’ll be sitting in the NB1 category, which is a broad ranging limit when it comes to how much weight you can legally carry. Certain vehicles - like the Ram 2500 - are built for more and can easily be transformed into beasts with upgraded suspension and coils to do your hard-working truck justice. </p><p>If you’re left wanting more - whether that’s more gear, heavier tools, or some serious touring equipment when you’re heading off into the wilds of Australia, our <a href=\"https://www.offroadindustries.com.au/pages/ori-gvm-upgrades\"><span style=\"text-decoration:underline\">GVM upgrades</span></a> can get you there. Discover the freedom of going further and explore the range of RAM 2500 GVM upgrades here at Offroad Industries. <br/><br/></p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_XhCLHT",
+        "text_CfcJd4"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "container": "container",
+        "color_schema": "",
+        "text_alignment": "left",
+        "padding_top": 40,
+        "padding_bottom": 0,
+        "show_section_divider": false,
+        "divider_width": "container",
+        "custom_id": "",
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "rich_text_jLn8zi": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_XKgGWK": {
+          "type": "heading",
+          "settings": {
+            "heading": "GVM Upgrade RAM 2500: Common Questions and What to Ask Your Installer",
+            "highlight_style": "none",
+            "enable_highlight_text_color": true,
+            "heading_size": "h1",
+            "heading_color": "#56bdc2"
+          }
+        },
+        "text_NxtAw3": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Before you commit to a Ram 2500 GVM upgrade pack, there are a few key things worth clarifying regarding your vehicle. First, you’ll want to check how the upgrade changes your total payload and towing limits on your specific truck, along with the Class it’ll be in if you get a certain upgrade completed. </p><p>You’ll also want to check whether your current <a href=\"https://www.offroadindustries.com.au/collections/4-play-wheels\"><span style=\"text-decoration:underline\">wheels</span></a> and tyres are up for the job. With greater weight acting on them, along with a change in ground clearance, you may need to upgrade those too. </p><p>Finally, you might have questions regarding the timeframe and paperwork sign off, which we can help you with. If you have questions and want to speak to our team, <a href=\"https://www.offroadindustries.com.au/pages/contact-us\"><span style=\"text-decoration:underline\">contact us</span></a> any time for more information. <br/><br/></p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_XKgGWK",
+        "text_NxtAw3"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "container": "container",
+        "color_schema": "",
+        "text_alignment": "left",
+        "padding_top": 40,
+        "padding_bottom": 0,
+        "show_section_divider": false,
+        "divider_width": "container",
+        "custom_id": "",
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "rich_text_PtmRiF": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_mpxUJy": {
+          "type": "heading",
+          "settings": {
+            "heading": "Ori Proposed GVM Packages",
+            "highlight_style": "underline",
+            "enable_highlight_text_color": true,
+            "heading_size": "h1",
+            "heading_color": "#56bdc2"
+          }
+        }
+      },
+      "block_order": [
+        "heading_mpxUJy"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "container": "container",
+        "color_schema": "",
+        "text_alignment": "left",
+        "padding_top": 40,
+        "padding_bottom": 0,
+        "show_section_divider": false,
+        "divider_width": "container",
+        "custom_id": "gvmpackages",
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "image_with_text_WcaAiR": {
+      "type": "image-with-text",
+      "blocks": {
+        "subheading_JVKNjL": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "Stage 1: $10,500 - Installed & Engineered",
+            "subheading_size": "h5"
+          }
+        },
+        "heading_f9G7kD": {
+          "type": "heading",
+          "settings": {
+            "heading": "STAGE 1 : 5300 GVM",
+            "highlight_style": "none",
+            "enable_highlight_text_color": false,
+            "heading_size": "h2"
+          }
+        },
+        "text_fRRw7g": {
+          "type": "text",
+          "settings": {
+            "text": "<ul><li>Fox 2.5 HTO Performance Series Suspension</li><li>ORI 50mm Front and Rear Coils</li><li>SSM Federally Approved GVM</li><li>Category Changes from NB1 to NB2</li><li>4459 Upgraded 5300 GVM</li></ul>"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_JVKNjL",
+        "heading_f9G7kD",
+        "text_fRRw7g"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "container": "container",
+        "color_schema": "",
+        "image": "shopify://shop_images/GVM_RAM-2500-20260504stage-1--5300--GVM_RAM-2500.png",
+        "enable_lightbox": true,
+        "image_width": "50%",
+        "image_position": "left",
+        "vertical_alignment": "center",
+        "align_content_container": "none",
+        "show_image_padding": true,
+        "column_gap": "medium",
+        "row_gap": "medium",
+        "padding_left": 0,
+        "padding_right": 0,
+        "mobile_padding_left": 15,
+        "mobile_padding_right": 15,
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "padding_top_mobile": 60,
+        "padding_bottom_mobile": 60,
+        "show_section_divider": false,
+        "divider_width": "container",
+        "custom_id": "",
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "image_with_text_pR9RXR": {
+      "type": "image-with-text",
+      "blocks": {
+        "subheading_nNBqbG": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "Stage 2: $15,000 - Installed & Engineered",
+            "subheading_size": "h5"
+          }
+        },
+        "heading_dHpa9y": {
+          "type": "heading",
+          "settings": {
+            "heading": "STAGE 2 : 5300 GVM",
+            "highlight_style": "none",
+            "enable_highlight_text_color": false,
+            "heading_size": "h2"
+          }
+        },
+        "text_eiTTm6": {
+          "type": "text",
+          "settings": {
+            "text": "<ul><li>Fox 2.5 Performance Elite Suspension</li><li>ORI 50mm Front and Rear Coils</li><li>SSM Federally Approved GVM</li><li>Category Change from NB1 to NB2</li><li>4495 Upgraded to 5300 GVM</li></ul>"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_nNBqbG",
+        "heading_dHpa9y",
+        "text_eiTTm6"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "container": "container",
+        "color_schema": "",
+        "image": "shopify://shop_images/GVM_RAM-2500-20260504stage-2--5300--GVM_RAM-2500.png",
+        "enable_lightbox": true,
+        "image_width": "50%",
+        "image_position": "right",
+        "vertical_alignment": "center",
+        "align_content_container": "none",
+        "show_image_padding": true,
+        "column_gap": "medium",
+        "row_gap": "medium",
+        "padding_left": 0,
+        "padding_right": 0,
+        "mobile_padding_left": 15,
+        "mobile_padding_right": 15,
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "padding_top_mobile": 60,
+        "padding_bottom_mobile": 60,
+        "show_section_divider": false,
+        "divider_width": "container",
+        "custom_id": "",
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "image_with_text_M8ykcj": {
+      "type": "image-with-text",
+      "blocks": {
+        "subheading_p3JeNT": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "Stage 3: $17,499 - Installed & Engineered",
+            "subheading_size": "h5"
+          }
+        },
+        "heading_KMefdY": {
+          "type": "heading",
+          "settings": {
+            "heading": "STAGE 3 : 5300 GVM",
+            "highlight_style": "none",
+            "enable_highlight_text_color": false,
+            "heading_size": "h2"
+          }
+        },
+        "text_aVwiWh": {
+          "type": "text",
+          "settings": {
+            "text": "<ul><li>3\" BDS Radius Suspension Package</li><li>Fox 2.5 Performance Elite Suspension</li><li>BDS Front Coils and Rear Coils</li><li>SSM Federally Approved GVM</li><li>Category Change NB1 to NB2 .</li><li>4495 Upgraded 5300 GVM</li></ul>"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_p3JeNT",
+        "heading_KMefdY",
+        "text_aVwiWh"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "container": "container",
+        "color_schema": "",
+        "image": "shopify://shop_images/GVM_RAM-2500-20260504stage-3--5300--GVM_RAM-2500.png",
+        "enable_lightbox": true,
+        "image_width": "50%",
+        "image_position": "left",
+        "vertical_alignment": "center",
+        "align_content_container": "none",
+        "show_image_padding": true,
+        "column_gap": "medium",
+        "row_gap": "medium",
+        "padding_left": 0,
+        "padding_right": 0,
+        "mobile_padding_left": 15,
+        "mobile_padding_right": 15,
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "padding_top_mobile": 60,
+        "padding_bottom_mobile": 60,
+        "show_section_divider": false,
+        "divider_width": "container",
+        "custom_id": "",
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "image_with_text_pcJYGC": {
+      "type": "image-with-text",
+      "blocks": {
+        "subheading_UXFBYE": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "Stage 4: $15,000 - Installed & Engineered",
+            "subheading_size": "h5"
+          }
+        },
+        "heading_wfcybN": {
+          "type": "heading",
+          "settings": {
+            "heading": "STAGE 4 : 5550 GVM",
+            "highlight_style": "none",
+            "enable_highlight_text_color": false,
+            "heading_size": "h2"
+          }
+        },
+        "text_giGN6b": {
+          "type": "text",
+          "settings": {
+            "text": "<ul><li>Fox 2.5 Performance Elite Suspension</li><li>ORI 50mm Front and Rear Coils</li><li>SSM Federally Approved GVM</li><li>Engineered for 35x12.5x18 or 15x12.5x20</li><li>Category Change NB1 to NB2 .</li><li>4495 Upgraded 5550 GVM</li></ul>"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_UXFBYE",
+        "heading_wfcybN",
+        "text_giGN6b"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "container": "container",
+        "color_schema": "",
+        "image": "shopify://shop_images/GVM_RAM-2500-20260504stage-4--5300--GVM_RAM-2500.png",
+        "enable_lightbox": true,
+        "image_width": "50%",
+        "image_position": "right",
+        "vertical_alignment": "center",
+        "align_content_container": "none",
+        "show_image_padding": true,
+        "column_gap": "medium",
+        "row_gap": "medium",
+        "padding_left": 0,
+        "padding_right": 0,
+        "mobile_padding_left": 15,
+        "mobile_padding_right": 15,
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "padding_top_mobile": 60,
+        "padding_bottom_mobile": 60,
+        "show_section_divider": false,
+        "divider_width": "container",
+        "custom_id": "",
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "image_with_text_8GKk7C": {
+      "type": "image-with-text",
+      "blocks": {
+        "subheading_drUinH": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "Stage 5: $17,499 - Installed & Engineered",
+            "subheading_size": "h5"
+          }
+        },
+        "heading_FGMkek": {
+          "type": "heading",
+          "settings": {
+            "heading": "STAGE 5 : 5550 GVM",
+            "highlight_style": "none",
+            "enable_highlight_text_color": false,
+            "heading_size": "h2"
+          }
+        },
+        "text_AHtUHA": {
+          "type": "text",
+          "settings": {
+            "text": "<ul><li>3\" BDS Radius Suspension Package</li><li>Fox 2.5 Performance Elite Suspension</li><li>BDS Front Coils and Rear Coils</li><li>SSM Federally Approved GVM</li><li>Engineered for 35x12.5x18 or 35x12.5x20</li><li>Category Change NB1 to NB2 .</li><li>4495 Upgraded 5550 GVM</li></ul>"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_drUinH",
+        "heading_FGMkek",
+        "text_AHtUHA"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "container": "container",
+        "color_schema": "",
+        "image": "shopify://shop_images/stage_5_5550_GVM_RAM_2500.png",
+        "enable_lightbox": true,
+        "image_width": "50%",
+        "image_position": "left",
+        "vertical_alignment": "center",
+        "align_content_container": "none",
+        "show_image_padding": true,
+        "column_gap": "medium",
+        "row_gap": "medium",
+        "padding_left": 0,
+        "padding_right": 0,
+        "mobile_padding_left": 15,
+        "mobile_padding_right": 15,
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "padding_top_mobile": 60,
+        "padding_bottom_mobile": 60,
+        "show_section_divider": false,
+        "divider_width": "container",
+        "custom_id": "",
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "rich_text_GiVh3x": {
+      "type": "rich-text",
+      "blocks": {
+        "text_xCfegj": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>Note</strong><em>: Pricing does not include freight or post-rego sign-off fee. Our GVM program only applies to RAM Australia Converted vehicle that are NB1 Complained</em></p>"
+          }
+        }
+      },
+      "block_order": [
+        "text_xCfegj"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "container": "container",
+        "color_schema": "",
+        "text_alignment": "center",
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "show_section_divider": false,
+        "divider_width": "container",
+        "custom_id": "",
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "rich_text_rnLAPH": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_YjLxhA": {
+          "type": "heading",
+          "settings": {
+            "heading": "RAM 2500HD Specfictions",
+            "highlight_style": "underline",
+            "enable_highlight_text_color": true,
+            "heading_size": "h1",
+            "heading_color": "#56bdc2"
+          }
+        }
+      },
+      "block_order": [
+        "heading_YjLxhA"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "container": "container",
+        "color_schema": "",
+        "text_alignment": "left",
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "show_section_divider": false,
+        "divider_width": "container",
+        "custom_id": "gvmspecification",
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "gvm_comparison_FfmTMw": {
+      "type": "gvm-comparison",
+      "blocks": {
+        "row_M4PVnC": {
+          "type": "row",
+          "settings": {
+            "label": "Gross Vehicle Mass (GVM)",
+            "value_1": "4495 KG NB1",
+            "value_2": "5300 KG",
+            "value_3": "5300 KG",
+            "value_4": "5300 KG",
+            "value_5": "5550 KG",
+            "value_6": "5550 KG",
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
+          }
+        },
+        "row_7JDfxb": {
+          "type": "row",
+          "settings": {
+            "label": "Braked Towing Capacity (BTC)",
+            "value_1": "4500 KG",
+            "value_2": "4500 KG",
+            "value_3": "4500 KG",
+            "value_4": "4500 KG",
+            "value_5": "4500 KG",
+            "value_6": "4500 KG",
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
+          }
+        },
+        "row_YVwraj": {
+          "type": "row",
+          "settings": {
+            "label": "Gross Combined Mass (GCM)",
+            "value_1": "12 695 KG",
+            "value_2": "12474 KG",
+            "value_3": "12474 KG",
+            "value_4": "12474 KG",
+            "value_5": "12474 KG",
+            "value_6": "12474 KG",
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
+          }
+        },
+        "row_zPKiUF": {
+          "type": "row",
+          "settings": {
+            "label": "Kerb Weight",
+            "value_1": "3609 KG",
+            "value_2": "3620 KG",
+            "value_3": "3639 KG",
+            "value_4": "3645 KG",
+            "value_5": "3639 KG",
+            "value_6": "3645 KG",
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
+          }
+        },
+        "row_wywcAp": {
+          "type": "row",
+          "settings": {
+            "label": "Payload (bases on kerb weight) FROM NB1",
+            "value_1": "886 KG",
+            "value_2": "1680 KG",
+            "value_3": "1661 KG",
+            "value_4": "1655 KG",
+            "value_5": "1914 KG",
+            "value_6": "1905 KG",
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
+          }
+        },
+        "row_VPhYR9": {
+          "type": "row",
+          "settings": {
+            "label": "Payload Increase (%)",
+            "value_1": "",
+            "value_2": "90%",
+            "value_3": "87.50%",
+            "value_4": "86.80%",
+            "value_5": "116.10%",
+            "value_6": "115.01 %",
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
+          }
+        },
+        "row_bcXE8T": {
+          "type": "row",
+          "settings": {
+            "label": "Front Axle Capacity",
+            "value_1": "2722 KG",
+            "value_2": "2720 KG",
+            "value_3": "2720 KG",
+            "value_4": "2720 KG",
+            "value_5": "2720 KG",
+            "value_6": "2720 KG",
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
+          }
+        },
+        "row_YJQHKH": {
+          "type": "row",
+          "settings": {
+            "label": "Rear Axle Capacity",
+            "value_1": "2740 KG",
+            "value_2": "2840 KG",
+            "value_3": "2840 KG",
+            "value_4": "2840 KG",
+            "value_5": "2840 KG",
+            "value_6": "2840 KG",
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
+          }
+        },
+        "row_pqzEiz": {
+          "type": "row",
+          "settings": {
+            "label": "Wheel Offsets",
+            "value_1": "POS 47",
+            "value_2": "Pos 12 / 18",
+            "value_3": "Pos 12 / 18",
+            "value_4": "Pos 12 / 18",
+            "value_5": "Pos 12 / 18",
+            "value_6": "Pos 12 / 18",
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
+          }
+        },
+        "row_NrDzqV": {
+          "type": "row",
+          "settings": {
+            "label": "Wheel Load Rating",
+            "value_1": "1587 KG",
+            "value_2": "1600 KG",
+            "value_3": "1600 KG",
+            "value_4": "1600 KG",
+            "value_5": "1600 KG",
+            "value_6": "1600 KG",
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
+          }
+        },
+        "row_aDFEfG": {
+          "type": "row",
+          "settings": {
+            "label": "Tyre Load Rating",
+            "value_1": "",
+            "value_2": "1600 KG",
+            "value_3": "1600 KG",
+            "value_4": "1600 KG",
+            "value_5": "1650 KG",
+            "value_6": "1650 KG",
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
+          }
+        },
+        "row_Ei9mfn": {
+          "type": "row",
+          "settings": {
+            "label": "Requires Wheel/ Tyre Upgrade",
+            "value_1": "",
+            "value_2": "NA",
+            "value_3": "NA",
+            "value_4": "NA",
+            "value_5": "Yes",
+            "value_6": "Yes",
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
+          }
+        },
+        "row_VrmHhK": {
+          "type": "row",
+          "settings": {
+            "label": "Maximum Tyre Size",
+            "value_1": "",
+            "value_2": "35x12.5xR18 | 35x12.5xR20",
+            "value_3": "35x12.5xR18 | 35x12.5xR20",
+            "value_4": "35x12.5xR18 | 35x12.5xR20",
+            "value_5": "35x12.5xR18 | 35x12.5xR20",
+            "value_6": "35x12.5xR18 | 35x12.5xR20",
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
+          }
+        }
+      },
+      "block_order": [
+        "row_M4PVnC",
+        "row_7JDfxb",
+        "row_YVwraj",
+        "row_zPKiUF",
+        "row_wywcAp",
+        "row_VPhYR9",
+        "row_bcXE8T",
+        "row_YJQHKH",
+        "row_pqzEiz",
+        "row_NrDzqV",
+        "row_aDFEfG",
+        "row_Ei9mfn",
+        "row_VrmHhK"
+      ],
+      "name": "GVM Comparison",
+      "settings": {
+        "anchor_id": "compare",
+        "heading": "",
+        "details_heading": "",
+        "columns": "6",
+        "col_title_1": "OEM",
+        "col_title_2": "Stage 1",
+        "col_title_3": "Stage 2",
+        "col_title_4": "Stage 3",
+        "col_title_5": "Stage 4",
+        "col_title_6": "Stage 5",
+        "col_title_7": "STAGE 6",
+        "col_title_8": "STAGE 7",
+        "col_title_9": "STAGE 8",
+        "col_title_10": "STAGE 9",
+        "container_width": "90%",
+        "heading_color": "#111111",
+        "text_color": "#111111",
+        "line_color": "#111111",
+        "mobile_card_bg": "#f5f3ee",
+        "mobile_card_text": "#111111",
+        "padding_top": 0,
+        "padding_bottom": 40
+      }
+    },
+    "gvm_comparison_RXeVcA": {
+      "type": "gvm-comparison",
+      "blocks": {
+        "row_PLrREz": {
+          "type": "row",
+          "settings": {
+            "label": "Lift Height",
+            "value_1": "",
+            "value_2": "2\"",
+            "value_3": "2\"",
+            "value_4": "3\"",
+            "value_5": "2\"",
+            "value_6": "3\"",
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
+          }
+        },
+        "row_QWetUx": {
+          "type": "row",
+          "settings": {
+            "label": "Fox 2.5 HTO Performance Series (Front)",
+            "value_1": "987-24-004",
+            "value_2": "✔",
+            "value_3": "",
+            "value_4": "",
+            "value_5": "",
+            "value_6": "",
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
+          }
+        },
+        "row_dAdUVr": {
+          "type": "row",
+          "settings": {
+            "label": "Fox 2.5 HTO Performance Series (Rear)",
+            "value_1": "987-24-005",
+            "value_2": "✔",
+            "value_3": "",
+            "value_4": "",
+            "value_5": "",
+            "value_6": "",
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
+          }
+        },
+        "row_VhLrHW": {
+          "type": "row",
+          "settings": {
+            "label": "Fox 2.5  Performance Elite Series (Front)",
+            "value_1": "883-26-062",
+            "value_2": "",
+            "value_3": "✔",
+            "value_4": "✔",
+            "value_5": "✔",
+            "value_6": "✔",
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
+          }
+        },
+        "row_Xm7nMe": {
+          "type": "row",
+          "settings": {
+            "label": "Fox 2.5 Performance Elite Series (Rear)",
+            "value_1": "883-26-065",
+            "value_2": "",
+            "value_3": "✔",
+            "value_4": "✔",
+            "value_5": "✔",
+            "value_6": "✔",
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
+          }
+        },
+        "row_PyCLYV": {
+          "type": "row",
+          "settings": {
+            "label": "ORI Front Coils",
+            "value_1": "KDFR-400H",
+            "value_2": "✔",
+            "value_3": "✔",
+            "value_4": "✔",
+            "value_5": "✔",
+            "value_6": "✔",
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
+          }
+        },
+        "row_MQ9Uxh": {
+          "type": "row",
+          "settings": {
+            "label": "ORI Rear Coils",
+            "value_1": "KDRR-401HH",
+            "value_2": "✔",
+            "value_3": "✔",
+            "value_4": "✔",
+            "value_5": "✔",
+            "value_6": "✔",
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
+          }
+        },
+        "row_ViUDYJ": {
+          "type": "row",
+          "settings": {
+            "label": "BDS 3\" Radius Arm Kit",
+            "value_1": "BDS1653FPE",
+            "value_2": "",
+            "value_3": "",
+            "value_4": "✔",
+            "value_5": "",
+            "value_6": "✔",
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
+          }
+        },
+        "row_KKTrkb": {
+          "type": "row",
+          "settings": {
+            "label": "Husky Extenda Flare",
+            "value_1": "2805931",
+            "value_2": "",
+            "value_3": "",
+            "value_4": "✔",
+            "value_5": "✔",
+            "value_6": "✔",
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
+          }
+        }
+      },
+      "block_order": [
+        "row_PLrREz",
+        "row_QWetUx",
+        "row_dAdUVr",
+        "row_VhLrHW",
+        "row_Xm7nMe",
+        "row_PyCLYV",
+        "row_MQ9Uxh",
+        "row_ViUDYJ",
+        "row_KKTrkb"
+      ],
+      "name": "GVM Comparison",
+      "settings": {
+        "anchor_id": "compare1",
+        "heading": "",
+        "details_heading": "Item",
+        "columns": "6",
+        "col_title_1": "Part Number",
+        "col_title_2": "Stage 1",
+        "col_title_3": "Stage 2",
+        "col_title_4": "Stage 3",
+        "col_title_5": "Stage 4",
+        "col_title_6": "Stage 5",
+        "col_title_7": "STAGE 6",
+        "col_title_8": "STAGE 7",
+        "col_title_9": "STAGE 8",
+        "col_title_10": "STAGE 9",
+        "container_width": "90%",
+        "heading_color": "#111111",
+        "text_color": "#111111",
+        "line_color": "#111111",
+        "mobile_card_bg": "#f5f3ee",
+        "mobile_card_text": "#111111",
+        "padding_top": 20,
+        "padding_bottom": 0
+      }
+    },
+    "contact_form_v4_MwATQz": {
+      "type": "contact-form-v4",
+      "blocks": {
+        "name_tTgtMU": {
+          "type": "name",
+          "settings": {
+            "label": "Name",
+            "field_name": "Name",
+            "placeholder": "Enter your name",
+            "field_width": "full",
+            "hide_label": true,
+            "required": false
+          }
+        },
+        "email_8VVjQt": {
+          "type": "email",
+          "settings": {
+            "label": "Email",
+            "placeholder": "Enter your email",
+            "field_width": "full",
+            "hide_label": true
+          }
+        },
+        "phone_7cQCzJ": {
+          "type": "phone",
+          "settings": {
+            "label": "Phone number",
+            "placeholder": "Enter your phone number",
+            "field_width": "full",
+            "hide_label": true,
+            "required": false
+          }
+        },
+        "rego_status_Km3nqz": {
+          "type": "rego_status",
+          "settings": {
+            "label": "Pre or Post rego",
+            "field_name": "Pre or Post rego",
+            "placeholder": "Select one",
+            "options": "Pre rego, Post rego",
+            "field_width": "full",
+            "hide_label": true,
+            "required": false
+          }
+        },
+        "custom_select_7EbJww": {
+          "type": "custom_select",
+          "settings": {
+            "label": "Which Vehicle",
+            "field_name": "Which Vehicle",
+            "placeholder": "Which Vehicle",
+            "options": "Ford F150, Chevy 1500, Chevy 2500HD, Toyota Tundra, RAM 2500 (5th Gen), RAM 2500 (6th Gen), Toyota LC300",
+            "field_width": "100",
+            "hide_label": true,
+            "required": false
+          }
+        },
+        "custom_select_GLG987": {
+          "type": "custom_select",
+          "settings": {
+            "label": "What Stage GVM Package",
+            "field_name": "What Stage GVM Package",
+            "placeholder": "What Stage GVM Package",
+            "options": "Stage 1, Stage 2, Stage 3, Stage 4, Stage 5, Stage 6",
+            "field_width": "100",
+            "hide_label": true,
+            "required": false
+          }
+        },
+        "location_GdGQR6": {
+          "type": "location",
+          "settings": {
+            "label": "What is your location",
+            "field_name": "Location",
+            "placeholder": "What is your location?",
+            "field_width": "full",
+            "hide_label": true,
+            "required": false
+          }
+        },
+        "message_z76MtW": {
+          "type": "message",
+          "settings": {
+            "label": "Message",
+            "placeholder": "Which gvm Package do you want further information on?",
+            "rows": 3,
+            "field_width": "100",
+            "hide_label": true
+          }
+        }
+      },
+      "block_order": [
+        "name_tTgtMU",
+        "email_8VVjQt",
+        "phone_7cQCzJ",
+        "rego_status_Km3nqz",
+        "custom_select_7EbJww",
+        "custom_select_GLG987",
+        "location_GdGQR6",
+        "message_z76MtW"
+      ],
+      "name": "Contact form v4",
+      "settings": {
+        "container": "container",
+        "color_schema": "",
+        "heading": "Contact form",
+        "subheading": "",
+        "description": "",
+        "form_design": "design-1",
+        "form_width": 500,
+        "form_alignment": "center",
+        "button_label": "Send",
+        "button_style": "btn--primary",
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "show_section_divider": false,
+        "divider_width": "container",
+        "custom_id": "gvmexperts",
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "rich_text_4AxLyp": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_PHJcdq": {
+          "type": "heading",
+          "settings": {
+            "heading": "Ori's Suspension Collection",
+            "highlight_style": "underline",
+            "enable_highlight_text_color": true,
+            "heading_size": "h1",
+            "heading_color": "#56bdc2"
+          }
+        }
+      },
+      "block_order": [
+        "heading_PHJcdq"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "container": "container",
+        "color_schema": "",
+        "text_alignment": "left",
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "show_section_divider": false,
+        "divider_width": "container",
+        "custom_id": "suspensioncollection",
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "logo_list_8XphYi": {
+      "type": "logo-list",
+      "blocks": {
+        "logo_cpKqVD": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/ICONS_FOR_WEBSITE_FOX.png",
+            "image_from_url": "",
+            "image_link": "",
+            "image_width": 80
+          }
+        },
+        "logo_HXcdg3": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/ICONS_FOR_WEBSITE_BDS.png",
+            "image_from_url": "",
+            "image_link": "",
+            "image_width": 80
+          }
+        },
+        "logo_kg3grH": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/ICONS_FOR_WEBSITE_BUSHWACKER.png",
+            "image_from_url": "",
+            "image_link": "",
+            "image_width": 80
+          }
+        },
+        "logo_mVCjy7": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/peak_final-copy-small.jpg",
+            "image_from_url": "",
+            "image_link": "",
+            "image_width": 80
+          }
+        }
+      },
+      "block_order": [
+        "logo_cpKqVD",
+        "logo_HXcdg3",
+        "logo_kg3grH",
+        "logo_mVCjy7"
+      ],
+      "name": "t:sections.logo-list.presets.name",
+      "settings": {
+        "container": "container",
+        "color_schema": "",
+        "section_header_padding_bottom": "medium",
+        "section_header_content_spacing": "medium",
+        "heading": "",
+        "highlight_style": "none",
+        "enable_highlight_text_color": false,
+        "heading_size": "h2",
+        "heading_color": "",
+        "description": "",
+        "columns": 4,
+        "column_gap": "medium",
+        "row_gap": "medium",
+        "enable_slider": true,
+        "show_nav": false,
+        "show_dots": false,
+        "enable_swipe_mobile": false,
+        "column_mobile": "1",
+        "padding_top": 0,
+        "padding_bottom": 40,
+        "show_section_divider": false,
+        "divider_width": "container",
+        "custom_id": "",
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "slideshow_CtnG98",
+    "jump_links_UeawGp",
+    "rich_text_FfDANG",
+    "rich_text_GbXVUF",
+    "rich_text_jLn8zi",
+    "rich_text_PtmRiF",
+    "image_with_text_WcaAiR",
+    "image_with_text_pR9RXR",
+    "image_with_text_M8ykcj",
+    "image_with_text_pcJYGC",
+    "image_with_text_8GKk7C",
+    "rich_text_GiVh3x",
+    "rich_text_rnLAPH",
+    "gvm_comparison_FfmTMw",
+    "gvm_comparison_RXeVcA",
+    "contact_form_v4_MwATQz",
+    "rich_text_4AxLyp",
+    "logo_list_8XphYi"
+  ]
+}

@@ -1,0 +1,649 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "badge_XVmE4U": {
+          "type": "badge",
+          "settings": {}
+        },
+        "type_Y99RYn": {
+          "type": "type",
+          "settings": {}
+        },
+        "title": {
+          "type": "title",
+          "settings": {
+            "heading_size": "h2"
+          }
+        },
+        "price": {
+          "type": "price",
+          "settings": {
+            "show_sale_badge": true,
+            "sale_badge_type": "percentage"
+          }
+        },
+        "927b987d-2965-43f0-b838-16a28b36205d": {
+          "type": "rating",
+          "settings": {
+            "star_color": "#000000",
+            "star_size": 14
+          }
+        },
+        "e4d2f300-9ef9-4492-931b-cc2860fa9352": {
+          "type": "richtext",
+          "settings": {}
+        },
+        "a4fbde0c-c1ab-4001-a39d-e20d650d3e5d": {
+          "type": "inventory_status",
+          "settings": {
+            "inventory_threshold": 10,
+            "show_as_progress": false,
+            "enable_inventory_transfer": true
+          }
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "variant_picker_show_selected": true,
+            "variant_picker_dont_select_the_default_variant": false,
+            "size_title": "Size",
+            "size_chart_from_page": "product-size-chart"
+          }
+        },
+        "quantity_selector_k8h8i8": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_atc_button": true,
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": true
+          }
+        },
+        "0085194a-475c-4e97-9fc9-d18c06632620": {
+          "type": "shipping",
+          "settings": {
+            "deliver_text": "",
+            "deliver_days": "",
+            "shipping_text": "<p>Free Shipping for orders $50+</p>",
+            "date_format": "%b %d"
+          }
+        },
+        "text_FrMTyY": {
+          "type": "text",
+          "settings": {
+            "icon": "currency-dollar",
+            "text": "Money back within 30 days for an exchange.",
+            "text_style": "body"
+          }
+        },
+        "1e823623-82a2-440e-bff8-166d8a431e06": {
+          "type": "complementary",
+          "settings": {
+            "block_heading": "Buy it with",
+            "make_collapsible_row": false,
+            "icon": "price_tag",
+            "product_list_limit": 10,
+            "products_per_page": 1,
+            "enable_slider": true,
+            "image_ratio": "adapt",
+            "enable_quick_add": true,
+            "enable_quick_view": false,
+            "pcard_show_color_swatch": true
+          }
+        },
+        "908a44f0-bbe4-489c-b0cc-24ecac65eb39": {
+          "type": "collapsible_tab",
+          "settings": {
+            "icon": "none",
+            "heading": "CORE FEATURES",
+            "content": "",
+            "liquid": "{{product.description}}",
+            "page": "",
+            "default_open": true
+          }
+        },
+        "60d9ffa5-fa86-4cbd-bb6d-eccb996a0dac": {
+          "type": "collapsible_tab",
+          "settings": {
+            "icon": "none",
+            "heading": "SIZE & SPECS",
+            "content": "",
+            "liquid": "This 20L backpack features padded straps, ventilated back panel, water-resistant material, multiple compartments, and a laptop sleeve—ideal for everyday use.",
+            "page": "",
+            "default_open": false
+          }
+        },
+        "e5fb761c-c969-4e02-bd9e-c3ae00403491": {
+          "type": "collapsible_tab",
+          "settings": {
+            "icon": "none",
+            "heading": "SHIPPING & RETURNS",
+            "content": "",
+            "liquid": "",
+            "page": "product-shipping-return",
+            "default_open": false
+          }
+        },
+        "addons": {
+          "type": "addons",
+          "settings": {
+            "show_share": true,
+            "show_ask_question": true
+          }
+        }
+      },
+      "block_order": [
+        "badge_XVmE4U",
+        "type_Y99RYn",
+        "title",
+        "price",
+        "927b987d-2965-43f0-b838-16a28b36205d",
+        "e4d2f300-9ef9-4492-931b-cc2860fa9352",
+        "a4fbde0c-c1ab-4001-a39d-e20d650d3e5d",
+        "variant_picker",
+        "quantity_selector_k8h8i8",
+        "buy_buttons",
+        "0085194a-475c-4e97-9fc9-d18c06632620",
+        "text_FrMTyY",
+        "1e823623-82a2-440e-bff8-166d8a431e06",
+        "908a44f0-bbe4-489c-b0cc-24ecac65eb39",
+        "60d9ffa5-fa86-4cbd-bb6d-eccb996a0dac",
+        "e5fb761c-c969-4e02-bd9e-c3ae00403491",
+        "addons"
+      ],
+      "settings": {
+        "container": "container",
+        "show_breadcrumb": true,
+        "enable_sticky_info": true,
+        "media_layout": "stacked",
+        "media_size": "medium",
+        "mobile_thumbnails": "hide",
+        "enable_image_zoom": true,
+        "enable_video_looping": false,
+        "show_featured_media": false
+      }
+    },
+    "testimonials_M3YzxW": {
+      "type": "testimonials",
+      "blocks": {
+        "testimonial_wLDmLm": {
+          "type": "testimonial",
+          "settings": {
+            "text": "<p>Lightweight, durable, and super stylish. My new favorite! I can carry it all day without discomfort, and it fits so much! ❤️🙌</p>",
+            "author": "Jared S.",
+            "bio": ""
+          }
+        },
+        "testimonial_hKeC3K": {
+          "type": "testimonial",
+          "settings": {
+            "text": "<p>Fits all my essentials without feeling bulky. So convenient! 🎒✨ The straps are super comfortable, and I love the sleek design!</p>",
+            "author": "Jared S.",
+            "bio": ""
+          }
+        },
+        "testimonial_A6ic6J": {
+          "type": "testimonial",
+          "settings": {
+            "text": "<p>The quality is amazing, and the design is just perfect. 😍👏 It’s lightweight yet sturdy, making it my go-to bag for every trip!</p>",
+            "author": "Jared S.",
+            "bio": ""
+          }
+        },
+        "testimonial_YgniWJ": {
+          "type": "testimonial",
+          "settings": {
+            "text": "<p>Lightweight, durable, and super stylish. My new favorite! I can carry it all day without discomfort, and it fits so much! ❤️🙌</p>",
+            "author": "Jared S.",
+            "bio": ""
+          }
+        },
+        "testimonial_wCBziQ": {
+          "type": "testimonial",
+          "settings": {
+            "text": "<p>Fits all my essentials without feeling bulky. So convenient! 🎒✨ The straps are super comfortable, and I love the sleek design!</p>",
+            "author": "Jared S.",
+            "bio": ""
+          }
+        },
+        "testimonial_3fiTKr": {
+          "type": "testimonial",
+          "settings": {
+            "text": "<p>The quality is amazing, and the design is just perfect. 😍👏 It’s lightweight yet sturdy, making it my go-to bag for every trip!</p>",
+            "author": "Jared S.",
+            "bio": ""
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_wLDmLm",
+        "testimonial_hKeC3K",
+        "testimonial_A6ic6J",
+        "testimonial_YgniWJ",
+        "testimonial_wCBziQ",
+        "testimonial_3fiTKr"
+      ],
+      "settings": {
+        "container": "container",
+        "color_schema": "scheme-7",
+        "section_header_padding_bottom": "medium",
+        "section_header_content_spacing": "medium",
+        "heading": "Real People, Real Results",
+        "highlight_style": "none",
+        "enable_highlight_text_color": false,
+        "heading_size": "h2",
+        "heading_color": "",
+        "description": "",
+        "design": "unbalanced",
+        "card_color_schema": "",
+        "stars_color": "#222222",
+        "columns": 2,
+        "column_gap": "medium",
+        "enable_slider": true,
+        "show_dots": true,
+        "show_nav": true,
+        "autoplay": false,
+        "autoplay_timeout": 5,
+        "padding_top": 100,
+        "padding_bottom": 100,
+        "show_section_divider": false,
+        "divider_width": "container",
+        "custom_id": "",
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "custom-content_4G1N4M": {
+      "type": "custom-content",
+      "blocks": {
+        "template--16355052683425__aaba9aaa-8548-4b62-aa06-920711ea97d2-image-1": {
+          "type": "image",
+          "settings": {
+            "link": "",
+            "width": "50%",
+            "alignment": "center",
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        },
+        "template--16355052683425__aaba9aaa-8548-4b62-aa06-920711ea97d2-text-1": {
+          "type": "text",
+          "settings": {
+            "color_scheme": "",
+            "title": "Smell Proof, <em>Water Resistant</em>",
+            "highlight_style": "none",
+            "enable_highlight_text_color": false,
+            "heading_size": "h-xl",
+            "heading_color": "",
+            "subheading": "",
+            "text": "<p>Each piece is designed with advanced odor-blocking technology and a durable water-resistant layer, ensuring long-lasting protection in any environment. Crafted for both function and style, these materials keep your essentials fresh and dry while maintaining a sleek, modern look and premium feel. Whether you're commuting, traveling, or exploring the outdoors, this reliable design provides peace of mind, durability, and everyday carrying convenience.</p>",
+            "alignment": "center",
+            "align_text": "left",
+            "padding_left": 120,
+            "padding_right": 120,
+            "align_content_container": "none",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "btn--primary",
+            "width": "50%",
+            "mobile_color_scheme": "",
+            "mobile_padding_left": 0,
+            "mobile_padding_right": 0,
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        }
+      },
+      "block_order": [
+        "template--16355052683425__aaba9aaa-8548-4b62-aa06-920711ea97d2-image-1",
+        "template--16355052683425__aaba9aaa-8548-4b62-aa06-920711ea97d2-text-1"
+      ],
+      "custom_css": [],
+      "settings": {
+        "container": "container",
+        "color_schema": "",
+        "section_header_padding_bottom": "medium",
+        "section_header_content_spacing": "medium",
+        "heading": "",
+        "highlight_style": "none",
+        "enable_highlight_text_color": false,
+        "heading_size": "h2",
+        "heading_color": "",
+        "subheading": "",
+        "description": "",
+        "column_gap": "medium",
+        "row_gap": "medium",
+        "enable_swipe_mobile": false,
+        "column_mobile": "1",
+        "padding_top": 100,
+        "padding_bottom": 0,
+        "show_section_divider": false,
+        "divider_width": "container",
+        "custom_id": "",
+        "custom_class": ""
+      }
+    },
+    "custom-content_UCYVAU": {
+      "type": "custom-content",
+      "blocks": {
+        "65607c3d-a6ed-4941-985a-79acd33625c7": {
+          "type": "text",
+          "settings": {
+            "color_scheme": "",
+            "title": "<em>Adjustable</em> Shoulder Strap",
+            "highlight_style": "none",
+            "enable_highlight_text_color": false,
+            "heading_size": "h-xl",
+            "heading_color": "",
+            "subheading": "",
+            "text": "<p>Designed for customized comfort, this strap easily adjusts to your ideal length, ensuring a perfect fit for any activity. Crafted from durable, high-quality materials, it offers long-lasting support while reducing shoulder strain and enhancing mobility and posture. Whether you're commuting, traveling, or exploring the outdoors, the adaptable design provides flexibility, stability, and all-day carrying ease without compromising on style, durability, or reliability.</p>",
+            "alignment": "center",
+            "align_text": "left",
+            "padding_left": 120,
+            "padding_right": 120,
+            "align_content_container": "none",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "btn--primary",
+            "width": "50%",
+            "mobile_color_scheme": "",
+            "mobile_padding_left": 0,
+            "mobile_padding_right": 0,
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        },
+        "f6b396c8-cdf4-482d-ae3e-eb657ca8529e": {
+          "type": "image",
+          "settings": {
+            "link": "",
+            "width": "50%",
+            "alignment": "center",
+            "block_custom_class": "mobile-order-first",
+            "animations": "inherit"
+          }
+        }
+      },
+      "block_order": [
+        "65607c3d-a6ed-4941-985a-79acd33625c7",
+        "f6b396c8-cdf4-482d-ae3e-eb657ca8529e"
+      ],
+      "custom_css": [],
+      "settings": {
+        "container": "container",
+        "color_schema": "",
+        "section_header_padding_bottom": "medium",
+        "section_header_content_spacing": "medium",
+        "heading": "",
+        "highlight_style": "none",
+        "enable_highlight_text_color": false,
+        "heading_size": "h2",
+        "heading_color": "",
+        "subheading": "",
+        "description": "",
+        "column_gap": "medium",
+        "row_gap": "medium",
+        "enable_swipe_mobile": false,
+        "column_mobile": "1",
+        "padding_top": 100,
+        "padding_bottom": 100,
+        "show_section_divider": false,
+        "divider_width": "container",
+        "custom_id": "",
+        "custom_class": ""
+      }
+    },
+    "scrolling_promotion_iqVp4T": {
+      "type": "scrolling-promotion",
+      "blocks": {
+        "image_CMHfbV": {
+          "type": "image",
+          "settings": {
+            "image_height": 80,
+            "use_custom_spacing": true,
+            "margin_left": 0,
+            "margin_right": 20,
+            "margin_left_mobile": 0,
+            "margin_right_mobile": 20
+          }
+        },
+        "announcement_Ck9fgL": {
+          "type": "announcement",
+          "settings": {
+            "text": "Shop Duffles",
+            "font_family": "heading",
+            "text_size": 34,
+            "use_custom_spacing": true,
+            "margin_left": 0,
+            "margin_right": 30,
+            "margin_left_mobile": 0,
+            "margin_right_mobile": 16
+          }
+        },
+        "divider_qMNDMW": {
+          "type": "divider",
+          "settings": {
+            "width": 64,
+            "use_custom_spacing": true,
+            "margin_left": 0,
+            "margin_right": 30,
+            "margin_left_mobile": 0,
+            "margin_right_mobile": 16
+          }
+        },
+        "image_cqXJGB": {
+          "type": "image",
+          "settings": {
+            "image_height": 80,
+            "use_custom_spacing": true,
+            "margin_left": 0,
+            "margin_right": 20,
+            "margin_left_mobile": 0,
+            "margin_right_mobile": 20
+          }
+        },
+        "announcement_kcKcYP": {
+          "type": "announcement",
+          "settings": {
+            "text": "Shop Backpacks",
+            "font_family": "heading",
+            "text_size": 34,
+            "use_custom_spacing": true,
+            "margin_left": 0,
+            "margin_right": 30,
+            "margin_left_mobile": 0,
+            "margin_right_mobile": 16
+          }
+        },
+        "divider_nWecrt": {
+          "type": "divider",
+          "settings": {
+            "width": 64,
+            "use_custom_spacing": true,
+            "margin_left": 0,
+            "margin_right": 30,
+            "margin_left_mobile": 0,
+            "margin_right_mobile": 16
+          }
+        },
+        "image_xj6yaA": {
+          "type": "image",
+          "settings": {
+            "image_height": 80,
+            "use_custom_spacing": true,
+            "margin_left": 0,
+            "margin_right": 20,
+            "margin_left_mobile": 0,
+            "margin_right_mobile": 20
+          }
+        },
+        "announcement_rVDhn4": {
+          "type": "announcement",
+          "settings": {
+            "text": "Shop Punch",
+            "font_family": "heading",
+            "text_size": 34,
+            "use_custom_spacing": true,
+            "margin_left": 0,
+            "margin_right": 30,
+            "margin_left_mobile": 0,
+            "margin_right_mobile": 16
+          }
+        },
+        "divider_VyRtkM": {
+          "type": "divider",
+          "settings": {
+            "width": 64,
+            "use_custom_spacing": true,
+            "margin_left": 0,
+            "margin_right": 30,
+            "margin_left_mobile": 0,
+            "margin_right_mobile": 16
+          }
+        }
+      },
+      "block_order": [
+        "image_CMHfbV",
+        "announcement_Ck9fgL",
+        "divider_qMNDMW",
+        "image_cqXJGB",
+        "announcement_kcKcYP",
+        "divider_nWecrt",
+        "image_xj6yaA",
+        "announcement_rVDhn4",
+        "divider_VyRtkM"
+      ],
+      "settings": {
+        "container": "container-full",
+        "color_schema": "",
+        "section_header_padding_bottom": "medium",
+        "section_header_content_spacing": "medium",
+        "heading": "",
+        "highlight_style": "none",
+        "enable_highlight_text_color": false,
+        "heading_size": "h2",
+        "heading_color": "",
+        "subheading": "",
+        "description": "",
+        "alignment": "center",
+        "direction": "left",
+        "pause_on_hover": true,
+        "speed": 0.2,
+        "item_gap": 0,
+        "item_gap_mobile": 0,
+        "padding_top": 20,
+        "padding_bottom": 20,
+        "use_custom_mobile_padding": true,
+        "padding_top_mobile": 20,
+        "padding_bottom_mobile": 20,
+        "show_section_divider": true,
+        "divider_width": "container-full",
+        "custom_id": "",
+        "custom_class": ""
+      }
+    },
+    "hero_8BNkhD": {
+      "type": "hero",
+      "blocks": {
+        "subtitle_3GEAxk": {
+          "type": "subtitle",
+          "settings": {
+            "subtitle": "Urban Explorer"
+          }
+        },
+        "title_ymPcbc": {
+          "type": "title",
+          "settings": {
+            "title": "Discover Your <em>Companion</em>",
+            "highlight_style": "none",
+            "enable_highlight_text_color": false,
+            "heading_size": "h-xl",
+            "heading_color": "#e1ea7a"
+          }
+        },
+        "text_CDfQbC": {
+          "type": "text",
+          "settings": {
+            "text": "<p>We design bags with care, blending durability, function, <br/>and timeless style for every journey.</p>"
+          }
+        },
+        "button_NpYePP": {
+          "type": "button",
+          "settings": {
+            "button_label": "Shop Now",
+            "button_style": "btn--white",
+            "button_size": ""
+          }
+        }
+      },
+      "block_order": [
+        "subtitle_3GEAxk",
+        "title_ymPcbc",
+        "text_CDfQbC",
+        "button_NpYePP"
+      ],
+      "settings": {
+        "container": "container-full",
+        "image_overlay_opacity": 20,
+        "hero_height": "adapt",
+        "content_in_container": false,
+        "content_position": "center",
+        "text_alignment": "center",
+        "text_color": "#ffffff",
+        "hero_height_mobile": "adapt",
+        "content_position_mobile": "center",
+        "show_text_below": false,
+        "text_alignment_mobile": "center",
+        "custom_id": "",
+        "custom_class": "",
+        "animations": "inherit",
+        "enable_bg_zoom_effect": true
+      }
+    },
+    "product-recommendations": {
+      "type": "product-recommendations",
+      "settings": {
+        "container": "container",
+        "color_schema": "background-1",
+        "remove_params": false,
+        "section_header_padding_bottom": "medium",
+        "section_header_content_spacing": "medium",
+        "heading": "You May Also Like",
+        "highlight_style": "none",
+        "enable_highlight_text_color": false,
+        "heading_size": "h2",
+        "heading_color": "",
+        "description": "",
+        "limit": 8,
+        "columns": 4,
+        "column_gap": "medium",
+        "row_gap": "medium",
+        "enable_slider": true,
+        "show_nav": true,
+        "show_dots": false,
+        "enable_swipe_mobile": true,
+        "column_mobile": "1",
+        "padding_top": 100,
+        "padding_bottom": 100,
+        "show_section_divider": false,
+        "divider_width": "container",
+        "animations": "inherit"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "testimonials_M3YzxW",
+    "custom-content_4G1N4M",
+    "custom-content_UCYVAU",
+    "scrolling_promotion_iqVp4T",
+    "hero_8BNkhD",
+    "product-recommendations"
+  ]
+}

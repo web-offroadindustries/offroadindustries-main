@@ -1,0 +1,220 @@
+{%- liquid
+  assign sid = section.id
+
+  assign ns = section.settings.faq_mf_namespace | default: 'custom'
+  assign key = section.settings.faq_mf_key | default: 'collection_faq'
+
+  assign faq_mf = collection.metafields[ns][key]
+  assign faqs = faq_mf.value
+
+  assign faq_title = section.settings.container_title | strip
+  if faq_title == blank
+    assign faq_title = 'FAQs'
+  endif
+-%}
+
+{%- if faqs != blank and faqs.count > 0 -%}
+  <section
+    id="cfq-{{ sid }}"
+    class="cfq cfq--{{ sid }}"
+    style="
+    --cfq-bg: {{ section.settings.bg_color }};
+    --cfq-card-bg: {{ section.settings.card_bg }};
+    --cfq-border: {{ section.settings.border_color }};
+    --cfq-maxw: {{ section.settings.max_width | default: 1200 }}px;
+    --cfq-pad-y: {{ section.settings.padding_y | default: 32 }}px;
+
+    --cfq-title-size: {{ section.settings.title_size | default: 30 }}px;
+    --cfq-title-color: {{ section.settings.title_color }};
+    --cfq-subtitle-size: {{ section.settings.subtitle_size | default: 16 }}px;
+    --cfq-subtitle-color: {{ section.settings.subtitle_color }};
+
+    --cfq-q-size: {{ section.settings.question_size | default: 16 }}px;
+    --cfq-q-color: {{ section.settings.question_color }};
+    --cfq-a-size: {{ section.settings.answer_size | default: 14 }}px;
+    --cfq-a-color: {{ section.settings.answer_color }};
+    "
+    data-single-open="{{ section.settings.single_open }}"
+  >
+    <div class="cfq__wrap">
+        <header class="cfq__head">
+            <h2 class="cfq__title">{{ faq_title }}</h2>
+
+            {%- if section.settings.container_subtitle != blank -%}
+            <div class="cfq__subtitle rte">{{ section.settings.container_subtitle }}</div>
+            {%- endif -%}
+        </header>
+
+      <div class="cfq__list">
+        {%- for faq in faqs -%}
+          {%- assign q = faq.question.value | default: faq.question -%}
+
+          <details class="cfq__item" {% if section.settings.open_first_faq and forloop.first %}open{% endif %}>
+            <summary class="cfq__q">
+              <span class="cfq__qText">{{ q }}</span>
+              <span class="cfq__icon" aria-hidden="true"></span>
+            </summary>
+
+            <div class="cfq__a rte">
+              {{ faq.answer | metafield_tag }}
+            </div>
+          </details>
+        {%- endfor -%}
+      </div>
+    </div>
+
+    <style>
+      #cfq-{{ sid }}{ background: var(--cfq-bg); padding: var(--cfq-pad-y) 0; }
+      #cfq-{{ sid }} .cfq__wrap{ max-width: var(--cfq-maxw); margin: 0 auto; padding: 0 20px; }
+
+      #cfq-{{ sid }} .cfq__head{ margin-bottom: 18px; }
+      #cfq-{{ sid }} .cfq__title{
+        margin: 0 0 8px 0;
+        font-size: var(--cfq-title-size);
+        color: var(--cfq-title-color);
+        line-height: 1.15;
+      }
+      #cfq-{{ sid }} .cfq__subtitle{
+        font-size: var(--cfq-subtitle-size);
+        color: var(--cfq-subtitle-color);
+        line-height: 1.45;
+      }
+
+      #cfq-{{ sid }} .cfq__list{ display: grid; gap: 12px; }
+
+      #cfq-{{ sid }} .cfq__item{
+        background: var(--cfq-card-bg);
+        border: 1px solid var(--cfq-border);
+        border-radius: 12px;
+        overflow: hidden;
+      }
+
+      #cfq-{{ sid }} .cfq__q{
+        list-style: none;
+        cursor: pointer;
+        padding: 14px 14px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 14px;
+      }
+      #cfq-{{ sid }} .cfq__q::-webkit-details-marker{ display: none; }
+
+      #cfq-{{ sid }} .cfq__qText{
+        font-size: var(--cfq-q-size);
+        color: var(--cfq-q-color);
+        font-weight: 700;
+        line-height: 1.25;
+      }
+
+      #cfq-{{ sid }} .cfq__icon{
+        width: 18px; height: 18px; position: relative; flex: 0 0 18px;
+      }
+      #cfq-{{ sid }} .cfq__icon:before,
+      #cfq-{{ sid }} .cfq__icon:after{
+        content: "";
+        position: absolute;
+        left: 50%; top: 50%;
+        width: 14px; height: 2px;
+        background: var(--cfq-q-color);
+        transform: translate(-50%, -50%);
+      }
+      #cfq-{{ sid }} .cfq__icon:after{
+        transform: translate(-50%, -50%) rotate(90deg);
+      }
+      #cfq-{{ sid }} details[open] .cfq__icon:after{
+        transform: translate(-50%, -50%) rotate(0deg);
+        opacity: 0;
+      }
+
+      #cfq-{{ sid }} .cfq__a{
+        padding: 0 14px 14px 14px;
+        font-size: var(--cfq-a-size);
+        color: var(--cfq-a-color);
+        line-height: 1.55;
+      }
+
+      @media (max-width: 749px){
+        #cfq-{{ sid }} .cfq__wrap{ padding: 0 14px; }
+      }
+    </style>
+
+    <script>
+      (function(){
+        var root = document.getElementById('cfq-{{ sid }}');
+        if(!root) return;
+        var single = root.getAttribute('data-single-open') === 'true';
+        if(!single) return;
+
+        var items = root.querySelectorAll('details.cfq__item');
+        items.forEach(function(d){
+          d.addEventListener('toggle', function(){
+            if(!d.open) return;
+            items.forEach(function(other){
+              if(other !== d) other.removeAttribute('open');
+            });
+          });
+        });
+      })();
+    </script>
+  </section>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Collection FAQ",
+  "settings": [
+    { "type": "header", "content": "Metafield source (FAQ list)" },
+    {
+      "type": "text",
+      "id": "faq_mf_namespace",
+      "label": "FAQ metafield namespace",
+      "default": "custom"
+    },
+    {
+      "type": "text",
+      "id": "faq_mf_key",
+      "label": "FAQ metafield key",
+      "default": "collection_faq"
+    },
+
+    { "type": "header", "content": "Title / Subtitle (use Dynamic Source)" },
+    {
+      "type": "text",
+      "id": "container_title",
+      "label": "Title (connect to collection metafield if needed)"
+    },
+    {
+      "type": "richtext",
+      "id": "container_subtitle",
+      "label": "Subtitle (connect to collection metafield if needed)"
+    },
+
+    { "type": "header", "content": "Styles" },
+    { "type": "color", "id": "bg_color", "label": "Section background", "default": "#FFFFFF" },
+    { "type": "color", "id": "card_bg", "label": "Card background", "default": "#FFFFFF" },
+    { "type": "color", "id": "border_color", "label": "Border color", "default": "#E6E6E6" },
+
+    { "type": "number", "id": "max_width", "label": "Max width (px)", "default": 1200 },
+    { "type": "number", "id": "padding_y", "label": "Padding top/bottom (px)", "default": 32 },
+
+    { "type": "number", "id": "title_size", "label": "Title font size (px)", "default": 30 },
+    { "type": "color", "id": "title_color", "label": "Title color", "default": "#111111" },
+
+    { "type": "number", "id": "subtitle_size", "label": "Subtitle font size (px)", "default": 16 },
+    { "type": "color", "id": "subtitle_color", "label": "Subtitle color", "default": "#444444" },
+
+    { "type": "number", "id": "question_size", "label": "Question font size (px)", "default": 16 },
+    { "type": "color", "id": "question_color", "label": "Question color", "default": "#111111" },
+
+    { "type": "number", "id": "answer_size", "label": "Answer font size (px)", "default": 14 },
+    { "type": "color", "id": "answer_color", "label": "Answer color", "default": "#333333" },
+
+    { "type": "checkbox", "id": "single_open", "label": "Only one FAQ open at a time", "default": true },
+    { "type": "checkbox", "id": "open_first_faq", "label": "Open first FAQ by default", "default": false }
+  ],
+  "presets": [
+    { "name": "Collection FAQ" }
+  ]
+}
+{% endschema %}

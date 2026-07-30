@@ -1,0 +1,612 @@
+<style>
+.secondary-header {
+  background-color: var(--sh-bg, #1a1a1a);
+  color: var(--sh-color, #ffffff);
+  font-size: var(--sh-font-size, 13px);
+  line-height: 1;
+  position: relative;
+}
+.secondary-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: var(--sh-height, 38px);
+  padding-top: var(--sh-padding-y, 0px);
+  padding-bottom: var(--sh-padding-y, 0px);
+  gap: 24px;
+}
+.secondary-header__left,
+.secondary-header__right {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  flex-shrink: 0;
+}
+.secondary-header__item + .secondary-header__item::before {
+  content: "";
+  display: block;
+  width: 1px;
+  height: 14px;
+  background: rgba(255, 255, 255, 0.25);
+  margin: 0 16px;
+  flex-shrink: 0;
+}
+.secondary-header__item--search + .secondary-header__item::before {
+  display: none;
+}
+.secondary-header__item--no-divider::before {
+  display: none !important;
+}
+.secondary-header__item + .secondary-header__item--no-divider {
+  margin-left: 8px;
+}
+.secondary-header__item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.secondary-header__icon-wrap {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  color: inherit;
+  opacity: 0.85;
+}
+.secondary-header__svg-icon {
+  display: block;
+  flex-shrink: 0;
+  width: var(--sh-block-icon-size, 14px);
+  height: var(--sh-block-icon-size, 14px);
+}
+.secondary-header__custom-icon {
+  display: block;
+  flex-shrink: 0;
+  width: var(--sh-block-icon-size, 14px);
+  height: var(--sh-block-icon-size, 14px);
+  object-fit: contain;
+}
+.secondary-header__link {
+  color: inherit;
+  text-decoration: none;
+  font-size: inherit;
+  line-height: 1.3;
+  white-space: nowrap;
+  opacity: 0.9;
+  transition: opacity 0.2s ease;
+}
+.secondary-header__link:hover {
+  opacity: 1;
+  color: inherit;
+}
+.secondary-header__text {
+  color: inherit;
+  font-size: inherit;
+  line-height: 1.3;
+  white-space: nowrap;
+}
+.secondary-header__item--search {
+  max-width: var(--sh-search-max, 280px);
+  width: 100%;
+}
+.secondary-header__search-form {
+  display: flex;
+  align-items: center;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 20px;
+  padding: 0 10px 0 16px;
+  height: 32px;
+  width: 100%;
+  max-width: var(--sh-search-max, 280px);
+  transition: border-color 0.2s ease;
+  box-sizing: border-box;
+}
+.secondary-header__search-form:focus-within {
+  background: transparent;
+  border-color: rgba(255, 255, 255, 0.65);
+}
+.secondary-header__search-input {
+  background: transparent !important;
+  border: none;
+  outline: none;
+  box-shadow: none;
+  -webkit-appearance: none;
+  appearance: none;
+  color: inherit;
+  font-size: inherit;
+  flex: 1;
+  min-width: 0;
+  padding: 0;
+  height: 100%;
+  line-height: normal;
+}
+.secondary-header__search-input::placeholder {
+  color: inherit;
+  opacity: 0.5;
+}
+.secondary-header__search-input:-webkit-autofill,
+.secondary-header__search-input:-webkit-autofill:hover,
+.secondary-header__search-input:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0 1000px var(--sh-bg, #1a1a1a) inset !important;
+  -webkit-text-fill-color: var(--sh-color, #ffffff) !important;
+  caret-color: var(--sh-color, #ffffff);
+}
+.secondary-header__search-btn,
+.secondary-header__search-btn.btn,
+.secondary-header__search-form .secondary-header__search-btn {
+  all: unset;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  color: inherit;
+  opacity: 0.65;
+  transition: opacity 0.2s ease;
+}
+.secondary-header__search-btn:hover,
+.secondary-header__search-form .secondary-header__search-btn:hover {
+  opacity: 1;
+  background: transparent !important;
+}
+.secondary-header__search-btn svg {
+  width: var(--sh-block-icon-size, 15px);
+  height: var(--sh-block-icon-size, 15px);
+  display: block;
+  flex-shrink: 0;
+  color: inherit;
+}
+.secondary-header__search-btn::before,
+.secondary-header__search-btn::after {
+  display: none !important;
+  content: none !important;
+}
+@media screen and (max-width: 989px) {
+  .secondary-header--hide-mobile {
+    display: none;
+  }
+}
+.sh-mobile-info {
+  background: var(--sh-bg, #1a1a1a);
+  color: var(--sh-color, #ffffff);
+  font-size: var(--sh-font-size, 13px);
+  padding: 14px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.sh-mobile-info__item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.sh-mobile-info__icon {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  color: inherit;
+  opacity: 0.85;
+}
+.sh-mobile-info__svg-icon {
+  display: block;
+  flex-shrink: 0;
+  width: var(--sh-block-icon-size, 14px);
+  height: var(--sh-block-icon-size, 14px);
+}
+.sh-mobile-info__custom-icon {
+  display: block;
+  flex-shrink: 0;
+  width: var(--sh-block-icon-size, 14px);
+  height: var(--sh-block-icon-size, 14px);
+  object-fit: contain;
+}
+.sh-mobile-info__link {
+  color: inherit;
+  text-decoration: none;
+  font-size: inherit;
+  line-height: 1.3;
+  white-space: nowrap;
+  opacity: 0.9;
+  transition: opacity 0.2s ease;
+}
+.sh-mobile-info__link:hover {
+  opacity: 1;
+}
+.sh-mobile-info__text {
+  color: inherit;
+  font-size: inherit;
+  line-height: 1.3;
+  white-space: nowrap;
+}
+</style>
+
+{%- liquid
+  assign container = section.settings.container | default: 'container-fluid'
+  assign hide_class = ''
+  if section.settings.hide_on_mobile
+    assign hide_class = ' secondary-header--hide-mobile'
+  endif
+-%}
+
+<div
+  class="secondary-header{{ hide_class }}"
+  style="
+    --sh-bg: {{ section.settings.bg_color }};
+    --sh-color: {{ section.settings.text_color }};
+    --sh-font-size: {{ section.settings.font_size }}px;
+    --sh-height: {{ section.settings.container_height }}px;
+    --sh-padding-y: {{ section.settings.padding_y }}px;
+  "
+  data-section-id="{{ section.id }}"
+>
+  <div class="{{ container }}">
+    <div class="secondary-header__inner">
+
+      <div class="secondary-header__left">
+        {%- for block in section.blocks -%}
+          {%- if block.settings.side == 'left' -%}
+            {%- case block.type -%}
+              {%- when 'text_link' -%}
+                <div class="secondary-header__item{% if block.settings.hide_divider %} secondary-header__item--no-divider{% endif %}" style="--sh-block-icon-size: {{ block.settings.icon_size }}px;{% if block.settings.block_color != blank %} color: {{ block.settings.block_color }};{% endif %}{% if block.settings.block_font_size > 0 %} font-size: {{ block.settings.block_font_size }}px;{% endif %}" {{ block.shopify_attributes }}>
+                  {%- unless block.settings.svg_icon == 'none' and block.settings.custom_icon == blank -%}
+                    <span class="secondary-header__icon-wrap" aria-hidden="true">
+                      {%- if block.settings.custom_icon != blank -%}
+                        <img src="{{ block.settings.custom_icon | image_url: width: 64 }}" alt="" class="secondary-header__custom-icon" loading="eager">
+                      {%- elsif block.settings.svg_icon == 'email' -%}
+                        <svg class="secondary-header__svg-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg>
+                      {%- elsif block.settings.svg_icon == 'phone' -%}
+                        <svg class="secondary-header__svg-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8 19.79 19.79 0 012 .18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+                      {%- elsif block.settings.svg_icon == 'location' -%}
+                        <svg class="secondary-header__svg-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                      {%- elsif block.settings.svg_icon == 'support' -%}
+                        <svg class="secondary-header__svg-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a9 9 0 0118 0v6"/><path d="M21 19a2 2 0 01-2 2h-1a2 2 0 01-2-2v-3a2 2 0 012-2h3zM3 19a2 2 0 002 2h1a2 2 0 002-2v-3a2 2 0 00-2-2H3z"/></svg>
+                      {%- endif -%}
+                    </span>
+                  {%- endunless -%}
+                  {%- if block.settings.link != blank -%}
+                    <a href="{{ block.settings.link }}" class="secondary-header__link">{{ block.settings.text }}</a>
+                  {%- else -%}
+                    <span class="secondary-header__text">{{ block.settings.text }}</span>
+                  {%- endif -%}
+                </div>
+              {%- when 'search' -%}
+                <div class="secondary-header__item secondary-header__item--search" style="--sh-search-max: {{ block.settings.search_max_width }}px; --sh-block-icon-size: {{ block.settings.icon_size }}px;" {{ block.shopify_attributes }}>
+                  <form action="{{ routes.search_url }}" method="get" role="search" class="secondary-header__search-form">
+                    <label class="visually-hidden" for="SecondarySearch-l-{{ block.id }}">{{ 'general.search.search' | t }}</label>
+                    <input id="SecondarySearch-l-{{ block.id }}" class="secondary-header__search-input snize-exclude-input" type="search" name="q" autocomplete="off" placeholder="{{ block.settings.placeholder }}">
+                    <input type="hidden" name="options[prefix]" value="last">
+                    <input type="hidden" name="options[unavailable_products]" value="show">
+                    <button type="submit" class="secondary-header__search-btn" aria-label="{{ 'general.search.search' | t }}">
+                      <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" role="presentation" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                    </button>
+                  </form>
+                </div>
+            {%- endcase -%}
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+
+      <div class="secondary-header__right">
+        {%- if customer -%}
+          <div class="secondary-header__item">
+            <a href="{{ routes.account_logout_url }}" class="secondary-header__link">Log Out</a>
+          </div>
+        {%- endif -%}
+        {%- for block in section.blocks -%}
+          {%- if block.settings.side == 'right' -%}
+            {%- case block.type -%}
+              {%- when 'text_link' -%}
+                <div class="secondary-header__item{% if block.settings.hide_divider %} secondary-header__item--no-divider{% endif %}" style="--sh-block-icon-size: {{ block.settings.icon_size }}px;{% if block.settings.block_color != blank %} color: {{ block.settings.block_color }};{% endif %}{% if block.settings.block_font_size > 0 %} font-size: {{ block.settings.block_font_size }}px;{% endif %}" {{ block.shopify_attributes }}>
+                  {%- unless block.settings.svg_icon == 'none' and block.settings.custom_icon == blank -%}
+                    <span class="secondary-header__icon-wrap" aria-hidden="true">
+                      {%- if block.settings.custom_icon != blank -%}
+                        <img src="{{ block.settings.custom_icon | image_url: width: 64 }}" alt="" class="secondary-header__custom-icon" loading="eager">
+                      {%- elsif block.settings.svg_icon == 'email' -%}
+                        <svg class="secondary-header__svg-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg>
+                      {%- elsif block.settings.svg_icon == 'phone' -%}
+                        <svg class="secondary-header__svg-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8 19.79 19.79 0 012 .18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+                      {%- elsif block.settings.svg_icon == 'location' -%}
+                        <svg class="secondary-header__svg-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                      {%- elsif block.settings.svg_icon == 'support' -%}
+                        <svg class="secondary-header__svg-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a9 9 0 0118 0v6"/><path d="M21 19a2 2 0 01-2 2h-1a2 2 0 01-2-2v-3a2 2 0 012-2h3zM3 19a2 2 0 002 2h1a2 2 0 002-2v-3a2 2 0 00-2-2H3z"/></svg>
+                      {%- endif -%}
+                    </span>
+                  {%- endunless -%}
+                  {%- if block.settings.link != blank -%}
+                    <a href="{{ block.settings.link }}" class="secondary-header__link">{{ block.settings.text }}</a>
+                  {%- else -%}
+                    <span class="secondary-header__text">{{ block.settings.text }}</span>
+                  {%- endif -%}
+                </div>
+              {%- when 'search' -%}
+                <div class="secondary-header__item secondary-header__item--search" style="--sh-search-max: {{ block.settings.search_max_width }}px; --sh-block-icon-size: {{ block.settings.icon_size }}px;" {{ block.shopify_attributes }}>
+                  <form action="{{ routes.search_url }}" method="get" role="search" class="secondary-header__search-form">
+                    <label class="visually-hidden" for="SecondarySearch-r-{{ block.id }}">{{ 'general.search.search' | t }}</label>
+                    <input id="SecondarySearch-r-{{ block.id }}" class="secondary-header__search-input snize-exclude-input" type="search" name="q" autocomplete="off" placeholder="{{ block.settings.placeholder }}">
+                    <input type="hidden" name="options[prefix]" value="last">
+                    <input type="hidden" name="options[unavailable_products]" value="show">
+                    <button type="submit" class="secondary-header__search-btn" aria-label="{{ 'general.search.search' | t }}">
+                      <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" role="presentation" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                    </button>
+                  </form>
+                </div>
+            {%- endcase -%}
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+
+    </div>
+  </div>
+</div>
+
+{%- assign sh_has_text = false -%}
+{%- for block in section.blocks -%}
+  {%- if block.type == 'text_link' -%}{%- assign sh_has_text = true -%}{%- endif -%}
+{%- endfor -%}
+{%- if sh_has_text -%}
+<template id="sh-mobile-tpl-{{ section.id }}">
+  {%- for block in section.blocks -%}
+    {%- if block.type == 'text_link' -%}
+      <div class="sh-mobile-info__item" style="--sh-block-icon-size: {{ block.settings.icon_size }}px;{% if block.settings.block_color != blank %} color: {{ block.settings.block_color }};{% endif %}{% if block.settings.block_font_size > 0 %} font-size: {{ block.settings.block_font_size }}px;{% endif %}">
+        {%- unless block.settings.svg_icon == 'none' and block.settings.custom_icon == blank -%}
+          <span class="sh-mobile-info__icon" aria-hidden="true">
+            {%- if block.settings.custom_icon != blank -%}
+              <img src="{{ block.settings.custom_icon | image_url: width: 64 }}" alt="" class="sh-mobile-info__custom-icon" loading="lazy">
+            {%- elsif block.settings.svg_icon == 'email' -%}
+              <svg class="sh-mobile-info__svg-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg>
+            {%- elsif block.settings.svg_icon == 'phone' -%}
+              <svg class="sh-mobile-info__svg-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8 19.79 19.79 0 012 .18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+            {%- elsif block.settings.svg_icon == 'location' -%}
+              <svg class="sh-mobile-info__svg-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            {%- elsif block.settings.svg_icon == 'support' -%}
+              <svg class="sh-mobile-info__svg-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a9 9 0 0118 0v6"/><path d="M21 19a2 2 0 01-2 2h-1a2 2 0 01-2-2v-3a2 2 0 012-2h3zM3 19a2 2 0 002 2h1a2 2 0 002-2v-3a2 2 0 00-2-2H3z"/></svg>
+            {%- endif -%}
+          </span>
+        {%- endunless -%}
+        {%- if block.settings.link != blank -%}
+          <a href="{{ block.settings.link }}" class="sh-mobile-info__link">{{ block.settings.text }}</a>
+        {%- else -%}
+          <span class="sh-mobile-info__text">{{ block.settings.text }}</span>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+  {%- endfor -%}
+</template>
+<script>
+(function () {
+  var bg = {{ section.settings.bg_color | json }};
+  var color = {{ section.settings.text_color | json }};
+  var fontSize = {{ section.settings.font_size | json }};
+
+  function inject() {
+    var drawer = document.getElementById('Mobile-Nav');
+    if (!drawer) return;
+    if (drawer.querySelector('.sh-mobile-info')) return;
+
+    var navInner = drawer.querySelector('.f-mobile-nav__inner');
+    if (!navInner) return;
+
+    var tmpl = document.getElementById('sh-mobile-tpl-{{ section.id }}');
+    if (!tmpl) return;
+
+    var container = document.createElement('div');
+    container.className = 'sh-mobile-info';
+    container.style.cssText = '--sh-bg:' + bg + ';--sh-color:' + color + ';--sh-font-size:' + fontSize + 'px;';
+    container.appendChild(document.importNode(tmpl.content, true));
+    navInner.insertAdjacentElement('afterend', container);
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', inject);
+  } else {
+    inject();
+  }
+})();
+</script>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Secondary Header",
+  "tag": "div",
+  "class": "shopify-section-secondary-header",
+  "max_blocks": 6,
+  "settings": [
+    {
+      "type": "select",
+      "id": "container",
+      "label": "Container width",
+      "options": [
+        { "value": "container", "label": "Fixed" },
+        { "value": "container-fluid", "label": "Stretched" },
+        { "value": "container-full", "label": "Full width" }
+      ],
+      "default": "container-fluid"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background color",
+      "default": "#1a1a1a"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "font_size",
+      "label": "Font size",
+      "min": 10,
+      "max": 20,
+      "step": 1,
+      "default": 13,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "container_height",
+      "label": "Bar height",
+      "min": 28,
+      "max": 80,
+      "step": 2,
+      "default": 38,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_y",
+      "label": "Vertical padding",
+      "info": "Extra top/bottom padding inside the bar",
+      "min": 0,
+      "max": 24,
+      "step": 2,
+      "default": 6,
+      "unit": "px"
+    },
+    {
+      "type": "checkbox",
+      "id": "hide_on_mobile",
+      "label": "Hide on mobile",
+      "default": true
+    }
+  ],
+  "blocks": [
+    {
+      "type": "text_link",
+      "name": "Text / Link item",
+      "settings": [
+        {
+          "type": "select",
+          "id": "side",
+          "label": "Position",
+          "options": [
+            { "value": "left", "label": "Left side" },
+            { "value": "right", "label": "Right side" }
+          ],
+          "default": "left"
+        },
+        {
+          "type": "select",
+          "id": "svg_icon",
+          "label": "Built-in icon",
+          "info": "Overridden if a custom icon image is set below",
+          "options": [
+            { "value": "none", "label": "None" },
+            { "value": "email", "label": "Email" },
+            { "value": "phone", "label": "Phone" },
+            { "value": "location", "label": "Location" },
+            { "value": "support", "label": "Support / Headphones" }
+          ],
+          "default": "none"
+        },
+        {
+          "type": "image_picker",
+          "id": "custom_icon",
+          "label": "Custom icon image (optional)"
+        },
+        {
+          "type": "range",
+          "id": "icon_size",
+          "label": "Icon size",
+          "min": 12,
+          "max": 36,
+          "step": 2,
+          "default": 14,
+          "unit": "px"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text",
+          "default": "Info text"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link (optional)"
+        },
+        {
+          "type": "checkbox",
+          "id": "hide_divider",
+          "label": "Hide divider before this item",
+          "default": false
+        },
+        {
+          "type": "color",
+          "id": "block_color",
+          "label": "Text & icon color",
+          "info": "Leave blank to use the section default color"
+        },
+        {
+          "type": "range",
+          "id": "block_font_size",
+          "label": "Font size override",
+          "info": "Set to 0 to inherit the section font size",
+          "min": 0,
+          "max": 32,
+          "step": 1,
+          "default": 0,
+          "unit": "px"
+        }
+      ]
+    },
+    {
+      "type": "search",
+      "name": "Search box",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "select",
+          "id": "side",
+          "label": "Position",
+          "options": [
+            { "value": "left", "label": "Left side" },
+            { "value": "right", "label": "Right side" }
+          ],
+          "default": "right"
+        },
+        {
+          "type": "text",
+          "id": "placeholder",
+          "label": "Placeholder text",
+          "default": "Search products..."
+        },
+        {
+          "type": "range",
+          "id": "search_max_width",
+          "label": "Max width",
+          "min": 150,
+          "max": 600,
+          "step": 10,
+          "default": 280,
+          "unit": "px"
+        },
+        {
+          "type": "range",
+          "id": "icon_size",
+          "label": "Search icon size",
+          "min": 12,
+          "max": 28,
+          "step": 2,
+          "default": 16,
+          "unit": "px"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Secondary Header"
+    }
+  ]
+}
+{% endschema %}

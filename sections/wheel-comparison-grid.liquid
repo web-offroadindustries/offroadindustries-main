@@ -1,0 +1,526 @@
+{% comment %}
+  Section: Wheel Comparison Grid (matches screenshot)
+  - Desktop: grid table with image row + label column + wheel columns
+  - Mobile: stacked CARDS per wheel (no horizontal scroll)
+{% endcomment %}
+
+{%- liquid
+  assign cols = section.settings.columns | plus: 0
+  if cols < 2
+    assign cols = 2
+  endif
+  if cols > 6
+    assign cols = 6
+  endif
+
+  assign container_width = section.settings.container_width | default: '1200px'
+  assign anchor_id = section.settings.anchor_id | strip
+
+  assign label_col_px = section.settings.label_col_width | append: 'px'
+
+  comment
+    Build the grid-template-columns string in Liquid instead of using
+    repeat(var(--wc-cols), ...) because Safari < 16 does not support
+    CSS custom properties as the repeat() count argument.
+  endcomment
+  assign col_widths = ''
+  for i in (1..cols)
+    assign col_widths = col_widths | append: ' minmax(140px, 1fr)'
+  endfor
+
+  assign min_data_width = cols | times: 140
+  assign table_min_width = section.settings.label_col_width | plus: min_data_width | append: 'px'
+-%}
+
+<section
+  class="wheel-compare wheel-compare--{{ section.id }}"
+  {% if anchor_id != blank %}id="{{ anchor_id | escape }}"{% endif %}
+  style="
+    --wc-max-width: {{ container_width }};
+    --wc-cols: {{ cols }};
+    --wc-label-col: {{ label_col_px }};
+    --wc-text: {{ section.settings.text_color }};
+    --wc-line: {{ section.settings.line_color }};
+    --wc-label: {{ section.settings.label_color }};
+    --wc-card-bg: {{ section.settings.mobile_card_bg }};
+    --wc-card-text: {{ section.settings.mobile_card_text }};
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+  "
+>
+  <div class="wheel-compare__container">
+    {% if section.settings.heading != blank %}
+      <h2 class="wheel-compare__heading">{{ section.settings.heading }}</h2>
+    {% endif %}
+
+    {%- comment -%} DESKTOP GRID {%- endcomment -%}
+    <div class="wheel-compare__desktop">
+      <div class="wheel-compare__table-scroll">
+      <div class="wheel-compare__table" role="table" aria-label="Wheel comparison table">
+        <!-- IMAGE ROW -->
+        <div class="wheel-compare__row wheel-compare__row--images" role="row">
+          <div class="wheel-compare__cell wheel-compare__cell--label wheel-compare__cell--blank" role="cell"></div>
+
+          {%- for i in (1..6) -%}
+            {%- if i <= cols -%}
+              {%- assign ikey = 'image_' | append: i -%}
+              {%- assign img = section.settings[ikey] -%}
+              <div class="wheel-compare__cell wheel-compare__cell--image" role="cell">
+                {% if img != blank %}
+                  <div class="wheel-compare__image-wrap">
+                    {{ img | image_url: width: 900 | image_tag: loading: 'lazy', class: 'wheel-compare__image', alt: img.alt | escape }}
+                  </div>
+                {% else %}
+                  <div class="wheel-compare__image-placeholder">Add image</div>
+                {% endif %}
+              </div>
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+
+        <!-- DATA ROWS -->
+        {%- for block in section.blocks -%}
+          {%- case block.type -%}
+
+            {%- when 'divider' -%}
+              <div class="wheel-compare__divider" {{ block.shopify_attributes }}></div>
+
+            {%- when 'row' -%}
+              {%- assign label = block.settings.label | strip -%}
+              <div class="wheel-compare__row" role="row" {{ block.shopify_attributes }}>
+                <div class="wheel-compare__cell wheel-compare__cell--label" role="rowheader">
+                  {{ label | newline_to_br }}
+                </div>
+
+                {%- for i in (1..6) -%}
+                  {%- if i <= cols -%}
+                    {%- assign vkey = 'value_' | append: i -%}
+                    {%- assign val = block.settings[vkey] | default: '' | strip -%}
+                    {%- assign normalized = val | downcase -%}
+
+                    <div class="wheel-compare__cell wheel-compare__cell--val" role="cell">
+                      {%- if normalized == '✓' or normalized == '✔' or normalized == 'yes' -%}
+                        <span class="wheel-compare__icon wheel-compare__icon--check">✓</span>
+                      {%- elsif normalized == 'x' or normalized == '✕' or normalized == 'no' -%}
+                        <span class="wheel-compare__icon wheel-compare__icon--cross">×</span>
+                      {%- else -%}
+                        {{ val | newline_to_br }}
+                      {%- endif -%}
+                    </div>
+                  {%- endif -%}
+                {%- endfor -%}
+              </div>
+
+          {%- endcase -%}
+        {%- endfor -%}
+      </div>
+      </div>{%- comment -%} /wheel-compare__table-scroll {%- endcomment -%}
+    </div>
+
+    {%- comment -%} MOBILE STACKED CARDS (per wheel) {%- endcomment -%}
+    <div class="wheel-compare__mobile" aria-label="Wheel comparison cards">
+      <div class="wheel-compare__cards">
+        {%- for i in (1..6) -%}
+          {%- if i <= cols -%}
+            {%- assign ikey = 'image_' | append: i -%}
+            {%- assign img = section.settings[ikey] -%}
+
+            {%- assign mobile_title = '' -%}
+            {%- for block in section.blocks -%}
+              {%- if block.type == 'row' and block.settings.use_as_title -%}
+                {%- assign vkey = 'value_' | append: i -%}
+                {%- assign mobile_title = block.settings[vkey] | default: '' | strip -%}
+              {%- endif -%}
+            {%- endfor -%}
+
+            <article class="wheel-compare__card">
+              <div class="wheel-compare__card-image">
+                {% if img != blank %}
+                  {{ img | image_url: width: 900 | image_tag: loading: 'lazy', class: 'wheel-compare__image', alt: img.alt | escape }}
+                {% else %}
+                  <div class="wheel-compare__image-placeholder">Add image</div>
+                {% endif %}
+              </div>
+
+              {% if mobile_title != blank %}
+                <h3 class="wheel-compare__card-title">{{ mobile_title }}</h3>
+              {% endif %}
+
+              <div class="wheel-compare__card-body">
+                {%- for block in section.blocks -%}
+                  {%- case block.type -%}
+
+                    {%- when 'divider' -%}
+                      <div class="wheel-compare__card-divider"></div>
+
+                    {%- when 'row' -%}
+                      {%- if block.settings.use_as_title == false -%}
+                        {%- assign label = block.settings.label | strip -%}
+                        {%- assign vkey = 'value_' | append: i -%}
+                        {%- assign val = block.settings[vkey] | default: '' | strip -%}
+                        {%- assign normalized = val | downcase -%}
+
+                        <div class="wheel-compare__card-row">
+                          <div class="wheel-compare__card-label">{{ label | newline_to_br }}</div>
+                          <div class="wheel-compare__card-value">
+                            {%- if normalized == '✓' or normalized == '✔' or normalized == 'yes' -%}
+                              <span class="wheel-compare__icon wheel-compare__icon--check">✓</span>
+                            {%- elsif normalized == 'x' or normalized == '✕' or normalized == 'no' -%}
+                              <span class="wheel-compare__icon wheel-compare__icon--cross">×</span>
+                            {%- else -%}
+                              {{ val | newline_to_br }}
+                            {%- endif -%}
+                          </div>
+                        </div>
+                      {%- endif -%}
+
+                  {%- endcase -%}
+                {%- endfor -%}
+              </div>
+            </article>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    </div>
+
+  </div>
+</section>
+
+{% style %}
+  .wheel-compare { color: var(--wc-text); }
+
+  .wheel-compare__container {
+    max-width: var(--wc-max-width);
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .wheel-compare__heading {
+    margin: 0 0 24px;
+    font-size: 34px;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  /* Desktop */
+  .wheel-compare__desktop { display: block; }
+  .wheel-compare__mobile  { display: none; }
+
+  /* Scroll wrapper — allows horizontal scroll on smaller viewports without
+     breaking the page layout. Works in Safari via -webkit-overflow-scrolling. */
+  .wheel-compare__table-scroll {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    /* Prevent scroll wrapper from showing an extra border gap in Safari */
+    -webkit-transform: translateZ(0);
+  }
+
+  .wheel-compare__table {
+    /* min-width is set per-section via Liquid below so the table never
+       collapses below the point where columns become unreadable */
+    width: 100%;
+    border: 1px solid var(--wc-line);
+    background: #fff;
+    /* border-collapse: separate is required for Safari to render border
+       correctly inside a CSS grid layout */
+    border-collapse: separate;
+    border-spacing: 0;
+  }
+
+  /* grid-template-columns is set per-section via Liquid to avoid the
+     repeat(var(--n), ...) pattern which is unsupported in Safari < 16 */
+  .wheel-compare--{{ section.id }} .wheel-compare__table {
+    min-width: {{ table_min_width }};
+  }
+
+  .wheel-compare--{{ section.id }} .wheel-compare__row {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: grid;
+    grid-template-columns: {{ label_col_px }}{{ col_widths }};
+  }
+
+  .wheel-compare__cell {
+    padding: 22px 20px;
+    border-right: 1px solid var(--wc-line);
+    border-bottom: 1px solid var(--wc-line);
+    font-size: 18px;
+    line-height: 1.35;
+    /* Prevent Safari from collapsing grid cells */
+    min-width: 0;
+    word-break: break-word;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+
+  .wheel-compare__row .wheel-compare__cell:last-child { border-right: 0; }
+
+  .wheel-compare__row--images .wheel-compare__cell {
+    padding: 28px 20px;
+  }
+
+  .wheel-compare__cell--blank { background: #fff; }
+
+  .wheel-compare__cell--label {
+    color: var(--wc-label);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.10em;
+    font-size: 22px;
+    /* Stick the label column when scrolling on desktop — Safari supports this */
+    position: -webkit-sticky;
+    position: sticky;
+    left: 0;
+    z-index: 1;
+    background: #fff;
+  }
+
+  .wheel-compare__cell--val {
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .wheel-compare__image-wrap {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    min-height: 200px;
+  }
+
+  .wheel-compare__image {
+    width: 100%;
+    max-width: 260px;
+    height: auto;
+    /* object-fit needs -o- prefix for very old browsers, but modern
+       Safari supports it natively */
+    -o-object-fit: contain;
+    object-fit: contain;
+    display: block;
+    /* GPU layer prevents Safari from blurring scaled images */
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+  }
+
+  .wheel-compare__image-placeholder {
+    min-height: 200px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    border: 1px dashed var(--wc-line);
+    font-size: 14px;
+    opacity: 0.7;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .wheel-compare__divider {
+    height: 0;
+    border-bottom: 1px solid var(--wc-line);
+  }
+
+  .wheel-compare__icon {
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    font-size: 18px;
+    line-height: 1;
+  }
+  .wheel-compare__icon--check { color: #6b7b2a; }
+  .wheel-compare__icon--cross { color: currentColor; }
+
+  /* Mobile: stacked cards per wheel */
+  @media (max-width: 989px) {
+    .wheel-compare__desktop { display: none; }
+    .wheel-compare__mobile  { display: block; }
+
+    .wheel-compare__container { padding: 0 16px; }
+
+    .wheel-compare__cards {
+      display: grid;
+      gap: 14px;
+    }
+
+    .wheel-compare__card {
+      background: var(--wc-card-bg);
+      color: var(--wc-card-text);
+      border: 1px solid rgba(0,0,0,0.15);
+      border-radius: 12px;
+      overflow: hidden;
+      -webkit-box-shadow: 0 1px 2px rgba(0,0,0,0.06);
+      box-shadow: 0 1px 2px rgba(0,0,0,0.06);
+    }
+
+    .wheel-compare__card-image {
+      padding: 18px 14px;
+      background: #fff;
+      border-bottom: 1px solid rgba(0,0,0,0.12);
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+    }
+
+    .wheel-compare__card-image .wheel-compare__image {
+      max-width: 260px;
+      width: 100%;
+      height: auto;
+    }
+
+    .wheel-compare__card-title {
+      margin: 0;
+      padding: 14px 14px 6px;
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .wheel-compare__card-body { padding: 6px 0 10px; }
+
+    .wheel-compare__card-row {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 10px 14px;
+      border-top: 1px solid rgba(0,0,0,0.12);
+    }
+
+    .wheel-compare__card-label {
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 13px;
+      opacity: 0.9;
+      -webkit-box-flex: 0;
+      -ms-flex: 0 0 40%;
+      flex: 0 0 40%;
+    }
+
+    .wheel-compare__card-value {
+      text-align: right;
+      font-size: 13px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      -webkit-box-flex: 1;
+      -ms-flex: 1;
+      flex: 1;
+    }
+
+    .wheel-compare__card-divider {
+      height: 10px;
+      border-top: 1px solid rgba(0,0,0,0.12);
+      opacity: 0.6;
+    }
+  }
+
+  /* 2-column card grid on medium mobile */
+  @media (min-width: 480px) and (max-width: 989px) {
+    .wheel-compare__cards {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+{% endstyle %}
+
+{% schema %}
+{
+  "name": "Wheel Comparison",
+  "settings": [
+    { "type": "text", "id": "anchor_id", "label": "Anchor ID (optional)" },
+    { "type": "text", "id": "heading", "label": "Heading" },
+
+    {
+      "type": "select",
+      "id": "columns",
+      "label": "Number of wheel columns",
+      "default": "3",
+      "options": [
+        { "value": "2", "label": "2" },
+        { "value": "3", "label": "3" },
+        { "value": "4", "label": "4" },
+        { "value": "5", "label": "5" },
+        { "value": "6", "label": "6" }
+      ]
+    },
+
+    { "type": "image_picker", "id": "image_1", "label": "Wheel image 1" },
+    { "type": "image_picker", "id": "image_2", "label": "Wheel image 2" },
+    { "type": "image_picker", "id": "image_3", "label": "Wheel image 3" },
+    { "type": "image_picker", "id": "image_4", "label": "Wheel image 4" },
+    { "type": "image_picker", "id": "image_5", "label": "Wheel image 5" },
+    { "type": "image_picker", "id": "image_6", "label": "Wheel image 6" },
+
+    { "type": "range", "id": "label_col_width", "label": "Label column width (px)", "min": 180, "max": 360, "step": 10, "default": 260 },
+
+    { "type": "text", "id": "container_width", "label": "Container width (e.g. 1200px or 100%)", "default": "1200px" },
+
+    { "type": "color", "id": "text_color", "label": "Text color", "default": "#111111" },
+    { "type": "color", "id": "label_color", "label": "Label color", "default": "#111111" },
+    { "type": "color", "id": "line_color", "label": "Line color", "default": "#d0d0d0" },
+
+    { "type": "color", "id": "mobile_card_bg", "label": "Mobile card background", "default": "#ffffff" },
+    { "type": "color", "id": "mobile_card_text", "label": "Mobile card text", "default": "#111111" },
+
+    { "type": "range", "id": "padding_top", "label": "Padding top", "min": 0, "max": 120, "step": 4, "default": 40 },
+    { "type": "range", "id": "padding_bottom", "label": "Padding bottom", "min": 0, "max": 120, "step": 4, "default": 40 }
+  ],
+  "blocks": [
+    {
+      "type": "row",
+      "name": "Description(Color/Offset)",
+      "settings": [
+        { "type": "text", "id": "label", "label": "Left label", "default": "DESCRIPTION" },
+        { "type": "checkbox", "id": "use_as_title", "label": "Use this row as mobile card title", "default": false },
+
+        { "type": "textarea", "id": "value_1", "label": "Value (Wheel 1)" },
+        { "type": "textarea", "id": "value_2", "label": "Value (Wheel 2)" },
+        { "type": "textarea", "id": "value_3", "label": "Value (Wheel 3)" },
+        { "type": "textarea", "id": "value_4", "label": "Value (Wheel 4)" },
+        { "type": "textarea", "id": "value_5", "label": "Value (Wheel 5)" },
+        { "type": "textarea", "id": "value_6", "label": "Value (Wheel 6)" }
+      ]
+    },
+    {
+      "type": "divider",
+      "name": "Divider (optional)",
+      "settings": []
+    }
+  ],
+  "presets": [
+    {
+      "name": "Wheel Comparison",
+      "blocks": [
+        { "type": "row", "settings": { "label": "DESCRIPTION", "use_as_title": true } },
+        { "type": "row", "settings": { "label": "COLOUR" } },
+        { "type": "row", "settings": { "label": "OFFSET" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

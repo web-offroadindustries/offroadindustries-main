@@ -1,0 +1,535 @@
+{% comment %}
+  Contact Form v3 (Centered)
+  - Title + subtitle + phone + email under title
+  - Section background: image OR color
+  - Form background color setting
+  - Fields are blocks (add/reorder/remove)
+  - Default blocks match the screenshot
+{% endcomment %}
+
+{% liquid
+  assign section_id = section.id
+  assign form_id = 'ContactFormV3-' | append: section_id
+%}
+
+<section
+  id="ContactV3-{{ section_id }}"
+  class="cfv3"
+  style="
+    background-color: {{ section.settings.section_bg_color }};
+    {% if section.settings.section_bg_image != blank %}
+      background-image: url({{ section.settings.section_bg_image | image_url: width: 2400 }});
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    {% endif %}
+  "
+>
+  {% if section.settings.section_bg_image != blank and section.settings.overlay_opacity > 0 %}
+    <div class="cfv3__overlay" aria-hidden="true"></div>
+  {% endif %}
+
+  <div class="cfv3__container">
+    <div class="cfv3__inner" style="max-width: {{ section.settings.max_width }}px;">
+      <header class="cfv3__header">
+        {% if section.settings.title != blank %}
+          <h2 class="cfv3__title">{{ section.settings.title }}</h2>
+        {% endif %}
+
+        {% if section.settings.subtitle != blank %}
+          <div class="cfv3__subtitle rte">{{ section.settings.subtitle }}</div>
+        {% endif %}
+
+        {% if section.settings.phone != blank or section.settings.email != blank %}
+          <div class="cfv3__contact">
+            {% if section.settings.phone != blank %}
+              <a class="cfv3__contact-item" href="tel:{{ section.settings.phone | strip | replace: ' ', '' }}">
+                {{ section.settings.phone }}
+              </a>
+            {% endif %}
+            {% if section.settings.email != blank %}
+              <a class="cfv3__contact-item" href="mailto:{{ section.settings.email }}">
+                {{ section.settings.email }}
+              </a>
+            {% endif %}
+          </div>
+        {% endif %}
+      </header>
+
+      <div class="cfv3__formwrap" style="background: {{ section.settings.form_bg_color }};">
+        {% form 'contact', id: form_id %}
+          {% if form.posted_successfully? %}
+            <p class="cfv3__success">{{ section.settings.success_message }}</p>
+          {% endif %}
+
+          {% if form.errors %}
+            <div class="cfv3__errors" role="alert">
+              {{ form.errors | default_errors }}
+            </div>
+          {% endif %}
+
+          <!-- Honeypot -->
+          <input type="text" name="contact[company]" tabindex="-1" autocomplete="off" class="cfv3__hp" aria-hidden="true">
+
+          <div class="cfv3__fields cfv3__fields--cols-{{ section.settings.columns_desktop }}">
+            {% for block in section.blocks %}
+              {% assign width = block.settings.width %}
+              {% assign required = block.settings.required %}
+              {% assign label = block.settings.label %}
+              {% assign placeholder = block.settings.placeholder %}
+              {% assign field_key = block.settings.field_key %}
+
+              <div class="cfv3__field {% if width == 'full' %}cfv3__field--full{% endif %}" {{ block.shopify_attributes }}>
+                {% case block.type %}
+
+                  {% when 'first_name' %}
+                    <input
+                      class="cfv3__input"
+                      type="text"
+                      name="contact[First Name]"
+                      placeholder="{{ placeholder | default: 'First Name' }}"
+                      {% if required %}required{% endif %}
+                      autocomplete="given-name"
+                    >
+
+                  {% when 'last_name' %}
+                    <input
+                      class="cfv3__input"
+                      type="text"
+                      name="contact[Last Name]"
+                      placeholder="{{ placeholder | default: 'Last Name' }}"
+                      {% if required %}required{% endif %}
+                      autocomplete="family-name"
+                    >
+
+                  {% when 'email' %}
+                    <input
+                      class="cfv3__input"
+                      type="email"
+                      name="contact[email]"
+                      placeholder="{{ placeholder | default: 'Email Address' }}"
+                      {% if required %}required{% endif %}
+                      autocomplete="email"
+                    >
+
+                  {% when 'phone' %}
+                    <input
+                      class="cfv3__input"
+                      type="tel"
+                      name="contact[Phone Number]"
+                      placeholder="{{ placeholder | default: 'Phone Number' }}"
+                      {% if required %}required{% endif %}
+                      autocomplete="tel"
+                    >
+
+                  {% when 'car' %}
+                    <input
+                      class="cfv3__input"
+                      type="text"
+                      name="contact[Car Make, Year & Model]"
+                      placeholder="{{ placeholder | default: 'Car Make, Year & Model' }}"
+                      {% if required %}required{% endif %}
+                    >
+
+                  {% when 'message' %}
+                    <textarea
+                      class="cfv3__textarea"
+                      name="contact[body]"
+                      placeholder="{{ placeholder | default: 'Your Inquiry…' }}"
+                      rows="{{ block.settings.rows }}"
+                      {% if required %}required{% endif %}
+                    ></textarea>
+
+                  {% when 'text' %}
+                    <input
+                      class="cfv3__input"
+                      type="text"
+                      name="contact[{{ field_key | default: label }}]"
+                      placeholder="{{ placeholder | default: label }}"
+                      {% if required %}required{% endif %}
+                    >
+
+                  {% when 'textarea' %}
+                    <textarea
+                      class="cfv3__textarea"
+                      name="contact[{{ field_key | default: label }}]"
+                      placeholder="{{ placeholder | default: label }}"
+                      rows="{{ block.settings.rows }}"
+                      {% if required %}required{% endif %}
+                    ></textarea>
+
+                  {% when 'select' %}
+                    <select
+                      class="cfv3__select"
+                      name="contact[{{ field_key | default: label }}]"
+                      {% if required %}required{% endif %}
+                    >
+                      {% assign opts = block.settings.options | split: ',' %}
+                      {% for opt in opts %}
+                        {% assign o = opt | strip %}
+                        {% if o != blank %}
+                          <option value="{{ o }}">{{ o }}</option>
+                        {% endif %}
+                      {% endfor %}
+                    </select>
+
+                  {% when 'checkbox' %}
+                    <label class="cfv3__check">
+                      <input
+                        type="checkbox"
+                        name="contact[{{ field_key | default: label }}]"
+                        value="Yes"
+                        {% if required %}required{% endif %}
+                      >
+                      <span>{{ label }}</span>
+                    </label>
+
+                {% endcase %}
+              </div>
+            {% endfor %}
+          </div>
+
+          <button type="submit" class="cfv3__btn">
+            {{ section.settings.button_label }}
+          </button>
+        {% endform %}
+      </div>
+    </div>
+  </div>
+
+  <style>
+    #ContactV3-{{ section_id }}{
+      position: relative;
+      padding: {{ section.settings.padding_top }}px 0 {{ section.settings.padding_bottom }}px;
+    }
+
+    #ContactV3-{{ section_id }} .cfv3__overlay{
+      position:absolute;
+      inset:0;
+      background: rgba(0,0,0, {{ section.settings.overlay_opacity | times: 0.01 }});
+      pointer-events:none;
+    }
+
+    #ContactV3-{{ section_id }} .cfv3__container{
+      position: relative;
+      z-index: 1;
+      padding: 0 20px;
+    }
+
+    #ContactV3-{{ section_id }} .cfv3__inner{
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    #ContactV3-{{ section_id }} .cfv3__title{
+      margin: 0 0 10px;
+      font-family: "Evogria", sans-serif;
+      text-transform: uppercase;
+      letter-spacing: .02em;
+      font-size: 34px;
+      line-height: 1.1;
+      color: {{ section.settings.text_color }};
+    }
+
+    #ContactV3-{{ section_id }} .cfv3__subtitle{
+      margin: 0 auto 10px;
+      max-width: 760px;
+      font-family: "Geomanist", sans-serif;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 1.7;
+      color: {{ section.settings.text_color }};
+    }
+
+    #ContactV3-{{ section_id }} .cfv3__contact{
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 22px;
+      font-family: "Geomanist", sans-serif;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      font-size: 13px;
+    }
+
+    #ContactV3-{{ section_id }} .cfv3__contact-item{
+      color: {{ section.settings.text_color }};
+      text-decoration: none;
+    }
+
+    #ContactV3-{{ section_id }} .cfv3__formwrap{
+      border-radius: 6px;
+      padding: 26px;
+      border: 1px solid rgba(0,0,0,.10);
+    }
+
+    #ContactV3-{{ section_id }} .cfv3__fields{
+      display: grid;
+      gap: 16px;
+    }
+
+    #ContactV3-{{ section_id }} .cfv3__fields--cols-2{
+      grid-template-columns: 1fr 1fr;
+    }
+
+    #ContactV3-{{ section_id }} .cfv3__field--full{
+      grid-column: 1 / -1;
+    }
+
+    #ContactV3-{{ section_id }} .cfv3__input,
+    #ContactV3-{{ section_id }} .cfv3__textarea,
+    #ContactV3-{{ section_id }} .cfv3__select{
+      width: 100%;
+      padding: 14px 16px;
+      border: 1px solid rgba(0,0,0,.20);
+      border-radius: 6px;
+      font-family: "Geomanist", sans-serif;
+      font-size: 15px;
+      color: #000;
+      background: #fff;
+      outline: none;
+    }
+
+    #ContactV3-{{ section_id }} .cfv3__textarea{
+      resize: vertical;
+      min-height: 140px;
+    }
+
+    #ContactV3-{{ section_id }} .cfv3__check{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      justify-content: flex-start;
+      text-align:left;
+      font-family:"Geomanist", sans-serif;
+      font-weight:500;
+      font-size:14px;
+      color: #000;
+    }
+
+    #ContactV3-{{ section_id }} .cfv3__btn{
+      margin: 20px auto 0;
+      display: inline-block;
+      min-width: 260px;
+      padding: 14px 24px;
+      border: 0;
+      border-radius: 6px;
+      cursor: pointer;
+
+      background: {{ section.settings.button_bg }};
+      color: {{ section.settings.button_text }};
+      font-family: "Geomanist", sans-serif;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      font-size: 14px;
+    }
+
+    #ContactV3-{{ section_id }} .cfv3__success{
+      background: rgba(86,189,194,.15);
+      border: 1px solid rgba(86,189,194,.35);
+      padding: 10px 12px;
+      margin: 0 0 12px;
+      font-family: "Geomanist", sans-serif;
+      text-align:left;
+    }
+
+    #ContactV3-{{ section_id }} .cfv3__errors{
+      background: rgba(255,0,0,.08);
+      border: 1px solid rgba(255,0,0,.2);
+      padding: 10px 12px;
+      margin: 0 0 12px;
+      font-family: "Geomanist", sans-serif;
+      text-align:left;
+    }
+
+    #ContactV3-{{ section_id }} .cfv3__hp{ display:none !important; }
+
+    @media (max-width: 768px){
+      #ContactV3-{{ section_id }} .cfv3__title{ font-size: 28px; }
+      #ContactV3-{{ section_id }} .cfv3__formwrap{ padding: 18px; }
+      #ContactV3-{{ section_id }} .cfv3__fields--cols-2{ grid-template-columns: 1fr; }
+    }
+  </style>
+</section>
+
+{% schema %}
+{
+  "name": "Contact Form v3",
+  "settings": [
+    { "type": "text", "id": "title", "label": "Title", "default": "Get in touch with us!" },
+    { "type": "richtext", "id": "subtitle", "label": "Subtitle", "default": "<p>Add a short subtitle here.</p>" },
+    { "type": "text", "id": "phone", "label": "Phone" },
+    { "type": "text", "id": "email", "label": "Email" },
+
+    { "type": "text", "id": "button_label", "label": "Button label", "default": "Submit Enquiry" },
+    { "type": "text", "id": "success_message", "label": "Success message", "default": "Thanks! We received your enquiry and will get back to you soon." },
+
+    { "type": "select", "id": "columns_desktop", "label": "Columns (desktop)", "default": "2", "options": [
+      { "value": "1", "label": "1 column" },
+      { "value": "2", "label": "2 columns" }
+    ]},
+
+    { "type": "range", "id": "max_width", "label": "Max width", "min": 700, "max": 1200, "step": 25, "default": 900 },
+
+    { "type": "color", "id": "section_bg_color", "label": "Section background color", "default": "#ffffff" },
+    { "type": "image_picker", "id": "section_bg_image", "label": "Section background image (optional)" },
+    { "type": "range", "id": "overlay_opacity", "label": "Background image overlay (%)", "min": 0, "max": 80, "step": 5, "default": 0 },
+
+    { "type": "color", "id": "form_bg_color", "label": "Form background color", "default": "#ffffff" },
+    { "type": "color", "id": "text_color", "label": "Title/subtitle text color", "default": "#000000" },
+
+    { "type": "color", "id": "button_bg", "label": "Button background", "default": "#000000" },
+    { "type": "color", "id": "button_text", "label": "Button text", "default": "#ffffff" },
+
+    { "type": "range", "id": "padding_top", "label": "Padding top", "min": 0, "max": 120, "step": 4, "default": 60 },
+    { "type": "range", "id": "padding_bottom", "label": "Padding bottom", "min": 0, "max": 120, "step": 4, "default": 60 }
+  ],
+  "blocks": [
+    {
+      "type": "first_name",
+      "name": "Field: First name",
+      "settings": [
+        { "type": "text", "id": "placeholder", "label": "Placeholder", "default": "First Name" },
+        { "type": "checkbox", "id": "required", "label": "Required", "default": false },
+        { "type": "select", "id": "width", "label": "Width", "default": "half", "options": [
+          { "value": "half", "label": "Half" },
+          { "value": "full", "label": "Full" }
+        ]}
+      ]
+    },
+    {
+      "type": "last_name",
+      "name": "Field: Last name",
+      "settings": [
+        { "type": "text", "id": "placeholder", "label": "Placeholder", "default": "Last Name" },
+        { "type": "checkbox", "id": "required", "label": "Required", "default": false },
+        { "type": "select", "id": "width", "label": "Width", "default": "half", "options": [
+          { "value": "half", "label": "Half" },
+          { "value": "full", "label": "Full" }
+        ]}
+      ]
+    },
+    {
+      "type": "email",
+      "name": "Field: Email",
+      "settings": [
+        { "type": "text", "id": "placeholder", "label": "Placeholder", "default": "Email Address" },
+        { "type": "checkbox", "id": "required", "label": "Required", "default": false },
+        { "type": "select", "id": "width", "label": "Width", "default": "full", "options": [
+          { "value": "half", "label": "Half" },
+          { "value": "full", "label": "Full" }
+        ]}
+      ]
+    },
+    {
+      "type": "phone",
+      "name": "Field: Phone number",
+      "settings": [
+        { "type": "text", "id": "placeholder", "label": "Placeholder", "default": "Phone Number" },
+        { "type": "checkbox", "id": "required", "label": "Required", "default": false },
+        { "type": "select", "id": "width", "label": "Width", "default": "half", "options": [
+          { "value": "half", "label": "Half" },
+          { "value": "full", "label": "Full" }
+        ]}
+      ]
+    },
+    {
+      "type": "car",
+      "name": "Field: Make/Year/Model",
+      "settings": [
+        { "type": "text", "id": "placeholder", "label": "Placeholder", "default": "Car Make, Year & Model" },
+        { "type": "checkbox", "id": "required", "label": "Required", "default": false },
+        { "type": "select", "id": "width", "label": "Width", "default": "full", "options": [
+          { "value": "half", "label": "Half" },
+          { "value": "full", "label": "Full" }
+        ]}
+      ]
+    },
+    {
+      "type": "message",
+      "name": "Field: Inquiry message",
+      "settings": [
+        { "type": "text", "id": "placeholder", "label": "Placeholder", "default": "Your Inquiry..." },
+        { "type": "range", "id": "rows", "label": "Rows", "min": 4, "max": 14, "step": 1, "default": 8 },
+        { "type": "checkbox", "id": "required", "label": "Required", "default": false },
+        { "type": "select", "id": "width", "label": "Width", "default": "full", "options": [
+          { "value": "half", "label": "Half" },
+          { "value": "full", "label": "Full" }
+        ]}
+      ]
+    },
+
+    {
+      "type": "text",
+      "name": "Field: Text (custom)",
+      "settings": [
+        { "type": "text", "id": "label", "label": "Label (used in email)", "default": "Order Number" },
+        { "type": "text", "id": "field_key", "label": "Field name (optional)", "default": "Order Number" },
+        { "type": "text", "id": "placeholder", "label": "Placeholder", "default": "e.g. #12345" },
+        { "type": "checkbox", "id": "required", "label": "Required", "default": false },
+        { "type": "select", "id": "width", "label": "Width", "default": "full", "options": [
+          { "value": "half", "label": "Half" },
+          { "value": "full", "label": "Full" }
+        ]}
+      ]
+    },
+    {
+      "type": "textarea",
+      "name": "Field: Textarea (custom)",
+      "settings": [
+        { "type": "text", "id": "label", "label": "Label (used in email)", "default": "Additional Details" },
+        { "type": "text", "id": "field_key", "label": "Field name (optional)", "default": "Additional Details" },
+        { "type": "text", "id": "placeholder", "label": "Placeholder" },
+        { "type": "range", "id": "rows", "label": "Rows", "min": 3, "max": 14, "step": 1, "default": 6 },
+        { "type": "checkbox", "id": "required", "label": "Required", "default": false },
+        { "type": "select", "id": "width", "label": "Width", "default": "full", "options": [
+          { "value": "half", "label": "Half" },
+          { "value": "full", "label": "Full" }
+        ]}
+      ]
+    },
+    {
+      "type": "select",
+      "name": "Field: Dropdown (custom)",
+      "settings": [
+        { "type": "text", "id": "label", "label": "Label (used in email)", "default": "Reason for Contact" },
+        { "type": "text", "id": "field_key", "label": "Field name (optional)", "default": "Reason for Contact" },
+        { "type": "text", "id": "options", "label": "Options (comma separated)", "default": "General, Billing, Technical Support" },
+        { "type": "checkbox", "id": "required", "label": "Required", "default": false },
+        { "type": "select", "id": "width", "label": "Width", "default": "full", "options": [
+          { "value": "half", "label": "Half" },
+          { "value": "full", "label": "Full" }
+        ]}
+      ]
+    },
+    {
+      "type": "checkbox",
+      "name": "Field: Checkbox (custom)",
+      "settings": [
+        { "type": "text", "id": "label", "label": "Label (used in email)", "default": "I agree to be contacted back" },
+        { "type": "text", "id": "field_key", "label": "Field name (optional)", "default": "Consent" },
+        { "type": "checkbox", "id": "required", "label": "Required", "default": false },
+        { "type": "select", "id": "width", "label": "Width", "default": "full", "options": [
+          { "value": "half", "label": "Half" },
+          { "value": "full", "label": "Full" }
+        ]}
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Contact Form v3",
+      "blocks": [
+        { "type": "first_name" },
+        { "type": "last_name" },
+        { "type": "email" },
+        { "type": "car" },
+        { "type": "message" }
+      ]
+    }
+  ]
+}
+{% endschema %}

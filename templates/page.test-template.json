@@ -1,0 +1,392 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "hero_JfeqW9": {
+      "type": "hero",
+      "disabled": true,
+      "name": "t:sections.hero.presets.name",
+      "settings": {
+        "container": "container-full",
+        "image": "shopify://shop_images/OFFROAD_INDUSTRIES_-_FOX_F150_-_12.03.2024_-_Matt_Williams_-_WEB_RES-1037_7fbfcd95-895e-4aca-a8cd-8c7dacf0637b.jpg",
+        "image_mobile": "shopify://shop_images/OFFROAD_INDUSTRIES_-_FOX_F150_-_12.03.2024_-_Matt_Williams_-_WEB_RES-1037_7fbfcd95-895e-4aca-a8cd-8c7dacf0637b.jpg",
+        "image_overlay_opacity": 0,
+        "hero_height": "large",
+        "content_in_container": false,
+        "content_position": "center",
+        "text_alignment": "center",
+        "text_color": "#ffffff",
+        "hero_height_mobile": "large",
+        "content_position_mobile": "center",
+        "show_text_below": true,
+        "text_alignment_mobile": "center",
+        "custom_id": "",
+        "custom_class": "",
+        "animations": "inherit",
+        "enable_bg_zoom_effect": true
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    },
+    "multicolumn_AcQKEk": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_ECe8a7": {
+          "type": "column",
+          "settings": {
+            "show_image": true,
+            "image": "shopify://shop_images/image_-_2026-02-17T205945.442.png",
+            "image_link": "",
+            "title": "Ford F150 GVM Packages",
+            "heading_size": "h3",
+            "text": "<p>Click here to learn more about ORI GVM GCM packages for the Ford F150</p>",
+            "text_size": "medium",
+            "button_text": "",
+            "button_link": "",
+            "button_style": "btn--underline"
+          }
+        },
+        "column_T8hQry": {
+          "type": "column",
+          "settings": {
+            "show_image": true,
+            "image": "shopify://shop_images/image_-_2026-02-17T210005.244.png",
+            "image_link": "",
+            "title": "Toyota Tundra GVM Packages",
+            "heading_size": "h3",
+            "text": "<p>Click here to learn more about ORI GVM GCM packages for the Toyota Tundra</p>",
+            "text_size": "medium",
+            "button_text": "",
+            "button_link": "",
+            "button_style": "btn--underline"
+          }
+        },
+        "column_Bey9dh": {
+          "type": "column",
+          "settings": {
+            "show_image": true,
+            "image": "shopify://shop_images/image_-_2026-02-17T205900.998.png",
+            "image_link": "",
+            "title": "Chevy Silverado 1500 GVM Packages",
+            "heading_size": "h3",
+            "text": "<p>Click here to learn more about ORI GVM GCM packages for the Chevy Silverado 1500</p>",
+            "text_size": "medium",
+            "button_text": "",
+            "button_link": "",
+            "button_style": "btn--underline"
+          }
+        },
+        "column_nNUN6a": {
+          "type": "column",
+          "settings": {
+            "show_image": true,
+            "image": "shopify://shop_images/image_-_2026-02-17T205935.011.png",
+            "image_link": "",
+            "title": "Chevy Silverado 2500HD GVM Packages",
+            "heading_size": "h3",
+            "text": "<p>Click here to learn more about ORI GVM GCM packages for the Chevy Silverado 2500HD</p>",
+            "text_size": "medium",
+            "button_text": "",
+            "button_link": "",
+            "button_style": "btn--underline"
+          }
+        },
+        "column_mfLAKJ": {
+          "type": "column",
+          "disabled": true,
+          "settings": {
+            "show_image": true,
+            "image": "shopify://shop_images/image_-_2026-02-17T205922.034.png",
+            "image_link": "",
+            "title": "Column",
+            "heading_size": "h3",
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "text_size": "medium",
+            "button_text": "",
+            "button_link": "",
+            "button_style": "btn--underline"
+          }
+        }
+      },
+      "block_order": [
+        "column_ECe8a7",
+        "column_T8hQry",
+        "column_Bey9dh",
+        "column_nNUN6a",
+        "column_mfLAKJ"
+      ],
+      "disabled": true,
+      "name": "t:sections.multicolumn.name",
+      "settings": {
+        "container": "container",
+        "color_schema": "",
+        "section_header_padding_bottom": "medium",
+        "section_header_content_spacing": "medium",
+        "heading": "GVM Packages",
+        "highlight_style": "none",
+        "enable_highlight_text_color": false,
+        "heading_size": "h0",
+        "heading_color": "",
+        "subheading": "",
+        "description": "",
+        "layout": "vertical",
+        "text_alignment": "center",
+        "image_width": "fullwidth",
+        "custom_image_width": 80,
+        "columns": 4,
+        "column_gap": "medium",
+        "row_gap": "medium",
+        "enable_swipe_mobile": false,
+        "column_mobile": "1",
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "show_section_divider": false,
+        "divider_width": "container",
+        "custom_id": "",
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "gvm_order_form_PUpQMq": {
+      "type": "gvm-order-form",
+      "name": "GVM Order Form",
+      "settings": {
+        "container": "container",
+        "color_schema": "",
+        "layout_mode": "wizard",
+        "section_header_padding_bottom": "medium",
+        "section_header_content_spacing": "medium",
+        "heading": "GVM Order Request",
+        "highlight_style": "none",
+        "enable_highlight_text_color": false,
+        "heading_size": "h2",
+        "heading_color": "",
+        "subheading": "",
+        "description": "<p>Please provide the details required for your new GVM order request. Orders will not be processed until all information is received.</p>",
+        "order_details_title": "Order Details",
+        "vehicle_info_title": "Vehicle Information",
+        "your_details_title": "Workshop Details",
+        "logo": "shopify://shop_images/gvm-gcm-logo-black.webp",
+        "logo_position": "above",
+        "logo_width": 240,
+        "heading_size_min": 28,
+        "heading_size_max": 40,
+        "subheading_size_min": 15,
+        "subheading_size_max": 18,
+        "desc_size_min": 15,
+        "desc_size_max": 17,
+        "label_size_min": 15,
+        "label_size_max": 16,
+        "input_size_min": 16,
+        "input_size_max": 17,
+        "section_label_size_min": 11,
+        "section_label_size_max": 14,
+        "helper_size_min": 14,
+        "helper_size_max": 14,
+        "button_label": "Submit Order Request",
+        "button_style": "btn--primary",
+        "padding_top": 60,
+        "padding_bottom": 80,
+        "show_section_divider": false,
+        "divider_width": "container",
+        "custom_id": "",
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "warranty_claim_form_XdRwym": {
+      "type": "warranty-claim-form",
+      "name": "Warranty Claim Form",
+      "settings": {
+        "container": "container",
+        "color_schema": "",
+        "layout_mode": "wizard",
+        "section_header_padding_bottom": "medium",
+        "section_header_content_spacing": "medium",
+        "heading": "Warranty Claim Form",
+        "highlight_style": "none",
+        "enable_highlight_text_color": false,
+        "heading_size": "h2",
+        "heading_color": "",
+        "subheading": "",
+        "description": "<p>Complete the form below to submit your warranty claim. Fields marked with an asterisk are required.</p>",
+        "logo_position": "above",
+        "logo_width": 160,
+        "heading_size_min": 28,
+        "heading_size_max": 40,
+        "subheading_size_min": 15,
+        "subheading_size_max": 18,
+        "desc_size_min": 15,
+        "desc_size_max": 17,
+        "label_size_min": 15,
+        "label_size_max": 16,
+        "input_size_min": 16,
+        "input_size_max": 17,
+        "section_label_size_min": 11,
+        "section_label_size_max": 12,
+        "helper_size_min": 13,
+        "helper_size_max": 14,
+        "cloudinary_cloud_name": "lp3j7byr",
+        "cloudinary_upload_preset": "warranty_uploads",
+        "max_files": 8,
+        "max_file_size": 10,
+        "require_photo": true,
+        "button_label": "Submit Claim",
+        "button_style": "btn--primary",
+        "padding_top": 60,
+        "padding_bottom": 80,
+        "show_section_divider": false,
+        "divider_width": "container",
+        "custom_id": "",
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "rich_text_mXHwap": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_Gkt74V": {
+          "type": "heading",
+          "settings": {
+            "heading": "Single Form",
+            "highlight_style": "none",
+            "enable_highlight_text_color": false,
+            "heading_size": "h2",
+            "heading_color": ""
+          }
+        }
+      },
+      "block_order": [
+        "heading_Gkt74V"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "container": "container",
+        "color_schema": "",
+        "text_alignment": "center",
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "show_section_divider": false,
+        "divider_width": "container",
+        "custom_id": "",
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "gvm_order_form_KxAwaF": {
+      "type": "gvm-order-form",
+      "name": "GVM Order Form",
+      "settings": {
+        "container": "container",
+        "color_schema": "",
+        "layout_mode": "single",
+        "section_header_padding_bottom": "medium",
+        "section_header_content_spacing": "medium",
+        "heading": "GVM Order Request",
+        "highlight_style": "none",
+        "enable_highlight_text_color": false,
+        "heading_size": "h2",
+        "heading_color": "",
+        "subheading": "",
+        "description": "<p>Please provide the details required for your new GVM order request. Orders will not be processed until all information is received.</p>",
+        "order_details_title": "Order Details",
+        "vehicle_info_title": "Vehicle Information",
+        "your_details_title": "Workshop Details",
+        "logo": "shopify://shop_images/gvm-gcm-logo-black.webp",
+        "logo_position": "above",
+        "logo_width": 240,
+        "heading_size_min": 28,
+        "heading_size_max": 40,
+        "subheading_size_min": 15,
+        "subheading_size_max": 18,
+        "desc_size_min": 15,
+        "desc_size_max": 17,
+        "label_size_min": 15,
+        "label_size_max": 16,
+        "input_size_min": 16,
+        "input_size_max": 17,
+        "section_label_size_min": 11,
+        "section_label_size_max": 12,
+        "helper_size_min": 13,
+        "helper_size_max": 14,
+        "button_label": "Submit Order Request",
+        "button_style": "btn--primary",
+        "padding_top": 60,
+        "padding_bottom": 80,
+        "show_section_divider": false,
+        "divider_width": "container",
+        "custom_id": "",
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "warranty_claim_form_WQ4d6R": {
+      "type": "warranty-claim-form",
+      "name": "Warranty Claim Form",
+      "settings": {
+        "container": "container",
+        "color_schema": "",
+        "layout_mode": "single",
+        "section_header_padding_bottom": "medium",
+        "section_header_content_spacing": "medium",
+        "heading": "Warranty Claim Form",
+        "highlight_style": "none",
+        "enable_highlight_text_color": false,
+        "heading_size": "h2",
+        "heading_color": "",
+        "subheading": "",
+        "description": "<p>Complete the form below to submit your warranty claim. Fields marked with an asterisk are required.</p>",
+        "logo_position": "above",
+        "logo_width": 160,
+        "heading_size_min": 28,
+        "heading_size_max": 40,
+        "subheading_size_min": 15,
+        "subheading_size_max": 18,
+        "desc_size_min": 15,
+        "desc_size_max": 17,
+        "label_size_min": 15,
+        "label_size_max": 16,
+        "input_size_min": 16,
+        "input_size_max": 17,
+        "section_label_size_min": 11,
+        "section_label_size_max": 12,
+        "helper_size_min": 13,
+        "helper_size_max": 14,
+        "cloudinary_cloud_name": "lp3j7byr",
+        "cloudinary_upload_preset": "warranty_uploads",
+        "max_files": 8,
+        "max_file_size": 10,
+        "require_photo": true,
+        "button_label": "Submit Claim",
+        "button_style": "btn--primary",
+        "padding_top": 60,
+        "padding_bottom": 80,
+        "show_section_divider": false,
+        "divider_width": "container",
+        "custom_id": "",
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    }
+  },
+  "order": [
+    "hero_JfeqW9",
+    "main",
+    "multicolumn_AcQKEk",
+    "gvm_order_form_PUpQMq",
+    "warranty_claim_form_XdRwym",
+    "rich_text_mXHwap",
+    "gvm_order_form_KxAwaF",
+    "warranty_claim_form_WQ4d6R"
+  ]
+}

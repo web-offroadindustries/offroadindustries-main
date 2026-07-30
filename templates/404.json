@@ -1,0 +1,155 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "image_comparison_6czKNa": {
+      "type": "image-comparison",
+      "blocks": {
+        "image_AcJhpt": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/OFFROAD_INDUSTRIES_-_FOX_F150_-_12.03.2024_-_Matt_Williams_-_WEB_RES-1142.jpg",
+            "heading": "Before",
+            "color_scheme": "",
+            "heading_plain_text": false
+          }
+        },
+        "image_TcrEXK": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/OFFROAD_INDUSTRIES_-_FOX_F150_-_12.03.2024_-_Matt_Williams_-_WEB_RES-1001.jpg",
+            "heading": "After",
+            "color_scheme": "",
+            "heading_plain_text": false
+          }
+        }
+      },
+      "block_order": [
+        "image_AcJhpt",
+        "image_TcrEXK"
+      ],
+      "disabled": true,
+      "name": "Gone offroad page cannot be found",
+      "settings": {
+        "container": "container",
+        "color_schema": "",
+        "section_header_padding_bottom": "medium",
+        "section_header_content_spacing": "medium",
+        "heading": "Before/after image slider",
+        "highlight_style": "none",
+        "enable_highlight_text_color": false,
+        "heading_size": "h2",
+        "heading_color": "",
+        "subheading": "",
+        "description": "",
+        "layout": "horizontal",
+        "image_height": "adapt",
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "show_section_divider": false,
+        "divider_width": "container",
+        "custom_id": "",
+        "custom_class": ""
+      }
+    },
+    "main": {
+      "type": "main-404",
+      "name": "Something went wrong ! Gone Offroading ",
+      "settings": {}
+    },
+    "16478322674afd3f12": {
+      "type": "collection-list",
+      "blocks": {
+        "1647832267f0a54935-0": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "amp-research-power-steps-bed-steps-bed-guard-australia",
+            "title": ""
+          }
+        },
+        "1647832267f0a54935-1": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "fox-suspension",
+            "title": ""
+          }
+        },
+        "1647832267f0a54935-2": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "bds-suspension-australian-distributor",
+            "title": ""
+          }
+        },
+        "1647832267f0a54935-3": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "addictive-desert-designs",
+            "title": ""
+          }
+        }
+      },
+      "block_order": [
+        "1647832267f0a54935-0",
+        "1647832267f0a54935-1",
+        "1647832267f0a54935-2",
+        "1647832267f0a54935-3"
+      ],
+      "settings": {
+        "container": "container",
+        "color_schema": "background-1",
+        "section_header_padding_bottom": "medium",
+        "section_header_content_spacing": "medium",
+        "header_layout": "vertical",
+        "heading": "Back to the shop...",
+        "highlight_style": "none",
+        "enable_highlight_text_color": false,
+        "heading_size": "h2",
+        "heading_color": "",
+        "subheading": "",
+        "description": "",
+        "title_font": "heading",
+        "title_size": "h6",
+        "card_style": "1",
+        "text_alignment": "center",
+        "text_color": "#000000",
+        "image_ratio": "1/1",
+        "show_count": false,
+        "inline_count": false,
+        "columns": 4,
+        "column_gap": "medium",
+        "row_gap": "medium",
+        "show_all_button_on_top": false,
+        "button_label": "",
+        "button_url": "",
+        "button_style": "btn--primary",
+        "enable_slider": false,
+        "show_dots": false,
+        "show_nav": false,
+        "enable_swipe_mobile": false,
+        "column_mobile": "1",
+        "padding_top": 40,
+        "padding_bottom": 80,
+        "padding_top_mobile": 60,
+        "padding_bottom_mobile": 60,
+        "show_section_divider": false,
+        "divider_width": "container",
+        "custom_id": "",
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    }
+  },
+  "order": [
+    "image_comparison_6czKNa",
+    "main",
+    "16478322674afd3f12"
+  ]
+}

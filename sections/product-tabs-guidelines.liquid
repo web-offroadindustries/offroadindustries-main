@@ -1,0 +1,419 @@
+{% comment %}
+  Product Tabs (Guidelines)
+  - Tabs are blocks so you can add/remove/reorder easily
+  - Tabs auto-hide if their content is empty (metafield/page/custom/liquid)
+  - Reviews: best is anchor scroll to reviews section; optional embed via custom liquid
+{% endcomment %}
+
+{%- assign visible_count = 0 -%}
+{%- assign first_visible_block_id = '' -%}
+
+{%- for block in section.blocks -%}
+  {%- assign show_tab = false -%}
+
+  {%- case block.settings.content_type -%}
+    {%- when 'product_description' -%}
+      {%- assign desc_text = product.description | strip_html | strip -%}
+      {%- if desc_text != blank -%}
+        {%- assign show_tab = true -%}
+      {%- endif -%}
+
+    {%- when 'metafield' -%}
+      {%- assign ns = block.settings.metafield_namespace | strip -%}
+      {%- assign key = block.settings.metafield_key | strip -%}
+      {%- assign mf = blank -%}
+
+      {%- if ns != blank and key != blank -%}
+        {%- assign mf = product.metafields[ns][key] -%}
+      {%- endif -%}
+
+      {%- capture mf_html -%}
+        {%- if mf != blank -%}
+          {{ mf | metafield_tag }}
+        {%- endif -%}
+      {%- endcapture -%}
+      {%- assign mf_text = mf_html | strip_html | strip -%}
+
+      {%- if mf_text != blank -%}
+        {%- assign show_tab = true -%}
+      {%- endif -%}
+
+    {%- when 'page' -%}
+      {%- if block.settings.page != blank -%}
+        {%- assign page_html = pages[block.settings.page].content -%}
+        {%- assign page_text = page_html | strip_html | strip -%}
+        {%- if page_text != blank -%}
+          {%- assign show_tab = true -%}
+        {%- endif -%}
+      {%- endif -%}
+
+    {%- when 'custom' -%}
+      {%- assign custom_text = block.settings.custom_richtext | strip_html | strip -%}
+      {%- if custom_text != blank -%}
+        {%- assign show_tab = true -%}
+      {%- endif -%}
+
+    {%- when 'custom_liquid' -%}
+      {%- assign liq_raw = block.settings.custom_liquid | strip -%}
+      {%- if liq_raw != blank -%}
+        {%- assign show_tab = true -%}
+      {%- endif -%}
+
+    {%- when 'reviews_anchor' -%}
+      {%- assign show_tab = true -%}
+  {%- endcase -%}
+
+  {%- if request.design_mode -%}
+    {%- assign show_tab = true -%}
+  {%- endif -%}
+
+  {%- if show_tab -%}
+    {%- assign visible_count = visible_count | plus: 1 -%}
+    {%- if first_visible_block_id == '' -%}
+      {%- assign first_visible_block_id = block.id -%}
+    {%- endif -%}
+  {%- endif -%}
+{%- endfor -%}
+
+{%- if visible_count > 0 or request.design_mode -%}
+<section id="Tabs-{{ section.id }}" class="pc-tabs">
+  <div class="pc-tabs__wrap">
+    <div class="pc-tabs__nav" role="tablist" aria-label="Product tabs">
+      {%- for block in section.blocks -%}
+        {%- assign show_tab = false -%}
+
+        {%- case block.settings.content_type -%}
+          {%- when 'product_description' -%}
+            {%- assign desc_text = product.description | strip_html | strip -%}
+            {%- if desc_text != blank -%}{%- assign show_tab = true -%}{%- endif -%}
+
+          {%- when 'metafield' -%}
+            {%- assign ns = block.settings.metafield_namespace | strip -%}
+            {%- assign key = block.settings.metafield_key | strip -%}
+            {%- assign mf = blank -%}
+            {%- if ns != blank and key != blank -%}
+              {%- assign mf = product.metafields[ns][key] -%}
+            {%- endif -%}
+
+            {%- capture mf_html -%}
+              {%- if mf != blank -%}{{ mf | metafield_tag }}{%- endif -%}
+            {%- endcapture -%}
+            {%- assign mf_text = mf_html | strip_html | strip -%}
+            {%- if mf_text != blank -%}{%- assign show_tab = true -%}{%- endif -%}
+
+          {%- when 'page' -%}
+            {%- if block.settings.page != blank -%}
+              {%- assign page_html = pages[block.settings.page].content -%}
+              {%- assign page_text = page_html | strip_html | strip -%}
+              {%- if page_text != blank -%}{%- assign show_tab = true -%}{%- endif -%}
+            {%- endif -%}
+
+          {%- when 'custom' -%}
+            {%- assign custom_text = block.settings.custom_richtext | strip_html | strip -%}
+            {%- if custom_text != blank -%}{%- assign show_tab = true -%}{%- endif -%}
+
+          {%- when 'custom_liquid' -%}
+            {%- assign liq_raw = block.settings.custom_liquid | strip -%}
+            {%- if liq_raw != blank -%}{%- assign show_tab = true -%}{%- endif -%}
+
+          {%- when 'reviews_anchor' -%}
+            {%- assign show_tab = true -%}
+        {%- endcase -%}
+
+        {%- if request.design_mode -%}{%- assign show_tab = true -%}{%- endif -%}
+
+        {%- if show_tab -%}
+          {%- assign tab_id = 'tab-' | append: section.id | append: '-' | append: block.id -%}
+          {%- assign panel_id = 'panel-' | append: section.id | append: '-' | append: block.id -%}
+          {%- assign is_first = false -%}
+          {%- if block.id == first_visible_block_id -%}{%- assign is_first = true -%}{%- endif -%}
+
+          <button
+            id="{{ tab_id }}"
+            class="pc-tabs__tab{% if is_first %} is-active{% endif %}"
+            type="button"
+            role="tab"
+            aria-selected="{% if is_first %}true{% else %}false{% endif %}"
+            aria-controls="{{ panel_id }}"
+            data-panel="{{ panel_id }}"
+            tabindex="{% if is_first %}0{% else %}-1{% endif %}"
+            {% if block.settings.content_type == 'reviews_anchor' and block.settings.scroll_selector != blank %}
+              data-scroll-selector="{{ block.settings.scroll_selector | escape }}"
+            {% endif %}
+            {{ block.shopify_attributes }}
+          >
+            {{ block.settings.title | escape }}
+          </button>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+
+    <div class="pc-tabs__panels">
+      {%- for block in section.blocks -%}
+        {%- assign show_tab = false -%}
+
+        {%- case block.settings.content_type -%}
+          {%- when 'product_description' -%}
+            {%- assign desc_text = product.description | strip_html | strip -%}
+            {%- if desc_text != blank -%}{%- assign show_tab = true -%}{%- endif -%}
+
+          {%- when 'metafield' -%}
+            {%- assign ns = block.settings.metafield_namespace | strip -%}
+            {%- assign key = block.settings.metafield_key | strip -%}
+            {%- assign mf = blank -%}
+            {%- if ns != blank and key != blank -%}
+              {%- assign mf = product.metafields[ns][key] -%}
+            {%- endif -%}
+
+            {%- capture mf_html -%}
+              {%- if mf != blank -%}{{ mf | metafield_tag }}{%- endif -%}
+            {%- endcapture -%}
+            {%- assign mf_text = mf_html | strip_html | strip -%}
+            {%- if mf_text != blank -%}{%- assign show_tab = true -%}{%- endif -%}
+
+          {%- when 'page' -%}
+            {%- if block.settings.page != blank -%}
+              {%- assign page_html = pages[block.settings.page].content -%}
+              {%- assign page_text = page_html | strip_html | strip -%}
+              {%- if page_text != blank -%}{%- assign show_tab = true -%}{%- endif -%}
+            {%- endif -%}
+
+          {%- when 'custom' -%}
+            {%- assign custom_text = block.settings.custom_richtext | strip_html | strip -%}
+            {%- if custom_text != blank -%}{%- assign show_tab = true -%}{%- endif -%}
+
+          {%- when 'custom_liquid' -%}
+            {%- assign liq_raw = block.settings.custom_liquid | strip -%}
+            {%- if liq_raw != blank -%}{%- assign show_tab = true -%}{%- endif -%}
+
+          {%- when 'reviews_anchor' -%}
+            {%- assign show_tab = true -%}
+        {%- endcase -%}
+
+        {%- if request.design_mode -%}{%- assign show_tab = true -%}{%- endif -%}
+
+        {%- if show_tab -%}
+          {%- assign panel_id = 'panel-' | append: section.id | append: '-' | append: block.id -%}
+          {%- assign tab_id = 'tab-' | append: section.id | append: '-' | append: block.id -%}
+          {%- assign is_first = false -%}
+          {%- if block.id == first_visible_block_id -%}{%- assign is_first = true -%}{%- endif -%}
+
+          <div
+            id="{{ panel_id }}"
+            class="pc-tabs__panel rte{% if is_first %} is-active{% endif %}"
+            role="tabpanel"
+            aria-labelledby="{{ tab_id }}"
+            {% unless is_first %}hidden{% endunless %}
+          >
+            {% case block.settings.content_type %}
+              {% when 'product_description' %}
+                {{ product.description }}
+
+              {% when 'metafield' %}
+                {% assign ns = block.settings.metafield_namespace | strip %}
+                {% assign key = block.settings.metafield_key | strip %}
+                {% assign mf = blank %}
+                {% if ns != blank and key != blank %}
+                  {% assign mf = product.metafields[ns][key] %}
+                {% endif %}
+
+                {% if mf != blank %}
+                  {{ mf | metafield_tag }}
+                {% else %}
+                  {% if request.design_mode %}
+                    <p><strong>Metafield is empty.</strong> This tab will hide on live if left empty.</p>
+                  {% endif %}
+                {% endif %}
+
+              {% when 'page' %}
+                {% if block.settings.page != blank %}
+                  {{ pages[block.settings.page].content }}
+                {% endif %}
+
+              {% when 'custom' %}
+                {{ block.settings.custom_richtext }}
+
+              {% when 'custom_liquid' %}
+                {{ block.settings.custom_liquid }}
+
+              {% when 'reviews_anchor' %}
+                {% if request.design_mode %}
+                  <p>This tab scrolls to your reviews section.</p>
+                  <p>Set <code>Scroll selector</code> (example: <code>#judgeme_product_reviews</code>).</p>
+                {% endif %}
+            {% endcase %}
+          </div>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+  </div>
+
+  <style>
+    #Tabs-{{ section.id }} .pc-tabs__wrap{
+      border: 2px solid #000;
+      padding: 26px 28px;
+      background: #fff;
+    }
+    #Tabs-{{ section.id }} .pc-tabs__nav{
+      display: flex;
+      gap: 34px;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      padding-bottom: 10px;
+    }
+    #Tabs-{{ section.id }} .pc-tabs__nav::-webkit-scrollbar{ display:none; }
+    #Tabs-{{ section.id }} .pc-tabs__tab{
+      appearance: none;
+      background: transparent;
+      border: 0;
+      padding: 0 0 10px;
+      cursor: pointer;
+      font-family: "Geomanist", sans-serif;
+      font-weight: 500;
+      font-size: 16px;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      color: #000;
+      position: relative;
+      white-space: nowrap;
+    }
+    #Tabs-{{ section.id }} .pc-tabs__tab.is-active::after{
+      content:"";
+      position:absolute;
+      left:0;
+      bottom:0;
+      height: 3px;
+      width: 100%;
+      background: #000;
+    }
+    #Tabs-{{ section.id }} .pc-tabs__panels{ padding-top: 18px; }
+    #Tabs-{{ section.id }} .pc-tabs__panel{
+      font-family: "Geomanist", sans-serif;
+      font-weight: 400;
+      color: #000;
+    }
+    #Tabs-{{ section.id }} .pc-tabs__panel p{ margin: 0 0 12px; }
+    #Tabs-{{ section.id }} .pc-tabs__panel ul{ margin: 0 0 12px 20px; }
+
+    @media (max-width: 768px){
+      #Tabs-{{ section.id }} .pc-tabs__wrap{ padding: 18px 16px; }
+      #Tabs-{{ section.id }} .pc-tabs__tab{ font-size: 14px; }
+      #Tabs-{{ section.id }} .pc-tabs__nav{ gap: 22px; }
+    }
+  </style>
+
+  <script>
+    (function() {
+      var root = document.getElementById("Tabs-{{ section.id }}");
+      if (!root) return;
+
+      var tabs = root.querySelectorAll('[role="tab"]');
+      var panels = root.querySelectorAll('[role="tabpanel"]');
+      if (!tabs.length || !panels.length) return;
+
+      function activateTab(tabEl) {
+        var panelId = tabEl.getAttribute('data-panel');
+
+        tabs.forEach(function(t){
+          t.classList.remove('is-active');
+          t.setAttribute('aria-selected', 'false');
+          t.setAttribute('tabindex', '-1');
+        });
+
+        panels.forEach(function(p){
+          p.classList.remove('is-active');
+          p.hidden = true;
+        });
+
+        tabEl.classList.add('is-active');
+        tabEl.setAttribute('aria-selected', 'true');
+        tabEl.setAttribute('tabindex', '0');
+
+        var panel = root.querySelector('#' + panelId);
+        if (panel) {
+          panel.classList.add('is-active');
+          panel.hidden = false;
+        }
+
+        if (tabEl.dataset.scrollSelector) {
+          var target = document.querySelector(tabEl.dataset.scrollSelector);
+          if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }
+
+      tabs.forEach(function(tab){
+        tab.addEventListener('click', function(){
+          activateTab(tab);
+        });
+
+        tab.addEventListener('keydown', function(e){
+          var idx = Array.prototype.indexOf.call(tabs, tab);
+          if (e.key === 'ArrowRight') {
+            e.preventDefault();
+            var next = tabs[idx + 1] || tabs[0];
+            next.focus(); activateTab(next);
+          }
+          if (e.key === 'ArrowLeft') {
+            e.preventDefault();
+            var prev = tabs[idx - 1] || tabs[tabs.length - 1];
+            prev.focus(); activateTab(prev);
+          }
+        });
+      });
+
+      activateTab(tabs[0]);
+    })();
+  </script>
+</section>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Product tabs (Guidelines)",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "tab",
+      "name": "Tab",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Tab title", "default": "Overview" },
+        {
+          "type": "select",
+          "id": "content_type",
+          "label": "Content source",
+          "default": "product_description",
+          "options": [
+            { "value": "product_description", "label": "Product description" },
+            { "value": "metafield", "label": "Metafield (per product)" },
+            { "value": "page", "label": "Page content" },
+            { "value": "custom", "label": "Custom rich text" },
+            { "value": "custom_liquid", "label": "Custom liquid (embed app snippet)" },
+            { "value": "reviews_anchor", "label": "Reviews (scroll to reviews section)" }
+          ]
+        },
+        { "type": "text", "id": "metafield_namespace", "label": "Metafield namespace (e.g. custom)", "default": "custom" },
+        { "type": "text", "id": "metafield_key", "label": "Metafield key (e.g. product_installation)" },
+        { "type": "page", "id": "page", "label": "Select page" },
+        { "type": "richtext", "id": "custom_richtext", "label": "Custom content" },
+        { "type": "liquid", "id": "custom_liquid", "label": "Custom liquid (optional)" },
+        { "type": "text", "id": "scroll_selector", "label": "Reviews scroll selector (e.g. #judgeme_product_reviews)" }
+      ]
+    }
+  ],
+  "max_blocks": 12,
+  "presets": [
+    {
+      "name": "Product tabs (Guidelines)",
+      "blocks": [
+        { "type": "tab", "settings": { "title": "Overview", "content_type": "product_description" } },
+        { "type": "tab", "settings": { "title": "Important Notes", "content_type": "metafield", "metafield_namespace": "custom", "metafield_key": "product_important_notes" } },
+        { "type": "tab", "settings": { "title": "Installation", "content_type": "metafield", "metafield_namespace": "custom", "metafield_key": "product_installation" } },
+        { "type": "tab", "settings": { "title": "Specification", "content_type": "metafield", "metafield_namespace": "custom", "metafield_key": "product_specification" } },
+        { "type": "tab", "settings": { "title": "Fitment", "content_type": "metafield", "metafield_namespace": "custom", "metafield_key": "product_fitment" } },
+        { "type": "tab", "settings": { "title": "Reviews", "content_type": "reviews_anchor", "scroll_selector": "#judgeme_product_reviews" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

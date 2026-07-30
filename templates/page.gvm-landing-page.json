@@ -1,0 +1,216 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    },
+    "logo_list_tG47ei": {
+      "type": "logo-list",
+      "blocks": {
+        "logo_DtUDqi": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/F150_copy_3_301d0aa8-a172-4a72-93dd-92c3038fbfc6.jpg",
+            "image_from_url": "",
+            "image_link": "https://www.offroadindustries.com.au/pages/ford-150-gvm-packages",
+            "image_width": 80
+          }
+        },
+        "logo_ANYPGW": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/SILVERADO_1500_copy_4_fb4ac951-398c-43ed-8574-f5703c47c0a4.jpg",
+            "image_from_url": "",
+            "image_link": "https://www.offroadindustries.com.au/pages/chevrolet-silverado-1500-gvm-package",
+            "image_width": 80
+          }
+        },
+        "logo_MR8h7V": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/SILVERADO_2500_copy_4_1f45335a-303d-4bc6-af62-83ff8ee85a8a.jpg",
+            "image_from_url": "",
+            "image_link": "https://www.offroadindustries.com.au/pages/chevy-silverado-2500hd-gvm-packages",
+            "image_width": 80
+          }
+        },
+        "logo_hwRXhB": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/TOYOTA_TUNDRA_copy_742153b9-e2db-4219-9a69-f8603b238408.jpg",
+            "image_from_url": "",
+            "image_link": "https://www.offroadindustries.com.au/pages/toyota-tundra",
+            "image_width": 80
+          }
+        }
+      },
+      "block_order": [
+        "logo_DtUDqi",
+        "logo_ANYPGW",
+        "logo_MR8h7V",
+        "logo_hwRXhB"
+      ],
+      "name": "t:sections.logo-list.presets.name",
+      "settings": {
+        "container": "container",
+        "color_schema": "",
+        "section_header_padding_bottom": "medium",
+        "section_header_content_spacing": "medium",
+        "heading": "",
+        "highlight_style": "none",
+        "enable_highlight_text_color": false,
+        "heading_size": "h2",
+        "heading_color": "",
+        "description": "",
+        "columns": 2,
+        "column_gap": "medium",
+        "row_gap": "medium",
+        "enable_slider": false,
+        "show_nav": false,
+        "show_dots": false,
+        "enable_swipe_mobile": false,
+        "column_mobile": "1",
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "show_section_divider": false,
+        "divider_width": "container",
+        "custom_id": "",
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "multicolumn_AcQKEk": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_ECe8a7": {
+          "type": "column",
+          "settings": {
+            "show_image": true,
+            "image": "shopify://shop_images/image_-_2026-02-17T205945.442.png",
+            "image_link": "",
+            "title": "Ford F150 GVM & GCM Packages",
+            "heading_size": "h3",
+            "text": "<p>Click here to learn more about ORI GVM GCM packages for the Ford F150</p>",
+            "text_size": "medium",
+            "button_text": "",
+            "button_link": "",
+            "button_style": "btn--underline"
+          }
+        },
+        "column_T8hQry": {
+          "type": "column",
+          "settings": {
+            "show_image": true,
+            "image": "shopify://shop_images/image_-_2026-02-17T210005.244.png",
+            "image_link": "",
+            "title": "Column",
+            "heading_size": "h3",
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "text_size": "medium",
+            "button_text": "",
+            "button_link": "",
+            "button_style": "btn--underline"
+          }
+        },
+        "column_Bey9dh": {
+          "type": "column",
+          "settings": {
+            "show_image": true,
+            "image": "shopify://shop_images/image_-_2026-02-17T205900.998.png",
+            "image_link": "",
+            "title": "Column",
+            "heading_size": "h3",
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "text_size": "medium",
+            "button_text": "",
+            "button_link": "",
+            "button_style": "btn--underline"
+          }
+        },
+        "column_nNUN6a": {
+          "type": "column",
+          "settings": {
+            "show_image": true,
+            "image": "shopify://shop_images/image_-_2026-02-17T205935.011.png",
+            "image_link": "",
+            "title": "Column",
+            "heading_size": "h3",
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "text_size": "medium",
+            "button_text": "",
+            "button_link": "",
+            "button_style": "btn--underline"
+          }
+        },
+        "column_mfLAKJ": {
+          "type": "column",
+          "settings": {
+            "show_image": true,
+            "image": "shopify://shop_images/image_-_2026-02-17T205922.034.png",
+            "image_link": "",
+            "title": "Column",
+            "heading_size": "h3",
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "text_size": "medium",
+            "button_text": "",
+            "button_link": "",
+            "button_style": "btn--underline"
+          }
+        }
+      },
+      "block_order": [
+        "column_ECe8a7",
+        "column_T8hQry",
+        "column_Bey9dh",
+        "column_nNUN6a",
+        "column_mfLAKJ"
+      ],
+      "disabled": true,
+      "name": "t:sections.multicolumn.name",
+      "settings": {
+        "container": "container",
+        "color_schema": "",
+        "section_header_padding_bottom": "medium",
+        "section_header_content_spacing": "medium",
+        "heading": "",
+        "highlight_style": "none",
+        "enable_highlight_text_color": false,
+        "heading_size": "h2",
+        "heading_color": "",
+        "subheading": "",
+        "description": "",
+        "layout": "vertical",
+        "text_alignment": "center",
+        "image_width": "fullwidth",
+        "custom_image_width": 80,
+        "columns": 4,
+        "column_gap": "medium",
+        "row_gap": "medium",
+        "enable_swipe_mobile": false,
+        "column_mobile": "1",
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "show_section_divider": false,
+        "divider_width": "container",
+        "custom_id": "",
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "logo_list_tG47ei",
+    "multicolumn_AcQKEk"
+  ]
+}

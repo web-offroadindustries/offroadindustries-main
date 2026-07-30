@@ -1,0 +1,40 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "b2b-catalog-page",
+      "settings": {
+        "container": "container-fluid",
+        "catalog_collection": "",
+        "heading": "Product Catalog",
+        "subheading": "Stock availability and pricing shown below. Contact us to place an order.",
+        "per_page": 50,
+        "grid_columns": "5",
+        "bulk_discount_enabled": false,
+        "bulk_discount_qty": 5,
+        "bulk_discount_pct": 10,
+        "shipping_calc_variant_id": "48656540303656",
+        "gate_heading": "Wholesale Portal",
+        "gate_body": "Log in with your wholesale account to access pricing, stock availability, and the full product catalog.",
+        "gate_btn_label": "Log In to View Catalog",
+        "show_cta": true,
+        "cta_text": "Ready to place an order? Get in touch with our team.",
+        "cta_label": "Contact Us to Order",
+        "cta_link": "/pages/contact",
+        "padding_top": 40,
+        "padding_bottom": 60
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

@@ -1,0 +1,428 @@
+{%- liquid
+  assign sort_by = results.sort_by | default: results.default_sort_by
+
+  if results.url
+    assign results_url = results.url
+  else
+    assign terms = results.terms | escape
+    assign results_url = '?q=' | append: terms | append: '&options%5Bprefix%5D=last&sort_by=' | append: sort_by
+  endif
+
+  assign group_collapsible = section.settings.group_collapsible
+  assign open_first_group = section.settings.open_first_group
+  assign default_state_collapsible = section.settings.default_state_collapsible
+  assign show_results_count = section.settings.show_results_count
+  assign filter_color_type = section.settings.filter_color_type
+
+  assign heading_size = heading_size | default: 'h5'
+  assign animation_effect = animation_effect | default: 'none'
+  assign enable_sorting = enable_sorting | default: false
+
+  assign show_more_text = 'products.facets.show_more' | t
+  assign show_less_text = 'products.facets.show_less' | t
+  if show_more_text contains 'translation missing'
+    assign show_more_text = 'Show more'
+  endif
+  if show_less_text contains 'translation missing'
+    assign show_less_text = 'Show less'
+  endif
+
+  assign show_faceted_filters = show_faceted_filters | default: true
+  assign show_tag_filter = show_tag_filter | default: false
+  assign tag_filter_heading = tag_filter_heading | default: 'By Vehicle'
+  assign tag_filter_exclude_prefixes = tag_filter_exclude_prefixes | default: 'spo-,filter-'
+  assign tag_filter_exclude_list = tag_filter_exclude_prefixes | downcase | split: ','
+  assign tag_filter_include_prefixes = tag_filter_include_prefixes | default: ''
+  assign tag_filter_include_list = tag_filter_include_prefixes | downcase | split: ','
+  assign tag_filter_include_mode = false
+  if tag_filter_include_prefixes != blank
+    assign tag_filter_include_mode = true
+  endif
+
+  assign show_header = false
+  if show_tag_filter
+    assign show_header = true
+  endif
+  if show_faceted_filters and results.filters != empty
+    assign show_header = true
+  endif
+
+  assign base_url = results.url
+  if base_url == blank and collection
+    assign base_url = collection.url
+  endif
+-%}
+
+<drawer-component
+  id="Drawer-Facets"
+  class="f-drawer f-drawer--left f-drawer-facets no-js-hidden f-facets--{{ sidebar_position }}"
+  role="dialog"
+  data-can-move="false"
+  aria-modal="true"
+  hidden
+  style="--f-drawer-width: 100vw;"
+>
+  <div class="f-drawer__overlay" data-drawer-overlay></div>
+  <motion-element
+    data-motion="{% if sidebar_position != 'drawer' %}{{ animation_effect }}{% else %}none{% endif %}"
+    class="f-drawer__content w-full focus-inset"
+    tabindex="-1"
+  >
+    {% if show_header %}
+      <div class="f-facets__header items-center justify-between">
+        <h3 class="f-facets__heading h5">
+          {{ 'products.facets.filter_by_label' | t }}
+        </h3>
+
+        {% if show_faceted_filters %}
+          <div class="collection-product-count" role="status" data-product-count>
+            {%- if results.results_count -%}
+              {{ 'templates.search.results_with_count' | t: terms: results.terms, count: results.results_count }}
+            {%- elsif results.products_count == results.all_products_count -%}
+              {{ 'products.facets.product_count_simple' | t: count: results.products_count }}
+            {%- else -%}
+              {{ 'products.facets.product_count' | t: product_count: results.products_count, count: results.all_products_count }}
+            {%- endif -%}
+          </div>
+        {% endif %}
+
+        <button
+          id="DrawerClose-Facets"
+          class="f-drawer__close btn btn--plain"
+          aria-label="{{ 'accessibility.close' | t }}"
+        >
+          {% comment %} theme-check-disable {% endcomment %}
+          {{ 'icon-close.svg' | inline_asset_content }}
+          {% comment %} theme-check-enable {% endcomment %}
+        </button>
+      </div>
+    {% endif %}
+
+    <div class="f-drawer__inner scroll-container">
+      <div
+        class="f-facets__container f-facets__container--{{ sidebar_position }}"
+        data-collapsible="{{ group_collapsible | default: false }}"
+        data-open-first="{{ open_first_group | default: false }}"
+        data-facets-type="{{ sidebar_position }}"
+      >
+        <facet-filters-form class="f-facets">
+          <form id="FacetFiltersForm" class="f-facets__form" data-facet-form>
+            {%- if results.terms -%}
+              <input type="hidden" name="q" value="{{ results.terms | escape }}">
+              <input name="options[prefix]" type="hidden" value="last">
+              <input name="options[unavailable_products]" type="hidden" value="show">
+            {%- endif -%}
+
+            <div class="f-facets__wrapper" data-facets-wrapper>
+              {%- if show_faceted_filters and results.filters != empty and sidebar_position != 'drawer' -%}
+                <h3 class="f-facets__heading visually-hidden">
+                  {{ 'products.facets.filter_by_label' | t }}
+                </h3>
+              {%- endif -%}
+
+              <div class="f-facets__blocks" data-collapsible-parent>
+
+                {% if show_faceted_filters and enable_sorting %}
+                  <div
+                    class="f-facets__block f-facets__block--divider js-filter f-facets__block-sortby md:hidden"
+                    data-index="{{ results.filters.size | plus: 1 }}"
+                  >
+                    <div id="Mobile-SortBy-Block" class="flex items-center">
+                      <label for="facets-SortBy" class="h5 whitespace-nowrap">
+                        {{ 'products.facets.sort_by_label' | t }}:</label
+                      >
+                      <select
+                        id="Mobile-SortBy"
+                        name="sort_by"
+                        class="form-control"
+                        aria-describedby="a11y-refresh-page-message a11y-selection-message"
+                      >
+                        {%- for option in results.sort_options -%}
+                          <option value="{{ option.value }}" {% if option.value == sort_by %}selected="selected"{% endif %}>
+                            {{ option.name }}
+                          </option>
+                        {%- endfor -%}
+                      </select>
+                    </div>
+                  </div>
+                {% endif %}
+
+                {% if show_tag_filter and request.page_type == 'collection' and results.all_tags != blank %}
+                  <div class="f-facets__block f-facets__block--divider">
+                    <collapsible-tab
+                      class="collapsible__item parent-display"
+                      data-one-open="false"
+                      open="true"
+                      {% unless group_collapsible %}data-destroy="true"{% endunless %}
+                    >
+                      <button class="f-facets__block-header focus-inset m-0 {{ heading_size }}" data-trigger>
+                        <span class="font-body-bolder text-button">{{ tag_filter_heading | escape }}</span>
+                        {% if group_collapsible %}
+                          <span data-collapsible-icon class="no-js-hidden">
+                            <svg width="2" height="12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M1 1.333v9.334" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <svg width="12" height="2" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M1 1h10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                          </span>
+                        {% endif %}
+                      </button>
+
+                      <div class="f-facets__block-content" data-content>
+
+                        {% if current_tags != blank %}
+                          <div class="f-facets__tag-filter-actions" style="margin: 0 0 10px;">
+                            <a class="btn btn--underline" href="{{ base_url }}">
+                              Clear
+                            </a>
+                          </div>
+                        {% endif %}
+
+                        <ul class="list-none f-facets__list" role="list">
+                          {%- assign sorted_tags = results.all_tags | sort -%}
+                          {%- for tag in sorted_tags -%}
+                            {%- assign tag_lc = tag | downcase -%}
+
+                            {%- if tag_filter_include_mode -%}
+                              {%- comment -%}
+                                Include mode: only show tags that START WITH one of the
+                                include prefixes. Lowercase tags are allowed here so that
+                                EasySearch-style vehicle tags (e.g. ymm-2023-ram-1500)
+                                are not accidentally filtered out.
+                              {%- endcomment -%}
+                              {%- assign included = false -%}
+                              {%- for p in tag_filter_include_list -%}
+                                {%- assign inc_prefix = p | strip -%}
+                                {%- if inc_prefix != blank -%}
+                                  {%- assign inc_len = inc_prefix | size -%}
+                                  {%- assign tag_head = tag_lc | slice: 0, inc_len -%}
+                                  {%- if tag_head == inc_prefix -%}
+                                    {%- assign included = true -%}
+                                    {%- break -%}
+                                  {%- endif -%}
+                                {%- endif -%}
+                              {%- endfor -%}
+                              {%- unless included -%}
+                                {%- continue -%}
+                              {%- endunless -%}
+                            {%- else -%}
+                              {%- comment -%}
+                                Default mode: skip all-lowercase tags (internal/admin tags)
+                                and skip tags whose prefix is in the exclude list.
+                              {%- endcomment -%}
+                              {%- if tag == tag_lc -%}
+                                {%- continue -%}
+                              {%- endif -%}
+
+                              {%- assign excluded = false -%}
+                              {%- for p in tag_filter_exclude_list -%}
+                                {%- assign prefix = p | strip -%}
+                                {%- if prefix != blank -%}
+                                  {%- assign prefix_len = prefix | size -%}
+                                  {%- assign head = tag_lc | slice: 0, prefix_len -%}
+                                  {%- if head == prefix -%}
+                                    {%- assign excluded = true -%}
+                                    {%- break -%}
+                                  {%- endif -%}
+                                {%- endif -%}
+                              {%- endfor -%}
+                              {%- if excluded -%}
+                                {%- continue -%}
+                              {%- endif -%}
+                            {%- endif -%}
+
+                            {%- assign is_active = false -%}
+                            {%- if current_tags contains tag -%}
+                              {%- assign is_active = true -%}
+                            {%- endif -%}
+
+                            <li class="f-facets__item">
+                              {% if is_active %}
+                                <a class="f-checkbox" href="{{ base_url }}">
+                                  <span class="checkmark"></span>
+                                  <span>{{ tag | escape }}</span>
+                                </a>
+                              {% else %}
+                                <a class="f-checkbox" href="{{ base_url }}/{{ tag | handleize }}">
+                                  <span class="checkmark"></span>
+                                  <span>{{ tag | escape }}</span>
+                                </a>
+                              {% endif %}
+                            </li>
+                          {%- endfor -%}
+                        </ul>
+
+                      </div>
+                    </collapsible-tab>
+                  </div>
+                {% endif %}
+
+                {% if show_faceted_filters %}
+                  {%- for filter in results.filters -%}
+                    {% liquid
+                      assign filter_index = forloop.index
+                      assign isOpen = false
+                      assign isHidden = false
+
+                      assign show_filter = true
+                      if request.page_type == 'search'
+                        assign show_filter = false
+                        assign label_lc = filter.label | downcase
+                        if filter.param_name == 'filter.p.vendor' or label_lc == 'brand' or label_lc == 'vendor'
+                          assign show_filter = true
+                        endif
+                      endif
+
+                      if default_state_collapsible == 'collapsed'
+                        assign isHidden = true
+                        unless open_first_group and forloop.first and group_collapsible
+                          assign isHidden = true
+                        endunless
+                        if open_first_group and forloop.first
+                          assign isOpen = true
+                        endif
+                      else
+                        assign isOpen = true
+                      endif
+
+                      if filter.min_value.value != blank or filter.max_value.value != blank or filter.active_values.size > 0
+                        assign isOpen = true
+                      endif
+
+                      assign is_color = false
+                      if settings.color_swatches_enable and settings.color_swatches_trigger != blank
+                        assign filter_label = filter.label | downcase
+                        assign color_swatches_trigger = settings.color_swatches_trigger | downcase | split: ','
+                        if color_swatches_trigger contains filter_label
+                          assign is_color = true
+                        endif
+                      endif
+
+                      assign sorted_values = filter.values
+                      if filter.operator == 'AND'
+                        assign active_filter_values = filter.values | where: 'active', true
+                        assign inactive_filter_values = filter.values | where: 'active', false
+                        assign sorted_values = active_filter_values | concat: inactive_filter_values
+                      endif
+                    %}
+
+                    {% unless show_filter %}
+                      {% continue %}
+                    {% endunless %}
+
+                    {% if is_color %}
+                      <script src="{{ 'filter-color-swatch.js' | asset_url }}" defer="defer"></script>
+                    {% endif %}
+
+                    <div class="f-facets__block js-filter" data-index="{{ forloop.index }}">
+                      <collapsible-tab
+                        class="collapsible__item parent-display"
+                        data-one-open="false"
+                        {% if isOpen %}open="true"{% endif -%}
+                        {% unless group_collapsible %}data-destroy="true"{% endunless %}
+                      >
+                        <button class="f-facets__block-header focus-inset m-0 {{ heading_size }}" data-trigger>
+                          <span class="font-body-bolder text-button">{{ filter.label | escape }}</span>
+                          {% if group_collapsible %}
+                            <span data-collapsible-icon class="no-js-hidden">
+                              <svg width="2" height="12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1 1.333v9.334" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                              </svg>
+                              <svg width="2" height="12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1 1.333v9.334" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                              </svg>
+                            </span>
+                          {% endif %}
+                        </button>
+
+                        <div class="f-facets__block-content" data-content {% if isHidden %}hidden{% endif %}>
+                          {%- if filter.operator == 'AND' -%}
+                            <small class="filter-and-operator-text text-sm text-normal">
+                              {{ 'products.facets.match_all' | t }}
+                            </small>
+                          {%- endif -%}
+
+                          {% case filter.type %}
+                            {% when 'list' %}
+                              <ul class="list-none f-facets__list" role="list">
+                                {%- for value in sorted_values -%}
+                                  {% capture label %}
+                                    {{ value.label | escape }}{% if show_results_count %} <span class="f-facets__results-count">({{ value.count }})</span>{% endif %}
+                                  {% endcapture %}
+                                  {% capture id %}Filter-{{ filter.label | escape }}-{{ filter_index }}-{{ forloop.index }}{% endcapture %}
+
+                                  {%- liquid
+                                    assign disabled = false
+                                    if value.count == 0 and value.active == false
+                                      assign disabled = true
+                                    endif
+                                  -%}
+
+                                  <li class="f-facets__item{% if forloop.index > 10 %} show-more-item hidden{% endif %}">
+                                    <label for="{{ id }}" class="f-checkbox{% if disabled %} f-checkbox--disabled{% endif %}">
+                                      <input
+                                        type="checkbox"
+                                        name="{{ value.param_name }}"
+                                        value="{{ value.value }}"
+                                        id="{{ id }}"
+                                        {% if value.active %}checked{% endif %}
+                                        {% if disabled %}disabled{% endif %}
+                                      >
+                                      <span class="checkmark"></span>
+                                      <span>{{ label }}</span>
+                                    </label>
+                                  </li>
+                                {%- endfor -%}
+                              </ul>
+
+                              {%- if filter.values.size > 10 -%}
+                                <show-more-button>
+                                  <button class="button-show-more btn btn--underline no-js-hidden" id="Show-More-{{ forloop.index }}-{{ section.id }}" type="button">
+                                    <span class="label-show-more label-text"><span aria-hidden="true">+ </span>{{ show_more_text }}</span>
+                                    <span class="label-show-less label-text hidden"><span aria-hidden="true">- </span>{{ show_less_text }}</span>
+                                  </button>
+                                </show-more-button>
+                              {%- endif -%}
+
+                            {% when 'price_range' %}
+                              {%- comment -%} keep your existing price range block here if you need it {%- endcomment -%}
+                          {% endcase %}
+                        </div>
+                      </collapsible-tab>
+                    </div>
+                  {%- endfor -%}
+                {% endif %}
+              </div>
+
+              <noscript>
+                <div class="py-sm">
+                  <button class="btn btn--primary w-full">{{ 'products.facets.apply' | t }}</button>
+                </div>
+              </noscript>
+            </div>
+
+            {% if results.current_vendor or results.current_type %}
+              <input type="hidden" name="q" value="{{ results.current_vendor }}{{ results.current_type }}">
+            {% endif %}
+          </form>
+        </facet-filters-form>
+      </div>
+    </div>
+
+    {% if show_faceted_filters %}
+      <div class="f-facets__footer flex justify-between items-center">
+        <facet-remove class="text-left">
+          <a href="{{ results_url }}" class="btn btn--underline" aria-label="{{ 'products.facets.clear_all' | t }}">
+            <span>{{ 'products.facets.clear_all' | t }}</span>
+          </a>
+        </facet-remove>
+        <facet-apply>
+          <button class="btn btn--primary w-full" aria-label="{{ 'products.facets.apply' | t }}">
+            {{ 'products.facets.apply' | t }}
+          </button>
+        </facet-apply>
+      </div>
+    {% endif %}
+  </motion-element>
+</drawer-component>

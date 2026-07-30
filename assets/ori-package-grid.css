@@ -1,0 +1,149 @@
+/* ─── ORI Package Grid ────────────────────────────────────────────────────
+   Card grid for GVM / GCM / stage packages. Works for both the product-driven
+   and manual-card modes (identical card markup). Neutral tints use color-mix
+   on currentColor so cards adapt to the section's colour scheme. */
+
+.ori-package-grid__header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+.ori-package-grid__heading {
+  margin: 0 0 10px;
+  text-transform: uppercase;
+}
+.ori-package-grid__subheading {
+  margin: 0;
+  opacity: 0.8;
+}
+
+.ori-package-grid__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(var(--pkg-grid-cols, 3), 1fr);
+  gap: 24px;
+}
+.ori-package-grid__item {
+  display: flex;
+}
+
+.ori-package-card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border: 1px solid color-mix(in srgb, currentColor 12%, transparent);
+  border-radius: 12px;
+  overflow: hidden;
+  background: color-mix(in srgb, currentColor 3%, transparent);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.ori-package-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+}
+
+.ori-package-card__image-wrap {
+  aspect-ratio: 4 / 3;
+  background: color-mix(in srgb, currentColor 8%, transparent);
+}
+.ori-package-card__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.ori-package-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 22px;
+  flex: 1;
+}
+.ori-package-card__vehicle {
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.6;
+}
+.ori-package-card__title {
+  margin: 0;
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+
+.ori-package-card__specs {
+  margin: 6px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.ori-package-card__spec-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid color-mix(in srgb, currentColor 10%, transparent);
+}
+.ori-package-card__spec-row:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+.ori-package-card__spec-row dt {
+  margin: 0;
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  opacity: 0.6;
+}
+.ori-package-card__spec-row dd {
+  margin: 0;
+  font-weight: 700;
+  text-align: right;
+}
+
+.ori-package-card__badge {
+  align-self: flex-start;
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 5px 11px;
+  border-radius: 999px;
+  background: color-mix(in srgb, currentColor 14%, transparent);
+}
+
+.ori-package-card__cta {
+  margin-top: auto;
+}
+.ori-package-card__cta.btn {
+  width: 100%;
+  text-align: center;
+}
+
+.ori-package-grid__footer {
+  text-align: center;
+  margin-top: 36px;
+}
+
+.ori-package-grid__empty {
+  text-align: center;
+  padding: 40px 24px;
+  border: 1px dashed color-mix(in srgb, currentColor 25%, transparent);
+  border-radius: 12px;
+  opacity: 0.85;
+}
+
+@media (max-width: 989px) {
+  .ori-package-grid__list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 639px) {
+  .ori-package-grid__list {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}

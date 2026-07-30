@@ -1,0 +1,555 @@
+{% liquid
+  assign section_id = section.id
+  assign form_id = 'DealerEnquiryForm-' | append: section_id
+%}
+
+<section id="DealerEnquiryFormSection-{{ section_id }}" class="dealer-enquiry-form-section">
+  <div class="dealer-enquiry-form__container page-width">
+    <div class="dealer-enquiry-form__grid{% if section.settings.image == blank %} dealer-enquiry-form__grid--no-image{% endif %}">
+      <div class="dealer-enquiry-form__content">
+        {% if section.settings.eyebrow != blank %}
+          <p class="dealer-enquiry-form__eyebrow">{{ section.settings.eyebrow }}</p>
+        {% endif %}
+
+        {% if section.settings.heading != blank %}
+          <h2 class="dealer-enquiry-form__heading">{{ section.settings.heading }}</h2>
+        {% endif %}
+
+        {% if section.settings.text != blank %}
+          <div class="dealer-enquiry-form__text rte">{{ section.settings.text }}</div>
+        {% endif %}
+
+        {% if section.settings.image != blank %}
+          <div class="dealer-enquiry-form__image-wrapper">
+            {{ section.settings.image | image_url: width: 1400 | image_tag: loading: 'lazy', class: 'dealer-enquiry-form__image', widths: '550, 700, 900, 1100, 1400' }}
+          </div>
+        {% endif %}
+      </div>
+
+      <div class="dealer-enquiry-form__card">
+        {% if section.settings.form_heading != blank %}
+          <h3 class="dealer-enquiry-form__card-title">{{ section.settings.form_heading }}</h3>
+        {% endif %}
+
+        {% if section.settings.form_description != blank %}
+          <div class="dealer-enquiry-form__card-text rte">{{ section.settings.form_description }}</div>
+        {% endif %}
+
+        {% form 'contact', id: form_id, class: 'dealer-enquiry-form__form' %}
+          {% if form.posted_successfully? %}
+            <div class="dealer-enquiry-form__success" tabindex="-1" autofocus>
+              {{ section.settings.success_message }}
+            </div>
+          {% endif %}
+
+          {% if form.errors %}
+            <div class="dealer-enquiry-form__errors" role="alert">
+              {{ form.errors | default_errors }}
+            </div>
+          {% endif %}
+
+          <input type="hidden" name="contact[Form Type]" value="Dealer enquiry">
+          <input type="text" name="contact[Company HP]" class="dealer-enquiry-form__honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+          <div class="dealer-enquiry-form__fields">
+            <div class="dealer-enquiry-form__field dealer-enquiry-form__field--half">
+              <label class="dealer-enquiry-form__label" for="DealerFirstName-{{ section_id }}">{{ section.settings.label_first_name }}</label>
+              <input
+                id="DealerFirstName-{{ section_id }}"
+                class="dealer-enquiry-form__input"
+                type="text"
+                name="contact[First Name]"
+                placeholder="{{ section.settings.placeholder_first_name }}"
+                value="{% if form.first_name %}{{ form.first_name | escape }}{% endif %}"
+                {% if section.settings.required_first_name %}required{% endif %}
+                autocomplete="given-name"
+              >
+            </div>
+
+            <div class="dealer-enquiry-form__field dealer-enquiry-form__field--half">
+              <label class="dealer-enquiry-form__label" for="DealerLastName-{{ section_id }}">{{ section.settings.label_last_name }}</label>
+              <input
+                id="DealerLastName-{{ section_id }}"
+                class="dealer-enquiry-form__input"
+                type="text"
+                name="contact[Last Name]"
+                placeholder="{{ section.settings.placeholder_last_name }}"
+                {% if section.settings.required_last_name %}required{% endif %}
+                autocomplete="family-name"
+              >
+            </div>
+
+            <div class="dealer-enquiry-form__field dealer-enquiry-form__field--half">
+              <label class="dealer-enquiry-form__label" for="DealerBusinessName-{{ section_id }}">{{ section.settings.label_business_name }}</label>
+              <input
+                id="DealerBusinessName-{{ section_id }}"
+                class="dealer-enquiry-form__input"
+                type="text"
+                name="contact[Business Name]"
+                placeholder="{{ section.settings.placeholder_business_name }}"
+                {% if section.settings.required_business_name %}required{% endif %}
+              >
+            </div>
+
+            <div class="dealer-enquiry-form__field dealer-enquiry-form__field--half">
+              <label class="dealer-enquiry-form__label" for="DealerABN-{{ section_id }}">{{ section.settings.label_abn }}</label>
+              <input
+                id="DealerABN-{{ section_id }}"
+                class="dealer-enquiry-form__input"
+                type="text"
+                name="contact[ABN or Business Registration]"
+                placeholder="{{ section.settings.placeholder_abn }}"
+              >
+            </div>
+
+            <div class="dealer-enquiry-form__field dealer-enquiry-form__field--half">
+              <label class="dealer-enquiry-form__label" for="DealerEmail-{{ section_id }}">{{ section.settings.label_email }}</label>
+              <input
+                id="DealerEmail-{{ section_id }}"
+                class="dealer-enquiry-form__input"
+                type="email"
+                name="contact[email]"
+                placeholder="{{ section.settings.placeholder_email }}"
+                value="{% if form.email %}{{ form.email | escape }}{% endif %}"
+                required
+                autocomplete="email"
+              >
+            </div>
+
+            <div class="dealer-enquiry-form__field dealer-enquiry-form__field--half">
+              <label class="dealer-enquiry-form__label" for="DealerPhone-{{ section_id }}">{{ section.settings.label_phone }}</label>
+              <input
+                id="DealerPhone-{{ section_id }}"
+                class="dealer-enquiry-form__input"
+                type="tel"
+                name="contact[Phone]"
+                placeholder="{{ section.settings.placeholder_phone }}"
+                {% if section.settings.required_phone %}required{% endif %}
+                autocomplete="tel"
+              >
+            </div>
+
+            <div class="dealer-enquiry-form__field dealer-enquiry-form__field--half">
+              <label class="dealer-enquiry-form__label" for="DealerWebsite-{{ section_id }}">{{ section.settings.label_website }}</label>
+              <input
+                id="DealerWebsite-{{ section_id }}"
+                class="dealer-enquiry-form__input"
+                type="url"
+                name="contact[Website]"
+                placeholder="{{ section.settings.placeholder_website }}"
+                inputmode="url"
+              >
+            </div>
+
+            <div class="dealer-enquiry-form__field dealer-enquiry-form__field--half">
+              <label class="dealer-enquiry-form__label" for="DealerLocation-{{ section_id }}">{{ section.settings.label_location }}</label>
+              <input
+                id="DealerLocation-{{ section_id }}"
+                class="dealer-enquiry-form__input"
+                type="text"
+                name="contact[Business Location]"
+                placeholder="{{ section.settings.placeholder_location }}"
+                {% if section.settings.required_location %}required{% endif %}
+              >
+            </div>
+
+            <div class="dealer-enquiry-form__field dealer-enquiry-form__field--half">
+              <label class="dealer-enquiry-form__label" for="DealerBusinessType-{{ section_id }}">{{ section.settings.label_business_type }}</label>
+              <select
+                id="DealerBusinessType-{{ section_id }}"
+                class="dealer-enquiry-form__select"
+                name="contact[Business Type]"
+                {% if section.settings.required_business_type %}required{% endif %}
+              >
+                {% assign business_type_options = section.settings.business_type_options | split: '\n' %}
+                <option value="">{{ section.settings.business_type_placeholder }}</option>
+                {% for option in business_type_options %}
+                  {% assign option_value = option | strip %}
+                  {% if option_value != blank %}
+                    <option value="{{ option_value }}">{{ option_value }}</option>
+                  {% endif %}
+                {% endfor %}
+              </select>
+            </div>
+
+            <div class="dealer-enquiry-form__field dealer-enquiry-form__field--full">
+              <label class="dealer-enquiry-form__label" for="DealerBrands-{{ section_id }}">{{ section.settings.label_brands }}</label>
+              <input
+                id="DealerBrands-{{ section_id }}"
+                class="dealer-enquiry-form__input"
+                type="text"
+                name="contact[Brands of Interest]"
+                placeholder="{{ section.settings.placeholder_brands }}"
+              >
+            </div>
+
+            <div class="dealer-enquiry-form__field dealer-enquiry-form__field--full">
+              <label class="dealer-enquiry-form__label" for="DealerMessage-{{ section_id }}">{{ section.settings.label_message }}</label>
+              <textarea
+                id="DealerMessage-{{ section_id }}"
+                class="dealer-enquiry-form__textarea"
+                name="contact[body]"
+                placeholder="{{ section.settings.placeholder_message }}"
+                rows="{{ section.settings.message_rows }}"
+                {% if section.settings.required_message %}required{% endif %}
+              >{% if form.body %}{{ form.body | escape }}{% endif %}</textarea>
+            </div>
+
+            {% if section.settings.show_consent %}
+              <div class="dealer-enquiry-form__field dealer-enquiry-form__field--full">
+                <label class="dealer-enquiry-form__checkbox">
+                  <input
+                    type="checkbox"
+                    name="contact[Dealer Consent]"
+                    value="Yes"
+                    {% if section.settings.required_consent %}required{% endif %}
+                  >
+                  <span>{{ section.settings.consent_label }}</span>
+                </label>
+              </div>
+            {% endif %}
+          </div>
+
+          <button type="submit" class="dealer-enquiry-form__button">
+            {{ section.settings.button_label }}
+          </button>
+        {% endform %}
+      </div>
+    </div>
+  </div>
+
+  <style>
+    #DealerEnquiryFormSection-{{ section_id }} {
+      background: {{ section.settings.section_bg_color }};
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+
+    #DealerEnquiryFormSection-{{ section_id }} .dealer-enquiry-form__container {
+      max-width: {{ section.settings.container_width }}px;
+      margin: 0 auto;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
+    #DealerEnquiryFormSection-{{ section_id }} .dealer-enquiry-form__grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 620px);
+      gap: 40px;
+      align-items: start;
+    }
+
+    #DealerEnquiryFormSection-{{ section_id }} .dealer-enquiry-form__grid--no-image {
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    #DealerEnquiryFormSection-{{ section_id }} .dealer-enquiry-form__content {
+      color: {{ section.settings.content_text_color }};
+    }
+
+    #DealerEnquiryFormSection-{{ section_id }} .dealer-enquiry-form__eyebrow {
+      margin: 0 0 12px;
+      font-family: "Geomanist", sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: {{ section.settings.eyebrow_color }};
+    }
+
+    #DealerEnquiryFormSection-{{ section_id }} .dealer-enquiry-form__heading {
+      margin: 0 0 16px;
+      font-family: "Evogria", sans-serif;
+      font-size: {{ section.settings.heading_size }}px;
+      line-height: 1.05;
+      text-transform: uppercase;
+      color: {{ section.settings.heading_color }};
+    }
+
+    #DealerEnquiryFormSection-{{ section_id }} .dealer-enquiry-form__text,
+    #DealerEnquiryFormSection-{{ section_id }} .dealer-enquiry-form__card-text {
+      font-family: "Geomanist", sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      color: {{ section.settings.content_text_color }};
+    }
+
+    #DealerEnquiryFormSection-{{ section_id }} .dealer-enquiry-form__text > *:first-child,
+    #DealerEnquiryFormSection-{{ section_id }} .dealer-enquiry-form__card-text > *:first-child {
+      margin-top: 0;
+    }
+
+    #DealerEnquiryFormSection-{{ section_id }} .dealer-enquiry-form__image-wrapper {
+      margin-top: 28px;
+      border-radius: {{ section.settings.image_radius }}px;
+      overflow: hidden;
+    }
+
+    #DealerEnquiryFormSection-{{ section_id }} .dealer-enquiry-form__image {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    #DealerEnquiryFormSection-{{ section_id }} .dealer-enquiry-form__card {
+      background: {{ section.settings.card_bg_color }};
+      border: 1px solid {{ section.settings.card_border_color }};
+      border-radius: {{ section.settings.card_radius }}px;
+      padding: 28px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.08);
+    }
+
+    #DealerEnquiryFormSection-{{ section_id }} .dealer-enquiry-form__card-title {
+      margin: 0 0 10px;
+      font-family: "Evogria", sans-serif;
+      font-size: 26px;
+      line-height: 1.1;
+      text-transform: uppercase;
+      color: {{ section.settings.heading_color }};
+    }
+
+    #DealerEnquiryFormSection-{{ section_id }} .dealer-enquiry-form__card-text {
+      margin-bottom: 20px;
+    }
+
+    #DealerEnquiryFormSection-{{ section_id }} .dealer-enquiry-form__success,
+    #DealerEnquiryFormSection-{{ section_id }} .dealer-enquiry-form__errors {
+      margin-bottom: 16px;
+      padding: 12px 14px;
+      border-radius: 8px;
+      font-family: "Geomanist", sans-serif;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    #DealerEnquiryFormSection-{{ section_id }} .dealer-enquiry-form__success {
+      background: rgba(86, 189, 194, 0.16);
+      border: 1px solid rgba(86, 189, 194, 0.4);
+      color: #10363a;
+    }
+
+    #DealerEnquiryFormSection-{{ section_id }} .dealer-enquiry-form__errors {
+      background: rgba(204, 30, 30, 0.08);
+      border: 1px solid rgba(204, 30, 30, 0.25);
+      color: #7f1414;
+    }
+
+    #DealerEnquiryFormSection-{{ section_id }} .dealer-enquiry-form__fields {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    #DealerEnquiryFormSection-{{ section_id }} .dealer-enquiry-form__field--full {
+      grid-column: 1 / -1;
+    }
+
+    #DealerEnquiryFormSection-{{ section_id }} .dealer-enquiry-form__label {
+      display: block;
+      margin-bottom: 8px;
+      font-family: "Geomanist", sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: {{ section.settings.label_color }};
+    }
+
+    #DealerEnquiryFormSection-{{ section_id }} .dealer-enquiry-form__input,
+    #DealerEnquiryFormSection-{{ section_id }} .dealer-enquiry-form__select,
+    #DealerEnquiryFormSection-{{ section_id }} .dealer-enquiry-form__textarea {
+      width: 100%;
+      min-height: 52px;
+      padding: 14px 16px;
+      border: 1px solid {{ section.settings.input_border_color }};
+      border-radius: {{ section.settings.input_radius }}px;
+      background: {{ section.settings.input_bg_color }};
+      color: {{ section.settings.input_text_color }};
+      font-family: "Geomanist", sans-serif;
+      font-size: 15px;
+      line-height: 1.4;
+      outline: none;
+      box-shadow: none;
+    }
+
+    #DealerEnquiryFormSection-{{ section_id }} .dealer-enquiry-form__textarea {
+      min-height: auto;
+      resize: vertical;
+    }
+
+    #DealerEnquiryFormSection-{{ section_id }} .dealer-enquiry-form__input:focus,
+    #DealerEnquiryFormSection-{{ section_id }} .dealer-enquiry-form__select:focus,
+    #DealerEnquiryFormSection-{{ section_id }} .dealer-enquiry-form__textarea:focus {
+      border-color: {{ section.settings.input_focus_color }};
+    }
+
+    #DealerEnquiryFormSection-{{ section_id }} .dealer-enquiry-form__checkbox {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-family: "Geomanist", sans-serif;
+      font-size: 14px;
+      line-height: 1.5;
+      color: {{ section.settings.content_text_color }};
+    }
+
+    #DealerEnquiryFormSection-{{ section_id }} .dealer-enquiry-form__checkbox input {
+      margin-top: 4px;
+    }
+
+    #DealerEnquiryFormSection-{{ section_id }} .dealer-enquiry-form__button {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      min-height: 54px;
+      margin-top: 20px;
+      padding: 14px 22px;
+      border: 0;
+      border-radius: {{ section.settings.button_radius }}px;
+      background: {{ section.settings.button_bg }};
+      color: {{ section.settings.button_text }};
+      font-family: "Geomanist", sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: opacity .2s ease;
+    }
+
+    #DealerEnquiryFormSection-{{ section_id }} .dealer-enquiry-form__button:hover {
+      opacity: .92;
+    }
+
+    #DealerEnquiryFormSection-{{ section_id }} .dealer-enquiry-form__honeypot {
+      position: absolute !important;
+      left: -9999px !important;
+      width: 1px !important;
+      height: 1px !important;
+      opacity: 0 !important;
+      pointer-events: none !important;
+    }
+
+    @media (max-width: 989px) {
+      #DealerEnquiryFormSection-{{ section_id }} .dealer-enquiry-form__grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+
+      #DealerEnquiryFormSection-{{ section_id }} .dealer-enquiry-form__heading {
+        font-size: {{ section.settings.heading_size_mobile }}px;
+      }
+    }
+
+    @media (max-width: 749px) {
+      #DealerEnquiryFormSection-{{ section_id }} .dealer-enquiry-form__container {
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+
+      #DealerEnquiryFormSection-{{ section_id }} .dealer-enquiry-form__card {
+        padding: 20px;
+      }
+
+      #DealerEnquiryFormSection-{{ section_id }} .dealer-enquiry-form__fields {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</section>
+
+{% schema %}
+{
+  "name": "Dealer enquiry form",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Become a dealer" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Join the Offroad Industries dealer network" },
+    { "type": "range", "id": "heading_size", "label": "Heading size desktop", "min": 28, "max": 72, "step": 2, "default": 52 },
+    { "type": "range", "id": "heading_size_mobile", "label": "Heading size mobile", "min": 24, "max": 48, "step": 2, "default": 34 },
+    { "type": "richtext", "id": "text", "label": "Content", "default": "<p>Use this form to collect dealer enquiries and send them to your store email. Update the copy, image and field labels to match your campaign.</p>" },
+    { "type": "image_picker", "id": "image", "label": "Image" },
+    { "type": "range", "id": "image_radius", "label": "Image corner radius", "min": 0, "max": 30, "step": 1, "default": 10 },
+
+    { "type": "text", "id": "form_heading", "label": "Form heading", "default": "Dealer application" },
+    { "type": "richtext", "id": "form_description", "label": "Form description", "default": "<p>Tell us about your business and we’ll get back to you about the next steps.</p>" },
+    { "type": "text", "id": "button_label", "label": "Button label", "default": "Submit application" },
+    { "type": "text", "id": "success_message", "label": "Success message", "default": "Thanks for your enquiry. Our team has received your details and will be in touch soon." },
+
+    { "type": "text", "id": "label_first_name", "label": "Label: First name", "default": "First name" },
+    { "type": "text", "id": "placeholder_first_name", "label": "Placeholder: First name", "default": "Enter first name" },
+    { "type": "checkbox", "id": "required_first_name", "label": "Require first name", "default": true },
+
+    { "type": "text", "id": "label_last_name", "label": "Label: Last name", "default": "Last name" },
+    { "type": "text", "id": "placeholder_last_name", "label": "Placeholder: Last name", "default": "Enter last name" },
+    { "type": "checkbox", "id": "required_last_name", "label": "Require last name", "default": true },
+
+    { "type": "text", "id": "label_business_name", "label": "Label: Business name", "default": "Business name" },
+    { "type": "text", "id": "placeholder_business_name", "label": "Placeholder: Business name", "default": "Enter business name" },
+    { "type": "checkbox", "id": "required_business_name", "label": "Require business name", "default": true },
+
+    { "type": "text", "id": "label_abn", "label": "Label: ABN / Registration", "default": "ABN / Business registration" },
+    { "type": "text", "id": "placeholder_abn", "label": "Placeholder: ABN / Registration", "default": "Enter ABN or registration number" },
+
+    { "type": "text", "id": "label_email", "label": "Label: Email", "default": "Email" },
+    { "type": "text", "id": "placeholder_email", "label": "Placeholder: Email", "default": "Enter email address" },
+
+    { "type": "text", "id": "label_phone", "label": "Label: Phone", "default": "Phone" },
+    { "type": "text", "id": "placeholder_phone", "label": "Placeholder: Phone", "default": "Enter phone number" },
+    { "type": "checkbox", "id": "required_phone", "label": "Require phone", "default": true },
+
+    { "type": "text", "id": "label_website", "label": "Label: Website", "default": "Website / social page" },
+    { "type": "text", "id": "placeholder_website", "label": "Placeholder: Website", "default": "https://" },
+
+    { "type": "text", "id": "label_location", "label": "Label: Business location", "default": "Business location" },
+    { "type": "text", "id": "placeholder_location", "label": "Placeholder: Business location", "default": "City, State / Region" },
+    { "type": "checkbox", "id": "required_location", "label": "Require business location", "default": true },
+
+    { "type": "text", "id": "label_business_type", "label": "Label: Business type", "default": "Business type" },
+    { "type": "text", "id": "business_type_placeholder", "label": "Placeholder: Business type", "default": "Select business type" },
+    { "type": "textarea", "id": "business_type_options", "label": "Business type options (one per line)", "default": "4x4 retailer\nWorkshop / installer\nSuspension specialist\nOnline store\nFleet / commercial\nOther" },
+    { "type": "checkbox", "id": "required_business_type", "label": "Require business type", "default": true },
+
+    { "type": "text", "id": "label_brands", "label": "Label: Brands of interest", "default": "Brands / categories of interest" },
+    { "type": "text", "id": "placeholder_brands", "label": "Placeholder: Brands of interest", "default": "Example: BDS, Fox, GVM upgrades" },
+
+    { "type": "text", "id": "label_message", "label": "Label: Message", "default": "Tell us about your business" },
+    { "type": "text", "id": "placeholder_message", "label": "Placeholder: Message", "default": "Share details about your store, customer base and what you’re looking for." },
+    { "type": "range", "id": "message_rows", "label": "Message rows", "min": 4, "max": 12, "step": 1, "default": 6 },
+    { "type": "checkbox", "id": "required_message", "label": "Require message", "default": true },
+
+    { "type": "checkbox", "id": "show_consent", "label": "Show consent checkbox", "default": true },
+    { "type": "checkbox", "id": "required_consent", "label": "Require consent checkbox", "default": true },
+    { "type": "text", "id": "consent_label", "label": "Consent label", "default": "I agree to be contacted about my dealer enquiry." },
+
+    { "type": "color", "id": "section_bg_color", "label": "Section background", "default": "#f5f5f5" },
+    { "type": "color", "id": "card_bg_color", "label": "Form card background", "default": "#ffffff" },
+    { "type": "color", "id": "card_border_color", "label": "Form card border", "default": "#d9d9d9" },
+    { "type": "range", "id": "card_radius", "label": "Form card corner radius", "min": 0, "max": 30, "step": 1, "default": 12 },
+
+    { "type": "color", "id": "heading_color", "label": "Heading color", "default": "#1f1f1f" },
+    { "type": "color", "id": "eyebrow_color", "label": "Eyebrow color", "default": "#56bdc2" },
+    { "type": "color", "id": "content_text_color", "label": "Content text color", "default": "#333333" },
+    { "type": "color", "id": "label_color", "label": "Field label color", "default": "#1f1f1f" },
+
+    { "type": "color", "id": "input_bg_color", "label": "Input background", "default": "#ffffff" },
+    { "type": "color", "id": "input_border_color", "label": "Input border", "default": "#c9c9c9" },
+    { "type": "color", "id": "input_focus_color", "label": "Input focus border", "default": "#56bdc2" },
+    { "type": "color", "id": "input_text_color", "label": "Input text color", "default": "#1f1f1f" },
+    { "type": "range", "id": "input_radius", "label": "Input corner radius", "min": 0, "max": 24, "step": 1, "default": 8 },
+
+    { "type": "color", "id": "button_bg", "label": "Button background", "default": "#101820" },
+    { "type": "color", "id": "button_text", "label": "Button text", "default": "#ffffff" },
+    { "type": "range", "id": "button_radius", "label": "Button corner radius", "min": 0, "max": 24, "step": 1, "default": 8 },
+
+    { "type": "range", "id": "container_width", "label": "Container width", "min": 980, "max": 1600, "step": 20, "default": 1240 },
+    { "type": "range", "id": "padding_top", "label": "Padding top", "min": 0, "max": 160, "step": 4, "default": 80 },
+    { "type": "range", "id": "padding_bottom", "label": "Padding bottom", "min": 0, "max": 160, "step": 4, "default": 80 }
+  ],
+  "presets": [
+    {
+      "name": "Dealer enquiry form"
+    }
+  ]
+}
+{% endschema %}

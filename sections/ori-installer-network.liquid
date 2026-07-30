@@ -1,0 +1,374 @@
+{{ 'ori-installer-network.css' | asset_url | stylesheet_tag }}
+{%- liquid
+  assign section_id = section.settings.custom_id | default: section.id
+  assign container  = section.settings.container
+
+  assign states = 'VIC,NSW,QLD,WA,SA,TAS,NT' | split: ','
+  assign first_state = states | first
+-%}
+
+<div
+  id="{{ section_id }}"
+  class="ori-installer-network f-section-padding color-{{ section.settings.color_schema }}"
+  data-section-type="ori-installer-network"
+  style="
+    --section-padding-top: {{ section.settings.padding_top }}px;
+    --section-padding-bottom: {{ section.settings.padding_bottom }}px;
+    {%- if section.settings.bg_color != blank %} background: {{ section.settings.bg_color }};{% endif -%}
+  "
+>
+  <div class="{{ container }}">
+
+    {%- if section.settings.heading != blank or section.settings.subheading != blank -%}
+      <div class="ori-installer-network__header f-section-header">
+        {%- if section.settings.heading != blank -%}
+          <h2 class="ori-installer-network__heading {{ section.settings.heading_size }}">
+            {{ section.settings.heading }}
+          </h2>
+        {%- endif -%}
+        {%- if section.settings.subheading != blank -%}
+          <p class="ori-installer-network__subheading">{{ section.settings.subheading }}</p>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+
+    {%- comment -%} Build a map of state → installers from blocks {%- endcomment -%}
+    {%- assign has_installers = false -%}
+    {%- for block in section.blocks -%}
+      {%- if block.type == 'installer' and block.settings.state != blank -%}
+        {%- assign has_installers = true -%}
+        {%- break -%}
+      {%- endif -%}
+    {%- endfor -%}
+
+    {%- if has_installers -%}
+      {%- comment -%} Collect which states have at least one installer {%- endcomment -%}
+      {%- assign active_states = '' -%}
+      {%- for state in states -%}
+        {%- assign state_has = false -%}
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'installer' and block.settings.state == state -%}
+            {%- assign state_has = true -%}
+            {%- break -%}
+          {%- endif -%}
+        {%- endfor -%}
+        {%- if state_has -%}
+          {%- if active_states == '' -%}
+            {%- assign active_states = state -%}
+          {%- else -%}
+            {%- assign active_states = active_states | append: ',' | append: state -%}
+          {%- endif -%}
+        {%- endif -%}
+      {%- endfor -%}
+
+      {%- assign active_states_arr = active_states | split: ',' -%}
+      {%- assign first_active = active_states_arr | first -%}
+
+      <div
+        class="ori-installer-network__tabs"
+        data-installer-tabs
+      >
+        {%- comment -%} Tab nav {%- endcomment -%}
+        <div class="ori-installer-network__tab-nav" role="tablist">
+          {%- for state in active_states_arr -%}
+            <button
+              class="ori-installer-network__tab-btn{% if forloop.first %} is-active{% endif %}"
+              role="tab"
+              aria-selected="{% if forloop.first %}true{% else %}false{% endif %}"
+              aria-controls="installer-panel-{{ state | downcase }}-{{ section.id }}"
+              id="installer-tab-{{ state | downcase }}-{{ section.id }}"
+              data-state="{{ state }}"
+            >
+              {{ state }}
+            </button>
+          {%- endfor -%}
+        </div>
+
+        {%- comment -%} Tab panels {%- endcomment -%}
+        {%- for state in active_states_arr -%}
+          <div
+            class="ori-installer-network__panel{% if forloop.first %} is-active{% endif %}"
+            role="tabpanel"
+            id="installer-panel-{{ state | downcase }}-{{ section.id }}"
+            aria-labelledby="installer-tab-{{ state | downcase }}-{{ section.id }}"
+            {% unless forloop.first %}hidden{% endunless %}
+          >
+            <ul class="ori-installer-network__list" role="list">
+              {%- for block in section.blocks -%}
+                {%- if block.type == 'installer' and block.settings.state == state -%}
+                  <li class="ori-installer-network__installer" {{ block.shopify_attributes }}>
+                    <div class="ori-installer-card">
+                      <div class="ori-installer-card__info">
+                        {%- if block.settings.name != blank -%}
+                          <strong class="ori-installer-card__name">{{ block.settings.name }}</strong>
+                        {%- endif -%}
+                        {%- if block.settings.suburb != blank -%}
+                          <span class="ori-installer-card__location">
+                            {%- render 'icon-map-pin' -%}
+                            {{ block.settings.suburb }}
+                            {%- if block.settings.state != blank -%}, {{ block.settings.state }}{%- endif -%}
+                          </span>
+                        {%- endif -%}
+                        {%- if block.settings.phone != blank -%}
+                          <a href="tel:{{ block.settings.phone | remove: ' ' }}" class="ori-installer-card__phone">
+                            {%- render 'icon-phone' -%}
+                            {{ block.settings.phone }}
+                          </a>
+                        {%- endif -%}
+                        {%- if block.settings.website != blank -%}
+                          <a href="{{ block.settings.website }}" class="ori-installer-card__website" target="_blank" rel="noopener">
+                            Visit website
+                          </a>
+                        {%- endif -%}
+                      </div>
+                    </div>
+                  </li>
+                {%- endif -%}
+              {%- endfor -%}
+            </ul>
+          </div>
+        {%- endfor -%}
+      </div>
+
+    {%- else -%}
+      <p class="ori-installer-network__empty">Installer locations coming soon.</p>
+    {%- endif -%}
+
+    {%- if section.settings.cta_text != blank and section.settings.cta_url != blank -%}
+      <div class="ori-installer-network__footer">
+        <a href="{{ section.settings.cta_url }}" class="btn {{ section.settings.cta_style }}">
+          {{ section.settings.cta_text }}
+        </a>
+      </div>
+    {%- endif -%}
+
+  </div>
+</div>
+
+<script>
+  (function () {
+    document.querySelectorAll('[data-installer-tabs]').forEach(function (tabs) {
+      var btns = tabs.querySelectorAll('.ori-installer-network__tab-btn');
+      var panels = tabs.querySelectorAll('.ori-installer-network__panel');
+      btns.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          btns.forEach(function (b) {
+            b.classList.remove('is-active');
+            b.setAttribute('aria-selected', 'false');
+          });
+          panels.forEach(function (p) {
+            p.classList.remove('is-active');
+            p.setAttribute('hidden', 'true');
+          });
+          btn.classList.add('is-active');
+          btn.setAttribute('aria-selected', 'true');
+          var panel = tabs.querySelector('#installer-panel-' + btn.dataset.state.toLowerCase() + '-{{ section.id }}');
+          if (panel) {
+            panel.classList.add('is-active');
+            panel.removeAttribute('hidden');
+          }
+        });
+      });
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "ORI Installer Network",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section header"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Approved Installer Network"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "label": "Heading size",
+      "options": [
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" }
+      ],
+      "default": "h2"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "ORI GVM and GCM packages are installed by our certified specialists across every state and territory."
+    },
+    {
+      "type": "header",
+      "content": "Footer CTA"
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "CTA button label"
+    },
+    {
+      "type": "url",
+      "id": "cta_url",
+      "label": "CTA button URL"
+    },
+    {
+      "type": "select",
+      "id": "cta_style",
+      "label": "CTA button style",
+      "options": [
+        { "value": "btn--primary", "label": "Primary" },
+        { "value": "btn--secondary", "label": "Secondary" },
+        { "value": "btn--outline", "label": "Outline" }
+      ],
+      "default": "btn--outline"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "select",
+      "id": "container",
+      "label": "Container width",
+      "options": [
+        { "value": "container-full", "label": "Full width" },
+        { "value": "container", "label": "Fixed (1200px)" },
+        { "value": "container-narrow", "label": "Narrow" }
+      ],
+      "default": "container"
+    },
+    {
+      "type": "select",
+      "id": "color_schema",
+      "label": "Color scheme",
+      "options": [
+        { "value": "", "label": "Default" },
+        { "value": "accent", "label": "Accent" },
+        { "value": "inverse", "label": "Inverse" }
+      ],
+      "default": ""
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background colour",
+      "info": "Optional. Leave blank to inherit the page background."
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "text",
+      "id": "custom_id",
+      "label": "Custom HTML ID"
+    },
+    {
+      "type": "text",
+      "id": "custom_class",
+      "label": "Custom CSS class"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "installer",
+      "name": "Installer",
+      "settings": [
+        {
+          "type": "select",
+          "id": "state",
+          "label": "State / Territory",
+          "options": [
+            { "value": "VIC", "label": "Victoria (VIC)" },
+            { "value": "NSW", "label": "New South Wales (NSW)" },
+            { "value": "QLD", "label": "Queensland (QLD)" },
+            { "value": "WA",  "label": "Western Australia (WA)" },
+            { "value": "SA",  "label": "South Australia (SA)" },
+            { "value": "TAS", "label": "Tasmania (TAS)" },
+            { "value": "NT",  "label": "Northern Territory (NT)" }
+          ],
+          "default": "VIC"
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Business name",
+          "default": "ORI Approved Installer"
+        },
+        {
+          "type": "text",
+          "id": "suburb",
+          "label": "Suburb / City",
+          "default": "Melbourne"
+        },
+        {
+          "type": "text",
+          "id": "phone",
+          "label": "Phone number"
+        },
+        {
+          "type": "url",
+          "id": "website",
+          "label": "Website URL"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "ORI Installer Network",
+      "blocks": [
+        {
+          "type": "installer",
+          "settings": {
+            "state": "VIC",
+            "name": "ORI Offroad Industries (HQ)",
+            "suburb": "Melbourne",
+            "phone": "03 XXXX XXXX"
+          }
+        },
+        {
+          "type": "installer",
+          "settings": {
+            "state": "NSW",
+            "name": "NSW Installer — Name TBC",
+            "suburb": "Sydney"
+          }
+        },
+        {
+          "type": "installer",
+          "settings": {
+            "state": "QLD",
+            "name": "QLD Installer — Name TBC",
+            "suburb": "Brisbane"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

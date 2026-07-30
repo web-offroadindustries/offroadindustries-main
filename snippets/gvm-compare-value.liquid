@@ -1,0 +1,13 @@
+{%- liquid
+  assign v = value | default: '' | strip
+  assign low = v | downcase
+-%}
+
+{%- if low == 'x' or low == '✕' or low == 'no' or low == 'false' -%}
+  <span class="gvm-compare__icon gvm-compare__icon--cross" aria-label="No">✕</span>
+{%- elsif low == 'check' or low == '✓' or low == 'yes' or low == 'true' -%}
+  <span class="gvm-compare__icon gvm-compare__icon--check" aria-label="Yes">✓</span>
+{%- else -%}
+  {{ value | newline_to_br }}
+{%- endif -%}
+

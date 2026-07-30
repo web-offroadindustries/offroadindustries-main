@@ -1,0 +1,38 @@
+{% assign title = 'general.cart.coupon.title' | t %}
+{% capture content %}
+  <div class="{{ class }} flex flex-col" data-index="{{ index }}" data-block="{{ block.type }}" {{ block.shopify_attributes }}>
+    <div class="f-cart-drawer__discount w-full">
+      <form
+        class="f-cart-discount__form flex flex-col"
+        action="{{ routes.cart_url }}"
+        method="POST"
+      >
+        <div class="form-field w-full">
+          <label class="visually-hidden" for="CartCouponForm-{{ section.id }}">
+            {{- 'general.cart.coupon.title' | t -}}
+          </label>
+          <input
+            id="CartCouponForm-{{ section.id }}"
+            class="form-control"
+            name="discount"
+            placeholder="{{ 'general.cart.coupon.caption' | t }}"
+            required
+            aria-required="true"
+          >
+        </div>
+        <div class="form-field form-submit w-full">
+          <button class="btn btn--primary{% if request.page_type != 'cart'%} w-full{% endif %}" type="submit">
+            <span>
+              {{ 'general.cart.coupon.button' | t }}
+            </span>
+            {{ 'icon-spinner.svg' | inline_asset_content }}
+          </button>
+        </div>
+        <div class="form-message form-message--error w-full"></div>
+      </form>
+    </div>
+  </div>
+{% endcapture %}
+<cart-discount class="block">
+  {% render 'collapsible-item', title: title, content: content, id: id %}
+</cart-discount>

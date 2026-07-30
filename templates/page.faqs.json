@@ -1,0 +1,137 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    },
+    "breadcrumb_Kyinft": {
+      "type": "breadcrumb",
+      "settings": {
+        "brc_container": "container",
+        "brc_text_alignment": "center",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "1655868348330b36da": {
+      "type": "collapsible-tabs",
+      "blocks": {
+        "1655868348d34715f4-0": {
+          "type": "content",
+          "settings": {
+            "icon": "none",
+            "title": "How long does it take to process an order?",
+            "content": "<p>Order processing times vary depending on the product and location. Typically, it takes <strong>1-3 business days</strong> to process an order before it is shipped. You will receive a confirmation email with tracking details once your order has been dispatched.</p>",
+            "custom_liquid": "",
+            "content_page": "",
+            "open": true
+          }
+        },
+        "9891166a-7648-4555-84e2-cfb0e9832a21": {
+          "type": "content",
+          "settings": {
+            "icon": "none",
+            "title": "Do you ship internationally?",
+            "content": "<p>Yes, we offer international shipping! Delivery times and costs vary by location. Please check our <strong>Shipping Policy</strong> for details.</p>",
+            "custom_liquid": "",
+            "content_page": "",
+            "open": false
+          }
+        },
+        "18680409-0b8f-43b1-97dc-07c8957da9f8": {
+          "type": "content",
+          "settings": {
+            "icon": "none",
+            "title": "What is your return policy?",
+            "content": "<p>Our return policy allows returns within 7<strong> days</strong>, provided the item is <strong>unused and in its original packaging</strong>. Some exclusions may apply. Please check our <strong>Return Policy</strong> for details.</p>",
+            "custom_liquid": "",
+            "content_page": "",
+            "open": false
+          }
+        },
+        "content_9BFgQG": {
+          "type": "content",
+          "settings": {
+            "icon": "none",
+            "title": "What are your sizing options?",
+            "content": "<p>Our sizing options vary by product. We offer a range of sizes from [XS to XXL] (or specific numeric sizes) to ensure the best fit. Please refer to our size chart on the product page for detailed measurements and fit recommendations. If you need assistance, our customer service team is happy to help!</p>",
+            "custom_liquid": "",
+            "content_page": "",
+            "open": false
+          }
+        },
+        "content_PtdgwK": {
+          "type": "content",
+          "settings": {
+            "icon": "none",
+            "title": "Do you offer international shipping?",
+            "content": "<p>Yes, we offer international shipping to many countries. Shipping times and costs vary depending on the destination and selected shipping method. Please check our shipping policy or contact customer support for more details.</p>",
+            "custom_liquid": "",
+            "content_page": "",
+            "open": false
+          }
+        },
+        "image_card_pt7KyE": {
+          "type": "image_card",
+          "settings": {
+            "image_position": "left",
+            "image_alignment": "start",
+            "image_width": 37,
+            "layout": "layout5",
+            "text_color": "#ffffff",
+            "image_ratio": "adapt",
+            "image_overlay_opacity": 20,
+            "sub_heading": "",
+            "heading": "Still need help?",
+            "highlight_style": "none",
+            "enable_highlight_text_color": false,
+            "heading_size": "h2",
+            "heading_color": "",
+            "description": "<p>Shoot our team an email & we’ll get back <br/>to you ASAP</p>",
+            "button_label": "Contact Us",
+            "button_style": "btn--white",
+            "animations": "inherit"
+          }
+        }
+      },
+      "block_order": [
+        "1655868348d34715f4-0",
+        "9891166a-7648-4555-84e2-cfb0e9832a21",
+        "18680409-0b8f-43b1-97dc-07c8957da9f8",
+        "content_9BFgQG",
+        "content_PtdgwK",
+        "image_card_pt7KyE"
+      ],
+      "settings": {
+        "container": "container",
+        "color_schema": "",
+        "section_header_padding_bottom": "large",
+        "section_header_content_spacing": "small",
+        "heading": "Discover More In Our FAQ",
+        "highlight_style": "none",
+        "enable_highlight_text_color": false,
+        "heading_size": "h1",
+        "heading_color": "",
+        "subheading": "",
+        "description": "<p>Have a question or comment? Don't be shy: Reach out and say hi! <br/>Support hours: Monday-Friday, 7am-3pm</p>",
+        "item_heading_font": "heading",
+        "item_heading_size": "h4",
+        "column_gap": "extra-large",
+        "content_width": "full",
+        "padding_top": 36,
+        "padding_bottom": 100,
+        "show_section_divider": false,
+        "divider_width": "container",
+        "custom_id": "",
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "breadcrumb_Kyinft",
+    "1655868348330b36da"
+  ]
+}

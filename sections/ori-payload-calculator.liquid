@@ -1,0 +1,307 @@
+{%- liquid
+  assign section_id = section.settings.custom_id | default: section.id
+  assign container  = section.settings.container | default: 'container-narrow'
+-%}
+
+<div
+  id="{{ section_id }}"
+  class="ori-payload-calc f-section-padding color-{{ section.settings.color_schema }}"
+  style="--section-padding-top: {{ section.settings.padding_top }}px; --section-padding-bottom: {{ section.settings.padding_bottom }}px;"
+  data-section-type="ori-payload-calculator"
+>
+  <div class="{{ container }}">
+
+    {%- if section.settings.heading != blank -%}
+      <h2 class="ori-payload-calc__heading h3 text-center">{{ section.settings.heading | escape }}</h2>
+    {%- endif -%}
+
+    {%- if section.settings.intro != blank -%}
+      <div class="ori-payload-calc__intro rte text-center">{{ section.settings.intro }}</div>
+    {%- endif -%}
+
+    {%- if section.blocks.size > 0 -%}
+      {%- comment -%} Collect unique vehicle labels for the first dropdown {%- endcomment -%}
+      {%- assign vehicles_seen = '' -%}
+      {%- assign vehicles_list = '' -%}
+      {%- for block in section.blocks -%}
+        {%- unless vehicles_seen contains block.settings.vehicle_label -%}
+          {%- assign vehicles_seen = vehicles_seen | append: block.settings.vehicle_label | append: '||' -%}
+          {%- assign vehicles_list = vehicles_list | append: block.settings.vehicle_label | append: ',' -%}
+        {%- endunless -%}
+      {%- endfor -%}
+      {%- assign vehicles_arr = vehicles_list | split: ',' | compact -%}
+
+      <div class="ori-payload-calc__form">
+        <div class="ori-payload-calc__selects">
+          <div class="ori-payload-calc__select-wrap">
+            <label class="ori-payload-calc__label" for="opc-vehicle-{{ section.id }}">Select your vehicle</label>
+            <select id="opc-vehicle-{{ section.id }}" class="ori-payload-calc__select" data-opc-vehicle>
+              <option value="">-- Choose vehicle --</option>
+              {%- for v in vehicles_arr -%}
+                {%- if v != blank -%}
+                  <option value="{{ v | escape }}">{{ v | escape }}</option>
+                {%- endif -%}
+              {%- endfor -%}
+            </select>
+          </div>
+
+          <div class="ori-payload-calc__select-wrap">
+            <label class="ori-payload-calc__label" for="opc-stage-{{ section.id }}">Select stage</label>
+            <select id="opc-stage-{{ section.id }}" class="ori-payload-calc__select" data-opc-stage disabled>
+              <option value="">-- Choose stage --</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="ori-payload-calc__result" data-opc-result aria-live="polite" hidden>
+          <div class="ori-payload-calc__result-grid">
+            <div class="ori-payload-calc__stat">
+              <span class="ori-payload-calc__stat-label">Original GVM</span>
+              <span class="ori-payload-calc__stat-value" data-opc-original-gvm>—</span>
+            </div>
+            <div class="ori-payload-calc__stat ori-payload-calc__stat--highlight">
+              <span class="ori-payload-calc__stat-label">Upgraded GVM</span>
+              <span class="ori-payload-calc__stat-value" data-opc-upgraded-gvm>—</span>
+            </div>
+            <div class="ori-payload-calc__stat ori-payload-calc__stat--gain">
+              <span class="ori-payload-calc__stat-label">Payload Gain</span>
+              <span class="ori-payload-calc__stat-value" data-opc-payload-gain>—</span>
+            </div>
+            <div class="ori-payload-calc__stat">
+              <span class="ori-payload-calc__stat-label">GCM</span>
+              <span class="ori-payload-calc__stat-value" data-opc-gcm>—</span>
+            </div>
+          </div>
+
+          <div class="ori-payload-calc__cta">
+            <a href="/pages/contact" class="btn btn--primary">Request Exact Quote</a>
+            <p class="ori-payload-calc__cta-note">Figures are indicative. Contact ORI for your vehicle's certified figures.</p>
+          </div>
+        </div>
+
+        <div class="ori-payload-calc__empty" data-opc-empty>
+          <p>Select your vehicle and stage above to see estimated payload figures.</p>
+        </div>
+      </div>
+
+      {%- comment -%} Data store — hidden, read by JS {%- endcomment -%}
+      <script type="application/json" data-opc-data-{{ section.id }}>
+        [
+          {%- for block in section.blocks -%}
+            {
+              "vehicle": {{ block.settings.vehicle_label | json }},
+              "stage":   {{ block.settings.stage | json }},
+              "original_gvm":  {{ block.settings.original_gvm  | default: 'TBC' | json }},
+              "upgraded_gvm":  {{ block.settings.upgraded_gvm  | default: 'TBC' | json }},
+              "payload_gain":  {{ block.settings.payload_gain  | default: 'TBC' | json }},
+              "gcm":           {{ block.settings.gcm           | default: 'TBC' | json }}
+            }{% unless forloop.last %},{% endunless %}
+          {%- endfor -%}
+        ]
+      </script>
+
+    {%- else -%}
+      <p class="ori-payload-calc__no-data text-center">Payload data coming soon. <a href="/pages/contact">Contact ORI</a> for vehicle-specific figures.</p>
+    {%- endif -%}
+
+  </div>
+</div>
+
+<style>
+  .ori-payload-calc { padding-top: var(--section-padding-top); padding-bottom: var(--section-padding-bottom); }
+  .ori-payload-calc__heading { margin-bottom: 1rem; }
+  .ori-payload-calc__intro { margin-bottom: 2rem; }
+  .ori-payload-calc__selects { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2rem; }
+  .ori-payload-calc__select-wrap { flex: 1 1 220px; display: flex; flex-direction: column; gap: 0.4rem; }
+  .ori-payload-calc__label { font-size: 0.875rem; font-weight: 600; }
+  .ori-payload-calc__select { padding: 0.6rem 0.8rem; border: 1px solid currentColor; border-radius: 4px; background: transparent; font-size: 1rem; color: inherit; width: 100%; }
+  .ori-payload-calc__select:disabled { opacity: 0.5; cursor: not-allowed; }
+  .ori-payload-calc__result-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-bottom: 1.5rem; }
+  @media (min-width: 768px) { .ori-payload-calc__result-grid { grid-template-columns: repeat(4, 1fr); } }
+  .ori-payload-calc__stat { display: flex; flex-direction: column; align-items: center; padding: 1.25rem 1rem; border: 1px solid rgba(128,128,128,0.3); border-radius: 6px; text-align: center; }
+  .ori-payload-calc__stat--highlight { border-color: currentColor; font-weight: 700; }
+  .ori-payload-calc__stat--gain { background: rgba(0,160,80,0.08); }
+  .ori-payload-calc__stat-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.5rem; opacity: 0.7; }
+  .ori-payload-calc__stat-value { font-size: 1.25rem; font-weight: 700; }
+  .ori-payload-calc__cta { text-align: center; }
+  .ori-payload-calc__cta-note { font-size: 0.8rem; margin-top: 0.75rem; opacity: 0.7; }
+  .ori-payload-calc__empty { text-align: center; padding: 2rem; opacity: 0.7; }
+</style>
+
+<script>
+(function () {
+  var section  = document.querySelector('[data-section-type="ori-payload-calculator"]');
+  if (!section) return;
+
+  var dataEl   = section.querySelector('[data-opc-data-{{ section.id }}]');
+  if (!dataEl) return;
+
+  var packages;
+  try { packages = JSON.parse(dataEl.textContent); } catch (e) { return; }
+
+  var selVehicle = section.querySelector('[data-opc-vehicle]');
+  var selStage   = section.querySelector('[data-opc-stage]');
+  var result     = section.querySelector('[data-opc-result]');
+  var empty      = section.querySelector('[data-opc-empty]');
+
+  function populate(selector, value, textNode) {
+    var el = section.querySelector(selector);
+    if (el) el.textContent = value || '—';
+  }
+
+  selVehicle.addEventListener('change', function () {
+    var vehicle = this.value;
+    selStage.innerHTML = '<option value="">-- Choose stage --</option>';
+    selStage.disabled = !vehicle;
+    result.hidden = true;
+    empty.hidden = false;
+    if (!vehicle) return;
+
+    var stages = packages.filter(function (p) { return p.vehicle === vehicle; });
+    stages.forEach(function (p) {
+      var opt = document.createElement('option');
+      opt.value = p.stage;
+      opt.textContent = 'Stage ' + p.stage;
+      selStage.appendChild(opt);
+    });
+  });
+
+  selStage.addEventListener('change', function () {
+    var vehicle = selVehicle.value;
+    var stage   = this.value;
+    if (!stage) { result.hidden = true; empty.hidden = false; return; }
+
+    var pkg = packages.find(function (p) { return p.vehicle === vehicle && String(p.stage) === String(stage); });
+    if (!pkg) return;
+
+    populate('[data-opc-original-gvm]',  pkg.original_gvm);
+    populate('[data-opc-upgraded-gvm]',  pkg.upgraded_gvm);
+    populate('[data-opc-payload-gain]',  pkg.payload_gain);
+    populate('[data-opc-gcm]',           pkg.gcm);
+
+    result.hidden = false;
+    empty.hidden  = true;
+  });
+})();
+</script>
+
+{% schema %}
+{
+  "name": "ORI Payload Calculator",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Estimate Your Payload Gain"
+    },
+    {
+      "type": "richtext",
+      "id": "intro",
+      "label": "Intro text",
+      "default": "<p>Select your vehicle and upgrade stage to see indicative payload figures. Contact ORI for your certified vehicle-specific numbers.</p>"
+    },
+    {
+      "type": "text",
+      "id": "custom_id",
+      "label": "Custom section ID"
+    },
+    {
+      "type": "select",
+      "id": "color_schema",
+      "label": "Color scheme",
+      "options": [
+        { "value": "1", "label": "Scheme 1" },
+        { "value": "2", "label": "Scheme 2" },
+        { "value": "3", "label": "Scheme 3" }
+      ],
+      "default": "1"
+    },
+    {
+      "type": "select",
+      "id": "container",
+      "label": "Container width",
+      "options": [
+        { "value": "container-narrow", "label": "Narrow" },
+        { "value": "container", "label": "Standard" },
+        { "value": "container-full", "label": "Full width" }
+      ],
+      "default": "container-narrow"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding top",
+      "min": 0, "max": 100, "step": 4, "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding bottom",
+      "min": 0, "max": 100, "step": 4, "unit": "px",
+      "default": 60
+    }
+  ],
+  "blocks": [
+    {
+      "type": "package",
+      "name": "Package",
+      "settings": [
+        {
+          "type": "text",
+          "id": "vehicle_label",
+          "label": "Vehicle",
+          "info": "Must match exactly across all stages for the same vehicle. E.g. 'Toyota Tundra'"
+        },
+        {
+          "type": "select",
+          "id": "stage",
+          "label": "Stage",
+          "options": [
+            { "value": "1", "label": "Stage 1" },
+            { "value": "2", "label": "Stage 2" },
+            { "value": "3", "label": "Stage 3" }
+          ],
+          "default": "1"
+        },
+        {
+          "type": "text",
+          "id": "original_gvm",
+          "label": "Original GVM",
+          "info": "E.g. 3500 kg",
+          "placeholder": "TBC"
+        },
+        {
+          "type": "text",
+          "id": "upgraded_gvm",
+          "label": "Upgraded GVM",
+          "info": "E.g. 4200 kg",
+          "placeholder": "TBC"
+        },
+        {
+          "type": "text",
+          "id": "payload_gain",
+          "label": "Payload gain",
+          "info": "E.g. +700 kg",
+          "placeholder": "TBC"
+        },
+        {
+          "type": "text",
+          "id": "gcm",
+          "label": "GCM",
+          "info": "E.g. 8350 kg",
+          "placeholder": "TBC"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "ORI Payload Calculator"
+    }
+  ]
+}
+{% endschema %}

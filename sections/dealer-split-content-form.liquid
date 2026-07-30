@@ -1,0 +1,461 @@
+{% liquid
+  assign section_id = section.id
+  assign form_id = 'DealerSplitForm-' | append: section_id
+  assign desktop_form_first = false
+  assign mobile_form_first = false
+  if section.settings.desktop_order == 'form_first'
+    assign desktop_form_first = true
+  endif
+  if section.settings.mobile_order == 'form_first'
+    assign mobile_form_first = true
+  endif
+  assign feature_items = section.settings.feature_list | newline_to_br | split: '<br />'
+%}
+
+<section id="DealerSplitFormSection-{{ section_id }}" class="dealer-split-form-section">
+  <div class="dealer-split-form__container">
+    <div class="dealer-split-form__grid{% if desktop_form_first %} dealer-split-form__grid--desktop-reverse{% endif %}{% if mobile_form_first %} dealer-split-form__grid--mobile-reverse{% endif %}">
+      <div class="dealer-split-form__content-card">
+        {% if section.settings.eyebrow != blank %}
+          <p class="dealer-split-form__eyebrow">{{ section.settings.eyebrow }}</p>
+        {% endif %}
+        {% if section.settings.heading != blank %}
+          <h2 class="dealer-split-form__heading">{{ section.settings.heading }}</h2>
+        {% endif %}
+        {% if section.settings.text != blank %}
+          <div class="dealer-split-form__text rte">{{ section.settings.text }}</div>
+        {% endif %}
+
+        {% assign has_features = false %}
+        {% for item in feature_items %}
+          {% assign feature = item | strip %}
+          {% if feature != blank %}
+            {% assign has_features = true %}
+            {% break %}
+          {% endif %}
+        {% endfor %}
+
+        {% if has_features %}
+          <ul class="dealer-split-form__feature-list" role="list">
+            {% for item in feature_items %}
+              {% assign feature = item | strip %}
+              {% if feature != blank %}
+                <li class="dealer-split-form__feature-item">
+                  <span class="dealer-split-form__feature-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24"><path d="M9.55 17.6 4.95 13l1.4-1.4 3.2 3.2 8.1-8.1 1.4 1.4-9.5 9.5Z" fill="currentColor"/></svg>
+                  </span>
+                  <span>{{ feature }}</span>
+                </li>
+              {% endif %}
+            {% endfor %}
+          </ul>
+        {% endif %}
+
+        {% if section.settings.image != blank %}
+          <div class="dealer-split-form__image-wrap">
+            {{ section.settings.image | image_url: width: 1400 | image_tag: loading: 'lazy', class: 'dealer-split-form__image', widths: '550, 700, 900, 1100, 1400' }}
+          </div>
+        {% endif %}
+      </div>
+
+      <div class="dealer-split-form__form-card">
+        {% if section.settings.form_heading != blank %}
+          <h3 class="dealer-split-form__form-title">{{ section.settings.form_heading }}</h3>
+        {% endif %}
+        {% if section.settings.form_text != blank %}
+          <div class="dealer-split-form__form-text rte">{{ section.settings.form_text }}</div>
+        {% endif %}
+
+        {% form 'contact', id: form_id, class: 'dealer-split-form__form' %}
+          {% if form.posted_successfully? %}
+            <div class="dealer-split-form__success" tabindex="-1" autofocus>{{ section.settings.success_message }}</div>
+          {% endif %}
+          {% if form.errors %}
+            <div class="dealer-split-form__errors" role="alert">{{ form.errors | default_errors }}</div>
+          {% endif %}
+
+          <input type="hidden" name="contact[Form Type]" value="Dealer enquiry">
+          {%- comment -%}
+            Shopify's {% form 'contact' %} tag always routes notifications to
+            the store contact email (Settings › General › Store email).
+            This field captures the intended sales address so it appears
+            in every notification email received at the store contact inbox.
+            To actually deliver notifications directly to sales@offroadindustries.com.au:
+              Shopify Admin › Settings › Notifications › Contact form
+              → edit the notification template and set the To: address.
+          {%- endcomment -%}
+          <input type="hidden" name="contact[Forward to Sales Team]" value="sales@offroadindustries.com.au">
+          <input type="text" name="contact[Company HP]" class="dealer-split-form__honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+          <div class="dealer-split-form__fields">
+            <div class="dealer-split-form__field dealer-split-form__field--half">
+              <label class="dealer-split-form__label" for="DealerSplitFirst-{{ section_id }}">{{ section.settings.label_first_name }}</label>
+              <input id="DealerSplitFirst-{{ section_id }}" class="dealer-split-form__input" type="text" name="contact[First Name]" placeholder="{{ section.settings.placeholder_first_name }}" {% if section.settings.required_first_name %}required{% endif %} autocomplete="given-name">
+            </div>
+            <div class="dealer-split-form__field dealer-split-form__field--half">
+              <label class="dealer-split-form__label" for="DealerSplitLast-{{ section_id }}">{{ section.settings.label_last_name }}</label>
+              <input id="DealerSplitLast-{{ section_id }}" class="dealer-split-form__input" type="text" name="contact[Last Name]" placeholder="{{ section.settings.placeholder_last_name }}" {% if section.settings.required_last_name %}required{% endif %} autocomplete="family-name">
+            </div>
+            <div class="dealer-split-form__field dealer-split-form__field--half">
+              <label class="dealer-split-form__label" for="DealerSplitBusiness-{{ section_id }}">{{ section.settings.label_business_name }}</label>
+              <input id="DealerSplitBusiness-{{ section_id }}" class="dealer-split-form__input" type="text" name="contact[Business Name]" placeholder="{{ section.settings.placeholder_business_name }}" {% if section.settings.required_business_name %}required{% endif %}>
+            </div>
+            <div class="dealer-split-form__field dealer-split-form__field--half">
+              <label class="dealer-split-form__label" for="DealerSplitABN-{{ section_id }}">{{ section.settings.label_abn }}</label>
+              <input id="DealerSplitABN-{{ section_id }}" class="dealer-split-form__input" type="text" name="contact[ABN or Business Registration]" placeholder="{{ section.settings.placeholder_abn }}">
+            </div>
+            <div class="dealer-split-form__field dealer-split-form__field--half">
+              <label class="dealer-split-form__label" for="DealerSplitEmail-{{ section_id }}">{{ section.settings.label_email }}</label>
+              <input id="DealerSplitEmail-{{ section_id }}" class="dealer-split-form__input" type="email" name="contact[email]" placeholder="{{ section.settings.placeholder_email }}" required autocomplete="email">
+            </div>
+            <div class="dealer-split-form__field dealer-split-form__field--half">
+              <label class="dealer-split-form__label" for="DealerSplitPhone-{{ section_id }}">{{ section.settings.label_phone }}</label>
+              <input id="DealerSplitPhone-{{ section_id }}" class="dealer-split-form__input" type="tel" name="contact[Phone]" placeholder="{{ section.settings.placeholder_phone }}" {% if section.settings.required_phone %}required{% endif %} autocomplete="tel">
+            </div>
+            <div class="dealer-split-form__field dealer-split-form__field--half">
+              <label class="dealer-split-form__label" for="DealerSplitWebsite-{{ section_id }}">{{ section.settings.label_website }}</label>
+              <input id="DealerSplitWebsite-{{ section_id }}" class="dealer-split-form__input" type="text" name="contact[Website]" placeholder="{{ section.settings.placeholder_website }}" autocomplete="url">
+            </div>
+            <div class="dealer-split-form__field dealer-split-form__field--half">
+              <label class="dealer-split-form__label" for="DealerSplitLocation-{{ section_id }}">{{ section.settings.label_location }}</label>
+              <input id="DealerSplitLocation-{{ section_id }}" class="dealer-split-form__input" type="text" name="contact[Business Location]" placeholder="{{ section.settings.placeholder_location }}" {% if section.settings.required_location %}required{% endif %}>
+            </div>
+            <div class="dealer-split-form__field dealer-split-form__field--half">
+              <label class="dealer-split-form__label" for="DealerSplitBusinessType-{{ section_id }}">{{ section.settings.label_business_type }}</label>
+              <select id="DealerSplitBusinessType-{{ section_id }}" class="dealer-split-form__select" name="contact[Business Type]" {% if section.settings.required_business_type %}required{% endif %}>
+                {% assign business_type_options = section.settings.business_type_options | newline_to_br | split: '<br />' %}
+                <option value="">{{ section.settings.business_type_placeholder }}</option>
+                {% for option in business_type_options %}
+                  {% assign option_value = option | strip %}
+                  {% if option_value != blank %}<option value="{{ option_value }}">{{ option_value }}</option>{% endif %}
+                {% endfor %}
+              </select>
+            </div>
+            <div class="dealer-split-form__field dealer-split-form__field--full">
+              <label class="dealer-split-form__label" for="DealerSplitBrands-{{ section_id }}">{{ section.settings.label_brands }}</label>
+              <input id="DealerSplitBrands-{{ section_id }}" class="dealer-split-form__input" type="text" name="contact[Brands of Interest]" placeholder="{{ section.settings.placeholder_brands }}">
+            </div>
+            <div class="dealer-split-form__field dealer-split-form__field--full">
+              <label class="dealer-split-form__label" for="DealerSplitMessage-{{ section_id }}">{{ section.settings.label_message }}</label>
+              <textarea id="DealerSplitMessage-{{ section_id }}" class="dealer-split-form__textarea" name="contact[body]" placeholder="{{ section.settings.placeholder_message }}" rows="{{ section.settings.message_rows }}" {% if section.settings.required_message %}required{% endif %}></textarea>
+            </div>
+            {% if section.settings.show_consent %}
+              <div class="dealer-split-form__field dealer-split-form__field--full">
+                <label class="dealer-split-form__checkbox">
+                  <input type="checkbox" name="contact[Dealer Consent]" value="Yes" {% if section.settings.required_consent %}required{% endif %}>
+                  <span>{{ section.settings.consent_label }}</span>
+                </label>
+              </div>
+            {% endif %}
+          </div>
+
+          <button type="submit" class="dealer-split-form__button">{{ section.settings.button_label }}</button>
+        {% endform %}
+      </div>
+    </div>
+  </div>
+
+  <style>
+    #DealerSplitFormSection-{{ section_id }} {
+      background: {{ section.settings.section_bg_color }};
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+    #DealerSplitFormSection-{{ section_id }} .dealer-split-form__container {
+      max-width: {{ section.settings.container_width }}px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    #DealerSplitFormSection-{{ section_id }} .dealer-split-form__grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 640px);
+      gap: 36px;
+      align-items: start;
+    }
+    #DealerSplitFormSection-{{ section_id }} .dealer-split-form__grid--desktop-reverse {
+      grid-template-columns: minmax(0, 640px) minmax(0, 1fr);
+    }
+    #DealerSplitFormSection-{{ section_id }} .dealer-split-form__grid--desktop-reverse > :first-child { order: 2; }
+    #DealerSplitFormSection-{{ section_id }} .dealer-split-form__grid--desktop-reverse > :last-child { order: 1; }
+    #DealerSplitFormSection-{{ section_id }} .dealer-split-form__content-card {
+      padding: 34px;
+      background: {{ section.settings.content_card_bg }};
+      border: 1px solid {{ section.settings.content_card_border }};
+      border-radius: {{ section.settings.content_card_radius }}px;
+      color: {{ section.settings.content_text_color }};
+    }
+    #DealerSplitFormSection-{{ section_id }} .dealer-split-form__eyebrow {
+      margin: 0 0 10px;
+      font-family: "Geomanist", sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: {{ section.settings.eyebrow_color }};
+    }
+    #DealerSplitFormSection-{{ section_id }} .dealer-split-form__heading {
+      margin: 0 0 14px;
+      font-family: "Evogria", sans-serif;
+      font-size: {{ section.settings.heading_size }}px;
+      line-height: 1.06;
+      text-transform: uppercase;
+      color: {{ section.settings.heading_color }};
+    }
+    #DealerSplitFormSection-{{ section_id }} .dealer-split-form__text,
+    #DealerSplitFormSection-{{ section_id }} .dealer-split-form__form-text {
+      font-family: "Geomanist", sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      color: {{ section.settings.content_text_color }};
+    }
+    #DealerSplitFormSection-{{ section_id }} .dealer-split-form__text > *:first-child,
+    #DealerSplitFormSection-{{ section_id }} .dealer-split-form__form-text > *:first-child { margin-top: 0; }
+    #DealerSplitFormSection-{{ section_id }} .dealer-split-form__feature-list {
+      margin: 24px 0 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 12px;
+    }
+    #DealerSplitFormSection-{{ section_id }} .dealer-split-form__feature-item {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      font-family: "Geomanist", sans-serif;
+      font-size: 16px;
+      line-height: 1.55;
+      color: {{ section.settings.content_text_color }};
+    }
+    #DealerSplitFormSection-{{ section_id }} .dealer-split-form__feature-icon {
+      width: 20px;
+      height: 20px;
+      flex: 0 0 20px;
+      color: {{ section.settings.eyebrow_color }};
+      margin-top: 2px;
+    }
+    #DealerSplitFormSection-{{ section_id }} .dealer-split-form__feature-icon svg { width: 100%; height: 100%; display: block; }
+    #DealerSplitFormSection-{{ section_id }} .dealer-split-form__image-wrap {
+      margin-top: 24px;
+      border-radius: {{ section.settings.image_radius }}px;
+      overflow: hidden;
+    }
+    #DealerSplitFormSection-{{ section_id }} .dealer-split-form__image {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+    #DealerSplitFormSection-{{ section_id }} .dealer-split-form__form-card {
+      padding: 30px;
+      background: {{ section.settings.form_card_bg }};
+      border: 1px solid {{ section.settings.form_card_border }};
+      border-radius: {{ section.settings.form_card_radius }}px;
+      box-shadow: 0 12px 30px rgba(0,0,0,.06);
+    }
+    #DealerSplitFormSection-{{ section_id }} .dealer-split-form__form-title {
+      margin: 0 0 10px;
+      font-family: "Evogria", sans-serif;
+      font-size: 28px;
+      line-height: 1.1;
+      text-transform: uppercase;
+      color: {{ section.settings.heading_color }};
+    }
+    #DealerSplitFormSection-{{ section_id }} .dealer-split-form__success,
+    #DealerSplitFormSection-{{ section_id }} .dealer-split-form__errors {
+      margin-bottom: 16px;
+      padding: 12px 14px;
+      border-radius: 8px;
+      font-family: "Geomanist", sans-serif;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+    #DealerSplitFormSection-{{ section_id }} .dealer-split-form__success {
+      background: rgba(86, 189, 194, 0.16);
+      border: 1px solid rgba(86, 189, 194, 0.4);
+      color: #10363a;
+    }
+    #DealerSplitFormSection-{{ section_id }} .dealer-split-form__errors {
+      background: rgba(204, 30, 30, 0.08);
+      border: 1px solid rgba(204, 30, 30, 0.25);
+      color: #7f1414;
+    }
+    #DealerSplitFormSection-{{ section_id }} .dealer-split-form__fields {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+    #DealerSplitFormSection-{{ section_id }} .dealer-split-form__field--full { grid-column: 1 / -1; }
+    #DealerSplitFormSection-{{ section_id }} .dealer-split-form__label {
+      display: block;
+      margin-bottom: 8px;
+      font-family: "Geomanist", sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: {{ section.settings.label_color }};
+    }
+    #DealerSplitFormSection-{{ section_id }} .dealer-split-form__input,
+    #DealerSplitFormSection-{{ section_id }} .dealer-split-form__select,
+    #DealerSplitFormSection-{{ section_id }} .dealer-split-form__textarea {
+      width: 100%;
+      min-height: 52px;
+      padding: 14px 16px;
+      border: 1px solid {{ section.settings.input_border_color }};
+      border-radius: {{ section.settings.input_radius }}px;
+      background: {{ section.settings.input_bg_color }};
+      color: {{ section.settings.input_text_color }};
+      font-family: "Geomanist", sans-serif;
+      font-size: 15px;
+      line-height: 1.4;
+    }
+    #DealerSplitFormSection-{{ section_id }} .dealer-split-form__textarea { resize: vertical; min-height: auto; }
+    #DealerSplitFormSection-{{ section_id }} .dealer-split-form__input:focus,
+    #DealerSplitFormSection-{{ section_id }} .dealer-split-form__select:focus,
+    #DealerSplitFormSection-{{ section_id }} .dealer-split-form__textarea:focus {
+      border-color: {{ section.settings.input_focus_color }};
+      outline: none;
+    }
+    #DealerSplitFormSection-{{ section_id }} .dealer-split-form__checkbox {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      font-family: "Geomanist", sans-serif;
+      font-size: 14px;
+      line-height: 1.5;
+      color: {{ section.settings.content_text_color }};
+    }
+    #DealerSplitFormSection-{{ section_id }} .dealer-split-form__button {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      min-height: 54px;
+      margin-top: 20px;
+      border: 0;
+      border-radius: {{ section.settings.button_radius }}px;
+      background: {{ section.settings.button_bg }};
+      color: {{ section.settings.button_text }};
+      font-family: "Geomanist", sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: opacity .2s ease;
+    }
+    #DealerSplitFormSection-{{ section_id }} .dealer-split-form__button:hover { opacity: .92; }
+    #DealerSplitFormSection-{{ section_id }} .dealer-split-form__honeypot {
+      position: absolute !important;
+      left: -9999px !important;
+      width: 1px !important;
+      height: 1px !important;
+      opacity: 0 !important;
+      pointer-events: none !important;
+    }
+    @media (max-width: 989px) {
+      #DealerSplitFormSection-{{ section_id }} .dealer-split-form__heading {
+        font-size: {{ section.settings.heading_size_mobile }}px;
+      }
+      #DealerSplitFormSection-{{ section_id }} .dealer-split-form__grid {
+        grid-template-columns: 1fr;
+      }
+      #DealerSplitFormSection-{{ section_id }} .dealer-split-form__grid--desktop-reverse > :first-child,
+      #DealerSplitFormSection-{{ section_id }} .dealer-split-form__grid--desktop-reverse > :last-child {
+        order: initial;
+      }
+      #DealerSplitFormSection-{{ section_id }} .dealer-split-form__grid--mobile-reverse > :first-child { order: 2; }
+      #DealerSplitFormSection-{{ section_id }} .dealer-split-form__grid--mobile-reverse > :last-child { order: 1; }
+    }
+    @media (max-width: 749px) {
+      #DealerSplitFormSection-{{ section_id }} .dealer-split-form__container { padding: 0 16px; }
+      #DealerSplitFormSection-{{ section_id }} .dealer-split-form__content-card,
+      #DealerSplitFormSection-{{ section_id }} .dealer-split-form__form-card { padding: 22px 20px; }
+      #DealerSplitFormSection-{{ section_id }} .dealer-split-form__fields { grid-template-columns: 1fr; }
+    }
+  </style>
+</section>
+
+{% schema %}
+{
+  "name": "Dealer split content",
+  "settings": [
+    { "type": "select", "id": "desktop_order", "label": "Desktop order", "options": [{"value":"content_first","label":"Content first"},{"value":"form_first","label":"Form first"}], "default": "content_first" },
+    { "type": "select", "id": "mobile_order", "label": "Mobile order", "options": [{"value":"content_first","label":"Content first"},{"value":"form_first","label":"Form first"}], "default": "content_first" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Why partner with us" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "A dealer program built for performance-focused 4x4 businesses" },
+    { "type": "range", "id": "heading_size", "label": "Heading size desktop", "min": 28, "max": 68, "step": 2, "default": 46 },
+    { "type": "range", "id": "heading_size_mobile", "label": "Heading size mobile", "min": 24, "max": 44, "step": 2, "default": 32 },
+    { "type": "richtext", "id": "text", "label": "Content", "default": "<p>Use this section for a stronger sales message about product range, technical support, servicing capability and why your partnership offer is different.</p>" },
+    { "type": "textarea", "id": "feature_list", "label": "Feature list (one per line)", "default": "Premium 4x4 and suspension categories\nTechnical product guidance\nResponsive dealer support\nAustralia-wide reach" },
+    { "type": "image_picker", "id": "image", "label": "Image" },
+    { "type": "range", "id": "image_radius", "label": "Image corner radius", "min": 0, "max": 30, "step": 1, "default": 12 },
+
+    { "type": "text", "id": "form_heading", "label": "Form heading", "default": "Dealer enquiry" },
+    { "type": "richtext", "id": "form_text", "label": "Form text", "default": "<p>Tell us about your business and our team will review your application.</p>" },
+    { "type": "text", "id": "button_label", "label": "Button label", "default": "Submit application" },
+    { "type": "text", "id": "success_message", "label": "Success message", "default": "Thanks for your enquiry. Our team has received your details and will be in touch soon." },
+
+    { "type": "text", "id": "label_first_name", "label": "Label: First name", "default": "First name" },
+    { "type": "text", "id": "placeholder_first_name", "label": "Placeholder: First name", "default": "Enter first name" },
+    { "type": "checkbox", "id": "required_first_name", "label": "Require first name", "default": true },
+    { "type": "text", "id": "label_last_name", "label": "Label: Last name", "default": "Last name" },
+    { "type": "text", "id": "placeholder_last_name", "label": "Placeholder: Last name", "default": "Enter last name" },
+    { "type": "checkbox", "id": "required_last_name", "label": "Require last name", "default": true },
+    { "type": "text", "id": "label_business_name", "label": "Label: Business name", "default": "Business name" },
+    { "type": "text", "id": "placeholder_business_name", "label": "Placeholder: Business name", "default": "Enter business name" },
+    { "type": "checkbox", "id": "required_business_name", "label": "Require business name", "default": true },
+    { "type": "text", "id": "label_abn", "label": "Label: ABN / Registration", "default": "ABN / Business registration" },
+    { "type": "text", "id": "placeholder_abn", "label": "Placeholder: ABN / Registration", "default": "Enter ABN or registration number" },
+    { "type": "text", "id": "label_email", "label": "Label: Email", "default": "Email" },
+    { "type": "text", "id": "placeholder_email", "label": "Placeholder: Email", "default": "Enter email address" },
+    { "type": "text", "id": "label_phone", "label": "Label: Phone", "default": "Phone" },
+    { "type": "text", "id": "placeholder_phone", "label": "Placeholder: Phone", "default": "Enter phone number" },
+    { "type": "checkbox", "id": "required_phone", "label": "Require phone", "default": true },
+    { "type": "text", "id": "label_website", "label": "Label: Website", "default": "Website / social page" },
+    { "type": "text", "id": "placeholder_website", "label": "Placeholder: Website", "default": "https://" },
+    { "type": "text", "id": "label_location", "label": "Label: Business location", "default": "Business location" },
+    { "type": "text", "id": "placeholder_location", "label": "Placeholder: Business location", "default": "City, State / Region" },
+    { "type": "checkbox", "id": "required_location", "label": "Require business location", "default": true },
+    { "type": "text", "id": "label_business_type", "label": "Label: Business type", "default": "Business type" },
+    { "type": "text", "id": "business_type_placeholder", "label": "Placeholder: Business type", "default": "Select business type" },
+    { "type": "textarea", "id": "business_type_options", "label": "Business type options (one per line)", "default": "4x4 retailer\nWorkshop / installer\nSuspension specialist\nOnline store\nFleet / commercial\nOther" },
+    { "type": "checkbox", "id": "required_business_type", "label": "Require business type", "default": true },
+    { "type": "text", "id": "label_brands", "label": "Label: Brands of interest", "default": "Brands / categories of interest" },
+    { "type": "text", "id": "placeholder_brands", "label": "Placeholder: Brands of interest", "default": "Example: BDS, Fox, GVM upgrades" },
+    { "type": "text", "id": "label_message", "label": "Label: Message", "default": "Tell us about your business" },
+    { "type": "text", "id": "placeholder_message", "label": "Placeholder: Message", "default": "Share details about your store, customer base and what you’re looking for." },
+    { "type": "range", "id": "message_rows", "label": "Message rows", "min": 4, "max": 12, "step": 1, "default": 6 },
+    { "type": "checkbox", "id": "required_message", "label": "Require message", "default": true },
+    { "type": "checkbox", "id": "show_consent", "label": "Show consent checkbox", "default": true },
+    { "type": "checkbox", "id": "required_consent", "label": "Require consent checkbox", "default": true },
+    { "type": "text", "id": "consent_label", "label": "Consent label", "default": "I agree to be contacted about my dealer enquiry." },
+
+    { "type": "color", "id": "section_bg_color", "label": "Section background", "default": "#f6f6f6" },
+    { "type": "color", "id": "content_card_bg", "label": "Content card background", "default": "#ffffff" },
+    { "type": "color", "id": "content_card_border", "label": "Content card border", "default": "#d9d9d9" },
+    { "type": "range", "id": "content_card_radius", "label": "Content card radius", "min": 0, "max": 30, "step": 1, "default": 14 },
+    { "type": "color", "id": "form_card_bg", "label": "Form card background", "default": "#ffffff" },
+    { "type": "color", "id": "form_card_border", "label": "Form card border", "default": "#d9d9d9" },
+    { "type": "range", "id": "form_card_radius", "label": "Form card radius", "min": 0, "max": 30, "step": 1, "default": 14 },
+    { "type": "color", "id": "eyebrow_color", "label": "Eyebrow color", "default": "#56bdc2" },
+    { "type": "color", "id": "heading_color", "label": "Heading color", "default": "#101820" },
+    { "type": "color", "id": "content_text_color", "label": "Content text color", "default": "#333333" },
+    { "type": "color", "id": "label_color", "label": "Field label color", "default": "#101820" },
+    { "type": "color", "id": "input_bg_color", "label": "Input background", "default": "#ffffff" },
+    { "type": "color", "id": "input_border_color", "label": "Input border", "default": "#c9c9c9" },
+    { "type": "color", "id": "input_focus_color", "label": "Input focus color", "default": "#56bdc2" },
+    { "type": "color", "id": "input_text_color", "label": "Input text color", "default": "#1f1f1f" },
+    { "type": "range", "id": "input_radius", "label": "Input radius", "min": 0, "max": 24, "step": 1, "default": 8 },
+    { "type": "color", "id": "button_bg", "label": "Button background", "default": "#101820" },
+    { "type": "color", "id": "button_text", "label": "Button text", "default": "#ffffff" },
+    { "type": "range", "id": "button_radius", "label": "Button radius", "min": 0, "max": 24, "step": 1, "default": 8 },
+    { "type": "range", "id": "container_width", "label": "Container width", "min": 980, "max": 1600, "step": 20, "default": 1240 },
+    { "type": "range", "id": "padding_top", "label": "Padding top", "min": 0, "max": 160, "step": 4, "default": 72 },
+    { "type": "range", "id": "padding_bottom", "label": "Padding bottom", "min": 0, "max": 160, "step": 4, "default": 72 }
+  ],
+  "presets": [
+    { "name": "Dealer split content" }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,63 @@
+{
+  "sections": {
+    "banner": {
+      "type": "main-collection-banner",
+      "blocks": {
+        "banner_6DLYUA": {
+          "type": "banner",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "banner_6DLYUA"
+      ],
+      "custom_css": [],
+      "settings": {
+        "container": "container",
+        "color_schema": "background-1",
+        "text_alignment": "center",
+        "heading_size": "h-xl",
+        "show_breadcrumb": true,
+        "show_desc": true,
+        "show_collection_image": false,
+        "image_height": "adapt",
+        "image_position": "bottom",
+        "image_overlay_opacity": 0,
+        "padding_top": 36,
+        "padding_bottom": 0,
+        "show_section_divider": false,
+        "divider_width": "container",
+        "animations": "inherit",
+        "enable_bg_zoom_effect": true
+      }
+    },
+    "product-grid": {
+      "type": "main-collection-product-grid",
+      "custom_css": [],
+      "settings": {
+        "container": "container",
+        "products_per_page": 12,
+        "columns": 3,
+        "column_gap": "medium",
+        "row_gap": "medium",
+        "enable_product_count": true,
+        "enable_filtering": true,
+        "enable_sorting": true,
+        "sidebar_position": "left",
+        "group_collapsible": true,
+        "default_state_collapsible": "expanded",
+        "open_first_group": false,
+        "filter_group_heading_size": "h6",
+        "show_results_count": true,
+        "filter_color_type": "inline",
+        "paginate_type": "number",
+        "padding_top": 0,
+        "padding_bottom": 100
+      }
+    }
+  },
+  "order": [
+    "banner",
+    "product-grid"
+  ]
+}

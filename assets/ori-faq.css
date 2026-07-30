@@ -1,0 +1,73 @@
+/* ─── ORI FAQ ─────────────────────────────────────────────────────────────
+   Native <details>/<summary> accordion with a plus/minus toggle. */
+
+.ori-faq__header {
+  text-align: center;
+  margin-bottom: 34px;
+}
+.ori-faq__heading {
+  margin: 0 0 10px;
+  text-transform: uppercase;
+}
+.ori-faq__subheading {
+  margin: 0;
+  opacity: 0.8;
+}
+
+.ori-faq__list {
+  max-width: 820px;
+  margin: 0 auto;
+}
+
+.ori-faq__item {
+  border-bottom: 1px solid color-mix(in srgb, currentColor 15%, transparent);
+}
+.ori-faq__item:first-child {
+  border-top: 1px solid color-mix(in srgb, currentColor 15%, transparent);
+}
+
+.ori-faq__question {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  cursor: pointer;
+  list-style: none;
+  padding: 20px 4px;
+  font-weight: 700;
+  font-size: 17px;
+  line-height: 1.35;
+}
+.ori-faq__question::-webkit-details-marker {
+  display: none;
+}
+.ori-faq__question:hover {
+  opacity: 0.75;
+}
+
+.ori-faq__icon {
+  display: inline-flex;
+  flex-shrink: 0;
+}
+.ori-faq__icon-minus {
+  display: none;
+}
+.ori-faq__item[open] .ori-faq__icon-plus {
+  display: none;
+}
+.ori-faq__item[open] .ori-faq__icon-minus {
+  display: inline;
+}
+
+.ori-faq__answer {
+  padding: 0 4px 22px;
+  line-height: 1.7;
+  opacity: 0.9;
+  max-width: 72ch;
+}
+.ori-faq__answer p {
+  margin: 0 0 12px;
+}
+.ori-faq__answer p:last-child {
+  margin: 0;
+}

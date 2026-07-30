@@ -1,0 +1,106 @@
+.f-tabs__header {
+  margin-bottom: var(--header-padding-bottom);
+}
+.f-tabs__header:not(.product-tabs__header) {
+  align-items: center;
+}
+@media (max-width: 767.98px) {
+  .f-tabs__header {
+    margin-bottom: var(--header-padding-bottom-mobile);
+  }
+}
+.f-tabs__header-group {
+  position: relative;
+  display: inline-grid;
+  grid-auto-flow: column;
+  grid-auto-columns: max-content;
+  justify-content: flex-start;
+  vertical-align: top;
+  gap: 3.8rem;
+  box-shadow: 0 -1px var(--color-border) inset;
+  overflow-y: hidden;
+  overflow-x: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.f-tabs__header-group::-webkit-scrollbar {
+  display: none;
+}
+.f-information-tabs .f-tabs__header-group {
+  margin-bottom: 0;
+  box-shadow: none;
+}
+@media (max-width: 767.98px) {
+  .f-tabs__header-group {
+    gap: 2.4rem;
+  }
+}
+.f-information-tabs .f-tabs__header {
+  box-shadow: 0 -1px var(--color-border) inset;
+}
+.f-tabs__header--horizontal .section__header {
+  padding-bottom: 1.2rem;
+}
+@media (min-width: 768px) {
+  .f-tabs__header--horizontal .section__header {
+    padding-bottom: 0;
+  }
+}
+.f-tabs__nav {
+  position: relative;
+  padding: 0.8rem 0;
+  cursor: pointer;
+  transition: 0.3s all;
+  background: none !important;
+  border: none !important;
+  color: rgba(var(--color-foreground), 0.7);
+  position: relative;
+  text-transform: inherit;
+  line-height: 1.4;
+  height: auto;
+  margin: 0;
+}
+.f-tabs__nav:before {
+  content: "";
+  display: block;
+  background: var(--color-text-body);
+  width: 0;
+  height: 1px;
+  position: absolute;
+  left: auto;
+  right: 0;
+  bottom: 0;
+  transition: 0.25s width ease-in-out;
+}
+.f-tabs__nav:hover, .f-tabs__nav[aria-selected=true] {
+  color: var(--color-text-body) !important;
+}
+.f-tabs__nav:hover:before, .f-tabs__nav[aria-selected=true]:before {
+  width: 100%;
+  left: 0;
+  right: auto;
+}
+.f-tabs__content {
+  animation: f-fade-in 0.45s ease;
+}
+.f-tabs__view-all {
+  margin-top: 4rem;
+}
+@media (max-width: 767.98px) {
+  .f-tabs__view-all {
+    margin-top: 2.4rem;
+  }
+}
+@media (min-width: 768px) {
+  .f-tabs .collapsible__button {
+    display: none;
+  }
+  .f-tabs__content-inner {
+    height: auto !important;
+  }
+}
+@media (max-width: 767.98px) {
+  .f-tabs--collapsible .f-tabs__content {
+    display: block !important;
+  }
+}
