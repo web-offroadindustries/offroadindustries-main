@@ -32,12 +32,19 @@
       </div>
     {%- endif -%}
 
-    {%- comment -%} Build a map of state → installers from blocks {%- endcomment -%}
+    {%- comment -%}
+      Build a map of state → installers from blocks. Entries that still hold
+      placeholder values (blank name, "add via theme editor", "TBC", etc.) are
+      skipped so unfinished data never shows on the storefront.
+    {%- endcomment -%}
     {%- assign has_installers = false -%}
     {%- for block in section.blocks -%}
-      {%- if block.type == 'installer' and block.settings.state != blank -%}
-        {%- assign has_installers = true -%}
-        {%- break -%}
+      {%- assign nl = block.settings.name | downcase -%}
+      {%- if block.type == 'installer' and block.settings.state != blank and block.settings.name != blank -%}
+        {%- unless nl contains 'add via theme editor' or nl contains 'tbc' or nl contains 'coming soon' -%}
+          {%- assign has_installers = true -%}
+          {%- break -%}
+        {%- endunless -%}
       {%- endif -%}
     {%- endfor -%}
 
@@ -47,9 +54,12 @@
       {%- for state in states -%}
         {%- assign state_has = false -%}
         {%- for block in section.blocks -%}
-          {%- if block.type == 'installer' and block.settings.state == state -%}
-            {%- assign state_has = true -%}
-            {%- break -%}
+          {%- assign nl = block.settings.name | downcase -%}
+          {%- if block.type == 'installer' and block.settings.state == state and block.settings.name != blank -%}
+            {%- unless nl contains 'add via theme editor' or nl contains 'tbc' or nl contains 'coming soon' -%}
+              {%- assign state_has = true -%}
+              {%- break -%}
+            {%- endunless -%}
           {%- endif -%}
         {%- endfor -%}
         {%- if state_has -%}
@@ -95,13 +105,13 @@
           >
             <ul class="ori-installer-network__list" role="list">
               {%- for block in section.blocks -%}
-                {%- if block.type == 'installer' and block.settings.state == state -%}
+                {%- assign nl = block.settings.name | downcase -%}
+                {%- if block.type == 'installer' and block.settings.state == state and block.settings.name != blank -%}
+                  {%- unless nl contains 'add via theme editor' or nl contains 'tbc' or nl contains 'coming soon' -%}
                   <li class="ori-installer-network__installer" {{ block.shopify_attributes }}>
                     <div class="ori-installer-card">
                       <div class="ori-installer-card__info">
-                        {%- if block.settings.name != blank -%}
-                          <strong class="ori-installer-card__name">{{ block.settings.name }}</strong>
-                        {%- endif -%}
+                        <strong class="ori-installer-card__name">{{ block.settings.name }}</strong>
                         {%- if block.settings.suburb != blank -%}
                           <span class="ori-installer-card__location">
                             {%- render 'icon-map-pin' -%}
@@ -109,11 +119,14 @@
                             {%- if block.settings.state != blank -%}, {{ block.settings.state }}{%- endif -%}
                           </span>
                         {%- endif -%}
+                        {%- assign pl = block.settings.phone | downcase -%}
                         {%- if block.settings.phone != blank -%}
-                          <a href="tel:{{ block.settings.phone | remove: ' ' }}" class="ori-installer-card__phone">
-                            {%- render 'icon-phone' -%}
-                            {{ block.settings.phone }}
-                          </a>
+                          {%- unless pl contains 'tbc' or pl contains 'xxxx' or pl contains 'coming' -%}
+                            <a href="tel:{{ block.settings.phone | remove: ' ' }}" class="ori-installer-card__phone">
+                              {%- render 'icon-phone' -%}
+                              {{ block.settings.phone }}
+                            </a>
+                          {%- endunless -%}
                         {%- endif -%}
                         {%- if block.settings.website != blank -%}
                           <a href="{{ block.settings.website }}" class="ori-installer-card__website" target="_blank" rel="noopener">
@@ -123,6 +136,7 @@
                       </div>
                     </div>
                   </li>
+                  {%- endunless -%}
                 {%- endif -%}
               {%- endfor -%}
             </ul>
