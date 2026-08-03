@@ -1,0 +1,294 @@
+/* ─── ORI GVM Weight Chart ────────────────────────────────────────────────
+   Donut breakdown of how the upgraded GVM is used. Segment colours are set
+   inline from a validated categorical order; this file owns layout, chrome
+   and the readable fallbacks (legend, table view). */
+
+.ori-gvm-weight {
+  padding-top: var(--section-padding-top, 60px);
+  padding-bottom: var(--section-padding-bottom, 60px);
+  background: var(--gvm-weight-surface, transparent);
+  --gvm-weight-radius: 14px;
+  --gvm-weight-border: 1px solid color-mix(in srgb, currentColor 12%, transparent);
+  --gvm-weight-ink-muted: color-mix(in srgb, currentColor 62%, transparent);
+}
+
+.ori-gvm-weight__header {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto 36px;
+}
+.ori-gvm-weight__heading {
+  margin: 0 0 8px;
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+.ori-gvm-weight__subheading {
+  margin: 0;
+  line-height: 1.6;
+  color: var(--gvm-weight-ink-muted);
+  text-wrap: pretty;
+}
+
+/* ── Layout: chart left, legend right ── */
+.ori-gvm-weight__layout {
+  display: grid;
+  grid-template-columns: minmax(240px, 340px) minmax(0, 1fr);
+  gap: 40px;
+  align-items: center;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* ── Donut ── */
+.ori-gvm-weight__figure {
+  position: relative;
+  margin: 0;
+  width: 100%;
+  max-width: 340px;
+  justify-self: center;
+}
+.ori-gvm-weight__donut {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+.ori-gvm-weight__seg {
+  transition: opacity 0.15s ease, stroke-width 0.15s ease;
+  cursor: pointer;
+}
+.ori-gvm-weight__seg:focus {
+  outline: none;
+}
+.ori-gvm-weight__seg:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+/* Dim the rest only while a segment is engaged, so the resting state is honest. */
+.ori-gvm-weight.is-hovering .ori-gvm-weight__seg {
+  opacity: 0.35;
+}
+.ori-gvm-weight.is-hovering .ori-gvm-weight__seg.is-active {
+  opacity: 1;
+  stroke-width: 32;
+}
+
+/* Centre hero figure */
+.ori-gvm-weight__center {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  pointer-events: none;
+  text-align: center;
+  padding: 0 22%;
+}
+.ori-gvm-weight__total {
+  font-size: clamp(26px, 6vw, 38px);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+.ori-gvm-weight__total-unit {
+  font-size: 0.5em;
+  font-weight: 700;
+  margin-left: 1px;
+}
+.ori-gvm-weight__total-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gvm-weight-ink-muted);
+  line-height: 1.3;
+}
+
+/* Tooltip */
+.ori-gvm-weight__tip {
+  position: absolute;
+  left: 50%;
+  bottom: -10px;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1px;
+  padding: 7px 12px;
+  border-radius: 8px;
+  background: #0b0b0b;
+  color: #fff;
+  font-size: 12px;
+  line-height: 1.3;
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 2;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.22);
+}
+.ori-gvm-weight__tip[hidden] {
+  display: none;
+}
+.ori-gvm-weight__tip-label {
+  font-weight: 700;
+}
+.ori-gvm-weight__tip-value {
+  opacity: 0.85;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ── Legend ── */
+.ori-gvm-weight__legend {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+.ori-gvm-weight__legend-item {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 2px;
+  border-bottom: 1px solid color-mix(in srgb, currentColor 10%, transparent);
+}
+.ori-gvm-weight__legend-item:last-child {
+  border-bottom: 0;
+}
+.ori-gvm-weight__swatch {
+  width: 12px;
+  height: 12px;
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+.ori-gvm-weight__legend-text {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  min-width: 0;
+}
+.ori-gvm-weight__legend-label {
+  font-weight: 600;
+  line-height: 1.3;
+}
+.ori-gvm-weight__legend-note {
+  font-size: 12px;
+  color: var(--gvm-weight-ink-muted);
+  line-height: 1.4;
+}
+.ori-gvm-weight__legend-value {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+.ori-gvm-weight__legend-value strong {
+  font-weight: 700;
+}
+.ori-gvm-weight__legend-pct {
+  font-size: 12px;
+  color: var(--gvm-weight-ink-muted);
+  min-width: 42px;
+  text-align: right;
+}
+
+/* ── Table view ── */
+.ori-gvm-weight__tableview {
+  max-width: 900px;
+  margin: 28px auto 0;
+  border-top: 1px solid color-mix(in srgb, currentColor 12%, transparent);
+  padding-top: 14px;
+}
+.ori-gvm-weight__tableview > summary {
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--gvm-weight-ink-muted);
+  list-style-position: inside;
+}
+.ori-gvm-weight__tableview > summary:hover {
+  color: inherit;
+}
+.ori-gvm-weight__table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 14px;
+  font-variant-numeric: tabular-nums;
+}
+.ori-gvm-weight__table th,
+.ori-gvm-weight__table td {
+  text-align: left;
+  padding: 10px 8px;
+  border-bottom: 1px solid color-mix(in srgb, currentColor 10%, transparent);
+}
+.ori-gvm-weight__table thead th {
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--gvm-weight-ink-muted);
+  font-weight: 600;
+}
+.ori-gvm-weight__table tfoot th,
+.ori-gvm-weight__table tfoot td {
+  font-weight: 700;
+  border-bottom: 0;
+}
+
+.ori-gvm-weight__footnote {
+  max-width: 900px;
+  margin: 16px auto 0;
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--gvm-weight-ink-muted);
+}
+
+.ori-gvm-weight__empty {
+  text-align: center;
+  padding: 40px 24px;
+  border: 1px dashed color-mix(in srgb, currentColor 25%, transparent);
+  border-radius: var(--gvm-weight-radius);
+  opacity: 0.85;
+}
+
+/* ── Responsive ── */
+@media (max-width: 749px) {
+  .ori-gvm-weight__layout {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .ori-gvm-weight__figure {
+    max-width: 280px;
+  }
+  .ori-gvm-weight__header {
+    margin-bottom: 26px;
+  }
+  /* Touch has no hover, so never leave segments dimmed. */
+  .ori-gvm-weight.is-hovering .ori-gvm-weight__seg {
+    opacity: 1;
+  }
+  .ori-gvm-weight__tip {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ori-gvm-weight__seg {
+    transition: none;
+  }
+}
+
+@media print,
+  (forced-colors: active) {
+  .ori-gvm-weight__tip {
+    display: none;
+  }
+  .ori-gvm-weight__tableview[open] .ori-gvm-weight__table,
+  .ori-gvm-weight__table {
+    display: table;
+  }
+}
