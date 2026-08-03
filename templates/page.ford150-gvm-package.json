@@ -220,7 +220,7 @@
       "settings": {
         "container": "container",
         "color_schema": "",
-        "image": "shopify://shop_images/GVM_F150---20260430stage-1--3700--GVM_F150.png",
+        "image": "shopify://shop_images/STAGE_1_FORD_F150_all_products.png",
         "enable_lightbox": true,
         "image_width": "50%",
         "image_position": "left",
@@ -279,7 +279,7 @@
       "settings": {
         "container": "container",
         "color_schema": "",
-        "image": "shopify://shop_images/GVM_F150---20260430stage-2--3700--GVM_F150.png",
+        "image": "shopify://shop_images/STAGE_2_FORD_F150_all_products.png",
         "enable_lightbox": true,
         "image_width": "50%",
         "image_position": "right",
@@ -338,7 +338,7 @@
       "settings": {
         "container": "container",
         "color_schema": "",
-        "image": "shopify://shop_images/GVM_F150---20260430stage-3--3700--GVM_F150.png",
+        "image": "shopify://shop_images/STAGE_3_FORD_F150_all_products.png",
         "enable_lightbox": true,
         "image_width": "50%",
         "image_position": "left",
@@ -397,7 +397,7 @@
       "settings": {
         "container": "container",
         "color_schema": "",
-        "image": "shopify://shop_images/GVM_F150---20260430stage-4-4300-GVM_F150.png",
+        "image": "shopify://shop_images/STAGE_4_FORD_F150_all_products.png",
         "enable_lightbox": true,
         "image_width": "50%",
         "image_position": "right",
@@ -456,7 +456,7 @@
       "settings": {
         "container": "container",
         "color_schema": "",
-        "image": "shopify://shop_images/GVM_F150---20260430stage-5-4300-GVM_F150.png",
+        "image": "shopify://shop_images/STAGE_5_FORD_F150_all_products.png",
         "enable_lightbox": true,
         "image_width": "50%",
         "image_position": "left",
@@ -515,7 +515,7 @@
       "settings": {
         "container": "container",
         "color_schema": "",
-        "image": "shopify://shop_images/GVM_F150---20260430stage-6-4300-GVM_F150.png",
+        "image": "shopify://shop_images/STAGE_6_FORD_F150_all_products.png",
         "enable_lightbox": true,
         "image_width": "50%",
         "image_position": "right",
