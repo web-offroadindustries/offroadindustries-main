@@ -104,7 +104,7 @@
 
 <section
   id="{{ section_id }}"
-  class="ori-gvm-product color-{{ section.settings.color_schema }}"
+  class="ori-gvm-product ori-gvm-product--{{ section.settings.layout | default: 'classic' }} color-{{ section.settings.color_schema }}{% if section.settings.mobile_slider %} ori-gvm-product--swipe{% endif %}"
   data-section-type="ori-gvm-product"
   data-gvm-build="variant-steps-1"
   style="--gvm-tint: {{ section.settings.tint_color | default: '#f3f6f7' }};"
@@ -686,6 +686,25 @@
   "tag": "section",
   "class": "section",
   "settings": [
+    { "type": "header", "content": "Layout style" },
+    {
+      "type": "select",
+      "id": "layout",
+      "label": "Page layout",
+      "info": "Editorial uses a dark brand hero, left-aligned headings and teal accents.",
+      "options": [
+        { "value": "classic", "label": "Classic (light, centred)" },
+        { "value": "editorial", "label": "Editorial (dark hero, brand teal)" }
+      ],
+      "default": "classic"
+    },
+    {
+      "type": "checkbox",
+      "id": "mobile_slider",
+      "label": "Swipe rows on mobile",
+      "info": "Turns the benefit, included, step and accessory rows into swipeable sliders on phones instead of stacking them.",
+      "default": false
+    },
     { "type": "header", "content": "Hero" },
     { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "GVM Upgrade Package" },
     { "type": "text", "id": "fallback_title", "label": "Fallback title (used if not on a product)", "default": "Toyota Tundra Stage 1 GVM Upgrade" },

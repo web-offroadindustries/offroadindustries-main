@@ -689,13 +689,11 @@
     top: 0;
     transform: translate(-50%, -50%);
   }
-  /* Connector runs across the grid gap, not down the page. */
+  /* No connector once the cards sit side by side: it lands on the card's top
+     border and reads as one broken rule across the row. The badges carry the
+     sequence on their own. */
   .ori-gvm-product__steps--few .ori-gvm-product__step::after {
-    left: 100%;
-    top: 0;
-    bottom: auto;
-    width: 24px;
-    height: 2px;
+    display: none;
   }
   .ori-gvm-product__steps--few .ori-gvm-product__step-title {
     padding-top: 0;
@@ -722,11 +720,7 @@
     transform: translate(-50%, -50%);
   }
   .ori-gvm-product__step::after {
-    left: 100%;
-    top: 0;
-    bottom: auto;
-    width: 24px;
-    height: 2px;
+    display: none;
   }
   .ori-gvm-product__step-title {
     padding-top: 0;
@@ -743,5 +737,221 @@
   .ori-gvm-product__card:hover,
   .ori-gvm-product__acc-link:hover {
     transform: none;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   EDITORIAL LAYOUT  (.ori-gvm-product--editorial)
+   Alternate treatment: dark brand hero, left-aligned headings with a teal
+   rule, and always-on accent bars. Brand palette: teal #56BDC2 on black.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.ori-gvm-product--editorial {
+  --gvm-teal: #56bdc2;
+  --gvm-ink: #000;
+  --gvm-accent: var(--gvm-teal);
+  --gvm-card-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), 0 10px 28px rgba(0, 0, 0, 0.07);
+}
+
+/* ── Dark hero ── */
+.ori-gvm-product--editorial .ori-gvm-product__band--hero {
+  background: var(--gvm-ink);
+  color: #fff;
+  padding-top: 56px;
+  padding-bottom: 56px;
+}
+.ori-gvm-product--editorial .ori-gvm-product__eyebrow {
+  color: var(--gvm-teal);
+  opacity: 1;
+}
+.ori-gvm-product--editorial .ori-gvm-product__title {
+  color: #fff;
+}
+.ori-gvm-product--editorial .ori-gvm-product__subtitle {
+  color: rgba(255, 255, 255, 0.78);
+  opacity: 1;
+}
+.ori-gvm-product--editorial .ori-gvm-product__gallery-main {
+  box-shadow: 0 18px 46px rgba(0, 0, 0, 0.5);
+}
+/* Stat chips read as outlined teal tiles on the dark band. */
+.ori-gvm-product--editorial .ori-gvm-product__stat {
+  border: 1px solid rgba(86, 189, 194, 0.45);
+  background: rgba(86, 189, 194, 0.08);
+  border-radius: 10px;
+}
+.ori-gvm-product--editorial .ori-gvm-product__stat-label {
+  color: var(--gvm-teal);
+  opacity: 1;
+}
+.ori-gvm-product--editorial .ori-gvm-product__stat-value {
+  color: #fff;
+}
+.ori-gvm-product--editorial .ori-gvm-product__price-amount {
+  color: #fff;
+}
+.ori-gvm-product--editorial .ori-gvm-product__price-note {
+  color: rgba(255, 255, 255, 0.6);
+  opacity: 1;
+}
+.ori-gvm-product--editorial .ori-gvm-product__sku-label,
+.ori-gvm-product--editorial .ori-gvm-product__sku-value {
+  color: rgba(255, 255, 255, 0.75);
+}
+/* Step (variant) buttons on the dark hero */
+.ori-gvm-product--editorial .ori-gvm-product__step-btn {
+  border-color: rgba(255, 255, 255, 0.28);
+  color: #fff;
+}
+.ori-gvm-product--editorial .ori-gvm-product__step-btn:hover {
+  border-color: var(--gvm-teal);
+}
+.ori-gvm-product--editorial .ori-gvm-product__step-btn.is-active {
+  background: var(--gvm-teal);
+  border-color: var(--gvm-teal);
+  color: #04282a;
+}
+.ori-gvm-product--editorial .ori-gvm-product__thumb {
+  border-color: rgba(255, 255, 255, 0.22);
+  background: rgba(255, 255, 255, 0.05);
+}
+.ori-gvm-product--editorial .ori-gvm-product__thumb.is-active,
+.ori-gvm-product--editorial .ori-gvm-product__thumb:hover {
+  border-color: var(--gvm-teal);
+}
+
+/* ── Left-aligned headings with a teal rule, instead of centred caps ── */
+.ori-gvm-product--editorial .ori-gvm-product__block-title {
+  text-align: left;
+  position: relative;
+  padding-top: 18px;
+  margin-bottom: 22px;
+}
+.ori-gvm-product--editorial .ori-gvm-product__block-title::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 52px;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--gvm-teal);
+}
+.ori-gvm-product--editorial .ori-gvm-product__block-sub {
+  text-align: left;
+  margin-top: -14px;
+}
+
+/* ── Cards: accent bar always visible, teal badges ── */
+.ori-gvm-product--editorial .ori-gvm-product__card::before {
+  transform: scaleX(1);
+  background: var(--gvm-teal);
+  opacity: 0.9;
+}
+.ori-gvm-product--editorial .ori-gvm-product__badge {
+  color: #04282a;
+  background: var(--gvm-teal);
+  border-radius: 8px;
+}
+.ori-gvm-product--editorial .ori-gvm-product__card-eyebrow {
+  color: #147e83;
+}
+
+/* ── Steps: teal numerals, no heavy card chrome ── */
+.ori-gvm-product--editorial .ori-gvm-product__step::before {
+  background: var(--gvm-teal);
+  color: #04282a;
+}
+.ori-gvm-product--editorial .ori-gvm-product__acc-cta {
+  color: #147e83;
+}
+
+/* ── Specs table gets a dark header rule ── */
+.ori-gvm-product--editorial .ori-gvm-product__specs th {
+  color: var(--gvm-ink);
+  opacity: 0.85;
+}
+.ori-gvm-product--editorial .ori-gvm-product__band--alt {
+  background: #f4fbfb;
+}
+
+@media (max-width: 989px) {
+  .ori-gvm-product--editorial .ori-gvm-product__band--hero {
+    padding-top: 36px;
+    padding-bottom: 36px;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   MOBILE SWIPE ROWS  (.ori-gvm-product--swipe)
+   Card rows become horizontal scroll-snap sliders on phones rather than
+   stacking, so the page stays short and thumb-driven.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+@media (max-width: 749px) {
+  .ori-gvm-product--swipe .ori-gvm-product__cards,
+  .ori-gvm-product--swipe .ori-gvm-product__acc-grid,
+  .ori-gvm-product--swipe .ori-gvm-product__steps {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 78%;
+    grid-template-columns: none;
+    gap: 12px;
+    max-width: none;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    scroll-padding-left: 0;
+    -webkit-overflow-scrolling: touch;
+    /* Let cards run to the screen edge, then pad so the first/last still
+       align with the container gutter. */
+    margin-inline: calc(var(--gvm-swipe-bleed, 16px) * -1);
+    padding-inline: var(--gvm-swipe-bleed, 16px);
+    padding-bottom: 14px;
+    scrollbar-width: none;
+  }
+  .ori-gvm-product--swipe .ori-gvm-product__cards::-webkit-scrollbar,
+  .ori-gvm-product--swipe .ori-gvm-product__acc-grid::-webkit-scrollbar,
+  .ori-gvm-product--swipe .ori-gvm-product__steps::-webkit-scrollbar {
+    display: none;
+  }
+  .ori-gvm-product--swipe .ori-gvm-product__card,
+  .ori-gvm-product--swipe .ori-gvm-product__acc,
+  .ori-gvm-product--swipe .ori-gvm-product__step {
+    scroll-snap-align: start;
+    min-width: 0;
+  }
+  /* Accessories read fine a bit narrower, two peeking at once. */
+  .ori-gvm-product--swipe .ori-gvm-product__acc-grid {
+    grid-auto-columns: 58%;
+  }
+  /* In slider mode the steps are side-by-side cards, so the vertical rail
+     and the left indent both have to go. */
+  .ori-gvm-product--swipe .ori-gvm-product__steps {
+    --gvm-step-badge: 34px;
+  }
+  .ori-gvm-product--swipe .ori-gvm-product__step {
+    padding: calc(var(--gvm-step-badge) / 2 + 14px) 16px 18px;
+    border: var(--gvm-card-border);
+    border-radius: var(--gvm-card-radius);
+    background: var(--gvm-card-bg, #fff);
+    box-shadow: var(--gvm-card-shadow);
+    text-align: center;
+  }
+  .ori-gvm-product--swipe .ori-gvm-product__step::before {
+    left: 50%;
+    top: 0;
+    transform: translate(-50%, -50%);
+  }
+  .ori-gvm-product--swipe .ori-gvm-product__step::after {
+    display: none;
+  }
+  .ori-gvm-product--swipe .ori-gvm-product__step-title {
+    padding-top: 0;
+  }
+  /* Swipe affordance under each row. */
+  .ori-gvm-product--swipe .ori-gvm-product__cards + *,
+  .ori-gvm-product--swipe .ori-gvm-product__acc-grid + * {
+    margin-top: 4px;
   }
 }
