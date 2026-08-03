@@ -373,6 +373,9 @@
                     <span class="ori-gvm-product__card-note">{{ block.settings.note }}</span>
                   {%- endif -%}
                 </span>
+                {%- if block.settings.sku != blank -%}
+                  <span class="ori-gvm-product__card-sku">{{ block.settings.sku }}</span>
+                {%- endif -%}
               </li>
             {%- endfor -%}
           </ul>
@@ -691,10 +694,10 @@
       "type": "select",
       "id": "layout",
       "label": "Page layout",
-      "info": "Editorial uses a dark brand hero, left-aligned headings and teal accents.",
+      "info": "Technical is a light engineering-document treatment: warm paper ground, hairline rules, outlined numerals and part numbers.",
       "options": [
         { "value": "classic", "label": "Classic (light, centred)" },
-        { "value": "editorial", "label": "Editorial (dark hero, brand teal)" }
+        { "value": "editorial", "label": "Technical (engineering plate)" }
       ],
       "default": "classic"
     },
@@ -783,7 +786,8 @@
         { "type": "text", "id": "text", "label": "Item", "default": "Fox shocks" },
         { "type": "image_picker", "id": "logo", "label": "Brand logo", "info": "Optional. Replaces the tick. PNG or WebP with a transparent background (Shopify's picker will not accept an SVG)." },
         { "type": "text", "id": "brand", "label": "Brand name", "info": "Optional small line above the item, e.g. FOX." },
-        { "type": "text", "id": "note", "label": "Supporting line", "info": "Optional smaller line under the item." }
+        { "type": "text", "id": "note", "label": "Supporting line", "info": "Optional smaller line under the item." },
+        { "type": "text", "id": "sku", "label": "Part number", "info": "Optional. Shown right-aligned on the Technical layout, e.g. CS-F45-PT25." }
       ]
     },
     {
