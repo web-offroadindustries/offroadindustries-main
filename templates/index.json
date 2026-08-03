@@ -229,7 +229,7 @@
             "font_size": 36,
             "font_weight": "normal",
             "line_height": 36,
-            "color": "#000000",
+            "color": "#FFFFFF",
             "margin_top": 20,
             "margin_right": 5,
             "margin_bottom": 20,
@@ -258,7 +258,7 @@
       ],
       "settings": {
         "container": "container",
-        "color_schema": "scheme-10",
+        "color_schema": "accent",
         "heading": "",
         "highlight_style": "none",
         "enable_highlight_text_color": false,
@@ -875,6 +875,7 @@
         "car_ttBVDC",
         "message_WpXFNx"
       ],
+      "disabled": true,
       "name": "Contact Form v3",
       "settings": {
         "title": "Get in touch with us!",
