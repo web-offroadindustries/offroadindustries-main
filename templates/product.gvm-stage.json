@@ -15,43 +15,55 @@
         "benefit_payload": {
           "type": "benefit",
           "settings": {
-            "text": "Increased legal payload capacity"
+            "text": "Increased legal payload capacity",
+            "note": ""
           }
         },
         "benefit_suspension": {
           "type": "benefit",
           "settings": {
-            "text": "Upgraded Fox / BDS suspension"
+            "text": "Upgraded Fox / BDS suspension",
+            "note": ""
           }
         },
         "benefit_approval": {
           "type": "benefit",
           "settings": {
-            "text": "Federal engineering approval"
+            "text": "Federal engineering approval",
+            "note": ""
           }
         },
         "included_fox": {
           "type": "included",
           "settings": {
-            "text": "Fox shocks"
+            "text": "Fox shocks",
+            "logo": "shopify://shop_images/420_x_420px_MEGA_MENU_ICON__FOX.jpg",
+            "brand": "",
+            "note": ""
           }
         },
         "included_bds": {
           "type": "included",
           "settings": {
-            "text": "BDS components"
+            "text": "BDS components",
+            "brand": "",
+            "note": ""
           }
         },
         "included_springs": {
           "type": "included",
           "settings": {
-            "text": "ORI springs"
+            "text": "ORI springs",
+            "brand": "",
+            "note": ""
           }
         },
         "included_cert": {
           "type": "included",
           "settings": {
-            "text": "Engineering certification"
+            "text": "Engineering certification",
+            "brand": "",
+            "note": ""
           }
         },
         "step_quote": {
@@ -95,6 +107,9 @@
         "gvm_value": "",
         "gcm_value": "",
         "payload_value": "",
+        "show_price": true,
+        "price": "",
+        "price_note": "Installed & engineered",
         "quote_label": "Request Quote",
         "quote_url": "/pages/contact",
         "book_label": "Book Installation",
@@ -103,6 +118,15 @@
         "included_heading": "What's included",
         "specs_heading": "Specifications",
         "install_heading": "Installation process",
+        "stage_cards_heading": "GVM Upgrades by Vehicle",
+        "brands_heading": "Built with",
+        "cards_per_row": 3,
+        "acc_heading": "Build Your GVM Upgrade",
+        "acc_subheading": "Add the gear that makes the most of your new payload.",
+        "acc_btn_label": "View product",
+        "acc_columns": 4,
+        "acc_all_label": "",
+        "acc_all_url": "",
         "spec_original_gvm": "",
         "spec_upgraded_gvm": "",
         "spec_payload_gain": "",
@@ -111,6 +135,73 @@
         "container": "container",
         "custom_id": "",
         "color_schema": ""
+      }
+    },
+    "weight_chart": {
+      "type": "ori-gvm-weight-chart",
+      "blocks": {
+        "segment_8ctd34": {
+          "type": "segment",
+          "settings": {
+            "label": "Kerb weight",
+            "weight": 100,
+            "note": ""
+          }
+        },
+        "seg_kerb": {
+          "type": "segment",
+          "settings": {
+            "label": "Kerb weight",
+            "weight": 12,
+            "note": ""
+          }
+        },
+        "seg_people": {
+          "type": "segment",
+          "settings": {
+            "label": "Passengers & gear",
+            "weight": 43,
+            "note": ""
+          }
+        },
+        "seg_acc": {
+          "type": "segment",
+          "settings": {
+            "label": "Accessories",
+            "weight": 46,
+            "note": ""
+          }
+        },
+        "seg_payload": {
+          "type": "segment",
+          "settings": {
+            "label": "Remaining payload",
+            "weight": 10,
+            "note": ""
+          }
+        }
+      },
+      "block_order": [
+        "segment_8ctd34",
+        "seg_kerb",
+        "seg_people",
+        "seg_acc",
+        "seg_payload"
+      ],
+      "settings": {
+        "heading": "Where Your GVM Goes",
+        "subheading": "A breakdown of how the upgraded Gross Vehicle Mass is used.",
+        "total_label": "Upgraded GVM",
+        "unit": "kg",
+        "show_table": true,
+        "table_label": "View as table",
+        "footnote": "Figures are indicative and vary by build. Confirm against your vehicle compliance plate.",
+        "container": "container",
+        "color_schema": "",
+        "bg_color": "",
+        "padding_top": 60,
+        "padding_bottom": 60,
+        "custom_id": ""
       }
     },
     "ori_package_grid_RVbeB9": {
@@ -358,54 +449,6 @@
         "show_section_divider": false,
         "divider_width": "container",
         "animations": "inherit"
-      }
-    },
-    "weight_chart": {
-      "type": "ori-gvm-weight-chart",
-      "blocks": {
-        "seg_kerb": {
-          "type": "segment",
-          "settings": {
-            "label": "Kerb weight"
-          }
-        },
-        "seg_people": {
-          "type": "segment",
-          "settings": {
-            "label": "Passengers & gear"
-          }
-        },
-        "seg_acc": {
-          "type": "segment",
-          "settings": {
-            "label": "Accessories"
-          }
-        },
-        "seg_payload": {
-          "type": "segment",
-          "settings": {
-            "label": "Remaining payload"
-          }
-        }
-      },
-      "block_order": [
-        "seg_kerb",
-        "seg_people",
-        "seg_acc",
-        "seg_payload"
-      ],
-      "settings": {
-        "heading": "Where Your GVM Goes",
-        "subheading": "A breakdown of how the upgraded Gross Vehicle Mass is used.",
-        "total_label": "Upgraded GVM",
-        "unit": "kg",
-        "show_table": true,
-        "table_label": "View as table",
-        "footnote": "Figures are indicative and vary by build. Confirm against your vehicle compliance plate.",
-        "container": "container",
-        "color_schema": "",
-        "padding_top": 60,
-        "padding_bottom": 60
       }
     }
   },
