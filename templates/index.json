@@ -44,7 +44,7 @@
         "slide_MpjByF": {
           "type": "slide",
           "settings": {
-            "background": "shopify://shop_images/2000x560_-_CHEVY_1500_1_78a26cf0-158a-4dcb-8ca2-f0a3526c28c6.png",
+            "background": "shopify://shop_images/Melbourne-Show-Save-the-Date---Website-hero-tile.png",
             "image_overlay_opacity": 0,
             "content_position": "center",
             "text_alignment": "center",
@@ -55,8 +55,8 @@
             "subheading": "",
             "description": "",
             "desc_size": "text-desc-base",
-            "button_text_1": "Chevy Silverado 1500 GVM & GCM Packages",
-            "button_link_1": "shopify://pages/chevrolet-silverado-1500-gvm-package",
+            "button_text_1": "Melbourne 4x4 show",
+            "button_link_1": "https://www.offroadindustries.com.au/blogs/news/melbourne-4x4-show-2026-august-21-23-stand-g224?_pos=2&_sid=97e433db4&_ss=r",
             "button_style_1": "btn--primary",
             "button_size_1": "btn--small",
             "button_text_2": "",
@@ -206,7 +206,6 @@
         "show_dots": true,
         "show_nav": true,
         "autoplay": true,
-        "defer_autoplay_until_interaction": true,
         "autorotate_speed": 5,
         "pagination_background": "none",
         "controls_position": "center",
@@ -254,8 +253,8 @@
         "easysearch_ymm_easysearch_widget_3eeiFK"
       ],
       "custom_css": [
-        ".f-apps-wrapper { min-height: 440px; }",
-        "@media (min-width: 768px) { .f-apps-wrapper { min-height: 218px; } }"
+        ".f-apps-wrapper {min-height: 440px;}",
+        "@media (min-width: 768px) {.f-apps-wrapper {min-height: 218px; }}"
       ],
       "settings": {
         "container": "container",
