@@ -359,10 +359,59 @@
         "divider_width": "container",
         "animations": "inherit"
       }
+    },
+    "weight_chart": {
+      "type": "ori-gvm-weight-chart",
+      "blocks": {
+        "seg_kerb": {
+          "type": "segment",
+          "settings": {
+            "label": "Kerb weight"
+          }
+        },
+        "seg_people": {
+          "type": "segment",
+          "settings": {
+            "label": "Passengers & gear"
+          }
+        },
+        "seg_acc": {
+          "type": "segment",
+          "settings": {
+            "label": "Accessories"
+          }
+        },
+        "seg_payload": {
+          "type": "segment",
+          "settings": {
+            "label": "Remaining payload"
+          }
+        }
+      },
+      "block_order": [
+        "seg_kerb",
+        "seg_people",
+        "seg_acc",
+        "seg_payload"
+      ],
+      "settings": {
+        "heading": "Where Your GVM Goes",
+        "subheading": "A breakdown of how the upgraded Gross Vehicle Mass is used.",
+        "total_label": "Upgraded GVM",
+        "unit": "kg",
+        "show_table": true,
+        "table_label": "View as table",
+        "footnote": "Figures are indicative and vary by build. Confirm against your vehicle compliance plate.",
+        "container": "container",
+        "color_schema": "",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
     }
   },
   "order": [
     "main",
+    "weight_chart",
     "ori_package_grid_RVbeB9",
     "installers",
     "faq",
