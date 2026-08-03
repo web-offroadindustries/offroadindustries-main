@@ -220,7 +220,7 @@
       "settings": {
         "container": "container",
         "color_schema": "",
-        "image": "shopify://shop_images/GVM_TOYOTA-TUNDRA-20260504stage-1--3850GVM-_-8350-GCM.png",
+        "image": "shopify://shop_images/STAGE_1_Toyota_Tundra_all_products.png",
         "enable_lightbox": true,
         "image_width": "50%",
         "image_position": "left",
@@ -279,7 +279,7 @@
       "settings": {
         "container": "container",
         "color_schema": "",
-        "image": "shopify://shop_images/GVM_TOYOTA-TUNDRA-20260504stage-2--3850GVM-_-8350-GCM.png",
+        "image": "shopify://shop_images/STAGE_2_Toyota_Tundra_all_products.png",
         "enable_lightbox": true,
         "image_width": "50%",
         "image_position": "right",
@@ -338,7 +338,7 @@
       "settings": {
         "container": "container",
         "color_schema": "",
-        "image": "shopify://shop_images/GVM_TOYOTA-TUNDRA-20260504stage-3---4300GM-_-8800-GCM-copy.png",
+        "image": "shopify://shop_images/STAGE_3Toyota_Tundra_all_products.png",
         "enable_lightbox": true,
         "image_width": "50%",
         "image_position": "left",
@@ -397,7 +397,7 @@
       "settings": {
         "container": "container",
         "color_schema": "",
-        "image": "shopify://shop_images/GVM_TOYOTA-TUNDRA-20260504stage-4--4300GM-_-8800-GCM-copy-2.png",
+        "image": "shopify://shop_images/STAGE_4_Toyota_Tundra_all_products.png",
         "enable_lightbox": true,
         "image_width": "50%",
         "image_position": "right",
