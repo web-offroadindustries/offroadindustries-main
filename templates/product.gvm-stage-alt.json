@@ -15,43 +15,61 @@
         "benefit_payload": {
           "type": "benefit",
           "settings": {
-            "text": "Increased legal payload capacity"
+            "text": "Increased legal payload capacity",
+            "note": ""
           }
         },
         "benefit_suspension": {
           "type": "benefit",
           "settings": {
-            "text": "Upgraded Fox / BDS suspension"
+            "text": "Upgraded Fox / BDS suspension",
+            "note": ""
           }
         },
         "benefit_approval": {
           "type": "benefit",
           "settings": {
-            "text": "Federal engineering approval"
+            "text": "Federal engineering approval",
+            "note": ""
           }
         },
         "included_fox": {
           "type": "included",
           "settings": {
-            "text": "Fox shocks"
+            "text": "Fox shocks",
+            "logo": "shopify://shop_images/PROJECT_OVERLANDER_4.png",
+            "brand": "",
+            "note": "",
+            "sku": "CS-F45-PT24"
           }
         },
         "included_bds": {
           "type": "included",
           "settings": {
-            "text": "BDS components"
+            "text": "BDS components",
+            "logo": "shopify://shop_images/ICONS_FOR_WEBSITE_BDS.png",
+            "brand": "",
+            "note": "",
+            "sku": "CS-F45-PT25"
           }
         },
         "included_springs": {
           "type": "included",
           "settings": {
-            "text": "ORI springs"
+            "text": "ORI springs",
+            "logo": "shopify://shop_images/420_x_420px_MEGA_MENU_ICON__ORI.jpg",
+            "brand": "",
+            "note": "",
+            "sku": "CS-F45-PT23"
           }
         },
         "included_cert": {
           "type": "included",
           "settings": {
-            "text": "Engineering certification"
+            "text": "Engineering certification",
+            "brand": "",
+            "note": "",
+            "sku": "CS-F45-PT22"
           }
         },
         "step_quote": {
@@ -78,19 +96,25 @@
         "brand_fox": {
           "type": "brand_logo",
           "settings": {
-            "name": "FOX"
+            "logo": "shopify://shop_images/420_x_420px_MEGA_MENU_ICON__FOX.jpg",
+            "name": "FOX",
+            "link_url": ""
           }
         },
         "brand_bds": {
           "type": "brand_logo",
           "settings": {
-            "name": "BDS Suspension"
+            "logo": "shopify://shop_images/420_x_420px_MEGA_MENU_ICON__BDS.jpg",
+            "name": "BDS Suspension",
+            "link_url": ""
           }
         },
         "brand_ori": {
           "type": "brand_logo",
           "settings": {
-            "name": "ORI"
+            "logo": "shopify://shop_images/420_x_420px_MEGA_MENU_ICON__ORI.jpg",
+            "name": "ORI",
+            "link_url": ""
           }
         }
       },
@@ -110,12 +134,17 @@
         "brand_ori"
       ],
       "settings": {
+        "layout": "editorial",
+        "mobile_slider": true,
         "eyebrow": "GVM Upgrade Package",
         "fallback_title": "GVM Upgrade Package",
         "subtitle": "",
         "gvm_value": "",
         "gcm_value": "",
         "payload_value": "",
+        "show_price": true,
+        "price": "",
+        "price_note": "Installed & engineered",
         "quote_label": "Request Quote",
         "quote_url": "/pages/contact",
         "book_label": "Book Installation",
@@ -124,6 +153,15 @@
         "included_heading": "What's included",
         "specs_heading": "Specifications",
         "install_heading": "Installation process",
+        "stage_cards_heading": "GVM Upgrades by Vehicle",
+        "brands_heading": "Built with",
+        "cards_per_row": 3,
+        "acc_heading": "Build Your GVM Upgrade",
+        "acc_subheading": "Add the gear that makes the most of your new payload.",
+        "acc_btn_label": "View product",
+        "acc_columns": 4,
+        "acc_all_label": "",
+        "acc_all_url": "",
         "spec_original_gvm": "",
         "spec_upgraded_gvm": "",
         "spec_payload_gain": "",
@@ -131,11 +169,65 @@
         "tint_color": "#f4fbfb",
         "container": "container",
         "custom_id": "",
+        "color_schema": ""
+      }
+    },
+    "weight_chart": {
+      "type": "ori-gvm-weight-chart",
+      "blocks": {
+        "seg_kerb": {
+          "type": "segment",
+          "settings": {
+            "label": "Kerb weight",
+            "weight": 50,
+            "note": ""
+          }
+        },
+        "seg_people": {
+          "type": "segment",
+          "settings": {
+            "label": "Passengers & gear",
+            "weight": 100,
+            "note": ""
+          }
+        },
+        "seg_acc": {
+          "type": "segment",
+          "settings": {
+            "label": "Accessories",
+            "weight": 23,
+            "note": ""
+          }
+        },
+        "seg_payload": {
+          "type": "segment",
+          "settings": {
+            "label": "Remaining payload",
+            "weight": 78,
+            "note": ""
+          }
+        }
+      },
+      "block_order": [
+        "seg_kerb",
+        "seg_people",
+        "seg_acc",
+        "seg_payload"
+      ],
+      "settings": {
+        "heading": "Where Your GVM Goes",
+        "subheading": "A breakdown of how the upgraded Gross Vehicle Mass is used.",
+        "total_label": "Upgraded GVM",
+        "unit": "kg",
+        "show_table": true,
+        "table_label": "View as table",
+        "footnote": "Figures are indicative and vary by build. Confirm against your vehicle compliance plate.",
+        "container": "container",
         "color_schema": "",
-        "layout": "editorial",
-        "mobile_slider": true,
-        "cards_per_row": 3,
-        "acc_columns": 4
+        "bg_color": "",
+        "padding_top": 60,
+        "padding_bottom": 60,
+        "custom_id": ""
       }
     },
     "ori_package_grid_RVbeB9": {
@@ -383,54 +475,6 @@
         "show_section_divider": false,
         "divider_width": "container",
         "animations": "inherit"
-      }
-    },
-    "weight_chart": {
-      "type": "ori-gvm-weight-chart",
-      "blocks": {
-        "seg_kerb": {
-          "type": "segment",
-          "settings": {
-            "label": "Kerb weight"
-          }
-        },
-        "seg_people": {
-          "type": "segment",
-          "settings": {
-            "label": "Passengers & gear"
-          }
-        },
-        "seg_acc": {
-          "type": "segment",
-          "settings": {
-            "label": "Accessories"
-          }
-        },
-        "seg_payload": {
-          "type": "segment",
-          "settings": {
-            "label": "Remaining payload"
-          }
-        }
-      },
-      "block_order": [
-        "seg_kerb",
-        "seg_people",
-        "seg_acc",
-        "seg_payload"
-      ],
-      "settings": {
-        "heading": "Where Your GVM Goes",
-        "subheading": "A breakdown of how the upgraded Gross Vehicle Mass is used.",
-        "total_label": "Upgraded GVM",
-        "unit": "kg",
-        "show_table": true,
-        "table_label": "View as table",
-        "footnote": "Figures are indicative and vary by build. Confirm against your vehicle compliance plate.",
-        "container": "container",
-        "color_schema": "",
-        "padding_top": 60,
-        "padding_bottom": 60
       }
     }
   },
