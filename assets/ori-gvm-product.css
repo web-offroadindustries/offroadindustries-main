@@ -428,15 +428,15 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  gap: 22px 44px;
+  gap: 24px clamp(36px, 6vw, 72px);
 }
 .ori-gvm-product__brand {
   display: flex;
   align-items: center;
 }
 .ori-gvm-product__brand-img {
-  max-height: 40px;
-  max-width: 150px;
+  max-height: 62px;
+  max-width: 180px;
   width: auto;
   height: auto;
   object-fit: contain;
@@ -876,9 +876,12 @@
   opacity: 1;
 }
 
-/* ── Key benefits: a hairline register with outlined index numerals ── */
+/* ── Key benefits: a hairline register with outlined index numerals ──
+   The column count is set directly rather than through --gvm-cards: the
+   markup writes that custom property inline, and an inline declaration
+   wins the cascade, so redefining it in a stylesheet does nothing. */
 .ori-gvm-product--editorial .ori-gvm-product__band--benefits .ori-gvm-product__cards {
-  --gvm-cards: 1;
+  grid-template-columns: minmax(0, 1fr);
   gap: 0;
   counter-reset: tp-benefit;
   margin-top: 18px;
@@ -929,10 +932,12 @@
   opacity: 1;
 }
 
-/* ── What's included: a parts manifest with right-aligned part numbers ── */
+/* ── What's included: a parts manifest with right-aligned part numbers ──
+   Two columns on desktop, each row ruled. Column gap is generous so the
+   part number of one column never crowds the index of the next. */
 .ori-gvm-product--editorial .ori-gvm-product__band--included .ori-gvm-product__cards {
-  --gvm-cards: 1;
-  gap: 0;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0 clamp(32px, 5vw, 72px);
   counter-reset: tp-kit;
   margin-top: 18px;
   border-bottom: 1px solid var(--tp-line);
@@ -942,7 +947,8 @@
   display: grid;
   grid-template-columns: auto auto minmax(0, 1fr) auto;
   align-items: center;
-  gap: 0 20px;
+  gap: 0 18px;
+  min-height: 68px;
   background: none;
   border: 0;
   border-top: 1px solid var(--tp-line);
@@ -974,8 +980,8 @@
   display: none;
 }
 .ori-gvm-product--editorial .ori-gvm-product__band--included .ori-gvm-product__card-logo {
-  max-height: 26px;
-  max-width: 84px;
+  max-height: 40px;
+  max-width: 108px;
 }
 .ori-gvm-product--editorial .ori-gvm-product__band--included .ori-gvm-product__card-title {
   font-size: 15px;
@@ -1058,14 +1064,25 @@
   letter-spacing: 0.12em;
 }
 
-/* ── Brand strip as a hairline register ── */
+/* ── Brand strip as a hairline register ──
+   Partner marks are a credibility signal, so they run at full size and
+   full colour here rather than as washed-out greyscale thumbnails. */
 .ori-gvm-product--editorial .ori-gvm-product__brands {
   border-top: 1px solid var(--tp-line);
+  margin-top: 40px;
+  padding-top: 30px;
 }
 .ori-gvm-product--editorial .ori-gvm-product__brands-title {
   font-size: 10px;
   letter-spacing: 0.2em;
   color: var(--tp-soft);
+  opacity: 1;
+  margin-bottom: 22px;
+}
+.ori-gvm-product--editorial .ori-gvm-product__brand-img {
+  max-height: 72px;
+  max-width: 200px;
+  filter: none;
   opacity: 1;
 }
 
@@ -1090,10 +1107,13 @@
 }
 
 @media (min-width: 990px) {
-  /* Benefits and manifest run wider than prose, but stay ruled. */
-  .ori-gvm-product--editorial .ori-gvm-product__band--benefits .ori-gvm-product__cards,
+  /* Benefits stay a single full-width register so each statement can breathe. */
+  .ori-gvm-product--editorial .ori-gvm-product__band--benefits .ori-gvm-product__cards {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  /* The manifest splits into two columns on desktop. */
   .ori-gvm-product--editorial .ori-gvm-product__band--included .ori-gvm-product__cards {
-    --gvm-cards: 1;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
@@ -1295,10 +1315,11 @@
     grid-column: 1 / -1;
   }
 }
-/* Included items read as a tight spec list, not another grid of boxes. */
+/* Included items read as a tight spec list, not another grid of boxes.
+   Set directly, not via --gvm-cards, which the markup writes inline. */
 .ori-gvm-product--classic .ori-gvm-product__band--included .ori-gvm-product__cards {
-  --gvm-cards: 2;
-  gap: 0 40px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 44px;
 }
 .ori-gvm-product--classic .ori-gvm-product__band--included .ori-gvm-product__card {
   flex-direction: row;
@@ -1390,6 +1411,6 @@
 
 @media (max-width: 989px) {
   .ori-gvm-product--classic .ori-gvm-product__band--included .ori-gvm-product__cards {
-    --gvm-cards: 1;
+    grid-template-columns: minmax(0, 1fr);
   }
 }
