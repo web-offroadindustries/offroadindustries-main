@@ -228,7 +228,7 @@
       "settings": {
         "container": "container",
         "color_schema": "",
-        "image": "shopify://shop_images/stage_1_5500_gvm_SILVERADO_2500HD.png",
+        "image": "shopify://shop_images/STAGE_1_CHEVY_2500_all_products.png",
         "enable_lightbox": true,
         "image_width": "50%",
         "image_position": "left",
@@ -287,7 +287,7 @@
       "settings": {
         "container": "container",
         "color_schema": "",
-        "image": "shopify://shop_images/stage_2_5900_gvm_SILVERADO_2500HD.png",
+        "image": "shopify://shop_images/STAGE_2_CHEVY_2500_all_products.png",
         "enable_lightbox": true,
         "image_width": "50%",
         "image_position": "right",
@@ -346,7 +346,7 @@
       "settings": {
         "container": "container",
         "color_schema": "",
-        "image": "shopify://shop_images/stage_3_5900_gvm_SILVERADO_2500HD.png",
+        "image": "shopify://shop_images/STAGE_3_CHEVY_2500_all_products.png",
         "enable_lightbox": true,
         "image_width": "50%",
         "image_position": "left",
@@ -405,7 +405,7 @@
       "settings": {
         "container": "container",
         "color_schema": "",
-        "image": "shopify://shop_images/stage_3.5_5900_gvm_SILVERADO_2500HD.png",
+        "image": "shopify://shop_images/STAGE_3.5_CHEVY_2500_all_products.png",
         "enable_lightbox": true,
         "image_width": "50%",
         "image_position": "right",
@@ -464,7 +464,7 @@
       "settings": {
         "container": "container",
         "color_schema": "",
-        "image": "shopify://shop_images/stage_4_5900_gvm_SILVERADO_2500HD.png",
+        "image": "shopify://shop_images/STAGE_4_CHEVY_2500_all_products.png",
         "enable_lightbox": true,
         "image_width": "50%",
         "image_position": "left",
@@ -523,7 +523,7 @@
       "settings": {
         "container": "container",
         "color_schema": "",
-        "image": "shopify://shop_images/stage_5_5900_gvm_SILVERADO_2500HD.png",
+        "image": "shopify://shop_images/STAGE_5_CHEVY_2500_all_products.png",
         "enable_lightbox": true,
         "image_width": "50%",
         "image_position": "right",
@@ -582,7 +582,7 @@
       "settings": {
         "container": "container",
         "color_schema": "",
-        "image": "shopify://shop_images/stage_6_5900_gvm_SILVERADO_2500HD.png",
+        "image": "shopify://shop_images/STAGE_6_CHEVY_2500_all_products.png",
         "enable_lightbox": true,
         "image_width": "50%",
         "image_position": "left",
@@ -641,7 +641,7 @@
       "settings": {
         "container": "container",
         "color_schema": "",
-        "image": "shopify://shop_images/stage_6.5_5900_gvm_SILVERADO_2500HD.png",
+        "image": "shopify://shop_images/STAGE_6.5_CHEVY_2500_all_products.png",
         "enable_lightbox": true,
         "image_width": "50%",
         "image_position": "right",
