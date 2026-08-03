@@ -358,7 +358,7 @@
 .ori-gvm-product__card-media {
   display: flex;
   align-items: center;
-  min-height: 44px;
+  min-height: max(44px, var(--gvm-item-logo-h, 40px));
 }
 .ori-gvm-product__badge {
   display: inline-flex;
@@ -371,9 +371,14 @@
   color: var(--gvm-accent);
   background: color-mix(in srgb, var(--gvm-accent) 12%, transparent);
 }
+/* Logo sizes come from --gvm-item-logo-h / --gvm-brand-logo-h, which the
+   markup writes inline from the section settings. An inline custom property
+   beats any stylesheet rule, so a smaller size for a layout or breakpoint has
+   to be derived with calc() here — never by redefining the variable. The
+   width cap tracks the height so a wide wordmark stays proportionate. */
 .ori-gvm-product__card-logo {
-  max-height: 40px;
-  max-width: 130px;
+  max-height: var(--gvm-item-logo-h, 40px);
+  max-width: calc(var(--gvm-item-logo-h, 40px) * 3.2);
   width: auto;
   height: auto;
   object-fit: contain;
@@ -435,8 +440,8 @@
   align-items: center;
 }
 .ori-gvm-product__brand-img {
-  max-height: 62px;
-  max-width: 180px;
+  max-height: var(--gvm-brand-logo-h, 72px);
+  max-width: calc(var(--gvm-brand-logo-h, 72px) * 2.9);
   width: auto;
   height: auto;
   object-fit: contain;
@@ -650,9 +655,11 @@
   .ori-gvm-product__brands-row {
     gap: 18px 28px;
   }
+  /* Derived from the setting rather than a fixed 30px, so raising the size in
+     the editor still reads bigger on a phone while several marks fit a row. */
   .ori-gvm-product__brand-img {
-    max-height: 30px;
-    max-width: 110px;
+    max-height: calc(var(--gvm-brand-logo-h, 72px) * 0.6);
+    max-width: calc(var(--gvm-brand-logo-h, 72px) * 1.74);
   }
 }
 
@@ -979,10 +986,6 @@
 .ori-gvm-product--editorial .ori-gvm-product__band--included .ori-gvm-product__badge {
   display: none;
 }
-.ori-gvm-product--editorial .ori-gvm-product__band--included .ori-gvm-product__card-logo {
-  max-height: 40px;
-  max-width: 108px;
-}
 .ori-gvm-product--editorial .ori-gvm-product__band--included .ori-gvm-product__card-title {
   font-size: 15px;
   font-weight: 600;
@@ -1080,8 +1083,6 @@
   margin-bottom: 22px;
 }
 .ori-gvm-product--editorial .ori-gvm-product__brand-img {
-  max-height: 72px;
-  max-width: 200px;
   filter: none;
   opacity: 1;
 }
@@ -1356,10 +1357,6 @@
 .ori-gvm-product--classic .ori-gvm-product__band--included .ori-gvm-product__card-title {
   font-size: 15px;
   font-weight: 600;
-}
-.ori-gvm-product--classic .ori-gvm-product__band--included .ori-gvm-product__card-logo {
-  max-height: 30px;
-  max-width: 92px;
 }
 
 /* ── BAND 3: Installation process, oversized ghost numerals ── */

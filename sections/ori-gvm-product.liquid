@@ -107,7 +107,7 @@
   class="ori-gvm-product ori-gvm-product--{{ section.settings.layout | default: 'classic' }} color-{{ section.settings.color_schema }}{% if section.settings.mobile_slider %} ori-gvm-product--swipe{% endif %}"
   data-section-type="ori-gvm-product"
   data-gvm-build="variant-steps-1"
-  style="--gvm-tint: {{ section.settings.tint_color | default: '#f3f6f7' }};"
+  style="--gvm-tint: {{ section.settings.tint_color | default: '#f3f6f7' }}; --gvm-item-logo-h: {{ section.settings.item_logo_height | default: 40 }}px; --gvm-brand-logo-h: {{ section.settings.brand_logo_height | default: 72 }}px;"
 >
 
   {%- comment -%} Hero band {%- endcomment -%}
@@ -741,6 +741,29 @@
       "max": 4,
       "step": 1,
       "default": 3
+    },
+    { "type": "header", "content": "Logo sizes" },
+    {
+      "type": "range",
+      "id": "item_logo_height",
+      "label": "Item logo height",
+      "info": "Brand logos shown inside the What's included items.",
+      "min": 20,
+      "max": 120,
+      "step": 2,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "brand_logo_height",
+      "label": "Partner logo height",
+      "info": "Logos in the brand strip. Scales down proportionally on mobile so the row still fits.",
+      "min": 30,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "default": 72
     },
     { "type": "header", "content": "Accessories band" },
     { "type": "text", "id": "acc_heading", "label": "Accessories heading", "default": "Build Your GVM Upgrade" },
