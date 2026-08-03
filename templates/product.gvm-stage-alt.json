@@ -16,21 +16,21 @@
           "type": "benefit",
           "settings": {
             "text": "Increased legal payload capacity",
-            "note": ""
+            "note": "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."
           }
         },
         "benefit_suspension": {
           "type": "benefit",
           "settings": {
             "text": "Upgraded Fox / BDS suspension",
-            "note": ""
+            "note": "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."
           }
         },
         "benefit_approval": {
           "type": "benefit",
           "settings": {
             "text": "Federal engineering approval",
-            "note": ""
+            "note": "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."
           }
         },
         "included_fox": {
