@@ -21,6 +21,9 @@
   assign included = section.blocks | where: 'type', 'included'
   assign steps = section.blocks | where: 'type', 'step'
   assign stage_cards = section.blocks | where: 'type', 'stage_card'
+  assign brand_logos = section.blocks | where: 'type', 'brand_logo'
+  assign accessories = section.blocks | where: 'type', 'accessory'
+  assign cards_per_row = section.settings.cards_per_row | default: 3
 
   # Per-figure resolution: variant metafields first (so each Step can differ),
   # then product metafields, each across the custom and ori namespaces, then
@@ -310,15 +313,22 @@
   {%- if benefits.size > 0 -%}
     <div class="ori-gvm-product__band ori-gvm-product__band--alt">
       <div class="{{ container }}">
-        <div class="ori-gvm-product__block">
+        <div class="ori-gvm-product__block ori-gvm-product__block--wide">
           <h2 class="ori-gvm-product__block-title h3">{{ section.settings.benefits_heading | default: 'Key benefits' }}</h2>
-          <ul class="ori-gvm-product__benefits" role="list">
+          <ul class="ori-gvm-product__cards" style="--gvm-cards: {{ cards_per_row }};" role="list">
             {%- for block in benefits -%}
-              <li class="ori-gvm-product__benefit" {{ block.shopify_attributes }}>
-                <span class="ori-gvm-product__check" aria-hidden="true">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              <li class="ori-gvm-product__card" {{ block.shopify_attributes }}>
+                <span class="ori-gvm-product__card-media">
+                  <span class="ori-gvm-product__badge" aria-hidden="true">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                  </span>
                 </span>
-                <span>{{ block.settings.text }}</span>
+                <span class="ori-gvm-product__card-body">
+                  <span class="ori-gvm-product__card-title">{{ block.settings.text }}</span>
+                  {%- if block.settings.note != blank -%}
+                    <span class="ori-gvm-product__card-note">{{ block.settings.note }}</span>
+                  {%- endif -%}
+                </span>
               </li>
             {%- endfor -%}
           </ul>
@@ -331,18 +341,76 @@
   {%- if included.size > 0 -%}
     <div class="ori-gvm-product__band">
       <div class="{{ container }}">
-        <div class="ori-gvm-product__block">
+        <div class="ori-gvm-product__block ori-gvm-product__block--wide">
           <h2 class="ori-gvm-product__block-title h3">{{ section.settings.included_heading | default: "What's included" }}</h2>
-          <ul class="ori-gvm-product__included" role="list">
+          <ul class="ori-gvm-product__cards" style="--gvm-cards: {{ cards_per_row }};" role="list">
             {%- for block in included -%}
-              <li class="ori-gvm-product__included-item" {{ block.shopify_attributes }}>
-                <span class="ori-gvm-product__check" aria-hidden="true">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              <li class="ori-gvm-product__card" {{ block.shopify_attributes }}>
+                <span class="ori-gvm-product__card-media">
+                  {%- if block.settings.logo != blank -%}
+                    {{-
+                      block.settings.logo
+                      | image_url: width: 240
+                      | image_tag:
+                        loading: 'lazy',
+                        class: 'ori-gvm-product__card-logo',
+                        widths: '120,180,240',
+                        sizes: '120px',
+                        alt: block.settings.brand | default: block.settings.text | escape
+                    -}}
+                  {%- else -%}
+                    <span class="ori-gvm-product__badge" aria-hidden="true">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    </span>
+                  {%- endif -%}
                 </span>
-                <span>{{ block.settings.text }}</span>
+                <span class="ori-gvm-product__card-body">
+                  {%- if block.settings.brand != blank -%}
+                    <span class="ori-gvm-product__card-eyebrow">{{ block.settings.brand }}</span>
+                  {%- endif -%}
+                  <span class="ori-gvm-product__card-title">{{ block.settings.text }}</span>
+                  {%- if block.settings.note != blank -%}
+                    <span class="ori-gvm-product__card-note">{{ block.settings.note }}</span>
+                  {%- endif -%}
+                </span>
               </li>
             {%- endfor -%}
           </ul>
+
+          {%- if brand_logos.size > 0 -%}
+            <div class="ori-gvm-product__brands">
+              {%- if section.settings.brands_heading != blank -%}
+                <p class="ori-gvm-product__brands-title">{{ section.settings.brands_heading }}</p>
+              {%- endif -%}
+              <ul class="ori-gvm-product__brands-row" role="list">
+                {%- for block in brand_logos -%}
+                  <li class="ori-gvm-product__brand" {{ block.shopify_attributes }}>
+                    {%- if block.settings.logo != blank -%}
+                      {%- capture brand_img -%}
+                        {{-
+                          block.settings.logo
+                          | image_url: width: 320
+                          | image_tag:
+                            loading: 'lazy',
+                            class: 'ori-gvm-product__brand-img',
+                            widths: '160,240,320',
+                            sizes: '150px',
+                            alt: block.settings.name | default: 'Brand' | escape
+                        -}}
+                      {%- endcapture -%}
+                      {%- if block.settings.link_url != blank -%}
+                        <a href="{{ block.settings.link_url }}" class="ori-gvm-product__brand-link">{{ brand_img }}</a>
+                      {%- else -%}
+                        {{ brand_img }}
+                      {%- endif -%}
+                    {%- elsif block.settings.name != blank -%}
+                      <span class="ori-gvm-product__brand-text">{{ block.settings.name }}</span>
+                    {%- endif -%}
+                  </li>
+                {%- endfor -%}
+              </ul>
+            </div>
+          {%- endif -%}
         </div>
       </div>
     </div>
@@ -379,9 +447,12 @@
   {%- if steps.size > 0 -%}
     <div class="ori-gvm-product__band">
       <div class="{{ container }}">
-        <div class="ori-gvm-product__block">
+        <div class="ori-gvm-product__block ori-gvm-product__block--wide">
           <h2 class="ori-gvm-product__block-title h3">{{ section.settings.install_heading | default: 'Installation process' }}</h2>
-          <ol class="ori-gvm-product__steps">
+          <ol
+            class="ori-gvm-product__steps{% if steps.size < 4 %} ori-gvm-product__steps--few{% endif %}"
+            style="--gvm-step-count: {{ steps.size }};"
+          >
             {%- for block in steps -%}
               <li class="ori-gvm-product__step" {{ block.shopify_attributes }}>
                 {%- if block.settings.heading != blank -%}
@@ -393,6 +464,71 @@
               </li>
             {%- endfor -%}
           </ol>
+        </div>
+      </div>
+    </div>
+  {%- endif -%}
+
+  {%- comment -%}
+    Accessories band. acc_p is deliberately NOT named "product" - assigning to
+    that name would clobber the page product used by the hero, the specs and the
+    variant JSON blob below.
+  {%- endcomment -%}
+  {%- if accessories.size > 0 -%}
+    <div class="ori-gvm-product__band ori-gvm-product__band--alt">
+      <div class="{{ container }}">
+        <div class="ori-gvm-product__block ori-gvm-product__block--wide">
+          <h2 class="ori-gvm-product__block-title h3">{{ section.settings.acc_heading | default: 'Build Your GVM Upgrade' }}</h2>
+          {%- if section.settings.acc_subheading != blank -%}
+            <p class="ori-gvm-product__block-sub">{{ section.settings.acc_subheading }}</p>
+          {%- endif -%}
+
+          <ul class="ori-gvm-product__acc-grid" style="--gvm-acc-cols: {{ section.settings.acc_columns | default: 4 }};" role="list">
+            {%- for block in accessories -%}
+              {%- liquid
+                assign acc_p = block.settings.product
+                assign acc_title = block.settings.title | default: acc_p.title
+                assign acc_url = block.settings.link_url | default: acc_p.url
+                assign acc_img = block.settings.image | default: acc_p.featured_image
+              -%}
+              {%- if acc_title != blank -%}
+                <li class="ori-gvm-product__acc" {{ block.shopify_attributes }}>
+                  <a class="ori-gvm-product__acc-link" href="{{ acc_url | default: '#' }}">
+                    <span class="ori-gvm-product__acc-media">
+                      {%- if acc_img != blank -%}
+                        {{-
+                          acc_img
+                          | image_url: width: 600
+                          | image_tag:
+                            loading: 'lazy',
+                            class: 'ori-gvm-product__acc-img',
+                            widths: '200,300,450,600',
+                            sizes: '(max-width: 749px) 60vw, (max-width: 989px) 42vw, 260px',
+                            alt: acc_title | escape
+                        -}}
+                      {%- endif -%}
+                    </span>
+                    <span class="ori-gvm-product__acc-body">
+                      <span class="ori-gvm-product__acc-title">{{ acc_title }}</span>
+                      {%- if block.settings.show_price and acc_p != blank and acc_p.price > 0 -%}
+                        <span class="ori-gvm-product__acc-price">
+                          {%- if acc_p.price_varies -%}From {% endif -%}
+                          {{ acc_p.price | money }}
+                        </span>
+                      {%- endif -%}
+                      <span class="ori-gvm-product__acc-cta">{{ section.settings.acc_btn_label | default: 'View product' }}</span>
+                    </span>
+                  </a>
+                </li>
+              {%- endif -%}
+            {%- endfor -%}
+          </ul>
+
+          {%- if section.settings.acc_all_label != blank and section.settings.acc_all_url != blank -%}
+            <div class="ori-gvm-product__acc-footer">
+              <a href="{{ section.settings.acc_all_url }}" class="btn btn--outline">{{ section.settings.acc_all_label }}</a>
+            </div>
+          {%- endif -%}
         </div>
       </div>
     </div>
@@ -573,6 +709,24 @@
     { "type": "text", "id": "specs_heading", "label": "Specifications heading", "default": "Specifications" },
     { "type": "text", "id": "install_heading", "label": "Installation heading", "default": "Installation process" },
     { "type": "text", "id": "stage_cards_heading", "label": "Stage cards heading", "info": "Shown above the vehicle cards, before Key benefits. Add Stage card blocks to populate the row.", "default": "GVM Upgrades by Vehicle" },
+    { "type": "text", "id": "brands_heading", "label": "Brand strip heading", "info": "Shown above the brand logo row. Add Brand logo blocks to populate it.", "default": "Built with" },
+    {
+      "type": "range",
+      "id": "cards_per_row",
+      "label": "Cards per row (desktop)",
+      "info": "Applies to Key benefits and What's included.",
+      "min": 2,
+      "max": 4,
+      "step": 1,
+      "default": 3
+    },
+    { "type": "header", "content": "Accessories band" },
+    { "type": "text", "id": "acc_heading", "label": "Accessories heading", "default": "Build Your GVM Upgrade" },
+    { "type": "text", "id": "acc_subheading", "label": "Accessories subheading", "default": "Add the gear that makes the most of your new payload." },
+    { "type": "text", "id": "acc_btn_label", "label": "Accessory button label", "default": "View product" },
+    { "type": "range", "id": "acc_columns", "label": "Accessories per row (desktop)", "min": 2, "max": 5, "step": 1, "default": 4 },
+    { "type": "text", "id": "acc_all_label", "label": "View all label", "info": "Optional button under the accessories row." },
+    { "type": "url", "id": "acc_all_url", "label": "View all URL" },
     { "type": "header", "content": "Specifications table" },
     { "type": "text", "id": "spec_original_gvm", "label": "Original GVM", "default": "3050 kg" },
     { "type": "text", "id": "spec_upgraded_gvm", "label": "Upgraded GVM", "default": "3850 kg" },
@@ -599,14 +753,41 @@
       "type": "benefit",
       "name": "Key benefit",
       "settings": [
-        { "type": "text", "id": "text", "label": "Benefit", "default": "Increased legal payload" }
+        { "type": "text", "id": "text", "label": "Benefit", "default": "Increased legal payload" },
+        { "type": "text", "id": "note", "label": "Supporting line", "info": "Optional smaller line under the benefit." }
       ]
     },
     {
       "type": "included",
       "name": "What's included item",
       "settings": [
-        { "type": "text", "id": "text", "label": "Item", "default": "Fox shocks" }
+        { "type": "text", "id": "text", "label": "Item", "default": "Fox shocks" },
+        { "type": "image_picker", "id": "logo", "label": "Brand logo", "info": "Optional. Replaces the tick. PNG or WebP with a transparent background (Shopify's picker will not accept an SVG)." },
+        { "type": "text", "id": "brand", "label": "Brand name", "info": "Optional small line above the item, e.g. FOX." },
+        { "type": "text", "id": "note", "label": "Supporting line", "info": "Optional smaller line under the item." }
+      ]
+    },
+    {
+      "type": "brand_logo",
+      "name": "Brand logo",
+      "limit": 8,
+      "settings": [
+        { "type": "image_picker", "id": "logo", "label": "Logo", "info": "PNG or WebP with a transparent background. SVG is not accepted by Shopify's image picker." },
+        { "type": "text", "id": "name", "label": "Brand name", "info": "Used as the image alt text, and shown as text if no logo is set." },
+        { "type": "url", "id": "link_url", "label": "Links to", "info": "Optional." }
+      ]
+    },
+    {
+      "type": "accessory",
+      "name": "Accessory",
+      "limit": 12,
+      "settings": [
+        { "type": "product", "id": "product", "label": "Product", "info": "Pick the accessory product. Image, title, price and link come from it automatically." },
+        { "type": "checkbox", "id": "show_price", "label": "Show price", "default": true },
+        { "type": "header", "content": "Manual override" },
+        { "type": "text", "id": "title", "label": "Title", "info": "Only needed for an accessory that is not a Shopify product yet. Overrides the product title." },
+        { "type": "image_picker", "id": "image", "label": "Image", "info": "Overrides the product image." },
+        { "type": "url", "id": "link_url", "label": "Links to", "info": "Overrides the product link." }
       ]
     },
     {

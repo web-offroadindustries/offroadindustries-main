@@ -281,37 +281,255 @@
   max-width: 880px;
   margin: 0 auto;
 }
+/* Card grids need more room than the prose blocks. Declared after the base rule
+   so it wins on equal specificity. */
+.ori-gvm-product__block--wide {
+  max-width: 1120px;
+}
 .ori-gvm-product__block-title {
   margin: 0 0 28px;
   text-align: center;
   text-transform: uppercase;
 }
 
-.ori-gvm-product__benefits,
-.ori-gvm-product__included {
+/* Shared card tokens so benefits, included, brands and accessories all read
+   as one design system. */
+.ori-gvm-product {
+  --gvm-card-radius: 14px;
+  --gvm-card-border: 1px solid color-mix(in srgb, currentColor 12%, transparent);
+  --gvm-card-shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 8px 24px rgba(0, 0, 0, 0.06);
+  --gvm-card-shadow-hover: 0 2px 4px rgba(0, 0, 0, 0.06), 0 14px 34px rgba(0, 0, 0, 0.1);
+  --gvm-card-pad: 20px;
+  --gvm-card-gap: 16px;
+  --gvm-accent: var(--color-btn-bg, currentColor);
+}
+
+.ori-gvm-product__block-sub {
+  margin: -18px 0 28px;
+  text-align: center;
+  line-height: 1.6;
+  opacity: 0.75;
+  text-wrap: pretty;
+}
+
+/* ── Benefit / included cards ── */
+.ori-gvm-product__cards {
   list-style: none;
   margin: 0;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 14px 28px;
+  grid-template-columns: repeat(var(--gvm-cards, 3), minmax(0, 1fr));
+  gap: var(--gvm-card-gap);
 }
-.ori-gvm-product__benefit,
-.ori-gvm-product__included-item {
+.ori-gvm-product__card {
+  position: relative;
+  min-width: 0;
   display: flex;
-  align-items: flex-start;
-  gap: 10px;
-  line-height: 1.5;
+  flex-direction: column;
+  gap: 12px;
+  padding: var(--gvm-card-pad);
+  border: var(--gvm-card-border);
+  border-radius: var(--gvm-card-radius);
+  background: var(--gvm-card-bg, #fff);
+  box-shadow: var(--gvm-card-shadow);
+  overflow: hidden;
+  transition: transform 0.16s ease, box-shadow 0.16s ease;
 }
-.ori-gvm-product__check {
+/* Accent wipe along the top edge on hover. */
+.ori-gvm-product__card::before {
+  content: '';
+  position: absolute;
+  inset: 0 auto auto 0;
+  height: 3px;
+  width: 100%;
+  background: var(--gvm-accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.22s ease;
+}
+.ori-gvm-product__card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--gvm-card-shadow-hover);
+}
+.ori-gvm-product__card:hover::before {
+  transform: scaleX(1);
+}
+/* Fixed-height media row keeps logo cards and tick cards on the same baseline. */
+.ori-gvm-product__card-media {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+}
+.ori-gvm-product__badge {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 22px;
-  height: 22px;
+  width: 40px;
+  height: 40px;
   flex-shrink: 0;
-  border-radius: 50%;
-  background: color-mix(in srgb, currentColor 14%, transparent);
+  border-radius: 10px;
+  color: var(--gvm-accent);
+  background: color-mix(in srgb, var(--gvm-accent) 12%, transparent);
+}
+.ori-gvm-product__card-logo {
+  max-height: 40px;
+  max-width: 130px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+.ori-gvm-product__card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+.ori-gvm-product__card-eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gvm-accent);
+}
+.ori-gvm-product__card-title {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.35;
+  overflow-wrap: break-word;
+}
+.ori-gvm-product__card-note {
+  font-size: 14px;
+  line-height: 1.55;
+  opacity: 0.7;
+  overflow-wrap: break-word;
+}
+
+/* ── Brand logo strip ── */
+.ori-gvm-product__brands {
+  margin-top: 34px;
+  padding-top: 26px;
+  border-top: 1px solid color-mix(in srgb, currentColor 12%, transparent);
+}
+.ori-gvm-product__brands-title {
+  margin: 0 0 16px;
+  text-align: center;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  opacity: 0.55;
+}
+.ori-gvm-product__brands-row {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 22px 44px;
+}
+.ori-gvm-product__brand {
+  display: flex;
+  align-items: center;
+}
+.ori-gvm-product__brand-img {
+  max-height: 40px;
+  max-width: 150px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  filter: grayscale(1);
+  opacity: 0.65;
+  transition: filter 0.18s ease, opacity 0.18s ease;
+}
+.ori-gvm-product__brand:hover .ori-gvm-product__brand-img,
+.ori-gvm-product__brand-link:focus-visible .ori-gvm-product__brand-img {
+  filter: grayscale(0);
+  opacity: 1;
+}
+.ori-gvm-product__brand-text {
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.6;
+}
+
+/* ── Accessories ── */
+.ori-gvm-product__acc-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(var(--gvm-acc-cols, 4), minmax(0, 1fr));
+  gap: var(--gvm-card-gap);
+}
+.ori-gvm-product__acc {
+  min-width: 0;
+  display: flex;
+}
+.ori-gvm-product__acc-link {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border: var(--gvm-card-border);
+  border-radius: var(--gvm-card-radius);
+  background: var(--gvm-card-bg, #fff);
+  box-shadow: var(--gvm-card-shadow);
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.16s ease, box-shadow 0.16s ease;
+}
+.ori-gvm-product__acc-link:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--gvm-card-shadow-hover);
+}
+.ori-gvm-product__acc-media {
+  display: block;
+  aspect-ratio: 1 / 1;
+  background: color-mix(in srgb, currentColor 5%, transparent);
+  overflow: hidden;
+}
+.ori-gvm-product__acc-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.ori-gvm-product__acc-body {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 14px 16px 16px;
+  flex: 1;
+}
+.ori-gvm-product__acc-title {
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 1.35;
+  overflow-wrap: break-word;
+}
+.ori-gvm-product__acc-price {
+  font-weight: 700;
+  font-size: 14px;
+  opacity: 0.8;
+  font-variant-numeric: tabular-nums;
+}
+.ori-gvm-product__acc-cta {
+  margin-top: auto;
+  padding-top: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--gvm-accent);
+}
+.ori-gvm-product__acc-footer {
+  margin-top: 28px;
+  text-align: center;
 }
 
 /* Specs table */
@@ -337,46 +555,68 @@
   font-weight: 700;
 }
 
-/* Installation steps */
+/* ── Installation steps: horizontal stepper on desktop ──
+   Mobile-first: the base rules below are the vertical timeline, and the
+   min-width query further down promotes it to a horizontal stepper. */
 .ori-gvm-product__steps {
   list-style: none;
   counter-reset: ori-step;
-  margin: 0;
+  margin: 0 auto;
   padding: 0;
   display: grid;
-  gap: 16px;
+  gap: 26px;
+  max-width: 620px;
+  --gvm-step-badge: 38px;
 }
 .ori-gvm-product__step {
   counter-increment: ori-step;
   position: relative;
-  padding: 18px 20px 18px 64px;
-  border: 1px solid color-mix(in srgb, currentColor 12%, transparent);
-  border-radius: 10px;
-  background: color-mix(in srgb, currentColor 2%, transparent);
+  min-width: 0;
+  padding: 0 0 0 58px;
 }
 .ori-gvm-product__step::before {
-  content: counter(ori-step);
+  content: counter(ori-step, decimal-leading-zero);
   position: absolute;
-  left: 18px;
-  top: 18px;
-  width: 30px;
-  height: 30px;
+  left: 0;
+  top: 0;
+  width: var(--gvm-step-badge);
+  height: var(--gvm-step-badge);
   display: inline-flex;
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  font-weight: 700;
-  background: color-mix(in srgb, currentColor 14%, transparent);
+  font-weight: 800;
+  font-size: 14px;
+  font-variant-numeric: tabular-nums;
+  color: var(--color-btn-text, #fff);
+  background: var(--gvm-accent);
+  z-index: 1;
+}
+/* Continuous rail down the left, through the row gap into the next badge. */
+.ori-gvm-product__step::after {
+  content: '';
+  position: absolute;
+  left: calc(var(--gvm-step-badge) / 2 - 1px);
+  top: calc(var(--gvm-step-badge) + 6px);
+  bottom: -32px;
+  width: 2px;
+  background: color-mix(in srgb, currentColor 16%, transparent);
+}
+.ori-gvm-product__step:last-child::after {
+  display: none;
 }
 .ori-gvm-product__step-title {
   margin: 0 0 4px;
   font-size: 16px;
   font-weight: 700;
+  line-height: 1.35;
+  padding-top: 8px;
 }
 .ori-gvm-product__step-text {
   margin: 0;
   line-height: 1.6;
-  opacity: 0.85;
+  opacity: 0.8;
+  overflow-wrap: break-word;
 }
 
 @media (max-width: 989px) {
@@ -392,13 +632,116 @@
   .ori-gvm-product__band {
     padding: 40px 0;
   }
+  .ori-gvm-product__cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .ori-gvm-product__acc-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
+
 @media (max-width: 639px) {
-  .ori-gvm-product__benefits,
-  .ori-gvm-product__included {
+  .ori-gvm-product__cards {
     grid-template-columns: 1fr;
   }
   .ori-gvm-product__ctas .btn {
     flex: 1 1 auto;
+  }
+  .ori-gvm-product__brands-row {
+    gap: 18px 28px;
+  }
+  .ori-gvm-product__brand-img {
+    max-height: 30px;
+    max-width: 110px;
+  }
+}
+
+/* Accessories stay 2-up rather than 1-up on the smallest screens so the row
+   still reads as a shelf of add-ons. */
+@media (max-width: 479px) {
+  .ori-gvm-product__acc-body {
+    padding: 12px 12px 14px;
+  }
+  .ori-gvm-product__acc-title {
+    font-size: 14px;
+  }
+}
+
+/* Promote the timeline to a horizontal stepper once there is room. Three or
+   fewer steps get it from 750px; four or more wait for full desktop so the
+   cards never get too narrow. */
+@media (min-width: 750px) {
+  .ori-gvm-product__steps--few {
+    grid-template-columns: repeat(var(--gvm-step-count, 3), minmax(0, 1fr));
+    gap: 24px;
+    max-width: none;
+  }
+  .ori-gvm-product__steps--few .ori-gvm-product__step {
+    padding: calc(var(--gvm-step-badge) / 2 + 16px) 20px 22px;
+    border: var(--gvm-card-border);
+    border-radius: var(--gvm-card-radius);
+    background: var(--gvm-card-bg, #fff);
+    box-shadow: var(--gvm-card-shadow);
+    text-align: center;
+  }
+  .ori-gvm-product__steps--few .ori-gvm-product__step::before {
+    left: 50%;
+    top: 0;
+    transform: translate(-50%, -50%);
+  }
+  /* Connector runs across the grid gap, not down the page. */
+  .ori-gvm-product__steps--few .ori-gvm-product__step::after {
+    left: 100%;
+    top: 0;
+    bottom: auto;
+    width: 24px;
+    height: 2px;
+  }
+  .ori-gvm-product__steps--few .ori-gvm-product__step-title {
+    padding-top: 0;
+  }
+}
+
+@media (min-width: 990px) {
+  .ori-gvm-product__steps {
+    grid-template-columns: repeat(var(--gvm-step-count, 3), minmax(0, 1fr));
+    gap: 24px;
+    max-width: none;
+  }
+  .ori-gvm-product__step {
+    padding: calc(var(--gvm-step-badge) / 2 + 16px) 20px 22px;
+    border: var(--gvm-card-border);
+    border-radius: var(--gvm-card-radius);
+    background: var(--gvm-card-bg, #fff);
+    box-shadow: var(--gvm-card-shadow);
+    text-align: center;
+  }
+  .ori-gvm-product__step::before {
+    left: 50%;
+    top: 0;
+    transform: translate(-50%, -50%);
+  }
+  .ori-gvm-product__step::after {
+    left: 100%;
+    top: 0;
+    bottom: auto;
+    width: 24px;
+    height: 2px;
+  }
+  .ori-gvm-product__step-title {
+    padding-top: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ori-gvm-product__card,
+  .ori-gvm-product__acc-link,
+  .ori-gvm-product__card::before,
+  .ori-gvm-product__brand-img {
+    transition: none;
+  }
+  .ori-gvm-product__card:hover,
+  .ori-gvm-product__acc-link:hover {
+    transform: none;
   }
 }
