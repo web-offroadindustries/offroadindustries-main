@@ -1,0 +1,317 @@
+{{ 'ori-gvm-weight-chart.css' | asset_url | stylesheet_tag }}
+{%- comment -%}
+  ORI GVM Weight Breakdown
+  ------------------------
+  A donut chart showing where a vehicle's GVM is spent (kerb weight, passengers,
+  accessories, remaining payload). Part-to-whole at a glance, capped at 6
+  segments, which is the one case a donut is the right form.
+
+  Colours come from a fixed, validated categorical order and are assigned by
+  block index. They are never cycled or merchant-picked, because the ordering is
+  what keeps adjacent segments distinguishable for colour-blind readers.
+
+  Every value is readable three ways (segment label, legend, table view) so no
+  meaning is carried by colour alone.
+{%- endcomment -%}
+{%- liquid
+  assign section_id = section.settings.custom_id | default: section.id
+  assign container = section.settings.container | default: 'container'
+  assign segments = section.blocks | where: 'type', 'segment'
+
+  # Fixed categorical order, validated light and dark. Index 0-5 only.
+  assign palette = '#2a78d6,#eb6834,#1baf7a,#eda100,#e87ba4,#008300' | split: ','
+
+  # Sum the segment weights to get the whole.
+  assign total = 0
+  for block in segments
+    assign w = block.settings.weight | plus: 0
+    if w > 0
+      assign total = total | plus: w
+    endif
+  endfor
+
+  assign total_f = total | times: 1.0
+
+  # Donut geometry. Arc lengths are computed against this circumference.
+  assign radius = 88
+  assign circumference = 552.92
+  assign gap = 3
+-%}
+
+{%- if segments.size > 0 and total > 0 -%}
+  <div
+    id="{{ section_id }}"
+    class="ori-gvm-weight f-section-padding color-{{ section.settings.color_schema }}"
+    data-section-type="ori-gvm-weight-chart"
+    style="
+      --section-padding-top: {{ section.settings.padding_top }}px;
+      --section-padding-bottom: {{ section.settings.padding_bottom }}px;
+      {%- if section.settings.bg_color != blank %} --gvm-weight-surface: {{ section.settings.bg_color }};{% endif -%}
+    "
+  >
+    <div class="{{ container }}">
+
+      {%- if section.settings.heading != blank or section.settings.subheading != blank -%}
+        <div class="ori-gvm-weight__header">
+          {%- if section.settings.heading != blank -%}
+            <h2 class="ori-gvm-weight__heading h3">{{ section.settings.heading }}</h2>
+          {%- endif -%}
+          {%- if section.settings.subheading != blank -%}
+            <p class="ori-gvm-weight__subheading">{{ section.settings.subheading }}</p>
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+
+      <div class="ori-gvm-weight__layout">
+
+        {%- comment -%} Donut {%- endcomment -%}
+        <figure class="ori-gvm-weight__figure">
+          <svg
+            class="ori-gvm-weight__donut"
+            viewBox="0 0 240 240"
+            role="img"
+            aria-label="{{ section.settings.heading | default: 'Weight breakdown' | escape }}: total {{ total }}{{ section.settings.unit }}"
+          >
+            <g transform="rotate(-90 120 120)">
+              {%- assign cum = 0 -%}
+              {%- for block in segments limit: 6 -%}
+                {%- assign w = block.settings.weight | plus: 0 -%}
+                {%- if w > 0 -%}
+                {%- liquid
+                  assign frac = w | times: 1.0 | divided_by: total_f
+                  assign seg_len = frac | times: circumference
+                  assign dash = seg_len | minus: gap
+                  if dash < 1
+                    assign dash = 1
+                  endif
+                  assign rest = circumference | minus: dash
+                  assign offset = 0 | minus: cum
+                  assign colour = palette[forloop.index0]
+                  assign pct = frac | times: 100 | round: 1
+                  assign seg_label = block.settings.label | default: 'Segment'
+                -%}
+                <circle
+                  class="ori-gvm-weight__seg"
+                  cx="120"
+                  cy="120"
+                  r="{{ radius }}"
+                  fill="none"
+                  stroke="{{ colour }}"
+                  stroke-width="28"
+                  stroke-dasharray="{{ dash }} {{ rest }}"
+                  stroke-dashoffset="{{ offset }}"
+                  data-label="{{ seg_label | escape }}"
+                  data-value="{{ w }}{{ section.settings.unit }}"
+                  data-pct="{{ pct }}%"
+                  tabindex="0"
+                  role="listitem"
+                  aria-label="{{ seg_label | escape }}: {{ w }}{{ section.settings.unit }}, {{ pct }} percent"
+                  {{ block.shopify_attributes }}
+                ></circle>
+                {%- assign cum = cum | plus: seg_len -%}
+                {%- endif -%}
+              {%- endfor -%}
+            </g>
+          </svg>
+
+          <div class="ori-gvm-weight__center" aria-hidden="true">
+            <span class="ori-gvm-weight__total">{{ total }}<span class="ori-gvm-weight__total-unit">{{ section.settings.unit }}</span></span>
+            {%- if section.settings.total_label != blank -%}
+              <span class="ori-gvm-weight__total-label">{{ section.settings.total_label }}</span>
+            {%- endif -%}
+          </div>
+
+          <div class="ori-gvm-weight__tip" data-gvm-weight-tip hidden></div>
+        </figure>
+
+        {%- comment -%}
+          Legend. Direct labels are mandatory here: several palette steps sit
+          below 3:1 against a light surface, so the value must never depend on
+          the swatch alone.
+        {%- endcomment -%}
+        <ul class="ori-gvm-weight__legend" role="list">
+          {%- for block in segments limit: 6 -%}
+            {%- assign w = block.settings.weight | plus: 0 -%}
+            {%- if w > 0 -%}
+            {%- liquid
+              assign frac = w | times: 1.0 | divided_by: total_f
+              assign pct = frac | times: 100 | round: 1
+              assign colour = palette[forloop.index0]
+            -%}
+            <li class="ori-gvm-weight__legend-item">
+              <span class="ori-gvm-weight__swatch" style="background: {{ colour }};" aria-hidden="true"></span>
+              <span class="ori-gvm-weight__legend-text">
+                <span class="ori-gvm-weight__legend-label">{{ block.settings.label | default: 'Segment' }}</span>
+                {%- if block.settings.note != blank -%}
+                  <span class="ori-gvm-weight__legend-note">{{ block.settings.note }}</span>
+                {%- endif -%}
+              </span>
+              <span class="ori-gvm-weight__legend-value">
+                <strong>{{ w }}{{ section.settings.unit }}</strong>
+                <span class="ori-gvm-weight__legend-pct">{{ pct }}%</span>
+              </span>
+            </li>
+            {%- endif -%}
+          {%- endfor -%}
+        </ul>
+      </div>
+
+      {%- comment -%} Table view: the WCAG-clean twin of the chart. {%- endcomment -%}
+      {%- if section.settings.show_table -%}
+        <details class="ori-gvm-weight__tableview">
+          <summary>{{ section.settings.table_label | default: 'View as table' }}</summary>
+          <table class="ori-gvm-weight__table">
+            <thead>
+              <tr>
+                <th scope="col">Item</th>
+                <th scope="col">Weight</th>
+                <th scope="col">Share</th>
+              </tr>
+            </thead>
+            <tbody>
+              {%- for block in segments limit: 6 -%}
+                {%- assign w = block.settings.weight | plus: 0 -%}
+                {%- if w > 0 -%}
+                  {%- liquid
+                    assign frac = w | times: 1.0 | divided_by: total_f
+                    assign pct = frac | times: 100 | round: 1
+                  -%}
+                  <tr>
+                    <th scope="row">{{ block.settings.label | default: 'Segment' }}</th>
+                    <td>{{ w }}{{ section.settings.unit }}</td>
+                    <td>{{ pct }}%</td>
+                  </tr>
+                {%- endif -%}
+              {%- endfor -%}
+            </tbody>
+            <tfoot>
+              <tr>
+                <th scope="row">{{ section.settings.total_label | default: 'Total' }}</th>
+                <td>{{ total }}{{ section.settings.unit }}</td>
+                <td>100%</td>
+              </tr>
+            </tfoot>
+          </table>
+        </details>
+      {%- endif -%}
+
+      {%- if section.settings.footnote != blank -%}
+        <p class="ori-gvm-weight__footnote">{{ section.settings.footnote }}</p>
+      {%- endif -%}
+
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      var root = document.getElementById({{ section_id | json }});
+      if (!root) return;
+      var tip = root.querySelector('[data-gvm-weight-tip]');
+      var segs = root.querySelectorAll('.ori-gvm-weight__seg');
+      var fig = root.querySelector('.ori-gvm-weight__figure');
+      if (!tip || !segs.length || !fig) return;
+
+      function show(seg) {
+        tip.innerHTML =
+          '<span class="ori-gvm-weight__tip-label"></span>' +
+          '<span class="ori-gvm-weight__tip-value"></span>';
+        tip.querySelector('.ori-gvm-weight__tip-label').textContent = seg.getAttribute('data-label');
+        tip.querySelector('.ori-gvm-weight__tip-value').textContent =
+          seg.getAttribute('data-value') + ' · ' + seg.getAttribute('data-pct');
+        tip.removeAttribute('hidden');
+        root.classList.add('is-hovering');
+        seg.classList.add('is-active');
+      }
+      function hide(seg) {
+        tip.setAttribute('hidden', '');
+        root.classList.remove('is-hovering');
+        if (seg) seg.classList.remove('is-active');
+      }
+
+      segs.forEach(function (seg) {
+        seg.addEventListener('mouseenter', function () { show(seg); });
+        seg.addEventListener('focus', function () { show(seg); });
+        seg.addEventListener('mouseleave', function () { hide(seg); });
+        seg.addEventListener('blur', function () { hide(seg); });
+      });
+      fig.addEventListener('mouseleave', function () {
+        segs.forEach(function (s) { s.classList.remove('is-active'); });
+        hide(null);
+      });
+    })();
+  </script>
+
+{%- elsif request.design_mode -%}
+  <div class="{{ section.settings.container | default: 'container' }}">
+    <p class="ori-gvm-weight__empty">Add a Weight segment block and give each one a weight in kg to draw the chart. This note only shows in the theme editor.</p>
+  </div>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "ORI GVM Weight Chart",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    { "type": "header", "content": "Section header" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Where Your GVM Goes" },
+    { "type": "text", "id": "subheading", "label": "Subheading", "default": "A breakdown of how the upgraded Gross Vehicle Mass is used." },
+    { "type": "header", "content": "Chart" },
+    { "type": "text", "id": "total_label", "label": "Centre label", "default": "Upgraded GVM" },
+    { "type": "text", "id": "unit", "label": "Unit suffix", "info": "Appended to every figure, e.g. kg.", "default": "kg" },
+    { "type": "checkbox", "id": "show_table", "label": "Show \"View as table\"", "info": "Keeps every value readable without relying on colour. Recommended.", "default": true },
+    { "type": "text", "id": "table_label", "label": "Table toggle label", "default": "View as table" },
+    { "type": "text", "id": "footnote", "label": "Footnote", "info": "Small print under the chart, e.g. figures are indicative." },
+    { "type": "header", "content": "Layout" },
+    {
+      "type": "select",
+      "id": "container",
+      "label": "Container width",
+      "options": [
+        { "value": "container-full", "label": "Full width" },
+        { "value": "container", "label": "Fixed (1200px)" },
+        { "value": "container-narrow", "label": "Narrow" }
+      ],
+      "default": "container"
+    },
+    {
+      "type": "select",
+      "id": "color_schema",
+      "label": "Color scheme",
+      "options": [
+        { "value": "", "label": "Default" },
+        { "value": "accent", "label": "Accent" },
+        { "value": "inverse", "label": "Inverse" }
+      ],
+      "default": ""
+    },
+    { "type": "color", "id": "bg_color", "label": "Background colour", "info": "Optional. Leave blank to inherit the page background." },
+    { "type": "range", "id": "padding_top", "label": "Padding top", "min": 0, "max": 120, "step": 4, "unit": "px", "default": 60 },
+    { "type": "range", "id": "padding_bottom", "label": "Padding bottom", "min": 0, "max": 120, "step": 4, "unit": "px", "default": 60 },
+    { "type": "text", "id": "custom_id", "label": "Custom HTML ID" }
+  ],
+  "blocks": [
+    {
+      "type": "segment",
+      "name": "Weight segment",
+      "limit": 6,
+      "settings": [
+        { "type": "text", "id": "label", "label": "Label", "info": "e.g. Kerb weight, Passengers, Accessories, Remaining payload.", "default": "Kerb weight" },
+        { "type": "number", "id": "weight", "label": "Weight", "info": "Whole number in the unit set above. Segments are drawn in the order listed." },
+        { "type": "text", "id": "note", "label": "Small note", "info": "Optional line under the label in the legend." }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "ORI GVM Weight Chart",
+      "blocks": [
+        { "type": "segment", "settings": { "label": "Kerb weight" } },
+        { "type": "segment", "settings": { "label": "Passengers & gear" } },
+        { "type": "segment", "settings": { "label": "Accessories" } },
+        { "type": "segment", "settings": { "label": "Remaining payload" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
