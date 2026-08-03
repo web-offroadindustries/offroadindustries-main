@@ -955,3 +955,212 @@
     margin-top: 4px;
   }
 }
+
+/* ═══════════════════════════════════════════════════════════════════════
+   CLASSIC LAYOUT REDESIGN  (.ori-gvm-product--classic)
+   The original problem was rhythm: five consecutive centred bands with the
+   same structure on white, so the page read flat. Each band now gets its
+   own treatment - a dark high-contrast benefits band, an asymmetric split
+   for what's included, and oversized ghost numerals for the process - so
+   the eye has somewhere to go. Accent is brand teal.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.ori-gvm-product--classic {
+  --gvm-teal: #56bdc2;
+  --gvm-teal-ink: #0f5457;
+  --gvm-accent: var(--gvm-teal);
+}
+
+/* Headings stop being centred: a left rule gives the page a spine. */
+.ori-gvm-product--classic .ori-gvm-product__block-title {
+  text-align: left;
+  position: relative;
+  padding-top: 20px;
+  margin-bottom: 10px;
+  letter-spacing: -0.01em;
+}
+.ori-gvm-product--classic .ori-gvm-product__block-title::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 56px;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--gvm-teal);
+}
+.ori-gvm-product--classic .ori-gvm-product__block-sub {
+  text-align: left;
+  margin: 0 0 26px;
+  max-width: 62ch;
+}
+.ori-gvm-product--classic .ori-gvm-product__cards,
+.ori-gvm-product--classic .ori-gvm-product__acc-grid,
+.ori-gvm-product--classic .ori-gvm-product__steps {
+  margin-top: 26px;
+}
+
+/* ── BAND 1: Key benefits, inverted for contrast ──
+   A dark band straight after the white hero is the anchor the page was
+   missing. Cards lose their chrome and lean on the teal icon instead. */
+.ori-gvm-product--classic .ori-gvm-product__band--benefits {
+  background: #101315;
+  color: #fff;
+}
+.ori-gvm-product--classic .ori-gvm-product__band--benefits .ori-gvm-product__block-title {
+  color: #fff;
+}
+.ori-gvm-product--classic .ori-gvm-product__band--benefits .ori-gvm-product__card {
+  background: transparent;
+  border: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 0;
+  box-shadow: none;
+  padding: 22px 0 0;
+  gap: 16px;
+}
+.ori-gvm-product--classic .ori-gvm-product__band--benefits .ori-gvm-product__card::before {
+  display: none;
+}
+.ori-gvm-product--classic .ori-gvm-product__band--benefits .ori-gvm-product__card:hover {
+  transform: none;
+  box-shadow: none;
+}
+.ori-gvm-product--classic .ori-gvm-product__band--benefits .ori-gvm-product__badge {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: var(--gvm-teal);
+  color: #06282a;
+}
+.ori-gvm-product--classic .ori-gvm-product__band--benefits .ori-gvm-product__card-title {
+  font-size: 19px;
+  color: #fff;
+  line-height: 1.3;
+}
+.ori-gvm-product--classic .ori-gvm-product__band--benefits .ori-gvm-product__card-note {
+  color: rgba(255, 255, 255, 0.66);
+  opacity: 1;
+}
+
+/* ── BAND 2: What's included, asymmetric split ──
+   Heading sits in its own column so the band stops mirroring the others. */
+@media (min-width: 990px) {
+  .ori-gvm-product--classic .ori-gvm-product__block--split {
+    display: grid;
+    grid-template-columns: 300px minmax(0, 1fr);
+    column-gap: 56px;
+    align-items: start;
+  }
+  .ori-gvm-product--classic .ori-gvm-product__block--split .ori-gvm-product__block-title {
+    grid-column: 1;
+    position: sticky;
+    top: 90px;
+    margin-bottom: 0;
+  }
+  .ori-gvm-product--classic .ori-gvm-product__block--split .ori-gvm-product__cards {
+    grid-column: 2;
+    margin-top: 0;
+  }
+  .ori-gvm-product--classic .ori-gvm-product__block--split .ori-gvm-product__brands {
+    grid-column: 1 / -1;
+  }
+}
+/* Included items read as a tight spec list, not another grid of boxes. */
+.ori-gvm-product--classic .ori-gvm-product__band--included .ori-gvm-product__cards {
+  --gvm-cards: 2;
+  gap: 0 40px;
+}
+.ori-gvm-product--classic .ori-gvm-product__band--included .ori-gvm-product__card {
+  flex-direction: row;
+  align-items: center;
+  gap: 14px;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid color-mix(in srgb, currentColor 14%, transparent);
+  border-radius: 0;
+  box-shadow: none;
+  padding: 16px 0;
+}
+.ori-gvm-product--classic .ori-gvm-product__band--included .ori-gvm-product__card::before {
+  display: none;
+}
+.ori-gvm-product--classic .ori-gvm-product__band--included .ori-gvm-product__card:hover {
+  transform: none;
+  box-shadow: none;
+}
+.ori-gvm-product--classic .ori-gvm-product__band--included .ori-gvm-product__card-media {
+  min-height: 0;
+}
+.ori-gvm-product--classic .ori-gvm-product__band--included .ori-gvm-product__badge {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--gvm-teal) 22%, transparent);
+  color: var(--gvm-teal-ink);
+}
+.ori-gvm-product--classic .ori-gvm-product__band--included .ori-gvm-product__badge svg {
+  width: 14px;
+  height: 14px;
+}
+.ori-gvm-product--classic .ori-gvm-product__band--included .ori-gvm-product__card-title {
+  font-size: 15px;
+  font-weight: 600;
+}
+.ori-gvm-product--classic .ori-gvm-product__band--included .ori-gvm-product__card-logo {
+  max-height: 30px;
+  max-width: 92px;
+}
+
+/* ── BAND 3: Installation process, oversized ghost numerals ── */
+.ori-gvm-product--classic .ori-gvm-product__band--steps {
+  background: #f4fbfb;
+}
+@media (min-width: 750px) {
+  .ori-gvm-product--classic .ori-gvm-product__band--steps .ori-gvm-product__step {
+    text-align: left;
+    padding: 30px 22px 24px;
+    border: 0;
+    border-top: 3px solid var(--gvm-teal);
+    border-radius: 0;
+    background: #fff;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+    overflow: hidden;
+  }
+  /* The numeral becomes a watermark rather than a badge. */
+  .ori-gvm-product--classic .ori-gvm-product__band--steps .ori-gvm-product__step::before {
+    content: counter(ori-step, decimal-leading-zero);
+    position: static;
+    display: block;
+    width: auto;
+    height: auto;
+    transform: none;
+    border-radius: 0;
+    background: none;
+    color: var(--gvm-teal);
+    font-size: 46px;
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    opacity: 0.45;
+    margin-bottom: 10px;
+  }
+  .ori-gvm-product--classic .ori-gvm-product__band--steps .ori-gvm-product__step-title {
+    padding-top: 0;
+    font-size: 17px;
+  }
+}
+
+/* Accessories inherit the light card treatment but pick up the teal CTA. */
+.ori-gvm-product--classic .ori-gvm-product__acc-cta {
+  color: var(--gvm-teal-ink);
+}
+.ori-gvm-product--classic .ori-gvm-product__card-eyebrow {
+  color: var(--gvm-teal-ink);
+}
+
+@media (max-width: 989px) {
+  .ori-gvm-product--classic .ori-gvm-product__band--included .ori-gvm-product__cards {
+    --gvm-cards: 1;
+  }
+}

@@ -311,7 +311,7 @@
 
   {%- comment -%} Key benefits band {%- endcomment -%}
   {%- if benefits.size > 0 -%}
-    <div class="ori-gvm-product__band ori-gvm-product__band--alt">
+    <div class="ori-gvm-product__band ori-gvm-product__band--alt ori-gvm-product__band--benefits">
       <div class="{{ container }}">
         <div class="ori-gvm-product__block ori-gvm-product__block--wide">
           <h2 class="ori-gvm-product__block-title h3">{{ section.settings.benefits_heading | default: 'Key benefits' }}</h2>
@@ -339,9 +339,9 @@
 
   {%- comment -%} What's included band {%- endcomment -%}
   {%- if included.size > 0 -%}
-    <div class="ori-gvm-product__band">
+    <div class="ori-gvm-product__band ori-gvm-product__band--included">
       <div class="{{ container }}">
-        <div class="ori-gvm-product__block ori-gvm-product__block--wide">
+        <div class="ori-gvm-product__block ori-gvm-product__block--wide ori-gvm-product__block--split">
           <h2 class="ori-gvm-product__block-title h3">{{ section.settings.included_heading | default: "What's included" }}</h2>
           <ul class="ori-gvm-product__cards" style="--gvm-cards: {{ cards_per_row }};" role="list">
             {%- for block in included -%}
@@ -445,7 +445,7 @@
 
   {%- comment -%} Installation process band {%- endcomment -%}
   {%- if steps.size > 0 -%}
-    <div class="ori-gvm-product__band">
+    <div class="ori-gvm-product__band ori-gvm-product__band--steps">
       <div class="{{ container }}">
         <div class="ori-gvm-product__block ori-gvm-product__block--wide">
           <h2 class="ori-gvm-product__block-title h3">{{ section.settings.install_heading | default: 'Installation process' }}</h2>
