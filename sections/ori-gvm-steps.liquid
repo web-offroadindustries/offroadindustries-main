@@ -1,18 +1,22 @@
 {%- comment -%}
   ORI GVM Installation Process.
 
-  Split out of the ORI GVM Product section so merchants can edit, reorder and
-  remove it on its own. The markup mirrors the band it replaces: the rules in
-  ori-gvm-product.css are scoped as
-  `.ori-gvm-product--<layout> .ori-gvm-product__band--steps ...`, so the
-  wrapper has to keep both the layout class and the band class.
+  A numbered row of steps: teal counter disc, title, description, joined by a
+  connector line that runs from one disc edge to the next. Numbers come from a
+  CSS counter, so adding or reordering steps renumbers them automatically.
 
-  --gvm-step-count drives the desktop column count, and the --few modifier
-  promotes three or fewer steps to a horizontal row earlier (750px instead of
-  990px) so short sequences do not sit in a tall vertical rail on tablets.
+  Under 750px it becomes a single centred column and the connector rotates to
+  run vertically between the discs. The connector is drawn on each step except
+  the last, and its length is derived from the grid gap, so it never leaves the
+  stub of a line hanging off the end of the row.
+
+  The outer wrapper keeps the .ori-gvm-product and layout classes so the band
+  background matches the sections around it. Everything inside uses its own
+  .ori-gvm-steps namespace.
 {%- endcomment -%}
 
 {{ 'ori-gvm-product.css' | asset_url | stylesheet_tag }}
+{{ 'ori-gvm-steps.css' | asset_url | stylesheet_tag }}
 
 {%- liquid
   assign section_id = section.settings.custom_id | default: section.id
@@ -23,7 +27,7 @@
 {%- if steps.size > 0 -%}
   <div
     id="{{ section_id }}"
-    class="ori-gvm-product ori-gvm-product--{{ section.settings.layout | default: 'classic' }} color-{{ section.settings.color_schema }}{% if section.settings.mobile_slider %} ori-gvm-product--swipe{% endif %}"
+    class="ori-gvm-product ori-gvm-product--{{ section.settings.layout | default: 'classic' }} color-{{ section.settings.color_schema }}"
     data-section-type="ori-gvm-steps"
     style="--gvm-tint: {{ section.settings.tint_color | default: '#f3f6f7' }};"
   >
@@ -32,26 +36,28 @@
       style="padding-top: {{ section.settings.padding_top }}px; padding-bottom: {{ section.settings.padding_bottom }}px;"
     >
       <div class="{{ container }}">
-        <div class="ori-gvm-product__block ori-gvm-product__block--wide">
-          {%- if section.settings.heading != blank -%}
-            <h2 class="ori-gvm-product__block-title h3">{{ section.settings.heading }}</h2>
-          {%- endif -%}
-          <ol
-            class="ori-gvm-product__steps{% if steps.size < 4 %} ori-gvm-product__steps--few{% endif %}"
-            style="--gvm-step-count: {{ steps.size }};"
-          >
-            {%- for block in steps -%}
-              <li class="ori-gvm-product__step" {{ block.shopify_attributes }}>
-                {%- if block.settings.heading != blank -%}
-                  <h3 class="ori-gvm-product__step-title">{{ block.settings.heading }}</h3>
-                {%- endif -%}
-                {%- if block.settings.text != blank -%}
-                  <p class="ori-gvm-product__step-text">{{ block.settings.text }}</p>
-                {%- endif -%}
-              </li>
-            {%- endfor -%}
-          </ol>
-        </div>
+        {%- if section.settings.heading != blank -%}
+          <h2 class="ori-gvm-steps__heading h3 ori-gvm-steps__heading--{{ section.settings.heading_align | default: 'center' }}">
+            {{ section.settings.heading }}
+          </h2>
+        {%- endif -%}
+
+        <ol
+          class="ori-gvm-steps"
+          style="--steps-count: {{ steps.size }}; --step-dot: {{ section.settings.dot_size | default: 54 }}px;"
+        >
+          {%- for block in steps -%}
+            <li class="ori-gvm-steps__step" {{ block.shopify_attributes }}>
+              <span class="ori-gvm-steps__dot" aria-hidden="true"></span>
+              {%- if block.settings.heading != blank -%}
+                <h3 class="ori-gvm-steps__title">{{ block.settings.heading }}</h3>
+              {%- endif -%}
+              {%- if block.settings.text != blank -%}
+                <p class="ori-gvm-steps__text">{{ block.settings.text }}</p>
+              {%- endif -%}
+            </li>
+          {%- endfor -%}
+        </ol>
       </div>
     </div>
   </div>
@@ -64,6 +70,16 @@
   "class": "section",
   "settings": [
     { "type": "text", "id": "heading", "label": "Heading", "default": "Installation process" },
+    {
+      "type": "select",
+      "id": "heading_align",
+      "label": "Heading alignment",
+      "options": [
+        { "value": "center", "label": "Centred" },
+        { "value": "left", "label": "Left" }
+      ],
+      "default": "center"
+    },
     { "type": "header", "content": "Layout style" },
     {
       "type": "select",
@@ -77,11 +93,15 @@
       "default": "classic"
     },
     {
-      "type": "checkbox",
-      "id": "mobile_slider",
-      "label": "Swipe steps on mobile",
-      "info": "Turns the steps into a swipeable slider on phones instead of stacking them.",
-      "default": false
+      "type": "range",
+      "id": "dot_size",
+      "label": "Number circle size",
+      "info": "Steps sit side by side on desktop and stack into one centred column on mobile. Three to five steps read best in a row.",
+      "min": 36,
+      "max": 80,
+      "step": 2,
+      "unit": "px",
+      "default": 54
     },
     { "type": "header", "content": "Appearance" },
     { "type": "checkbox", "id": "alt_background", "label": "Use tinted background", "info": "Ignored on the Technical layout, which gives the steps their own paper tone.", "default": false },
@@ -116,7 +136,7 @@
     {
       "name": "ORI GVM Install Steps",
       "blocks": [
-        { "type": "step", "settings": { "heading": "Request a quote", "text": "Send us your vehicle details and we prepare a package quote." } },
+        { "type": "step", "settings": { "heading": "Request quote", "text": "Send us your vehicle details and we prepare a package quote." } },
         { "type": "step", "settings": { "heading": "Book your install", "text": "Choose an approved installer near you and book a date." } },
         { "type": "step", "settings": { "heading": "Get certified", "text": "We complete the upgrade and issue engineering certification." } }
       ]
