@@ -79,6 +79,24 @@ button, .btn, .spr-summary-actions-newreview {
 }
 
 /* =========================
+   IN-PAGE ANCHOR OFFSET
+   The header is sticky, so a plain #anchor jump parks the target at y=0 and
+   the header then covers its heading. scroll-margin-top moves the landing
+   point down by the header's own height, which theme-script.liquid publishes
+   as --f-header-height on load (and header.js keeps current).
+
+   Applied to section wrappers, since every section carries data-section-type,
+   plus :target as a catch-all for anchors sitting on an inner element.
+   Harmless when the header is not sticky: it just leaves a little more room
+   above the target.
+========================= */
+[data-section-type],
+.shopify-section,
+:target {
+  scroll-margin-top: calc(var(--f-header-height, 80px) + 12px);
+}
+
+/* =========================
    BRAND COLOR (PRIMARY TEAL)
 ========================= */
 a,
