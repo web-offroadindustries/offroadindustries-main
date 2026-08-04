@@ -3,7 +3,9 @@
   assign section_id = section.settings.custom_id | default: section.id
   assign container  = section.settings.container
 
-  assign states = 'VIC,NSW,QLD,WA,SA,TAS,NT' | split: ','
+  # ACT is in the list because the dealer network has a Queanbeyan installer;
+  # a state missing here silently drops every installer assigned to it.
+  assign states = 'VIC,NSW,QLD,WA,SA,TAS,ACT,NT' | split: ','
   assign first_state = states | first
 -%}
 
@@ -110,13 +112,42 @@
                   {%- unless nl contains 'add via theme editor' or nl contains 'tbc' or nl contains 'coming soon' -%}
                   <li class="ori-installer-network__installer" {{ block.shopify_attributes }}>
                     <div class="ori-installer-card">
-                      <div class="ori-installer-card__info">
+                      <div class="ori-installer-card__head">
                         <strong class="ori-installer-card__name">{{ block.settings.name }}</strong>
-                        {%- if block.settings.suburb != blank -%}
+                        {%- if block.settings.logo != blank -%}
+                          {{-
+                            block.settings.logo
+                            | image_url: width: 200
+                            | image_tag:
+                              loading: 'lazy',
+                              class: 'ori-installer-card__logo',
+                              widths: '100,150,200',
+                              sizes: '68px',
+                              alt: block.settings.name | escape
+                          -}}
+                        {%- endif -%}
+                      </div>
+
+                      {%- if block.settings.platinum -%}
+                        <span class="ori-installer-card__badge">Platinum GVM Installer</span>
+                      {%- endif -%}
+
+                      <div class="ori-installer-card__info">
+                        {%- comment -%}
+                          Street, then suburb / state / postcode on its own line.
+                          Suburb alone still renders if no street is recorded.
+                        {%- endcomment -%}
+                        {%- if block.settings.address != blank or block.settings.suburb != blank -%}
                           <span class="ori-installer-card__location">
                             {%- render 'icon-map-pin' -%}
-                            {{ block.settings.suburb }}
-                            {%- if block.settings.state != blank -%}, {{ block.settings.state }}{%- endif -%}
+                            <span class="ori-installer-card__address">
+                              {%- if block.settings.address != blank -%}
+                                {{ block.settings.address }}<br>
+                              {%- endif -%}
+                              {{- block.settings.suburb -}}
+                              {%- if block.settings.state != blank -%}, {{ block.settings.state }}{%- endif -%}
+                              {%- if block.settings.postcode != blank %} {{ block.settings.postcode }}{% endif -%}
+                            </span>
                           </span>
                         {%- endif -%}
                         {%- assign pl = block.settings.phone | downcase -%}
@@ -127,6 +158,11 @@
                               {{ block.settings.phone }}
                             </a>
                           {%- endunless -%}
+                        {%- endif -%}
+                        {%- if block.settings.email != blank -%}
+                          <a href="mailto:{{ block.settings.email }}" class="ori-installer-card__email">
+                            {{ block.settings.email }}
+                          </a>
                         {%- endif -%}
                         {%- if block.settings.website != blank -%}
                           <a href="{{ block.settings.website }}" class="ori-installer-card__website" target="_blank" rel="noopener">
@@ -323,6 +359,7 @@
             { "value": "WA",  "label": "Western Australia (WA)" },
             { "value": "SA",  "label": "South Australia (SA)" },
             { "value": "TAS", "label": "Tasmania (TAS)" },
+            { "value": "ACT", "label": "Aust. Capital Territory (ACT)" },
             { "value": "NT",  "label": "Northern Territory (NT)" }
           ],
           "default": "VIC"
@@ -334,6 +371,23 @@
           "default": "ORI Approved Installer"
         },
         {
+          "type": "image_picker",
+          "id": "logo",
+          "label": "Logo",
+          "info": "Optional. Shown top-right of the card."
+        },
+        {
+          "type": "checkbox",
+          "id": "platinum",
+          "label": "Platinum GVM Installer",
+          "default": false
+        },
+        {
+          "type": "text",
+          "id": "address",
+          "label": "Street address"
+        },
+        {
           "type": "text",
           "id": "suburb",
           "label": "Suburb / City",
@@ -341,8 +395,18 @@
         },
         {
           "type": "text",
+          "id": "postcode",
+          "label": "Postcode"
+        },
+        {
+          "type": "text",
           "id": "phone",
           "label": "Phone number"
+        },
+        {
+          "type": "text",
+          "id": "email",
+          "label": "Email address"
         },
         {
           "type": "url",
