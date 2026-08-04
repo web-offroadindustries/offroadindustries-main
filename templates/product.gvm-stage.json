@@ -101,7 +101,8 @@
             "text": "Fox shocks",
             "logo": "shopify://shop_images/420_x_420px_MEGA_MENU_ICON__FOX.jpg",
             "brand": "",
-            "note": ""
+            "note": "",
+            "icon": "check"
           }
         },
         "included_bds": {
@@ -109,7 +110,8 @@
           "settings": {
             "text": "BDS components",
             "brand": "",
-            "note": ""
+            "note": "",
+            "icon": "check"
           }
         },
         "included_springs": {
@@ -117,7 +119,8 @@
           "settings": {
             "text": "ORI springs",
             "brand": "",
-            "note": ""
+            "note": "",
+            "icon": "check"
           }
         },
         "included_cert": {
@@ -125,7 +128,26 @@
           "settings": {
             "text": "Engineering certification",
             "brand": "",
-            "note": ""
+            "note": "",
+            "icon": "shield"
+          }
+        },
+        "incl_image_1": {
+          "type": "image",
+          "settings": {
+            "alt": ""
+          }
+        },
+        "incl_image_2": {
+          "type": "image",
+          "settings": {
+            "alt": ""
+          }
+        },
+        "incl_image_3": {
+          "type": "image",
+          "settings": {
+            "alt": ""
           }
         }
       },
@@ -133,14 +155,15 @@
         "included_fox",
         "included_bds",
         "included_springs",
-        "included_cert"
+        "included_cert",
+        "incl_image_1",
+        "incl_image_2",
+        "incl_image_3"
       ],
       "settings": {
         "heading": "What's included",
         "layout": "classic",
-        "mobile_slider": false,
-        "cards_per_row": 3,
-        "item_logo_height": 40,
+        "item_logo_height": 34,
         "brand_logo_height": 72,
         "brands_heading": "Built with",
         "alt_background": false,
@@ -149,7 +172,9 @@
         "padding_top": 52,
         "padding_bottom": 52,
         "custom_id": "",
-        "color_schema": ""
+        "color_schema": "",
+        "media_position": "right",
+        "autoplay_seconds": 5
       }
     },
     "gvm_steps": {
