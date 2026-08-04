@@ -567,41 +567,536 @@
     "installers": {
       "type": "ori-installer-network",
       "blocks": {
-        "installer_vic": {
-          "type": "installer",
-          "settings": {
-            "state": "VIC",
-            "name": "ORI Offroad Industries (HQ)",
-            "suburb": "Melbourne",
-            "phone": "TBC",
-            "website": ""
-          }
-        },
-        "installer_nsw": {
+        "installer_01": {
           "type": "installer",
           "settings": {
             "state": "NSW",
-            "name": "NSW Installer — add via theme editor",
-            "suburb": "Sydney",
-            "phone": "",
-            "website": ""
+            "name": "Project Overland",
+            "logo": "shopify://shop_images/PROJECT_OVERLANDER_4.png",
+            "platinum": true,
+            "address": "Unit 2, 14 Orielton Rd",
+            "suburb": "Smeaton Grange",
+            "postcode": "2567",
+            "phone": "02 7252 3989",
+            "email": "info@projectoverlander.com.au",
+            "website": "https://www.projectoverlander.com.au/"
           }
         },
-        "installer_qld": {
+        "installer_02": {
+          "type": "installer",
+          "settings": {
+            "state": "VIC",
+            "name": "Get Off Road 4x4 Wodonga",
+            "logo": "shopify://shop_images/image_-_2026-05-26T145509.187.png",
+            "platinum": true,
+            "address": "9 Osburn Street",
+            "suburb": "Wodonga",
+            "postcode": "3690",
+            "phone": "02 6024 3888",
+            "email": "sales@getoffroad4x4.com.au",
+            "website": "https://www.getoffroad4x4.com.au/contact-us"
+          }
+        },
+        "installer_03": {
+          "type": "installer",
+          "settings": {
+            "state": "NSW",
+            "name": "TJM Wagga Wagga",
+            "logo": "shopify://shop_images/Landscape_Alternative_on_Light_2.png",
+            "platinum": true,
+            "address": "3 Rabaul Place",
+            "suburb": "Wagga Wagga",
+            "postcode": "2650",
+            "phone": "02 5954 9955",
+            "email": "sales@tjmwaggawagga.com.au",
+            "website": "https://www.tjmwaggawagga.com.au/"
+          }
+        },
+        "installer_04": {
+          "type": "installer",
+          "settings": {
+            "state": "VIC",
+            "name": "Wangaratta Offroad & Mechanical",
+            "logo": "shopify://shop_images/Wangaratta-OffRoad-Logo_v1_1.png",
+            "platinum": true,
+            "address": "37-39 Hay Ave, IC 3677",
+            "suburb": "Wangaratta",
+            "postcode": "3677",
+            "phone": "(03) 5721 2943",
+            "email": "info@wangarattaoffroad.com.au",
+            "website": "https://www.wangarattaoffroad.com.au/contact"
+          }
+        },
+        "installer_05": {
+          "type": "installer",
+          "settings": {
+            "state": "WA",
+            "name": "Sharp 4x4 Myaree",
+            "logo": "shopify://shop_images/image_-_2026-05-22T092935.065.png",
+            "platinum": true,
+            "address": "94 Norma Road",
+            "suburb": "Myaree",
+            "postcode": "6164",
+            "phone": "(08) 6147 3929",
+            "email": "",
+            "website": "https://sharp4x4.com.au/"
+          }
+        },
+        "installer_06": {
+          "type": "installer",
+          "settings": {
+            "state": "WA",
+            "name": "Sharp 4x4 Cockburn",
+            "logo": "shopify://shop_images/image_-_2026-05-22T092935.065.png",
+            "platinum": true,
+            "address": "11b/816 Beeliar Dr, Cockburn Central WA 6164",
+            "suburb": "Cockburn",
+            "postcode": "6164",
+            "phone": "08 63927049",
+            "email": "",
+            "website": "https://sharp4x4.com.au/contact-us/"
+          }
+        },
+        "installer_07": {
           "type": "installer",
           "settings": {
             "state": "QLD",
-            "name": "QLD Installer — add via theme editor",
-            "suburb": "Brisbane",
-            "phone": "",
+            "name": "Mick Tighe 4x4 & Outdoor",
+            "logo": "shopify://shop_images/MT_STACKED-10SVG_140x_2x_2839bce5-a182-429f-8c3c-8e09d90b109b.svg",
+            "platinum": true,
+            "address": "11 Mort St",
+            "suburb": "Newtown",
+            "postcode": "4350",
+            "phone": "(07) 4632 9782",
+            "email": "",
+            "website": "https://www.micktighe4x4.com.au/"
+          }
+        },
+        "installer_08": {
+          "type": "installer",
+          "settings": {
+            "state": "NSW",
+            "name": "Duffy's Automotive",
+            "logo": "shopify://shop_images/1257_Duffy_s_20Automotive_20Tamworth_20Black_2022.png",
+            "platinum": true,
+            "address": "25 Barnes St,",
+            "suburb": "Taminda",
+            "postcode": "NSW",
+            "phone": "(02) 6766 2774",
+            "email": "",
+            "website": "https://www.duffysautomotivetamworth.repcoservice.net/?utm_source=GMB_listing&utm_medium=organic"
+          }
+        },
+        "installer_09": {
+          "type": "installer",
+          "settings": {
+            "state": "VIC",
+            "name": "ARB Shepparton",
+            "logo": "shopify://shop_images/109-1098596_arb-logo-arb-4x4-accessories.png",
+            "platinum": true,
+            "address": "180 Benalla Rd,",
+            "suburb": "Shepparton",
+            "postcode": "3630",
+            "phone": "(03) 5822 1877",
+            "email": "",
+            "website": "https://www.arb.com.au/arb-stores/arb-shepparton"
+          }
+        },
+        "installer_10": {
+          "type": "installer",
+          "settings": {
+            "state": "QLD",
+            "name": "SNC Automotive",
+            "logo": "shopify://shop_images/logo_1_189edcb0-2c4a-4709-b4ff-d411728c08e9.png",
+            "platinum": true,
+            "address": " 2/25 Kremzow Rd,",
+            "suburb": "Brendale",
+            "postcode": "4500",
+            "phone": "(07) 3205 4315",
+            "email": "",
+            "website": "https://sncautomotive.com.au/"
+          }
+        },
+        "installer_11": {
+          "type": "installer",
+          "settings": {
+            "state": "WA",
+            "name": "ARB Rockingham",
+            "logo": "shopify://shop_images/109-1098596_arb-logo-arb-4x4-accessories.png",
+            "platinum": true,
+            "address": "57 Dixon Rd",
+            "suburb": "Rockingham",
+            "postcode": "6168",
+            "phone": "(08) 9529 2229",
+            "email": "",
+            "website": "https://arbrockingham.com.au/"
+          }
+        },
+        "installer_12": {
+          "type": "installer",
+          "settings": {
+            "state": "TAS",
+            "name": "Fat Builds 4x4",
+            "logo": "shopify://shop_images/Fat_Builds_5_540x_af0b74dc-891e-43cc-aa3f-17febab4f564.png",
+            "platinum": true,
+            "address": "34 Burgess Dr",
+            "suburb": "Shearwater",
+            "postcode": "7307",
+            "phone": "(03) 6428 7240",
+            "email": "",
+            "website": "https://fatbuilds4x4.com.au/"
+          }
+        },
+        "installer_13": {
+          "type": "installer",
+          "settings": {
+            "state": "WA",
+            "name": "Hunter Mechanical Karratha",
+            "logo": "shopify://shop_images/Untitled-Facebook-Ad-1-1024x536.png",
+            "platinum": true,
+            "address": "21 Crane Circle",
+            "suburb": "Pegs Creek",
+            "postcode": "6714",
+            "phone": "(08) 9144 4331",
+            "email": "",
+            "website": ""
+          }
+        },
+        "installer_14": {
+          "type": "installer",
+          "settings": {
+            "state": "WA",
+            "name": "Hunter Mechanical Rockingham",
+            "logo": "shopify://shop_images/Untitled-Facebook-Ad-1-1024x536.png",
+            "platinum": true,
+            "address": "14 Carlston Rd",
+            "suburb": "Rockingham",
+            "postcode": "6168",
+            "phone": "(08) 9279 0664",
+            "email": "",
+            "website": "https://hunter.com.au/?srsltid=ARcRdnqnMBuruhlNnlo8IzFs4q3SCz3yoJuEW2FYz-DhG3aMW5A9H5lz"
+          }
+        },
+        "installer_15": {
+          "type": "installer",
+          "settings": {
+            "state": "WA",
+            "name": "Hunter Mechanical Kenwick",
+            "logo": "shopify://shop_images/Untitled-Facebook-Ad-1-1024x536.png",
+            "platinum": true,
+            "address": "Unit 14/1736 Albany Hwy",
+            "suburb": "Kenwick",
+            "postcode": "6107",
+            "phone": "(08) 9367 0888",
+            "email": "",
+            "website": "https://hunter.com.au/?srsltid=ARcRdnqnMBuruhlNnlo8IzFs4q3SCz3yoJuEW2FYz-DhG3aMW5A9H5lz"
+          }
+        },
+        "installer_16": {
+          "type": "installer",
+          "settings": {
+            "state": "SA",
+            "name": "Jacksons 4x4",
+            "logo": "shopify://shop_images/JA4X4_-_TRANSPARENT_-_WHITE_TEXT_-_HIGHRES.png",
+            "platinum": true,
+            "address": "61 Chris Collins Ct,",
+            "suburb": "Murray Bridge",
+            "postcode": "5253",
+            "phone": " (08) 8532 2550",
+            "email": "",
+            "website": "https://jacksons4x4.com.au/"
+          }
+        },
+        "installer_17": {
+          "type": "installer",
+          "settings": {
+            "state": "VIC",
+            "name": "Ultimate Offroad",
+            "logo": "shopify://shop_images/image_-_2026-05-09T221436.314.png",
+            "platinum": true,
+            "address": "1871 Ferntree Gully Rd",
+            "suburb": "Ferntree Gully",
+            "postcode": "3156",
+            "phone": " (03) 8609 9033",
+            "email": "",
+            "website": "https://ultimateoffroad.com.au/"
+          }
+        },
+        "installer_18": {
+          "type": "installer",
+          "settings": {
+            "state": "VIC",
+            "name": "Opposite Lock Wodonga",
+            "logo": "shopify://shop_images/loog-1920w.webp",
+            "platinum": true,
+            "address": "87 Thomas Mitchell Dr",
+            "suburb": "Wodonga",
+            "postcode": "3690",
+            "phone": "(02) 6056 4414",
+            "email": "",
+            "website": "https://www.oppositelockalburywodonga.com.au/?utm_source=google&utm_medium=organic&utm_campaign=gmb"
+          }
+        },
+        "installer_19": {
+          "type": "installer",
+          "settings": {
+            "state": "VIC",
+            "name": "Echuca Service Centre",
+            "logo": "shopify://shop_images/ESC_LOGO_1_002_002.png",
+            "platinum": true,
+            "address": "1 Northern Hwy,",
+            "suburb": "Echuca",
+            "postcode": "3564",
+            "phone": "(03) 5480 7150",
+            "email": "",
+            "website": "https://www.echucaservicecentre.repcoservice.net/?utm_source=GMB_listing&utm_medium=organic"
+          }
+        },
+        "installer_20": {
+          "type": "installer",
+          "settings": {
+            "state": "ACT",
+            "name": "Garage76 Automotive",
+            "logo": "shopify://shop_images/garage76-logo-generic_230x_2x_75ca580a-0a0e-4ee7-a6e6-64b92f44da1d.webp",
+            "platinum": true,
+            "address": "126 Gilmore Rd,",
+            "suburb": "Queanbeyan",
+            "postcode": "2620",
+            "phone": "(02) 6232 4062",
+            "email": "",
+            "website": "https://garage76.com.au/"
+          }
+        },
+        "installer_21": {
+          "type": "installer",
+          "settings": {
+            "state": "QLD",
+            "name": "Pro 4x4",
+            "logo": "shopify://shop_images/68db4b5f6e52d.png",
+            "platinum": true,
+            "address": "214 Lahrs Rd,",
+            "suburb": "Ormeau",
+            "postcode": "4208",
+            "phone": "(07) 5631 0222",
+            "email": "",
+            "website": "https://www.pro4x4australia.com.au/"
+          }
+        },
+        "installer_22": {
+          "type": "installer",
+          "settings": {
+            "state": "QLD",
+            "name": "ATS Expedition Outfitters",
+            "logo": "shopify://shop_images/ats-eo-logo.webp",
+            "platinum": true,
+            "address": "181/195 Maggiolo Dr,",
+            "suburb": "Mackay",
+            "postcode": "4740",
+            "phone": "(07) 4881 0010",
+            "email": "",
+            "website": "https://atsoutfitters.com.au/"
+          }
+        },
+        "installer_23": {
+          "type": "installer",
+          "settings": {
+            "state": "QLD",
+            "name": "McCormacks 4wd",
+            "logo": "shopify://shop_images/McCormack_Final.png",
+            "platinum": true,
+            "address": "2 Knox Street, Sandgate, QLD 4017",
+            "suburb": "Sandgate",
+            "postcode": "4017",
+            "phone": "07 3269 3294",
+            "email": "",
+            "website": "https://mccormacks4wd.com.au/"
+          }
+        },
+        "installer_24": {
+          "type": "installer",
+          "settings": {
+            "state": "QLD",
+            "name": "BAW Automotive",
+            "logo": "shopify://shop_images/bb1378_4bcb5962094e49ad81e7d2b7a1f0ee3e_mv2.avif",
+            "platinum": true,
+            "address": "Shed 1/477 Newman Rd",
+            "suburb": "Geebung",
+            "postcode": "4034",
+            "phone": "0417 783 415",
+            "email": "",
+            "website": "https://www.bawauto.com.au/"
+          }
+        },
+        "installer_25": {
+          "type": "installer",
+          "settings": {
+            "state": "SA",
+            "name": "Morpowa Auto & Dyno Centre",
+            "logo": "shopify://shop_images/MORPOWA_WEBLOGO.webp",
+            "platinum": true,
+            "address": "Unit 2/14 Famechon Cres,",
+            "suburb": "Modbury North",
+            "postcode": "5092",
+            "phone": "(08) 8264 2077",
+            "email": "",
+            "website": "https://www.morpowa.com/"
+          }
+        },
+        "installer_26": {
+          "type": "installer",
+          "settings": {
+            "state": "WA",
+            "name": "Thor Mechanical",
+            "logo": "shopify://shop_images/TMWA_Logo_012025.png",
+            "platinum": true,
+            "address": "1/6 Dollyup St,",
+            "suburb": "Stake Hill",
+            "postcode": "6181",
+            "phone": "(08) 6243 6965",
+            "email": "",
+            "website": "https://tmwa.com.au/"
+          }
+        },
+        "installer_27": {
+          "type": "installer",
+          "settings": {
+            "state": "NSW",
+            "name": "Truck N Toys",
+            "logo": "shopify://shop_images/GFA-TNT-Logo_1_1.png",
+            "platinum": true,
+            "address": "4/29 Walker St,",
+            "suburb": "South Windsor,",
+            "postcode": "2158",
+            "phone": "(02) 9652 2056",
+            "email": "",
+            "website": "https://trucksntoys.com.au/"
+          }
+        },
+        "installer_28": {
+          "type": "installer",
+          "settings": {
+            "state": "VIC",
+            "name": "Horse Power Factory",
+            "logo": "shopify://shop_images/images_4.png",
+            "platinum": true,
+            "address": "8/14 Amberley Cres,",
+            "suburb": "Dandenong South",
+            "postcode": "3175",
+            "phone": "(03) 9793 1616",
+            "email": "",
+            "website": "https://hp-f.com.au/"
+          }
+        },
+        "installer_29": {
+          "type": "installer",
+          "settings": {
+            "state": "VIC",
+            "name": "Scalzo Automotive",
+            "logo": "shopify://shop_images/NewLogo_1.png",
+            "platinum": true,
+            "address": "13 Ryan Ct,",
+            "suburb": "Warragul",
+            "postcode": "3820",
+            "phone": "(03) 5622 2006",
+            "email": "",
+            "website": "https://www.scalzoautomotive.com.au/"
+          }
+        },
+        "installer_30": {
+          "type": "installer",
+          "settings": {
+            "state": "NSW",
+            "name": "TJM Hunter Valley",
+            "logo": "shopify://shop_images/Landscape_on_Dark_1.png",
+            "platinum": true,
+            "address": "130 Newcastle Rd, Wallsend NSW 2287",
+            "suburb": "Wallsend",
+            "postcode": "2287",
+            "phone": "(02) 4951 1184",
+            "email": "",
+            "website": "https://www.tjmhuntervalley.com.au/"
+          }
+        },
+        "installer_31": {
+          "type": "installer",
+          "settings": {
+            "state": "VIC",
+            "name": "Geelong Performance",
+            "logo": "shopify://shop_images/GPC_Piston_Logo_1.png",
+            "platinum": true,
+            "address": " 26-30 Tarkin Ct, Bell Park VIC 3215",
+            "suburb": "Bell Park",
+            "postcode": "3125",
+            "phone": "(03) 5277 2503",
+            "email": "",
+            "website": "https://www.offroadindustries.com.au/"
+          }
+        },
+        "installer_32": {
+          "type": "installer",
+          "settings": {
+            "state": "VIC",
+            "name": "Autoworks Car Care",
+            "logo": "shopify://shop_images/Autoworks_Logo_REV.png",
+            "platinum": true,
+            "address": "13/71 Frankston Gardens Dr, Carrum Downs VIC",
+            "suburb": "Carrum Downs",
+            "postcode": "3201",
+            "phone": "0483 939 591",
+            "email": "",
+            "website": ""
+          }
+        },
+        "installer_33": {
+          "type": "installer",
+          "settings": {
+            "state": "VIC",
+            "name": "Every Day Offroad",
+            "logo": "shopify://shop_images/EVERYDAY_LOGO_CURSIVE_120_x_120_px_1000_x_1000_px_2.png",
+            "platinum": true,
+            "address": "40 Albemarle St,",
+            "suburb": "Williamstown North",
+            "postcode": "3016",
+            "phone": "1800 519 700",
+            "email": "",
             "website": ""
           }
         }
       },
       "block_order": [
-        "installer_vic",
-        "installer_nsw",
-        "installer_qld"
+        "installer_01",
+        "installer_02",
+        "installer_03",
+        "installer_04",
+        "installer_05",
+        "installer_06",
+        "installer_07",
+        "installer_08",
+        "installer_09",
+        "installer_10",
+        "installer_11",
+        "installer_12",
+        "installer_13",
+        "installer_14",
+        "installer_15",
+        "installer_16",
+        "installer_17",
+        "installer_18",
+        "installer_19",
+        "installer_20",
+        "installer_21",
+        "installer_22",
+        "installer_23",
+        "installer_24",
+        "installer_25",
+        "installer_26",
+        "installer_27",
+        "installer_28",
+        "installer_29",
+        "installer_30",
+        "installer_31",
+        "installer_32",
+        "installer_33"
       ],
       "settings": {
         "heading": "Approved Installers",
