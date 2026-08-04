@@ -32,8 +32,14 @@
   --brand-teal: #56BDC2;
   --brand-black: #000000;
 
-  --brand-display-font: "Evogria", sans-serif;
-  --brand-body-font: "Geomanist", sans-serif;
+  /* Falls back to the fonts chosen in Theme settings > Typography rather than
+     to generic sans-serif. The three @font-face files above are not on the
+     theme yet, so without this every heading renders as the browser default
+     instead of the merchant's own choice. Upload Evogria.woff2,
+     Geomanist-Regular.woff2 and Geomanist-Medium.woff2 to Assets and they take
+     over automatically, with no further change needed here. */
+  --brand-display-font: "Evogria", var(--font-heading-family, sans-serif);
+  --brand-body-font: "Geomanist", var(--font-body-family, sans-serif);
 }
 
 /* =========================

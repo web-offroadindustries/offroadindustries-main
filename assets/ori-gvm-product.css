@@ -27,11 +27,14 @@
 }
 
 /* ── Hero ── */
+/* Column split comes from the section's "Image column width" setting, written
+   inline as a pair of fr values. Hardcoding it here is what forced a code
+   change the last two times the ratio was revised. */
 .ori-gvm-product__hero {
   display: grid;
-  grid-template-columns: 3fr 2fr; /* 60% media / 40% content */
-  gap: 48px;
-  align-items: center;
+  grid-template-columns: minmax(0, var(--gvm-hero-media, 48fr)) minmax(0, var(--gvm-hero-content, 52fr));
+  gap: 44px;
+  align-items: start;
 }
 .ori-gvm-product__hero-media {
   display: flex;
