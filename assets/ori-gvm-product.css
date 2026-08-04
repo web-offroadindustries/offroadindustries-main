@@ -62,16 +62,19 @@
   flex-wrap: wrap;
   gap: 10px;
 }
+/* Square, and square-cornered. flex-shrink is pinned because the thumbs sit in
+   a flex row and would otherwise squash out of ratio once several are added. */
 .ori-gvm-product__thumb {
   width: 72px;
   aspect-ratio: 1 / 1;
+  flex: 0 0 auto;
   padding: 0;
-  border: 1px solid color-mix(in srgb, currentColor 15%, transparent);
-  border-radius: 8px;
+  border: 1px solid color-mix(in srgb, currentColor 22%, transparent);
+  border-radius: 2px;
   overflow: hidden;
-  background: color-mix(in srgb, currentColor 4%, transparent);
+  background: #fff;
   cursor: pointer;
-  transition: border-color 0.15s ease;
+  transition: border-color 0.15s ease, box-shadow 0.18s ease;
 }
 .ori-gvm-product__thumb img {
   width: 100%;
@@ -79,9 +82,30 @@
   object-fit: contain;
   display: block;
 }
-.ori-gvm-product__thumb.is-active,
-.ori-gvm-product__thumb:hover {
-  border-color: currentColor;
+/* Teal glow ring on hover and on the selected thumb. Drawn with a spread
+   box-shadow rather than an outline so it sits outside the border without
+   nudging the thumb or reflowing the row. */
+.ori-gvm-product__thumb:hover,
+.ori-gvm-product__thumb:focus-visible {
+  border-color: var(--brand-teal, #56bdc2);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--brand-teal, #56bdc2) 32%, transparent);
+  outline: none;
+}
+.ori-gvm-product__thumb.is-active {
+  border-color: var(--brand-teal, #56bdc2);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--brand-teal, #56bdc2) 50%, transparent);
+}
+
+/* The glow spreads past the thumb, so the row needs room for it. */
+.ori-gvm-product__gallery-thumbs {
+  padding: 3px;
+  margin: -3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ori-gvm-product__thumb {
+    transition: none;
+  }
 }
 .ori-gvm-product__hero-content {
   display: flex;
@@ -285,6 +309,22 @@
   flex-wrap: wrap;
   gap: 12px;
   margin-top: 8px;
+}
+
+/* brand-guidelines.css paints every .btn brand teal, which made the secondary
+   CTA identical to the primary one. Restated here as an outline button: the
+   two-class selector outranks that single-class rule, so no !important needed. */
+.ori-gvm-product__cta.btn--outline {
+  --gvm-cta-ink: var(--tp-ink, #14171a);
+  background: transparent;
+  border: 1px solid var(--gvm-cta-ink);
+  color: var(--gvm-cta-ink);
+  transition: background 0.16s ease, color 0.16s ease;
+}
+.ori-gvm-product__cta.btn--outline:hover,
+.ori-gvm-product__cta.btn--outline:focus-visible {
+  background: var(--gvm-cta-ink);
+  color: #fff;
 }
 
 /* ── Content blocks (uniform, centered heading) ── */
@@ -822,8 +862,13 @@
   border-color: var(--tp-line);
   background: #fff;
 }
-.ori-gvm-product--editorial .ori-gvm-product__thumb.is-active {
-  border-color: var(--tp-ink);
+/* Deliberately keeps the teal glow rather than restating the ink border here:
+   this selector outranks the base hover/active rules, so setting a border
+   colour would cancel the highlight the client asked for. */
+.ori-gvm-product--editorial .ori-gvm-product__thumb.is-active,
+.ori-gvm-product--editorial .ori-gvm-product__thumb:hover,
+.ori-gvm-product--editorial .ori-gvm-product__thumb:focus-visible {
+  border-color: var(--brand-teal, #56bdc2);
 }
 
 /* Stat cells read as one continuous data plate, divided by hairlines. */

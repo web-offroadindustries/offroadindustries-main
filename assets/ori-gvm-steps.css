@@ -34,6 +34,10 @@
 
 .ori-gvm-steps__heading {
   margin: 0 0 34px;
+  /* Matched to the other GVM section headings; .h3 alone runs larger than the
+     approved design. */
+  font-size: clamp(20px, 2.1vw, 26px);
+  line-height: 1.1;
   text-transform: uppercase;
 }
 .ori-gvm-steps__heading--center {

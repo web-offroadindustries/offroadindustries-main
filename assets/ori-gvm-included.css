@@ -20,6 +20,14 @@
   gap: var(--incl-gap);
 }
 
+/* Matched to the other GVM section headings; .h3 alone runs larger than the
+   approved design. */
+.ori-gvm-incl .ori-gvm-product__block-title,
+.ori-gvm-incl__content > .ori-gvm-product__block-title {
+  font-size: clamp(20px, 2.1vw, 26px);
+  line-height: 1.1;
+}
+
 /* ── Content column ── */
 .ori-gvm-incl__list {
   list-style: none;
