@@ -45,7 +45,8 @@
         "tint_color": "#f3f6f7",
         "container": "container",
         "custom_id": "",
-        "color_schema": ""
+        "color_schema": "",
+        "hero_media_width": 48
       }
     },
     "gvm_benefits": {
@@ -55,21 +56,24 @@
           "type": "benefit",
           "settings": {
             "text": "Increased legal payload capacity",
-            "note": ""
+            "note": "",
+            "icon": "weight"
           }
         },
         "benefit_suspension": {
           "type": "benefit",
           "settings": {
             "text": "Upgraded Fox / BDS suspension",
-            "note": ""
+            "note": "",
+            "icon": "suspension"
           }
         },
         "benefit_approval": {
           "type": "benefit",
           "settings": {
             "text": "Federal engineering approval",
-            "note": ""
+            "note": "",
+            "icon": "seal"
           }
         }
       },
@@ -81,7 +85,6 @@
       "settings": {
         "heading": "Key benefits",
         "layout": "classic",
-        "mobile_slider": false,
         "cards_per_row": 3,
         "alt_background": true,
         "tint_color": "#f3f6f7",
@@ -89,7 +92,8 @@
         "padding_top": 52,
         "padding_bottom": 52,
         "custom_id": "",
-        "color_schema": ""
+        "color_schema": "",
+        "heading_align": "left"
       }
     },
     "gvm_included": {
