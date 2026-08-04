@@ -1,0 +1,134 @@
+/* ─── ORI GVM Installation Process ────────────────────────────────────────
+   Numbered discs in a row, joined disc-edge to disc-edge. Own namespace so
+   the older .ori-gvm-product__step rules cannot reach in.
+
+   The connector is the fiddly part. It is drawn on every step except the last
+   and its length is derived from the grid gap, so it always stops exactly at
+   the next disc instead of running past the end of the row - which is what
+   produced the stray line stubs in the previous build.
+
+   Geometry, per step of width W, gap G, disc D, clearance P:
+     desktop  left  = 50% + D/2 + P          width  = W + G - D - 2P
+     mobile   top   = D + P                  height = H + G - D - 2P
+   W and H are the 100% that an absolutely positioned child resolves against,
+   which is why --step-col-gap / --step-row-gap must stay in sync with the
+   grid's own gap. */
+
+.ori-gvm-steps {
+  --step-dot: 54px;
+  --step-clear: 8px;
+  --step-col-gap: clamp(16px, 3vw, 44px);
+  --step-row-gap: 30px;
+  --step-accent: var(--brand-teal, #56bdc2);
+  --step-num-ink: var(--brand-black, #14171a);
+  --step-line: var(--tp-line, color-mix(in srgb, currentColor 24%, transparent));
+  --step-soft: var(--tp-soft, color-mix(in srgb, currentColor 62%, transparent));
+
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: var(--step-row-gap) var(--step-col-gap);
+  counter-reset: gvm-step;
+}
+
+.ori-gvm-steps__heading {
+  margin: 0 0 34px;
+  text-transform: uppercase;
+}
+.ori-gvm-steps__heading--center {
+  text-align: center;
+}
+.ori-gvm-steps__heading--left {
+  text-align: left;
+}
+
+.ori-gvm-steps__step {
+  position: relative;
+  counter-increment: gvm-step;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  min-width: 0;
+}
+
+/* ── Numbered disc ── */
+.ori-gvm-steps__dot {
+  position: relative;
+  z-index: 1; /* keeps the disc above the connector */
+  display: grid;
+  place-items: center;
+  width: var(--step-dot);
+  height: var(--step-dot);
+  border-radius: 50%;
+  background: var(--step-accent);
+  flex-shrink: 0;
+}
+.ori-gvm-steps__dot::before {
+  content: counter(gvm-step, decimal-leading-zero);
+  font-family: var(--brand-display-font, inherit);
+  font-size: calc(var(--step-dot) * 0.34);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.04em;
+  color: var(--step-num-ink);
+  font-variant-numeric: tabular-nums lining-nums;
+}
+
+.ori-gvm-steps__title {
+  margin: 18px 0 0;
+  font-size: 15px;
+  line-height: 1.3;
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+.ori-gvm-steps__text {
+  margin: 9px 0 0;
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: var(--step-soft);
+  max-width: 32ch;
+  text-wrap: pretty;
+}
+
+/* ── Connector ── */
+.ori-gvm-steps__step::after {
+  content: '';
+  position: absolute;
+  background: var(--step-line);
+}
+.ori-gvm-steps__step:last-child::after {
+  content: none;
+}
+
+/* Mobile: one centred column, connector runs down between the discs. */
+.ori-gvm-steps__step::after {
+  top: calc(var(--step-dot) + var(--step-clear));
+  left: 50%;
+  width: 2px;
+  height: calc(100% + var(--step-row-gap) - var(--step-dot) - (var(--step-clear) * 2));
+  transform: translateX(-50%);
+}
+
+/* Desktop: steps sit side by side, connector runs across. */
+@media (min-width: 750px) {
+  .ori-gvm-steps {
+    grid-template-columns: repeat(var(--steps-count, 3), minmax(0, 1fr));
+  }
+  .ori-gvm-steps__step::after {
+    top: calc(var(--step-dot) / 2);
+    left: calc(50% + (var(--step-dot) / 2) + var(--step-clear));
+    width: calc(100% + var(--step-col-gap) - var(--step-dot) - (var(--step-clear) * 2));
+    height: 2px;
+    transform: translateY(-50%);
+  }
+}
+
+/* The connector overflows each step into the gap, so nothing up the tree may
+   clip it. Stated here because the shared band styles have used overflow
+   before now. */
+.ori-gvm-steps,
+.ori-gvm-steps__step {
+  overflow: visible;
+}
