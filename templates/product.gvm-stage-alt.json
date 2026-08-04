@@ -92,30 +92,6 @@
             "heading": "Get certified",
             "text": "We complete the upgrade and issue engineering certification."
           }
-        },
-        "brand_fox": {
-          "type": "brand_logo",
-          "settings": {
-            "logo": "shopify://shop_images/420_x_420px_MEGA_MENU_ICON__FOX.jpg",
-            "name": "FOX",
-            "link_url": ""
-          }
-        },
-        "brand_bds": {
-          "type": "brand_logo",
-          "settings": {
-            "logo": "shopify://shop_images/420_x_420px_MEGA_MENU_ICON__BDS.jpg",
-            "name": "BDS Suspension",
-            "link_url": ""
-          }
-        },
-        "brand_ori": {
-          "type": "brand_logo",
-          "settings": {
-            "logo": "shopify://shop_images/420_x_420px_MEGA_MENU_ICON__ORI.jpg",
-            "name": "ORI",
-            "link_url": ""
-          }
         }
       },
       "block_order": [
@@ -128,10 +104,7 @@
         "included_cert",
         "step_quote",
         "step_book",
-        "step_certify",
-        "brand_fox",
-        "brand_bds",
-        "brand_ori"
+        "step_certify"
       ],
       "settings": {
         "layout": "editorial",
