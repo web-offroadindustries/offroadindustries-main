@@ -163,6 +163,94 @@
         "color_schema": ""
       }
     },
+    "scrolling_promotion_4gRPrc": {
+      "type": "scrolling-promotion",
+      "blocks": {
+        "image_xqLaNY": {
+          "type": "image",
+          "settings": {
+            "image_height": 120,
+            "image_link": "",
+            "use_custom_spacing": false,
+            "margin_left": 10,
+            "margin_right": 10,
+            "margin_left_mobile": 10,
+            "margin_right_mobile": 10
+          }
+        },
+        "image_xMkg8Q": {
+          "type": "image",
+          "settings": {
+            "image_height": 120,
+            "image_link": "",
+            "use_custom_spacing": false,
+            "margin_left": 10,
+            "margin_right": 10,
+            "margin_left_mobile": 10,
+            "margin_right_mobile": 10
+          }
+        },
+        "image_eL8pJA": {
+          "type": "image",
+          "settings": {
+            "image_height": 120,
+            "image_link": "",
+            "use_custom_spacing": false,
+            "margin_left": 10,
+            "margin_right": 10,
+            "margin_left_mobile": 10,
+            "margin_right_mobile": 10
+          }
+        },
+        "image_aPpTjy": {
+          "type": "image",
+          "settings": {
+            "image_height": 120,
+            "image_link": "",
+            "use_custom_spacing": false,
+            "margin_left": 10,
+            "margin_right": 10,
+            "margin_left_mobile": 10,
+            "margin_right_mobile": 10
+          }
+        }
+      },
+      "block_order": [
+        "image_xqLaNY",
+        "image_xMkg8Q",
+        "image_eL8pJA",
+        "image_aPpTjy"
+      ],
+      "name": "t:sections.scrolling-promotion.presets.name",
+      "settings": {
+        "container": "container-full",
+        "color_schema": "",
+        "section_header_padding_bottom": "medium",
+        "section_header_content_spacing": "medium",
+        "heading": "",
+        "highlight_style": "none",
+        "enable_highlight_text_color": false,
+        "heading_size": "h2",
+        "heading_color": "",
+        "subheading": "",
+        "description": "",
+        "alignment": "center",
+        "direction": "left",
+        "pause_on_hover": false,
+        "speed": 1,
+        "item_gap": 50,
+        "item_gap_mobile": 30,
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "use_custom_mobile_padding": false,
+        "padding_top_mobile": 60,
+        "padding_bottom_mobile": 60,
+        "show_section_divider": false,
+        "divider_width": "container",
+        "custom_id": "",
+        "custom_class": ""
+      }
+    },
     "gvm_steps": {
       "type": "ori-gvm-steps",
       "blocks": {
@@ -458,6 +546,7 @@
     "main",
     "gvm_benefits",
     "gvm_included",
+    "scrolling_promotion_4gRPrc",
     "gvm_steps",
     "ori_package_grid_RVbeB9",
     "installers",
