@@ -139,6 +139,7 @@
         "eyebrow": "GVM Upgrade Package",
         "fallback_title": "GVM Upgrade Package",
         "subtitle": "",
+        "image": "shopify://shop_images/STAGE_1_CHEVY_1500_all_products_8fbb7dca-ab4d-4468-9a99-a9e4909364c8.png",
         "gvm_value": "",
         "gcm_value": "",
         "payload_value": "",
@@ -156,6 +157,8 @@
         "stage_cards_heading": "GVM Upgrades by Vehicle",
         "brands_heading": "Built with",
         "cards_per_row": 3,
+        "item_logo_height": 40,
+        "brand_logo_height": 72,
         "acc_heading": "Build Your GVM Upgrade",
         "acc_subheading": "Add the gear that makes the most of your new payload.",
         "acc_btn_label": "View product",
@@ -170,64 +173,6 @@
         "container": "container",
         "custom_id": "",
         "color_schema": ""
-      }
-    },
-    "weight_chart": {
-      "type": "ori-gvm-weight-chart",
-      "blocks": {
-        "seg_kerb": {
-          "type": "segment",
-          "settings": {
-            "label": "Kerb weight",
-            "weight": 50,
-            "note": ""
-          }
-        },
-        "seg_people": {
-          "type": "segment",
-          "settings": {
-            "label": "Passengers & gear",
-            "weight": 100,
-            "note": ""
-          }
-        },
-        "seg_acc": {
-          "type": "segment",
-          "settings": {
-            "label": "Accessories",
-            "weight": 23,
-            "note": ""
-          }
-        },
-        "seg_payload": {
-          "type": "segment",
-          "settings": {
-            "label": "Remaining payload",
-            "weight": 78,
-            "note": ""
-          }
-        }
-      },
-      "block_order": [
-        "seg_kerb",
-        "seg_people",
-        "seg_acc",
-        "seg_payload"
-      ],
-      "settings": {
-        "heading": "Where Your GVM Goes",
-        "subheading": "A breakdown of how the upgraded Gross Vehicle Mass is used.",
-        "total_label": "Upgraded GVM",
-        "unit": "kg",
-        "show_table": true,
-        "table_label": "View as table",
-        "footnote": "Figures are indicative and vary by build. Confirm against your vehicle compliance plate.",
-        "container": "container",
-        "color_schema": "",
-        "bg_color": "",
-        "padding_top": 60,
-        "padding_bottom": 60,
-        "custom_id": ""
       }
     },
     "ori_package_grid_RVbeB9": {
@@ -480,7 +425,6 @@
   },
   "order": [
     "main",
-    "weight_chart",
     "ori_package_grid_RVbeB9",
     "installers",
     "faq",
