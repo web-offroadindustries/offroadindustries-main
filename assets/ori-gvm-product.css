@@ -7,6 +7,14 @@
   overflow-x: clip;
 }
 
+/* The hidden attribute has to beat the component's own display rules. A class
+   selector outranks the UA [hidden] rule, so without this the SKU line and the
+   specs band still render when the markup marks them hidden - which is how an
+   empty "SKU" label ends up on a variant that has no SKU set yet. */
+.ori-gvm-product [hidden] {
+  display: none !important;
+}
+
 /* Full-width bands */
 .ori-gvm-product__band {
   padding: 52px 0;
