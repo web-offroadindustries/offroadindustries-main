@@ -25,6 +25,11 @@
   assign accessories = section.blocks | where: 'type', 'accessory'
   assign cards_per_row = section.settings.cards_per_row | default: 3
 
+  # Hero split as a pair of fr values, so the ratio is a setting rather than a
+  # number buried in the stylesheet.
+  assign hero_media_w = section.settings.hero_media_width | default: 48
+  assign hero_content_w = 100 | minus: hero_media_w
+
   # Per-figure resolution: variant metafields first (so each Step can differ),
   # then product metafields, each across the custom and ori namespaces, then
   # the section settings. current_variant drives the initial server render; the
@@ -107,7 +112,7 @@
   class="ori-gvm-product ori-gvm-product--{{ section.settings.layout | default: 'classic' }} color-{{ section.settings.color_schema }}{% if section.settings.mobile_slider %} ori-gvm-product--swipe{% endif %}"
   data-section-type="ori-gvm-product"
   data-gvm-build="variant-steps-1"
-  style="--gvm-tint: {{ section.settings.tint_color | default: '#f3f6f7' }}; --gvm-item-logo-h: {{ section.settings.item_logo_height | default: 40 }}px; --gvm-brand-logo-h: {{ section.settings.brand_logo_height | default: 72 }}px;"
+  style="--gvm-tint: {{ section.settings.tint_color | default: '#f3f6f7' }}; --gvm-item-logo-h: {{ section.settings.item_logo_height | default: 40 }}px; --gvm-brand-logo-h: {{ section.settings.brand_logo_height | default: 72 }}px; --gvm-hero-media: {{ hero_media_w }}fr; --gvm-hero-content: {{ hero_content_w }}fr;"
 >
 
   {%- comment -%} Hero band {%- endcomment -%}
@@ -709,6 +714,17 @@
       "default": false
     },
     { "type": "header", "content": "Hero" },
+    {
+      "type": "range",
+      "id": "hero_media_width",
+      "label": "Image column width",
+      "info": "Share of the hero row given to the image. The content column takes the rest.",
+      "min": 30,
+      "max": 70,
+      "step": 2,
+      "unit": "%",
+      "default": 48
+    },
     { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "GVM Upgrade Package" },
     { "type": "text", "id": "fallback_title", "label": "Fallback title (used if not on a product)", "default": "Toyota Tundra Stage 1 GVM Upgrade" },
     { "type": "richtext", "id": "subtitle", "label": "Subtitle" },

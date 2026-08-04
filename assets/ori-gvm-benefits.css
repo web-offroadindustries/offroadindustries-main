@@ -1,0 +1,90 @@
+/* ─── ORI GVM Key Benefits ────────────────────────────────────────────────
+   Outlined cards, icon over an uppercase title over supporting copy. Own
+   namespace so the older numbered-register treatment in ori-gvm-product.css
+   cannot reach in.
+
+   Tokens fall back for the Classic layout: --tp-* only exist under
+   .ori-gvm-product--editorial, so the second value in each var() is what
+   Classic uses. */
+
+.ori-gvm-bnf {
+  --bnf-line: var(--tp-line, color-mix(in srgb, currentColor 18%, transparent));
+  --bnf-ink: var(--tp-ink, currentColor);
+  --bnf-soft: var(--tp-soft, color-mix(in srgb, currentColor 58%, transparent));
+  --bnf-card-bg: color-mix(in srgb, #fff 55%, transparent);
+  --bnf-gap: clamp(16px, 2vw, 26px);
+
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--bnf-gap);
+  align-items: stretch;
+}
+
+.ori-gvm-bnf__heading {
+  margin: 0 0 26px;
+  text-transform: uppercase;
+}
+.ori-gvm-bnf__heading--left {
+  text-align: left;
+}
+.ori-gvm-bnf__heading--center {
+  text-align: center;
+}
+
+.ori-gvm-bnf__card {
+  display: flex;
+  flex-direction: column;
+  padding: 26px 24px 28px;
+  border: 1px solid var(--bnf-line);
+  border-radius: 6px;
+  background: var(--bnf-card-bg);
+  min-width: 0;
+}
+
+.ori-gvm-bnf__icon-wrap {
+  display: flex;
+  margin-bottom: 20px;
+  color: var(--bnf-ink);
+}
+.ori-gvm-bnf__icon {
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+
+.ori-gvm-bnf__title {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.3;
+  text-transform: uppercase;
+  color: var(--bnf-ink);
+  text-wrap: balance;
+  overflow-wrap: break-word;
+}
+.ori-gvm-bnf__note {
+  /* Pushed to the bottom of the card so the copy blocks line up across the row
+     even when the titles run to different numbers of lines. */
+  margin: 14px 0 0;
+  font-size: 13px;
+  line-height: 1.65;
+  color: var(--bnf-soft);
+  text-wrap: pretty;
+  overflow-wrap: break-word;
+}
+
+/* Two up on tablet, then the merchant's column count on desktop. Both are
+   capped by the number of cards so two benefits never stretch across three
+   columns. */
+@media (min-width: 640px) {
+  .ori-gvm-bnf {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (min-width: 990px) {
+  .ori-gvm-bnf {
+    grid-template-columns: repeat(var(--bnf-cols, 3), minmax(0, 1fr));
+  }
+}
