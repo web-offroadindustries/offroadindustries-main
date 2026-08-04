@@ -461,14 +461,15 @@
       "settings": {
         "heading": "Installation process",
         "layout": "editorial",
-        "mobile_slider": true,
         "alt_background": false,
         "tint_color": "#f4fbfb",
         "container": "container",
         "padding_top": 52,
         "padding_bottom": 52,
         "custom_id": "",
-        "color_schema": ""
+        "color_schema": "",
+        "heading_align": "center",
+        "dot_size": 54
       }
     },
     "ori_package_grid_RVbeB9": {

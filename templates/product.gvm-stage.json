@@ -210,14 +210,15 @@
       "settings": {
         "heading": "Installation process",
         "layout": "classic",
-        "mobile_slider": false,
         "alt_background": false,
         "tint_color": "#f3f6f7",
         "container": "container",
         "padding_top": 52,
         "padding_bottom": 52,
         "custom_id": "",
-        "color_schema": ""
+        "color_schema": "",
+        "heading_align": "center",
+        "dot_size": 54
       }
     },
     "weight_chart": {
