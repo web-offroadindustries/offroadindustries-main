@@ -11,101 +11,6 @@
   "sections": {
     "main": {
       "type": "ori-gvm-product",
-      "blocks": {
-        "benefit_payload": {
-          "type": "benefit",
-          "settings": {
-            "text": "Increased legal payload capacity",
-            "note": "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."
-          }
-        },
-        "benefit_suspension": {
-          "type": "benefit",
-          "settings": {
-            "text": "Upgraded Fox / BDS suspension",
-            "note": "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."
-          }
-        },
-        "benefit_approval": {
-          "type": "benefit",
-          "settings": {
-            "text": "Federal engineering approval",
-            "note": "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."
-          }
-        },
-        "included_fox": {
-          "type": "included",
-          "settings": {
-            "text": "Fox shocks",
-            "logo": "shopify://shop_images/PROJECT_OVERLANDER_4.png",
-            "brand": "",
-            "note": "",
-            "sku": "CS-F45-PT24"
-          }
-        },
-        "included_bds": {
-          "type": "included",
-          "settings": {
-            "text": "BDS components",
-            "logo": "shopify://shop_images/ICONS_FOR_WEBSITE_BDS.png",
-            "brand": "",
-            "note": "",
-            "sku": "CS-F45-PT25"
-          }
-        },
-        "included_springs": {
-          "type": "included",
-          "settings": {
-            "text": "ORI springs",
-            "logo": "shopify://shop_images/420_x_420px_MEGA_MENU_ICON__ORI.jpg",
-            "brand": "",
-            "note": "",
-            "sku": "CS-F45-PT23"
-          }
-        },
-        "included_cert": {
-          "type": "included",
-          "settings": {
-            "text": "Engineering certification",
-            "brand": "",
-            "note": "",
-            "sku": "CS-F45-PT22"
-          }
-        },
-        "step_quote": {
-          "type": "step",
-          "settings": {
-            "heading": "Request a quote",
-            "text": "Send us your vehicle details and we prepare a package quote."
-          }
-        },
-        "step_book": {
-          "type": "step",
-          "settings": {
-            "heading": "Book your install",
-            "text": "Choose an approved installer near you and book a date."
-          }
-        },
-        "step_certify": {
-          "type": "step",
-          "settings": {
-            "heading": "Get certified",
-            "text": "We complete the upgrade and issue engineering certification."
-          }
-        }
-      },
-      "block_order": [
-        "benefit_payload",
-        "benefit_suspension",
-        "benefit_approval",
-        "included_fox",
-        "included_bds",
-        "included_springs",
-        "included_cert",
-        "step_quote",
-        "step_book",
-        "step_certify"
-      ],
       "settings": {
         "layout": "editorial",
         "mobile_slider": true,
@@ -144,6 +49,159 @@
         "spec_gcm": "",
         "tint_color": "#f4fbfb",
         "container": "container",
+        "custom_id": "",
+        "color_schema": ""
+      }
+    },
+    "gvm_benefits": {
+      "type": "ori-gvm-benefits",
+      "blocks": {
+        "benefit_payload": {
+          "type": "benefit",
+          "settings": {
+            "text": "Increased legal payload capacity",
+            "note": "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."
+          }
+        },
+        "benefit_suspension": {
+          "type": "benefit",
+          "settings": {
+            "text": "Upgraded Fox / BDS suspension",
+            "note": "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."
+          }
+        },
+        "benefit_approval": {
+          "type": "benefit",
+          "settings": {
+            "text": "Federal engineering approval",
+            "note": "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."
+          }
+        }
+      },
+      "block_order": [
+        "benefit_payload",
+        "benefit_suspension",
+        "benefit_approval"
+      ],
+      "settings": {
+        "heading": "Key benefits",
+        "layout": "editorial",
+        "mobile_slider": true,
+        "cards_per_row": 3,
+        "alt_background": true,
+        "tint_color": "#f4fbfb",
+        "container": "container",
+        "padding_top": 52,
+        "padding_bottom": 52,
+        "custom_id": "",
+        "color_schema": ""
+      }
+    },
+    "gvm_included": {
+      "type": "ori-gvm-included",
+      "blocks": {
+        "included_fox": {
+          "type": "included",
+          "settings": {
+            "text": "Fox shocks",
+            "logo": "shopify://shop_images/PROJECT_OVERLANDER_4.png",
+            "brand": "",
+            "note": "",
+            "sku": "CS-F45-PT24"
+          }
+        },
+        "included_bds": {
+          "type": "included",
+          "settings": {
+            "text": "BDS components",
+            "logo": "shopify://shop_images/ICONS_FOR_WEBSITE_BDS.png",
+            "brand": "",
+            "note": "",
+            "sku": "CS-F45-PT25"
+          }
+        },
+        "included_springs": {
+          "type": "included",
+          "settings": {
+            "text": "ORI springs",
+            "logo": "shopify://shop_images/420_x_420px_MEGA_MENU_ICON__ORI.jpg",
+            "brand": "",
+            "note": "",
+            "sku": "CS-F45-PT23"
+          }
+        },
+        "included_cert": {
+          "type": "included",
+          "settings": {
+            "text": "Engineering certification",
+            "brand": "",
+            "note": "",
+            "sku": "CS-F45-PT22"
+          }
+        }
+      },
+      "block_order": [
+        "included_fox",
+        "included_bds",
+        "included_springs",
+        "included_cert"
+      ],
+      "settings": {
+        "heading": "What's included",
+        "layout": "editorial",
+        "mobile_slider": true,
+        "cards_per_row": 3,
+        "item_logo_height": 40,
+        "brand_logo_height": 72,
+        "brands_heading": "Built with",
+        "alt_background": false,
+        "tint_color": "#f4fbfb",
+        "container": "container",
+        "padding_top": 52,
+        "padding_bottom": 52,
+        "custom_id": "",
+        "color_schema": ""
+      }
+    },
+    "gvm_steps": {
+      "type": "ori-gvm-steps",
+      "blocks": {
+        "step_quote": {
+          "type": "step",
+          "settings": {
+            "heading": "Request a quote",
+            "text": "Send us your vehicle details and we prepare a package quote."
+          }
+        },
+        "step_book": {
+          "type": "step",
+          "settings": {
+            "heading": "Book your install",
+            "text": "Choose an approved installer near you and book a date."
+          }
+        },
+        "step_certify": {
+          "type": "step",
+          "settings": {
+            "heading": "Get certified",
+            "text": "We complete the upgrade and issue engineering certification."
+          }
+        }
+      },
+      "block_order": [
+        "step_quote",
+        "step_book",
+        "step_certify"
+      ],
+      "settings": {
+        "heading": "Installation process",
+        "layout": "editorial",
+        "mobile_slider": true,
+        "alt_background": false,
+        "tint_color": "#f4fbfb",
+        "container": "container",
+        "padding_top": 52,
+        "padding_bottom": 52,
         "custom_id": "",
         "color_schema": ""
       }
@@ -398,6 +456,9 @@
   },
   "order": [
     "main",
+    "gvm_benefits",
+    "gvm_included",
+    "gvm_steps",
     "ori_package_grid_RVbeB9",
     "installers",
     "faq",
