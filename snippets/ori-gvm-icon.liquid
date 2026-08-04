@@ -1,0 +1,61 @@
+{%- comment -%}
+  ORI GVM icon set.
+
+  Usage: {%- render 'ori-gvm-icon', icon: block.settings.icon -%}
+
+  Renders nothing for 'none' or an unknown name, so callers can pass a setting
+  value straight through without guarding it. Stroke based on a 24x24 grid to
+  match the theme's own icon-*.liquid snippets, and inherits currentColor.
+{%- endcomment -%}
+
+{%- liquid
+  assign i = icon | default: 'none'
+  assign sw = stroke | default: 2
+-%}
+
+{%- case i -%}
+  {%- when 'check' -%}
+    <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="{{ sw }}" stroke-linecap="round" stroke-linejoin="round" class="ori-gvm-icon {{ class }}">
+      <polyline points="20 6 9 17 4 12"/>
+    </svg>
+
+  {%- when 'shield' -%}
+    <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="{{ sw }}" stroke-linecap="round" stroke-linejoin="round" class="ori-gvm-icon {{ class }}">
+      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+      <polyline points="9 11.5 11.2 13.7 15 9.9"/>
+    </svg>
+
+  {%- when 'certificate' -%}
+    <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="{{ sw }}" stroke-linecap="round" stroke-linejoin="round" class="ori-gvm-icon {{ class }}">
+      <path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/>
+      <polyline points="14 3 14 9 20 9"/>
+      <line x1="8" y1="13" x2="14" y2="13"/>
+      <line x1="8" y1="17" x2="12" y2="17"/>
+    </svg>
+
+  {%- when 'wrench' -%}
+    <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="{{ sw }}" stroke-linecap="round" stroke-linejoin="round" class="ori-gvm-icon {{ class }}">
+      <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+    </svg>
+
+  {%- when 'cog' -%}
+    <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="{{ sw }}" stroke-linecap="round" stroke-linejoin="round" class="ori-gvm-icon {{ class }}">
+      <circle cx="12" cy="12" r="3.2"/>
+      <path d="M12 2.5v2.2M12 19.3v2.2M4.9 4.9l1.6 1.6M17.5 17.5l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.9 19.1l1.6-1.6M17.5 6.5l1.6-1.6"/>
+    </svg>
+
+  {%- when 'suspension' -%}
+    <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="{{ sw }}" stroke-linecap="round" stroke-linejoin="round" class="ori-gvm-icon {{ class }}">
+      <line x1="6" y1="3" x2="18" y2="3"/>
+      <line x1="6" y1="21" x2="18" y2="21"/>
+      <path d="M9 3v2.4l6 3.3-6 3.3 6 3.3-6 3.3V21"/>
+    </svg>
+
+  {%- when 'truck' -%}
+    <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="{{ sw }}" stroke-linecap="round" stroke-linejoin="round" class="ori-gvm-icon {{ class }}">
+      <path d="M1 4h13v11H1z"/>
+      <path d="M14 8h4l3 3v4h-7z"/>
+      <circle cx="5.5" cy="18" r="2.2"/>
+      <circle cx="17.5" cy="18" r="2.2"/>
+    </svg>
+{%- endcase -%}

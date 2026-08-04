@@ -1,117 +1,202 @@
 {%- comment -%}
   ORI GVM What's Included.
 
-  Split out of the ORI GVM Product section so merchants can edit, reorder and
-  remove it on its own. The markup mirrors the band it replaces: the rules in
-  ori-gvm-product.css are scoped as
-  `.ori-gvm-product--<layout> .ori-gvm-product__band--included ...`, so the
-  wrapper has to keep both the layout class and the band class.
+  Two columns: the item list on one side, up to four images on the other. The
+  image grid changes shape with how many images are added, so the block always
+  fills its column without letterboxing:
 
-  Brand logo blocks drive the optional "Built with" strip under the list. No
-  brand logo blocks means no strip at all.
+    1 image  - one wide frame
+    2 images - one row of two
+    3 images - two on top, one spanning underneath
+    4 images - two by two
+
+  Under 750px the columns stack (content first, then images) and the image grid
+  becomes a scroll-snap carousel driven by assets/ori-gvm-included.js.
+
+  The outer wrapper keeps the .ori-gvm-product and layout classes so the band
+  background and typography match the sections above and below it. The list and
+  media use their own .ori-gvm-incl namespace, deliberately not the shared
+  __cards / __card classes, so the old single-section styling cannot reach in.
 {%- endcomment -%}
 
 {{ 'ori-gvm-product.css' | asset_url | stylesheet_tag }}
+{{ 'ori-gvm-included.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'ori-gvm-included.js' | asset_url }}" defer="defer"></script>
 
 {%- liquid
   assign section_id = section.settings.custom_id | default: section.id
   assign container = section.settings.container | default: 'container'
-  assign cards_per_row = section.settings.cards_per_row | default: 3
   assign included = section.blocks | where: 'type', 'included'
+  assign images = section.blocks | where: 'type', 'image'
   assign brand_logos = section.blocks | where: 'type', 'brand_logo'
+
+  # Only images that actually hold a file count towards the layout, otherwise an
+  # empty block would leave a hole in the grid.
+  assign img_count = 0
+  for block in images
+    if block.settings.image != blank
+      assign img_count = img_count | plus: 1
+    endif
+  endfor
+
+  assign autoplay_ms = section.settings.autoplay_seconds | times: 1000
 -%}
 
-{%- if included.size > 0 or brand_logos.size > 0 -%}
+{%- if included.size > 0 or img_count > 0 or brand_logos.size > 0 -%}
   <div
     id="{{ section_id }}"
-    class="ori-gvm-product ori-gvm-product--{{ section.settings.layout | default: 'classic' }} color-{{ section.settings.color_schema }}{% if section.settings.mobile_slider %} ori-gvm-product--swipe{% endif %}"
+    class="ori-gvm-product ori-gvm-product--{{ section.settings.layout | default: 'classic' }} color-{{ section.settings.color_schema }}"
     data-section-type="ori-gvm-included"
-    style="--gvm-tint: {{ section.settings.tint_color | default: '#f3f6f7' }}; --gvm-item-logo-h: {{ section.settings.item_logo_height | default: 40 }}px; --gvm-brand-logo-h: {{ section.settings.brand_logo_height | default: 72 }}px;"
+    style="--gvm-tint: {{ section.settings.tint_color | default: '#f3f6f7' }}; --gvm-item-logo-h: {{ section.settings.item_logo_height | default: 34 }}px; --gvm-brand-logo-h: {{ section.settings.brand_logo_height | default: 72 }}px;"
   >
     <div
       class="ori-gvm-product__band ori-gvm-product__band--included{% if section.settings.alt_background %} ori-gvm-product__band--alt{% endif %}"
       style="padding-top: {{ section.settings.padding_top }}px; padding-bottom: {{ section.settings.padding_bottom }}px;"
     >
       <div class="{{ container }}">
-        <div class="ori-gvm-product__block ori-gvm-product__block--wide ori-gvm-product__block--split">
-          {%- if section.settings.heading != blank -%}
-            <h2 class="ori-gvm-product__block-title h3">{{ section.settings.heading }}</h2>
-          {%- endif -%}
+        <div
+          class="ori-gvm-incl{% if img_count == 0 %} ori-gvm-incl--no-media{% endif %}{% if section.settings.media_position == 'left' %} ori-gvm-incl--media-left{% endif %}"
+        >
+          <div class="ori-gvm-incl__content">
+            {%- if section.settings.heading != blank -%}
+              <h2 class="ori-gvm-product__block-title h3">{{ section.settings.heading }}</h2>
+            {%- endif -%}
 
-          {%- if included.size > 0 -%}
-            <ul class="ori-gvm-product__cards" style="--gvm-cards: {{ cards_per_row }};" role="list">
-              {%- for block in included -%}
-                <li class="ori-gvm-product__card" {{ block.shopify_attributes }}>
-                  <span class="ori-gvm-product__card-media">
-                    {%- if block.settings.logo != blank -%}
-                      {{-
-                        block.settings.logo
-                        | image_url: width: 240
-                        | image_tag:
-                          loading: 'lazy',
-                          class: 'ori-gvm-product__card-logo',
-                          widths: '120,180,240',
-                          sizes: '120px',
-                          alt: block.settings.brand | default: block.settings.text | escape
-                      -}}
-                    {%- else -%}
-                      <span class="ori-gvm-product__badge" aria-hidden="true">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            {%- if included.size > 0 -%}
+              <ul class="ori-gvm-incl__list" role="list">
+                {%- for block in included -%}
+                  {%- liquid
+                    assign has_logo = false
+                    if block.settings.logo != blank
+                      assign has_logo = true
+                    endif
+                    assign has_icon = false
+                    if has_logo == false and block.settings.icon != 'none'
+                      assign has_icon = true
+                    endif
+                  -%}
+                  <li class="ori-gvm-incl__item{% if has_logo == false and has_icon == false %} ori-gvm-incl__item--bare{% endif %}" {{ block.shopify_attributes }}>
+                    {%- if has_logo or has_icon -%}
+                      <span class="ori-gvm-incl__figure">
+                        {%- if has_logo -%}
+                          {{-
+                            block.settings.logo
+                            | image_url: width: 200
+                            | image_tag:
+                              loading: 'lazy',
+                              class: 'ori-gvm-incl__logo',
+                              widths: '80,120,200',
+                              sizes: '40px',
+                              alt: block.settings.brand | default: block.settings.text | escape
+                          -}}
+                        {%- else -%}
+                          {%- render 'ori-gvm-icon', icon: block.settings.icon, class: 'ori-gvm-incl__icon' -%}
+                        {%- endif -%}
                       </span>
                     {%- endif -%}
-                  </span>
-                  <span class="ori-gvm-product__card-body">
-                    {%- if block.settings.brand != blank -%}
-                      <span class="ori-gvm-product__card-eyebrow">{{ block.settings.brand }}</span>
+
+                    <span class="ori-gvm-incl__body">
+                      {%- if block.settings.brand != blank -%}
+                        <span class="ori-gvm-incl__eyebrow">{{ block.settings.brand }}</span>
+                      {%- endif -%}
+                      <span class="ori-gvm-incl__title">{{ block.settings.text }}</span>
+                      {%- if block.settings.note != blank -%}
+                        <span class="ori-gvm-incl__note">{{ block.settings.note }}</span>
+                      {%- endif -%}
+                      {%- if block.settings.sku != blank -%}
+                        <span class="ori-gvm-incl__sku">{{ block.settings.sku }}</span>
+                      {%- endif -%}
+                    </span>
+                  </li>
+                {%- endfor -%}
+              </ul>
+            {%- endif -%}
+          </div>
+
+          {%- if img_count > 0 -%}
+            <ori-gvm-gallery
+              class="ori-gvm-incl__gallery"
+              data-autoplay="{{ autoplay_ms }}"
+            >
+              <div
+                class="ori-gvm-incl__media"
+                data-count="{{ img_count }}"
+                data-gallery-track
+                role="group"
+                aria-label="{{ section.settings.heading | default: "What's included" | escape }} images"
+              >
+                {%- for block in images -%}
+                  {%- if block.settings.image != blank -%}
+                    <figure class="ori-gvm-incl__frame" data-gallery-slide {{ block.shopify_attributes }}>
+                      {{-
+                        block.settings.image
+                        | image_url: width: 1200
+                        | image_tag:
+                          loading: 'lazy',
+                          class: 'ori-gvm-incl__img',
+                          widths: '360,540,720,960,1200',
+                          sizes: '(min-width: 990px) 34vw, (min-width: 750px) 46vw, 90vw',
+                          alt: block.settings.alt | default: block.settings.image.alt | escape
+                      -}}
+                    </figure>
+                  {%- endif -%}
+                {%- endfor -%}
+              </div>
+
+              {%- if img_count > 1 -%}
+                <div class="ori-gvm-incl__dots" data-gallery-dots>
+                  {%- assign dot_n = 0 -%}
+                  {%- for block in images -%}
+                    {%- if block.settings.image != blank -%}
+                      <button
+                        type="button"
+                        class="ori-gvm-incl__dot{% if dot_n == 0 %} is-active{% endif %}"
+                        data-gallery-dot="{{ dot_n }}"
+                        aria-label="Show image {{ dot_n | plus: 1 }} of {{ img_count }}"
+                      ></button>
+                      {%- assign dot_n = dot_n | plus: 1 -%}
                     {%- endif -%}
-                    <span class="ori-gvm-product__card-title">{{ block.settings.text }}</span>
-                    {%- if block.settings.note != blank -%}
-                      <span class="ori-gvm-product__card-note">{{ block.settings.note }}</span>
+                  {%- endfor -%}
+                </div>
+              {%- endif -%}
+            </ori-gvm-gallery>
+          {%- endif -%}
+        </div>
+
+        {%- if brand_logos.size > 0 -%}
+          <div class="ori-gvm-product__brands">
+            {%- if section.settings.brands_heading != blank -%}
+              <p class="ori-gvm-product__brands-title">{{ section.settings.brands_heading }}</p>
+            {%- endif -%}
+            <ul class="ori-gvm-product__brands-row" role="list">
+              {%- for block in brand_logos -%}
+                <li class="ori-gvm-product__brand" {{ block.shopify_attributes }}>
+                  {%- if block.settings.logo != blank -%}
+                    {%- capture brand_img -%}
+                      {{-
+                        block.settings.logo
+                        | image_url: width: 320
+                        | image_tag:
+                          loading: 'lazy',
+                          class: 'ori-gvm-product__brand-img',
+                          widths: '160,240,320',
+                          sizes: '150px',
+                          alt: block.settings.name | default: 'Brand' | escape
+                      -}}
+                    {%- endcapture -%}
+                    {%- if block.settings.link_url != blank -%}
+                      <a href="{{ block.settings.link_url }}" class="ori-gvm-product__brand-link">{{ brand_img }}</a>
+                    {%- else -%}
+                      {{ brand_img }}
                     {%- endif -%}
-                  </span>
-                  {%- if block.settings.sku != blank -%}
-                    <span class="ori-gvm-product__card-sku">{{ block.settings.sku }}</span>
+                  {%- elsif block.settings.name != blank -%}
+                    <span class="ori-gvm-product__brand-text">{{ block.settings.name }}</span>
                   {%- endif -%}
                 </li>
               {%- endfor -%}
             </ul>
-          {%- endif -%}
-
-          {%- if brand_logos.size > 0 -%}
-            <div class="ori-gvm-product__brands">
-              {%- if section.settings.brands_heading != blank -%}
-                <p class="ori-gvm-product__brands-title">{{ section.settings.brands_heading }}</p>
-              {%- endif -%}
-              <ul class="ori-gvm-product__brands-row" role="list">
-                {%- for block in brand_logos -%}
-                  <li class="ori-gvm-product__brand" {{ block.shopify_attributes }}>
-                    {%- if block.settings.logo != blank -%}
-                      {%- capture brand_img -%}
-                        {{-
-                          block.settings.logo
-                          | image_url: width: 320
-                          | image_tag:
-                            loading: 'lazy',
-                            class: 'ori-gvm-product__brand-img',
-                            widths: '160,240,320',
-                            sizes: '150px',
-                            alt: block.settings.name | default: 'Brand' | escape
-                        -}}
-                      {%- endcapture -%}
-                      {%- if block.settings.link_url != blank -%}
-                        <a href="{{ block.settings.link_url }}" class="ori-gvm-product__brand-link">{{ brand_img }}</a>
-                      {%- else -%}
-                        {{ brand_img }}
-                      {%- endif -%}
-                    {%- elsif block.settings.name != blank -%}
-                      <span class="ori-gvm-product__brand-text">{{ block.settings.name }}</span>
-                    {%- endif -%}
-                  </li>
-                {%- endfor -%}
-              </ul>
-            </div>
-          {%- endif -%}
-        </div>
+          </div>
+        {%- endif -%}
       </div>
     </div>
   </div>
@@ -137,33 +222,38 @@
       "default": "classic"
     },
     {
-      "type": "checkbox",
-      "id": "mobile_slider",
-      "label": "Swipe rows on mobile",
-      "info": "Turns the row into a swipeable slider on phones instead of stacking it.",
-      "default": false
+      "type": "select",
+      "id": "media_position",
+      "label": "Image column position",
+      "options": [
+        { "value": "right", "label": "Right of the list" },
+        { "value": "left", "label": "Left of the list" }
+      ],
+      "default": "right"
     },
+    { "type": "header", "content": "Image carousel (mobile)" },
     {
       "type": "range",
-      "id": "cards_per_row",
-      "label": "Cards per row (desktop)",
-      "info": "Ignored on the Technical layout, which always runs two items per row.",
-      "min": 2,
-      "max": 4,
+      "id": "autoplay_seconds",
+      "label": "Slide every",
+      "info": "Set to 0 to turn autoplay off. Visitors can always swipe left or right, and autoplay pauses as soon as they do.",
+      "min": 0,
+      "max": 15,
       "step": 1,
-      "default": 3
+      "unit": "s",
+      "default": 5
     },
     { "type": "header", "content": "Logo sizes" },
     {
       "type": "range",
       "id": "item_logo_height",
       "label": "Item logo height",
-      "info": "Brand logos shown beside each included item.",
-      "min": 20,
-      "max": 120,
+      "info": "Logos shown beside each included item. The frame around them grows to match.",
+      "min": 18,
+      "max": 90,
       "step": 2,
       "unit": "px",
-      "default": 40
+      "default": 34
     },
     {
       "type": "range",
@@ -203,10 +293,35 @@
       "name": "Included item",
       "settings": [
         { "type": "text", "id": "text", "label": "Item", "default": "Fox shocks" },
-        { "type": "image_picker", "id": "logo", "label": "Brand logo", "info": "Optional. Replaces the tick. PNG or WebP with a transparent background (Shopify's picker will not accept an SVG)." },
+        { "type": "image_picker", "id": "logo", "label": "Brand logo", "info": "Optional. Used instead of the icon below. PNG or WebP with a transparent background (Shopify's picker will not accept an SVG)." },
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon (used when no logo)",
+          "options": [
+            { "value": "none", "label": "No icon" },
+            { "value": "check", "label": "Tick" },
+            { "value": "shield", "label": "Shield" },
+            { "value": "certificate", "label": "Certificate" },
+            { "value": "wrench", "label": "Wrench" },
+            { "value": "cog", "label": "Cog" },
+            { "value": "suspension", "label": "Suspension" },
+            { "value": "truck", "label": "Truck" }
+          ],
+          "default": "check"
+        },
         { "type": "text", "id": "brand", "label": "Brand name", "info": "Optional small line above the item, e.g. FOX." },
-        { "type": "text", "id": "note", "label": "Supporting line", "info": "Optional smaller line under the item." },
-        { "type": "text", "id": "sku", "label": "Part number", "info": "Optional. Shown right-aligned on the Technical layout, e.g. CS-F45-PT25." }
+        { "type": "textarea", "id": "note", "label": "Description", "info": "Optional supporting copy under the item." },
+        { "type": "text", "id": "sku", "label": "Part number", "info": "Optional, e.g. CS-F45-PT25." }
+      ]
+    },
+    {
+      "type": "image",
+      "name": "Image",
+      "limit": 4,
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Image" },
+        { "type": "text", "id": "alt", "label": "Alt text", "info": "Optional. Falls back to the image's own alt text." }
       ]
     },
     {
@@ -224,10 +339,10 @@
     {
       "name": "ORI GVM Included",
       "blocks": [
-        { "type": "included", "settings": { "text": "Fox shocks" } },
+        { "type": "included", "settings": { "text": "Fox Suspensions" } },
         { "type": "included", "settings": { "text": "BDS components" } },
-        { "type": "included", "settings": { "text": "ORI springs" } },
-        { "type": "included", "settings": { "text": "Engineering certification" } }
+        { "type": "included", "settings": { "text": "ORI Leaf Springs" } },
+        { "type": "included", "settings": { "text": "Engineering certification", "icon": "shield" } }
       ]
     }
   ]
