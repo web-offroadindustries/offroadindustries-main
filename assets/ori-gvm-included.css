@@ -54,18 +54,23 @@
   grid-template-columns: minmax(0, 1fr);
 }
 
-/* The frame used to be a fixed square, which meant a wide wordmark like the ORI
-   one was capped by the box width and rendered far smaller than the height
-   setting implied. Height is now fixed and width is free to grow up to
-   --gvm-item-logo-w, so tall and wide marks both get to use the full size. */
+/* The box has definite dimensions so it stays put, and the logo is sized as a
+   share of it. That separation matters because most of the supplied logo files
+   are square canvases with the mark floating in the middle (the ORI one is a
+   420x420 JPEG holding a wide wordmark). Fitting such a file to the box renders
+   the visible mark small no matter how large the box gets, which is why a width
+   cap alone appeared to do nothing.
+
+   --gvm-logo-scale above 1 lets the image run past the box, and overflow:hidden
+   trims the baked-in padding rather than the mark. */
 .ori-gvm-incl__figure {
   display: grid;
   place-items: center;
-  box-sizing: content-box;
-  height: var(--gvm-item-logo-h, 44px);
-  min-width: var(--gvm-item-logo-h, 44px);
-  max-width: var(--gvm-item-logo-w, 120px);
-  padding: 7px 9px;
+  box-sizing: border-box;
+  width: var(--gvm-frame-w, 64px);
+  height: var(--gvm-frame-h, 64px);
+  padding: 6px;
+  overflow: hidden;
   border: 1px solid var(--incl-frame-line);
   border-radius: 4px;
   background: var(--incl-frame-bg);
@@ -76,19 +81,18 @@
   border: 0;
   background: none;
   padding: 0;
-  min-width: 0;
 }
 .ori-gvm-incl__logo {
-  max-width: 100%;
-  max-height: 100%;
+  max-width: calc(100% * var(--gvm-logo-scale, 1));
+  max-height: calc(100% * var(--gvm-logo-scale, 1));
   width: auto;
   height: auto;
   object-fit: contain;
   display: block;
 }
 .ori-gvm-incl__icon {
-  width: calc(var(--gvm-item-logo-h, 44px) * 0.6);
-  height: calc(var(--gvm-item-logo-h, 44px) * 0.6);
+  width: calc(var(--gvm-frame-h, 64px) * 0.5);
+  height: calc(var(--gvm-frame-h, 64px) * 0.5);
   color: var(--incl-accent);
 }
 
