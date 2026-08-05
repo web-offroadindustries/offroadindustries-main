@@ -167,7 +167,7 @@
       "settings": {
         "heading": "What's included",
         "layout": "classic",
-        "item_logo_height": 64,
+        "item_logo_height": 88,
         "brand_logo_height": 72,
         "brands_heading": "Built with",
         "alt_background": false,
@@ -180,7 +180,7 @@
         "media_position": "right",
         "autoplay_seconds": 5,
         "logo_frame": true,
-        "item_logo_scale": 135,
+        "item_logo_scale": 160,
         "item_logo_box_width": 0
       }
     },
