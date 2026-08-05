@@ -108,7 +108,7 @@
           "type": "included",
           "settings": {
             "text": "Fox shocks",
-            "logo": "shopify://shop_images/PROJECT_OVERLANDER_4.png",
+            "logo": "shopify://shop_images/420_x_420px_MEGA_MENU_ICON__FOX.jpg",
             "icon": "check",
             "brand": "",
             "note": "",
@@ -150,7 +150,7 @@
         "incl_image_1": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/imag1.webp",
+            "image": "shopify://shop_images/987_02_005_P01.png",
             "alt": ""
           }
         },
@@ -201,7 +201,7 @@
         "image_V8QxeT": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/420_x_420px_MEGA_MENU_ICON__BDS.jpg",
+            "image": "shopify://shop_images/ICONS_FOR_WEBSITE_BDS.png",
             "image_height": 120,
             "image_link": "shopify://collections/bds-suspension-australian-distributor",
             "use_custom_spacing": false,
@@ -265,6 +265,7 @@
         },
         "divider_HyyX8h": {
           "type": "divider",
+          "disabled": true,
           "settings": {
             "width": 64,
             "use_custom_spacing": false,
@@ -276,6 +277,7 @@
         },
         "image_CMHfbV": {
           "type": "image",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/420_x_420px_MEGA_MENU_ICON__BAJA_DESIGNS.jpg",
             "image_height": 80,
@@ -289,6 +291,7 @@
         },
         "announcement_Ck9fgL": {
           "type": "announcement",
+          "disabled": true,
           "settings": {
             "text": "Baja Designs",
             "font_family": "heading",
@@ -303,6 +306,7 @@
         },
         "divider_qMNDMW": {
           "type": "divider",
+          "disabled": true,
           "settings": {
             "width": 64,
             "use_custom_spacing": true,
@@ -314,6 +318,7 @@
         },
         "image_cqXJGB": {
           "type": "image",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/ADD-OFFROAD-21-FORD-RAPTOR-Phantom-Rear-Bumper-Installation-Guide-1.png",
             "image_height": 80,
@@ -327,6 +332,7 @@
         },
         "announcement_kcKcYP": {
           "type": "announcement",
+          "disabled": true,
           "settings": {
             "text": "Addictive Desert Designs",
             "font_family": "heading",
@@ -341,6 +347,7 @@
         },
         "divider_nWecrt": {
           "type": "divider",
+          "disabled": true,
           "settings": {
             "width": 64,
             "use_custom_spacing": true,
@@ -352,6 +359,7 @@
         },
         "image_xj6yaA": {
           "type": "image",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/huskyliners-logo-fullcolor-24206_4x_68ee4016-c4a6-4e86-b15e-f8f048d6e1d0.png",
             "image_height": 80,
@@ -365,6 +373,7 @@
         },
         "announcement_rVDhn4": {
           "type": "announcement",
+          "disabled": true,
           "settings": {
             "text": "Husky Liners",
             "font_family": "heading",
@@ -379,6 +388,7 @@
         },
         "divider_VyRtkM": {
           "type": "divider",
+          "disabled": true,
           "settings": {
             "width": 64,
             "use_custom_spacing": true,
