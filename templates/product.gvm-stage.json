@@ -181,7 +181,8 @@
         "autoplay_seconds": 5,
         "logo_frame": true,
         "item_logo_scale": 160,
-        "item_logo_box_width": 0
+        "item_logo_box_width": 0,
+        "row_spacing": 8
       }
     },
     "gvm_steps": {

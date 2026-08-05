@@ -195,7 +195,8 @@
         "padding_top": 52,
         "padding_bottom": 52,
         "custom_id": "",
-        "color_schema": ""
+        "color_schema": "",
+        "row_spacing": 8
       }
     },
     "scrolling_promotion_iqVp4T": {
