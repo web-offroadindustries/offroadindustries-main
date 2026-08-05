@@ -183,7 +183,9 @@
         "layout": "editorial",
         "media_position": "right",
         "autoplay_seconds": 5,
-        "item_logo_height": 64,
+        "item_logo_height": 80,
+        "item_logo_scale": 130,
+        "item_logo_box_width": 0,
         "logo_frame": true,
         "brand_logo_height": 72,
         "brands_heading": "Built with",
@@ -193,9 +195,7 @@
         "padding_top": 52,
         "padding_bottom": 52,
         "custom_id": "",
-        "color_schema": "",
-        "item_logo_scale": 135,
-        "item_logo_box_width": 0
+        "color_schema": ""
       }
     },
     "scrolling_promotion_iqVp4T": {
