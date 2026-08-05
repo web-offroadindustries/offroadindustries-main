@@ -179,8 +179,9 @@
         "color_schema": "",
         "media_position": "right",
         "autoplay_seconds": 5,
-        "item_logo_max_width": 0,
-        "logo_frame": true
+        "logo_frame": true,
+        "item_logo_scale": 135,
+        "item_logo_box_width": 0
       }
     },
     "gvm_steps": {
