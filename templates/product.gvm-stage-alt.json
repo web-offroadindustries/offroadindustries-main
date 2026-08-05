@@ -14,6 +14,7 @@
       "settings": {
         "layout": "editorial",
         "mobile_slider": true,
+        "hero_media_width": 48,
         "eyebrow": "GVM Upgrade Package",
         "fallback_title": "GVM Upgrade Package",
         "subtitle": "",
@@ -50,8 +51,7 @@
         "tint_color": "#f4fbfb",
         "container": "container",
         "custom_id": "",
-        "color_schema": "",
-        "hero_media_width": 48
+        "color_schema": ""
       }
     },
     "gvm_benefits": {
@@ -61,24 +61,24 @@
           "type": "benefit",
           "settings": {
             "text": "Increased legal payload capacity",
-            "note": "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...",
-            "icon": "weight"
+            "icon": "weight",
+            "note": "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."
           }
         },
         "benefit_suspension": {
           "type": "benefit",
           "settings": {
             "text": "Upgraded Fox / BDS suspension",
-            "note": "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...",
-            "icon": "suspension"
+            "icon": "suspension",
+            "note": "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."
           }
         },
         "benefit_approval": {
           "type": "benefit",
           "settings": {
             "text": "Federal engineering approval",
-            "note": "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...",
-            "icon": "seal"
+            "icon": "seal",
+            "note": "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."
           }
         }
       },
@@ -89,6 +89,7 @@
       ],
       "settings": {
         "heading": "Key benefits",
+        "heading_align": "left",
         "layout": "editorial",
         "cards_per_row": 3,
         "alt_background": true,
@@ -97,8 +98,7 @@
         "padding_top": 52,
         "padding_bottom": 52,
         "custom_id": "",
-        "color_schema": "",
-        "heading_align": "left"
+        "color_schema": ""
       }
     },
     "gvm_included": {
@@ -109,10 +109,10 @@
           "settings": {
             "text": "Fox shocks",
             "logo": "shopify://shop_images/PROJECT_OVERLANDER_4.png",
+            "icon": "check",
             "brand": "",
             "note": "",
-            "sku": "CS-F45-PT24",
-            "icon": "check"
+            "sku": "CS-F45-PT24"
           }
         },
         "included_bds": {
@@ -120,10 +120,10 @@
           "settings": {
             "text": "BDS components",
             "logo": "shopify://shop_images/ICONS_FOR_WEBSITE_BDS.png",
+            "icon": "check",
             "brand": "",
             "note": "",
-            "sku": "CS-F45-PT25",
-            "icon": "check"
+            "sku": "CS-F45-PT25"
           }
         },
         "included_springs": {
@@ -131,37 +131,40 @@
           "settings": {
             "text": "ORI springs",
             "logo": "shopify://shop_images/420_x_420px_MEGA_MENU_ICON__ORI.jpg",
+            "icon": "check",
             "brand": "",
             "note": "",
-            "sku": "CS-F45-PT23",
-            "icon": "check"
+            "sku": "CS-F45-PT23"
           }
         },
         "included_cert": {
           "type": "included",
           "settings": {
             "text": "Engineering certification",
+            "icon": "shield",
             "brand": "",
             "note": "",
-            "sku": "CS-F45-PT22",
-            "icon": "shield"
+            "sku": "CS-F45-PT22"
           }
         },
         "incl_image_1": {
           "type": "image",
           "settings": {
+            "image": "shopify://shop_images/imag1.webp",
             "alt": ""
           }
         },
         "incl_image_2": {
           "type": "image",
           "settings": {
+            "image": "shopify://shop_images/imag2.webp",
             "alt": ""
           }
         },
         "incl_image_3": {
           "type": "image",
           "settings": {
+            "image": "shopify://shop_images/imag3.webp",
             "alt": ""
           }
         }
@@ -178,6 +181,8 @@
       "settings": {
         "heading": "What's included",
         "layout": "editorial",
+        "media_position": "right",
+        "autoplay_seconds": 5,
         "item_logo_height": 34,
         "brand_logo_height": 72,
         "brands_heading": "Built with",
@@ -187,9 +192,7 @@
         "padding_top": 52,
         "padding_bottom": 52,
         "custom_id": "",
-        "color_schema": "",
-        "media_position": "right",
-        "autoplay_seconds": 5
+        "color_schema": ""
       }
     },
     "scrolling_promotion_iqVp4T": {
@@ -464,16 +467,16 @@
       ],
       "settings": {
         "heading": "Installation process",
+        "heading_align": "center",
         "layout": "editorial",
+        "dot_size": 54,
         "alt_background": false,
         "tint_color": "#f4fbfb",
         "container": "container",
         "padding_top": 52,
         "padding_bottom": 52,
         "custom_id": "",
-        "color_schema": "",
-        "heading_align": "center",
-        "dot_size": 54
+        "color_schema": ""
       }
     },
     "ori_package_grid_RVbeB9": {
