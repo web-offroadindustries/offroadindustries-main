@@ -119,8 +119,8 @@
           "type": "included",
           "settings": {
             "text": "BDS components",
-            "logo": "shopify://shop_images/ICONS_FOR_WEBSITE_BDS.png",
-            "icon": "check",
+            "logo": "shopify://shop_images/420_x_420px_MEGA_MENU_ICON__BDS.jpg",
+            "icon": "none",
             "brand": "",
             "note": "",
             "sku": "CS-F45-PT25"
@@ -184,6 +184,8 @@
         "media_position": "right",
         "autoplay_seconds": 5,
         "item_logo_height": 64,
+        "item_logo_max_width": 290,
+        "logo_frame": true,
         "brand_logo_height": 72,
         "brands_heading": "Built with",
         "alt_background": false,
@@ -192,9 +194,7 @@
         "padding_top": 52,
         "padding_bottom": 52,
         "custom_id": "",
-        "color_schema": "",
-        "item_logo_max_width": 0,
-        "logo_frame": true
+        "color_schema": ""
       }
     },
     "scrolling_promotion_iqVp4T": {
