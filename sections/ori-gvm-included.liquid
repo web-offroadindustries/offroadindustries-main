@@ -66,7 +66,7 @@
     id="{{ section_id }}"
     class="ori-gvm-product ori-gvm-product--{{ section.settings.layout | default: 'classic' }} color-{{ section.settings.color_schema }}"
     data-section-type="ori-gvm-included"
-    style="--gvm-tint: {{ section.settings.tint_color | default: '#f3f6f7' }}; --gvm-frame-h: {{ frame_h }}px; --gvm-frame-w: {{ frame_w }}px; --gvm-logo-scale: {{ logo_scale }}; --gvm-brand-logo-h: {{ section.settings.brand_logo_height | default: 72 }}px;"
+    style="--gvm-tint: {{ section.settings.tint_color | default: '#f3f6f7' }}; --gvm-frame-h: {{ frame_h }}px; --gvm-frame-w: {{ frame_w }}px; --gvm-logo-scale: {{ logo_scale }}; --incl-row-pad: {{ section.settings.row_spacing | default: 10 }}px; --gvm-brand-logo-h: {{ section.settings.brand_logo_height | default: 72 }}px;"
   >
     <div
       class="ori-gvm-product__band ori-gvm-product__band--included{% if section.settings.alt_background %} ori-gvm-product__band--alt{% endif %}"
@@ -263,6 +263,17 @@
       "default": 5
     },
     { "type": "header", "content": "Logo sizes" },
+    {
+      "type": "range",
+      "id": "row_spacing",
+      "label": "Row spacing",
+      "info": "Space above and below each item in the list.",
+      "min": 0,
+      "max": 32,
+      "step": 2,
+      "unit": "px",
+      "default": 10
+    },
     {
       "type": "range",
       "id": "item_logo_height",
