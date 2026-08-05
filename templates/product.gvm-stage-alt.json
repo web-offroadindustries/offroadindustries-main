@@ -183,7 +183,7 @@
         "layout": "editorial",
         "media_position": "right",
         "autoplay_seconds": 5,
-        "item_logo_height": 34,
+        "item_logo_height": 64,
         "brand_logo_height": 72,
         "brands_heading": "Built with",
         "alt_background": false,
@@ -192,7 +192,9 @@
         "padding_top": 52,
         "padding_bottom": 52,
         "custom_id": "",
-        "color_schema": ""
+        "color_schema": "",
+        "item_logo_max_width": 0,
+        "logo_frame": true
       }
     },
     "scrolling_promotion_iqVp4T": {

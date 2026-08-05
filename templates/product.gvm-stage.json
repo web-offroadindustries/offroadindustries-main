@@ -167,7 +167,7 @@
       "settings": {
         "heading": "What's included",
         "layout": "classic",
-        "item_logo_height": 34,
+        "item_logo_height": 64,
         "brand_logo_height": 72,
         "brands_heading": "Built with",
         "alt_background": false,
@@ -178,7 +178,9 @@
         "custom_id": "",
         "color_schema": "",
         "media_position": "right",
-        "autoplay_seconds": 5
+        "autoplay_seconds": 5,
+        "item_logo_max_width": 0,
+        "logo_frame": true
       }
     },
     "gvm_steps": {
