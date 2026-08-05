@@ -49,7 +49,16 @@
   if section.settings.item_logo_box_width > 0
     assign frame_w = section.settings.item_logo_box_width
   endif
-  assign logo_scale = section.settings.item_logo_scale | default: 100 | divided_by: 100.0
+  assign logo_scale_pct = section.settings.item_logo_scale | default: 100
+  assign logo_scale = logo_scale_pct | divided_by: 100.0
+
+  # sizes has to describe the real rendered width. It used to be a hardcoded
+  # 40px, which pinned the artwork to 40px however large the box was set.
+  assign logo_px = frame_w | times: logo_scale_pct | divided_by: 100
+  if logo_px < 40
+    assign logo_px = 40
+  endif
+  assign logo_px_css = logo_px | append: 'px'
 -%}
 
 {%- if included.size > 0 or img_count > 0 or brand_logos.size > 0 -%}
@@ -91,12 +100,12 @@
                         {%- if has_logo -%}
                           {{-
                             block.settings.logo
-                            | image_url: width: 200
+                            | image_url: width: 900
                             | image_tag:
                               loading: 'lazy',
                               class: 'ori-gvm-incl__logo',
-                              widths: '80,120,200',
-                              sizes: '40px',
+                              widths: '120,180,240,360,480,720,900',
+                              sizes: logo_px_css,
                               alt: block.settings.brand | default: block.settings.text | escape
                           -}}
                         {%- else -%}
@@ -260,8 +269,8 @@
       "label": "Logo box size",
       "info": "Size of the box beside each item.",
       "min": 24,
-      "max": 160,
-      "step": 2,
+      "max": 240,
+      "step": 4,
       "unit": "px",
       "default": 64
     },
@@ -271,7 +280,7 @@
       "label": "Logo size in box",
       "info": "How much of the box the logo fills. Most logo files are square images with the mark floating in the middle, so go above 100% to trim that empty margin and make the mark itself look bigger.",
       "min": 40,
-      "max": 220,
+      "max": 400,
       "step": 5,
       "unit": "%",
       "default": 100

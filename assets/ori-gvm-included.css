@@ -82,11 +82,16 @@
   background: none;
   padding: 0;
 }
+/* width/height rather than max-width/max-height, deliberately. The img carries
+   a srcset, and with a srcset the browser takes its intrinsic layout width from
+   the sizes attribute. Under width:auto that intrinsic size is what lays out,
+   and a max-* can only ever shrink it, so the logo stayed pinned at the sizes
+   value however large the box or the scale was set. Giving the element a real
+   width and letting object-fit keep the aspect ratio takes the intrinsic size
+   out of the equation entirely. */
 .ori-gvm-incl__logo {
-  max-width: calc(100% * var(--gvm-logo-scale, 1));
-  max-height: calc(100% * var(--gvm-logo-scale, 1));
-  width: auto;
-  height: auto;
+  width: calc(100% * var(--gvm-logo-scale, 1));
+  height: calc(100% * var(--gvm-logo-scale, 1));
   object-fit: contain;
   display: block;
 }
