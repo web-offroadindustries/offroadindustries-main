@@ -26,19 +26,75 @@
   endif
 
   assign form_id = 'ContactForm-' | append: section.id
+
+  # Popup mode. The section still lives in the template and is still edited in
+  # the same place, it just renders inside a modal instead of in the page flow.
+  # Triggers elsewhere open it by id, so the field list stays configured here
+  # rather than being duplicated into whichever section owns the button.
+  assign is_popup = false
+  if section.settings.display_mode == 'popup'
+    assign is_popup = true
+  endif
+  assign popup_id = section.settings.popup_id | default: 'gvm-quote' | handle
+
+  # The container setting adds page gutters, which fight the modal's own
+  # padding, so inside the popup it is swapped for a plain full-width wrapper.
+  assign wrapper_container = container
+  if is_popup
+    assign wrapper_container = 'cfv4-popup__body'
+  endif
 -%}
 
-{% render 'divider',
-  show_divider: section.settings.show_section_divider,
-  divider_width: section.settings.divider_width
-%}
+{%- unless is_popup -%}
+  {% render 'divider',
+    show_divider: section.settings.show_section_divider,
+    divider_width: section.settings.divider_width
+  %}
+{%- endunless -%}
+
+{%- if is_popup -%}
+  {%- comment -%}
+    data-no-append keeps the dialog inside its own section wrapper. ModalDialog
+    otherwise relocates itself to document.body, which leaves an orphaned copy
+    behind every time the theme editor re-renders the section and ends up with
+    duplicate ids. Staying put is safe here because .f-modal is position:fixed
+    and nothing above it in this section creates a containing block.
+  {%- endcomment -%}
+  <modal-dialog
+    id="PopupModal-{{ popup_id }}"
+    class="f-modal hidden cfv4-popup"
+    data-no-append
+    style="--modal-width: {{ section.settings.popup_width }}px"
+  >
+    <div
+      class="f-modal__content"
+      role="dialog"
+      aria-label="{{ section.settings.heading | default: 'Contact form' | strip_html | escape }}"
+      aria-modal="true"
+      tabindex="-1"
+    >
+      <div class="scroll-container">
+        <button
+          id="ModalClose-{{ popup_id }}"
+          type="button"
+          class="f-modal__close"
+          aria-label="{{ 'accessibility.close' | t }}"
+        >
+          {% comment %} theme-check-disable {% endcomment %}
+          {{ 'icon-close.svg' | inline_asset_content }}
+          {% comment %} theme-check-enable {% endcomment %}
+        </button>
+        <div class="f-modal__inner">
+{%- endif -%}
 
 <div
   id="{{ section_id }}"
-  class="f-contact-form f-contact-form-{{ section.settings.form_design }} f-section-padding color-{{ section.settings.color_schema }}{{ custom_class }}"
-  style="--section-padding-top: {{ section.settings.padding_top }}px; --section-padding-bottom: {{ section.settings.padding_bottom }}px;"
+  class="f-contact-form f-contact-form-{{ section.settings.form_design }}{% unless is_popup %} f-section-padding{% endunless %} color-{{ section.settings.color_schema }}{{ custom_class }}"
+  {% unless is_popup %}
+    style="--section-padding-top: {{ section.settings.padding_top }}px; --section-padding-bottom: {{ section.settings.padding_bottom }}px;"
+  {% endunless %}
 >
-  <div class="{{ container }}">
+  <div class="{{ wrapper_container }}">
     {% render 'index-section-header',
       section_settings: section.settings,
       animation_effect: animation_effect,
@@ -285,11 +341,41 @@
           </div>
 
           {% render 'form-status', form: form %}
+
+          {%- comment -%}
+            Shopify handles a contact form with a full page reload, so in popup
+            mode the modal would be shut by the time the visitor came back and
+            the success or error message would never be seen. Reopen it when
+            the reloaded page is the result of a submission.
+          {%- endcomment -%}
+          {%- liquid
+            assign reopen_popup = false
+            if is_popup
+              if form.posted_successfully? or form.errors
+                assign reopen_popup = true
+              endif
+            endif
+          -%}
+          {%- if reopen_popup -%}
+            <script>
+              document.addEventListener('DOMContentLoaded', function () {
+                var modal = document.getElementById('PopupModal-{{ popup_id }}');
+                if (modal && typeof modal.show === 'function') modal.show();
+              });
+            </script>
+          {%- endif -%}
         {%- endform -%}
       </motion-element>
     </div>
   </div>
 </div>
+
+{%- if is_popup -%}
+        </div>
+      </div>
+    </div>
+  </modal-dialog>
+{%- endif -%}
 
 <style>
   /* width control per field (mobile = 100%, desktop uses dropdown %) */
@@ -302,6 +388,19 @@
       flex: 0 0 var(--cfv4-w, 100%);
       max-width: var(--cfv4-w, 100%);
     }
+  }
+
+  /* Popup mode. The modal supplies its own padding and width, so the section
+     drops the page container and the form stops fighting it for the space. */
+  .cfv4-popup .cfv4-popup__body{
+    width: 100%;
+  }
+  .cfv4-popup #{{ section_id }} .f-contact-form__wrapper{
+    width: 100% !important;
+  }
+  /* The close button sits in the top right, so the heading needs to clear it. */
+  .cfv4-popup #{{ section_id }} .f-section-header{
+    padding-right: 32px;
   }
 </style>
 
@@ -329,6 +428,36 @@
     { "type": "inline_richtext", "id": "heading", "label": "t:sections.common.header.heading", "default": "Contact form" },
     { "type": "text", "id": "subheading", "label": "t:sections.common.header.subheading" },
     { "type": "richtext", "id": "description", "label": "t:sections.common.header.description" },
+
+    { "type": "header", "content": "Popup" },
+    {
+      "type": "select",
+      "id": "display_mode",
+      "label": "Show the form",
+      "info": "Popup keeps the form hidden until a button opens it. Set the matching Popup ID on the button that should open it.",
+      "options": [
+        { "value": "inline", "label": "On the page" },
+        { "value": "popup", "label": "In a popup" }
+      ],
+      "default": "inline"
+    },
+    {
+      "type": "text",
+      "id": "popup_id",
+      "label": "Popup ID",
+      "info": "Any short name, letters and dashes only. Paste the same value into the button that opens this form.",
+      "default": "gvm-quote"
+    },
+    {
+      "type": "range",
+      "id": "popup_width",
+      "label": "Popup width",
+      "min": 320,
+      "max": 800,
+      "step": 10,
+      "unit": "px",
+      "default": 560
+    },
 
     { "type": "header", "content": "t:sections.contact-form.settings.header_form_settings.content" },
     {

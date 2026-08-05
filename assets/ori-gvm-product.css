@@ -311,6 +311,14 @@
   margin-top: 8px;
 }
 
+/* display:contents rather than a display value of its own, so the button stays
+   a direct flex child of the row. Anything else would make the opener the flex
+   item and the gap, the wrap and the mobile `.ori-gvm-product__ctas .btn`
+   stretch rule would all be measuring the wrapper instead of the button. */
+.ori-gvm-product__cta-opener {
+  display: contents;
+}
+
 /* brand-guidelines.css paints every .btn brand teal, which made the secondary
    CTA identical to the primary one. Restated here as an outline button: the
    two-class selector outranks that single-class rule, so no !important needed. */

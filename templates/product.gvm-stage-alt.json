@@ -51,7 +51,8 @@
         "tint_color": "#f4fbfb",
         "container": "container",
         "custom_id": "",
-        "color_schema": ""
+        "color_schema": "",
+        "quote_popup_id": "gvm-quote"
       }
     },
     "gvm_benefits": {
@@ -1235,6 +1236,130 @@
         "divider_width": "container",
         "animations": "inherit"
       }
+    },
+    "gvm_quote_popup": {
+      "type": "contact-form-v4",
+      "blocks": {
+        "f_name": {
+          "type": "name",
+          "settings": {
+            "label": "Name",
+            "field_name": "Name",
+            "placeholder": "Enter your name",
+            "field_width": "full",
+            "hide_label": true,
+            "required": false
+          }
+        },
+        "f_email": {
+          "type": "email",
+          "settings": {
+            "label": "Email",
+            "placeholder": "Enter your email",
+            "field_width": "full",
+            "hide_label": true
+          }
+        },
+        "f_phone": {
+          "type": "phone",
+          "settings": {
+            "label": "Phone number",
+            "placeholder": "Enter your phone number",
+            "field_width": "full",
+            "hide_label": true,
+            "required": false
+          }
+        },
+        "f_rego": {
+          "type": "rego_status",
+          "settings": {
+            "label": "Pre or Post rego",
+            "field_name": "Pre or Post rego",
+            "placeholder": "Select one",
+            "options": "Pre rego, Post rego",
+            "field_width": "full",
+            "hide_label": true,
+            "required": false
+          }
+        },
+        "f_vehicle": {
+          "type": "custom_select",
+          "settings": {
+            "label": "Which Vehicle",
+            "field_name": "Which Vehicle",
+            "placeholder": "Which Vehicle",
+            "options": "Ford F150, Chevy 1500, Chevy 2500HD, Toyota Tundra, RAM 2500 (5th Gen), RAM 2500 (6th Gen), Toyota LC300",
+            "field_width": "100",
+            "hide_label": true,
+            "required": false
+          }
+        },
+        "f_stage": {
+          "type": "custom_select",
+          "settings": {
+            "label": "What Stage GVM Package",
+            "field_name": "What Stage GVM Package",
+            "placeholder": "What Stage GVM Package",
+            "options": "Stage 1, Stage 2, Stage 3, Stage 4, Stage 5, Stage 6",
+            "field_width": "100",
+            "hide_label": true,
+            "required": false
+          }
+        },
+        "f_location": {
+          "type": "location",
+          "settings": {
+            "label": "What is your location",
+            "field_name": "Location",
+            "placeholder": "What is your location?",
+            "field_width": "full",
+            "hide_label": true,
+            "required": false
+          }
+        },
+        "f_message": {
+          "type": "message",
+          "settings": {
+            "label": "Message",
+            "placeholder": "Which GVM Package do you want further information on?",
+            "rows": 3,
+            "field_width": "100",
+            "hide_label": true
+          }
+        }
+      },
+      "block_order": [
+        "f_name",
+        "f_email",
+        "f_phone",
+        "f_rego",
+        "f_vehicle",
+        "f_stage",
+        "f_location",
+        "f_message"
+      ],
+      "settings": {
+        "container": "container",
+        "color_schema": "",
+        "heading": "GVM Enquiry? Contact us Now",
+        "subheading": "",
+        "description": "",
+        "display_mode": "popup",
+        "popup_id": "gvm-quote",
+        "popup_width": 560,
+        "form_design": "design-1",
+        "form_width": 500,
+        "form_alignment": "center",
+        "button_label": "Send",
+        "button_style": "btn--primary",
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "show_section_divider": false,
+        "divider_width": "container",
+        "custom_id": "",
+        "custom_class": "",
+        "animations": "inherit"
+      }
     }
   },
   "order": [
@@ -1246,6 +1371,7 @@
     "ori_package_grid_RVbeB9",
     "installers",
     "faq",
-    "product_recently_viewed_4ecpYd"
+    "product_recently_viewed_4ecpYd",
+    "gvm_quote_popup"
   ]
 }

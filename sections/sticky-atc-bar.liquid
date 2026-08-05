@@ -64,7 +64,18 @@
       <div class="sticky-atc-bar__form">
         {%- if is_gvm_stage -%}
         <div class="sticky-atc-bar__gvm-ctas flex items-center" style="gap:10px;">
-          <a href="{{ section.settings.gvm_quote_url | default: '/pages/contact' }}" class="btn btn--primary">Request Quote</a>
+          {%- comment -%}
+            Same popup as the hero button. Wired here too because this is the
+            same call to action reappearing on scroll, and having one open a
+            popup while the other navigated away would read as a bug.
+          {%- endcomment -%}
+          {%- if section.settings.gvm_quote_popup_id != blank -%}
+            <modal-opener data-modal="#PopupModal-{{ section.settings.gvm_quote_popup_id | handle }}">
+              <button type="button" class="btn btn--primary" aria-haspopup="dialog">Request Quote</button>
+            </modal-opener>
+          {%- else -%}
+            <a href="{{ section.settings.gvm_quote_url | default: '/pages/contact' }}" class="btn btn--primary">Request Quote</a>
+          {%- endif -%}
           <a href="{{ section.settings.gvm_book_url | default: '/pages/contact' }}" class="btn btn--outline">Book Installation</a>
         </div>
         {%- else -%}
@@ -245,7 +256,14 @@
     {
       "type": "url",
       "id": "gvm_quote_url",
-      "label": "Request Quote URL (GVM stage template)"
+      "label": "Request Quote URL (GVM stage template)",
+      "info": "Ignored when a Popup ID is set below."
+    },
+    {
+      "type": "text",
+      "id": "gvm_quote_popup_id",
+      "label": "Request Quote popup ID",
+      "info": "Opens a Contact form v4 section set to Popup with this same ID. Use the same value as the ORI GVM Product section so both buttons behave alike."
     },
     {
       "type": "url",

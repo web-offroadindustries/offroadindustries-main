@@ -257,7 +257,23 @@
 
           <div class="ori-gvm-product__ctas">
             {%- if section.settings.quote_label != blank -%}
-              <a href="{{ section.settings.quote_url | default: '/pages/contact' }}" class="btn btn--primary ori-gvm-product__cta">{{ section.settings.quote_label }}</a>
+              {%- comment -%}
+                With a Popup ID set the button opens the Contact form v4 section
+                configured with the same id, rather than navigating away. Left
+                blank it stays an ordinary link, so existing pages are unchanged.
+              {%- endcomment -%}
+              {%- if section.settings.quote_popup_id != blank -%}
+                <modal-opener
+                  class="ori-gvm-product__cta-opener"
+                  data-modal="#PopupModal-{{ section.settings.quote_popup_id | handle }}"
+                >
+                  <button type="button" class="btn btn--primary ori-gvm-product__cta" aria-haspopup="dialog">
+                    {{- section.settings.quote_label -}}
+                  </button>
+                </modal-opener>
+              {%- else -%}
+                <a href="{{ section.settings.quote_url | default: '/pages/contact' }}" class="btn btn--primary ori-gvm-product__cta">{{ section.settings.quote_label }}</a>
+              {%- endif -%}
             {%- endif -%}
             {%- if section.settings.book_label != blank -%}
               <a href="{{ section.settings.book_url | default: '/pages/contact' }}" class="btn btn--outline ori-gvm-product__cta">{{ section.settings.book_label }}</a>
@@ -738,7 +754,8 @@
     { "type": "text", "id": "price_note", "label": "Price note", "info": "Small caption shown beside the price, e.g. Installed & engineered.", "default": "Installed & engineered" },
     { "type": "header", "content": "Call to action" },
     { "type": "text", "id": "quote_label", "label": "Primary button label", "default": "Request Quote" },
-    { "type": "url", "id": "quote_url", "label": "Primary button URL" },
+    { "type": "url", "id": "quote_url", "label": "Primary button URL", "info": "Ignored when a Popup ID is set below." },
+    { "type": "text", "id": "quote_popup_id", "label": "Primary button popup ID", "info": "Opens a Contact form v4 section set to Popup with this same ID, instead of following the URL. Leave blank to use the URL." },
     { "type": "text", "id": "book_label", "label": "Secondary button label", "default": "Book Installation" },
     { "type": "url", "id": "book_url", "label": "Secondary button URL" },
     { "type": "header", "content": "Section headings" },
