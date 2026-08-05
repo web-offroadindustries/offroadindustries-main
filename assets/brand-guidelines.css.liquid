@@ -44,8 +44,22 @@
      no change here. Saira Condensed and Barlow are the freely licensable
      stand-ins loaded in theme.liquid. The theme's own typography settings are
      the last resort before generic sans. */
-  --brand-display-font: "Evogria", "Saira Condensed", var(--font-heading-family, sans-serif);
-  --brand-body-font: "Geomanist", "Barlow", var(--font-body-family, sans-serif);
+  --brand-display-font: "Evogria", "Saira Condensed", {{ settings.type_header_font.family }}, {{ settings.type_header_font.fallback_families }};
+  --brand-body-font: "Geomanist", "Barlow", {{ settings.type_body_font.family }}, {{ settings.type_body_font.fallback_families }};
+
+  /* The theme's own variables are repointed at the same stacks. Roughly a dozen
+     rules across theme.css, product.css, collection.css, cart-drawer.css and
+     others read --font-heading-family / --font-body-family directly, and the
+     .font-heading / .font-body utilities do it with !important at a higher
+     specificity than the h1-h6 rule below. Overriding the variables fixes every
+     one of those consumers at once instead of chasing each selector.
+
+     critical-css.liquid sets these on :root earlier in the head, so this later
+     :root block wins at equal specificity. The tails are read from the same
+     theme settings, so nothing is lost if the brand faces are unavailable. */
+  --font-heading-family: "Evogria", "Saira Condensed", {{ settings.type_header_font.family }}, {{ settings.type_header_font.fallback_families }};
+  --font-body-family: "Geomanist", "Barlow", {{ settings.type_body_font.family }}, {{ settings.type_body_font.fallback_families }};
+  --font-subheading-family: "Geomanist", "Barlow", {{ settings.type_body_font.family }}, {{ settings.type_body_font.fallback_families }};
 }
 
 /* =========================
