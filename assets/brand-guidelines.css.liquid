@@ -60,6 +60,31 @@
   --font-heading-family: "Evogria", "Saira Condensed", {{ settings.type_header_font.family }}, {{ settings.type_header_font.fallback_families }};
   --font-body-family: "Geomanist", "Barlow", {{ settings.type_body_font.family }}, {{ settings.type_body_font.fallback_families }};
   --font-subheading-family: "Geomanist", "Barlow", {{ settings.type_body_font.family }}, {{ settings.type_body_font.fallback_families }};
+
+  /* The remaining four. critical-css.liquid derives these from separate theme
+     settings, so leaving them alone let whole components drift off the brand
+     stack even though the three above were correct:
+
+       --font-menu-family   .f-site-nav__link is covered by the rule below, but
+                            the mega dropdown links and column headers read this
+                            variable instead, so the mega menu rendered in a
+                            different face to the nav bar directly above it.
+       --font-btn-family    .btn is covered below; this catches the button
+                            variants in components.css and giftcard.css that
+                            are not.
+       --font-mega-family   and
+       --font-highlight-text-family
+                            both fall back to the theme's mega/highlight custom
+                            font settings, which resolve to Fraunces - a serif.
+                            Nothing else on the store is a serif.
+
+     Menu and buttons take the body stack to match the .f-site-nav__link and
+     .btn rules further down; mega titles and highlight text take the display
+     stack because both are heading-weight type. */
+  --font-menu-family: "Geomanist", "Barlow", {{ settings.type_body_font.family }}, {{ settings.type_body_font.fallback_families }};
+  --font-btn-family: "Geomanist", "Barlow", {{ settings.type_body_font.family }}, {{ settings.type_body_font.fallback_families }};
+  --font-mega-family: "Evogria", "Saira Condensed", {{ settings.type_header_font.family }}, {{ settings.type_header_font.fallback_families }};
+  --font-highlight-text-family: "Evogria", "Saira Condensed", {{ settings.type_header_font.family }}, {{ settings.type_header_font.fallback_families }};
 }
 
 /* =========================
