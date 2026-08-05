@@ -272,29 +272,27 @@
     {{ 'Geomanist-Regular.woff2' | asset_url | preload_tag: as: 'font', type: 'font/woff2', crossorigin: 'anonymous' }}
 
     {%- comment -%}
-      Stand-in faces for the GVM pages only. Evogria and Geomanist are declared
-      in brand-guidelines.css.liquid but the .woff2 files are not on the theme,
-      so headings were falling through to the browser default. Saira Condensed
-      and Barlow are the closest freely licensable match to the approved design.
-      They sit AFTER the brand names in the font stack, so uploading the real
-      files to Assets makes them take over with no change here.
+      Stand-in faces, loaded on every page so the whole store shares one set.
+      Evogria and Geomanist are declared in brand-guidelines.css.liquid but
+      their .woff2 files are not on the theme, so text was falling through to
+      the browser default. Saira Condensed and Barlow are the closest freely
+      licensable match to the brand guidelines.
 
-      Loaded only on gvm-* templates, so the rest of the store carries no extra
-      font request. fonts.googleapis.com is already preconnected above.
+      They sit AFTER the brand names in --brand-display-font / --brand-body-font,
+      so uploading the real files to Assets makes them take over with no change
+      here. fonts.googleapis.com is already preconnected above.
     {%- endcomment -%}
-    {%- if template.suffix contains 'gvm' -%}
-      {% comment %}theme-check-disable{% endcomment %}
-      <link
-        rel="preload"
-        href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600&display=swap"
-        as="style"
-        onload="this.onload=null;this.rel='stylesheet';"
-      >
-      <noscript>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600&display=swap">
-      </noscript>
-      {% comment %}theme-check-enable{% endcomment %}
-    {%- endif -%}
+    {% comment %}theme-check-disable{% endcomment %}
+    <link
+      rel="preload"
+      href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600&display=swap"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet';"
+    >
+    <noscript>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600&display=swap">
+    </noscript>
+    {% comment %}theme-check-enable{% endcomment %}
 
     {% comment %}theme-check-disable{% endcomment %}
     <link

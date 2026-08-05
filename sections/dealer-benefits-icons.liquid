@@ -70,7 +70,7 @@
     #DealerBenefitsIcons-{{ section_id }} .text-right { text-align: right; }
     #DealerBenefitsIcons-{{ section_id }} .dealer-benefits-icons__eyebrow {
       margin: 0 0 10px;
-      font-family: "Geomanist", sans-serif;
+      font-family: var(--brand-body-font, sans-serif);
       font-size: 13px;
       font-weight: 700;
       line-height: 1.2;
@@ -80,7 +80,7 @@
     }
     #DealerBenefitsIcons-{{ section_id }} .dealer-benefits-icons__heading {
       margin: 0 0 14px;
-      font-family: "Evogria", sans-serif;
+      font-family: var(--brand-display-font, sans-serif);
       font-size: {{ section.settings.heading_size }}px;
       line-height: 1.06;
       text-transform: uppercase;
@@ -88,7 +88,7 @@
     }
     #DealerBenefitsIcons-{{ section_id }} .dealer-benefits-icons__text,
     #DealerBenefitsIcons-{{ section_id }} .dealer-benefits-icons__card-text {
-      font-family: "Geomanist", sans-serif;
+      font-family: var(--brand-body-font, sans-serif);
       font-size: 16px;
       line-height: 1.7;
       color: {{ section.settings.text_color }};
@@ -128,7 +128,7 @@
     }
     #DealerBenefitsIcons-{{ section_id }} .dealer-benefits-icons__card-title {
       margin: 0 0 10px;
-      font-family: "Evogria", sans-serif;
+      font-family: var(--brand-display-font, sans-serif);
       font-size: {{ section.settings.card_heading_size }}px;
       line-height: 1.12;
       text-transform: uppercase;

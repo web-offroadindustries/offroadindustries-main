@@ -38,16 +38,12 @@
      instead of the merchant's own choice. Upload Evogria.woff2,
      Geomanist-Regular.woff2 and Geomanist-Medium.woff2 to Assets and they take
      over automatically, with no further change needed here. */
-  --brand-display-font: "Evogria", var(--font-heading-family, sans-serif);
-  --brand-body-font: "Geomanist", var(--font-body-family, sans-serif);
-}
-
-/* GVM pages get the stand-in faces loaded in theme.liquid. The body class is
-   already template-<name> <name>-<suffix>, so product-gvm-stage,
-   product-gvm-stage-alt and the page-*-gvm-package variants all match. Scoped
-   here rather than globally so the rest of the store is untouched. Evogria and
-   Geomanist stay first in the stack and win the moment they are uploaded. */
-body[class*="-gvm"] {
+  /* One stack for the whole store, so every page and block resolves to the
+     same faces. Evogria and Geomanist stay first: their .woff2 files are not
+     on the theme yet, and uploading them to Assets makes them take over with
+     no change here. Saira Condensed and Barlow are the freely licensable
+     stand-ins loaded in theme.liquid. The theme's own typography settings are
+     the last resort before generic sans. */
   --brand-display-font: "Evogria", "Saira Condensed", var(--font-heading-family, sans-serif);
   --brand-body-font: "Geomanist", "Barlow", var(--font-body-family, sans-serif);
 }

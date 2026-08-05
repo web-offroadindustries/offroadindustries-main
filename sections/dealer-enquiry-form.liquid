@@ -249,7 +249,7 @@
 
     #DealerEnquiryFormSection-{{ section_id }} .dealer-enquiry-form__eyebrow {
       margin: 0 0 12px;
-      font-family: "Geomanist", sans-serif;
+      font-family: var(--brand-body-font, sans-serif);
       font-size: 13px;
       font-weight: 700;
       letter-spacing: 0.12em;
@@ -259,7 +259,7 @@
 
     #DealerEnquiryFormSection-{{ section_id }} .dealer-enquiry-form__heading {
       margin: 0 0 16px;
-      font-family: "Evogria", sans-serif;
+      font-family: var(--brand-display-font, sans-serif);
       font-size: {{ section.settings.heading_size }}px;
       line-height: 1.05;
       text-transform: uppercase;
@@ -268,7 +268,7 @@
 
     #DealerEnquiryFormSection-{{ section_id }} .dealer-enquiry-form__text,
     #DealerEnquiryFormSection-{{ section_id }} .dealer-enquiry-form__card-text {
-      font-family: "Geomanist", sans-serif;
+      font-family: var(--brand-body-font, sans-serif);
       font-size: 16px;
       line-height: 1.7;
       color: {{ section.settings.content_text_color }};
@@ -301,7 +301,7 @@
 
     #DealerEnquiryFormSection-{{ section_id }} .dealer-enquiry-form__card-title {
       margin: 0 0 10px;
-      font-family: "Evogria", sans-serif;
+      font-family: var(--brand-display-font, sans-serif);
       font-size: 26px;
       line-height: 1.1;
       text-transform: uppercase;
@@ -317,7 +317,7 @@
       margin-bottom: 16px;
       padding: 12px 14px;
       border-radius: 8px;
-      font-family: "Geomanist", sans-serif;
+      font-family: var(--brand-body-font, sans-serif);
       font-size: 14px;
       line-height: 1.5;
     }
@@ -347,7 +347,7 @@
     #DealerEnquiryFormSection-{{ section_id }} .dealer-enquiry-form__label {
       display: block;
       margin-bottom: 8px;
-      font-family: "Geomanist", sans-serif;
+      font-family: var(--brand-body-font, sans-serif);
       font-size: 13px;
       font-weight: 700;
       letter-spacing: 0.06em;
@@ -365,7 +365,7 @@
       border-radius: {{ section.settings.input_radius }}px;
       background: {{ section.settings.input_bg_color }};
       color: {{ section.settings.input_text_color }};
-      font-family: "Geomanist", sans-serif;
+      font-family: var(--brand-body-font, sans-serif);
       font-size: 15px;
       line-height: 1.4;
       outline: none;
@@ -387,7 +387,7 @@
       display: flex;
       align-items: flex-start;
       gap: 10px;
-      font-family: "Geomanist", sans-serif;
+      font-family: var(--brand-body-font, sans-serif);
       font-size: 14px;
       line-height: 1.5;
       color: {{ section.settings.content_text_color }};
@@ -409,7 +409,7 @@
       border-radius: {{ section.settings.button_radius }}px;
       background: {{ section.settings.button_bg }};
       color: {{ section.settings.button_text }};
-      font-family: "Geomanist", sans-serif;
+      font-family: var(--brand-body-font, sans-serif);
       font-size: 14px;
       font-weight: 700;
       letter-spacing: 0.1em;

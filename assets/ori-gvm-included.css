@@ -54,28 +54,41 @@
   grid-template-columns: minmax(0, 1fr);
 }
 
+/* The frame used to be a fixed square, which meant a wide wordmark like the ORI
+   one was capped by the box width and rendered far smaller than the height
+   setting implied. Height is now fixed and width is free to grow up to
+   --gvm-item-logo-w, so tall and wide marks both get to use the full size. */
 .ori-gvm-incl__figure {
   display: grid;
   place-items: center;
-  width: calc(var(--gvm-item-logo-h, 34px) + 14px);
-  height: calc(var(--gvm-item-logo-h, 34px) + 14px);
-  padding: 4px;
+  box-sizing: content-box;
+  height: var(--gvm-item-logo-h, 44px);
+  min-width: var(--gvm-item-logo-h, 44px);
+  max-width: var(--gvm-item-logo-w, 120px);
+  padding: 7px 9px;
   border: 1px solid var(--incl-frame-line);
   border-radius: 4px;
   background: var(--incl-frame-bg);
-  flex-shrink: 0;
+}
+/* No frame: the logo stands on its own, which suits marks that already carry
+   their own container or sit on a transparent background. */
+.ori-gvm-incl--no-frame .ori-gvm-incl__figure {
+  border: 0;
+  background: none;
+  padding: 0;
+  min-width: 0;
 }
 .ori-gvm-incl__logo {
   max-width: 100%;
-  max-height: var(--gvm-item-logo-h, 34px);
+  max-height: 100%;
   width: auto;
   height: auto;
   object-fit: contain;
   display: block;
 }
 .ori-gvm-incl__icon {
-  width: calc(var(--gvm-item-logo-h, 34px) * 0.62);
-  height: calc(var(--gvm-item-logo-h, 34px) * 0.62);
+  width: calc(var(--gvm-item-logo-h, 44px) * 0.6);
+  height: calc(var(--gvm-item-logo-h, 44px) * 0.6);
   color: var(--incl-accent);
 }
 

@@ -40,6 +40,14 @@
   endfor
 
   assign autoplay_ms = section.settings.autoplay_seconds | times: 1000
+
+  # Logo box: fixed height, width free to grow so wide wordmarks are not capped
+  # by a square frame. The width allowance tracks the height unless overridden.
+  assign item_logo_h = section.settings.item_logo_height | default: 44
+  assign item_logo_w = item_logo_h | times: 3
+  if section.settings.item_logo_max_width > 0
+    assign item_logo_w = section.settings.item_logo_max_width
+  endif
 -%}
 
 {%- if included.size > 0 or img_count > 0 or brand_logos.size > 0 -%}
@@ -47,7 +55,7 @@
     id="{{ section_id }}"
     class="ori-gvm-product ori-gvm-product--{{ section.settings.layout | default: 'classic' }} color-{{ section.settings.color_schema }}"
     data-section-type="ori-gvm-included"
-    style="--gvm-tint: {{ section.settings.tint_color | default: '#f3f6f7' }}; --gvm-item-logo-h: {{ section.settings.item_logo_height | default: 34 }}px; --gvm-brand-logo-h: {{ section.settings.brand_logo_height | default: 72 }}px;"
+    style="--gvm-tint: {{ section.settings.tint_color | default: '#f3f6f7' }}; --gvm-item-logo-h: {{ item_logo_h }}px; --gvm-item-logo-w: {{ item_logo_w }}px; --gvm-brand-logo-h: {{ section.settings.brand_logo_height | default: 72 }}px;"
   >
     <div
       class="ori-gvm-product__band ori-gvm-product__band--included{% if section.settings.alt_background %} ori-gvm-product__band--alt{% endif %}"
@@ -55,7 +63,7 @@
     >
       <div class="{{ container }}">
         <div
-          class="ori-gvm-incl{% if img_count == 0 %} ori-gvm-incl--no-media{% endif %}{% if section.settings.media_position == 'left' %} ori-gvm-incl--media-left{% endif %}"
+          class="ori-gvm-incl{% if img_count == 0 %} ori-gvm-incl--no-media{% endif %}{% if section.settings.media_position == 'left' %} ori-gvm-incl--media-left{% endif %}{% unless section.settings.logo_frame %} ori-gvm-incl--no-frame{% endunless %}"
         >
           <div class="ori-gvm-incl__content">
             {%- if section.settings.heading != blank -%}
@@ -248,12 +256,30 @@
       "type": "range",
       "id": "item_logo_height",
       "label": "Item logo height",
-      "info": "Logos shown beside each included item. The frame around them grows to match.",
-      "min": 18,
-      "max": 90,
+      "info": "Logos shown beside each included item. The frame grows to match.",
+      "min": 20,
+      "max": 160,
       "step": 2,
       "unit": "px",
-      "default": 34
+      "default": 44
+    },
+    {
+      "type": "range",
+      "id": "item_logo_max_width",
+      "label": "Item logo max width",
+      "info": "How wide a wordmark may run before it is scaled down. Set to 0 to keep it at three times the height.",
+      "min": 0,
+      "max": 400,
+      "step": 10,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "checkbox",
+      "id": "logo_frame",
+      "label": "Show box around logos",
+      "info": "Turn off for logos that already sit on their own background.",
+      "default": true
     },
     {
       "type": "range",

@@ -20,7 +20,7 @@
 
 .vehicle-cards__eyebrow {
   margin: 0 0 10px;
-  font-family: "Geomanist", sans-serif;
+  font-family: var(--brand-body-font, sans-serif);
   font-weight: 700;
   letter-spacing: .14em;
   text-transform: uppercase;
@@ -28,7 +28,7 @@
 
 .vehicle-cards__heading {
   margin: 0;
-  font-family: "Evogria", sans-serif;
+  font-family: var(--brand-display-font, sans-serif);
   line-height: 1.1;
   text-transform: uppercase;
 }
@@ -93,7 +93,7 @@
 
 .vehicle-cards__name {
   margin: 0 0 18px;
-  font-family: "Geomanist", sans-serif;
+  font-family: var(--brand-body-font, sans-serif);
   font-weight: 700;
   line-height: 1.12;
 }
@@ -118,7 +118,7 @@
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
-  font-family: "Geomanist", sans-serif;
+  font-family: var(--brand-body-font, sans-serif);
   font-size: 11px !important;
   font-weight: 700;
   line-height: 1.2;

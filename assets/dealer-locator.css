@@ -18,7 +18,7 @@
 }
 .dealer-locator__eyebrow {
   margin: 0 0 10px;
-  font-family: "Geomanist", sans-serif;
+  font-family: var(--brand-body-font, sans-serif);
   font-size: 13px;
   font-weight: 700;
   letter-spacing: .14em;
@@ -26,14 +26,14 @@
 }
 .dealer-locator__heading {
   margin: 0 0 12px;
-  font-family: "Evogria", sans-serif;
+  font-family: var(--brand-display-font, sans-serif);
   font-size: 42px;
   line-height: 1.05;
   text-transform: uppercase;
 }
 .dealer-locator__subheading {
   margin: 0;
-  font-family: "Geomanist", sans-serif;
+  font-family: var(--brand-body-font, sans-serif);
   font-size: 16px;
   line-height: 1.6;
   opacity: 0.65;
@@ -54,7 +54,7 @@
   padding: 8px 16px;
   border-radius: 100px;
   border: 1.5px solid transparent;
-  font-family: "Geomanist", sans-serif;
+  font-family: var(--brand-body-font, sans-serif);
   font-size: 13px;
   font-weight: 700;
   letter-spacing: .05em;
@@ -80,7 +80,7 @@
 
 /* ── Results meta ────────────────────────────────────────────────────────── */
 .dealer-locator__meta {
-  font-family: "Geomanist", sans-serif;
+  font-family: var(--brand-body-font, sans-serif);
   font-size: 13px;
   margin-bottom: 20px;
   opacity: 0.55;
@@ -117,7 +117,7 @@
 }
 .dealer-locator__name {
   margin: 0;
-  font-family: "Evogria", sans-serif;
+  font-family: var(--brand-display-font, sans-serif);
   font-size: 18px;
   line-height: 1.1;
   text-transform: uppercase;
@@ -139,7 +139,7 @@
   display: flex;
   flex-direction: column;
   gap: 6px;
-  font-family: "Geomanist", sans-serif;
+  font-family: var(--brand-body-font, sans-serif);
   font-size: 14px;
   line-height: 1.5;
 }
@@ -172,7 +172,7 @@
   gap: 4px;
   padding: 4px 10px;
   border-radius: 100px;
-  font-family: "Geomanist", sans-serif;
+  font-family: var(--brand-body-font, sans-serif);
   font-size: 11px;
   font-weight: 700;
   letter-spacing: .06em;
@@ -199,7 +199,7 @@
   gap: 6px;
   padding: 9px 14px;
   border-radius: 6px;
-  font-family: "Geomanist", sans-serif;
+  font-family: var(--brand-body-font, sans-serif);
   font-size: 12px;
   font-weight: 700;
   letter-spacing: .07em;
@@ -226,7 +226,7 @@
   grid-column: 1 / -1;
   text-align: center;
   padding: 60px 20px;
-  font-family: "Geomanist", sans-serif;
+  font-family: var(--brand-body-font, sans-serif);
   font-size: 16px;
   opacity: 0.55;
 }

@@ -186,7 +186,7 @@
     }
     #DealerSplitFormSection-{{ section_id }} .dealer-split-form__eyebrow {
       margin: 0 0 10px;
-      font-family: "Geomanist", sans-serif;
+      font-family: var(--brand-body-font, sans-serif);
       font-size: 13px;
       font-weight: 700;
       letter-spacing: .14em;
@@ -195,7 +195,7 @@
     }
     #DealerSplitFormSection-{{ section_id }} .dealer-split-form__heading {
       margin: 0 0 14px;
-      font-family: "Evogria", sans-serif;
+      font-family: var(--brand-display-font, sans-serif);
       font-size: {{ section.settings.heading_size }}px;
       line-height: 1.06;
       text-transform: uppercase;
@@ -203,7 +203,7 @@
     }
     #DealerSplitFormSection-{{ section_id }} .dealer-split-form__text,
     #DealerSplitFormSection-{{ section_id }} .dealer-split-form__form-text {
-      font-family: "Geomanist", sans-serif;
+      font-family: var(--brand-body-font, sans-serif);
       font-size: 16px;
       line-height: 1.7;
       color: {{ section.settings.content_text_color }};
@@ -221,7 +221,7 @@
       display: flex;
       gap: 12px;
       align-items: flex-start;
-      font-family: "Geomanist", sans-serif;
+      font-family: var(--brand-body-font, sans-serif);
       font-size: 16px;
       line-height: 1.55;
       color: {{ section.settings.content_text_color }};
@@ -253,7 +253,7 @@
     }
     #DealerSplitFormSection-{{ section_id }} .dealer-split-form__form-title {
       margin: 0 0 10px;
-      font-family: "Evogria", sans-serif;
+      font-family: var(--brand-display-font, sans-serif);
       font-size: 28px;
       line-height: 1.1;
       text-transform: uppercase;
@@ -264,7 +264,7 @@
       margin-bottom: 16px;
       padding: 12px 14px;
       border-radius: 8px;
-      font-family: "Geomanist", sans-serif;
+      font-family: var(--brand-body-font, sans-serif);
       font-size: 14px;
       line-height: 1.5;
     }
@@ -287,7 +287,7 @@
     #DealerSplitFormSection-{{ section_id }} .dealer-split-form__label {
       display: block;
       margin-bottom: 8px;
-      font-family: "Geomanist", sans-serif;
+      font-family: var(--brand-body-font, sans-serif);
       font-size: 13px;
       font-weight: 700;
       line-height: 1.2;
@@ -305,7 +305,7 @@
       border-radius: {{ section.settings.input_radius }}px;
       background: {{ section.settings.input_bg_color }};
       color: {{ section.settings.input_text_color }};
-      font-family: "Geomanist", sans-serif;
+      font-family: var(--brand-body-font, sans-serif);
       font-size: 15px;
       line-height: 1.4;
     }
@@ -320,7 +320,7 @@
       display: flex;
       gap: 10px;
       align-items: flex-start;
-      font-family: "Geomanist", sans-serif;
+      font-family: var(--brand-body-font, sans-serif);
       font-size: 14px;
       line-height: 1.5;
       color: {{ section.settings.content_text_color }};
@@ -336,7 +336,7 @@
       border-radius: {{ section.settings.button_radius }}px;
       background: {{ section.settings.button_bg }};
       color: {{ section.settings.button_text }};
-      font-family: "Geomanist", sans-serif;
+      font-family: var(--brand-body-font, sans-serif);
       font-size: 14px;
       font-weight: 700;
       letter-spacing: .1em;
