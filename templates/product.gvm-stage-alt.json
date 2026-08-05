@@ -150,21 +150,21 @@
         "incl_image_1": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/987_02_005_P01.png",
+            "image": "shopify://shop_images/Background_Border.png",
             "alt": ""
           }
         },
         "incl_image_2": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/imag2.webp",
+            "image": "shopify://shop_images/Background_Border_1.png",
             "alt": ""
           }
         },
         "incl_image_3": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/imag3.webp",
+            "image": "shopify://shop_images/Background_Border_2.png",
             "alt": ""
           }
         }
