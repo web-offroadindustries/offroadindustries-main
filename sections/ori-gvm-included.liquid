@@ -52,9 +52,17 @@
   assign logo_scale_pct = section.settings.item_logo_scale | default: 100
   assign logo_scale = logo_scale_pct | divided_by: 100.0
 
+  # Padding is inside the border and inside the box size, so the artwork is
+  # scaled against what is left over rather than the full box.
+  assign frame_pad = section.settings.item_logo_box_padding | default: 3
+  assign frame_inner = frame_w | minus: frame_pad | minus: frame_pad
+  if frame_inner < 1
+    assign frame_inner = 1
+  endif
+
   # sizes has to describe the real rendered width. It used to be a hardcoded
   # 40px, which pinned the artwork to 40px however large the box was set.
-  assign logo_px = frame_w | times: logo_scale_pct | divided_by: 100
+  assign logo_px = frame_inner | times: logo_scale_pct | divided_by: 100
   if logo_px < 40
     assign logo_px = 40
   endif
@@ -66,7 +74,7 @@
     id="{{ section_id }}"
     class="ori-gvm-product ori-gvm-product--{{ section.settings.layout | default: 'classic' }} color-{{ section.settings.color_schema }}"
     data-section-type="ori-gvm-included"
-    style="--gvm-tint: {{ section.settings.tint_color | default: '#f3f6f7' }}; --gvm-frame-h: {{ frame_h }}px; --gvm-frame-w: {{ frame_w }}px; --gvm-logo-scale: {{ logo_scale }}; --incl-row-pad: {{ section.settings.row_spacing | default: 10 }}px; --gvm-brand-logo-h: {{ section.settings.brand_logo_height | default: 72 }}px;"
+    style="--gvm-tint: {{ section.settings.tint_color | default: '#f3f6f7' }}; --gvm-frame-h: {{ frame_h }}px; --gvm-frame-w: {{ frame_w }}px; --gvm-frame-pad: {{ frame_pad }}px; --gvm-logo-scale: {{ logo_scale }}; --incl-row-pad: {{ section.settings.row_spacing | default: 10 }}px; --gvm-brand-logo-h: {{ section.settings.brand_logo_height | default: 72 }}px;"
   >
     <div
       class="ori-gvm-product__band ori-gvm-product__band--included{% if section.settings.alt_background %} ori-gvm-product__band--alt{% endif %}"
@@ -295,6 +303,17 @@
       "step": 5,
       "unit": "%",
       "default": 100
+    },
+    {
+      "type": "range",
+      "id": "item_logo_box_padding",
+      "label": "Logo box padding",
+      "info": "Space between the box edge and the logo. Raising it also makes the logo smaller, so set this first and then use Logo size in box.",
+      "min": 0,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 3
     },
     {
       "type": "range",

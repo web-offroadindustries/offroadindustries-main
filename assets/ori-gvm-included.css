@@ -75,9 +75,11 @@
   box-sizing: border-box;
   width: var(--gvm-frame-w, 64px);
   height: var(--gvm-frame-h, 64px);
-  /* Kept tight on purpose. The scale setting is the intended way to add breathing
-     room around a mark, so a fixed inset here would only fight it. */
-  padding: 3px;
+  /* Inset between the border and the artwork, set from the section settings.
+     It eats into the content box, so raising it shrinks the logo as well as
+     moving it inward - which is the point, but it means padding and the scale
+     setting pull against each other and are best adjusted one at a time. */
+  padding: var(--gvm-frame-pad, 3px);
   overflow: hidden;
   border: 1px solid var(--incl-frame-line);
   border-radius: 4px;
@@ -103,9 +105,11 @@
   object-fit: contain;
   display: block;
 }
+/* Sized off what the padding leaves behind, not the whole box, so a generous
+   padding setting cannot push the icon under the overflow clip. */
 .ori-gvm-incl__icon {
-  width: calc(var(--gvm-frame-h, 64px) * 0.5);
-  height: calc(var(--gvm-frame-h, 64px) * 0.5);
+  width: calc((var(--gvm-frame-h, 64px) - (var(--gvm-frame-pad, 3px) * 2)) * 0.5);
+  height: calc((var(--gvm-frame-h, 64px) - (var(--gvm-frame-pad, 3px) * 2)) * 0.5);
   color: var(--incl-accent);
 }
 
