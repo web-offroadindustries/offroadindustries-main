@@ -27,6 +27,7 @@
         "price_note": "Installed & engineered",
         "quote_label": "Request Quote",
         "quote_url": "/pages/contact",
+        "quote_popup_id": "gvm-quote",
         "book_label": "Find Installers",
         "book_url": "#approved-installer",
         "benefits_heading": "Key benefits",
@@ -51,8 +52,7 @@
         "tint_color": "#f4fbfb",
         "container": "container",
         "custom_id": "",
-        "color_schema": "",
-        "quote_popup_id": "gvm-quote"
+        "color_schema": ""
       }
     },
     "gvm_benefits": {
@@ -113,7 +113,7 @@
             "icon": "check",
             "brand": "",
             "note": "",
-            "sku": "CS-F45-PT24"
+            "sku": "987-02-004 x 2, 987-24-028 x 2"
           }
         },
         "included_bds": {
@@ -124,7 +124,7 @@
             "icon": "none",
             "brand": "",
             "note": "",
-            "sku": "CS-F45-PT25"
+            "sku": "BDS121260 x 2"
           }
         },
         "included_springs": {
@@ -135,7 +135,7 @@
             "icon": "check",
             "brand": "",
             "note": "",
-            "sku": "CS-F45-PT23"
+            "sku": "ORI-CHV-200KG x 2"
           }
         },
         "included_cert": {
@@ -145,7 +145,7 @@
             "icon": "shield",
             "brand": "",
             "note": "",
-            "sku": "CS-F45-PT22"
+            "sku": ""
           }
         },
         "incl_image_1": {
@@ -1240,6 +1240,13 @@
     "gvm_quote_popup": {
       "type": "contact-form-v4",
       "blocks": {
+        "s1": {
+          "type": "step",
+          "settings": {
+            "title": "Your details",
+            "caption": "So we know who to send the quote to."
+          }
+        },
         "f_name": {
           "type": "name",
           "settings": {
@@ -1268,6 +1275,13 @@
             "field_width": "full",
             "hide_label": true,
             "required": false
+          }
+        },
+        "s2": {
+          "type": "step",
+          "settings": {
+            "title": "Your vehicle",
+            "caption": "Helps us match the right GVM package."
           }
         },
         "f_rego": {
@@ -1306,6 +1320,13 @@
             "required": false
           }
         },
+        "s3": {
+          "type": "step",
+          "settings": {
+            "title": "Your enquiry",
+            "caption": "Anything else we should know."
+          }
+        },
         "f_location": {
           "type": "location",
           "settings": {
@@ -1325,27 +1346,6 @@
             "rows": 3,
             "field_width": "100",
             "hide_label": true
-          }
-        },
-        "s1": {
-          "type": "step",
-          "settings": {
-            "title": "Your details",
-            "caption": "So we know who to send the quote to."
-          }
-        },
-        "s2": {
-          "type": "step",
-          "settings": {
-            "title": "Your vehicle",
-            "caption": "Helps us match the right GVM package."
-          }
-        },
-        "s3": {
-          "type": "step",
-          "settings": {
-            "title": "Your enquiry",
-            "caption": "Anything else we should know."
           }
         }
       },
