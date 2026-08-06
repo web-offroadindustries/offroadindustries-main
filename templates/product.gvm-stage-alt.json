@@ -30,6 +30,8 @@
         "quote_popup_id": "gvm-quote",
         "book_label": "Find Installers",
         "book_url": "#approved-installer",
+        "calc_label": "Know your weight? Use the GVM calculator",
+        "calc_url": "shopify://pages/gvm-calculator",
         "benefits_heading": "Key benefits",
         "included_heading": "What's included",
         "specs_heading": "Specifications",
