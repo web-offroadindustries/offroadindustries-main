@@ -1,0 +1,238 @@
+/* ─── Contact form v4: multi-step ─────────────────────────────────────────
+   Visual language lifted from the GVM Order Form's wizard, which the client
+   has already signed off on, so the quote popup reads as the same family of
+   form rather than a second look. Own namespace because the order form keeps
+   its styles inline in its own section.
+
+   Everything here is additive. Without a Step block the section renders the
+   flat layout it always has, and none of these selectors match. */
+
+.cfv4-steps {
+  display: block;
+}
+
+/* ── A step as a plain stacked group (no JS, or only one step) ──
+   Numbered marker beside the fields, joined by a connector, matching the
+   order form's static presentation. */
+.cfv4-step {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 0 16px;
+  counter-increment: cfv4-step;
+}
+.cfv4-steps {
+  counter-reset: cfv4-step;
+}
+.cfv4-step__marker {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+.cfv4-step__num {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--brand-teal, #56bdc2);
+  color: var(--brand-black, #111);
+  font-family: var(--brand-display-font, inherit);
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1;
+  font-variant-numeric: tabular-nums lining-nums;
+}
+.cfv4-step__line {
+  flex: 1 1 auto;
+  width: 2px;
+  min-height: 12px;
+  background: var(--color-border, #e5e7eb);
+}
+.cfv4-step:last-of-type .cfv4-step__line {
+  display: none;
+}
+.cfv4-step__body {
+  padding-bottom: 26px;
+}
+.cfv4-step:last-of-type .cfv4-step__body {
+  padding-bottom: 0;
+}
+.cfv4-step__title {
+  margin: 4px 0 2px;
+  font-family: var(--brand-display-font, inherit);
+  font-size: 15px;
+  line-height: 1.2;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+.cfv4-step__caption {
+  margin: 0 0 14px;
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: var(--color-foreground-secondary, #6b7280);
+}
+.cfv4-step__title + .cfv4-step__fields,
+.cfv4-step__caption + .cfv4-step__fields {
+  margin-top: 10px;
+}
+
+/* ── Wizard mode ──
+   Added by JS. Everything above stays the visible fallback if the script
+   never runs, which is why the step markers are hidden here rather than the
+   wizard chrome being hidden by default. */
+.cfv4-wizard .cfv4-step {
+  display: none;
+}
+.cfv4-wizard .cfv4-step.is-active {
+  display: block;
+}
+.cfv4-wizard .cfv4-step__marker {
+  display: none;
+}
+.cfv4-wizard .cfv4-step__body {
+  padding-bottom: 0;
+}
+.cfv4-wizard .cfv4-footer {
+  display: none;
+}
+
+/* ── Progress rail ── */
+.cfv4-progress {
+  display: flex;
+  list-style: none;
+  margin: 0 0 14px;
+  padding: 0;
+}
+.cfv4-pstep {
+  flex: 1 1 0;
+  min-width: 0;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 7px;
+  text-align: center;
+}
+/* Connector runs left from each dot to the one before it, so the first step
+   has none. Drawn behind the dot via z-index on .cfv4-pdot. */
+.cfv4-pstep::before {
+  content: '';
+  position: absolute;
+  top: 15px;
+  right: 50%;
+  width: 100%;
+  height: 2px;
+  background: var(--color-border, #e5e7eb);
+}
+.cfv4-pstep:first-child::before {
+  display: none;
+}
+.cfv4-pstep.is-done::before,
+.cfv4-pstep.is-active::before {
+  background: var(--brand-teal, #56bdc2);
+}
+.cfv4-pdot {
+  position: relative;
+  z-index: 1;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--color-background, #fff);
+  border: 2px solid var(--color-border, #e5e7eb);
+  color: var(--color-foreground-secondary, #9ca3af);
+  font-family: var(--brand-display-font, inherit);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1;
+  font-variant-numeric: tabular-nums lining-nums;
+  transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+.cfv4-pstep.is-active .cfv4-pdot {
+  background: var(--brand-black, #111);
+  border-color: var(--brand-black, #111);
+  color: #fff;
+}
+.cfv4-pstep.is-done .cfv4-pdot {
+  background: var(--brand-teal, #56bdc2);
+  border-color: var(--brand-teal, #56bdc2);
+  color: var(--brand-black, #111);
+}
+.cfv4-plabel {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  line-height: 1.25;
+  color: var(--color-foreground-secondary, #9ca3af);
+  max-width: 12ch;
+}
+.cfv4-pstep.is-active .cfv4-plabel {
+  color: var(--color-text-heading, #111827);
+}
+.cfv4-pstep.is-clickable {
+  cursor: pointer;
+}
+.cfv4-pcaption {
+  margin: 0 0 16px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-foreground-secondary, #6b7280);
+}
+
+/* ── Back / Next ── */
+.cfv4-wnav {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid var(--color-border, #e5e7eb);
+}
+.cfv4-wnav .btn {
+  min-width: 130px;
+}
+.cfv4-next {
+  margin-left: auto;
+}
+.cfv4-back[hidden] {
+  display: none;
+}
+/* brand-guidelines paints every .btn teal, which would make Back and Next
+   identical. Two classes outrank that single-class rule, so no !important. */
+.cfv4-wnav .btn.cfv4-back {
+  background: transparent;
+  border: 1px solid currentColor;
+  color: var(--color-text-heading, #111827);
+}
+.cfv4-wnote {
+  margin: 12px 0 0;
+  text-align: center;
+  font-size: 12px;
+  color: var(--color-foreground-secondary, #6b7280);
+}
+
+@media (max-width: 749px) {
+  .cfv4-plabel {
+    display: none;
+  }
+  .cfv4-wnav .btn {
+    min-width: 0;
+    flex: 1 1 0;
+  }
+  .cfv4-step {
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 0 12px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cfv4-pdot {
+    transition: none;
+  }
+}
