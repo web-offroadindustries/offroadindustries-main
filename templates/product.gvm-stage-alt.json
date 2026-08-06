@@ -122,7 +122,7 @@
           "type": "included",
           "settings": {
             "text": "BDS components",
-            "logo": "shopify://shop_images/ICONS_FOR_WEBSITE_BDS.png",
+            "logo": "shopify://shop_images/420_x_420px_MEGA_MENU_ICON__BDS.jpg",
             "icon": "none",
             "brand": "",
             "note": "ADR Approved Upper Control Arms.",
@@ -1316,7 +1316,7 @@
             "label": "What Stage GVM Package",
             "field_name": "What Stage GVM Package",
             "placeholder": "What Stage GVM Package",
-            "options": "Stage 1, Stage 2, Stage 3, Stage 4, Stage 5, Stage 6",
+            "options": "Stage 1, Stage 2, Stage 3, Stage 3.5, Stage 4, Stage 5, Stage 6, Stage 6.5",
             "field_width": "100",
             "hide_label": true,
             "required": false

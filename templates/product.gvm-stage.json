@@ -12,6 +12,7 @@
     "main": {
       "type": "ori-gvm-product",
       "settings": {
+        "hero_media_width": 48,
         "eyebrow": "GVM Upgrade Package",
         "fallback_title": "GVM Upgrade Package",
         "subtitle": "",
@@ -23,6 +24,7 @@
         "price_note": "Installed & engineered",
         "quote_label": "Request Quote",
         "quote_url": "/pages/contact",
+        "quote_popup_id": "gvm-quote",
         "book_label": "Book Installation",
         "book_url": "/pages/contact",
         "benefits_heading": "Key benefits",
@@ -45,9 +47,7 @@
         "tint_color": "#f3f6f7",
         "container": "container",
         "custom_id": "",
-        "color_schema": "",
-        "hero_media_width": 48,
-        "quote_popup_id": "gvm-quote"
+        "color_schema": ""
       }
     },
     "gvm_benefits": {
@@ -57,24 +57,24 @@
           "type": "benefit",
           "settings": {
             "text": "Increased legal payload capacity",
-            "note": "",
-            "icon": "weight"
+            "icon": "weight",
+            "note": ""
           }
         },
         "benefit_suspension": {
           "type": "benefit",
           "settings": {
             "text": "Upgraded Fox / BDS suspension",
-            "note": "",
-            "icon": "suspension"
+            "icon": "suspension",
+            "note": ""
           }
         },
         "benefit_approval": {
           "type": "benefit",
           "settings": {
             "text": "Federal engineering approval",
-            "note": "",
-            "icon": "seal"
+            "icon": "seal",
+            "note": ""
           }
         }
       },
@@ -85,6 +85,7 @@
       ],
       "settings": {
         "heading": "Key benefits",
+        "heading_align": "left",
         "layout": "classic",
         "cards_per_row": 3,
         "alt_background": true,
@@ -93,8 +94,7 @@
         "padding_top": 52,
         "padding_bottom": 52,
         "custom_id": "",
-        "color_schema": "",
-        "heading_align": "left"
+        "color_schema": ""
       }
     },
     "gvm_included": {
@@ -105,36 +105,36 @@
           "settings": {
             "text": "Fox shocks",
             "logo": "shopify://shop_images/420_x_420px_MEGA_MENU_ICON__FOX.jpg",
+            "icon": "check",
             "brand": "",
-            "note": "",
-            "icon": "check"
+            "note": ""
           }
         },
         "included_bds": {
           "type": "included",
           "settings": {
             "text": "BDS components",
+            "icon": "check",
             "brand": "",
-            "note": "",
-            "icon": "check"
+            "note": ""
           }
         },
         "included_springs": {
           "type": "included",
           "settings": {
             "text": "ORI springs",
+            "icon": "check",
             "brand": "",
-            "note": "",
-            "icon": "check"
+            "note": ""
           }
         },
         "included_cert": {
           "type": "included",
           "settings": {
             "text": "Engineering certification",
+            "icon": "shield",
             "brand": "",
-            "note": "",
-            "icon": "shield"
+            "note": ""
           }
         },
         "incl_image_1": {
@@ -168,7 +168,13 @@
       "settings": {
         "heading": "What's included",
         "layout": "classic",
+        "media_position": "right",
+        "autoplay_seconds": 5,
+        "row_spacing": 8,
         "item_logo_height": 88,
+        "item_logo_scale": 160,
+        "item_logo_box_width": 0,
+        "logo_frame": true,
         "brand_logo_height": 72,
         "brands_heading": "Built with",
         "alt_background": false,
@@ -177,13 +183,7 @@
         "padding_top": 52,
         "padding_bottom": 52,
         "custom_id": "",
-        "color_schema": "",
-        "media_position": "right",
-        "autoplay_seconds": 5,
-        "logo_frame": true,
-        "item_logo_scale": 160,
-        "item_logo_box_width": 0,
-        "row_spacing": 8
+        "color_schema": ""
       }
     },
     "gvm_steps": {
@@ -218,16 +218,16 @@
       ],
       "settings": {
         "heading": "Installation process",
+        "heading_align": "center",
         "layout": "classic",
+        "dot_size": 54,
         "alt_background": false,
         "tint_color": "#f3f6f7",
         "container": "container",
         "padding_top": 52,
         "padding_bottom": 52,
         "custom_id": "",
-        "color_schema": "",
-        "heading_align": "center",
-        "dot_size": 54
+        "color_schema": ""
       }
     },
     "weight_chart": {
@@ -607,7 +607,7 @@
             "label": "What Stage GVM Package",
             "field_name": "What Stage GVM Package",
             "placeholder": "What Stage GVM Package",
-            "options": "Stage 1, Stage 2, Stage 3, Stage 4, Stage 5, Stage 6",
+            "options": "Stage 1, Stage 2, Stage 3, Stage 3.5, Stage 4, Stage 5, Stage 6, Stage 6.5",
             "field_width": "100",
             "hide_label": true,
             "required": false

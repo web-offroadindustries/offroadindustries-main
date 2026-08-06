@@ -5,6 +5,19 @@
     {{ 'contact-form-wizard.css' | asset_url | stylesheet_tag }}
     <script src="{{ 'contact-form-wizard.js' | asset_url }}" defer="defer"></script>
   {%- endif -%}
+
+  {%- liquid
+    assign has_linked_select = false
+    for b in section.blocks
+      if b.type == 'custom_select' and b.settings.depends_on != blank and b.settings.options_map != blank
+        assign has_linked_select = true
+        break
+      endif
+    endfor
+  -%}
+  {%- if has_linked_select -%}
+    <script src="{{ 'contact-form-linked-select.js' | asset_url }}" defer="defer"></script>
+  {%- endif -%}
 {%- endif -%}
 
 {%- liquid
@@ -353,11 +366,29 @@
                       {%- if required -%}<span aria-hidden="true">*</span>{%- endif -%}
                     </label>
 
+                    {%- comment -%}
+                      With both "Depends on" and "Options per choice" filled in,
+                      the list below is rebuilt by JS whenever the controlling
+                      field changes. The full static list is still rendered so
+                      the field works if the script never runs.
+                    {%- endcomment -%}
+                    {%- liquid
+                      assign is_linked = false
+                      if block.settings.depends_on != blank and block.settings.options_map != blank
+                        assign is_linked = true
+                      endif
+                    -%}
+
                     <select
                       class="form-control"
                       id="ContactForm-cselect-{{ block.id }}"
                       name="contact[{{ block.settings.field_name | default: block.settings.label }}]"
                       {% if required %}aria-required="true" required{% endif %}
+                      {% if is_linked %}
+                        data-cfv4-depends-on="{{ block.settings.depends_on | escape }}"
+                        data-cfv4-map="cfv4map-{{ block.id }}"
+                        data-cfv4-empty-text="{{ block.settings.empty_text | escape }}"
+                      {% endif %}
                     >
                       {%- if block.settings.placeholder != blank -%}
                         <option value="" selected disabled>{{ block.settings.placeholder }}</option>
@@ -371,6 +402,15 @@
                         {%- endif -%}
                       {%- endfor -%}
                     </select>
+
+                    {%- if is_linked -%}
+                      {%- comment -%}
+                        Carried as JSON in a script tag rather than an attribute:
+                        the map is multi-line and full of commas and quotes, and
+                        attribute escaping mangles it.
+                      {%- endcomment -%}
+                      <script type="application/json" id="cfv4map-{{ block.id }}">{{ block.settings.options_map | json }}</script>
+                    {%- endif -%}
 
                   {%- when 'custom_textarea' -%}
                     <label class="form-label{% if hide_label %} visually-hidden{% endif %}" for="ContactForm-ctextarea-{{ block.id }}">
@@ -801,6 +841,28 @@
         { "type": "text", "id": "field_name", "label": "Email field name", "default": "Custom dropdown" },
         { "type": "text", "id": "placeholder", "label": "Placeholder option", "default": "Select one" },
         { "type": "text", "id": "options", "label": "Options (comma separated)", "default": "Option 1, Option 2" },
+        {
+          "type": "paragraph",
+          "content": "Linked dropdown (optional). Fill both fields below to make this list change with another dropdown on the same form."
+        },
+        {
+          "type": "text",
+          "id": "depends_on",
+          "label": "Depends on",
+          "info": "The Email field name of the dropdown that controls this one, e.g. Which Vehicle."
+        },
+        {
+          "type": "textarea",
+          "id": "options_map",
+          "label": "Options per choice",
+          "info": "One line per choice, in the form: Ford F150 | Stage 1, Stage 2, Stage 3. Choices with no line here fall back to the full Options list above."
+        },
+        {
+          "type": "text",
+          "id": "empty_text",
+          "label": "Prompt before a choice is made",
+          "default": "Select the field above first"
+        },
         { "type": "select", "id": "field_width", "label": "Field width (desktop)", "default": "100",
           "options": [
             { "value": "100", "label": "100%" },
