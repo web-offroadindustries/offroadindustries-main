@@ -418,7 +418,7 @@
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/420_x_420px_MEGA_MENU_ICON__BDS.jpg",
-            "image_height": 120,
+            "image_height": 150,
             "image_link": "shopify://collections/bds-suspension-australian-distributor",
             "use_custom_spacing": false,
             "margin_left": 10,
@@ -456,7 +456,7 @@
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/420_x_420px_MEGA_MENU_ICON__FOX.jpg",
-            "image_height": 120,
+            "image_height": 168,
             "image_link": "",
             "use_custom_spacing": false,
             "margin_left": 10,
@@ -494,7 +494,7 @@
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/420_x_420px_MEGA_MENU_ICON__BAJA_DESIGNS.jpg",
-            "image_height": 80,
+            "image_height": 120,
             "image_link": "shopify://collections/baja-designs",
             "use_custom_spacing": true,
             "margin_left": 0,
@@ -570,7 +570,7 @@
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/huskyliners-logo-fullcolor-24206_4x_68ee4016-c4a6-4e86-b15e-f8f048d6e1d0.png",
-            "image_height": 80,
+            "image_height": 60,
             "image_link": "",
             "use_custom_spacing": true,
             "margin_left": 0,
