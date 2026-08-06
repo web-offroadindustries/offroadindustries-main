@@ -457,7 +457,7 @@
           "settings": {
             "image": "shopify://shop_images/420_x_420px_MEGA_MENU_ICON__FOX.jpg",
             "image_height": 168,
-            "image_link": "",
+            "image_link": "https://www.offroadindustries.com.au/collections/fox-suspension",
             "use_custom_spacing": false,
             "margin_left": 10,
             "margin_right": 10,
@@ -533,7 +533,7 @@
           "settings": {
             "image": "shopify://shop_images/ADD-OFFROAD-21-FORD-RAPTOR-Phantom-Rear-Bumper-Installation-Guide-1.png",
             "image_height": 80,
-            "image_link": "",
+            "image_link": "https://www.offroadindustries.com.au/collections/addictive-desert-designs",
             "use_custom_spacing": true,
             "margin_left": 0,
             "margin_right": 20,
@@ -571,7 +571,7 @@
           "settings": {
             "image": "shopify://shop_images/huskyliners-logo-fullcolor-24206_4x_68ee4016-c4a6-4e86-b15e-f8f048d6e1d0.png",
             "image_height": 60,
-            "image_link": "",
+            "image_link": "shopify://collections/husky",
             "use_custom_spacing": true,
             "margin_left": 0,
             "margin_right": 20,
