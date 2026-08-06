@@ -63,7 +63,7 @@
 
 .ori-gvm-bnf__title {
   margin: 0 0 16px;
-  font-size: 18px;
+  font-size: 13.5px;
   line-height: 1.35;
   letter-spacing: 0.01em;
   text-transform: uppercase;
@@ -72,11 +72,13 @@
   overflow-wrap: break-word;
 }
 .ori-gvm-bnf__note {
-  /* auto top margin drops the copy to the bottom of the card, so the paragraphs
-     line up across the row even when one title wraps to more lines than another.
-     The title's own margin-bottom keeps a minimum gap when the card is tight. */
-  margin: auto 0 0;
-  font-size: 15px;
+  /* Flows straight after the title. The previous `margin: auto 0 0` pushed the
+     copy to the bottom of the card, which lined the paragraph *bottoms* up but
+     left their first lines starting at three different heights across the row.
+     Tops are what the eye tracks when reading, so that read as misaligned.
+     Subgrid below lines up both ends properly. */
+  margin: 0;
+  font-size: 12px;
   line-height: 1.7;
   color: var(--bnf-soft);
   text-wrap: pretty;
@@ -94,5 +96,36 @@
 @media (min-width: 990px) {
   .ori-gvm-bnf {
     grid-template-columns: repeat(var(--bnf-cols, 3), minmax(0, 1fr));
+  }
+}
+
+/* ── Row alignment across cards ──
+   Each card hands its three rows (icon, title, copy) back to the parent grid,
+   so all three cards in a row share the same track heights. Every title then
+   starts on the same line and every paragraph starts on the same line, however
+   many lines the title above it happens to take.
+
+   Flex could only ever align one end of the copy, never both, which is what
+   produced the ragged first lines the client picked up on.
+
+   Guarded by @supports: without subgrid the cards keep the flex layout above,
+   where the copy simply follows the title. That degrades to slightly uneven
+   paragraph tops only when one title wraps and another does not, which is
+   still better than the bottom-pushed version it replaces. */
+@supports (grid-template-rows: subgrid) {
+  @media (min-width: 640px) {
+    .ori-gvm-bnf__card {
+      display: grid;
+      grid-template-rows: subgrid;
+      /* Icon, title, copy. All three are always emitted so every card
+         contributes the same number of tracks; a card missing one just leaves
+         its track empty rather than shifting the rows below it up. */
+      grid-row: span 3;
+    }
+    /* No icons anywhere in the section: two tracks, and no blank strip above
+       the titles. */
+    .ori-gvm-bnf--no-icons .ori-gvm-bnf__card {
+      grid-row: span 2;
+    }
   }
 }

@@ -20,6 +20,19 @@
   assign section_id = section.settings.custom_id | default: section.id
   assign container = section.settings.container | default: 'container'
   assign benefits = section.blocks | where: 'type', 'benefit'
+
+  # Subgrid lines the cards' rows up with each other, which needs every card to
+  # contribute the same number of tracks. So the icon row is either present on
+  # all of them or on none, decided by whether any card actually has an icon
+  # rather than card by card. Without this a single icon-less card would pull
+  # its own title and copy a row higher than its neighbours.
+  assign any_icon = false
+  for block in benefits
+    if block.settings.icon != 'none' and block.settings.icon != blank
+      assign any_icon = true
+      break
+    endif
+  endfor
 -%}
 
 {%- if benefits.size > 0 -%}
@@ -41,23 +54,26 @@
         {%- endif -%}
 
         <ul
-          class="ori-gvm-bnf"
+          class="ori-gvm-bnf{% unless any_icon %} ori-gvm-bnf--no-icons{% endunless %}"
           style="--bnf-cols: {{ section.settings.cards_per_row | default: 3 }};"
           role="list"
         >
           {%- for block in benefits -%}
             <li class="ori-gvm-bnf__card" {{ block.shopify_attributes }}>
-              {%- if block.settings.icon != 'none' -%}
-                <span class="ori-gvm-bnf__icon-wrap">
-                  {%- render 'ori-gvm-icon', icon: block.settings.icon, class: 'ori-gvm-bnf__icon', stroke: 1.6 -%}
+              {%- comment -%}
+                Title and copy are emitted whether or not they hold anything, so
+                the track count per card stays constant for subgrid. An empty
+                one collapses to nothing; it just holds its place in the row.
+              {%- endcomment -%}
+              {%- if any_icon -%}
+                <span class="ori-gvm-bnf__icon-wrap" {% if block.settings.icon == 'none' %}aria-hidden="true"{% endif %}>
+                  {%- if block.settings.icon != 'none' -%}
+                    {%- render 'ori-gvm-icon', icon: block.settings.icon, class: 'ori-gvm-bnf__icon', stroke: 1.6 -%}
+                  {%- endif -%}
                 </span>
               {%- endif -%}
-              {%- if block.settings.text != blank -%}
-                <h3 class="ori-gvm-bnf__title">{{ block.settings.text }}</h3>
-              {%- endif -%}
-              {%- if block.settings.note != blank -%}
-                <p class="ori-gvm-bnf__note">{{ block.settings.note }}</p>
-              {%- endif -%}
+              <h3 class="ori-gvm-bnf__title">{{ block.settings.text }}</h3>
+              <p class="ori-gvm-bnf__note">{{ block.settings.note }}</p>
             </li>
           {%- endfor -%}
         </ul>
