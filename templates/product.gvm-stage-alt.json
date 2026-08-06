@@ -1257,7 +1257,7 @@
             "placeholder": "Enter your name",
             "field_width": "full",
             "hide_label": true,
-            "required": false
+            "required": true
           }
         },
         "f_email": {
@@ -1276,7 +1276,7 @@
             "placeholder": "Enter your phone number",
             "field_width": "full",
             "hide_label": true,
-            "required": false
+            "required": true
           }
         },
         "s2": {
@@ -1295,7 +1295,7 @@
             "options": "Pre rego, Post rego",
             "field_width": "full",
             "hide_label": true,
-            "required": false
+            "required": true
           }
         },
         "f_vehicle": {
@@ -1307,7 +1307,7 @@
             "options": "Ford F150, Chevy 1500, Chevy 2500HD, Toyota Tundra, RAM 2500 (5th Gen), RAM 2500 (6th Gen), Toyota LC300",
             "field_width": "100",
             "hide_label": true,
-            "required": false
+            "required": true
           }
         },
         "f_stage": {
@@ -1319,7 +1319,7 @@
             "options": "Stage 1, Stage 2, Stage 3, Stage 3.5, Stage 4, Stage 5, Stage 6, Stage 6.5",
             "field_width": "100",
             "hide_label": true,
-            "required": false,
+            "required": true,
             "depends_on": "Which Vehicle",
             "options_map": "Ford F150 | Stage 1, Stage 2, Stage 3, Stage 4, Stage 5, Stage 6\nChevy 1500 | Stage 1, Stage 2, Stage 3, Stage 4, Stage 5\nChevy 2500HD | Stage 1, Stage 2, Stage 3, Stage 3.5, Stage 4, Stage 5, Stage 6, Stage 6.5\nToyota Tundra | Stage 1, Stage 2, Stage 3, Stage 4\nRAM 2500 (5th Gen) | Stage 1, Stage 2, Stage 3, Stage 4, Stage 5\nRAM 2500 (6th Gen) | Stage 1, Stage 2, Stage 3, Stage 4, Stage 5, Stage 6\nToyota LC300 | Stage 1, Stage 2",
             "empty_text": "Choose your vehicle first"
@@ -1340,7 +1340,7 @@
             "placeholder": "What is your location?",
             "field_width": "full",
             "hide_label": true,
-            "required": false
+            "required": true
           }
         },
         "f_message": {

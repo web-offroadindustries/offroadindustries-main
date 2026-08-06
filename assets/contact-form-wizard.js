@@ -91,14 +91,36 @@
     nav.appendChild(back);
     nav.appendChild(next);
 
+    /* The note has to describe what the visitor can actually see. The required
+       marker is an asterisk inside the field's <label>, and this form hides its
+       labels, so "fields marked *" would point at something invisible. Word it
+       from the real counts instead, and say nothing when there is nothing
+       useful to say. */
+    var controls = Array.prototype.slice
+      .call(form.querySelectorAll('input, select, textarea'))
+      .filter(function (c) {
+        return c.type !== 'hidden' && c.type !== 'submit' && c.type !== 'button';
+      });
+    var requiredCount = controls.filter(function (c) {
+      return c.hasAttribute('data-cfv4-req');
+    }).length;
+    var markerVisible = !!form.querySelector('label:not(.visually-hidden) [aria-hidden="true"]');
+
     var note = document.createElement('p');
     note.className = 'cfv4-wnote';
-    note.textContent = 'Fields marked * are required.';
+    if (requiredCount && requiredCount === controls.length) {
+      note.textContent = 'All fields are required.';
+    } else if (requiredCount && markerVisible) {
+      note.textContent = 'Fields marked * are required.';
+    } else {
+      note.textContent = '';
+    }
 
     stepsWrap.parentNode.insertBefore(progress, stepsWrap);
     stepsWrap.parentNode.insertBefore(caption, stepsWrap);
     footer.parentNode.insertBefore(nav, footer);
-    footer.parentNode.insertBefore(note, footer);
+    // An empty <p> would still contribute its margin, so leave it out entirely.
+    if (note.textContent) footer.parentNode.insertBefore(note, footer);
 
     root.classList.add('cfv4-wizard');
 
