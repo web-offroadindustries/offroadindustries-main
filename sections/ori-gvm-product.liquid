@@ -279,6 +279,23 @@
               <a href="{{ section.settings.book_url | default: '/pages/contact' }}" class="btn btn--outline ori-gvm-product__cta">{{ section.settings.book_label }}</a>
             {%- endif -%}
           </div>
+
+          {%- comment -%}
+            Sits under the buttons rather than beside them: it answers the doubt
+            someone has right after reading the payload figure, without becoming
+            a third thing competing with Request Quote.
+
+            Rendered only when a URL is set. The calculator has no published
+            page yet, so defaulting one here would ship a link straight to a 404.
+          {%- endcomment -%}
+          {%- if section.settings.calc_url != blank and section.settings.calc_label != blank -%}
+            <p class="ori-gvm-product__calc-link">
+              <a href="{{ section.settings.calc_url }}">
+                {%- render 'ori-gvm-icon', icon: 'weight', class: 'ori-gvm-product__calc-icon', stroke: 1.6 -%}
+                <span>{{ section.settings.calc_label }}</span>
+              </a>
+            </p>
+          {%- endif -%}
         </div>
       </div>
     </div>
@@ -758,6 +775,8 @@
     { "type": "text", "id": "quote_popup_id", "label": "Primary button popup ID", "info": "Opens a Contact form v4 section set to Popup with this same ID, instead of following the URL. Leave blank to use the URL." },
     { "type": "text", "id": "book_label", "label": "Secondary button label", "default": "Book Installation" },
     { "type": "url", "id": "book_url", "label": "Secondary button URL" },
+    { "type": "text", "id": "calc_label", "label": "Weight link label", "info": "Small text link under the buttons. Needs the URL below before it will show.", "default": "Know your weight? Use the GVM calculator" },
+    { "type": "url", "id": "calc_url", "label": "Weight link URL", "info": "Point this at the GVM calculator page. Leave blank to hide the link." },
     { "type": "header", "content": "Section headings" },
     { "type": "text", "id": "benefits_heading", "label": "Benefits heading", "default": "Key benefits" },
     { "type": "text", "id": "included_heading", "label": "What's included heading", "default": "What's included" },

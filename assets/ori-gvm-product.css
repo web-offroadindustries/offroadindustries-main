@@ -319,6 +319,45 @@
   display: contents;
 }
 
+/* Deliberately a text link, not a third button. It is a reassurance for people
+   who are not sure their build fits, so it should read as secondary to the two
+   CTAs above it rather than competing with them. */
+.ori-gvm-product__calc-link {
+  margin: 12px 0 0;
+  font-size: 13px;
+  line-height: 1.4;
+}
+.ori-gvm-product__calc-link a {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--tp-ink, currentColor);
+  /* Underline offset rather than a border, so a wrapped label underlines both
+     lines and keeps clear of the descenders. */
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+  text-decoration-color: color-mix(in srgb, currentColor 45%, transparent);
+  transition: text-decoration-color 0.15s ease, color 0.15s ease;
+}
+.ori-gvm-product__calc-link a:hover,
+.ori-gvm-product__calc-link a:focus-visible {
+  color: var(--brand-teal, #56bdc2);
+  text-decoration-color: currentColor;
+}
+.ori-gvm-product__calc-icon {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  color: var(--brand-teal, #56bdc2);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ori-gvm-product__calc-link a {
+    transition: none;
+  }
+}
+
 /* brand-guidelines.css paints every .btn brand teal, which made the secondary
    CTA identical to the primary one. Restated here as an outline button: the
    two-class selector outranks that single-class rule, so no !important needed. */
