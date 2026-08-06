@@ -759,5 +759,9 @@
       "signup_form_success": "We will send you an email right before we open!",
       "password_link": "Enter using password"
     }
+  },
+  "date_formats": {
+    "date": "%d-%B-%Y",
+    "date_at_time": "%d-%B-%Y at %l:%M%P"
   }
 }
