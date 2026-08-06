@@ -63,7 +63,7 @@
 
 .ori-gvm-bnf__title {
   margin: 0 0 16px;
-  font-size: 13.5px;
+  font-size: 18px;
   line-height: 1.35;
   letter-spacing: 0.01em;
   text-transform: uppercase;
@@ -72,13 +72,8 @@
   overflow-wrap: break-word;
 }
 .ori-gvm-bnf__note {
-  /* Flows straight after the title. The previous `margin: auto 0 0` pushed the
-     copy to the bottom of the card, which lined the paragraph *bottoms* up but
-     left their first lines starting at three different heights across the row.
-     Tops are what the eye tracks when reading, so that read as misaligned.
-     Subgrid below lines up both ends properly. */
   margin: 0;
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.7;
   color: var(--bnf-soft);
   text-wrap: pretty;
