@@ -122,7 +122,7 @@
           "type": "included",
           "settings": {
             "text": "BDS components",
-            "logo": "shopify://shop_images/420_x_420px_MEGA_MENU_ICON__BDS.jpg",
+            "logo": "shopify://shop_images/ICONS_FOR_WEBSITE_BDS.png",
             "icon": "none",
             "brand": "",
             "note": "ADR Approved Upper Control Arms.",
@@ -1305,6 +1305,9 @@
             "field_name": "Which Vehicle",
             "placeholder": "Which Vehicle",
             "options": "Ford F150, Chevy 1500, Chevy 2500HD, Toyota Tundra, RAM 2500 (5th Gen), RAM 2500 (6th Gen), Toyota LC300",
+            "depends_on": "",
+            "options_map": "",
+            "empty_text": "Select the field above first",
             "field_width": "100",
             "hide_label": true,
             "required": true
@@ -1317,12 +1320,12 @@
             "field_name": "What Stage GVM Package",
             "placeholder": "What Stage GVM Package",
             "options": "Stage 1, Stage 2, Stage 3, Stage 3.5, Stage 4, Stage 5, Stage 6, Stage 6.5",
-            "field_width": "100",
-            "hide_label": true,
-            "required": true,
             "depends_on": "Which Vehicle",
             "options_map": "Ford F150 | Stage 1, Stage 2, Stage 3, Stage 4, Stage 5, Stage 6\nChevy 1500 | Stage 1, Stage 2, Stage 3, Stage 4, Stage 5\nChevy 2500HD | Stage 1, Stage 2, Stage 3, Stage 3.5, Stage 4, Stage 5, Stage 6, Stage 6.5\nToyota Tundra | Stage 1, Stage 2, Stage 3, Stage 4\nRAM 2500 (5th Gen) | Stage 1, Stage 2, Stage 3, Stage 4, Stage 5\nRAM 2500 (6th Gen) | Stage 1, Stage 2, Stage 3, Stage 4, Stage 5, Stage 6\nToyota LC300 | Stage 1, Stage 2",
-            "empty_text": "Choose your vehicle first"
+            "empty_text": "Choose your vehicle first",
+            "field_width": "100",
+            "hide_label": true,
+            "required": true
           }
         },
         "s3": {
