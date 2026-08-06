@@ -63,7 +63,7 @@
           "settings": {
             "text": "Increased legal payload capacity",
             "icon": "weight",
-            "note": "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."
+            "note": "The ORI 3650kg GVM Package legally increases your vehicle's weight limit, ensuring your heavy-duty build stays safe, secure, and fully insured.\n\nMassive Payload Boost: Adds roughly 450–550kg of legal carrying capacity—essential for heavy canopies, bull bars, winches, and towing."
           }
         },
         "benefit_suspension": {
@@ -71,7 +71,7 @@
           "settings": {
             "text": "Upgraded Fox / BDS suspension",
             "icon": "suspension",
-            "note": "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."
+            "note": "\"You bought a massive American truck, so why insult it with wimpy suspension? Slap some heavy-duty American components under that beast, let freedom ring, and cue the bald eagles! \""
           }
         },
         "benefit_approval": {
@@ -79,7 +79,7 @@
           "settings": {
             "text": "Federal engineering approval",
             "icon": "seal",
-            "note": "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."
+            "note": "Federally Approved (SSM): Fully certified and road-legal nationwide. Zero state-by-state engineering hassles if fitted before first registration.\n\nProtect Your Insurance: Driving over your factory weight limit instantly voids your insurance. This certified upgrade guarantees you are covered in an accident."
           }
         }
       },
@@ -151,7 +151,7 @@
         "incl_image_1": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/product-img1.png",
+            "image": "shopify://shop_images/987_02_005_P01_70c3f8c3-6944-4a02-a80d-026c568a7ea2.png",
             "alt": ""
           }
         },
