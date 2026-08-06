@@ -1326,15 +1326,39 @@
             "field_width": "100",
             "hide_label": true
           }
+        },
+        "s1": {
+          "type": "step",
+          "settings": {
+            "title": "Your details",
+            "caption": "So we know who to send the quote to."
+          }
+        },
+        "s2": {
+          "type": "step",
+          "settings": {
+            "title": "Your vehicle",
+            "caption": "Helps us match the right GVM package."
+          }
+        },
+        "s3": {
+          "type": "step",
+          "settings": {
+            "title": "Your enquiry",
+            "caption": "Anything else we should know."
+          }
         }
       },
       "block_order": [
+        "s1",
         "f_name",
         "f_email",
         "f_phone",
+        "s2",
         "f_rego",
         "f_vehicle",
         "f_stage",
+        "s3",
         "f_location",
         "f_message"
       ],

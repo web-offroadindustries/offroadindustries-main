@@ -1,4 +1,11 @@
 {{ 'contact-form.css' | asset_url | stylesheet_tag }}
+{%- if section.blocks.size > 0 -%}
+  {%- assign cfv4_steps = section.blocks | where: 'type', 'step' -%}
+  {%- if cfv4_steps.size > 0 -%}
+    {{ 'contact-form-wizard.css' | asset_url | stylesheet_tag }}
+    <script src="{{ 'contact-form-wizard.js' | asset_url }}" defer="defer"></script>
+  {%- endif -%}
+{%- endif -%}
 
 {%- liquid
   assign section_id = section.settings.custom_id | default: section.id
@@ -36,6 +43,21 @@
     assign is_popup = true
   endif
   assign popup_id = section.settings.popup_id | default: 'gvm-quote' | handle
+
+  # Step blocks turn the flat field list into groups. Two or more of them also
+  # let the wizard take over. Detected up front because the markup has to know
+  # before the first block is rendered whether it is opening a grouped layout.
+  assign step_blocks = section.blocks | where: 'type', 'step'
+  assign has_steps = false
+  if step_blocks.size > 0
+    assign has_steps = true
+  endif
+  assign first_block_is_step = false
+  if section.blocks.size > 0
+    if section.blocks.first.type == 'step'
+      assign first_block_is_step = true
+    endif
+  endif
 
   # The container setting adds page gutters, which fight the modal's own
   # padding, so inside the popup it is swapped for a plain full-width wrapper.
@@ -90,6 +112,7 @@
 <div
   id="{{ section_id }}"
   class="f-contact-form f-contact-form-{{ section.settings.form_design }}{% unless is_popup %} f-section-padding{% endunless %} color-{{ section.settings.color_schema }}{{ custom_class }}"
+  {% if has_steps %}data-cfv4-wizard{% endif %}
   {% unless is_popup %}
     style="--section-padding-top: {{ section.settings.padding_top }}px; --section-padding-bottom: {{ section.settings.padding_bottom }}px;"
   {% endunless %}
@@ -109,8 +132,62 @@
         style="width: {{ section.settings.form_width }}px;max-width: 100%;"
       >
         {%- form 'contact', id: form_id -%}
-          <div class="f-contact-form__fields f-flex flex-wrap f-grid--gap-medium">
+          {%- comment -%}
+            Step blocks split the field list into groups. The markup has to be
+            opened and closed around the same single pass over section.blocks,
+            so the two flags below track what is currently open:
+
+              fields_open - a .f-contact-form__fields row is awaiting its </div>
+              step_open   - that row is also inside a <section>
+
+            Fields placed before the first Step block are still rendered, in an
+            ungrouped row, rather than being swallowed.
+          {%- endcomment -%}
+          {%- if has_steps -%}<div class="cfv4-steps" data-cfv4-steps>{%- endif -%}
+
+          {%- liquid
+            assign fields_open = false
+            assign step_open = false
+            assign step_n = 0
+          -%}
+
+          {%- unless has_steps and first_block_is_step -%}
+            <div class="f-contact-form__fields f-flex flex-wrap f-grid--gap-medium">
+            {%- assign fields_open = true -%}
+          {%- endunless -%}
+
             {%- for block in section.blocks -%}
+              {%- if block.type == 'step' -%}
+                {%- if fields_open -%}
+                  </div>
+                  {%- if step_open -%}</div></section>{%- endif -%}
+                {%- endif -%}
+                {%- assign step_n = step_n | plus: 1 -%}
+                <section
+                  class="cfv4-step"
+                  data-cfv4-step
+                  data-cfv4-step-label="{{ block.settings.title | default: 'Step' | escape }}"
+                  {{ block.shopify_attributes }}
+                >
+                  <span class="cfv4-step__marker" aria-hidden="true">
+                    <span class="cfv4-step__num">{{ step_n }}</span>
+                    <span class="cfv4-step__line"></span>
+                  </span>
+                  <div class="cfv4-step__body">
+                    {%- if block.settings.title != blank -%}
+                      <h3 class="cfv4-step__title">{{ block.settings.title }}</h3>
+                    {%- endif -%}
+                    {%- if block.settings.caption != blank -%}
+                      <p class="cfv4-step__caption">{{ block.settings.caption }}</p>
+                    {%- endif -%}
+                    <div class="f-contact-form__fields cfv4-step__fields f-flex flex-wrap f-grid--gap-medium">
+                {%- liquid
+                  assign fields_open = true
+                  assign step_open = true
+                -%}
+                {%- continue -%}
+              {%- endif -%}
+
               {%- liquid
                 assign hide_label = block.settings.hide_label
                 assign required = block.settings.required
@@ -330,7 +407,15 @@
               </div>
             {%- endfor -%}
 
-            {%- if section.blocks.size > 0 -%}
+            {%- comment -%}
+              Without steps the submit button stays inside the field row exactly
+              where it has always been, so the eleven pages already using this
+              section keep their current layout. With steps it moves out to its
+              own footer, because the wizard has to hide it and put Back/Next
+              in its place, and it cannot do that while it is a flex child of
+              the last step's field row.
+            {%- endcomment -%}
+            {%- if section.blocks.size > 0 and has_steps == false -%}
               <div class="form-field w-full f-column form-submit flex justify-{{- section.settings.form_alignment -}}">
                 {% assign default_submit = 'templates.contact.form.send' | t %}
                 <button type="submit" class="btn {{ section.settings.button_style }}">
@@ -338,7 +423,21 @@
                 </button>
               </div>
             {%- endif -%}
-          </div>
+
+          {%- if fields_open -%}
+            </div>
+            {%- if step_open -%}</div></section>{%- endif -%}
+          {%- endif -%}
+
+          {%- if has_steps -%}
+            </div>
+            <div class="cfv4-footer form-submit flex justify-{{- section.settings.form_alignment -}}" data-cfv4-footer>
+              {% assign default_submit = 'templates.contact.form.send' | t %}
+              <button type="submit" class="btn {{ section.settings.button_style }}">
+                {{ section.settings.button_label | default: default_submit }}
+              </button>
+            </div>
+          {%- endif -%}
 
           {% render 'form-status', form: form %}
 
@@ -537,6 +636,18 @@
     }
   ],
   "blocks": [
+    {
+      "type": "step",
+      "name": "Step",
+      "settings": [
+        {
+          "type": "paragraph",
+          "content": "Starts a new step. Every field below it belongs to this step until the next Step block. Add two or more and the form is filled in one step at a time with Back and Next."
+        },
+        { "type": "text", "id": "title", "label": "Step title", "default": "Your details" },
+        { "type": "text", "id": "caption", "label": "Step caption", "info": "Optional line under the title." }
+      ]
+    },
     {
       "type": "name",
       "name": "Name",
