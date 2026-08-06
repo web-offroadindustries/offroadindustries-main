@@ -108,12 +108,12 @@
         "included_fox": {
           "type": "included",
           "settings": {
-            "text": "Fox shocks",
+            "text": "Fox Suspension",
             "logo": "shopify://shop_images/420_x_420px_MEGA_MENU_ICON__FOX.jpg",
             "icon": "check",
             "brand": "",
-            "note": "",
-            "sku": "987-02-004 x 2, 987-24-028 x 2"
+            "note": "Fox 2.5 Perfomance Series Suspension",
+            "sku": "987-02-004 x 2 987-24-028 x 2"
           }
         },
         "included_bds": {
@@ -123,7 +123,7 @@
             "logo": "shopify://shop_images/420_x_420px_MEGA_MENU_ICON__BDS.jpg",
             "icon": "none",
             "brand": "",
-            "note": "",
+            "note": "ADR Approved Upper Control Arms.",
             "sku": "BDS121260 x 1"
           }
         },
@@ -134,7 +134,7 @@
             "logo": "shopify://shop_images/420_x_420px_MEGA_MENU_ICON__ORI.jpg",
             "icon": "check",
             "brand": "",
-            "note": "",
+            "note": "ORI Leaf Packs, 200kg with Bushes & Ubolts.",
             "sku": "ORI-CHV-200KG x 2"
           }
         },
@@ -144,7 +144,7 @@
             "text": "Engineering certification",
             "icon": "shield",
             "brand": "",
-            "note": "",
+            "note": "Federally Approved GVM & GCM Data on OE wheels & tyres.",
             "sku": ""
           }
         },
