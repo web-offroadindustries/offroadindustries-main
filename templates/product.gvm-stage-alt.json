@@ -69,9 +69,9 @@
         "benefit_suspension": {
           "type": "benefit",
           "settings": {
-            "text": "Upgraded Fox / BDS suspension",
+            "text": "Upgraded Fox &  BDS suspension",
             "icon": "suspension",
-            "note": "\"You bought a massive American truck, so why insult it with wimpy suspension? Slap some heavy-duty American components under that beast, let freedom ring, and cue the bald eagles! \""
+            "note": "You bought a massive American truck, so why insult it with wimpy suspension? Slap some heavy-duty American components under that beast, let freedom ring, and cue the bald eagles!"
           }
         },
         "benefit_approval": {
