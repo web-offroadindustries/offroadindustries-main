@@ -497,6 +497,25 @@
         "color_schema": ""
       }
     },
+    "ori_gvm_approved_VPhEai": {
+      "type": "ori-gvm-approved",
+      "name": "ORI GVM Approved",
+      "settings": {
+        "source_page": "ori-gvm-upgrades",
+        "source_section": ".dealer-locator",
+        "custom_selector": "",
+        "heading": "",
+        "fallback_text": "View our approved installers",
+        "layout": "classic",
+        "alt_background": false,
+        "tint_color": "#f3f6f7",
+        "container": "container",
+        "padding_top": 52,
+        "padding_bottom": 52,
+        "custom_id": "",
+        "color_schema": ""
+      }
+    },
     "ori_package_grid_RVbeB9": {
       "type": "ori-package-grid",
       "blocks": {
@@ -1149,6 +1168,7 @@
         "installer_32",
         "installer_33"
       ],
+      "disabled": true,
       "settings": {
         "heading": "Approved Installers",
         "heading_size": "h2",
@@ -1162,51 +1182,6 @@
         "padding_top": 60,
         "padding_bottom": 60,
         "custom_id": "approved-installer",
-        "custom_class": ""
-      }
-    },
-    "faq": {
-      "type": "ori-faq",
-      "blocks": {
-        "faq_included": {
-          "type": "faq_item",
-          "settings": {
-            "question": "What is included in this package?",
-            "answer": "<p>Fox shocks, BDS components, ORI springs, and full engineering certification.</p>"
-          }
-        },
-        "faq_legal": {
-          "type": "faq_item",
-          "settings": {
-            "question": "Is this a legal GVM upgrade?",
-            "answer": "<p>Yes. It is federally approved under the Second Stage of Manufacture (SSM) process.</p>"
-          }
-        },
-        "faq_quote": {
-          "type": "faq_item",
-          "settings": {
-            "question": "How do I get a quote?",
-            "answer": "<p>Use the Request Quote button above and send us your vehicle details.</p>"
-          }
-        }
-      },
-      "block_order": [
-        "faq_included",
-        "faq_legal",
-        "faq_quote"
-      ],
-      "settings": {
-        "heading": "Frequently Asked Questions",
-        "heading_size": "h2",
-        "subheading": "",
-        "open_first": true,
-        "emit_schema": true,
-        "container": "container-narrow",
-        "color_schema": "",
-        "bg_color": "",
-        "padding_top": 60,
-        "padding_bottom": 60,
-        "custom_id": "",
         "custom_class": ""
       }
     },
@@ -1400,9 +1375,9 @@
     "gvm_included",
     "scrolling_promotion_iqVp4T",
     "gvm_steps",
+    "ori_gvm_approved_VPhEai",
     "ori_package_grid_RVbeB9",
     "installers",
-    "faq",
     "product_recently_viewed_4ecpYd",
     "gvm_quote_popup"
   ]
