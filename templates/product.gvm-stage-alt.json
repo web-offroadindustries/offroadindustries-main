@@ -506,6 +506,7 @@
         "custom_selector": "",
         "heading": "",
         "fallback_text": "View our approved installers",
+        "full_width": true,
         "layout": "classic",
         "alt_background": false,
         "tint_color": "#f3f6f7",
