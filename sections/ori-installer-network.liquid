@@ -7,6 +7,12 @@
   # a state missing here silently drops every installer assigned to it.
   assign states = 'VIC,NSW,QLD,WA,SA,TAS,ACT,NT' | split: ','
   assign first_state = states | first
+
+  # One list, checked in three places below. It used to be three copies of the
+  # same three-term condition, and they had drifted from the wording actually
+  # used: the section's own preset writes "(to be added)", which none of them
+  # matched, so those rows would have rendered on the storefront.
+  assign placeholder_terms = 'add via theme editor,to be added,to be confirmed,tbc,tba,coming soon,placeholder,name tbc,xxxx' | split: ','
 -%}
 
 <div
@@ -35,15 +41,20 @@
     {%- endif -%}
 
     {%- comment -%}
-      Build a map of state → installers from blocks. Entries that still hold
-      placeholder values (blank name, "add via theme editor", "TBC", etc.) are
-      skipped so unfinished data never shows on the storefront.
+      Build a map of state → installers from blocks. Rows whose name still
+      matches one of placeholder_terms are skipped, so unfinished data never
+      reaches the storefront. Checked in three passes below, all reading the
+      one list defined at the top of the file.
     {%- endcomment -%}
     {%- assign has_installers = false -%}
     {%- for block in section.blocks -%}
       {%- assign nl = block.settings.name | downcase -%}
       {%- if block.type == 'installer' and block.settings.state != blank and block.settings.name != blank -%}
-        {%- unless nl contains 'add via theme editor' or nl contains 'tbc' or nl contains 'coming soon' -%}
+        {%- assign is_placeholder = false -%}
+        {%- for term in placeholder_terms -%}
+          {%- if nl contains term -%}{%- assign is_placeholder = true -%}{%- break -%}{%- endif -%}
+        {%- endfor -%}
+        {%- unless is_placeholder -%}
           {%- assign has_installers = true -%}
           {%- break -%}
         {%- endunless -%}
@@ -58,7 +69,11 @@
         {%- for block in section.blocks -%}
           {%- assign nl = block.settings.name | downcase -%}
           {%- if block.type == 'installer' and block.settings.state == state and block.settings.name != blank -%}
-            {%- unless nl contains 'add via theme editor' or nl contains 'tbc' or nl contains 'coming soon' -%}
+            {%- assign is_placeholder = false -%}
+            {%- for term in placeholder_terms -%}
+              {%- if nl contains term -%}{%- assign is_placeholder = true -%}{%- break -%}{%- endif -%}
+            {%- endfor -%}
+            {%- unless is_placeholder -%}
               {%- assign state_has = true -%}
               {%- break -%}
             {%- endunless -%}
@@ -109,7 +124,11 @@
               {%- for block in section.blocks -%}
                 {%- assign nl = block.settings.name | downcase -%}
                 {%- if block.type == 'installer' and block.settings.state == state and block.settings.name != blank -%}
-                  {%- unless nl contains 'add via theme editor' or nl contains 'tbc' or nl contains 'coming soon' -%}
+                  {%- assign is_placeholder = false -%}
+                  {%- for term in placeholder_terms -%}
+                    {%- if nl contains term -%}{%- assign is_placeholder = true -%}{%- break -%}{%- endif -%}
+                  {%- endfor -%}
+                  {%- unless is_placeholder -%}
                   <li class="ori-installer-network__installer" {{ block.shopify_attributes }}>
                     <div class="ori-installer-card">
                       <div class="ori-installer-card__head">
