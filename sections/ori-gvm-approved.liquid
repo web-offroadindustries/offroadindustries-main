@@ -51,8 +51,8 @@
   style="--gvm-tint: {{ section.settings.tint_color | default: '#f3f6f7' }};"
 >
   <div
-    class="ori-gvm-product__band{% if section.settings.alt_background %} ori-gvm-product__band--alt{% endif %}{% if full_width %} ori-gvm-approved__band--bleed{% endif %}"
-    style="padding-top: {{ pad_top }}px; padding-bottom: {{ pad_bottom }}px;"
+    class="ori-gvm-product__band{% if section.settings.alt_background %} ori-gvm-product__band--alt{% endif %}{% if full_width %} ori-gvm-approved__band--bleed{% endif %}{% if full_width and section.settings.flush_top_bottom %} ori-gvm-approved__band--flush{% endif %}"
+    style="padding-top: {{ pad_top }}px; padding-bottom: {{ pad_bottom }}px; --approved-gutter: {{ section.settings.content_gutter | default: 24 }}px;"
   >
     {%- comment -%}
       A plain full-width div in place of the container, so the pulled section's
@@ -139,7 +139,25 @@
       "type": "checkbox",
       "id": "full_width",
       "label": "Full width, no outer padding",
-      "info": "Runs the pulled section edge to edge and removes the padding above and below it. The pulled section keeps its own inside spacing; change that on the source page.",
+      "info": "Runs the pulled section edge to edge, overriding the container it brings with it.",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "content_gutter",
+      "label": "Side gutter",
+      "info": "Space between the screen edge and the content when Full width is on. Set 0 for true edge to edge.",
+      "min": 0,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "default": 24
+    },
+    {
+      "type": "checkbox",
+      "id": "flush_top_bottom",
+      "label": "Also remove the pulled section's top and bottom padding",
+      "info": "Only applies with Full width on. Leave off to keep the spacing set on the source page, which is what keeps the heading off the top edge.",
       "default": false
     },
     {

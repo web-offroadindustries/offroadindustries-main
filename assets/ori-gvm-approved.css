@@ -27,6 +27,32 @@
   padding-bottom: 0;
 }
 
+/* Dropping this section's own container is not enough on its own: the pulled
+   section has a container of its own inside it, and that is what actually
+   holds the content at 1280px and centres it. Both known wrappers are widened
+   here, with the theme's large desktop gutter replaced by a settable one.
+
+   Two class selectors beat the single-class .container and .f-section-padding
+   rules they override, including inside media queries, since a media query
+   adds no specificity. No !important needed. */
+.ori-gvm-approved__band--bleed .ori-installer-network > .container,
+.ori-gvm-approved__band--bleed .ori-installer-network > .container-narrow,
+.ori-gvm-approved__band--bleed .ori-installer-network > .container-fluid,
+.ori-gvm-approved__band--bleed .dealer-locator__inner {
+  max-width: none;
+  width: 100%;
+  padding-left: var(--approved-gutter, 24px);
+  padding-right: var(--approved-gutter, 24px);
+}
+
+/* Opt in. Left off, the pulled section keeps the top and bottom padding set on
+   its own page, which is usually what stops the heading touching the edge. */
+.ori-gvm-approved__band--flush .ori-installer-network,
+.ori-gvm-approved__band--flush .dealer-locator {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
 /* The fallback link is the default state in the markup, so it is present for
    anyone whose fetch never completes. It is hidden as soon as the real
    content lands. */
