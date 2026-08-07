@@ -199,6 +199,7 @@
         },
         "installer_13": {
           "type": "installer",
+          "disabled": true,
           "settings": {
             "state": "WA",
             "name": "Hunter Mechanical Karratha",
@@ -214,6 +215,7 @@
         },
         "installer_14": {
           "type": "installer",
+          "disabled": true,
           "settings": {
             "state": "WA",
             "name": "Hunter Mechanical Rockingham",
@@ -229,6 +231,7 @@
         },
         "installer_15": {
           "type": "installer",
+          "disabled": true,
           "settings": {
             "state": "WA",
             "name": "Hunter Mechanical Kenwick",
@@ -240,21 +243,6 @@
             "phone": "(08) 9367 0888",
             "email": "",
             "website": "https://hunter.com.au/?srsltid=ARcRdnqnMBuruhlNnlo8IzFs4q3SCz3yoJuEW2FYz-DhG3aMW5A9H5lz"
-          }
-        },
-        "installer_16": {
-          "type": "installer",
-          "settings": {
-            "state": "SA",
-            "name": "Jacksons 4x4",
-            "logo": "shopify://shop_images/JA4X4_-_TRANSPARENT_-_WHITE_TEXT_-_HIGHRES.png",
-            "platinum": true,
-            "address": "61 Chris Collins Ct,",
-            "suburb": "Murray Bridge",
-            "postcode": "5253",
-            "phone": " (08) 8532 2550",
-            "email": "",
-            "website": "https://jacksons4x4.com.au/"
           }
         },
         "installer_17": {
@@ -422,21 +410,6 @@
             "website": "https://trucksntoys.com.au/"
           }
         },
-        "installer_28": {
-          "type": "installer",
-          "settings": {
-            "state": "VIC",
-            "name": "Horse Power Factory",
-            "logo": "shopify://shop_images/images_4.png",
-            "platinum": true,
-            "address": "8/14 Amberley Cres,",
-            "suburb": "Dandenong South",
-            "postcode": "3175",
-            "phone": "(03) 9793 1616",
-            "email": "",
-            "website": "https://hp-f.com.au/"
-          }
-        },
         "installer_29": {
           "type": "installer",
           "settings": {
@@ -529,7 +502,6 @@
         "installer_13",
         "installer_14",
         "installer_15",
-        "installer_16",
         "installer_17",
         "installer_18",
         "installer_19",
@@ -541,7 +513,6 @@
         "installer_25",
         "installer_26",
         "installer_27",
-        "installer_28",
         "installer_29",
         "installer_30",
         "installer_31",
