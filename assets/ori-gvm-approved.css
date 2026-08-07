@@ -70,21 +70,31 @@
   display: none;
 }
 
-/* Reserves roughly the height the list will take, so the page does not jump
-   when it arrives. Cleared once loaded so the real content sets the height. */
+/* Block, never grid. This element holds the injected section, and a grid
+   parent with place-items:center shrink-wraps its child: the pulled section
+   sized to its own content, around 650px, and sat centred no matter what the
+   full-width rules above said. It also made the layout depend on the JS having
+   set data-state, which is not something layout should ever wait on.
+
+   min-height only reserves space so the page does not jump on arrival. */
 .ori-gvm-approved__placeholder {
+  display: block;
   min-height: 220px;
-  display: grid;
-  place-items: center;
 }
 [data-state='loaded'] .ori-gvm-approved__placeholder {
   min-height: 0;
-  display: block;
+}
+/* Belt and braces: whatever gets injected fills the width it is given. */
+.ori-gvm-approved__placeholder > * {
+  width: 100%;
 }
 
 .ori-gvm-approved__spinner {
   width: 26px;
   height: 26px;
+  /* Centred on its own rather than by the parent, now the parent is a plain
+     block. Vertical margin roughly centres it in the reserved height. */
+  margin: 97px auto;
   border: 2px solid color-mix(in srgb, currentColor 22%, transparent);
   border-top-color: var(--brand-teal, #56bdc2);
   border-radius: 50%;
