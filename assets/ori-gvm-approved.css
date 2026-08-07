@@ -1,0 +1,64 @@
+/* ─── ORI GVM Approved ────────────────────────────────────────────────────
+   Wrapper only. The injected section brings its own styles, which is why the
+   source section's stylesheet is enqueued alongside this one. */
+
+.ori-gvm-approved {
+  display: block;
+}
+
+/* The fallback link is the default state in the markup, so it is present for
+   anyone whose fetch never completes. It is hidden as soon as the real
+   content lands. */
+.ori-gvm-approved__fallback {
+  margin: 0;
+  text-align: center;
+  font-size: 14px;
+  line-height: 1.6;
+}
+.ori-gvm-approved__fallback a {
+  color: var(--brand-teal, #56bdc2);
+  text-underline-offset: 3px;
+}
+[data-state='loaded'] .ori-gvm-approved__fallback {
+  display: none;
+}
+
+/* Reserves roughly the height the list will take, so the page does not jump
+   when it arrives. Cleared once loaded so the real content sets the height. */
+.ori-gvm-approved__placeholder {
+  min-height: 220px;
+  display: grid;
+  place-items: center;
+}
+[data-state='loaded'] .ori-gvm-approved__placeholder {
+  min-height: 0;
+  display: block;
+}
+
+.ori-gvm-approved__spinner {
+  width: 26px;
+  height: 26px;
+  border: 2px solid color-mix(in srgb, currentColor 22%, transparent);
+  border-top-color: var(--brand-teal, #56bdc2);
+  border-radius: 50%;
+  animation: ori-gvm-approved-spin 0.8s linear infinite;
+}
+/* Only while actually fetching: an idle spinner reads as a stuck page. */
+.ori-gvm-approved__spinner {
+  display: none;
+}
+[data-state='loading'] .ori-gvm-approved__spinner {
+  display: block;
+}
+
+@keyframes ori-gvm-approved-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ori-gvm-approved__spinner {
+    animation: none;
+  }
+}

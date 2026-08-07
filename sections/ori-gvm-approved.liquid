@@ -1,0 +1,153 @@
+{%- comment -%}
+  ORI GVM Approved.
+
+  Shows a section that lives on another page, so the installer list is edited
+  in one place and every page that carries this section follows.
+
+  Point "Source page" at ORI GVM Upgrades and leave the source set to Dealer
+  locator. Editing that page is then the only thing anyone has to do.
+
+  Liquid cannot reach another page's section blocks, so the lifting is done in
+  the browser by assets/ori-gvm-approved.js. Until it lands, and if it never
+  does, a link to the source page is shown in its place.
+{%- endcomment -%}
+
+{{ 'ori-gvm-approved.css' | asset_url | stylesheet_tag }}
+{%- comment -%}
+  The injected markup arrives without its stylesheet, so the source section's
+  CSS is enqueued here too. Both are small and Shopify serves them cached.
+{%- endcomment -%}
+{{ 'dealer-locator.css' | asset_url | stylesheet_tag }}
+{{ 'ori-installer-network.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'ori-gvm-approved.js' | asset_url }}" defer="defer"></script>
+
+{%- liquid
+  assign section_id = section.settings.custom_id | default: section.id
+  assign container = section.settings.container | default: 'container'
+  assign source_page = section.settings.source_page
+
+  assign selector = section.settings.source_section
+  if selector == 'custom'
+    assign selector = section.settings.custom_selector
+  endif
+-%}
+
+<div
+  id="{{ section_id }}"
+  class="ori-gvm-product ori-gvm-product--{{ section.settings.layout | default: 'classic' }} color-{{ section.settings.color_schema }}"
+  data-section-type="ori-gvm-approved"
+  style="--gvm-tint: {{ section.settings.tint_color | default: '#f3f6f7' }};"
+>
+  <div
+    class="ori-gvm-product__band{% if section.settings.alt_background %} ori-gvm-product__band--alt{% endif %}"
+    style="padding-top: {{ section.settings.padding_top }}px; padding-bottom: {{ section.settings.padding_bottom }}px;"
+  >
+    <div class="{{ container }}">
+      {%- if section.settings.heading != blank -%}
+        <h2 class="ori-gvm-product__block-title h3">{{ section.settings.heading }}</h2>
+      {%- endif -%}
+
+      {%- if source_page == blank or selector == blank -%}
+        {%- comment -%}
+          Nothing chosen yet. Say so in the editor rather than rendering an
+          empty band, and stay silent on the storefront.
+        {%- endcomment -%}
+        {%- if request.design_mode -%}
+          <p class="ori-gvm-approved__fallback">
+            Pick a source page in the theme editor to show its installer list here.
+          </p>
+        {%- endif -%}
+      {%- else -%}
+        <ori-gvm-approved
+          class="ori-gvm-approved"
+          data-source-url="{{ source_page.url }}"
+          data-source-selector="{{ selector | escape }}"
+        >
+          <div class="ori-gvm-approved__placeholder" data-approved-target>
+            <span class="ori-gvm-approved__spinner" aria-hidden="true"></span>
+          </div>
+
+          {%- comment -%}
+            Rendered up front, not injected on failure, so it is in the HTML
+            for search engines and for anyone the script never reaches.
+          {%- endcomment -%}
+          <p class="ori-gvm-approved__fallback">
+            <a href="{{ source_page.url }}">
+              {{- section.settings.fallback_text | default: 'View our approved installers' -}}
+            </a>
+          </p>
+        </ori-gvm-approved>
+      {%- endif -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "ORI GVM Approved",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "Shows a section from another page, so the installer list is only ever edited in one place. Point this at ORI GVM Upgrades."
+    },
+    { "type": "page", "id": "source_page", "label": "Source page" },
+    {
+      "type": "select",
+      "id": "source_section",
+      "label": "Which section to pull",
+      "options": [
+        { "value": ".dealer-locator", "label": "Dealer locator" },
+        { "value": "[data-section-type=\"ori-installer-network\"]", "label": "Installer network" },
+        { "value": "custom", "label": "Custom (advanced)" }
+      ],
+      "default": ".dealer-locator"
+    },
+    {
+      "type": "text",
+      "id": "custom_selector",
+      "label": "Custom CSS selector",
+      "info": "Only used when the option above is set to Custom."
+    },
+    { "type": "text", "id": "heading", "label": "Heading", "info": "Optional. The pulled section usually brings its own." },
+    {
+      "type": "text",
+      "id": "fallback_text",
+      "label": "Fallback link text",
+      "info": "Shown until the list loads, and kept if it cannot be reached.",
+      "default": "View our approved installers"
+    },
+    { "type": "header", "content": "Appearance" },
+    {
+      "type": "select",
+      "id": "layout",
+      "label": "Layout style",
+      "info": "Match this to the other ORI GVM sections on the page.",
+      "options": [
+        { "value": "classic", "label": "Classic (light, centred)" },
+        { "value": "editorial", "label": "Technical (engineering plate)" }
+      ],
+      "default": "classic"
+    },
+    { "type": "checkbox", "id": "alt_background", "label": "Use tinted background", "default": false },
+    { "type": "color", "id": "tint_color", "label": "Tint colour", "default": "#f3f6f7" },
+    {
+      "type": "select",
+      "id": "container",
+      "label": "Container width",
+      "options": [
+        { "value": "container", "label": "Fixed (1200px)" },
+        { "value": "container-narrow", "label": "Narrow" },
+        { "value": "container-full", "label": "Full width" }
+      ],
+      "default": "container"
+    },
+    { "type": "range", "id": "padding_top", "label": "Padding top", "min": 0, "max": 120, "step": 4, "unit": "px", "default": 52 },
+    { "type": "range", "id": "padding_bottom", "label": "Padding bottom", "min": 0, "max": 120, "step": 4, "unit": "px", "default": 52 },
+    { "type": "text", "id": "custom_id", "label": "Custom HTML ID" },
+    { "type": "text", "id": "color_schema", "label": "Color scheme class" }
+  ],
+  "presets": [{ "name": "ORI GVM Approved" }]
+}
+{% endschema %}
