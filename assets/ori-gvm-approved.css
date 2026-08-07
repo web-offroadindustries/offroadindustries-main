@@ -6,6 +6,27 @@
   display: block;
 }
 
+/* ── Full width ──
+   Replaces the theme container so the pulled section's own background reaches
+   the screen edges instead of sitting in a letterbox. The pulled section keeps
+   its inner max-width, so the cards stay readable and only the background runs
+   full bleed - which is the usual intent behind "make it full width". */
+.ori-gvm-approved__full {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/* .ori-gvm-product__band sets 52px, dropping to 40px under a media query. The
+   inline style already beats both, so this is a backstop for the case where
+   the band class is applied without it. */
+.ori-gvm-approved__band--bleed {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
 /* The fallback link is the default state in the markup, so it is present for
    anyone whose fetch never completes. It is hidden as soon as the real
    content lands. */

@@ -30,6 +30,18 @@
   if selector == 'custom'
     assign selector = section.settings.custom_selector
   endif
+
+  # Full width drops this section's own container and band padding so the
+  # pulled section reaches the screen edges. The pulled section keeps its own
+  # internal spacing, which is what stops the heading sitting against the top
+  # edge; adjust that on the source page rather than here.
+  assign full_width = section.settings.full_width
+  assign pad_top = section.settings.padding_top
+  assign pad_bottom = section.settings.padding_bottom
+  if full_width
+    assign pad_top = 0
+    assign pad_bottom = 0
+  endif
 -%}
 
 <div
@@ -39,10 +51,14 @@
   style="--gvm-tint: {{ section.settings.tint_color | default: '#f3f6f7' }};"
 >
   <div
-    class="ori-gvm-product__band{% if section.settings.alt_background %} ori-gvm-product__band--alt{% endif %}"
-    style="padding-top: {{ section.settings.padding_top }}px; padding-bottom: {{ section.settings.padding_bottom }}px;"
+    class="ori-gvm-product__band{% if section.settings.alt_background %} ori-gvm-product__band--alt{% endif %}{% if full_width %} ori-gvm-approved__band--bleed{% endif %}"
+    style="padding-top: {{ pad_top }}px; padding-bottom: {{ pad_bottom }}px;"
   >
-    <div class="{{ container }}">
+    {%- comment -%}
+      A plain full-width div in place of the container, so the pulled section's
+      own background runs edge to edge instead of sitting in a letterbox.
+    {%- endcomment -%}
+    <div class="{% if full_width %}ori-gvm-approved__full{% else %}{{ container }}{% endif %}">
       {%- if section.settings.heading != blank -%}
         <h2 class="ori-gvm-product__block-title h3">{{ section.settings.heading }}</h2>
       {%- endif -%}
@@ -119,6 +135,13 @@
       "default": "View our approved installers"
     },
     { "type": "header", "content": "Appearance" },
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "label": "Full width, no outer padding",
+      "info": "Runs the pulled section edge to edge and removes the padding above and below it. The pulled section keeps its own inside spacing; change that on the source page.",
+      "default": false
+    },
     {
       "type": "select",
       "id": "layout",
