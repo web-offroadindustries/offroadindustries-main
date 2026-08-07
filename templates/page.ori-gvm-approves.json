@@ -548,7 +548,6 @@
         "installer_32",
         "installer_33"
       ],
-      "disabled": true,
       "settings": {
         "heading": "Approved Installers",
         "heading_size": "h2",
@@ -564,7 +563,7 @@
         "custom_id": "approved-installer",
         "custom_class": ""
       }
-    },
+    }
   },
   "order": [
     "main",
