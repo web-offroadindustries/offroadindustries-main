@@ -1,0 +1,1509 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    },
+    "slideshow_ByTqfK": {
+      "type": "slideshow",
+      "blocks": {
+        "slide_bEPqJ9": {
+          "type": "slide",
+          "settings": {
+            "background": "shopify://shop_images/Hero_section_GVM_and_GCM_2000x560_b9ad3197-97b4-49f9-b121-192624a59c79.png",
+            "image_overlay_opacity": 0,
+            "content_position": "center",
+            "text_alignment": "center",
+            "text_color": "#000000",
+            "title": "",
+            "heading_size": "h2",
+            "heading_color": "",
+            "subheading": "",
+            "description": "",
+            "desc_size": "text-desc-base",
+            "button_text_1": "",
+            "button_link_1": "",
+            "button_style_1": "btn--primary",
+            "button_size_1": "",
+            "button_text_2": "",
+            "button_link_2": "",
+            "button_style_2": "btn--primary",
+            "button_size_2": ""
+          }
+        }
+      },
+      "block_order": [
+        "slide_bEPqJ9"
+      ],
+      "custom_css": [
+        ".bg-image img {object-position: top;}"
+      ],
+      "name": "t:sections.slideshow.name",
+      "settings": {
+        "container": "container-full",
+        "slideshow_height": "adapt",
+        "show_dots": false,
+        "show_nav": false,
+        "autoplay": false,
+        "autorotate_speed": 5,
+        "pagination_background": "light",
+        "controls_position": "center",
+        "pagination_style": "dots",
+        "show_text_below": false,
+        "text_alignment_mobile": "center",
+        "accessibility_info": "Slideshow about our brand",
+        "custom_id": "",
+        "custom_class": "",
+        "enable_bg_zoom_effect": false
+      }
+    },
+    "vehicle_cards_CtwwXg": {
+      "type": "vehicle-cards",
+      "blocks": {
+        "vehicle_ie7ybh": {
+          "type": "vehicle",
+          "settings": {
+            "image": "shopify://shop_images/Toyota-Tundra--tile-ad---20260505-4-1.png",
+            "name": "toyota tundra",
+            "btn_label": "View Packages & Pricing",
+            "btn_url": "https://www.offroadindustries.com.au/pages/toyota-tundra",
+            "pdf_url": "https://cdn.shopify.com/s/files/1/0165/6516/files/GVM_BROCHURE_BACK_Toyota_Tundra.pdf?v=1779415154"
+          }
+        },
+        "vehicle_d6GQJG": {
+          "type": "vehicle",
+          "settings": {
+            "image": "shopify://shop_images/Chevy-2500--tile-ad---20260505-4_7ce36d9a-1565-4823-b14a-b3e36018df11.png",
+            "name": "Chevy Silverado 2500HD",
+            "btn_label": "View Packages & Pricing",
+            "btn_url": "https://www.offroadindustries.com.au/pages/chevy-silverado-2500hd-gvm-packages",
+            "pdf_url": "https://cdn.shopify.com/s/files/1/0165/6516/files/GVM_BROCHURE_BACK_Chevy_Silverado_2500HD_LTZ.pdf?v=1779415154"
+          }
+        },
+        "vehicle_iFbyFT": {
+          "type": "vehicle",
+          "settings": {
+            "image": "shopify://shop_images/Chevy-Silverado-1500--tile-ad---20260505-4_753e16ce-f09c-454c-8683-7edc168f4eae.png",
+            "name": "Silverado 1500 LTZ & ZR2",
+            "btn_label": "View Packages & Pricing",
+            "btn_url": "https://www.offroadindustries.com.au/pages/chevrolet-silverado-1500-gvm-package",
+            "pdf_url": "https://cdn.shopify.com/s/files/1/0165/6516/files/GVM_BROCHURE_BACK_Chevy_Silverado_1500.pdf?v=1779415153"
+          }
+        },
+        "vehicle_rrjckn": {
+          "type": "vehicle",
+          "settings": {
+            "image": "shopify://shop_images/FORD-F150---tile-ad---20260505-4-3.png",
+            "name": "Ford F150",
+            "btn_label": "View Packages & Pricing",
+            "btn_url": "https://www.offroadindustries.com.au/pages/ford-150-gvm-packages",
+            "pdf_url": "https://cdn.shopify.com/s/files/1/0165/6516/files/GVM_BROCHURE_BACK_Ford_F150.pdf?v=1779415153"
+          }
+        },
+        "vehicle_ERMxXT": {
+          "type": "vehicle",
+          "settings": {
+            "image": "shopify://shop_images/FORD-F150---tile-ad---20260505-4-1_9dcaeba0-a747-4777-a6b3-eb3685b3b98f.png",
+            "name": "Ford F150",
+            "btn_label": "View Packages & Pricing",
+            "btn_url": "https://www.offroadindustries.com.au/pages/ford-150-gvm-packages",
+            "pdf_url": "https://cdn.shopify.com/s/files/1/0165/6516/files/GVM_BROCHURE_BACK_Ford_F150.pdf?v=1779415153"
+          }
+        }
+      },
+      "block_order": [
+        "vehicle_ie7ybh",
+        "vehicle_d6GQJG",
+        "vehicle_iFbyFT",
+        "vehicle_rrjckn",
+        "vehicle_ERMxXT"
+      ],
+      "name": "Vehicle Cards",
+      "settings": {
+        "eyebrow": "",
+        "heading": "ORI Federally Approved GVM & GCM Packages",
+        "bg_color": "#ffffff",
+        "heading_color": "#1f1f1f",
+        "heading_size": 36,
+        "eyebrow_color": "#56bdc2",
+        "eyebrow_size": 13,
+        "img_ratio": "square",
+        "img_radius": 10,
+        "card_placeholder_color": "#e5e5e5",
+        "card_bg_color": "#ffffff",
+        "card_border_color": "#e2e2e2",
+        "card_radius": 10,
+        "card_shadow": true,
+        "name_color": "#1f1f1f",
+        "name_size": 18,
+        "default_btn_label": "Explore Specs",
+        "btn_bg": "#ffffff",
+        "btn_text_color": "#1f1f1f",
+        "btn_border_color": "#1f1f1f",
+        "btn_radius": 6,
+        "btn_size": 12,
+        "container_width": 1280,
+        "padding_top": 60,
+        "padding_bottom": 60,
+        "mobile_layout": "slideshow",
+        "slideshow_animation": "fade",
+        "slideshow_interval": 4
+      }
+    },
+    "dealer_locator_EMPfrF": {
+      "type": "dealer-locator",
+      "blocks": {
+        "dealer_CM8cqD": {
+          "type": "dealer",
+          "settings": {
+            "name": "Project Overland",
+            "state": "NSW",
+            "address": "Unit 2, 14 Orielton Rd",
+            "city": "Smeaton Grange",
+            "postcode": "2567",
+            "phone": "02 7252 3989",
+            "email": "info@projectoverlander.com.au",
+            "website": "https://www.projectoverlander.com.au/",
+            "logo": "shopify://shop_images/PROJECT_OVERLANDER_4.png",
+            "tag_platinum": true,
+            "tag_suspension": true,
+            "tag_bullbars": true,
+            "tag_shutter": true,
+            "tag_steps": true,
+            "directions_url": ""
+          }
+        },
+        "dealer_pFrnen": {
+          "type": "dealer",
+          "settings": {
+            "name": "Get Off Road 4x4 Wodonga",
+            "state": "VIC",
+            "address": "9 Osburn Street",
+            "city": "Wodonga",
+            "postcode": "3690",
+            "phone": "02 6024 3888",
+            "email": "sales@getoffroad4x4.com.au",
+            "website": "https://www.getoffroad4x4.com.au/contact-us",
+            "logo": "shopify://shop_images/image_-_2026-05-26T145509.187.png",
+            "tag_platinum": true,
+            "tag_suspension": true,
+            "tag_bullbars": true,
+            "tag_shutter": true,
+            "tag_steps": true,
+            "directions_url": ""
+          }
+        },
+        "dealer_qJHiD9": {
+          "type": "dealer",
+          "settings": {
+            "name": "TJM Wagga Wagga",
+            "state": "NSW",
+            "address": "3 Rabaul Place",
+            "city": "Wagga Wagga",
+            "postcode": "2650",
+            "phone": "02 5954 9955",
+            "email": "sales@tjmwaggawagga.com.au",
+            "website": "https://www.tjmwaggawagga.com.au/",
+            "logo": "shopify://shop_images/Landscape_Alternative_on_Light_2.png",
+            "tag_platinum": true,
+            "tag_suspension": true,
+            "tag_bullbars": true,
+            "tag_shutter": true,
+            "tag_steps": true,
+            "directions_url": ""
+          }
+        },
+        "dealer_6eBDyh": {
+          "type": "dealer",
+          "settings": {
+            "name": "Wangaratta Offroad & Mechanical",
+            "state": "VIC",
+            "address": "37-39 Hay Ave, IC 3677",
+            "city": "Wangaratta",
+            "postcode": "3677",
+            "phone": "(03) 5721 2943",
+            "email": "info@wangarattaoffroad.com.au",
+            "website": "https://www.wangarattaoffroad.com.au/contact",
+            "logo": "shopify://shop_images/Wangaratta-OffRoad-Logo_v1_1.png",
+            "tag_platinum": true,
+            "tag_suspension": true,
+            "tag_bullbars": true,
+            "tag_shutter": true,
+            "tag_steps": true,
+            "directions_url": ""
+          }
+        },
+        "dealer_4rgije": {
+          "type": "dealer",
+          "settings": {
+            "name": "Sharp 4x4 Myaree",
+            "state": "WA",
+            "address": "94 Norma Road",
+            "city": "Myaree",
+            "postcode": "6164",
+            "phone": "(08) 6147 3929",
+            "email": "",
+            "website": "https://sharp4x4.com.au/",
+            "logo": "shopify://shop_images/image_-_2026-05-22T092935.065.png",
+            "tag_platinum": true,
+            "tag_suspension": true,
+            "tag_bullbars": true,
+            "tag_shutter": true,
+            "tag_steps": true,
+            "directions_url": ""
+          }
+        },
+        "dealer_8Pfxq3": {
+          "type": "dealer",
+          "settings": {
+            "name": "Sharp 4x4 Cockburn",
+            "state": "WA",
+            "address": "11b/816 Beeliar Dr, Cockburn Central WA 6164",
+            "city": "Cockburn",
+            "postcode": "6164",
+            "phone": "08 63927049",
+            "email": "",
+            "website": "https://sharp4x4.com.au/contact-us/",
+            "logo": "shopify://shop_images/image_-_2026-05-22T092935.065.png",
+            "tag_platinum": true,
+            "tag_suspension": true,
+            "tag_bullbars": true,
+            "tag_shutter": true,
+            "tag_steps": true,
+            "directions_url": ""
+          }
+        },
+        "dealer_g7wPbG": {
+          "type": "dealer",
+          "settings": {
+            "name": "Mick Tighe 4x4 & Outdoor",
+            "state": "QLD",
+            "address": "11 Mort St",
+            "city": "Newtown",
+            "postcode": "4350",
+            "phone": "(07) 4632 9782",
+            "email": "",
+            "website": "https://www.micktighe4x4.com.au/",
+            "logo": "shopify://shop_images/MT_STACKED-10SVG_140x_2x_2839bce5-a182-429f-8c3c-8e09d90b109b.svg",
+            "tag_platinum": true,
+            "tag_suspension": true,
+            "tag_bullbars": true,
+            "tag_shutter": true,
+            "tag_steps": true,
+            "directions_url": ""
+          }
+        },
+        "dealer_iAq9hW": {
+          "type": "dealer",
+          "settings": {
+            "name": "Duffy's Automotive",
+            "state": "NSW",
+            "address": "25 Barnes St,",
+            "city": "Taminda",
+            "postcode": "NSW",
+            "phone": "(02) 6766 2774",
+            "email": "",
+            "website": "https://www.duffysautomotivetamworth.repcoservice.net/?utm_source=GMB_listing&utm_medium=organic",
+            "logo": "shopify://shop_images/1257_Duffy_s_20Automotive_20Tamworth_20Black_2022.png",
+            "tag_platinum": true,
+            "tag_suspension": true,
+            "tag_bullbars": true,
+            "tag_shutter": true,
+            "tag_steps": true,
+            "directions_url": ""
+          }
+        },
+        "dealer_tyhdVg": {
+          "type": "dealer",
+          "settings": {
+            "name": "ARB Shepparton",
+            "state": "VIC",
+            "address": "180 Benalla Rd,",
+            "city": "Shepparton",
+            "postcode": "3630",
+            "phone": "(03) 5822 1877",
+            "email": "",
+            "website": "https://www.arb.com.au/arb-stores/arb-shepparton",
+            "logo": "shopify://shop_images/109-1098596_arb-logo-arb-4x4-accessories.png",
+            "tag_platinum": true,
+            "tag_suspension": true,
+            "tag_bullbars": true,
+            "tag_shutter": true,
+            "tag_steps": true,
+            "directions_url": ""
+          }
+        },
+        "dealer_4iqeLR": {
+          "type": "dealer",
+          "disabled": true,
+          "settings": {
+            "name": "SNC Automotive",
+            "state": "QLD",
+            "address": " 2/25 Kremzow Rd,",
+            "city": "Brendale",
+            "postcode": "4500",
+            "phone": "(07) 3205 4315",
+            "email": "",
+            "website": "https://sncautomotive.com.au/",
+            "logo": "shopify://shop_images/logo_1_189edcb0-2c4a-4709-b4ff-d411728c08e9.png",
+            "tag_platinum": true,
+            "tag_suspension": true,
+            "tag_bullbars": true,
+            "tag_shutter": true,
+            "tag_steps": true,
+            "directions_url": ""
+          }
+        },
+        "dealer_HAieVD": {
+          "type": "dealer",
+          "settings": {
+            "name": "ARB Rockingham",
+            "state": "WA",
+            "address": "57 Dixon Rd",
+            "city": "Rockingham",
+            "postcode": "6168",
+            "phone": "(08) 9529 2229",
+            "email": "",
+            "website": "https://arbrockingham.com.au/",
+            "logo": "shopify://shop_images/109-1098596_arb-logo-arb-4x4-accessories.png",
+            "tag_platinum": true,
+            "tag_suspension": true,
+            "tag_bullbars": true,
+            "tag_shutter": true,
+            "tag_steps": true,
+            "directions_url": ""
+          }
+        },
+        "dealer_y3RFNH": {
+          "type": "dealer",
+          "settings": {
+            "name": "Fat Builds 4x4",
+            "state": "TAS",
+            "address": "34 Burgess Dr",
+            "city": "Shearwater",
+            "postcode": "7307",
+            "phone": "(03) 6428 7240",
+            "email": "",
+            "website": "https://fatbuilds4x4.com.au/",
+            "logo": "shopify://shop_images/Fat_Builds_5_540x_af0b74dc-891e-43cc-aa3f-17febab4f564.png",
+            "tag_platinum": true,
+            "tag_suspension": true,
+            "tag_bullbars": true,
+            "tag_shutter": true,
+            "tag_steps": true,
+            "directions_url": ""
+          }
+        },
+        "dealer_AVxJQF": {
+          "type": "dealer",
+          "disabled": true,
+          "settings": {
+            "name": "Hunter Mechanical Karratha",
+            "state": "WA",
+            "address": "21 Crane Circle",
+            "city": "Pegs Creek",
+            "postcode": "6714",
+            "phone": "(08) 9144 4331",
+            "email": "",
+            "website": "",
+            "logo": "shopify://shop_images/Untitled-Facebook-Ad-1-1024x536.png",
+            "tag_platinum": true,
+            "tag_suspension": true,
+            "tag_bullbars": true,
+            "tag_shutter": true,
+            "tag_steps": true,
+            "directions_url": ""
+          }
+        },
+        "dealer_p9jaVz": {
+          "type": "dealer",
+          "disabled": true,
+          "settings": {
+            "name": "Hunter Mechanical Rockingham",
+            "state": "WA",
+            "address": "14 Carlston Rd",
+            "city": "Rockingham",
+            "postcode": "6168",
+            "phone": "(08) 9279 0664",
+            "email": "",
+            "website": "https://hunter.com.au/?srsltid=ARcRdnqnMBuruhlNnlo8IzFs4q3SCz3yoJuEW2FYz-DhG3aMW5A9H5lz",
+            "logo": "shopify://shop_images/Untitled-Facebook-Ad-1-1024x536.png",
+            "tag_platinum": true,
+            "tag_suspension": true,
+            "tag_bullbars": true,
+            "tag_shutter": true,
+            "tag_steps": true,
+            "directions_url": ""
+          }
+        },
+        "dealer_TBCccV": {
+          "type": "dealer",
+          "disabled": true,
+          "settings": {
+            "name": "Hunter Mechanical Kenwick",
+            "state": "WA",
+            "address": "Unit 14/1736 Albany Hwy",
+            "city": "Kenwick",
+            "postcode": "6107",
+            "phone": "(08) 9367 0888",
+            "email": "",
+            "website": "https://hunter.com.au/?srsltid=ARcRdnqnMBuruhlNnlo8IzFs4q3SCz3yoJuEW2FYz-DhG3aMW5A9H5lz",
+            "logo": "shopify://shop_images/Untitled-Facebook-Ad-1-1024x536.png",
+            "tag_platinum": true,
+            "tag_suspension": true,
+            "tag_bullbars": true,
+            "tag_shutter": true,
+            "tag_steps": true,
+            "directions_url": ""
+          }
+        },
+        "dealer_gRNtLh": {
+          "type": "dealer",
+          "disabled": true,
+          "settings": {
+            "name": "Jacksons 4x4",
+            "state": "SA",
+            "address": "61 Chris Collins Ct,",
+            "city": "Murray Bridge",
+            "postcode": "5253",
+            "phone": " (08) 8532 2550",
+            "email": "",
+            "website": "https://jacksons4x4.com.au/",
+            "logo": "shopify://shop_images/JA4X4_-_TRANSPARENT_-_WHITE_TEXT_-_HIGHRES.png",
+            "tag_platinum": true,
+            "tag_suspension": true,
+            "tag_bullbars": true,
+            "tag_shutter": true,
+            "tag_steps": true,
+            "directions_url": ""
+          }
+        },
+        "dealer_iGYUxx": {
+          "type": "dealer",
+          "settings": {
+            "name": "Ultimate Offroad",
+            "state": "VIC",
+            "address": "1871 Ferntree Gully Rd",
+            "city": "Ferntree Gully",
+            "postcode": "3156",
+            "phone": " (03) 8609 9033",
+            "email": "",
+            "website": "https://ultimateoffroad.com.au/",
+            "logo": "shopify://shop_images/image_-_2026-05-09T221436.314.png",
+            "tag_platinum": true,
+            "tag_suspension": true,
+            "tag_bullbars": true,
+            "tag_shutter": true,
+            "tag_steps": true,
+            "directions_url": ""
+          }
+        },
+        "dealer_r6dj9U": {
+          "type": "dealer",
+          "settings": {
+            "name": "Opposite Lock Wodonga",
+            "state": "VIC",
+            "address": "87 Thomas Mitchell Dr",
+            "city": "Wodonga",
+            "postcode": "3690",
+            "phone": "(02) 6056 4414",
+            "email": "",
+            "website": "https://www.oppositelockalburywodonga.com.au/?utm_source=google&utm_medium=organic&utm_campaign=gmb",
+            "logo": "shopify://shop_images/loog-1920w.webp",
+            "tag_platinum": true,
+            "tag_suspension": true,
+            "tag_bullbars": true,
+            "tag_shutter": true,
+            "tag_steps": true,
+            "directions_url": ""
+          }
+        },
+        "dealer_WcCDKz": {
+          "type": "dealer",
+          "settings": {
+            "name": "Echuca Service Centre",
+            "state": "VIC",
+            "address": "1 Northern Hwy,",
+            "city": "Echuca",
+            "postcode": "3564",
+            "phone": "(03) 5480 7150",
+            "email": "",
+            "website": "https://www.echucaservicecentre.repcoservice.net/?utm_source=GMB_listing&utm_medium=organic",
+            "logo": "shopify://shop_images/ESC_LOGO_1_002_002.png",
+            "tag_platinum": true,
+            "tag_suspension": true,
+            "tag_bullbars": true,
+            "tag_shutter": true,
+            "tag_steps": true,
+            "directions_url": ""
+          }
+        },
+        "dealer_KHy3ft": {
+          "type": "dealer",
+          "settings": {
+            "name": "Garage76 Automotive",
+            "state": "ACT",
+            "address": "126 Gilmore Rd,",
+            "city": "Queanbeyan",
+            "postcode": "2620",
+            "phone": "(02) 6232 4062",
+            "email": "",
+            "website": "https://garage76.com.au/",
+            "logo": "shopify://shop_images/garage76-logo-generic_230x_2x_75ca580a-0a0e-4ee7-a6e6-64b92f44da1d.webp",
+            "tag_platinum": true,
+            "tag_suspension": true,
+            "tag_bullbars": true,
+            "tag_shutter": true,
+            "tag_steps": true,
+            "directions_url": ""
+          }
+        },
+        "dealer_UNjrEK": {
+          "type": "dealer",
+          "settings": {
+            "name": "Pro 4x4",
+            "state": "QLD",
+            "address": "214 Lahrs Rd,",
+            "city": "Ormeau",
+            "postcode": "4208",
+            "phone": "(07) 5631 0222",
+            "email": "",
+            "website": "https://www.pro4x4australia.com.au/",
+            "logo": "shopify://shop_images/68db4b5f6e52d.png",
+            "tag_platinum": true,
+            "tag_suspension": true,
+            "tag_bullbars": true,
+            "tag_shutter": true,
+            "tag_steps": true,
+            "directions_url": ""
+          }
+        },
+        "dealer_EPUTDp": {
+          "type": "dealer",
+          "settings": {
+            "name": "ATS Expedition Outfitters",
+            "state": "QLD",
+            "address": "181/195 Maggiolo Dr,",
+            "city": "Mackay",
+            "postcode": "4740",
+            "phone": "(07) 4881 0010",
+            "email": "",
+            "website": "https://atsoutfitters.com.au/",
+            "logo": "shopify://shop_images/ats-eo-logo.webp",
+            "tag_platinum": true,
+            "tag_suspension": true,
+            "tag_bullbars": true,
+            "tag_shutter": true,
+            "tag_steps": true,
+            "directions_url": ""
+          }
+        },
+        "dealer_rfNfzH": {
+          "type": "dealer",
+          "settings": {
+            "name": "McCormacks 4wd",
+            "state": "QLD",
+            "address": "2 Knox Street, Sandgate, QLD 4017",
+            "city": "Sandgate",
+            "postcode": "4017",
+            "phone": "07 3269 3294",
+            "email": "",
+            "website": "https://mccormacks4wd.com.au/",
+            "logo": "shopify://shop_images/McCormack_Final.png",
+            "tag_platinum": true,
+            "tag_suspension": true,
+            "tag_bullbars": true,
+            "tag_shutter": true,
+            "tag_steps": true,
+            "directions_url": ""
+          }
+        },
+        "dealer_dadJrw": {
+          "type": "dealer",
+          "settings": {
+            "name": "BAW Automotive",
+            "state": "QLD",
+            "address": "Shed 1/477 Newman Rd",
+            "city": "Geebung",
+            "postcode": "4034",
+            "phone": "0417 783 415",
+            "email": "",
+            "website": "https://www.bawauto.com.au/",
+            "logo": "shopify://shop_images/bb1378_4bcb5962094e49ad81e7d2b7a1f0ee3e_mv2.avif",
+            "tag_platinum": true,
+            "tag_suspension": true,
+            "tag_bullbars": true,
+            "tag_shutter": true,
+            "tag_steps": true,
+            "directions_url": ""
+          }
+        },
+        "dealer_tjqGAK": {
+          "type": "dealer",
+          "settings": {
+            "name": "Morpowa Auto & Dyno Centre",
+            "state": "SA",
+            "address": "Unit 2/14 Famechon Cres,",
+            "city": "Modbury North",
+            "postcode": "5092",
+            "phone": "(08) 8264 2077",
+            "email": "",
+            "website": "https://www.morpowa.com/",
+            "logo": "shopify://shop_images/MORPOWA_WEBLOGO.webp",
+            "tag_platinum": true,
+            "tag_suspension": true,
+            "tag_bullbars": true,
+            "tag_shutter": true,
+            "tag_steps": true,
+            "directions_url": ""
+          }
+        },
+        "dealer_yVwTDR": {
+          "type": "dealer",
+          "settings": {
+            "name": "Thor Mechanical",
+            "state": "WA",
+            "address": "1/6 Dollyup St,",
+            "city": "Stake Hill",
+            "postcode": "6181",
+            "phone": "(08) 6243 6965",
+            "email": "",
+            "website": "https://tmwa.com.au/",
+            "logo": "shopify://shop_images/TMWA_Logo_012025.png",
+            "tag_platinum": true,
+            "tag_suspension": true,
+            "tag_bullbars": true,
+            "tag_shutter": true,
+            "tag_steps": true,
+            "directions_url": ""
+          }
+        },
+        "dealer_imdW8p": {
+          "type": "dealer",
+          "settings": {
+            "name": "Truck N Toys",
+            "state": "NSW",
+            "address": "4/29 Walker St,",
+            "city": "South Windsor,",
+            "postcode": "2158",
+            "phone": "(02) 9652 2056",
+            "email": "",
+            "website": "https://trucksntoys.com.au/",
+            "logo": "shopify://shop_images/GFA-TNT-Logo_1_1.png",
+            "tag_platinum": true,
+            "tag_suspension": true,
+            "tag_bullbars": true,
+            "tag_shutter": true,
+            "tag_steps": true,
+            "directions_url": ""
+          }
+        },
+        "dealer_NdTYFF": {
+          "type": "dealer",
+          "disabled": true,
+          "settings": {
+            "name": "Horse Power Factory",
+            "state": "VIC",
+            "address": "8/14 Amberley Cres,",
+            "city": "Dandenong South",
+            "postcode": "3175",
+            "phone": "(03) 9793 1616",
+            "email": "",
+            "website": "https://hp-f.com.au/",
+            "logo": "shopify://shop_images/images_4.png",
+            "tag_platinum": true,
+            "tag_suspension": true,
+            "tag_bullbars": false,
+            "tag_shutter": false,
+            "tag_steps": false,
+            "directions_url": ""
+          }
+        },
+        "dealer_7jqt8p": {
+          "type": "dealer",
+          "settings": {
+            "name": "Scalzo Automotive",
+            "state": "VIC",
+            "address": "13 Ryan Ct,",
+            "city": "Warragul",
+            "postcode": "3820",
+            "phone": "(03) 5622 2006",
+            "email": "",
+            "website": "https://www.scalzoautomotive.com.au/",
+            "logo": "shopify://shop_images/NewLogo_1.png",
+            "tag_platinum": true,
+            "tag_suspension": true,
+            "tag_bullbars": true,
+            "tag_shutter": true,
+            "tag_steps": true,
+            "directions_url": ""
+          }
+        },
+        "dealer_C8pxHr": {
+          "type": "dealer",
+          "settings": {
+            "name": "TJM Hunter Valley",
+            "state": "NSW",
+            "address": "130 Newcastle Rd, Wallsend NSW 2287",
+            "city": "Wallsend",
+            "postcode": "2287",
+            "phone": "(02) 4951 1184",
+            "email": "",
+            "website": "https://www.tjmhuntervalley.com.au/",
+            "logo": "shopify://shop_images/Landscape_on_Dark_1.png",
+            "tag_platinum": true,
+            "tag_suspension": true,
+            "tag_bullbars": true,
+            "tag_shutter": true,
+            "tag_steps": true,
+            "directions_url": ""
+          }
+        },
+        "dealer_NXeA79": {
+          "type": "dealer",
+          "settings": {
+            "name": "Geelong Performance",
+            "state": "VIC",
+            "address": " 26-30 Tarkin Ct, Bell Park VIC 3215",
+            "city": "Bell Park",
+            "postcode": "3125",
+            "phone": "(03) 5277 2503",
+            "email": "",
+            "website": "https://www.offroadindustries.com.au/",
+            "logo": "shopify://shop_images/GPC_Piston_Logo_1.png",
+            "tag_platinum": true,
+            "tag_suspension": true,
+            "tag_bullbars": true,
+            "tag_shutter": true,
+            "tag_steps": true,
+            "directions_url": ""
+          }
+        },
+        "dealer_YFrNUn": {
+          "type": "dealer",
+          "settings": {
+            "name": "Autoworks Car Care",
+            "state": "VIC",
+            "address": "13/71 Frankston Gardens Dr, Carrum Downs VIC",
+            "city": "Carrum Downs",
+            "postcode": "3201",
+            "phone": "0483 939 591",
+            "email": "",
+            "website": "",
+            "logo": "shopify://shop_images/Autoworks_Logo_REV.png",
+            "tag_platinum": true,
+            "tag_suspension": true,
+            "tag_bullbars": true,
+            "tag_shutter": true,
+            "tag_steps": true,
+            "directions_url": "https://www.map.google.com"
+          }
+        },
+        "dealer_8aAepY": {
+          "type": "dealer",
+          "settings": {
+            "name": "Every Day Offroad",
+            "state": "VIC",
+            "address": "40 Albemarle St,",
+            "city": "Williamstown North",
+            "postcode": "3016",
+            "phone": "1800 519 700",
+            "email": "",
+            "website": "",
+            "logo": "shopify://shop_images/EVERYDAY_LOGO_CURSIVE_120_x_120_px_1000_x_1000_px_2.png",
+            "tag_platinum": true,
+            "tag_suspension": true,
+            "tag_bullbars": true,
+            "tag_shutter": true,
+            "tag_steps": true,
+            "directions_url": "https://www.map.google.com"
+          }
+        }
+      },
+      "block_order": [
+        "dealer_CM8cqD",
+        "dealer_pFrnen",
+        "dealer_qJHiD9",
+        "dealer_6eBDyh",
+        "dealer_4rgije",
+        "dealer_8Pfxq3",
+        "dealer_g7wPbG",
+        "dealer_iAq9hW",
+        "dealer_tyhdVg",
+        "dealer_4iqeLR",
+        "dealer_HAieVD",
+        "dealer_y3RFNH",
+        "dealer_AVxJQF",
+        "dealer_p9jaVz",
+        "dealer_TBCccV",
+        "dealer_gRNtLh",
+        "dealer_iGYUxx",
+        "dealer_r6dj9U",
+        "dealer_WcCDKz",
+        "dealer_KHy3ft",
+        "dealer_UNjrEK",
+        "dealer_EPUTDp",
+        "dealer_rfNfzH",
+        "dealer_dadJrw",
+        "dealer_tjqGAK",
+        "dealer_yVwTDR",
+        "dealer_imdW8p",
+        "dealer_NdTYFF",
+        "dealer_7jqt8p",
+        "dealer_C8pxHr",
+        "dealer_NXeA79",
+        "dealer_YFrNUn",
+        "dealer_8aAepY"
+      ],
+      "name": "Dealer Locator",
+      "settings": {
+        "eyebrow": "Find a dealer",
+        "heading": "Authorised ORI Platinum Installer Network",
+        "subheading": "Find your nearest authorised installer for ORI products, GVM upgrades, and 4x4 accessories.",
+        "bg_color": "#101820",
+        "accent_color": "#56bdc2",
+        "heading_color": "#ffffff",
+        "text_color": "#a0aab4",
+        "card_bg_color": "#1a2330",
+        "card_border_color": "#2a3545",
+        "card_radius": 12,
+        "card_shadow": true,
+        "btn_primary_bg": "#56bdc2",
+        "btn_primary_text": "#ffffff",
+        "btn_secondary_bg": "rgba(0,0,0,0)",
+        "btn_secondary_text": "#a0aab4",
+        "tag_platinum_bg": "#56bdc2",
+        "tag_platinum_text": "#ffffff",
+        "tag_secondary_bg": "#2a3545",
+        "tag_secondary_text": "#a0aab4",
+        "container_width": 1280,
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "why_choose_TxqbNE": {
+      "type": "why-choose",
+      "blocks": {
+        "card_FKNTVk": {
+          "type": "card",
+          "settings": {
+            "icon": "shopify://shop_images/SUPPORT_ICON_0c724dc2-c02d-4294-8b4c-73728c59b216.png",
+            "heading": "Support",
+            "body": "<p><strong>Upgrade Your American Truck with Offroad Industries</strong><br/>Looking for a one-stop shop for your American truck's GVM and GCM needs? We offer comprehensive support through the entire upgrade process.</p><ul><li><strong>Pre- & Post-Rego:</strong> We handle both pre-registration and post-registration GVM upgrades.</li><li><strong>Nationwide Compliance:</strong> Fully approved across all Australian states and territories.</li><li><strong>Expert Support:</strong> Fantastic customer service from start to finish.</li></ul><p>Ready to get started? Give Offroad Industries a call!</p>",
+            "link_label": "",
+            "link_url": ""
+          }
+        },
+        "card_P84dj8": {
+          "type": "card",
+          "settings": {
+            "icon": "shopify://shop_images/Australian_Largest_American_Truck_GVM_GCM_Specialist_ICON_7b26e3b9-38f8-4afb-98c8-05a7c513a3ee.png",
+            "heading": "Welcome to the ORI Standard, Australia-Wide!",
+            "body": "<p>At ORI, we are proud to offer an extensive network of approved fitment centres right across the country. But our commitment doesn't stop at geography! We believe that exceptional service begins long before your vehicle ever rolls into the shop. That is why we proactively educate our fitment partners on exactly what your specific vehicle requires and is capable of achieving.</p><p>Our philosophy is simple: <strong>it is never about just selling a kit; it is about providing the </strong><em><strong>right</strong></em><strong> kit, the very first time.</strong></p><p>To guarantee this flawless experience, we provide dedicated, expert technical guidance to all of our workshops. This ensures that your customised ORI GVM package perfectly aligns with your needs while upholding the uncompromising, premium standards we celebrate at ORI.</p>",
+            "link_label": "",
+            "link_url": ""
+          }
+        },
+        "card_qPi8Qi": {
+          "type": "card",
+          "settings": {
+            "icon": "shopify://shop_images/SSM_FEDERAL_APPROVED_ICON_7ff80801-0ed9-4233-b272-1994422228d5.png",
+            "heading": "SSM Federal Approval",
+            "body": "<p><strong>Skip the red tape.</strong> With ORI’s Federal SSM-certified GVM packages, pre-registration upgrades—including massive lifts (up to 6\") and larger tires (up to 37\")—are baked directly into your federal compliance plate.</p><p>The result? A rig that is 100% road-legal, fully insurable, and ready to roll anywhere in Australia with <strong>zero state-by-state engineering required.</strong></p>",
+            "link_label": "",
+            "link_url": ""
+          }
+        },
+        "card_FgCQA8": {
+          "type": "card",
+          "settings": {
+            "icon": "shopify://shop_images/STOCK_AVAILABILTY_ICON_1742c209-dd94-4cbb-b139-04265e9cfa31.png",
+            "heading": "Stock & Availability",
+            "body": "<p>When you choose us, you're backed by the largest distributor of American truck parts and accessories.</p><ul><li><strong>In Stock & Ready:</strong> Your parts are already on our shelves—no waiting around for shipping!</li><li><strong>Expert Fitting:</strong> Ready for seamless fitting by one of our trusted, authorized installers.</li></ul><p><strong>Don't wait. Secure your kit from Offroad Industries today!</strong> </p>",
+            "link_label": "",
+            "link_url": ""
+          }
+        },
+        "card_gUPNbe": {
+          "type": "card",
+          "settings": {
+            "icon": "shopify://shop_images/Not_Just_a_GVM_ORI_is_the_GCM_Specialist_ICON_5919d3d7-39f8-4987-afaa-2d9d44b99256.png",
+            "heading": "Australian Largest American Truck GVM & GCM Specialist",
+            "body": "<p><strong>Forget boring, standard upgrades. At ORI, we push the limits.</strong> Unlock your vehicle's true potential with upgrades designed to go further and work harder.</p><ul><li><strong>Extreme Capability:</strong> We push the boundaries of what's approved, offering setups from OE wheels right up to massive 37\" tyres.</li><li><strong>Massive Capacity:</strong> Fully legal GVM and GCM upgrades that deliver a serious boost to your payload and towing.</li><li><strong>Proven & Certified:</strong> We don’t guess. We partner with independent testing facilities to secure certified GCM data to strict LS16 standards.</li><li><strong>100% Compliant:</strong> Official, safe, and effective GCM re-rating specifically for full-size American trucks, keeping you completely legal on the road.</li></ul>",
+            "link_label": "",
+            "link_url": ""
+          }
+        },
+        "card_mEjy7z": {
+          "type": "card",
+          "settings": {
+            "icon": "shopify://shop_images/ORI_STANDARD_ICON_f95e590e-6d76-49a1-a819-3000689261e0.png",
+            "heading": "Not Just a GVM, ORI is the GCM Specialist",
+            "body": "<p>Unlock your vehicle's true potential. ORI’s fully legal GVM and GCM upgrades provide a massive increase to your payload and towing capacity, keeping you safe and compliant on the road. We don't just guess. ORI has partnered with independent testing facilities to secure certified GCM data to strict LS16 standards. This means we can officially, safely, and effectively re-rate the GCM on full-size American trucks. Pre and Post rego</p>",
+            "link_label": "",
+            "link_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "card_FKNTVk",
+        "card_P84dj8",
+        "card_qPi8Qi",
+        "card_FgCQA8",
+        "card_gUPNbe",
+        "card_mEjy7z"
+      ],
+      "custom_css": [
+        ".why-choose__dots {display: none;}"
+      ],
+      "name": "Why Choose",
+      "settings": {
+        "eyebrow": "Offroad Industries",
+        "heading": "Why Choose ORI For Your GVM & GCM  Upgrade?",
+        "bg_color": "#ffffff",
+        "heading_color": "#1f1f1f",
+        "heading_size": 36,
+        "eyebrow_color": "#56bdc2",
+        "eyebrow_size": 13,
+        "card_bg_color": "#ffffff",
+        "card_border_color": "#e2e2e2",
+        "card_radius": 12,
+        "card_shadow": true,
+        "icon_size": 40,
+        "card_heading_color": "#1f1f1f",
+        "card_heading_size": 16,
+        "card_body_color": "#555555",
+        "card_body_size": 14,
+        "link_color": "#56bdc2",
+        "link_size": 12,
+        "container_width": 1280,
+        "padding_top": 60,
+        "padding_bottom": 60,
+        "mobile_layout": "slideshow",
+        "slideshow_animation": "fade",
+        "slideshow_interval": 4
+      }
+    },
+    "logo_list_tG47ei": {
+      "type": "logo-list",
+      "blocks": {
+        "logo_DtUDqi": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/F150_copy_3_301d0aa8-a172-4a72-93dd-92c3038fbfc6.jpg",
+            "image_from_url": "",
+            "image_link": "https://www.offroadindustries.com.au/pages/ford-150-gvm-packages",
+            "image_width": 80
+          }
+        },
+        "logo_ANYPGW": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/SILVERADO_1500_copy_4_fb4ac951-398c-43ed-8574-f5703c47c0a4.jpg",
+            "image_from_url": "",
+            "image_link": "https://www.offroadindustries.com.au/pages/chevrolet-silverado-1500-gvm-package",
+            "image_width": 80
+          }
+        },
+        "logo_MR8h7V": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/SILVERADO_2500_copy_4_1f45335a-303d-4bc6-af62-83ff8ee85a8a.jpg",
+            "image_from_url": "",
+            "image_link": "https://www.offroadindustries.com.au/pages/chevy-silverado-2500hd-gvm-packages",
+            "image_width": 80
+          }
+        },
+        "logo_hwRXhB": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/TOYOTA_TUNDRA_copy_742153b9-e2db-4219-9a69-f8603b238408.jpg",
+            "image_from_url": "",
+            "image_link": "https://www.offroadindustries.com.au/pages/toyota-tundra",
+            "image_width": 80
+          }
+        }
+      },
+      "block_order": [
+        "logo_DtUDqi",
+        "logo_ANYPGW",
+        "logo_MR8h7V",
+        "logo_hwRXhB"
+      ],
+      "disabled": true,
+      "name": "t:sections.logo-list.presets.name",
+      "settings": {
+        "container": "container",
+        "color_schema": "",
+        "section_header_padding_bottom": "medium",
+        "section_header_content_spacing": "medium",
+        "heading": "",
+        "highlight_style": "none",
+        "enable_highlight_text_color": false,
+        "heading_size": "h2",
+        "heading_color": "",
+        "description": "",
+        "columns": 2,
+        "column_gap": "medium",
+        "row_gap": "medium",
+        "enable_slider": false,
+        "show_nav": false,
+        "show_dots": false,
+        "enable_swipe_mobile": false,
+        "column_mobile": "1",
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "show_section_divider": false,
+        "divider_width": "container",
+        "custom_id": "",
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "rich_text_k7z6De": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_4qWJN6": {
+          "type": "heading",
+          "disabled": true,
+          "settings": {
+            "heading": "About ORI GVM Upgrades",
+            "highlight_style": "none",
+            "enable_highlight_text_color": false,
+            "heading_size": "h0",
+            "heading_color": ""
+          }
+        },
+        "text_7BUCdz": {
+          "type": "text",
+          "settings": {
+            "text": "<h3>Maximize Your Payload & Towing: ORI GVM & GCM Upgrades for American Trucks</h3><p>American trucks are built incredibly tough—but when they hit Australian shores, their factory GVM (Gross Vehicle Mass) and GCM (Gross Combined Mass) ratings often fall short of what you actually need to carry and tow. By the time you add steel bullbars, custom tray bodies, heavy canopies, long-range fuel tanks, and serious camping gear, those factory limits add up fast.</p><p>Exceeding your GVM or GCM isn't just a massive insurance risk—it's a strict legal liability that compromises your safety.</p><p>That’s where our <strong>ORI certified GVM and GCM upgrade packages</strong> come in. Engineered specifically for your favorite full-size American trucks, our premium upgrades give you a higher legal payload and towing capacity. This means you can load up your rig and hitch up your caravan properly, without ever having to compromise on gear.</p><p><strong>Why Choose an ORI GVM & GCM Upgrade?</strong></p><ul><li><strong>Legally Increase Your Capacities:</strong> Safely maximize both your Gross Vehicle Mass and Gross Combined Mass ratings to handle real-world touring and towing weights.</li><li><strong>Fully ADR Compliant:</strong> Road-registered and 100% legal across all Australian states and territories.</li><li><strong>Australian Engineered:</strong> Rigorously tested, engineered, and certified by industry-leading Australian automotive engineers.</li><li><strong>Protect Your Assets:</strong> Ensures your heavy-duty truck remains fully insured and keeps you completely on the right side of the law.</li><li><strong>Purpose-Tuned Suspension:</strong> Features premium, heavy-duty suspension components specifically matched and tuned for harsh Australian conditions.</li><li><strong>Uncompromised Ride Quality:</strong> Expertly designed to handle massive loads while maintaining—or even enhancing—the manufacturer's original ride comfort and handling characteristics.</li></ul>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_4qWJN6",
+        "text_7BUCdz"
+      ],
+      "disabled": true,
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "container": "container",
+        "color_schema": "",
+        "text_alignment": "left",
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "show_section_divider": false,
+        "divider_width": "container",
+        "custom_id": "",
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "image_with_text_f3KNNe": {
+      "type": "image-with-text",
+      "blocks": {
+        "subheading_CDrj3e": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "Federally Approved & GVM & GCM Packages",
+            "subheading_size": "h5"
+          }
+        },
+        "heading_LRciTH": {
+          "type": "heading",
+          "settings": {
+            "heading": "ORI Is the Largest American Truck GVM Specialist",
+            "highlight_style": "none",
+            "enable_highlight_text_color": false,
+            "heading_size": "h2"
+          }
+        },
+        "text_KKm7Fh": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Installers Australia Wide</p>"
+          }
+        },
+        "button_QCb3BA": {
+          "type": "button",
+          "settings": {
+            "button_label": "View our Dealers",
+            "button_link": "",
+            "button_style": "btn--primary",
+            "button_size": ""
+          }
+        }
+      },
+      "block_order": [
+        "subheading_CDrj3e",
+        "heading_LRciTH",
+        "text_KKm7Fh",
+        "button_QCb3BA"
+      ],
+      "disabled": true,
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "container": "container",
+        "color_schema": "",
+        "image": "shopify://shop_images/gvm-gcm-logo-black.webp",
+        "enable_lightbox": true,
+        "image_width": "50%",
+        "image_position": "left",
+        "vertical_alignment": "center",
+        "align_content_container": "none",
+        "show_image_padding": true,
+        "column_gap": "medium",
+        "row_gap": "medium",
+        "padding_left": 0,
+        "padding_right": 0,
+        "mobile_padding_left": 15,
+        "mobile_padding_right": 15,
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "padding_top_mobile": 30,
+        "padding_bottom_mobile": 30,
+        "show_section_divider": false,
+        "divider_width": "container",
+        "custom_id": "",
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "collapsible_tabs_ciD8kW": {
+      "type": "collapsible-tabs",
+      "blocks": {
+        "content_Q9xLHk": {
+          "type": "content",
+          "settings": {
+            "icon": "none",
+            "title": "What are GVM upgrades, and why are they essential for off-road vehicles?",
+            "content": "<p>GVM stands for Gross Vehicle Mass, which is the total weight capacity that your truck can legally carry. GVM upgrades can come from a number of new parts and accessories, but typically are from adding new suspension and improved brakes. </p><p>When you’re heading offroad, you’re typically going to be hauling some major gear - whether that’s in the tray or on a trailer. When you upgrade your GVM, you’ll prevent handling and safety issues and reduce brake wear and tear. It’s essential to ensure you get a safe, enjoyable drive, which means you’re not held back by having to pick and choose which gear to take when you’re roughing it. </p>",
+            "custom_liquid": "",
+            "content_page": "",
+            "open": false
+          }
+        },
+        "content_xrHna8": {
+          "type": "content",
+          "settings": {
+            "icon": "none",
+            "title": "How does Offroad Industries’ GVM upgrade service improve your vehicle’s load capacity and performance?",
+            "content": "<p>We stock <a href=\"https://www.offroadindustries.com.au/collections/bds-suspension\"><span style=\"text-decoration:underline\">BDS</span></a> and <a href=\"https://www.offroadindustries.com.au/collections/fox-suspension\"><span style=\"text-decoration:underline\">FOX Suspension</span></a>, two manufacturers that deliver some of the highest-quality, resilient and versatile suspension upgrade kits in the market. They offer superior performance, support and durability, boosting your GVM for more hauling power without compromising the integrity or safety of your truck. </p><p>When you’re aiming for a GVM upgrade for trucks and 4x4s, both of these manufacturers will help across the board. You can expect a number of benefits - the key one being the all-important increased load capacity. You’ll also be able to carry larger loads without sacrificing driving comfort or safety, and you’ll get superior offroading performance. Perhaps one of the most important factors is that you’ll legally be able to carry more weight, ensuring you’re operating everything safely for both yourself and other drivers you encounter on and off the road. </p>",
+            "custom_liquid": "",
+            "content_page": "",
+            "open": false
+          }
+        },
+        "content_BkcGGW": {
+          "type": "content",
+          "settings": {
+            "icon": "none",
+            "title": "Which vehicle models are eligible for GVM upgrades at Offroad Industries?",
+            "content": "<p>Offroad Industries offers GVM upgrade solutions for just about every major 4WD truck in the country. You can find GVM upgrades for everything from Australia’s favourite, the Ford Ranger, to Toyota, Nissan, and Isuzu, along with European and American models like Volkswagen, RAM and Chevrolet. </p><p>For a personal recommendation, you can <a href=\"https://www.offroadindustries.com.au/pages/contact-us\"><span style=\"text-decoration:underline\">contact</span></a> our team. We’ll help you narrow your options down to get the best safety, performance, and GVM upgrade you need. </p>",
+            "custom_liquid": "",
+            "content_page": "",
+            "open": false
+          }
+        },
+        "content_Qnr3j6": {
+          "type": "content",
+          "settings": {
+            "icon": "none",
+            "title": "What is the step-by-step process for a GVM upgrade with Offroad Industries?",
+            "content": "<p>When you’re considering major vehicle transformations, including a GVM upgrade, the team at Offroad Industries work hard to make it as seamless as possible. We’ll consult with you to help you find the best option for your needs, driving preferences, and specific truck make and model. We account for on or off-road usage, and the overall weight you think you’ll need to be hauling. </p><p>Next, you can get everything taken care of by one of our <a href=\"https://www.offroadindustries.com.au/pages/dealers-page\"><span style=\"text-decoration:underline\">authorised installers</span></a>. They’ll ensure everything is completed correctly and deliver the right weight distribution and lift you need from your upgrade. They can also certify that you’ve completed the upgrades, giving you the certification that your vehicle meets Australian Design Rules (ADR) and state-based regulations. <br/><br/></p>",
+            "custom_liquid": "",
+            "content_page": "",
+            "open": false
+          }
+        },
+        "content_eVHWQQ": {
+          "type": "content",
+          "settings": {
+            "icon": "none",
+            "title": "Are the GVM upgrades provided by Offroad Industries fully compliant with Australian regulations?",
+            "content": "<p>Yes, all GVM upgrades from Offroad Industries are fully compliant with Australian Federal and State road safety standards. When your upgrades have been added, they’ll be recorded against your vehicle’s registration information, ensuring you’re fully covered legally when you’re out on the road or on a job site with your truck. </p>",
+            "custom_liquid": "",
+            "content_page": "",
+            "open": false
+          }
+        },
+        "content_p66FxM": {
+          "type": "content",
+          "settings": {
+            "icon": "none",
+            "title": "What are the key benefits of upgrading your vehicle’s GVM with Offroad Industries?",
+            "content": "<p>There are a lot of benefits to getting offroad GVM upgrades, and they’re not just limited to complying with Australian road legality. You’ll get boosted safety, with the ability to carry or haul heavier loads without sacrificing your truck’s maneuverability. The likes of BDS and Fox Suspension give you superior ride quality and stability, even when you’re heading onto tough terrain. </p><p>Along with the immediately noticeable benefits, you’ll also be investing in the longevity of your truck. GVM upgrades protect the integrity of your brakes and the frame of your vehicle, reducing wear and tear from heavy use. </p>",
+            "custom_liquid": "",
+            "content_page": "",
+            "open": false
+          }
+        },
+        "content_CNpm4F": {
+          "type": "content",
+          "settings": {
+            "icon": "none",
+            "title": "How does Offroad Industries ensure the durability and quality of their GVM upgrade solutions?",
+            "content": "<p>Our parts and GVM upgrade accessories are all torture-tested by the manufacturers that design them. We stock aftermarket parts specifically designed to fit your truck’s dimensions, and they’re all made from high-quality materials with the toughest conditions in mind. They go through rigorous testing, ensuring the best quality and safety is guaranteed. </p>",
+            "custom_liquid": "",
+            "content_page": "",
+            "open": false
+          }
+        },
+        "content_GMT6pr": {
+          "type": "content",
+          "settings": {
+            "icon": "none",
+            "title": "4WD GVM Upgrades – Enhance Your Towing and Off-Road Capabilities",
+            "content": "<p>No matter what you drive, if you’re heading off the beaten track or need a rugged vehicle for work, chances are you need some serious hauling capabilities. Every kilo matters and GVM upgrades not only give you that extra payload, but also make sure the structure of your vehicle stays in top shape. Whether you’re taking a caravan out to the coast for the weekend, need a winch to do work out on a farm, or just want to load up the tub with all your camping gear, you’ll want to consider professionally engineered 4WD GVM upgrades. <br/>Here at Offroad Industries, we have a range of options for all of Australia’s most popular vehicles. From Ford F150s and Toyota Landcruisers to American-made trucks like Chevy Silverado, we’ve engineered everything to give you the towing and carrying capabilities you want without sacrificing handling when you’re offroading. <br/></p>",
+            "custom_liquid": "",
+            "content_page": "",
+            "open": false
+          }
+        },
+        "content_HpDB4n": {
+          "type": "content",
+          "settings": {
+            "icon": "none",
+            "title": "4x4 GVM Upgrades – Improve Your Vehicle’s Load Capacity",
+            "content": "<p>When you first drive your truck off the lot, it’ll come with a factory standard manufacturer-rated load limit, referred to as Gross Vehicle Mass. This number varies depending on the make and model, but the figure includes its maximum weight while still being able to operate. It includes the weight of your passengers, fuel, accessories and cargo combined. As soon as you’re adding extra gear or something heavy-duty to the trailer, it doesn’t take much to exceed that number. </p><p>If you want to tap into the real potential of your truck, a GVM upgrade that’s made with top quality aftermarket parts is essential. It boosts that number significantly, with some Stages giving you anywhere up to more than a 100% increase in payload. </p><p>It takes a special combination of new suspension, which also gives you greater ground clearance, as well as coils and leaf packs to give you the same power and control, while seriously amping up the weight you can handle.</p>",
+            "custom_liquid": "",
+            "content_page": "",
+            "open": false
+          }
+        },
+        "content_hJL8Az": {
+          "type": "content",
+          "settings": {
+            "icon": "none",
+            "title": "GVM Upgrades for 4WD and 4x4 Vehicles in Australia",
+            "content": "<p>No matter where you live, there’s no doubt that Australia’s climate and conditions are rugged and demand the most from you and your vehicle, especially when you’re offroading. From touring through arid environments in WA to the humid and muddy terrain in Victoria, when you’re navigating, you need all the traction and control you can get, especially when you’re taking heavy duty gear with you. </p><p>GVM upgrades are engineered and certified solutions that make it possible to safely and legally carry more weight than the original manufacturer rating. That means you can venture off the road, take everything you need, and still feel comfortable, safe, and capable even when you’re loaded up. For Australian drivers building a capable touring or working setup, upgrading the payload with 4WD GVM upgrades is often one of the most transformational things you can do to get more from every drive and truly maximise your truck’s potential.</p>",
+            "custom_liquid": "",
+            "content_page": "",
+            "open": false
+          }
+        },
+        "content_UMaFLU": {
+          "type": "content",
+          "settings": {
+            "icon": "none",
+            "title": "GVM Upgrades for 4WDs and 4x4s – Maximum Load Capacity and Performance",
+            "content": "<p>If you’ve ever added a few kilos extra to your truck than you really should, you’ll know how much it can make your vehicle feel like it’s sinking into the suspension. You’d also notice how much more care you need when navigating, as the extra weight can throw off your truck’s balance and braking capabilities. </p><p>If you demand more, and want to load up everything without worry, a dedicated, tested, and properly engineered GVM upgrade from Offroad Industries will give you what you need. You can unlock the ability to carry the gear you actually want for work or adventure without compromising safety. </p><p>At Offroad Industries, we focus on building 4WDs that are engineered to perform no matter the reason for your journey. From heavy-duty and resilient suspension upgrades to rugged control arms,, our GVM upgrades help ensure your vehicle is ready for towing, touring and tackling Australia’s toughest terrain. </p>",
+            "custom_liquid": "",
+            "content_page": "",
+            "open": false
+          }
+        }
+      },
+      "block_order": [
+        "content_Q9xLHk",
+        "content_xrHna8",
+        "content_BkcGGW",
+        "content_Qnr3j6",
+        "content_eVHWQQ",
+        "content_p66FxM",
+        "content_CNpm4F",
+        "content_GMT6pr",
+        "content_HpDB4n",
+        "content_hJL8Az",
+        "content_UMaFLU"
+      ],
+      "disabled": true,
+      "name": "Collapsible tabs",
+      "settings": {
+        "container": "container",
+        "color_schema": "",
+        "section_header_padding_bottom": "medium",
+        "section_header_content_spacing": "medium",
+        "heading": "FAQS",
+        "highlight_style": "none",
+        "enable_highlight_text_color": false,
+        "heading_size": "h2",
+        "heading_color": "",
+        "subheading": "",
+        "description": "",
+        "item_heading_font": "body",
+        "item_heading_size": "h4",
+        "column_gap": "medium",
+        "content_width": "full",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "show_section_divider": false,
+        "divider_width": "container",
+        "custom_id": "",
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "1777270280188f73e4": {
+      "type": "apps",
+      "blocks": {
+        "mappy_store_locator_page_embed_block_EfwyNp": {
+          "type": "shopify://apps/ta-mappy-store-locator-maps/blocks/page-embed-block/edfca2bd-82ad-413c-b32c-580d239b17ab",
+          "settings": {
+            "is_show_heading_map": true,
+            "is_show_description_map": false
+          }
+        }
+      },
+      "block_order": [
+        "mappy_store_locator_page_embed_block_EfwyNp"
+      ],
+      "disabled": true,
+      "settings": {
+        "container": "container",
+        "color_schema": "",
+        "heading": "",
+        "highlight_style": "none",
+        "enable_highlight_text_color": false,
+        "heading_size": "h2",
+        "heading_color": "",
+        "description": "",
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    },
+    "multicolumn_AcQKEk": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_ECe8a7": {
+          "type": "column",
+          "settings": {
+            "show_image": true,
+            "image": "shopify://shop_images/image_-_2026-02-17T205945.442.png",
+            "image_link": "",
+            "title": "Ford F150 GVM Packages",
+            "heading_size": "h3",
+            "text": "<p>Click here to learn more about ORI GVM GCM packages for the Ford F150</p>",
+            "text_size": "medium",
+            "button_text": "",
+            "button_link": "",
+            "button_style": "btn--underline"
+          }
+        },
+        "column_T8hQry": {
+          "type": "column",
+          "settings": {
+            "show_image": true,
+            "image": "shopify://shop_images/image_-_2026-02-17T210005.244.png",
+            "image_link": "",
+            "title": "Toyota Tundra GVM Packages",
+            "heading_size": "h3",
+            "text": "<p>Click here to learn more about ORI GVM GCM packages for the Toyota Tundra</p>",
+            "text_size": "medium",
+            "button_text": "",
+            "button_link": "",
+            "button_style": "btn--underline"
+          }
+        },
+        "column_Bey9dh": {
+          "type": "column",
+          "settings": {
+            "show_image": true,
+            "image": "shopify://shop_images/image_-_2026-02-17T205900.998.png",
+            "image_link": "",
+            "title": "Chevy Silverado 1500 GVM Packages",
+            "heading_size": "h3",
+            "text": "<p>Click here to learn more about ORI GVM GCM packages for the Chevy Silverado 1500</p>",
+            "text_size": "medium",
+            "button_text": "",
+            "button_link": "",
+            "button_style": "btn--underline"
+          }
+        },
+        "column_nNUN6a": {
+          "type": "column",
+          "settings": {
+            "show_image": true,
+            "image": "shopify://shop_images/image_-_2026-02-17T205935.011.png",
+            "image_link": "",
+            "title": "Chevy Silverado 2500HD GVM Packages",
+            "heading_size": "h3",
+            "text": "<p>Click here to learn more about ORI GVM GCM packages for the Chevy Silverado 2500HD</p>",
+            "text_size": "medium",
+            "button_text": "",
+            "button_link": "",
+            "button_style": "btn--underline"
+          }
+        },
+        "column_mfLAKJ": {
+          "type": "column",
+          "disabled": true,
+          "settings": {
+            "show_image": true,
+            "image": "shopify://shop_images/image_-_2026-02-17T205922.034.png",
+            "image_link": "",
+            "title": "Column",
+            "heading_size": "h3",
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "text_size": "medium",
+            "button_text": "",
+            "button_link": "",
+            "button_style": "btn--underline"
+          }
+        }
+      },
+      "block_order": [
+        "column_ECe8a7",
+        "column_T8hQry",
+        "column_Bey9dh",
+        "column_nNUN6a",
+        "column_mfLAKJ"
+      ],
+      "disabled": true,
+      "name": "t:sections.multicolumn.name",
+      "settings": {
+        "container": "container",
+        "color_schema": "",
+        "section_header_padding_bottom": "medium",
+        "section_header_content_spacing": "medium",
+        "heading": "GVM Packages",
+        "highlight_style": "none",
+        "enable_highlight_text_color": false,
+        "heading_size": "h0",
+        "heading_color": "",
+        "subheading": "",
+        "description": "",
+        "layout": "vertical",
+        "text_alignment": "center",
+        "image_width": "fullwidth",
+        "custom_image_width": 80,
+        "columns": 4,
+        "column_gap": "medium",
+        "row_gap": "medium",
+        "enable_swipe_mobile": false,
+        "column_mobile": "1",
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "show_section_divider": false,
+        "divider_width": "container",
+        "custom_id": "",
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "slideshow_ByTqfK",
+    "vehicle_cards_CtwwXg",
+    "dealer_locator_EMPfrF",
+    "why_choose_TxqbNE",
+    "logo_list_tG47ei",
+    "rich_text_k7z6De",
+    "image_with_text_f3KNNe",
+    "collapsible_tabs_ciD8kW",
+    "1777270280188f73e4",
+    "multicolumn_AcQKEk"
+  ]
+}
