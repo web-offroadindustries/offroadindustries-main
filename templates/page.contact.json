@@ -33,7 +33,7 @@
             "heading_size": "h1",
             "heading_color": "",
             "subheading": "",
-            "description": "<p>3 Montefiore St, Fairfield VIC 3078</p><p>0483 930 639</p><p>sales@offroadindustries.com.au</p>",
+            "description": "<p>3 Montefiore St, Fairfield VIC 3078</p><p>0483 930 639</p><p>sales@offroadindustries.com.au</p><p>-</p><p>By appointment only.</p><p>All emails will be answered within 48 hours. Email enquiries sent on a weekend or Melbourne public holidays will be answered on the next business day.</p>",
             "text_alignment": "left",
             "button_label": "Get Direction",
             "button_link": "https://maps.app.goo.gl/iDEeeBSxpdB5H9b46",
@@ -208,7 +208,7 @@
       "name": "Contact Form v3",
       "settings": {
         "title": "Get in touch with us!",
-        "subtitle": "",
+        "subtitle": "<p>Please leave as much information as possible, so we can best answer your enquiry.</p>",
         "phone": "",
         "email": "",
         "button_label": "SUBMIT",
@@ -219,7 +219,7 @@
         "overlay_opacity": 0,
         "form_bg_color": "#ffffff",
         "text_color": "#000000",
-        "button_bg": "#56BDC2",
+        "button_bg": "#56bdc2",
         "button_text": "#ffffff",
         "padding_top": 60,
         "padding_bottom": 60
