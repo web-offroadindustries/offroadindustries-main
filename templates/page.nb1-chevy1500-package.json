@@ -820,233 +820,229 @@
     "gvm_comparison_FfmTMw": {
       "type": "gvm-comparison",
       "blocks": {
-        "row_M4PVnC": {
+        "row_01": {
           "type": "row",
           "settings": {
-            "label": "Suspension Type",
-            "value_1": "",
-            "value_2": "Torsion",
-            "value_3": "Torsion",
-            "value_4": "Coilover",
-            "value_5": "",
-            "value_6": "Torsion",
-            "value_7": "Torsion",
-            "value_8": "Coilover",
+            "label": "Gross Vehicle Mass (GVM)",
+            "value_1": "3300 KG",
+            "value_2": "3,650 KG",
+            "value_3": "3,650 KG",
+            "value_4": "3,850 KG",
+            "value_5": "4250 KG",
+            "value_6": "4250 KG",
+            "value_7": "",
+            "value_8": "",
             "value_9": "",
             "value_10": ""
           }
         },
-        "row_7JDfxb": {
-          "type": "row",
-          "disabled": true,
-          "settings": {
-            "label": "Gross Vehicle Mass (GVM)",
-            "value_1": "4495 KG NB1\n5148 KG NB2",
-            "value_2": "5500 KG",
-            "value_3": "6000 KG",
-            "value_4": "6000 KG",
-            "value_5": "6000 KG",
-            "value_6": "6000 KG",
-            "value_7": "6000 KG",
-            "value_8": "6000 KG",
-            "value_9": "6000 KG",
-            "value_10": ""
-          }
-        },
-        "row_YVwraj": {
+        "row_02": {
           "type": "row",
           "settings": {
             "label": "Braked Towing Capacity (BTC)",
             "value_1": "4500 KG",
             "value_2": "4500 KG",
-            "value_3": "4500 KG",
+            "value_3": "4200 KG",
             "value_4": "4500 KG",
             "value_5": "4500 KG",
             "value_6": "4500 KG",
-            "value_7": "4500 KG",
-            "value_8": "4500 KG",
-            "value_9": "4500 KG",
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
             "value_10": ""
           }
         },
-        "row_wywcAp": {
+        "row_03": {
+          "type": "row",
+          "settings": {
+            "label": "Gross Combined Mass (GCM)",
+            "value_1": "7160 KG",
+            "value_2": "8150 KG",
+            "value_3": "7850 KG",
+            "value_4": "8350 KG LTZ\n8050 KG ZR2",
+            "value_5": "8750 KG LTZ\n8450 KG ZR2",
+            "value_6": "8750 KG LTZ\n8450 KG ZR2",
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
+          }
+        },
+        "row_04": {
           "type": "row",
           "settings": {
             "label": "Kerb Weight",
-            "value_1": "3661 KG",
-            "value_2": "3741 KG",
-            "value_3": "3741 KG",
-            "value_4": "3741 KG",
-            "value_5": "3741 KG",
-            "value_6": "3741 KG",
-            "value_7": "3741 KG",
-            "value_8": "3741 KG",
-            "value_9": "3741 KG",
+            "value_1": "2543 KG",
+            "value_2": "2573 KG",
+            "value_3": "2563 KG",
+            "value_4": "2578 KG",
+            "value_5": "2578 KG",
+            "value_6": "2578 KG",
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
             "value_10": ""
           }
         },
-        "row_VPhYR9": {
+        "row_05": {
           "type": "row",
-          "disabled": true,
           "settings": {
-            "label": "Payload (bases on kerb weight) FROM NB1",
-            "value_1": "NB1 733 KG\nNB2 1386 KG",
-            "value_2": "1708 KG",
-            "value_3": "2198 KG",
-            "value_4": "2190 KG",
-            "value_5": "2190 KG",
-            "value_6": "2138",
-            "value_7": "2138",
-            "value_8": "2138",
-            "value_9": "2138",
+            "label": "Payload (bases on kerb weight)",
+            "value_1": "757 KG",
+            "value_2": "1077 KG",
+            "value_3": "1087 KG",
+            "value_4": "1272 KG",
+            "value_5": "1672 KG",
+            "value_6": "1672 KG",
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
             "value_10": ""
           }
         },
-        "row_bcXE8T": {
+        "row_06": {
           "type": "row",
-          "disabled": true,
           "settings": {
             "label": "Payload Increase (%)",
-            "value_1": "",
-            "value_2": "133%",
-            "value_3": "199%",
-            "value_4": "198%",
-            "value_5": "198%",
-            "value_6": "192%",
-            "value_7": "192%",
-            "value_8": "192%",
-            "value_9": "192%",
+            "value_1": "0%",
+            "value_2": "42.28%",
+            "value_3": "43.59%",
+            "value_4": "68.03%",
+            "value_5": "120.87%",
+            "value_6": "120.87%",
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
             "value_10": ""
           }
         },
-        "row_YJQHKH": {
+        "row_07": {
           "type": "row",
           "settings": {
             "label": "Front Axle Capacity",
-            "value_1": "2540 KG",
-            "value_2": "2540 KG",
-            "value_3": "2722 KG",
-            "value_4": "2722 KG",
-            "value_5": "2722 KG",
-            "value_6": "2722 KG",
-            "value_7": "2722 KG",
-            "value_8": "2722 KG",
-            "value_9": "2722 KG",
+            "value_1": "1724 KG",
+            "value_2": "1724 KG",
+            "value_3": "1724 KG",
+            "value_4": "1724 KG",
+            "value_5": "1770 KG",
+            "value_6": "1770 KG",
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
             "value_10": ""
           }
         },
-        "row_pqzEiz": {
+        "row_08": {
           "type": "row",
           "settings": {
             "label": "Rear Axle Capacity",
-            "value_1": "2994 KG",
-            "value_2": "2994 KG",
-            "value_3": "3289 KG",
-            "value_4": "3289 KG",
-            "value_5": "3289 KG",
-            "value_6": "3289 KG",
-            "value_7": "3289 KG",
-            "value_8": "3289 KG",
-            "value_9": "3289 KG",
+            "value_1": "1724 KG",
+            "value_2": "1926 KG",
+            "value_3": "1926 KG",
+            "value_4": "2126 KG",
+            "value_5": "2480 KG",
+            "value_6": "2480 KG",
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
             "value_10": ""
           }
         },
-        "row_NrDzqV": {
+        "row_09": {
           "type": "row",
           "settings": {
             "label": "Wheel Offsets",
-            "value_1": "POS 47",
-            "value_2": "Pos 12 / 18 Zero",
-            "value_3": "Pos 12 / 18 Zero",
-            "value_4": "Pos 12 / 18 Zero",
-            "value_5": "Pos 12 / 18 Zero",
-            "value_6": "Zero",
-            "value_7": "Zero",
-            "value_8": "Zero",
-            "value_9": "Zero",
+            "value_1": "28",
+            "value_2": "28",
+            "value_3": "28",
+            "value_4": "28",
+            "value_5": "Zero +12",
+            "value_6": "Zero +12",
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
             "value_10": ""
           }
         },
-        "row_aDFEfG": {
+        "row_10": {
           "type": "row",
-          "disabled": true,
           "settings": {
             "label": "Wheel Load Rating",
-            "value_1": "",
-            "value_2": "1600 KG",
-            "value_3": "1644 KG",
-            "value_4": "1644 KG",
-            "value_5": "1644 KG",
-            "value_6": "1644 KG",
-            "value_7": "1644 KG",
-            "value_8": "1644 KG",
-            "value_9": "1644 KG",
+            "value_1": "862 KG",
+            "value_2": "963 KG",
+            "value_3": "963 KG",
+            "value_4": "1063 KG",
+            "value_5": "1250 KG",
+            "value_6": "1250 KG",
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
             "value_10": ""
           }
         },
-        "row_Ei9mfn": {
+        "row_11": {
           "type": "row",
           "settings": {
             "label": "Tyre Load Rating",
-            "value_1": "",
-            "value_2": "128Q",
-            "value_3": "128Q",
-            "value_4": "128Q",
-            "value_5": "128Q",
-            "value_6": "128Q",
-            "value_7": "128Q",
-            "value_8": "128Q",
-            "value_9": "128Q",
+            "value_1": "862 KG",
+            "value_2": "963 KG",
+            "value_3": "963 KG",
+            "value_4": "1063 KG",
+            "value_5": "1250 KG",
+            "value_6": "1250 KG",
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
             "value_10": ""
           }
         },
-        "row_VrmHhK": {
+        "row_12": {
           "type": "row",
           "settings": {
             "label": "Requires Wheel/ Tyre Upgrade",
-            "value_1": "",
-            "value_2": "Yes",
-            "value_3": "Yes",
-            "value_4": "Yes",
-            "value_5": "Yes",
-            "value_6": "Yes",
-            "value_7": "Yes",
-            "value_8": "Yes",
-            "value_9": "Yes",
+            "value_1": "OEM",
+            "value_2": "N/A",
+            "value_3": "N/A",
+            "value_4": "N/A",
+            "value_5": "✔",
+            "value_6": "✔",
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
             "value_10": ""
           }
         },
-        "row_zxBAzG": {
+        "row_13": {
           "type": "row",
           "settings": {
             "label": "Maximum Tyre Size",
-            "value_1": "",
-            "value_2": "35x12.5xR18 | 35x12.5xR20",
-            "value_3": "35x12.5xR18 | 35x12.5xR20\n37x12.5xR18 | 37x12.5R20",
-            "value_4": "37x12.5xR18 | 37x12.5xR20\n37x13.5xR18 | 37x13.5xR20",
-            "value_5": "37x12.5xR18 | 37x12.5xR20\n37x13.5xR18 | 37x13.5xR20",
-            "value_6": "37x12.5xR18 | 37x12.5xR20\n37x13.5xR18 | 37x13.5xR20",
-            "value_7": "37x12.5xR18 | 37x12.5xR20\n37x13.5xR18 | 37x13.5xR20",
-            "value_8": "37x12.5xR18 | 37x12.5xR20\n37x13.5xR18 | 37x13.5xR20",
-            "value_9": "37x12.5xR18 | 37x12.5xR20\n37x13.5xR18 | 37x13.5xR20",
+            "value_1": "275/60 R20",
+            "value_2": "275/60 R20",
+            "value_3": "LT275/70R18",
+            "value_4": "LT275/70R18",
+            "value_5": "295/70 R18\n35x12.5R18",
+            "value_6": "295/70 R18\n35x12.5R18",
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
             "value_10": ""
           }
         }
       },
       "block_order": [
-        "row_M4PVnC",
-        "row_7JDfxb",
-        "row_YVwraj",
-        "row_wywcAp",
-        "row_VPhYR9",
-        "row_bcXE8T",
-        "row_YJQHKH",
-        "row_pqzEiz",
-        "row_NrDzqV",
-        "row_aDFEfG",
-        "row_Ei9mfn",
-        "row_VrmHhK",
-        "row_zxBAzG"
+        "row_01",
+        "row_02",
+        "row_03",
+        "row_04",
+        "row_05",
+        "row_06",
+        "row_07",
+        "row_08",
+        "row_09",
+        "row_10",
+        "row_11",
+        "row_12",
+        "row_13"
       ],
       "disabled": true,
       "name": "GVM Comparison",
@@ -1054,17 +1050,17 @@
         "anchor_id": "compare",
         "heading": "",
         "details_heading": "",
-        "columns": "9",
+        "columns": "6",
         "col_title_1": "OEM",
         "col_title_2": "Stage 1",
         "col_title_3": "Stage 2",
         "col_title_4": "Stage 3",
-        "col_title_5": "",
-        "col_title_6": "Stage 4",
-        "col_title_7": "STAGE 5",
-        "col_title_8": "STAGE 6",
+        "col_title_5": "Stage 4",
+        "col_title_6": "Stage 5",
+        "col_title_7": "",
+        "col_title_8": "",
         "col_title_9": "",
-        "col_title_10": "STAGE 9",
+        "col_title_10": "",
         "container_width": "90%",
         "heading_color": "#111111",
         "text_color": "#111111",
@@ -1078,233 +1074,229 @@
     "gvm_comparison_tt8dam": {
       "type": "gvm-comparison",
       "blocks": {
-        "row_X9jJdd": {
+        "row_01": {
           "type": "row",
           "settings": {
-            "label": "Suspension Type",
-            "value_1": "",
-            "value_2": "Torsion",
-            "value_3": "Torsion",
-            "value_4": "Coilover",
-            "value_5": "",
-            "value_6": "Torsion",
-            "value_7": "Torsion",
-            "value_8": "Coilover",
+            "label": "Gross Vehicle Mass (GVM)",
+            "value_1": "3300 KG",
+            "value_2": "3,650 KG",
+            "value_3": "3,650 KG",
+            "value_4": "3,850 KG",
+            "value_5": "4250 KG",
+            "value_6": "4250 KG",
+            "value_7": "",
+            "value_8": "",
             "value_9": "",
             "value_10": ""
           }
         },
-        "row_qCKWJ9": {
-          "type": "row",
-          "disabled": true,
-          "settings": {
-            "label": "Gross Vehicle Mass (GVM)",
-            "value_1": "4495 KG NB1\n5148 KG NB2",
-            "value_2": "5500 KG",
-            "value_3": "6000 KG",
-            "value_4": "6000 KG",
-            "value_5": "6000 KG",
-            "value_6": "6000 KG",
-            "value_7": "6000 KG",
-            "value_8": "6000 KG",
-            "value_9": "6000 KG",
-            "value_10": ""
-          }
-        },
-        "row_TjWEfJ": {
+        "row_02": {
           "type": "row",
           "settings": {
             "label": "Braked Towing Capacity (BTC)",
             "value_1": "4500 KG",
             "value_2": "4500 KG",
-            "value_3": "4500 KG",
+            "value_3": "4200 KG",
             "value_4": "4500 KG",
             "value_5": "4500 KG",
             "value_6": "4500 KG",
-            "value_7": "4500 KG",
-            "value_8": "4500 KG",
-            "value_9": "4500 KG",
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
             "value_10": ""
           }
         },
-        "row_BBAHNY": {
+        "row_03": {
+          "type": "row",
+          "settings": {
+            "label": "Gross Combined Mass (GCM)",
+            "value_1": "7160 KG",
+            "value_2": "8150 KG",
+            "value_3": "7850 KG",
+            "value_4": "8350 KG LTZ\n8050 KG ZR2",
+            "value_5": "8750 KG LTZ\n8450 KG ZR2",
+            "value_6": "8750 KG LTZ\n8450 KG ZR2",
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
+          }
+        },
+        "row_04": {
           "type": "row",
           "settings": {
             "label": "Kerb Weight",
-            "value_1": "3661 KG",
-            "value_2": "3741 KG",
-            "value_3": "3741 KG",
-            "value_4": "3741 KG",
-            "value_5": "3741 KG",
-            "value_6": "3741 KG",
-            "value_7": "3741 KG",
-            "value_8": "3741 KG",
-            "value_9": "3741 KG",
+            "value_1": "2543 KG",
+            "value_2": "2573 KG",
+            "value_3": "2563 KG",
+            "value_4": "2578 KG",
+            "value_5": "2578 KG",
+            "value_6": "2578 KG",
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
             "value_10": ""
           }
         },
-        "row_aPmfKm": {
+        "row_05": {
           "type": "row",
-          "disabled": true,
           "settings": {
-            "label": "Payload (bases on kerb weight) FROM NB1",
-            "value_1": "NB1 733 KG\nNB2 1386 KG",
-            "value_2": "1708 KG",
-            "value_3": "2198 KG",
-            "value_4": "2190 KG",
-            "value_5": "2190 KG",
-            "value_6": "2138",
-            "value_7": "2138",
-            "value_8": "2138",
-            "value_9": "2138",
+            "label": "Payload (bases on kerb weight)",
+            "value_1": "757 KG",
+            "value_2": "1077 KG",
+            "value_3": "1087 KG",
+            "value_4": "1272 KG",
+            "value_5": "1672 KG",
+            "value_6": "1672 KG",
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
             "value_10": ""
           }
         },
-        "row_HVhPzj": {
+        "row_06": {
           "type": "row",
-          "disabled": true,
           "settings": {
             "label": "Payload Increase (%)",
-            "value_1": "",
-            "value_2": "133%",
-            "value_3": "199%",
-            "value_4": "198%",
-            "value_5": "198%",
-            "value_6": "192%",
-            "value_7": "192%",
-            "value_8": "192%",
-            "value_9": "192%",
+            "value_1": "0%",
+            "value_2": "42.28%",
+            "value_3": "43.59%",
+            "value_4": "68.03%",
+            "value_5": "120.87%",
+            "value_6": "120.87%",
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
             "value_10": ""
           }
         },
-        "row_ymzJfi": {
+        "row_07": {
           "type": "row",
           "settings": {
             "label": "Front Axle Capacity",
-            "value_1": "2540 KG",
-            "value_2": "2540 KG",
-            "value_3": "2722 KG",
-            "value_4": "2722 KG",
-            "value_5": "2722 KG",
-            "value_6": "2722 KG",
-            "value_7": "2722 KG",
-            "value_8": "2722 KG",
-            "value_9": "2722 KG",
+            "value_1": "1724 KG",
+            "value_2": "1724 KG",
+            "value_3": "1724 KG",
+            "value_4": "1724 KG",
+            "value_5": "1770 KG",
+            "value_6": "1770 KG",
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
             "value_10": ""
           }
         },
-        "row_aVdtFK": {
+        "row_08": {
           "type": "row",
           "settings": {
             "label": "Rear Axle Capacity",
-            "value_1": "2994 KG",
-            "value_2": "2994 KG",
-            "value_3": "3289 KG",
-            "value_4": "3289 KG",
-            "value_5": "3289 KG",
-            "value_6": "3289 KG",
-            "value_7": "3289 KG",
-            "value_8": "3289 KG",
-            "value_9": "3289 KG",
+            "value_1": "1724 KG",
+            "value_2": "1926 KG",
+            "value_3": "1926 KG",
+            "value_4": "2126 KG",
+            "value_5": "2480 KG",
+            "value_6": "2480 KG",
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
             "value_10": ""
           }
         },
-        "row_ACwjmn": {
+        "row_09": {
           "type": "row",
           "settings": {
             "label": "Wheel Offsets",
-            "value_1": "POS 47",
-            "value_2": "Pos 12 / 18 Zero",
-            "value_3": "Pos 12 / 18 Zero",
-            "value_4": "Pos 12 / 18 Zero",
-            "value_5": "Pos 12 / 18 Zero",
-            "value_6": "Zero",
-            "value_7": "Zero",
-            "value_8": "Zero",
-            "value_9": "Zero",
+            "value_1": "28",
+            "value_2": "28",
+            "value_3": "28",
+            "value_4": "28",
+            "value_5": "Zero +12",
+            "value_6": "Zero +12",
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
             "value_10": ""
           }
         },
-        "row_9PzBit": {
+        "row_10": {
           "type": "row",
-          "disabled": true,
           "settings": {
             "label": "Wheel Load Rating",
-            "value_1": "",
-            "value_2": "1600 KG",
-            "value_3": "1644 KG",
-            "value_4": "1644 KG",
-            "value_5": "1644 KG",
-            "value_6": "1644 KG",
-            "value_7": "1644 KG",
-            "value_8": "1644 KG",
-            "value_9": "1644 KG",
+            "value_1": "862 KG",
+            "value_2": "963 KG",
+            "value_3": "963 KG",
+            "value_4": "1063 KG",
+            "value_5": "1250 KG",
+            "value_6": "1250 KG",
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
             "value_10": ""
           }
         },
-        "row_XN4ctk": {
+        "row_11": {
           "type": "row",
           "settings": {
             "label": "Tyre Load Rating",
-            "value_1": "",
-            "value_2": "128Q",
-            "value_3": "128Q",
-            "value_4": "128Q",
-            "value_5": "128Q",
-            "value_6": "128Q",
-            "value_7": "128Q",
-            "value_8": "128Q",
-            "value_9": "128Q",
+            "value_1": "862 KG",
+            "value_2": "963 KG",
+            "value_3": "963 KG",
+            "value_4": "1063 KG",
+            "value_5": "1250 KG",
+            "value_6": "1250 KG",
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
             "value_10": ""
           }
         },
-        "row_tCenrj": {
+        "row_12": {
           "type": "row",
           "settings": {
             "label": "Requires Wheel/ Tyre Upgrade",
-            "value_1": "",
-            "value_2": "Yes",
-            "value_3": "Yes",
-            "value_4": "Yes",
-            "value_5": "Yes",
-            "value_6": "Yes",
-            "value_7": "Yes",
-            "value_8": "Yes",
-            "value_9": "Yes",
+            "value_1": "OEM",
+            "value_2": "N/A",
+            "value_3": "N/A",
+            "value_4": "N/A",
+            "value_5": "✔",
+            "value_6": "✔",
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
             "value_10": ""
           }
         },
-        "row_EeJwFd": {
+        "row_13": {
           "type": "row",
           "settings": {
             "label": "Maximum Tyre Size",
-            "value_1": "",
-            "value_2": "35x12.5xR18 | 35x12.5xR20",
-            "value_3": "35x12.5xR18 | 35x12.5xR20\n37x12.5xR18 | 37x12.5R20",
-            "value_4": "37x12.5xR18 | 37x12.5xR20\n37x13.5xR18 | 37x13.5xR20",
-            "value_5": "37x12.5xR18 | 37x12.5xR20\n37x13.5xR18 | 37x13.5xR20",
-            "value_6": "37x12.5xR18 | 37x12.5xR20\n37x13.5xR18 | 37x13.5xR20",
-            "value_7": "37x12.5xR18 | 37x12.5xR20\n37x13.5xR18 | 37x13.5xR20",
-            "value_8": "37x12.5xR18 | 37x12.5xR20\n37x13.5xR18 | 37x13.5xR20",
-            "value_9": "37x12.5xR18 | 37x12.5xR20\n37x13.5xR18 | 37x13.5xR20",
+            "value_1": "275/60 R20",
+            "value_2": "275/60 R20",
+            "value_3": "LT275/70R18",
+            "value_4": "LT275/70R18",
+            "value_5": "295/70 R18\n35x12.5R18",
+            "value_6": "295/70 R18\n35x12.5R18",
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
             "value_10": ""
           }
         }
       },
       "block_order": [
-        "row_X9jJdd",
-        "row_qCKWJ9",
-        "row_TjWEfJ",
-        "row_BBAHNY",
-        "row_aPmfKm",
-        "row_HVhPzj",
-        "row_ymzJfi",
-        "row_aVdtFK",
-        "row_ACwjmn",
-        "row_9PzBit",
-        "row_XN4ctk",
-        "row_tCenrj",
-        "row_EeJwFd"
+        "row_01",
+        "row_02",
+        "row_03",
+        "row_04",
+        "row_05",
+        "row_06",
+        "row_07",
+        "row_08",
+        "row_09",
+        "row_10",
+        "row_11",
+        "row_12",
+        "row_13"
       ],
       "custom_css": [
         "#ssm-package-details .gvm-compare__row .gvm-compare__cell:nth-child(6),#ssm-package-details .gvm-compare__row .gvm-compare__cell:nth-child(10) {display: none;}"
@@ -1314,17 +1306,17 @@
         "anchor_id": "ssm-package-details",
         "heading": "",
         "details_heading": "",
-        "columns": "9",
+        "columns": "6",
         "col_title_1": "OEM",
         "col_title_2": "Stage 1",
         "col_title_3": "Stage 2",
         "col_title_4": "Stage 3",
-        "col_title_5": "",
-        "col_title_6": "Stage 4",
-        "col_title_7": "STAGE 5",
-        "col_title_8": "STAGE 6",
+        "col_title_5": "Stage 4",
+        "col_title_6": "Stage 5",
+        "col_title_7": "",
+        "col_title_8": "",
         "col_title_9": "",
-        "col_title_10": "STAGE 9",
+        "col_title_10": "",
         "container_width": "90%",
         "heading_color": "#111111",
         "text_color": "#111111",
@@ -1338,11 +1330,11 @@
     "gvm_comparison_RXeVcA": {
       "type": "gvm-comparison",
       "blocks": {
-        "row_PLrREz": {
+        "row_01": {
           "type": "row",
           "settings": {
-            "label": "Fox 2.5 HTO Performance Series (Front)",
-            "value_1": "987-24-010",
+            "label": "Fox 2.5 PS Coilovers (Front)",
+            "value_1": "987-02-004",
             "value_2": "✔",
             "value_3": "",
             "value_4": "",
@@ -1354,11 +1346,11 @@
             "value_10": ""
           }
         },
-        "row_QWetUx": {
+        "row_02": {
           "type": "row",
           "settings": {
-            "label": "Fox 2.5 HTO Performance Series (Rear)",
-            "value_1": "987-24-011",
+            "label": "Fox 2.5 PS Shocks (Rear)",
+            "value_1": "987-24-028",
             "value_2": "✔",
             "value_3": "",
             "value_4": "",
@@ -1370,43 +1362,11 @@
             "value_10": ""
           }
         },
-        "row_dAdUVr": {
+        "row_03": {
           "type": "row",
           "settings": {
-            "label": "Fox 2.5  Performance Elite Series (Front)",
-            "value_1": "883-26-084",
-            "value_2": "",
-            "value_3": "✔",
-            "value_4": "",
-            "value_5": "",
-            "value_6": "",
-            "value_7": "",
-            "value_8": "",
-            "value_9": "",
-            "value_10": ""
-          }
-        },
-        "row_VhLrHW": {
-          "type": "row",
-          "settings": {
-            "label": "Fox 2.5 Performance Elite Series (Rear)",
-            "value_1": "883-26-085",
-            "value_2": "",
-            "value_3": "✔",
-            "value_4": "✔",
-            "value_5": "✔",
-            "value_6": "",
-            "value_7": "",
-            "value_8": "",
-            "value_9": "",
-            "value_10": ""
-          }
-        },
-        "row_Xm7nMe": {
-          "type": "row",
-          "settings": {
-            "label": "Fox 2.5 Peformance Elite Coilover (Front)",
-            "value_1": "884-06-337",
+            "label": "Fox 2.5 PE DSC Coilovers (Front)",
+            "value_1": "883-06-162",
             "value_2": "",
             "value_3": "",
             "value_4": "✔",
@@ -1418,204 +1378,181 @@
             "value_10": ""
           }
         },
-        "row_PyCLYV": {
+        "row_04": {
           "type": "row",
           "settings": {
-            "label": "Fox 2.5  Performance Elite Series (Front)",
-            "value_1": "884-26-030",
+            "label": "Fox 2.5 PE DSC Shocks (Rear)",
+            "value_1": "883-26-087",
             "value_2": "",
             "value_3": "",
-            "value_4": "",
-            "value_5": "",
-            "value_6": "✔",
-            "value_7": "✔",
+            "value_4": "✔",
+            "value_5": "✔",
+            "value_6": "",
+            "value_7": "",
             "value_8": "",
             "value_9": "",
             "value_10": ""
           }
         },
-        "row_MQ9Uxh": {
+        "row_05": {
           "type": "row",
           "settings": {
-            "label": "Fox 2.5 Performance Elite Series (Rear)",
-            "value_1": "884-26-031",
+            "label": "Fox 3.0 Bypass Race Series (Front)",
+            "value_1": "883-06-175",
             "value_2": "",
             "value_3": "",
             "value_4": "",
             "value_5": "",
             "value_6": "✔",
-            "value_7": "✔",
-            "value_8": "✔",
-            "value_9": "✔",
-            "value_10": ""
-          }
-        },
-        "row_ViUDYJ": {
-          "type": "row",
-          "settings": {
-            "label": "Fox 2.5 Peformance Elite Coilover (Front)",
-            "value_1": "884-06-339",
-            "value_2": "",
-            "value_3": "",
-            "value_4": "",
-            "value_5": "",
-            "value_6": "",
             "value_7": "",
-            "value_8": "✔",
-            "value_9": "✔",
+            "value_8": "",
+            "value_9": "",
             "value_10": ""
           }
         },
-        "row_YaJzWt": {
+        "row_06": {
           "type": "row",
           "settings": {
-            "label": "BDS Control Arm",
-            "value_1": "BDS121304",
-            "value_2": "✔",
-            "value_3": "✔",
-            "value_4": "✔",
+            "label": "Fox 3.0 Bypass Race Series (Rear)",
+            "value_1": "883-26-105",
+            "value_2": "",
+            "value_3": "",
+            "value_4": "",
             "value_5": "",
             "value_6": "✔",
-            "value_7": "✔",
-            "value_8": "✔",
-            "value_9": "✔",
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
             "value_10": ""
           }
         },
-        "row_MDY7qw": {
+        "row_07": {
           "type": "row",
           "settings": {
-            "label": "Husky Extenda Flare",
-            "value_1": "2804986",
+            "label": "ORI 200kg Leaf Spring Pack",
+            "value_1": "ORI-CHV-200KG",
             "value_2": "✔",
             "value_3": "✔",
             "value_4": "✔",
             "value_5": "✔",
             "value_6": "✔",
-            "value_7": "✔",
-            "value_8": "✔",
-            "value_9": "✔",
-            "value_10": ""
-          }
-        },
-        "row_KnhHzc": {
-          "type": "row",
-          "disabled": true,
-          "settings": {
-            "label": "500 KG ORI Rear Leaf Packs",
-            "value_1": "ORI-CHVHD-500KG",
-            "value_2": "✔",
-            "value_3": "✔",
-            "value_4": "✔",
-            "value_5": "✔",
-            "value_6": "✔",
-            "value_7": "✔",
-            "value_8": "✔",
-            "value_9": "✔",
-            "value_10": ""
-          }
-        },
-        "row_nNQibi": {
-          "type": "row",
-          "disabled": true,
-          "settings": {
-            "label": "Kelderman 4 Link Rear Air 0-3\"",
-            "value_1": "KLM-10006647",
-            "value_2": "",
-            "value_3": "",
-            "value_4": "",
-            "value_5": "✔",
-            "value_6": "",
             "value_7": "",
             "value_8": "",
             "value_9": "",
             "value_10": ""
           }
         },
-        "row_q477DL": {
+        "row_08": {
           "type": "row",
-          "disabled": true,
           "settings": {
-            "label": "Kelderman 4 Link Rear Air 5-6\"",
-            "value_1": "KLM-10031845",
+            "label": "ORI 400kg Leaf Spring Pack",
+            "value_1": "ORI-CHV-400KG",
             "value_2": "",
             "value_3": "",
             "value_4": "",
-            "value_5": "",
-            "value_6": "",
+            "value_5": "✔",
+            "value_6": "✔",
             "value_7": "",
             "value_8": "",
-            "value_9": "✔",
+            "value_9": "",
             "value_10": ""
           }
         },
-        "row_YMC4Cg": {
+        "row_09": {
           "type": "row",
           "settings": {
-            "label": "ORI MUD Flaps Kit",
-            "value_1": "VEH-MUD-FLAPS",
+            "label": "BDS Control Arms",
+            "value_1": "BDS121260",
             "value_2": "✔",
             "value_3": "✔",
             "value_4": "✔",
             "value_5": "✔",
             "value_6": "✔",
-            "value_7": "✔",
-            "value_8": "✔",
-            "value_9": "✔",
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
             "value_10": ""
           }
         },
-        "row_nkM7rU": {
+        "row_10": {
           "type": "row",
           "settings": {
-            "label": "ORI ADR Compliance Lights",
-            "value_1": "ORI-LED-Comp",
-            "value_2": "",
-            "value_3": "",
-            "value_4": "",
-            "value_5": "✔",
-            "value_6": "✔",
-            "value_7": "✔",
-            "value_8": "✔",
-            "value_9": "✔",
-            "value_10": ""
-          }
-        },
-        "row_ft3LzT": {
-          "type": "row",
-          "disabled": true,
-          "settings": {
-            "label": "GVM Part Number",
+            "label": "Retain Factory Multimatic Suspension",
             "value_1": "",
             "value_2": "",
-            "value_3": "VEH-STAGE2-GVM",
-            "value_4": "VEH-STAGE3-GVM",
-            "value_5": "VEH-STAGE3-GVM-K",
-            "value_6": "VEH-STAGE4-GVM",
-            "value_7": "VEH-STAGE5-GVM",
-            "value_8": "VEH-STAGE6-GVM",
-            "value_9": "VEH-STAGE6-GVM-K",
+            "value_3": "✔",
+            "value_4": "",
+            "value_5": "",
+            "value_6": "",
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
+          }
+        },
+        "row_11": {
+          "type": "row",
+          "settings": {
+            "label": "Lift Height",
+            "value_1": "",
+            "value_2": "3.5\"",
+            "value_3": "2\"",
+            "value_4": "3.5\"",
+            "value_5": "3.5\"",
+            "value_6": "3.5\"",
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
+          }
+        },
+        "row_12": {
+          "type": "row",
+          "settings": {
+            "label": "Load-Rated Wheels Required",
+            "value_1": "",
+            "value_2": "",
+            "value_3": "",
+            "value_4": "",
+            "value_5": "✔",
+            "value_6": "✔",
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
+          }
+        },
+        "row_13": {
+          "type": "row",
+          "settings": {
+            "label": "GVM Part Numbers",
+            "value_1": "",
+            "value_2": "CHV-1500-Stage1-GVM",
+            "value_3": "CHV-1500-Stage2-GVM",
+            "value_4": "CHV-1500-Stage3-GVM",
+            "value_5": "CHV-1500-Stage4-GVM-200\nCHV-1500-Stage4-GVM-400",
+            "value_6": "CHV-1500-Stage5-GVM-200\nCHV-1500-Stage5-GVM-400",
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
             "value_10": ""
           }
         }
       },
       "block_order": [
-        "row_PLrREz",
-        "row_QWetUx",
-        "row_dAdUVr",
-        "row_VhLrHW",
-        "row_Xm7nMe",
-        "row_PyCLYV",
-        "row_MQ9Uxh",
-        "row_ViUDYJ",
-        "row_YaJzWt",
-        "row_MDY7qw",
-        "row_KnhHzc",
-        "row_nNQibi",
-        "row_q477DL",
-        "row_YMC4Cg",
-        "row_nkM7rU",
-        "row_ft3LzT"
+        "row_01",
+        "row_02",
+        "row_03",
+        "row_04",
+        "row_05",
+        "row_06",
+        "row_07",
+        "row_08",
+        "row_09",
+        "row_10",
+        "row_11",
+        "row_12",
+        "row_13"
       ],
       "custom_css": [
         "#compare1 .gvm-compare__row .gvm-compare__cell:nth-child(6),#compare1 .gvm-compare__row .gvm-compare__cell:nth-child(10) {display: none;}"
@@ -1625,15 +1562,15 @@
         "anchor_id": "compare1",
         "heading": "",
         "details_heading": "Item",
-        "columns": "9",
+        "columns": "6",
         "col_title_1": "Part Number",
         "col_title_2": "Stage 1",
         "col_title_3": "Stage 2",
         "col_title_4": "Stage 3",
-        "col_title_5": "",
-        "col_title_6": "Stage 4",
-        "col_title_7": "STAGE 5",
-        "col_title_8": "STAGE 6",
+        "col_title_5": "Stage 4",
+        "col_title_6": "Stage 5",
+        "col_title_7": "",
+        "col_title_8": "",
         "col_title_9": "",
         "col_title_10": "",
         "container_width": "90%",
