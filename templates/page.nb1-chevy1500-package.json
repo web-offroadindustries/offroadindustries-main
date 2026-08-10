@@ -52,6 +52,7 @@
         "show_dots": false,
         "show_nav": false,
         "autoplay": false,
+        "defer_autoplay_until_interaction": false,
         "autorotate_speed": 3,
         "pagination_background": "light",
         "controls_position": "center",
@@ -228,7 +229,7 @@
       "settings": {
         "container": "container",
         "color_schema": "",
-        "image": "shopify://shop_images/STAGE_1_CHEVY_1500_all_products_8fbb7dca-ab4d-4468-9a99-a9e4909364c8.png",
+        "image": "shopify://shop_images/STAGE_1_CHEVY_1500_LTZ.png",
         "enable_lightbox": true,
         "image_width": "50%",
         "image_position": "left",
@@ -287,7 +288,7 @@
       "settings": {
         "container": "container",
         "color_schema": "",
-        "image": "shopify://shop_images/STAGE_2_CHEVY_1500_all_products.png",
+        "image": "shopify://shop_images/STAGE_2_CHEVY_1500_ZR2.png",
         "enable_lightbox": true,
         "image_width": "50%",
         "image_position": "right",
@@ -346,7 +347,7 @@
       "settings": {
         "container": "container",
         "color_schema": "",
-        "image": "shopify://shop_images/STAGE_3_CHEVY_1500_all_products.png",
+        "image": "shopify://shop_images/STAGE_3_CHEVY_1500_LTZ.png",
         "enable_lightbox": true,
         "image_width": "50%",
         "image_position": "left",
@@ -405,69 +406,10 @@
       "settings": {
         "container": "container",
         "color_schema": "",
-        "image": "shopify://shop_images/STAGE_4_CHEVY_1500_all_products.png",
+        "image": "shopify://shop_images/STAGE_4_CHEVY_1500_ZR2.png",
         "enable_lightbox": true,
         "image_width": "50%",
         "image_position": "right",
-        "vertical_alignment": "center",
-        "align_content_container": "none",
-        "show_image_padding": true,
-        "column_gap": "medium",
-        "row_gap": "medium",
-        "padding_left": 0,
-        "padding_right": 0,
-        "mobile_padding_left": 15,
-        "mobile_padding_right": 15,
-        "padding_top": 40,
-        "padding_bottom": 40,
-        "padding_top_mobile": 60,
-        "padding_bottom_mobile": 60,
-        "show_section_divider": false,
-        "divider_width": "container",
-        "custom_id": "",
-        "custom_class": "",
-        "animations": "inherit"
-      }
-    },
-    "image_with_text_rJkhtG": {
-      "type": "image-with-text",
-      "blocks": {
-        "subheading_drUinH": {
-          "type": "subheading",
-          "settings": {
-            "subheading": "Stage 5: $26,999* - Installed & Engineered",
-            "subheading_size": "h5"
-          }
-        },
-        "heading_FGMkek": {
-          "type": "heading",
-          "settings": {
-            "heading": "<strong>Stage 5: The \"No Compromise\" Build (4250kg GVM + GCM 8750Kg)</strong>",
-            "highlight_style": "none",
-            "enable_highlight_text_color": false,
-            "heading_size": "h2"
-          }
-        },
-        "text_AHtUHA": {
-          "type": "text",
-          "settings": {
-            "text": "<p><em>The pinnacle of Silverado suspension engineering.</em></p><ul><li><strong>GVM Increase:</strong> 4250kg.</li><li><strong>Key Features:</strong> <strong>Fox 3.0 Internal Bypass Race Series Shocks</strong> (front and rear).</li><li><strong>Best For:</strong> The enthusiast who wants it all—maximum legal payload combined with race-bred suspension technology.</li><li><strong>Benefit:</strong> The 3.0 Bypass shocks offer unparalleled heat dissipation and damping control. It’s the ultimate \"go-anywhere\" setup that remains legally compliant across Australia.</li><li><strong>Part Number 200kg Leaf Pack: </strong>CHV-1500-Stage5-GVM-200</li><li><strong>Part Number 400kg Leaf Pack: </strong>CHV-1500-Stage5-GVM-400</li></ul><p><em><strong>Note: Chevy Silverado ZR2 has reduced GCM due to the 4.2T towing capacity.</strong></em><br/><br/></p>"
-          }
-        }
-      },
-      "block_order": [
-        "subheading_drUinH",
-        "heading_FGMkek",
-        "text_AHtUHA"
-      ],
-      "name": "t:sections.image-with-text.presets.name",
-      "settings": {
-        "container": "container",
-        "color_schema": "",
-        "image": "shopify://shop_images/STAGE_5_CHEVY_1500_all_products.png",
-        "enable_lightbox": true,
-        "image_width": "50%",
-        "image_position": "left",
         "vertical_alignment": "center",
         "align_content_container": "none",
         "show_image_padding": true,
@@ -1544,6 +1486,9 @@
             "field_name": "Which Vehicle",
             "placeholder": "Which Vehicle",
             "options": "Ford F150, Chevy 1500, Chevy 2500HD, Toyota Tundra, RAM 2500 (5th Gen), RAM 2500 (6th Gen), Toyota LC300",
+            "depends_on": "",
+            "options_map": "",
+            "empty_text": "Select the field above first",
             "field_width": "100",
             "hide_label": true,
             "required": false
@@ -1556,12 +1501,12 @@
             "field_name": "What Stage GVM Package",
             "placeholder": "What Stage GVM Package",
             "options": "Stage 1, Stage 2, Stage 3, Stage 3.5, Stage 4, Stage 5, Stage 6, Stage 6.5",
-            "field_width": "100",
-            "hide_label": true,
-            "required": false,
             "depends_on": "Which Vehicle",
             "options_map": "Ford F150 | Stage 1, Stage 2, Stage 3, Stage 4, Stage 5, Stage 6\nChevy 1500 | Stage 1, Stage 2, Stage 3, Stage 4, Stage 5\nChevy 2500HD | Stage 1, Stage 2, Stage 3, Stage 3.5, Stage 4, Stage 5, Stage 6, Stage 6.5\nToyota Tundra | Stage 1, Stage 2, Stage 3, Stage 4\nRAM 2500 (5th Gen) | Stage 1, Stage 2, Stage 3, Stage 4, Stage 5\nRAM 2500 (6th Gen) | Stage 1, Stage 2, Stage 3, Stage 4, Stage 5\nToyota LC300 | Stage 1, Stage 2",
-            "empty_text": "Choose your vehicle first"
+            "empty_text": "Choose your vehicle first",
+            "field_width": "100",
+            "hide_label": true,
+            "required": false
           }
         },
         "location_TLebdV": {
@@ -1603,6 +1548,9 @@
         "heading": "GVM Enquiry? Contact us Now",
         "subheading": "",
         "description": "",
+        "display_mode": "inline",
+        "popup_id": "gvm-quote",
+        "popup_width": 560,
         "form_design": "design-1",
         "form_width": 500,
         "form_alignment": "center",
@@ -1830,7 +1778,6 @@
     "image_with_text_pR9RXR",
     "image_with_text_M8ykcj",
     "image_with_text_VKJ6aN",
-    "image_with_text_rJkhtG",
     "rich_text_RV8dqr",
     "collapsible_tabs_UDrTRf",
     "rich_text_rnLAPH",
