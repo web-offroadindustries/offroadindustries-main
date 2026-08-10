@@ -556,7 +556,7 @@
           "settings": {
             "label": "Front Axle Capacity",
             "value_1": "1850 KG",
-            "value_2": "",
+            "value_2": "1850 KG",
             "value_3": "1850 KG",
             "value_4": "1850 KG",
             "value_5": "1850 kg",
@@ -824,7 +824,7 @@
           "type": "row",
           "settings": {
             "label": "Rear Coil Options",
-            "value_1": "ORI-141H 100- 250 KG",
+            "value_1": "KTRR-141H 100- 250 KG",
             "value_2": "✔",
             "value_3": "✔",
             "value_4": "",
@@ -840,7 +840,7 @@
           "type": "row",
           "settings": {
             "label": "",
-            "value_1": "ORI-141HHD 300- 500 KG",
+            "value_1": "KTRR-141HHD 300- 500 KG",
             "value_2": "",
             "value_3": "",
             "value_4": "✔",
@@ -872,7 +872,7 @@
           "type": "row",
           "settings": {
             "label": "Speedo Calibration Tool",
-            "value_1": "ORI-Speedo-Tool",
+            "value_1": "ORI-Speedo-Correct",
             "value_2": "",
             "value_3": "",
             "value_4": "✔",
