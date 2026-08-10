@@ -48,6 +48,7 @@
         },
         "a4fbde0c-c1ab-4001-a39d-e20d650d3e5d": {
           "type": "inventory_status",
+          "disabled": true,
           "settings": {
             "inventory_threshold": 10,
             "show_as_progress": true,
