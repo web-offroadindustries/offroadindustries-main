@@ -1051,9 +1051,6 @@
         "row_spec_12",
         "row_spec_13"
       ],
-      "custom_css": [
-        "#ssm-package-details .gvm-compare__row .gvm-compare__cell:nth-child(6),#ssm-package-details .gvm-compare__row .gvm-compare__cell:nth-child(10) {display: none;}"
-      ],
       "name": "GVM Comparison",
       "settings": {
         "anchor_id": "ssm-package-details",
@@ -1238,9 +1235,6 @@
         "row_part_07",
         "row_part_08",
         "row_part_09"
-      ],
-      "custom_css": [
-        "#compare1 .gvm-compare__row .gvm-compare__cell:nth-child(6),#compare1 .gvm-compare__row .gvm-compare__cell:nth-child(10) {display: none;}"
       ],
       "name": "GVM Comparison",
       "settings": {
