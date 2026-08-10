@@ -696,9 +696,9 @@
           "settings": {
             "label": "Requires Wheel/ Tyre Upgrade",
             "value_1": "OEM",
-            "value_2": "N/A",
-            "value_3": "N/A",
-            "value_4": "N/A",
+            "value_2": "OEM",
+            "value_3": "OEM",
+            "value_4": "OEM",
             "value_5": "✔",
             "value_6": "✔",
             "value_7": "",
