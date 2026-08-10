@@ -1,0 +1,2099 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    },
+    "slideshow_CtnG98": {
+      "type": "slideshow",
+      "blocks": {
+        "slide_bW6A4P": {
+          "type": "slide",
+          "settings": {
+            "background": "shopify://shop_images/image_-_2026-06-15T122340.201.png",
+            "image_overlay_opacity": 0,
+            "content_position": "center",
+            "text_alignment": "center",
+            "text_color": "#000000",
+            "title": "",
+            "heading_size": "h2",
+            "heading_color": "",
+            "subheading": "",
+            "description": "",
+            "desc_size": "text-desc-base",
+            "button_text_1": "",
+            "button_link_1": "",
+            "button_style_1": "btn--primary",
+            "button_size_1": "",
+            "button_text_2": "",
+            "button_link_2": "",
+            "button_style_2": "btn--primary",
+            "button_size_2": ""
+          }
+        }
+      },
+      "block_order": [
+        "slide_bW6A4P"
+      ],
+      "name": "t:sections.slideshow.name",
+      "settings": {
+        "container": "container-full",
+        "slideshow_height": "adapt",
+        "show_dots": false,
+        "show_nav": false,
+        "autoplay": false,
+        "autorotate_speed": 3,
+        "pagination_background": "light",
+        "controls_position": "center",
+        "pagination_style": "dots",
+        "show_text_below": false,
+        "text_alignment_mobile": "center",
+        "accessibility_info": "Slideshow about our brand",
+        "custom_id": "",
+        "custom_class": "",
+        "enable_bg_zoom_effect": false
+      }
+    },
+    "jump_links_UeawGp": {
+      "type": "jump-links",
+      "blocks": {
+        "link_C8imG8": {
+          "type": "link",
+          "settings": {
+            "label": "SSM Packages",
+            "target_id": "gvmpackages"
+          }
+        },
+        "link_y9rErk": {
+          "type": "link",
+          "settings": {
+            "label": "",
+            "target_id": "gvmspecification"
+          }
+        },
+        "link_AGYMRH": {
+          "type": "link",
+          "settings": {
+            "label": "",
+            "target_id": "approved-wheels"
+          }
+        },
+        "link_8FKHCp": {
+          "type": "link",
+          "settings": {
+            "label": "Suspension Collection",
+            "target_id": "suspensioncollection"
+          }
+        },
+        "link_KmD9dx": {
+          "type": "link",
+          "settings": {
+            "label": "American Truck Experts",
+            "target_id": "gvmexperts"
+          }
+        }
+      },
+      "block_order": [
+        "link_C8imG8",
+        "link_y9rErk",
+        "link_AGYMRH",
+        "link_8FKHCp",
+        "link_KmD9dx"
+      ],
+      "name": "Jump links",
+      "settings": {
+        "container_mode": "full",
+        "container_width": "1200",
+        "bg_color": "#ffffff",
+        "text_color": "#111111",
+        "hover_color": "#111111",
+        "active_color": "#111111",
+        "border_color": "#0000001f",
+        "pad_y": 10,
+        "offset": 0,
+        "duration": 650
+      }
+    },
+    "rich_text_GbXVUF": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_XhCLHT": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>ORI SSM Chevy Silverado 2500HD Packages</strong>",
+            "highlight_style": "none",
+            "enable_highlight_text_color": true,
+            "heading_size": "h1",
+            "heading_color": "#56bdc2"
+          }
+        },
+        "text_CfcJd4": {
+          "type": "text",
+          "settings": {
+            "text": "<h2><strong>AN AUSTRALIAN FIRST: The Ultimate Silverado 2500HD Build — No Truck License Required!</strong></h2><p>If you’ve been holding off on building a true, uncompromised Super-Truck because you refused to cross into truck-license territory, <strong>the game just changed.</strong></p><p>For the very first time in Australia, you can build the Silverado of your dreams without upgrading your license.</p><p>Thanks to our exclusive, newly engineered, and <strong>Federally Approved Second Stage Manufacture (SSM) packages</strong>, we are shattering the limits of what a standard-license vehicle can be. You can now run up to a massive <strong>6.5-inch lift</strong> on <strong>37-inch tyres</strong> while keeping your Silverado 2500HD classified strictly under 4.5 tonnes (NB1).</p><h3><strong>What Does This Mean For You?</strong></h3><p>It means you no longer have to compromise. You get:</p><ul><li><strong>The Monster Stance:</strong> Turn heads and dominate the road with an aggressive, towering footprint.</li><li><strong>Uncompromising Ground Clearance:</strong> Tackle any terrain Australia has to offer without a second thought.</li><li><strong>100% Street Legal:</strong> Drive the biggest, baddest truck on the market using your standard Australian car license.</li></ul><h3><strong>⚠️ The \"Pre-Rego\" Golden Rule</strong></h3><p>There is only one catch to making this dream a reality: <strong>It must be done Pre-Registration.</strong></p><p>To legally bake these extreme modifications directly into the truck's federal compliance plate under the SSM scheme, the vehicle <em>must</em> be built and certified before it is registered for the very first time.</p><p><strong>Why does this matter?</strong> It means you get to skip the endless red tape. You completely avoid the aftermarket engineering nightmares, the police defects, and the insurance headaches.</p><p>You simply choose the stage that suits your dream truck, and we put you in touch with an ORI-authorised installer. You choose your wheels and tyres with them, and then <strong>BOOM</strong>—your build starts. You'll take delivery of a fully compliant, fully insured super-truck that you can legally drive Australia-wide.</p><p><strong>Don't settle for standard. Be the first.</strong> Secure your Pre-Rego allocation today and build the ultimate Silverado 2500HD.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_XhCLHT",
+        "text_CfcJd4"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "container": "container",
+        "color_schema": "",
+        "text_alignment": "left",
+        "padding_top": 40,
+        "padding_bottom": 0,
+        "show_section_divider": false,
+        "divider_width": "container",
+        "custom_id": "",
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "rich_text_PtmRiF": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_mpxUJy": {
+          "type": "heading",
+          "settings": {
+            "heading": "SSM Packages NB1 Chevy Silverado 2500HD Packages",
+            "highlight_style": "underline",
+            "enable_highlight_text_color": true,
+            "heading_size": "h1",
+            "heading_color": "#56bdc2"
+          }
+        }
+      },
+      "block_order": [
+        "heading_mpxUJy"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "container": "container",
+        "color_schema": "",
+        "text_alignment": "left",
+        "padding_top": 40,
+        "padding_bottom": 0,
+        "show_section_divider": false,
+        "divider_width": "container",
+        "custom_id": "gvmpackages",
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "image_with_text_WcaAiR": {
+      "type": "image-with-text",
+      "blocks": {
+        "subheading_JVKNjL": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "Stage 1: $10,500* - Installed & Engineered",
+            "subheading_size": "h4"
+          }
+        },
+        "heading_f9G7kD": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>Stage 1: The Weekend Warrior 3\" Upgrade</strong>",
+            "highlight_style": "none",
+            "enable_highlight_text_color": false,
+            "heading_size": "h2"
+          }
+        },
+        "text_fRRw7g": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>Best for:</strong> The daily driver and occasional tourer who wants a noticeable upgrade without going extreme.</p><ul><li><strong>Lift Height:</strong> 3 Inches</li><li><strong>Tyre Size:</strong> Engineered for either 35-inch or 37-inch tyres.</li><li><strong>Suspension Tech:</strong> Utilises a comprehensive <strong>BDS 3\" Kit</strong>, which includes a differential drop, sway bar relocation, and a rear block kit to dial in a perfectly level ride.</li><li><strong>Shock Configuration:</strong> <strong>Fox 2.5 Performance Series</strong> HTO<strong> Shocks</strong> <em>(front and rear)</em>. These provide excellent on-road comfort while resisting heat fade on harsh, corrugated roads.</li><li><strong>Extras:</strong> We also include colour-coded <strong>Husky Extenda Flares</strong> and <strong>ORI Metal mud flap brackets with rubber</strong> to ensure your vehicle is completely compliant and federally approved.</li><li><strong>What's Not Included:</strong> Just your wheels and tyres! All you need to do is pick your style. We have already set the specific wheel offsets required to keep the build federally compliant, so there is no need to stress about load ratings or legality.</li><li><strong>KIT Number: CHV-2500-STAGE-1-NB1</strong></li></ul>"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_JVKNjL",
+        "heading_f9G7kD",
+        "text_fRRw7g"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "container": "container",
+        "color_schema": "",
+        "image": "shopify://shop_images/Stage_1_Chevy2500.png",
+        "enable_lightbox": true,
+        "image_width": "50%",
+        "image_position": "left",
+        "vertical_alignment": "center",
+        "align_content_container": "none",
+        "show_image_padding": true,
+        "column_gap": "medium",
+        "row_gap": "medium",
+        "padding_left": 0,
+        "padding_right": 0,
+        "mobile_padding_left": 15,
+        "mobile_padding_right": 15,
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "padding_top_mobile": 60,
+        "padding_bottom_mobile": 60,
+        "show_section_divider": false,
+        "divider_width": "container",
+        "custom_id": "",
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "image_with_text_pR9RXR": {
+      "type": "image-with-text",
+      "blocks": {
+        "subheading_nNBqbG": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "Stage 2: $15,000* - Installed & Engineered",
+            "subheading_size": "h4"
+          }
+        },
+        "heading_dHpa9y": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>Stage 2: The Heavy Hitter 3\" Upgrade</strong>",
+            "highlight_style": "none",
+            "enable_highlight_text_color": false,
+            "heading_size": "h2"
+          }
+        },
+        "text_eiTTm6": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>Best for:</strong> The enthusiast who wants a massive improvement in suspension with complete adjustment for their vehicle's ride, featuring premium Fox 2.5 Performance Elite shocks.</p><ul><li><strong>Lift Height:</strong> 3 Inches</li><li><strong>Tyre Size:</strong> Engineered for either 35-inch or 37-inch tyres.</li><li><strong>Suspension Tech:</strong> Utilises a comprehensive <strong>BDS 3\" Kit</strong>, which includes a differential drop, sway bar relocation, and a rear block kit to dial in a perfectly level ride.</li><li><strong>Shock Configuration:</strong> <strong>Fox 2.5 Performance Elite Series Shocks</strong> <em>(front and rear)</em> featuring remote reservoirs and adjustable damping. You can literally dial in the ride with a simple clicker—soften it up for the highway, or firm it up for the tracks.</li><li><strong>Extras:</strong> We also include colour-coded <strong>Husky Extenda Flares</strong> and <strong>ORI Metal mud flap brackets with rubber</strong> to ensure your vehicle is completely compliant and federally approved.</li><li><strong>What's Not Included:</strong> Just your wheels and tyres! All you need to do is pick your style. We have already set the specific wheel offsets required to keep the build federally compliant, so there is no need to stress about load ratings or legality.</li><li><strong>CHV-2500-STAGE-2-NB1</strong></li></ul>"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_nNBqbG",
+        "heading_dHpa9y",
+        "text_eiTTm6"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "container": "container",
+        "color_schema": "",
+        "image": "shopify://shop_images/Stage_2_Chevy2500.png",
+        "enable_lightbox": true,
+        "image_width": "50%",
+        "image_position": "right",
+        "vertical_alignment": "center",
+        "align_content_container": "none",
+        "show_image_padding": true,
+        "column_gap": "medium",
+        "row_gap": "medium",
+        "padding_left": 0,
+        "padding_right": 0,
+        "mobile_padding_left": 15,
+        "mobile_padding_right": 15,
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "padding_top_mobile": 60,
+        "padding_bottom_mobile": 60,
+        "show_section_divider": false,
+        "divider_width": "container",
+        "custom_id": "",
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "image_with_text_M8ykcj": {
+      "type": "image-with-text",
+      "blocks": {
+        "subheading_p3JeNT": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "Stage 3: $19,999* - Installed & Engineered",
+            "subheading_size": "h5"
+          }
+        },
+        "heading_KMefdY": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>Stage 3: The Premium Comfort 3\" Coilover Conversion</strong>",
+            "highlight_style": "none",
+            "enable_highlight_text_color": false,
+            "heading_size": "h2"
+          }
+        },
+        "text_aVwiWh": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>Best for:</strong> The owner who demands the absolute best ride quality possible. If you want to upgrade to a plush coilover front end but are concerned about engineering and compliance, this is your solution. The ORI Stage 3 package fully engineers the BDS Coilover conversion for your Chevy Silverado 2500HD, eliminating the harsh factory ride.</p><ul><li><strong>Lift Height:</strong> 3 Inches</li><li><strong>Tyre Size:</strong> Engineered for either 35-inch or 37-inch tyres.</li><li><strong>Suspension Tech:</strong> Utilises a comprehensive <strong>BDS 3\" Coilover Kit</strong> that features a complete <em>torsion bar delete</em>—the ultimate key to a smoother ride. This system includes premium front coilovers, heavy-duty tie rods, upgraded upper and lower control arms, and a rear block kit to dial in a perfectly level stance.</li><li><strong>Shock Configuration:</strong> Massive <strong>Fox 2.5 Performance Elite Series Shocks</strong> <em>(front coilovers and rear shocks)</em> featuring remote reservoirs and adjustable damping. You can literally dial in your comfort with a simple clicker—soften it up to float down the highway, or firm it up for off-road tracks and towing.</li><li><strong>Extras:</strong> We also include colour-coded <strong>Husky Extenda Flares</strong> and <strong>ORI Metal mud flap brackets with rubber</strong> to ensure your vehicle is completely compliant and federally approved.</li><li><strong>What's Not Included:</strong> Just your wheels and tyres! All you need to do is pick your style. We have already set the specific wheel offsets required to keep the build federally compliant, so there is no need to stress about load ratings or legality.</li><li><strong>CHV-2500-STAGE-3-NB1</strong></li></ul>"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_p3JeNT",
+        "heading_KMefdY",
+        "text_aVwiWh"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "container": "container",
+        "color_schema": "",
+        "image": "shopify://shop_images/Stage_3_Chevy2500.png",
+        "enable_lightbox": true,
+        "image_width": "50%",
+        "image_position": "left",
+        "vertical_alignment": "center",
+        "align_content_container": "none",
+        "show_image_padding": true,
+        "column_gap": "medium",
+        "row_gap": "medium",
+        "padding_left": 0,
+        "padding_right": 0,
+        "mobile_padding_left": 15,
+        "mobile_padding_right": 15,
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "padding_top_mobile": 60,
+        "padding_bottom_mobile": 60,
+        "show_section_divider": false,
+        "divider_width": "container",
+        "custom_id": "",
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "image_with_text_VKJ6aN": {
+      "type": "image-with-text",
+      "blocks": {
+        "subheading_AtKMTT": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "Stage 4: $21,999* - Installed & Engineered",
+            "subheading_size": "h4"
+          }
+        },
+        "heading_fFTkhn": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>Stage 4: The Outlaw 5\" Legal Monster</strong>",
+            "highlight_style": "none",
+            "enable_highlight_text_color": false,
+            "heading_size": "h2"
+          }
+        },
+        "text_NGC7ym": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>Best for:</strong> The owner who wants that true \"big truck\" presence without the legal headaches. If you want a massive stance that is 100% legal, the Stage 4 package delivers a premium BDS 5\" system with Fox 2.5 Performance Elite shocks, allowing you to run 37\" tyres fully legal on a standard car licence under our pre-rego SSM (Second Stage Manufacture) approval.</p><ul><li><strong>Lift Height:</strong> 5 Inches</li><li><strong>Tyre Size:</strong> Engineered specifically for 37-inch tyres.</li><li><strong>Suspension Tech:</strong> Utilises a heavy-duty <strong>BDS 5\" High-Clearance Kit</strong>, featuring a full replacement subframe drop and upgraded replacement steering knuckles to keep your factory steering geometry perfectly intact at the 5-inch ride height. ORI also includes the premium <strong>BDS upper control arms</strong> to give the front end a completely integrated, high-end look.</li><li><strong>Shock Configuration:</strong> <strong>Fox 2.5 Performance Elite Series Shocks</strong> <em>(front and rear)</em> featuring remote reservoirs and adjustable damping. You can literally dial in the ride with a simple clicker—soften it up for a plush highway cruise, or firm it up for control on the tracks.</li><li><strong>Extras:</strong> We also include colour-coded <strong>Husky Extenda Flares</strong> and <strong>ORI Metal mud flap brackets with rubber</strong> to ensure your vehicle is completely compliant and federally approved.</li><li><strong>What's Not Included:</strong> Just your wheels and tyres! All you need to do is pick your style. We have already set the specific wheel offsets required to keep the build federally compliant, so there is no need to stress about load ratings or legality.</li><li><strong>CHV-2500-STAGE-4-NB1</strong></li></ul>"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_AtKMTT",
+        "heading_fFTkhn",
+        "text_NGC7ym"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "container": "container",
+        "color_schema": "",
+        "image": "shopify://shop_images/Stage_4_Chevy2500.png",
+        "enable_lightbox": true,
+        "image_width": "50%",
+        "image_position": "right",
+        "vertical_alignment": "center",
+        "align_content_container": "none",
+        "show_image_padding": true,
+        "column_gap": "medium",
+        "row_gap": "medium",
+        "padding_left": 0,
+        "padding_right": 0,
+        "mobile_padding_left": 15,
+        "mobile_padding_right": 15,
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "padding_top_mobile": 60,
+        "padding_bottom_mobile": 60,
+        "show_section_divider": false,
+        "divider_width": "container",
+        "custom_id": "",
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "image_with_text_rJkhtG": {
+      "type": "image-with-text",
+      "blocks": {
+        "subheading_DWKAtN": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "Stage 5 : $21,999* - Installed & Engineered",
+            "subheading_size": "h4"
+          }
+        },
+        "heading_R6xiqM": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>Stage 5: 6.5\" Summit Spec</strong>",
+            "highlight_style": "none",
+            "enable_highlight_text_color": false,
+            "heading_size": "h2"
+          }
+        },
+        "text_YBjh6X": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>Best for:</strong> The owner who wants the absolute maximum height available on a heavy-duty torsion setup. If you want that towering \"big truck\" presence that is 100% legal, the Stage 5 package delivers a massive BDS 6.5\" system with Fox 2.5 Performance Elite shocks, allowing you to run 37\" tyres fully legal on a standard car licence under our pre-rego SSM (Second Stage Manufacture) approval.</p><ul><li><strong>Lift Height:</strong> 6.5 Inches</li><li><strong>Tyre Size:</strong> Engineered specifically for 37-inch tyres.</li><li><strong>Suspension Tech:</strong> Utilises a heavy-duty <strong>BDS 6.5\" High-Clearance Kit</strong>, featuring a full replacement subframe drop and upgraded replacement steering knuckles to keep your factory steering geometry perfectly intact at the massive 6.5-inch ride height. ORI also includes the premium <strong>BDS upper control arms</strong> to give the front end a completely integrated, high-end look while retaining the robust factory torsion bar setup.</li><li><strong>Shock Configuration:</strong> <strong>Fox 2.5 Performance Elite Series Shocks</strong> <em>(front and rear)</em> featuring remote reservoirs and adjustable damping. You can literally dial in the ride with a simple clicker—soften it up for a plush highway cruise, or firm it up for control on the tracks.</li><li><strong>Extras:</strong> We also include colour-coded <strong>Husky Extenda Flares</strong> and <strong>ORI Metal mud flap brackets with rubber</strong> to ensure your vehicle is completely compliant and federally approved.</li><li><strong>What's Not Included:</strong> Just your wheels and tyres! All you need to do is pick your style. We have already set the specific wheel offsets required to keep the build federally compliant, so there is no need to stress about load ratings or legality.</li><li><strong>CHV-2500-STAGE-5-NB1</strong></li></ul>"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_DWKAtN",
+        "heading_R6xiqM",
+        "text_YBjh6X"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "container": "container",
+        "color_schema": "",
+        "image": "shopify://shop_images/Stage_5_Chevy2500.png",
+        "enable_lightbox": true,
+        "image_width": "50%",
+        "image_position": "left",
+        "vertical_alignment": "center",
+        "align_content_container": "none",
+        "show_image_padding": true,
+        "column_gap": "medium",
+        "row_gap": "medium",
+        "padding_left": 0,
+        "padding_right": 0,
+        "mobile_padding_left": 15,
+        "mobile_padding_right": 15,
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "padding_top_mobile": 60,
+        "padding_bottom_mobile": 60,
+        "show_section_divider": false,
+        "divider_width": "container",
+        "custom_id": "",
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "image_with_text_giCQLF": {
+      "type": "image-with-text",
+      "blocks": {
+        "subheading_GUEKJN": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "Stage 6: $29,000* - Installed & Engineered",
+            "subheading_size": "h4"
+          }
+        },
+        "heading_GqENUg": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>Stage 6: The Ultimate 6.5\" Goliath</strong>",
+            "highlight_style": "none",
+            "enable_highlight_text_color": false,
+            "heading_size": "h2"
+          }
+        },
+        "text_ddpBQL": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>Best for:</strong> The uncompromising build. This is for the owner who wants the absolute maximum height, maximum tyre size, and zero compromises on ride quality. You get the towering 6.5-inch stance clearing 37s, the incredibly smooth coilover conversion, and 100% legal road compliance on a standard car licence.</p><ul><li><strong>Lift Height:</strong> 6.5 Inches</li><li><strong>Tyre Size:</strong> Engineered specifically for 37-inch tyres.</li><li><strong>Suspension Tech:</strong> Utilises a massive <strong>BDS 6.5\" Coilover Conversion Kit</strong>. This removes the stiff factory torsion bars completely, replacing them with a modern coil spring setup. It includes a full subframe drop, heavy-duty replacement knuckles, and upgraded upper and lower control arms to keep the geometry flawless at extreme heights.</li><li><strong>Shock Configuration:</strong> Massive <strong>Fox 2.5 Performance Elite Series Coilovers</strong> up front, paired with standard Fox 2.5 Elites in the rear. Both feature remote reservoirs and adjustable damping clickers, meaning a truck this huge actually rides smoother and absorbs hits better than it did rolling off the showroom floor.</li><li><strong>Extras:</strong> We also include colour-coded <strong>Husky Extenda Flares</strong> and <strong>ORI Metal mud flap brackets with rubber</strong> to ensure your vehicle is completely compliant and federally approved.</li><li><strong>What's Not Included:</strong> Just your wheels and tyres! All you need to do is pick your style. We have already set the specific wheel offsets required to keep the build federally compliant, so there is no need to stress about load ratings or legality.</li><li><strong>CHV-2500-STAGE-6-NB1</strong></li></ul>"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_GUEKJN",
+        "heading_GqENUg",
+        "text_ddpBQL"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "container": "container",
+        "color_schema": "",
+        "image": "shopify://shop_images/Stage_6_Chevy2500.png",
+        "enable_lightbox": true,
+        "image_width": "50%",
+        "image_position": "right",
+        "vertical_alignment": "center",
+        "align_content_container": "none",
+        "show_image_padding": true,
+        "column_gap": "medium",
+        "row_gap": "medium",
+        "padding_left": 0,
+        "padding_right": 0,
+        "mobile_padding_left": 15,
+        "mobile_padding_right": 15,
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "padding_top_mobile": 60,
+        "padding_bottom_mobile": 60,
+        "show_section_divider": false,
+        "divider_width": "container",
+        "custom_id": "",
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "image_with_text_zgLfNt": {
+      "type": "image-with-text",
+      "blocks": {
+        "subheading_KF8CC3": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "Stage 6 : $XX,XXX* - Installed & Engineered",
+            "subheading_size": "h5"
+          }
+        },
+        "heading_eDyjtL": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>Stage 6: The \"MEGA \" Build (6.5-Inch BDS Coilover </strong>",
+            "highlight_style": "none",
+            "enable_highlight_text_color": false,
+            "heading_size": "h2"
+          }
+        },
+        "text_aW8UUa": {
+          "type": "text",
+          "settings": {
+            "text": "<p><em>Ever wondered how these monsters get around legally? ORI Stage 6 makes the dream a reality.</em></p><ul><li><strong>GVM Rating:</strong> 6000kg | <strong>GCM:</strong> 12,474kg</li><li><strong>Key Features:</strong> Fox 2.5 Performance Elite with BDS Lift Kit Technology (6.5-Inch Coil-Over Suspension Lift engineered for up to 37\" Tyres), and ORI 500kg heavy-duty leaf packs. Engineered for up to 37” Tyres.</li><li><strong>Best For:</strong> The absolute hardcore enthusiast who demands a monster of a truck that still delivers heavy-duty NB2 payload limits and 4.5T towing capacity.</li><li><strong>Benefit:</strong> Fully engineered for ultimate comfort and control. Equipped with a 6.5” BDS Coil-Over lift kit, this setup is 100% legal Australia-wide exclusively via ORI's Pre-Rego packages under our SSM approval. Drive anywhere knowing your monster build is completely legal and safe.</li><li><strong>Part Number:</strong> VEH-STAGE6-GVM<br/></li></ul>"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_KF8CC3",
+        "heading_eDyjtL",
+        "text_aW8UUa"
+      ],
+      "disabled": true,
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "container": "container",
+        "color_schema": "",
+        "enable_lightbox": true,
+        "image_width": "50%",
+        "image_position": "left",
+        "vertical_alignment": "center",
+        "align_content_container": "none",
+        "show_image_padding": true,
+        "column_gap": "medium",
+        "row_gap": "medium",
+        "padding_left": 0,
+        "padding_right": 0,
+        "mobile_padding_left": 15,
+        "mobile_padding_right": 15,
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "padding_top_mobile": 60,
+        "padding_bottom_mobile": 60,
+        "show_section_divider": false,
+        "divider_width": "container",
+        "custom_id": "",
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "image_with_text_9MGF8c": {
+      "type": "image-with-text",
+      "blocks": {
+        "subheading_b3w7Fn": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "Stage 6.5 : $XX,XXX* - Installed & Engineered",
+            "subheading_size": "h5"
+          }
+        },
+        "heading_gDQyxC": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>Stage 6.5: The \"Monster\" Kelderman Build (6.5-Inch Lift)</strong>",
+            "highlight_style": "none",
+            "enable_highlight_text_color": false,
+            "heading_size": "h2"
+          }
+        },
+        "text_Ktnecb": {
+          "type": "text",
+          "settings": {
+            "text": "<p><em>The undisputed King of the Off-Road. Front Coil-Over performance meets Kelderman 4-Link rear air suspension.</em></p><ul><li><strong>GVM Rating:</strong> 6000kg | <strong>GCM:</strong> 12,474kg</li><li><strong>Key Features:</strong> Fox 2.5 Performance Elite with BDS Lift Kit Technology (6.5-Inch Coil-Over Suspension Lift engineered for up to 37\" Tyres), featuring a <strong>Kelderman 4-Link full air rear suspension setup</strong>.</li><li><strong>Best For:</strong> The ultimate enthusiast who demands Super Tourer status without compromise.</li><li><strong>Benefit:</strong> This is the absolute pinnacle of suspension engineering. Combining the benefit of a BDS Coil-Over front end with the payload flexibility of a Kelderman 4-Link rear air setup, this package makes the ultimate dream a reality. 100% federally approved Pre-Rego, safe, insured, and ready to dominate any terrain in total luxury.</li><li><strong>Part Number:</strong> VEH-STAGE6-GVM-K<br/></li></ul><p></p>"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_b3w7Fn",
+        "heading_gDQyxC",
+        "text_Ktnecb"
+      ],
+      "disabled": true,
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "container": "container",
+        "color_schema": "",
+        "enable_lightbox": true,
+        "image_width": "50%",
+        "image_position": "right",
+        "vertical_alignment": "center",
+        "align_content_container": "none",
+        "show_image_padding": true,
+        "column_gap": "medium",
+        "row_gap": "medium",
+        "padding_left": 0,
+        "padding_right": 0,
+        "mobile_padding_left": 15,
+        "mobile_padding_right": 15,
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "padding_top_mobile": 60,
+        "padding_bottom_mobile": 60,
+        "show_section_divider": false,
+        "divider_width": "container",
+        "custom_id": "",
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "rich_text_RV8dqr": {
+      "type": "rich-text",
+      "blocks": {
+        "text_g3UJNm": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": "<h2>[VEHICLE] GVM Upgrade Options for Enhanced Towing Power</h2><p>One of the biggest challenges when you’re heading off the beaten track or out to a jobsite is making sure you can take all your gear, without overloading the manufacturer payload. When you want to be able to tow your trailer, boat, caravan, or simply load up the tub with more tools, you need some serious capabilities that won’t impact the structure or safety of your Chevy. </p><p>Our range of upgrades spans a huge scope of specs, giving you something custom, road-safe, and anywhere up to a 198% payload increase. Haul more and go further while still maintaining all the things you love about your truck when you get an engineered and installed [VEHICLE] GVM upgrade. </p><h2>[VEHICLE] GVM Upgrades for Maximum Performance</h2><p>If you own a [VEHICLE], you already know they’re an impressive beast both on and off the road. When you want to not only maintain their performance, but maximise it, [VEHICLE] GVM upgrades can help get you there. Between the boosted wheelbase from upgraded <a href=\"https://www.offroadindustries.com.au/collections/suspension\"><span style=\"text-decoration:underline\">suspension</span></a>, to more structural support from the new shocks and control arms, you’ll get better ground clearance, improved traction, and a structurally sound setup. These upgrades mean that you can carry your gear without strain - even on tough terrain. </p><p>When you transform your truck with a GVM package from ORI, you’ll also be able to add other upgrades that enhance the utility, functionality and personality of your vehicle. Get a fresh set of wheels to match the hauling power you’ve got, add on new <a href=\"https://www.offroadindustries.com.au/collections/bushwacker\"><span style=\"text-decoration:underline\">fender flares</span></a> to keep the undercarriage of your truck clear from dirt, or install a <a href=\"https://www.offroadindustries.com.au/collections/titan-fuel-tanks\"><span style=\"text-decoration:underline\">long range fuel tank</span></a> so you can go further. [VEHICLE] GVM upgrades do more than give you greater hauling power, they open you up to a whole new way to drive and enhance your truck. </p><p></p><h2>[VEHICLE] GVM Upgrade Packages – Enhance Your Vehicle’s Off-Road Capability</h2><p>When you’re offroading, sometimes you have to make a choice between taking all the gear you want with you or sticking to an easier path. If you’re too overloaded, handling, control, and stability can be impacted - but all of these concerns are alleviated with carefully engineered and installed <a href=\"https://www.offroadindustries.com.au/pages/ori-gvm-upgrades\"><span style=\"text-decoration:underline\">GVM upgrades</span></a>. </p><p>Our range enables you to lift your ground clearance by up to 6.5 inches, making it easier to tackle rugged tracks, beat your own path through the terrain, and maintain the traction you want. </p><h2>[VEHICLE] GVM Upgrade – Strengthen Your Vehicle for Heavy Duty Use</h2><p>Aside from the occasions when you need to be hauling higher loads, a GVM upgrade with ORI gives you a more resilient, hard-wearing truck regardless of what you’re carrying. You can tackle tough ground more easily, get through dry or soggy conditions with greater ease, and maintain a smooth ride no matter where you go and how much you’ve got in the tub. </p><p>No matter what motivates you, how you like to drive, or what you demand from your truck, a [VEHICLE] GVM upgrade from ORI offers you the driving experience you’ve always wanted. Explore the range now, and if you’re unsure which option is right for you, you can contact us for a personal recommendation. </p><p>After you’ve purchased your upgrade, you can get everything installed and engineered and discover the difference it’ll make to your [VEHICLE] in a real-world environment. No matter whether you’re driving for work or play, you can head off with confidence knowing your [VEHICLE] can handle everything without compromising the handling, comfort, and control you’re used to. </p><p></p>"
+          }
+        }
+      },
+      "block_order": [
+        "text_g3UJNm"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "container": "container",
+        "color_schema": "",
+        "text_alignment": "center",
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "show_section_divider": false,
+        "divider_width": "container",
+        "custom_id": "",
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "collapsible_tabs_UDrTRf": {
+      "type": "collapsible-tabs",
+      "blocks": {
+        "content_aq3BG8": {
+          "type": "content",
+          "settings": {
+            "icon": "none",
+            "title": "What is a GVM upgrade and why do I need one?",
+            "content": "<p>Gross Vehicle Mass (GVM) is the maximum your [VEHICLE] can legally weigh when fully loaded—including the truck, passengers, fuel, accessories (like bull bars and canopies), and tow ball weight. If you are towing heavy or building a touring rig, the factory payload gets eaten up fast. Our GVM upgrades legally increase this limit so you can carry your gear without voiding your insurance or risking hefty fines.</p>",
+            "custom_liquid": "",
+            "content_page": "",
+            "open": false
+          }
+        },
+        "content_97RYwd": {
+          "type": "content",
+          "settings": {
+            "icon": "none",
+            "title": "What does \"Pre-Rego\" and \"SSM Approval\" mean?",
+            "content": "<p>SSM stands for Second Stage of Manufacture. When we upgrade your truck <em>before</em> it is registered for the very first time (Pre-Rego), the federal government recognizes ORI as the secondary manufacturer. This means your massive lift, larger tyres, and upgraded GVM are baked into the truck's federal compliance plate. It is 100% legal to drive and insure in every state and territory in Australia.<br/><br/></p>",
+            "custom_liquid": "",
+            "content_page": "",
+            "open": false
+          }
+        },
+        "content_k7yrdM": {
+          "type": "content",
+          "settings": {
+            "icon": "none",
+            "title": "Will upgrading my GVM reduce my towing capacity?",
+            "content": "<p>Not with an ORI package. Some GVM upgrades force you to sacrifice towing capacity to carry more weight in the tub. Our [VEHICLE] packages retain your factory 12,474kg GCM (Gross Combination Mass), meaning you keep your full 4.5T braked towing capacity while maximizing your truck's payload.</p>",
+            "custom_liquid": "",
+            "content_page": "",
+            "open": false
+          }
+        },
+        "content_xFACmJ": {
+          "type": "content",
+          "settings": {
+            "icon": "none",
+            "title": "What does the NB1 to NB2 category upgrade mean?",
+            "content": "<p>By federal standards, NB1 vehicles are \"Light Goods Vehicles\" (under 4.5 tonnes). Our SSM packages legally reclassify your [VEHICLE] as an NB2 \"Medium Goods Vehicle\" (over 4.5 tonnes). This reclassification is the secret to legally unlocking that massive 5500kg–6000kg GVM.</p>",
+            "custom_liquid": "",
+            "content_page": "",
+            "open": false
+          }
+        },
+        "content_rQQeBN": {
+          "type": "content",
+          "settings": {
+            "icon": "none",
+            "title": "Are 35-inch and 37-inch tyres actually legal on these builds?",
+            "content": "<p>Yes! If done Pre-Rego through our Stage 4, 5, 6, or 6.5 SSM packages, the larger tyre sizes are federally engineered and certified as part of the build. No state-based engineering headaches—just turn the key and drive your monster truck legally anywhere in the country.</p>",
+            "custom_liquid": "",
+            "content_page": "",
+            "open": false
+          }
+        }
+      },
+      "block_order": [
+        "content_aq3BG8",
+        "content_97RYwd",
+        "content_k7yrdM",
+        "content_xFACmJ",
+        "content_rQQeBN"
+      ],
+      "disabled": true,
+      "name": "Collapsible tabs",
+      "settings": {
+        "container": "container",
+        "color_schema": "",
+        "section_header_padding_bottom": "medium",
+        "section_header_content_spacing": "medium",
+        "heading": "<strong>Frequently Asked Questions (FAQs)</strong>",
+        "highlight_style": "none",
+        "enable_highlight_text_color": false,
+        "heading_size": "h2",
+        "heading_color": "",
+        "subheading": "",
+        "description": "",
+        "item_heading_font": "body",
+        "item_heading_size": "h6",
+        "column_gap": "medium",
+        "content_width": "full",
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "show_section_divider": false,
+        "divider_width": "container",
+        "custom_id": "faqs",
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "rich_text_rnLAPH": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_YjLxhA": {
+          "type": "heading",
+          "settings": {
+            "heading": "Chevy Silverado 2500 SSM Package Details.",
+            "highlight_style": "underline",
+            "enable_highlight_text_color": true,
+            "heading_size": "h1",
+            "heading_color": "#56bdc2"
+          }
+        }
+      },
+      "block_order": [
+        "heading_YjLxhA"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "container": "container",
+        "color_schema": "",
+        "text_alignment": "left",
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "show_section_divider": false,
+        "divider_width": "container",
+        "custom_id": "gvmspecification",
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "gvm_comparison_FfmTMw": {
+      "type": "gvm-comparison",
+      "blocks": {
+        "row_M4PVnC": {
+          "type": "row",
+          "settings": {
+            "label": "Suspension Type",
+            "value_1": "",
+            "value_2": "Torsion",
+            "value_3": "Torsion",
+            "value_4": "Coilover",
+            "value_5": "",
+            "value_6": "Torsion",
+            "value_7": "Torsion",
+            "value_8": "Coilover",
+            "value_9": "",
+            "value_10": ""
+          }
+        },
+        "row_7JDfxb": {
+          "type": "row",
+          "disabled": true,
+          "settings": {
+            "label": "Gross Vehicle Mass (GVM)",
+            "value_1": "4495 KG NB1\n5148 KG NB2",
+            "value_2": "5500 KG",
+            "value_3": "6000 KG",
+            "value_4": "6000 KG",
+            "value_5": "6000 KG",
+            "value_6": "6000 KG",
+            "value_7": "6000 KG",
+            "value_8": "6000 KG",
+            "value_9": "6000 KG",
+            "value_10": ""
+          }
+        },
+        "row_YVwraj": {
+          "type": "row",
+          "settings": {
+            "label": "Braked Towing Capacity (BTC)",
+            "value_1": "4500 KG",
+            "value_2": "4500 KG",
+            "value_3": "4500 KG",
+            "value_4": "4500 KG",
+            "value_5": "4500 KG",
+            "value_6": "4500 KG",
+            "value_7": "4500 KG",
+            "value_8": "4500 KG",
+            "value_9": "4500 KG",
+            "value_10": ""
+          }
+        },
+        "row_wywcAp": {
+          "type": "row",
+          "settings": {
+            "label": "Kerb Weight",
+            "value_1": "3661 KG",
+            "value_2": "3741 KG",
+            "value_3": "3741 KG",
+            "value_4": "3741 KG",
+            "value_5": "3741 KG",
+            "value_6": "3741 KG",
+            "value_7": "3741 KG",
+            "value_8": "3741 KG",
+            "value_9": "3741 KG",
+            "value_10": ""
+          }
+        },
+        "row_VPhYR9": {
+          "type": "row",
+          "disabled": true,
+          "settings": {
+            "label": "Payload (bases on kerb weight) FROM NB1",
+            "value_1": "NB1 733 KG\nNB2 1386 KG",
+            "value_2": "1708 KG",
+            "value_3": "2198 KG",
+            "value_4": "2190 KG",
+            "value_5": "2190 KG",
+            "value_6": "2138",
+            "value_7": "2138",
+            "value_8": "2138",
+            "value_9": "2138",
+            "value_10": ""
+          }
+        },
+        "row_bcXE8T": {
+          "type": "row",
+          "disabled": true,
+          "settings": {
+            "label": "Payload Increase (%)",
+            "value_1": "",
+            "value_2": "133%",
+            "value_3": "199%",
+            "value_4": "198%",
+            "value_5": "198%",
+            "value_6": "192%",
+            "value_7": "192%",
+            "value_8": "192%",
+            "value_9": "192%",
+            "value_10": ""
+          }
+        },
+        "row_YJQHKH": {
+          "type": "row",
+          "settings": {
+            "label": "Front Axle Capacity",
+            "value_1": "2540 KG",
+            "value_2": "2540 KG",
+            "value_3": "2722 KG",
+            "value_4": "2722 KG",
+            "value_5": "2722 KG",
+            "value_6": "2722 KG",
+            "value_7": "2722 KG",
+            "value_8": "2722 KG",
+            "value_9": "2722 KG",
+            "value_10": ""
+          }
+        },
+        "row_pqzEiz": {
+          "type": "row",
+          "settings": {
+            "label": "Rear Axle Capacity",
+            "value_1": "2994 KG",
+            "value_2": "2994 KG",
+            "value_3": "3289 KG",
+            "value_4": "3289 KG",
+            "value_5": "3289 KG",
+            "value_6": "3289 KG",
+            "value_7": "3289 KG",
+            "value_8": "3289 KG",
+            "value_9": "3289 KG",
+            "value_10": ""
+          }
+        },
+        "row_NrDzqV": {
+          "type": "row",
+          "settings": {
+            "label": "Wheel Offsets",
+            "value_1": "POS 47",
+            "value_2": "Pos 12 / 18 Zero",
+            "value_3": "Pos 12 / 18 Zero",
+            "value_4": "Pos 12 / 18 Zero",
+            "value_5": "Pos 12 / 18 Zero",
+            "value_6": "Zero",
+            "value_7": "Zero",
+            "value_8": "Zero",
+            "value_9": "Zero",
+            "value_10": ""
+          }
+        },
+        "row_aDFEfG": {
+          "type": "row",
+          "disabled": true,
+          "settings": {
+            "label": "Wheel Load Rating",
+            "value_1": "",
+            "value_2": "1600 KG",
+            "value_3": "1644 KG",
+            "value_4": "1644 KG",
+            "value_5": "1644 KG",
+            "value_6": "1644 KG",
+            "value_7": "1644 KG",
+            "value_8": "1644 KG",
+            "value_9": "1644 KG",
+            "value_10": ""
+          }
+        },
+        "row_Ei9mfn": {
+          "type": "row",
+          "settings": {
+            "label": "Tyre Load Rating",
+            "value_1": "",
+            "value_2": "128Q",
+            "value_3": "128Q",
+            "value_4": "128Q",
+            "value_5": "128Q",
+            "value_6": "128Q",
+            "value_7": "128Q",
+            "value_8": "128Q",
+            "value_9": "128Q",
+            "value_10": ""
+          }
+        },
+        "row_VrmHhK": {
+          "type": "row",
+          "settings": {
+            "label": "Requires Wheel/ Tyre Upgrade",
+            "value_1": "",
+            "value_2": "Yes",
+            "value_3": "Yes",
+            "value_4": "Yes",
+            "value_5": "Yes",
+            "value_6": "Yes",
+            "value_7": "Yes",
+            "value_8": "Yes",
+            "value_9": "Yes",
+            "value_10": ""
+          }
+        },
+        "row_zxBAzG": {
+          "type": "row",
+          "settings": {
+            "label": "Maximum Tyre Size",
+            "value_1": "",
+            "value_2": "35x12.5xR18 | 35x12.5xR20",
+            "value_3": "35x12.5xR18 | 35x12.5xR20\n37x12.5xR18 | 37x12.5R20",
+            "value_4": "37x12.5xR18 | 37x12.5xR20\n37x13.5xR18 | 37x13.5xR20",
+            "value_5": "37x12.5xR18 | 37x12.5xR20\n37x13.5xR18 | 37x13.5xR20",
+            "value_6": "37x12.5xR18 | 37x12.5xR20\n37x13.5xR18 | 37x13.5xR20",
+            "value_7": "37x12.5xR18 | 37x12.5xR20\n37x13.5xR18 | 37x13.5xR20",
+            "value_8": "37x12.5xR18 | 37x12.5xR20\n37x13.5xR18 | 37x13.5xR20",
+            "value_9": "37x12.5xR18 | 37x12.5xR20\n37x13.5xR18 | 37x13.5xR20",
+            "value_10": ""
+          }
+        }
+      },
+      "block_order": [
+        "row_M4PVnC",
+        "row_7JDfxb",
+        "row_YVwraj",
+        "row_wywcAp",
+        "row_VPhYR9",
+        "row_bcXE8T",
+        "row_YJQHKH",
+        "row_pqzEiz",
+        "row_NrDzqV",
+        "row_aDFEfG",
+        "row_Ei9mfn",
+        "row_VrmHhK",
+        "row_zxBAzG"
+      ],
+      "disabled": true,
+      "name": "GVM Comparison",
+      "settings": {
+        "anchor_id": "compare",
+        "heading": "",
+        "details_heading": "",
+        "columns": "9",
+        "col_title_1": "OEM",
+        "col_title_2": "Stage 1",
+        "col_title_3": "Stage 2",
+        "col_title_4": "Stage 3",
+        "col_title_5": "",
+        "col_title_6": "Stage 4",
+        "col_title_7": "STAGE 5",
+        "col_title_8": "STAGE 6",
+        "col_title_9": "",
+        "col_title_10": "STAGE 9",
+        "container_width": "90%",
+        "heading_color": "#111111",
+        "text_color": "#111111",
+        "line_color": "#111111",
+        "mobile_card_bg": "#f5f3ee",
+        "mobile_card_text": "#111111",
+        "padding_top": 0,
+        "padding_bottom": 40
+      }
+    },
+    "gvm_comparison_tt8dam": {
+      "type": "gvm-comparison",
+      "blocks": {
+        "row_X9jJdd": {
+          "type": "row",
+          "settings": {
+            "label": "Suspension Type",
+            "value_1": "",
+            "value_2": "Torsion",
+            "value_3": "Torsion",
+            "value_4": "Coilover",
+            "value_5": "",
+            "value_6": "Torsion",
+            "value_7": "Torsion",
+            "value_8": "Coilover",
+            "value_9": "",
+            "value_10": ""
+          }
+        },
+        "row_qCKWJ9": {
+          "type": "row",
+          "disabled": true,
+          "settings": {
+            "label": "Gross Vehicle Mass (GVM)",
+            "value_1": "4495 KG NB1\n5148 KG NB2",
+            "value_2": "5500 KG",
+            "value_3": "6000 KG",
+            "value_4": "6000 KG",
+            "value_5": "6000 KG",
+            "value_6": "6000 KG",
+            "value_7": "6000 KG",
+            "value_8": "6000 KG",
+            "value_9": "6000 KG",
+            "value_10": ""
+          }
+        },
+        "row_TjWEfJ": {
+          "type": "row",
+          "settings": {
+            "label": "Braked Towing Capacity (BTC)",
+            "value_1": "4500 KG",
+            "value_2": "4500 KG",
+            "value_3": "4500 KG",
+            "value_4": "4500 KG",
+            "value_5": "4500 KG",
+            "value_6": "4500 KG",
+            "value_7": "4500 KG",
+            "value_8": "4500 KG",
+            "value_9": "4500 KG",
+            "value_10": ""
+          }
+        },
+        "row_BBAHNY": {
+          "type": "row",
+          "settings": {
+            "label": "Kerb Weight",
+            "value_1": "3661 KG",
+            "value_2": "3741 KG",
+            "value_3": "3741 KG",
+            "value_4": "3741 KG",
+            "value_5": "3741 KG",
+            "value_6": "3741 KG",
+            "value_7": "3741 KG",
+            "value_8": "3741 KG",
+            "value_9": "3741 KG",
+            "value_10": ""
+          }
+        },
+        "row_aPmfKm": {
+          "type": "row",
+          "disabled": true,
+          "settings": {
+            "label": "Payload (bases on kerb weight) FROM NB1",
+            "value_1": "NB1 733 KG\nNB2 1386 KG",
+            "value_2": "1708 KG",
+            "value_3": "2198 KG",
+            "value_4": "2190 KG",
+            "value_5": "2190 KG",
+            "value_6": "2138",
+            "value_7": "2138",
+            "value_8": "2138",
+            "value_9": "2138",
+            "value_10": ""
+          }
+        },
+        "row_HVhPzj": {
+          "type": "row",
+          "disabled": true,
+          "settings": {
+            "label": "Payload Increase (%)",
+            "value_1": "",
+            "value_2": "133%",
+            "value_3": "199%",
+            "value_4": "198%",
+            "value_5": "198%",
+            "value_6": "192%",
+            "value_7": "192%",
+            "value_8": "192%",
+            "value_9": "192%",
+            "value_10": ""
+          }
+        },
+        "row_ymzJfi": {
+          "type": "row",
+          "settings": {
+            "label": "Front Axle Capacity",
+            "value_1": "2540 KG",
+            "value_2": "2540 KG",
+            "value_3": "2722 KG",
+            "value_4": "2722 KG",
+            "value_5": "2722 KG",
+            "value_6": "2722 KG",
+            "value_7": "2722 KG",
+            "value_8": "2722 KG",
+            "value_9": "2722 KG",
+            "value_10": ""
+          }
+        },
+        "row_aVdtFK": {
+          "type": "row",
+          "settings": {
+            "label": "Rear Axle Capacity",
+            "value_1": "2994 KG",
+            "value_2": "2994 KG",
+            "value_3": "3289 KG",
+            "value_4": "3289 KG",
+            "value_5": "3289 KG",
+            "value_6": "3289 KG",
+            "value_7": "3289 KG",
+            "value_8": "3289 KG",
+            "value_9": "3289 KG",
+            "value_10": ""
+          }
+        },
+        "row_ACwjmn": {
+          "type": "row",
+          "settings": {
+            "label": "Wheel Offsets",
+            "value_1": "POS 47",
+            "value_2": "Pos 12 / 18 Zero",
+            "value_3": "Pos 12 / 18 Zero",
+            "value_4": "Pos 12 / 18 Zero",
+            "value_5": "Pos 12 / 18 Zero",
+            "value_6": "Zero",
+            "value_7": "Zero",
+            "value_8": "Zero",
+            "value_9": "Zero",
+            "value_10": ""
+          }
+        },
+        "row_9PzBit": {
+          "type": "row",
+          "disabled": true,
+          "settings": {
+            "label": "Wheel Load Rating",
+            "value_1": "",
+            "value_2": "1600 KG",
+            "value_3": "1644 KG",
+            "value_4": "1644 KG",
+            "value_5": "1644 KG",
+            "value_6": "1644 KG",
+            "value_7": "1644 KG",
+            "value_8": "1644 KG",
+            "value_9": "1644 KG",
+            "value_10": ""
+          }
+        },
+        "row_XN4ctk": {
+          "type": "row",
+          "settings": {
+            "label": "Tyre Load Rating",
+            "value_1": "",
+            "value_2": "128Q",
+            "value_3": "128Q",
+            "value_4": "128Q",
+            "value_5": "128Q",
+            "value_6": "128Q",
+            "value_7": "128Q",
+            "value_8": "128Q",
+            "value_9": "128Q",
+            "value_10": ""
+          }
+        },
+        "row_tCenrj": {
+          "type": "row",
+          "settings": {
+            "label": "Requires Wheel/ Tyre Upgrade",
+            "value_1": "",
+            "value_2": "Yes",
+            "value_3": "Yes",
+            "value_4": "Yes",
+            "value_5": "Yes",
+            "value_6": "Yes",
+            "value_7": "Yes",
+            "value_8": "Yes",
+            "value_9": "Yes",
+            "value_10": ""
+          }
+        },
+        "row_EeJwFd": {
+          "type": "row",
+          "settings": {
+            "label": "Maximum Tyre Size",
+            "value_1": "",
+            "value_2": "35x12.5xR18 | 35x12.5xR20",
+            "value_3": "35x12.5xR18 | 35x12.5xR20\n37x12.5xR18 | 37x12.5R20",
+            "value_4": "37x12.5xR18 | 37x12.5xR20\n37x13.5xR18 | 37x13.5xR20",
+            "value_5": "37x12.5xR18 | 37x12.5xR20\n37x13.5xR18 | 37x13.5xR20",
+            "value_6": "37x12.5xR18 | 37x12.5xR20\n37x13.5xR18 | 37x13.5xR20",
+            "value_7": "37x12.5xR18 | 37x12.5xR20\n37x13.5xR18 | 37x13.5xR20",
+            "value_8": "37x12.5xR18 | 37x12.5xR20\n37x13.5xR18 | 37x13.5xR20",
+            "value_9": "37x12.5xR18 | 37x12.5xR20\n37x13.5xR18 | 37x13.5xR20",
+            "value_10": ""
+          }
+        }
+      },
+      "block_order": [
+        "row_X9jJdd",
+        "row_qCKWJ9",
+        "row_TjWEfJ",
+        "row_BBAHNY",
+        "row_aPmfKm",
+        "row_HVhPzj",
+        "row_ymzJfi",
+        "row_aVdtFK",
+        "row_ACwjmn",
+        "row_9PzBit",
+        "row_XN4ctk",
+        "row_tCenrj",
+        "row_EeJwFd"
+      ],
+      "custom_css": [
+        "#ssm-package-details .gvm-compare__row .gvm-compare__cell:nth-child(6),#ssm-package-details .gvm-compare__row .gvm-compare__cell:nth-child(10) {display: none;}"
+      ],
+      "name": "GVM Comparison",
+      "settings": {
+        "anchor_id": "ssm-package-details",
+        "heading": "",
+        "details_heading": "",
+        "columns": "9",
+        "col_title_1": "OEM",
+        "col_title_2": "Stage 1",
+        "col_title_3": "Stage 2",
+        "col_title_4": "Stage 3",
+        "col_title_5": "",
+        "col_title_6": "Stage 4",
+        "col_title_7": "STAGE 5",
+        "col_title_8": "STAGE 6",
+        "col_title_9": "",
+        "col_title_10": "STAGE 9",
+        "container_width": "90%",
+        "heading_color": "#111111",
+        "text_color": "#111111",
+        "line_color": "#111111",
+        "mobile_card_bg": "#f5f3ee",
+        "mobile_card_text": "#111111",
+        "padding_top": 0,
+        "padding_bottom": 40
+      }
+    },
+    "gvm_comparison_RXeVcA": {
+      "type": "gvm-comparison",
+      "blocks": {
+        "row_PLrREz": {
+          "type": "row",
+          "settings": {
+            "label": "Fox 2.5 HTO Performance Series (Front)",
+            "value_1": "987-24-010",
+            "value_2": "✔",
+            "value_3": "",
+            "value_4": "",
+            "value_5": "",
+            "value_6": "",
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
+          }
+        },
+        "row_QWetUx": {
+          "type": "row",
+          "settings": {
+            "label": "Fox 2.5 HTO Performance Series (Rear)",
+            "value_1": "987-24-011",
+            "value_2": "✔",
+            "value_3": "",
+            "value_4": "",
+            "value_5": "",
+            "value_6": "",
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
+          }
+        },
+        "row_dAdUVr": {
+          "type": "row",
+          "settings": {
+            "label": "Fox 2.5  Performance Elite Series (Front)",
+            "value_1": "883-26-084",
+            "value_2": "",
+            "value_3": "✔",
+            "value_4": "",
+            "value_5": "",
+            "value_6": "",
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
+          }
+        },
+        "row_VhLrHW": {
+          "type": "row",
+          "settings": {
+            "label": "Fox 2.5 Performance Elite Series (Rear)",
+            "value_1": "883-26-085",
+            "value_2": "",
+            "value_3": "✔",
+            "value_4": "✔",
+            "value_5": "✔",
+            "value_6": "",
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
+          }
+        },
+        "row_Xm7nMe": {
+          "type": "row",
+          "settings": {
+            "label": "Fox 2.5 Peformance Elite Coilover (Front)",
+            "value_1": "884-06-337",
+            "value_2": "",
+            "value_3": "",
+            "value_4": "✔",
+            "value_5": "✔",
+            "value_6": "",
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
+          }
+        },
+        "row_PyCLYV": {
+          "type": "row",
+          "settings": {
+            "label": "Fox 2.5  Performance Elite Series (Front)",
+            "value_1": "884-26-030",
+            "value_2": "",
+            "value_3": "",
+            "value_4": "",
+            "value_5": "",
+            "value_6": "✔",
+            "value_7": "✔",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
+          }
+        },
+        "row_MQ9Uxh": {
+          "type": "row",
+          "settings": {
+            "label": "Fox 2.5 Performance Elite Series (Rear)",
+            "value_1": "884-26-031",
+            "value_2": "",
+            "value_3": "",
+            "value_4": "",
+            "value_5": "",
+            "value_6": "✔",
+            "value_7": "✔",
+            "value_8": "✔",
+            "value_9": "✔",
+            "value_10": ""
+          }
+        },
+        "row_ViUDYJ": {
+          "type": "row",
+          "settings": {
+            "label": "Fox 2.5 Peformance Elite Coilover (Front)",
+            "value_1": "884-06-339",
+            "value_2": "",
+            "value_3": "",
+            "value_4": "",
+            "value_5": "",
+            "value_6": "",
+            "value_7": "",
+            "value_8": "✔",
+            "value_9": "✔",
+            "value_10": ""
+          }
+        },
+        "row_YaJzWt": {
+          "type": "row",
+          "settings": {
+            "label": "BDS Control Arm",
+            "value_1": "BDS121304",
+            "value_2": "✔",
+            "value_3": "✔",
+            "value_4": "✔",
+            "value_5": "",
+            "value_6": "✔",
+            "value_7": "✔",
+            "value_8": "✔",
+            "value_9": "✔",
+            "value_10": ""
+          }
+        },
+        "row_MDY7qw": {
+          "type": "row",
+          "settings": {
+            "label": "Husky Extenda Flare",
+            "value_1": "2804986",
+            "value_2": "✔",
+            "value_3": "✔",
+            "value_4": "✔",
+            "value_5": "✔",
+            "value_6": "✔",
+            "value_7": "✔",
+            "value_8": "✔",
+            "value_9": "✔",
+            "value_10": ""
+          }
+        },
+        "row_KnhHzc": {
+          "type": "row",
+          "disabled": true,
+          "settings": {
+            "label": "500 KG ORI Rear Leaf Packs",
+            "value_1": "ORI-CHVHD-500KG",
+            "value_2": "✔",
+            "value_3": "✔",
+            "value_4": "✔",
+            "value_5": "✔",
+            "value_6": "✔",
+            "value_7": "✔",
+            "value_8": "✔",
+            "value_9": "✔",
+            "value_10": ""
+          }
+        },
+        "row_nNQibi": {
+          "type": "row",
+          "disabled": true,
+          "settings": {
+            "label": "Kelderman 4 Link Rear Air 0-3\"",
+            "value_1": "KLM-10006647",
+            "value_2": "",
+            "value_3": "",
+            "value_4": "",
+            "value_5": "✔",
+            "value_6": "",
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
+          }
+        },
+        "row_q477DL": {
+          "type": "row",
+          "disabled": true,
+          "settings": {
+            "label": "Kelderman 4 Link Rear Air 5-6\"",
+            "value_1": "KLM-10031845",
+            "value_2": "",
+            "value_3": "",
+            "value_4": "",
+            "value_5": "",
+            "value_6": "",
+            "value_7": "",
+            "value_8": "",
+            "value_9": "✔",
+            "value_10": ""
+          }
+        },
+        "row_YMC4Cg": {
+          "type": "row",
+          "settings": {
+            "label": "ORI MUD Flaps Kit",
+            "value_1": "VEH-MUD-FLAPS",
+            "value_2": "✔",
+            "value_3": "✔",
+            "value_4": "✔",
+            "value_5": "✔",
+            "value_6": "✔",
+            "value_7": "✔",
+            "value_8": "✔",
+            "value_9": "✔",
+            "value_10": ""
+          }
+        },
+        "row_nkM7rU": {
+          "type": "row",
+          "settings": {
+            "label": "ORI ADR Compliance Lights",
+            "value_1": "ORI-LED-Comp",
+            "value_2": "",
+            "value_3": "",
+            "value_4": "",
+            "value_5": "✔",
+            "value_6": "✔",
+            "value_7": "✔",
+            "value_8": "✔",
+            "value_9": "✔",
+            "value_10": ""
+          }
+        },
+        "row_ft3LzT": {
+          "type": "row",
+          "disabled": true,
+          "settings": {
+            "label": "GVM Part Number",
+            "value_1": "",
+            "value_2": "",
+            "value_3": "VEH-STAGE2-GVM",
+            "value_4": "VEH-STAGE3-GVM",
+            "value_5": "VEH-STAGE3-GVM-K",
+            "value_6": "VEH-STAGE4-GVM",
+            "value_7": "VEH-STAGE5-GVM",
+            "value_8": "VEH-STAGE6-GVM",
+            "value_9": "VEH-STAGE6-GVM-K",
+            "value_10": ""
+          }
+        }
+      },
+      "block_order": [
+        "row_PLrREz",
+        "row_QWetUx",
+        "row_dAdUVr",
+        "row_VhLrHW",
+        "row_Xm7nMe",
+        "row_PyCLYV",
+        "row_MQ9Uxh",
+        "row_ViUDYJ",
+        "row_YaJzWt",
+        "row_MDY7qw",
+        "row_KnhHzc",
+        "row_nNQibi",
+        "row_q477DL",
+        "row_YMC4Cg",
+        "row_nkM7rU",
+        "row_ft3LzT"
+      ],
+      "custom_css": [
+        "#compare1 .gvm-compare__row .gvm-compare__cell:nth-child(6),#compare1 .gvm-compare__row .gvm-compare__cell:nth-child(10) {display: none;}"
+      ],
+      "name": "GVM Comparison",
+      "settings": {
+        "anchor_id": "compare1",
+        "heading": "",
+        "details_heading": "Item",
+        "columns": "9",
+        "col_title_1": "Part Number",
+        "col_title_2": "Stage 1",
+        "col_title_3": "Stage 2",
+        "col_title_4": "Stage 3",
+        "col_title_5": "",
+        "col_title_6": "Stage 4",
+        "col_title_7": "STAGE 5",
+        "col_title_8": "STAGE 6",
+        "col_title_9": "",
+        "col_title_10": "",
+        "container_width": "90%",
+        "heading_color": "#111111",
+        "text_color": "#111111",
+        "line_color": "#111111",
+        "mobile_card_bg": "#f5f3ee",
+        "mobile_card_text": "#111111",
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    },
+    "rich_text_4AxLyp": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_PHJcdq": {
+          "type": "heading",
+          "settings": {
+            "heading": "Approved Method Wheels",
+            "highlight_style": "underline",
+            "enable_highlight_text_color": true,
+            "heading_size": "h1",
+            "heading_color": "#56bdc2"
+          }
+        }
+      },
+      "block_order": [
+        "heading_PHJcdq"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "container": "container",
+        "color_schema": "",
+        "text_alignment": "left",
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "show_section_divider": false,
+        "divider_width": "container",
+        "custom_id": "approved-wheels",
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "wheel_comparison_grid_qGx6nc": {
+      "type": "wheel-comparison-grid",
+      "blocks": {
+        "row_3UKHgU": {
+          "type": "row",
+          "settings": {
+            "label": "DESCRIPTION",
+            "use_as_title": true,
+            "value_1": "MR305NV",
+            "value_2": "MR709 HD Bead Grip",
+            "value_3": "MR709 HD Bead Grip",
+            "value_4": "",
+            "value_5": "",
+            "value_6": ""
+          }
+        },
+        "row_wKR3CU": {
+          "type": "row",
+          "settings": {
+            "label": "COLOUR",
+            "use_as_title": false,
+            "value_1": "Double Black Matte Black Titanium Machines",
+            "value_2": "Matte Black & Machined",
+            "value_3": "Machined",
+            "value_4": "",
+            "value_5": "",
+            "value_6": ""
+          }
+        },
+        "row_rCcK78": {
+          "type": "row",
+          "settings": {
+            "label": "OFFSET",
+            "use_as_title": false,
+            "value_1": "+18 +12 Zero, - 12\nNote: -12 will require DRT Fender Flares not husky extenda",
+            "value_2": "Pos 12",
+            "value_3": "Pos 12",
+            "value_4": "",
+            "value_5": "",
+            "value_6": ""
+          }
+        }
+      },
+      "block_order": [
+        "row_3UKHgU",
+        "row_wKR3CU",
+        "row_rCcK78"
+      ],
+      "name": "Wheel Comparison",
+      "settings": {
+        "anchor_id": "",
+        "heading": "",
+        "columns": "3",
+        "image_1": "shopify://shop_images/MR305NV-wheel.webp",
+        "image_2": "shopify://shop_images/MR709-black.webp",
+        "image_3": "shopify://shop_images/MR709-white.webp",
+        "label_col_width": 260,
+        "container_width": "1200px",
+        "text_color": "#111111",
+        "label_color": "#111111",
+        "line_color": "#d0d0d0",
+        "mobile_card_bg": "#ffffff",
+        "mobile_card_text": "#111111",
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    },
+    "contact_form_v4_YzWJbE": {
+      "type": "contact-form-v4",
+      "blocks": {
+        "name_GV7LzQ": {
+          "type": "name",
+          "settings": {
+            "label": "Name",
+            "field_name": "Name",
+            "placeholder": "Enter your name",
+            "field_width": "full",
+            "hide_label": true,
+            "required": false
+          }
+        },
+        "email_CnB7aV": {
+          "type": "email",
+          "settings": {
+            "label": "Email",
+            "placeholder": "Enter your email",
+            "field_width": "full",
+            "hide_label": true
+          }
+        },
+        "phone_xxDBjJ": {
+          "type": "phone",
+          "settings": {
+            "label": "Phone number",
+            "placeholder": "Enter your phone number",
+            "field_width": "full",
+            "hide_label": true,
+            "required": false
+          }
+        },
+        "rego_status_GHUeAg": {
+          "type": "rego_status",
+          "settings": {
+            "label": "Pre or Post rego",
+            "field_name": "Pre or Post rego",
+            "placeholder": "Select one",
+            "options": "Pre rego, Post rego",
+            "field_width": "full",
+            "hide_label": true,
+            "required": false
+          }
+        },
+        "custom_select_4BAt7V": {
+          "type": "custom_select",
+          "settings": {
+            "label": "Which Vehicle",
+            "field_name": "Which Vehicle",
+            "placeholder": "Which Vehicle",
+            "options": "Ford F150, Chevy 1500, [VEHICLE], Toyota Tundra, RAM 2500 (5th Gen), RAM 2500 (6th Gen), Toyota LC300",
+            "field_width": "100",
+            "hide_label": true,
+            "required": false
+          }
+        },
+        "custom_select_d7bihk": {
+          "type": "custom_select",
+          "settings": {
+            "label": "What Stage GVM Package",
+            "field_name": "What Stage GVM Package",
+            "placeholder": "What Stage GVM Package",
+            "options": "Stage 1, Stage 2, Stage 3, Stage 4, Stage 5, Stage 6",
+            "field_width": "100",
+            "hide_label": true,
+            "required": false
+          }
+        },
+        "location_TLebdV": {
+          "type": "location",
+          "settings": {
+            "label": "What is your location",
+            "field_name": "Location",
+            "placeholder": "What is your location?",
+            "field_width": "full",
+            "hide_label": true,
+            "required": false
+          }
+        },
+        "message_QFCAgC": {
+          "type": "message",
+          "settings": {
+            "label": "Message",
+            "placeholder": "Which GVM Package do you want further information on?",
+            "rows": 3,
+            "field_width": "100",
+            "hide_label": true
+          }
+        }
+      },
+      "block_order": [
+        "name_GV7LzQ",
+        "email_CnB7aV",
+        "phone_xxDBjJ",
+        "rego_status_GHUeAg",
+        "custom_select_4BAt7V",
+        "custom_select_d7bihk",
+        "location_TLebdV",
+        "message_QFCAgC"
+      ],
+      "name": "Contact form v4",
+      "settings": {
+        "container": "container",
+        "color_schema": "",
+        "heading": "GVM Enquiry? Contact us Now",
+        "subheading": "",
+        "description": "",
+        "form_design": "design-1",
+        "form_width": 500,
+        "form_alignment": "center",
+        "button_label": "Send",
+        "button_style": "btn--primary",
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "show_section_divider": false,
+        "divider_width": "container",
+        "custom_id": "",
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "contact_form_v2_RPLgEE": {
+      "type": "contact-form-v2",
+      "blocks": {
+        "info_item_zNMcTt": {
+          "type": "info_item",
+          "settings": {
+            "icon": "email",
+            "label": "Email",
+            "value": "sales@offroadindustries.com.au",
+            "link": "mailto:sales@offroadindustries.com.au"
+          }
+        },
+        "info_item_j6CcfC": {
+          "type": "info_item",
+          "settings": {
+            "icon": "pin",
+            "label": "Address",
+            "value": "3 Montefiore Street Fairfield VIC 3078 Australia",
+            "link": "tel:+10000000000"
+          }
+        },
+        "info_item_TxRNMT": {
+          "type": "info_item",
+          "settings": {
+            "icon": "clock",
+            "label": "Business Hours",
+            "value": "Monday to Friday: 9:00AM – 4:00PM",
+            "link": "tel:+10000000000"
+          }
+        },
+        "field_name_rTGqWP": {
+          "type": "field_name",
+          "settings": {
+            "label": "Name",
+            "placeholder": "Your name",
+            "required": true,
+            "width": "full"
+          }
+        },
+        "field_email_CCi9dH": {
+          "type": "field_email",
+          "settings": {
+            "label": "Email",
+            "placeholder": "you@email.com",
+            "required": true,
+            "width": "full"
+          }
+        },
+        "field_phone_HEpAqj": {
+          "type": "field_phone",
+          "settings": {
+            "label": "Phone",
+            "placeholder": "Optional",
+            "required": false,
+            "width": "full"
+          }
+        },
+        "field_message_63UbyE": {
+          "type": "field_message",
+          "settings": {
+            "label": "Message",
+            "placeholder": "How can we help?",
+            "required": true,
+            "width": "full"
+          }
+        }
+      },
+      "block_order": [
+        "info_item_zNMcTt",
+        "info_item_j6CcfC",
+        "info_item_TxRNMT",
+        "field_name_rTGqWP",
+        "field_email_CCi9dH",
+        "field_phone_HEpAqj",
+        "field_message_63UbyE"
+      ],
+      "disabled": true,
+      "name": "Contact Form v2",
+      "settings": {
+        "heading": "Questions? We’re Hereto Help",
+        "body": "<p>Add your intro text here.</p>",
+        "form_title": "Send us a message",
+        "form_banner_image": "shopify://shop_images/contact-form-banner.webp",
+        "button_label": "Submit",
+        "success_message": "Thanks! We received your message and will get back to you soon.",
+        "desktop_layout": "content_left",
+        "mobile_layout": "content_first",
+        "fields_columns_desktop": "1",
+        "max_width": 1200,
+        "bg_color": "#ffffff",
+        "form_bg": "#e6e6e6",
+        "accent": "#56bdc2",
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    },
+    "rich_text_ni9bQW": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_fRrLKd": {
+          "type": "heading",
+          "settings": {
+            "heading": "Ori's Suspension Collection",
+            "highlight_style": "underline",
+            "enable_highlight_text_color": true,
+            "heading_size": "h1",
+            "heading_color": "#56bdc2"
+          }
+        }
+      },
+      "block_order": [
+        "heading_fRrLKd"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "container": "container",
+        "color_schema": "",
+        "text_alignment": "left",
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "show_section_divider": false,
+        "divider_width": "container",
+        "custom_id": "suspensioncollection",
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "logo_list_8XphYi": {
+      "type": "logo-list",
+      "blocks": {
+        "logo_cpKqVD": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/ICONS_FOR_WEBSITE_FOX.png",
+            "image_from_url": "",
+            "image_link": "",
+            "image_width": 80
+          }
+        },
+        "logo_HXcdg3": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/ICONS_FOR_WEBSITE_BDS.png",
+            "image_from_url": "",
+            "image_link": "",
+            "image_width": 80
+          }
+        },
+        "logo_kg3grH": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/ICONS_FOR_WEBSITE_BUSHWACKER.png",
+            "image_from_url": "",
+            "image_link": "",
+            "image_width": 80
+          }
+        },
+        "logo_mVCjy7": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/peak_final-copy-small.jpg",
+            "image_from_url": "",
+            "image_link": "",
+            "image_width": 80
+          }
+        }
+      },
+      "block_order": [
+        "logo_cpKqVD",
+        "logo_HXcdg3",
+        "logo_kg3grH",
+        "logo_mVCjy7"
+      ],
+      "name": "t:sections.logo-list.presets.name",
+      "settings": {
+        "container": "container",
+        "color_schema": "",
+        "section_header_padding_bottom": "medium",
+        "section_header_content_spacing": "medium",
+        "heading": "",
+        "highlight_style": "none",
+        "enable_highlight_text_color": false,
+        "heading_size": "h2",
+        "heading_color": "",
+        "description": "",
+        "columns": 4,
+        "column_gap": "medium",
+        "row_gap": "medium",
+        "enable_slider": true,
+        "show_nav": false,
+        "show_dots": false,
+        "enable_swipe_mobile": false,
+        "column_mobile": "1",
+        "padding_top": 0,
+        "padding_bottom": 40,
+        "show_section_divider": false,
+        "divider_width": "container",
+        "custom_id": "",
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "slideshow_CtnG98",
+    "jump_links_UeawGp",
+    "rich_text_GbXVUF",
+    "rich_text_PtmRiF",
+    "image_with_text_WcaAiR",
+    "image_with_text_pR9RXR",
+    "image_with_text_M8ykcj",
+    "image_with_text_VKJ6aN",
+    "image_with_text_rJkhtG",
+    "image_with_text_giCQLF",
+    "image_with_text_zgLfNt",
+    "image_with_text_9MGF8c",
+    "rich_text_RV8dqr",
+    "collapsible_tabs_UDrTRf",
+    "rich_text_rnLAPH",
+    "gvm_comparison_FfmTMw",
+    "gvm_comparison_tt8dam",
+    "gvm_comparison_RXeVcA",
+    "rich_text_4AxLyp",
+    "wheel_comparison_grid_qGx6nc",
+    "contact_form_v4_YzWJbE",
+    "contact_form_v2_RPLgEE",
+    "rich_text_ni9bQW",
+    "logo_list_8XphYi"
+  ]
+}
