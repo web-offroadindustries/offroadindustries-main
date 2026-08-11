@@ -107,35 +107,28 @@
   margin-top: 8px;
 }
 
-/* The calculator prompt. It sits with the two main calls to action but is not
-   competing with them: no fill, just the icon and an underline, so it reads as
-   "before you choose, work out what you need" rather than a third offer.
-   Given its own flex row on desktop so it drops under the buttons instead of
-   stretching the row to three across. */
-.ori-gvm-hero__cta--calc {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  flex-basis: 100%;
+/* The calculator call to action, on its own line under the two main buttons.
+   Its own wrapper rather than a third flex item, so it stays a normal content
+   width button instead of stretching across the row.
+
+   Nothing here touches ::before or ::after: those belong to the theme's button
+   hover fill, and overriding them is what turned this into a solid bar. */
+.ori-gvm-hero__calc-cta {
+  display: flex;
   justify-content: center;
   margin-top: 4px;
 }
 
-.ori-gvm-hero__cta-icon {
+.ori-gvm-hero__calc-btn {
+  gap: 10px;
+}
+
+/* The theme's .btn is already an inline-flex row, so the icon just needs a size
+   and a guard against being squashed by the label. */
+.ori-gvm-hero__calc-icon {
   width: 18px;
   height: 18px;
   flex: 0 0 auto;
-}
-
-/* .btn--link draws its underline with an ::after pinned to the whole element
-   box, so without this the rule runs under the icon as well as the words.
-   Inset from the left by the icon plus the gap, and right:0 replaces the
-   inherited width:100% so it still stops at the end of the text. Same
-   specificity as the components.css rule, and this file loads after it. */
-.ori-gvm-hero__cta--calc::after {
-  left: 26px;
-  right: 0;
-  width: auto;
 }
 
 @media (max-width: 749px) {
@@ -151,9 +144,11 @@
   .ori-gvm-hero__ctas .btn {
     flex: 1 1 auto;
   }
-  /* Two classes, so this beats the .btn rule above and keeps the calculator
-     prompt on its own line instead of squeezing three buttons across. */
-  .ori-gvm-hero__ctas .ori-gvm-hero__cta--calc {
-    flex: 0 0 100%;
+  /* Full width on phones, matching the two buttons above it. */
+  .ori-gvm-hero__calc-cta {
+    width: 100%;
+  }
+  .ori-gvm-hero__calc-btn {
+    width: 100%;
   }
 }

@@ -68,7 +68,7 @@
         "custom_class": "",
         "btn_3_text": "Know Your Weight? Try the GVM Calculator",
         "btn_3_url": "#gvm-calculator",
-        "btn_3_style": "btn--link",
+        "btn_3_style": "btn--primary",
         "btn_3_show_icon": true
       }
     },
@@ -179,7 +179,7 @@
         "accessory_middle_label": "Middle",
         "accessory_rear_label": "Rear",
         "container": "container",
-        "color_schema": "accent",
+        "color_schema": "",
         "padding_top": 60,
         "padding_bottom": 60,
         "custom_id": "gvm-calculator",

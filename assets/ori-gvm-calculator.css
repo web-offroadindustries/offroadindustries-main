@@ -4,6 +4,11 @@
   --gvm-text: var(--color-text-body, var(--brand-black, #000));
   --gvm-surface: var(--color-background, #fff);
   --gvm-surface-muted: #f5f7f8;
+  /* Text for the panels above, which hardcode a light background. --gvm-text
+     follows the section's colour scheme, so on a dark scheme it flips to white
+     and those panels lose all contrast: light box, white words. Anything sitting
+     on a fixed light surface has to pin its own colour. */
+  --gvm-on-muted: #16232b;
   --gvm-border: #dce1e5;
   --gvm-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
   --gvm-ok: #087a55;
@@ -45,12 +50,27 @@
   width: 100%;
 }
 
+/* Single column by default. The two column split only applies when an image is
+   actually set: reserving the media column unconditionally left the intro
+   squeezed into the left 55% of the section with a large empty gap beside it,
+   which is what made the section read as unfinished on pages with no image. */
 .ori-gvm-calculator__intro {
   align-items: center;
   display: grid;
   gap: clamp(28px, 5vw, 72px);
-  grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.9fr);
+  grid-template-columns: minmax(0, 1fr);
   margin-bottom: clamp(32px, 5vw, 64px);
+}
+
+.ori-gvm-calculator__intro--with-media {
+  grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.9fr);
+}
+
+/* Without an image the intro is free to run the full width of the section, so
+   the copy needs a measure of its own or it turns into very long lines. */
+.ori-gvm-calculator__intro:not(.ori-gvm-calculator__intro--with-media)
+  .ori-gvm-calculator__intro-content {
+  max-width: 760px;
 }
 
 .ori-gvm-calculator__intro-content,
@@ -93,6 +113,7 @@
 .ori-gvm-calculator__disclaimer {
   background: var(--gvm-surface-muted);
   border-left: 4px solid var(--gvm-accent);
+  color: var(--gvm-on-muted);
   margin-top: 24px;
   padding: 18px 20px;
 }

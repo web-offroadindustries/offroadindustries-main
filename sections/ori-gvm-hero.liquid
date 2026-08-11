@@ -94,34 +94,46 @@
             {{- section.settings.btn_2_text -}}
           </a>
         {%- endif -%}
-        {%- comment -%}
-          Third slot, added for the "know your weight" link through to the load
-          calculator. Blank by default, so every hero that does not set it is
-          unchanged. Left as a plain link rather than a button style of its own
-          so it reads as a secondary prompt beside the two main calls to action.
-        {%- endcomment -%}
-        {%- if section.settings.btn_3_text != blank -%}
+      </div>
+
+      {%- comment -%}
+        Third call to action, for the link through to the load calculator. Blank
+        by default, so every hero that does not set it is unchanged.
+
+        In its own row rather than a third item in the flex list above: giving it
+        flex-basis 100% inside that row stretched it into a full width bar. A
+        wrapper keeps it a normal, content width button that simply sits on its
+        own line.
+
+        Note for anyone changing the style: do not use btn--link here. The theme
+        paints its button hover fill with .btn::before/::after, and the :not()
+        guard on that rule excludes btn--plain and btn--underline but not
+        btn--link, so a btn--link inside .btn ends up with the fill showing as a
+        solid block.
+      {%- endcomment -%}
+      {%- if section.settings.btn_3_text != blank -%}
+        <div class="ori-gvm-hero__calc-cta">
           <a
             href="{{ section.settings.btn_3_url | default: '#' }}"
-            class="btn {{ section.settings.btn_3_style }} ori-gvm-hero__cta--calc"
+            class="btn {{ section.settings.btn_3_style }} ori-gvm-hero__calc-btn"
           >
             {%- if section.settings.btn_3_show_icon -%}
-              <svg class="ori-gvm-hero__cta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+              <svg class="ori-gvm-hero__calc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
                 <rect x="4" y="2" width="16" height="20" rx="2"/>
                 <line x1="8" y1="6" x2="16" y2="6"/>
-                <line x1="8" y1="11" x2="8" y2="11"/>
-                <line x1="12" y1="11" x2="12" y2="11"/>
-                <line x1="16" y1="11" x2="16" y2="11"/>
-                <line x1="8" y1="15" x2="8" y2="15"/>
-                <line x1="12" y1="15" x2="12" y2="15"/>
-                <line x1="16" y1="15" x2="16" y2="18"/>
-                <line x1="8" y1="18" x2="12" y2="18"/>
+                <line x1="8" y1="11.5" x2="8" y2="11.5"/>
+                <line x1="12" y1="11.5" x2="12" y2="11.5"/>
+                <line x1="16" y1="11.5" x2="16" y2="11.5"/>
+                <line x1="8" y1="15.5" x2="8" y2="15.5"/>
+                <line x1="12" y1="15.5" x2="12" y2="15.5"/>
+                <line x1="16" y1="15.5" x2="16" y2="18.5"/>
+                <line x1="8" y1="18.5" x2="12" y2="18.5"/>
               </svg>
             {%- endif -%}
-            {{- section.settings.btn_3_text -}}
+            <span>{{ section.settings.btn_3_text }}</span>
           </a>
-        {%- endif -%}
-      </div>
+        </div>
+      {%- endif -%}
 
     </div>
   </div>
@@ -232,10 +244,9 @@
       "options": [
         { "value": "btn--primary", "label": "Primary" },
         { "value": "btn--secondary", "label": "Secondary" },
-        { "value": "btn--outline", "label": "Outline" },
-        { "value": "btn--link", "label": "Text link" }
+        { "value": "btn--outline", "label": "Outline" }
       ],
-      "default": "btn--link"
+      "default": "btn--primary"
     },
     {
       "type": "checkbox",
