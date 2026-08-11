@@ -65,7 +65,11 @@
         "padding_top": 64,
         "padding_bottom": 48,
         "custom_id": "",
-        "custom_class": ""
+        "custom_class": "",
+        "btn_3_text": "Know Your Weight? Try the GVM Calculator",
+        "btn_3_url": "#gvm-calculator",
+        "btn_3_style": "btn--link",
+        "btn_3_show_icon": true
       }
     },
     "packages": {
@@ -162,8 +166,8 @@
     "payload_calculator": {
       "type": "ori-gvm-load-calculator",
       "settings": {
-        "heading": "Payload & Load Calculator",
-        "intro": "<p>Model how passengers, cargo, accessories and trailer weight affect your GVM, GCM and axle loads before you travel.</p>",
+        "heading": "Know Your Weight: GVM & Payload Calculator",
+        "intro": "<p>Before you choose a stage, work out what you actually need to carry. Model passengers, cargo, accessories and trailer weight to see how they affect your GVM, GCM and axle loads.</p>",
         "disclaimer": "<p><strong>Planning guide only.</strong> Results use published ORI package specifications plus estimated axle splits from kerb weight. Confirm your exact vehicle, compliance paperwork and weighbridge weights before modifying, loading or towing.</p>",
         "image_alt": "Vehicle load and towing calculator",
         "fallback_quote_url": "",
@@ -175,10 +179,10 @@
         "accessory_middle_label": "Middle",
         "accessory_rear_label": "Rear",
         "container": "container",
-        "color_schema": "",
+        "color_schema": "accent",
         "padding_top": 60,
         "padding_bottom": 60,
-        "custom_id": "",
+        "custom_id": "gvm-calculator",
         "custom_class": ""
       }
     },
@@ -369,8 +373,8 @@
     "breadcrumb",
     "intro",
     "packages",
-    "benefits",
     "payload_calculator",
+    "benefits",
     "installers",
     "faq",
     "related"
