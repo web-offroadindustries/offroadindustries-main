@@ -595,10 +595,19 @@
             "label": "Silverado 2500",
             "link": "shopify://pages/ssm-legal-nb1-chevy-2500hd"
           }
+        },
+        "brand_tile_D8WXDN": {
+          "type": "brand_tile",
+          "settings": {
+            "logo": "shopify://shop_images/CHEVY-1500-LTZ-ZR2-MENU-ICON.png",
+            "label": "Silverado 1500",
+            "link": "shopify://pages/ssm-legal-nb1-chevy-2500hd"
+          }
         }
       },
       "block_order": [
-        "brand_tile_gwD9yF"
+        "brand_tile_gwD9yF",
+        "brand_tile_D8WXDN"
       ],
       "name": "Mega menu 1",
       "settings": {
