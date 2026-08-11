@@ -186,71 +186,26 @@
         "slideshow_interval": 4
       }
     },
-    "installers": {
-      "type": "ori-installer-network",
-      "blocks": {
-        "installer_vic": {
-          "type": "installer",
-          "settings": {
-            "state": "VIC",
-            "name": "ORI Offroad Industries (HQ)",
-            "platinum": false,
-            "address": "",
-            "suburb": "Melbourne",
-            "postcode": "",
-            "phone": "TBC",
-            "email": "",
-            "website": ""
-          }
-        },
-        "installer_nsw": {
-          "type": "installer",
-          "settings": {
-            "state": "NSW",
-            "name": "NSW Installer — add via theme editor",
-            "platinum": false,
-            "address": "",
-            "suburb": "Sydney",
-            "postcode": "",
-            "phone": "",
-            "email": "",
-            "website": ""
-          }
-        },
-        "installer_qld": {
-          "type": "installer",
-          "settings": {
-            "state": "QLD",
-            "name": "QLD Installer — add via theme editor",
-            "platinum": false,
-            "address": "",
-            "suburb": "Brisbane",
-            "postcode": "",
-            "phone": "",
-            "email": "",
-            "website": ""
-          }
-        }
-      },
-      "block_order": [
-        "installer_vic",
-        "installer_nsw",
-        "installer_qld"
-      ],
+    "ori_gvm_approved_zjDzaH": {
+      "type": "ori-gvm-approved",
+      "name": "ORI GVM Approved",
       "settings": {
-        "heading": "Installation Locations",
-        "heading_size": "h2",
-        "subheading": "Approved installers fit your package in every state and territory.",
-        "cta_text": "",
-        "cta_url": "",
-        "cta_style": "btn--outline",
+        "source_page": "gvm-approves",
+        "source_section": "[data-section-type=\"ori-installer-network\"]",
+        "custom_selector": "",
+        "heading": "",
+        "fallback_text": "View our approved installers",
+        "full_width": true,
+        "content_gutter": 24,
+        "flush_top_bottom": false,
+        "layout": "classic",
+        "alt_background": false,
+        "tint_color": "#f3f6f7",
         "container": "container",
-        "color_schema": "",
-        "bg_color": "",
-        "padding_top": 60,
-        "padding_bottom": 60,
+        "padding_top": 52,
+        "padding_bottom": 52,
         "custom_id": "",
-        "custom_class": ""
+        "color_schema": ""
       }
     },
     "faq": {
@@ -387,7 +342,7 @@
     "packages",
     "payload_calculator",
     "benefits",
-    "installers",
+    "ori_gvm_approved_zjDzaH",
     "faq",
     "related"
   ]
