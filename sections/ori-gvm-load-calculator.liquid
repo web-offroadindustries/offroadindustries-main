@@ -27,7 +27,7 @@
       data-show-quote-button="{{ section.settings.show_quote_button }}"
       aria-busy="true"
     >
-      <div class="ori-gvm-calculator__intro" data-gvm-intro>
+      <div class="ori-gvm-calculator__intro{% if section.settings.image != blank %} ori-gvm-calculator__intro--with-media{% endif %}" data-gvm-intro>
         <div class="ori-gvm-calculator__intro-content">
           {%- if section.settings.heading != blank -%}
             <h1 class="ori-gvm-calculator__heading h1">{{ section.settings.heading | escape }}</h1>
