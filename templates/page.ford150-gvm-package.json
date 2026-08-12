@@ -761,7 +761,7 @@
           "type": "row",
           "settings": {
             "label": "Requires Wheel/ Tyre Upgrade",
-            "value_1": "OEM",
+            "value_1": "N/A",
             "value_2": "OEM",
             "value_3": "OEM",
             "value_4": "✔",
@@ -783,7 +783,7 @@
             "value_4": "35x12.5xR18\n35x12.5xR20",
             "value_5": "35x12.5xR18\n35x12.5xR20",
             "value_6": "35x12.5xR18\n35x12.5xR20",
-            "value_7": "37x13.5xR20",
+            "value_7": "37x13.5xR18\n37x13.5xR20",
             "value_8": "",
             "value_9": "",
             "value_10": ""
@@ -839,7 +839,7 @@
           "settings": {
             "label": "Lift Size",
             "value_1": "",
-            "value_2": "2\"",
+            "value_2": "2.5\"",
             "value_3": "2\"",
             "value_4": "2\"",
             "value_5": "2.5",
@@ -853,8 +853,8 @@
         "row_PLrREz": {
           "type": "row",
           "settings": {
-            "label": "Fox 2.0 Performance Series Coilovers (Front)",
-            "value_1": "985-02-146",
+            "label": "Fox Performance Series 2.5 Coilovers (Front)",
+            "value_1": "987-02-013",
             "value_2": "✔",
             "value_3": "",
             "value_4": "",
@@ -869,8 +869,8 @@
         "row_QWetUx": {
           "type": "row",
           "settings": {
-            "label": "Fox 2.0 Performance Series Rear Shocks",
-            "value_1": "985-24-265",
+            "label": "Fox Performance Series 2.5 Shock (Rear)",
+            "value_1": "987-24-065",
             "value_2": "✔",
             "value_3": "",
             "value_4": "",
@@ -885,7 +885,7 @@
         "row_dAdUVr": {
           "type": "row",
           "settings": {
-            "label": "Fox 2.5 Performance Elite Series 2.5 Coil-Over",
+            "label": "Fox Performance Elite Series 2.5 Coil-Over (Front)",
             "value_1": "883-06-199",
             "value_2": "",
             "value_3": "✔",
@@ -901,7 +901,7 @@
         "row_VhLrHW": {
           "type": "row",
           "settings": {
-            "label": "Fox Performance Elite Series 2.5 Reservoir Shock",
+            "label": "Fox Performance Elite Series 2.5 Shock (Rear)",
             "value_1": "883-26-122",
             "value_2": "",
             "value_3": "✔",
@@ -917,7 +917,7 @@
         "row_Xm7nMe": {
           "type": "row",
           "settings": {
-            "label": "Fox 3.0 Bypass Race Series Shock Coilover (Front)",
+            "label": "Fox Bypass Race Series Shock 3.0 Coilover (Front)",
             "value_1": "883-06-191",
             "value_2": "",
             "value_3": "",
@@ -933,7 +933,7 @@
         "row_PyCLYV": {
           "type": "row",
           "settings": {
-            "label": "Fox 3.0 Bypass Race Series Shock  (Rear)",
+            "label": "Fox Bypass Race Series 3.0 Shock (Rear)",
             "value_1": "883-26-121",
             "value_2": "",
             "value_3": "",
@@ -997,7 +997,7 @@
         "row_MDY7qw": {
           "type": "row",
           "settings": {
-            "label": "LED Autolamps Cat 6 Indicators *Required on SWB",
+            "label": "Cat 6 Indicators *SWB Only",
             "value_1": "77ACM2",
             "value_2": "✔",
             "value_3": "✔",
@@ -1065,10 +1065,10 @@
             "value_1": "ORI-MUD-BRK",
             "value_2": "",
             "value_3": "",
-            "value_4": "OE",
-            "value_5": "OE",
-            "value_6": "Rear Only",
-            "value_7": "Front and Rear",
+            "value_4": "✔",
+            "value_5": "✔",
+            "value_6": "✔",
+            "value_7": "✔",
             "value_8": "",
             "value_9": "",
             "value_10": ""

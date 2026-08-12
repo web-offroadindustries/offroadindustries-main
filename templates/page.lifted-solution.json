@@ -905,15 +905,15 @@
           "type": "row",
           "settings": {
             "label": "Kerb Weight",
-            "value_1": "3661 KG",
-            "value_2": "3741 KG",
-            "value_3": "3741 KG",
-            "value_4": "3741 KG",
-            "value_5": "3741 KG",
-            "value_6": "3741 KG",
-            "value_7": "3741 KG",
-            "value_8": "3741 KG",
-            "value_9": "3741 KG",
+            "value_1": "3762 KG",
+            "value_2": "3792 KG",
+            "value_3": "3802 KG",
+            "value_4": "3810 KG",
+            "value_5": "3810 KG",
+            "value_6": "3862 KG",
+            "value_7": "3862 KG",
+            "value_8": "3862 KG",
+            "value_9": "3862 KG",
             "value_10": ""
           }
         },
@@ -1131,7 +1131,7 @@
           "type": "row",
           "settings": {
             "label": "Fox 2.5 HTO Performance Series (Rear)",
-            "value_1": "987-24-011",
+            "value_1": "987-24-009",
             "value_2": "✔",
             "value_3": "",
             "value_4": "",
@@ -1326,7 +1326,7 @@
           "type": "row",
           "settings": {
             "label": "ORI MUD Flaps Kit",
-            "value_1": "VEH-MUD-FLAPS",
+            "value_1": "CHV-2500-FLR-BRK",
             "value_2": "✔",
             "value_3": "✔",
             "value_4": "✔",
@@ -1359,14 +1359,14 @@
           "settings": {
             "label": "GVM Part Number",
             "value_1": "",
-            "value_2": "VEH-STAGE1-GVM",
-            "value_3": "VEH-STAGE2-GVM",
-            "value_4": "VEH-STAGE3-GVM",
-            "value_5": "VEH-STAGE3-GVM-K",
-            "value_6": "VEH-STAGE4-GVM",
-            "value_7": "VEH-STAGE5-GVM",
-            "value_8": "VEH-STAGE6-GVM",
-            "value_9": "VEH-STAGE6-GVM-K",
+            "value_2": "CHV-2500-Stage1-GVM",
+            "value_3": "CHV-2500-Stage2-GVM",
+            "value_4": "CHV-2500-Stage3-GVM",
+            "value_5": "CHV-2500-Stage3-GVM-K",
+            "value_6": "CHV-2500-Stage4-GVM",
+            "value_7": "CHV-2500-Stage5-GVM",
+            "value_8": "CHV-2500-Stage6-GVM",
+            "value_9": "CHV-2500-Stage6-GVM-K",
             "value_10": ""
           }
         }
