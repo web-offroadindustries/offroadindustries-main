@@ -20,7 +20,7 @@
         "slide_bW6A4P": {
           "type": "slide",
           "settings": {
-            "background": "shopify://shop_images/2000x560_-_Chevy_2500_-_Cypress_gray_NB2_ab25e482-4a20-4fe9-b364-7adfff38cf2f.png",
+            "background": "shopify://shop_images/2000x560_-_Chevy_2500_-_Cypress_gray_NB2_b6d1fd1e-e25d-437e-9c4e-37eae9a750c9.png",
             "image_overlay_opacity": 0,
             "content_position": "center",
             "text_alignment": "center",
@@ -52,6 +52,7 @@
         "show_dots": false,
         "show_nav": false,
         "autoplay": false,
+        "defer_autoplay_until_interaction": false,
         "autorotate_speed": 3,
         "pagination_background": "light",
         "controls_position": "center",
@@ -1590,6 +1591,9 @@
             "field_name": "Which Vehicle",
             "placeholder": "Which Vehicle",
             "options": "Ford F150, Chevy 1500, Chevy 2500HD, Toyota Tundra, RAM 2500 (5th Gen), RAM 2500 (6th Gen), Toyota LC300",
+            "depends_on": "",
+            "options_map": "",
+            "empty_text": "Select the field above first",
             "field_width": "100",
             "hide_label": true,
             "required": false
@@ -1602,6 +1606,9 @@
             "field_name": "What Stage GVM Package",
             "placeholder": "What Stage GVM Package",
             "options": "Stage 1, Stage 2, Stage 3, Stage 4, Stage 5, Stage 6",
+            "depends_on": "",
+            "options_map": "",
+            "empty_text": "Select the field above first",
             "field_width": "100",
             "hide_label": true,
             "required": false
@@ -1646,6 +1653,9 @@
         "heading": "GVM Enquiry? Contact us Now",
         "subheading": "",
         "description": "",
+        "display_mode": "inline",
+        "popup_id": "gvm-quote",
+        "popup_width": 560,
         "form_design": "design-1",
         "form_width": 500,
         "form_alignment": "center",
