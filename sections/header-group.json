@@ -603,11 +603,20 @@
             "label": "Silverado 1500",
             "link": "shopify://pages/ssm-legal-nb1-chevy-1500"
           }
+        },
+        "brand_tile_qYHcAt": {
+          "type": "brand_tile",
+          "settings": {
+            "logo": "shopify://shop_images/RAM-2500-5th-gen-MENU-ICON.png",
+            "label": "RAM 2500HD 5th GEN",
+            "link": "shopify://pages/ram-2500hd-5th-gen"
+          }
         }
       },
       "block_order": [
         "brand_tile_gwD9yF",
-        "brand_tile_D8WXDN"
+        "brand_tile_D8WXDN",
+        "brand_tile_qYHcAt"
       ],
       "name": "Mega menu 1",
       "settings": {
