@@ -59,7 +59,7 @@
         "pagination_style": "dots",
         "show_text_below": false,
         "text_alignment_mobile": "center",
-        "accessibility_info": "Slideshow about our brand",
+        "accessibility_info": "Chevy Silverado 1500 LTZ and ZR2 GVM package hero image",
         "custom_id": "",
         "custom_class": "",
         "enable_bg_zoom_effect": false
@@ -78,14 +78,14 @@
         "link_y9rErk": {
           "type": "link",
           "settings": {
-            "label": "",
+            "label": "GVM Specifications",
             "target_id": "gvmspecification"
           }
         },
         "link_AGYMRH": {
           "type": "link",
           "settings": {
-            "label": "",
+            "label": "Approved Wheels",
             "target_id": "approved-wheels"
           }
         },
@@ -207,7 +207,7 @@
         "heading_f9G7kD": {
           "type": "heading",
           "settings": {
-            "heading": "<strong>Stage 1 LTZ: 4-Inch Lift on 35s (3650kg GVM + GCM 8150kg)</strong>",
+            "heading": "<strong>Stage 1 LTZ: 4\" BDS Lift | 3650 GVM | 35\" Tyres Legal</strong>",
             "highlight_style": "none",
             "enable_highlight_text_color": false,
             "heading_size": "h2"
@@ -216,7 +216,7 @@
         "text_fRRw7g": {
           "type": "text",
           "settings": {
-            "text": "<p><em>The entry point to the 6-inch program: a genuine four-inch lift on 35s, with the GVM and GCM re-rated to match.</em></p><ul><li><strong>GVM:</strong> 3650kg (approx. 1077kg payload, a 42.28% increase) | <strong>GCM:</strong> 8150kg | <strong>Braked Towing:</strong> 4500kg</li><li><strong>Lift &amp; Tyres:</strong> 4\" lift, running up to 35x12.5 R18 or 35x12.5 R20.</li><li><strong>Key Features:</strong> BDS 4\" suspension kit with Fox 2.5 Performance Elite (BDS1757FPE), Rough Country SF1 flares, Bushwacker Extenda flares, ORI mud flap brackets.</li><li><strong>Best For:</strong> LTZ owners who want the lifted stance and 35s without giving up any towing capacity, and who need the one-tonne payload for ATO purposes.</li><li><strong>Part Number:</strong> CHV-1500-Stage1-GVM</li></ul>"
+            "text": "<p><em>Chevrolet Silverado 1500 LTZ.</em></p><ul><li><strong>GVM:</strong> 3650kg | <strong>GCM:</strong> 8150kg | <strong>Braked Towing:</strong> 4500kg</li><li><strong>Payload:</strong> 1077kg, a 42.28% increase on the factory 757kg.</li><li><strong>Lift &amp; Tyres:</strong> 4\" BDS lift, 35\" tyres legal, running up to 35x12.5 R18 or 35x12.5 R20.</li><li><strong>Included:</strong> BDS 4\" suspension kit with Fox 2.5 Performance Elite (BDS1757FPE), BDS control arm upgrade for front-end strength (BDS121260), Bushwacker Extenda Flare or Rough Country SF1 flares, ORI mud flaps and brackets.</li><li><strong>Best For:</strong> LTZ owners who want the lifted stance and 35s without giving up any towing capacity, and who need the one tonne payload for ATO purposes.</li><li><strong>Compliance:</strong> SSM federally approved Australia wide, Fox and BDS suspension components, PRE rego only (VTA-064440).</li><li><strong>Part Number:</strong> CHV-1500-Stage1-GVM</li></ul><p><em>Wheels and tyres not included.</em></p>"
           }
         }
       },
@@ -266,7 +266,7 @@
         "heading_dHpa9y": {
           "type": "heading",
           "settings": {
-            "heading": "<strong>Stage 2 ZR2: 2-Inch Lift on 35s (3650kg GVM + GCM 8150kg)</strong>",
+            "heading": "<strong>Stage 2 ZR2: 2\" BDS Lift | 3650 GVM | 35\" Tyres Legal</strong>",
             "highlight_style": "none",
             "enable_highlight_text_color": false,
             "heading_size": "h2"
@@ -275,7 +275,7 @@
         "text_eiTTm6": {
           "type": "text",
           "settings": {
-            "text": "<p><em>The ZR2 equivalent, keeping the truck nearer factory height while unlocking the same payload and the same 35\" tyre.</em></p><ul><li><strong>GVM:</strong> 3650kg (approx. 1077kg payload, a 42.28% increase) | <strong>GCM:</strong> 8150kg | <strong>Braked Towing:</strong> 4200kg</li><li><strong>Lift &amp; Tyres:</strong> 2\" lift, running up to 35x12.5 R18 or 35x12.5 R20.</li><li><strong>Key Features:</strong> BDS 4\" suspension kit with Fox 2.5 Performance Elite (BDS1757FPE), Rough Country SF1 flares, ORI mud flap brackets.</li><li><strong>Best For:</strong> ZR2 owners, who already sit higher from the factory and need less lift to clear the same 35\" tyre.</li><li><strong>NOTE:</strong> The ZR2 tows 4200kg from the factory, which is why this stage is rated to 4.2T rather than 4.5T.</li><li><strong>Part Number:</strong> CHV-1500-Stage2-GVM</li></ul>"
+            "text": "<p><em>Chevrolet Silverado 1500 ZR2.</em></p><ul><li><strong>GVM:</strong> 3650kg | <strong>GCM:</strong> 7850kg | <strong>Braked Towing:</strong> 4200kg</li><li><strong>Payload:</strong> 1077kg, a 42.28% increase on the factory 757kg.</li><li><strong>Lift &amp; Tyres:</strong> 2\" BDS lift, 35\" tyres legal, running up to 35x12.5 R18 or 35x12.5 R20.</li><li><strong>Included:</strong> BDS 2\" suspension kit with Fox 2.5 Performance Elite (BDS1757FPE), BDS control arm upgrade for front-end strength (BDS121260), Rough Country SF1 flares, ORI mud flaps and brackets.</li><li><strong>Best For:</strong> ZR2 owners, who already sit higher from the factory and need less lift to clear the same 35\" tyre.</li><li><strong>NOTE:</strong> The ZR2 tows 4200kg from the factory, which is why this stage is rated to 4.2T rather than 4.5T.</li><li><strong>Compliance:</strong> SSM federally approved Australia wide, Fox and BDS suspension components, PRE rego only (VTA-064440).</li><li><strong>Part Number:</strong> CHV-1500-Stage2-GVM</li></ul><p><em>Wheels and tyres not included.</em></p>"
           }
         }
       },
@@ -325,7 +325,7 @@
         "heading_KMefdY": {
           "type": "heading",
           "settings": {
-            "heading": "<strong>Stage 3 LTZ: 6-Inch Lift on 37s (3650kg GVM + GCM 7160kg)</strong>",
+            "heading": "<strong>Stage 3 LTZ: 6\" BDS Lift | 3650 GVM | 37\" Tyres Legal</strong>",
             "highlight_style": "none",
             "enable_highlight_text_color": false,
             "heading_size": "h2"
@@ -334,7 +334,7 @@
         "text_aVwiWh": {
           "type": "text",
           "settings": {
-            "text": "<p><em>The full six inches on 37s, engineered and certified as a single package.</em></p><ul><li><strong>GVM:</strong> 3650kg (approx. 1077kg payload, a 42.28% increase) | <strong>GCM:</strong> 7160kg | <strong>Braked Towing:</strong> 4500kg</li><li><strong>Lift &amp; Tyres:</strong> 6\" lift, running up to 37x12.5 R18 or 37x12.5 R20.</li><li><strong>Key Features:</strong> BDS 6\" suspension kit with Fox 2.5 Performance Elite (BDS782FPE), Rough Country SF1 flares, Bushwacker Extenda flares, ORI mud flap brackets.</li><li><strong>Best For:</strong> LTZ owners who want the biggest lift and the biggest tyre in the program, fully compliant and covered under our SSM approval.</li><li><strong>NOTE:</strong> Gross Combined Mass stays at the factory 7160kg on this stage.</li><li><strong>Part Number:</strong> CHV-1500-Stage3-GVM</li></ul>"
+            "text": "<p><em>Chevrolet Silverado 1500 LTZ.</em></p><ul><li><strong>GVM:</strong> 3650kg | <strong>GCM:</strong> 7160kg | <strong>Braked Towing:</strong> 4500kg</li><li><strong>Payload:</strong> 1077kg, a 42.28% increase on the factory 757kg.</li><li><strong>Lift &amp; Tyres:</strong> 6\" BDS lift, 37\" tyres legal, running up to 37x12.5 R18 or 37x12.5 R20.</li><li><strong>Included:</strong> BDS 6\" suspension kit with Fox 2.5 Performance Elite (BDS782FPE), BDS control arm upgrade for front-end strength (BDS121260), Bushwacker Extenda Flare or Rough Country SF1 flares, ORI mud flaps and brackets.</li><li><strong>Best For:</strong> LTZ owners who want the biggest lift and the biggest tyre in the programme, fully compliant and covered under our SSM approval.</li><li><strong>NOTE:</strong> Gross Combined Mass stays at the factory 7160kg on this stage.</li><li><strong>Compliance:</strong> SSM federally approved Australia wide, Fox and BDS suspension components, PRE rego only (VTA-064440).</li><li><strong>Part Number:</strong> CHV-1500-Stage3-GVM</li></ul><p><em>Wheels and tyres not included.</em></p>"
           }
         }
       },
@@ -384,7 +384,7 @@
         "heading_wfcybN": {
           "type": "heading",
           "settings": {
-            "heading": "<strong>Stage 4 ZR2: 4-Inch Lift on 37s (3650kg GVM + GCM 7160kg)</strong>",
+            "heading": "<strong>Stage 4 ZR2: 4\" BDS Lift | 3650 GVM | 37\" Tyres Legal</strong>",
             "highlight_style": "none",
             "enable_highlight_text_color": false,
             "heading_size": "h2"
@@ -393,7 +393,7 @@
         "text_giGN6b": {
           "type": "text",
           "settings": {
-            "text": "<p><em>The ZR2 on 37s, running the same six-inch hardware set to a four-inch ride height.</em></p><ul><li><strong>GVM:</strong> 3650kg (approx. 1077kg payload, a 42.28% increase) | <strong>GCM:</strong> 7160kg | <strong>Braked Towing:</strong> 4200kg</li><li><strong>Lift &amp; Tyres:</strong> 4\" lift, running up to 37x12.5 R18 or 37x12.5 R20.</li><li><strong>Key Features:</strong> BDS 6\" suspension kit with Fox 2.5 Performance Elite (BDS782FPE), Rough Country SF1 flares, ORI mud flap brackets.</li><li><strong>Best For:</strong> ZR2 owners chasing the 37\" tyre package on a build that is legal to drive away.</li><li><strong>NOTE:</strong> Aftermarket wheels are required for this stage.</li><li><strong>NOTE:</strong> The ZR2 tows 4200kg from the factory, which is why this stage is rated to 4.2T rather than 4.5T.</li><li><strong>Part Number:</strong> CHV-1500-Stage4-GVM-200 or CHV-1500-Stage4-GVM-400</li></ul>"
+            "text": "<p><em>Chevrolet Silverado 1500 ZR2.</em></p><ul><li><strong>GVM:</strong> 3650kg | <strong>GCM:</strong> 7160kg | <strong>Braked Towing:</strong> 4200kg</li><li><strong>Payload:</strong> 1077kg, a 42.28% increase on the factory 757kg.</li><li><strong>Lift &amp; Tyres:</strong> 4\" BDS lift, 37\" tyres legal, running up to 37x12.5 R18 or 37x12.5 R20.</li><li><strong>Included:</strong> BDS 4\" suspension kit with Fox 2.5 Performance Elite (BDS782FPE), BDS control arm upgrade for front-end strength (BDS121260), Rough Country SF1 flares, ORI mud flaps and brackets.</li><li><strong>Best For:</strong> ZR2 owners chasing the 37\" tyre package on a build that is legal to drive away.</li><li><strong>NOTE:</strong> Aftermarket wheels are required for this stage.</li><li><strong>NOTE:</strong> The ZR2 tows 4200kg from the factory, which is why this stage is rated to 4.2T rather than 4.5T.</li><li><strong>Compliance:</strong> SSM federally approved Australia wide, Fox and BDS suspension components, PRE rego only (VTA-064440).</li><li><strong>Part Number:</strong> CHV-1500-Stage4-GVM-200 or CHV-1500-Stage4-GVM-400</li></ul><p><em>Wheels and tyres not included.</em></p>"
           }
         }
       },
@@ -488,7 +488,7 @@
           "settings": {
             "icon": "none",
             "title": "Will upgrading my GVM reduce my towing capacity?",
-            "content": "<p>Not with an ORI package. The LTZ stages, Stage 1 and Stage 3, hold the full 4500kg braked towing capacity. The ZR2 stages, Stage 2 and Stage 4, are rated to 4200kg, which is what the ZR2 tows from the factory, so nothing is lost there either.</p><p>Gross Combined Mass lifts from the factory 7160kg to 8150kg on Stages 1 and 2. Stages 3 and 4 keep the factory 7160kg GCM, because those builds spend their allowance on the six-inch lift and 37-inch tyres rather than on combined mass.</p>",
+            "content": "<p>Not with an ORI package. The LTZ stages, Stage 1 and Stage 3, hold the full 4500kg braked towing capacity. The ZR2 stages, Stage 2 and Stage 4, are rated to 4200kg, which is what the ZR2 tows from the factory, so nothing is lost there either.</p><p>Gross Combined Mass lifts from the factory 7160kg to 8150kg on Stage 1 and 7850kg on Stage 2. Stages 3 and 4 keep the factory 7160kg GCM, because those builds spend their allowance on the six-inch lift and 37-inch tyres rather than on combined mass.</p>",
             "custom_liquid": "",
             "content_page": "",
             "open": false
@@ -545,7 +545,7 @@
         "heading_YjLxhA": {
           "type": "heading",
           "settings": {
-            "heading": "ORI Chevy Silverado GVM & GCM Specfications",
+            "heading": "ORI Chevy Silverado 1500 GVM & GCM Specifications",
             "highlight_style": "underline",
             "enable_highlight_text_color": true,
             "heading_size": "h1",
@@ -611,7 +611,7 @@
             "label": "Gross Combined Mass (GCM)",
             "value_1": "7160 KG",
             "value_2": "8150 KG",
-            "value_3": "8150 KG",
+            "value_3": "7850 KG",
             "value_4": "7160 KG",
             "value_5": "7160 KG",
             "value_6": "",
@@ -865,7 +865,7 @@
             "label": "Gross Combined Mass (GCM)",
             "value_1": "7160 KG",
             "value_2": "8150 KG",
-            "value_3": "8150 KG",
+            "value_3": "7850 KG",
             "value_4": "7160 KG",
             "value_5": "7160 KG",
             "value_6": "",
@@ -1101,10 +1101,10 @@
           "settings": {
             "label": "BDS Control Arms",
             "value_1": "BDS121260",
-            "value_2": "",
-            "value_3": "",
-            "value_4": "",
-            "value_5": "",
+            "value_2": "✔",
+            "value_3": "✔",
+            "value_4": "✔",
+            "value_5": "✔",
             "value_6": "",
             "value_7": "",
             "value_8": "",
@@ -1179,7 +1179,7 @@
         "row_part_07": {
           "type": "row",
           "settings": {
-            "label": "ORI Mud Flaps Brackets",
+            "label": "ORI Mud Flaps & Brackets",
             "value_1": "",
             "value_2": "✔",
             "value_3": "✔",
@@ -1486,7 +1486,7 @@
         "padding_bottom": 40,
         "show_section_divider": false,
         "divider_width": "container",
-        "custom_id": "",
+        "custom_id": "gvmexperts",
         "custom_class": "",
         "animations": "inherit"
       }
@@ -1570,7 +1570,7 @@
       "disabled": true,
       "name": "Contact Form v2",
       "settings": {
-        "heading": "Questions? We’re Hereto Help",
+        "heading": "Questions? We’re Here to Help",
         "body": "<p>Add your intro text here.</p>",
         "form_title": "Send us a message",
         "form_banner_image": "shopify://shop_images/contact-form-banner.webp",
@@ -1593,7 +1593,7 @@
         "heading_fRrLKd": {
           "type": "heading",
           "settings": {
-            "heading": "Ori's Suspension Collection",
+            "heading": "ORI's Suspension Collection",
             "highlight_style": "underline",
             "enable_highlight_text_color": true,
             "heading_size": "h1",
