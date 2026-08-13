@@ -551,11 +551,10 @@
         },
         "brand_tile_UJ48br": {
           "type": "brand_tile",
-          "disabled": true,
           "settings": {
-            "logo": "shopify://shop_images/RAM_copy_2_e21bf234-9d24-42f3-8de6-85529982e06f.jpg",
-            "label": "RAM 2500",
-            "link": "shopify://pages/ram-2500-gvm-packages"
+            "logo": "shopify://shop_images/RAM-2500-5th-gen-MENU-ICON.png",
+            "label": "RAM 2500HD 5th GEN",
+            "link": "shopify://pages/ram-2500hd-5th-gen"
           }
         },
         "brand_tile_re7th7": {
@@ -603,20 +602,11 @@
             "label": "Silverado 1500",
             "link": "shopify://pages/ssm-legal-nb1-chevy-1500"
           }
-        },
-        "brand_tile_qYHcAt": {
-          "type": "brand_tile",
-          "settings": {
-            "logo": "shopify://shop_images/RAM-2500-5th-gen-MENU-ICON.png",
-            "label": "RAM 2500HD 5th GEN",
-            "link": "shopify://pages/ram-2500hd-5th-gen"
-          }
         }
       },
       "block_order": [
         "brand_tile_gwD9yF",
-        "brand_tile_D8WXDN",
-        "brand_tile_qYHcAt"
+        "brand_tile_D8WXDN"
       ],
       "name": "Mega menu 1",
       "settings": {
