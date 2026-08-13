@@ -1343,9 +1343,9 @@
           "settings": {
             "label": "ORI ADR Compliance Lights",
             "value_1": "ORI-LED-Comp",
-            "value_2": "",
-            "value_3": "",
-            "value_4": "",
+            "value_2": "✔",
+            "value_3": "✔",
+            "value_4": "✔",
             "value_5": "✔",
             "value_6": "✔",
             "value_7": "✔",

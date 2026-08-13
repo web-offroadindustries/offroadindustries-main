@@ -589,8 +589,8 @@
           "settings": {
             "label": "Wheel Offsets",
             "value_1": "OEM",
-            "value_2": "OEM",
-            "value_3": "OEM",
+            "value_2": "OE Wheels",
+            "value_3": "OE Wheels",
             "value_4": "Pos 40, 35, 25, 18",
             "value_5": "Pos 40, 35, 25, 18",
             "value_6": "",
@@ -605,8 +605,8 @@
           "settings": {
             "label": "Wheel Load Rating",
             "value_1": "OEM",
-            "value_2": "OEM",
-            "value_3": "OEM",
+            "value_2": "OE",
+            "value_3": "OE",
             "value_4": "1225 KG",
             "value_5": "1225 KG",
             "value_6": "",
@@ -621,8 +621,8 @@
           "settings": {
             "label": "Tyre Load Rating",
             "value_1": "OEM",
-            "value_2": "OEM",
-            "value_3": "OEM",
+            "value_2": "OE Tyres",
+            "value_3": "OE Tyres",
             "value_4": "1250 kg",
             "value_5": "1250 kg",
             "value_6": "",
@@ -637,8 +637,8 @@
           "settings": {
             "label": "Requires Wheel/ Tyre Upgrade",
             "value_1": "OEM",
-            "value_2": "OEM",
-            "value_3": "OEM",
+            "value_2": "NA",
+            "value_3": "NA",
             "value_4": "Yes",
             "value_5": "Yes",
             "value_6": "",
@@ -744,7 +744,7 @@
         "row_dAdUVr": {
           "type": "row",
           "settings": {
-            "label": "Fox 2.5 Performance Elite Coil-over",
+            "label": "Fox 2.5 Performance Elite Coil-over (Front)",
             "value_1": "884-06-318",
             "value_2": "✔",
             "value_3": "",
@@ -760,7 +760,7 @@
         "row_VhLrHW": {
           "type": "row",
           "settings": {
-            "label": "Fox 2.5 Performance Elite Rear Shock",
+            "label": "Fox 2.5 Performance Elite Rear Shock (Rear)",
             "value_1": "883-26-139",
             "value_2": "✔",
             "value_3": "",
@@ -776,7 +776,7 @@
         "row_Xm7nMe": {
           "type": "row",
           "settings": {
-            "label": "Fox 3.0 Factory Race Coil-over",
+            "label": "Fox 3.0 Factory Race Coil-over (Front)",
             "value_1": "883-06-219",
             "value_2": "",
             "value_3": "✔",
@@ -792,7 +792,7 @@
         "row_PyCLYV": {
           "type": "row",
           "settings": {
-            "label": "Fox 3.0 Factory Rear Bypass Shock",
+            "label": "Fox 3.0 Factory Rear Bypass Shock (Rear)",
             "value_1": "883-26-142",
             "value_2": "",
             "value_3": "✔",
@@ -856,7 +856,7 @@
         "row_DDNBEa": {
           "type": "row",
           "settings": {
-            "label": "Speedo Calibration Tool",
+            "label": "Speedo Calibration",
             "value_1": "ORI-Speedo-Correct",
             "value_2": "",
             "value_3": "",
@@ -873,7 +873,7 @@
           "type": "row",
           "disabled": true,
           "settings": {
-            "label": "ORI Mud Flap Solution Kit",
+            "label": "ORI Mud Flaps",
             "value_1": "ORI-Tun-Mudflap",
             "value_2": "",
             "value_3": "",
