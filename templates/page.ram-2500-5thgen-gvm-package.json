@@ -20,7 +20,7 @@
         "slide_ram6g_1": {
           "type": "slide",
           "settings": {
-            "background": "shopify://shop_images/2000x560_-_RAM_2500_NB1.png",
+            "background": "shopify://shop_images/2000x560_-_RAM_2500_5th_Gen_2_86a6ccba-daa9-4bd3-8d4e-3b6355bf3601.png",
             "image_overlay_opacity": 0,
             "content_position": "center",
             "text_alignment": "center",
@@ -123,7 +123,7 @@
         "heading_ram6g_intro": {
           "type": "heading",
           "settings": {
-            "heading": "<strong>Unleash the Full Potential of Your RAM 2500 6th Gen in Australia</strong>",
+            "heading": "<strong>Unleash the Full Potential of Your RAM 2500 5th Gen in Australia</strong>",
             "highlight_style": "none",
             "enable_highlight_text_color": true,
             "heading_size": "h1",
@@ -133,7 +133,7 @@
         "text_ram6g_intro": {
           "type": "text",
           "settings": {
-            "text": "<p>The RAM 2500 6th Gen is already one of the most capable heavy-duty trucks ever built — but if you're loading up with accessories, towing a serious trailer, or running a tray and canopy conversion, Australia's road rules can hold you back. That changes with an ORI GVM upgrade.</p><p>Offroad Industries (ORI) is a Federally Approved Second Stage Manufacturer (SSM), offering Australia's most comprehensive GVM upgrade packages for the RAM 2500 6th Gen. Every kit is fully engineered, LS16 certified, and compliant with Australian Design Rules — whether you're registering Pre-Rego (Federal) or Post-Rego (State-based). Our packages are designed specifically for the RAM 2500 6th Gen platform, giving you a massive payload increase, improved suspension performance, and complete legal peace of mind.</p>"
+            "text": "<p>The RAM 2500 5th Gen is already one of the most capable heavy-duty trucks ever built — but if you're loading up with accessories, towing a serious trailer, or running a tray and canopy conversion, Australia's road rules can hold you back. That changes with an ORI GVM upgrade.</p><p>Offroad Industries (ORI) is a Federally Approved Second Stage Manufacturer (SSM), offering Australia's most comprehensive GVM upgrade packages for the RAM 2500 5th Gen. Every kit is fully engineered, LS16 certified, and compliant with Australian Design Rules — whether you're registering Pre-Rego (Federal) or Post-Rego (State-based). Our packages are designed specifically for the RAM 2500 6th Gen platform, giving you a massive payload increase, improved suspension performance, and complete legal peace of mind.</p>"
           }
         }
       },
@@ -221,7 +221,7 @@
       "settings": {
         "container": "container",
         "color_schema": "",
-        "image": "shopify://shop_images/STAGE_1_RAM_2500_6th_GEN_all_products_3ad69cba-5afe-42c5-8b67-c10ff68b3cff.png",
+        "image": "shopify://shop_images/STAGE_1_RAM_2500_5th_GEN_all_products.png",
         "enable_lightbox": true,
         "image_width": "50%",
         "image_position": "left",
@@ -280,7 +280,7 @@
       "settings": {
         "container": "container",
         "color_schema": "",
-        "image": "shopify://shop_images/STAGE_2_RAM_2500_6th_GEN_all_products_e350224b-66fa-400f-8882-29b3c5b4ac48.png",
+        "image": "shopify://shop_images/STAGE_2_RAM_2500_5th_GEN_all_products.png",
         "enable_lightbox": true,
         "image_width": "50%",
         "image_position": "right",
@@ -339,125 +339,7 @@
       "settings": {
         "container": "container",
         "color_schema": "",
-        "image": "shopify://shop_images/STAGE_3_RAM_2500_6th_GEN_ALL_PRODUCTS_a1479ef9-2441-4b1a-aca3-29aca9f70235.png",
-        "enable_lightbox": true,
-        "image_width": "50%",
-        "image_position": "left",
-        "vertical_alignment": "center",
-        "align_content_container": "none",
-        "show_image_padding": true,
-        "column_gap": "medium",
-        "row_gap": "medium",
-        "padding_left": 0,
-        "padding_right": 0,
-        "mobile_padding_left": 15,
-        "mobile_padding_right": 15,
-        "padding_top": 40,
-        "padding_bottom": 40,
-        "padding_top_mobile": 60,
-        "padding_bottom_mobile": 60,
-        "show_section_divider": false,
-        "divider_width": "container",
-        "custom_id": "",
-        "custom_class": "",
-        "animations": "inherit"
-      }
-    },
-    "image_with_text_ram6g_s4": {
-      "type": "image-with-text",
-      "blocks": {
-        "subheading_ram6g_s4": {
-          "type": "subheading",
-          "settings": {
-            "subheading": "Stage 4: Installed & Engineered — Contact for Pricing",
-            "subheading_size": "h5"
-          }
-        },
-        "heading_ram6g_s4": {
-          "type": "heading",
-          "settings": {
-            "heading": "<strong>Stage 4: The Heavy Hauler — 4\" Lift on 37s</strong>",
-            "highlight_style": "none",
-            "enable_highlight_text_color": false,
-            "heading_size": "h2"
-          }
-        },
-        "text_ram6g_s4": {
-          "type": "text",
-          "settings": {
-            "text": "<p><em>Four inches of lift with the rear air bags deleted in favour of a coil setup built to carry.</em></p><ul><li><strong>GVM:</strong> 5890kg | <strong>GCM:</strong> 12,474kg | <strong>Braked Towing:</strong> 4500kg</li><li><strong>Lift &amp; Tyres:</strong> 4\" lift, running up to 37x12.5 R18 or 37x12.5 R20.</li><li><strong>Key Features:</strong> BDS 4\" radius arm kit, Logic IQ air bag coil delete, Husky Extenda flares, ORI mud flap brackets.</li><li><strong>Best For:</strong> Tray and canopy builds, long range tanks, and anyone running permanent weight over the rear axle.</li><li><strong>NOTE:</strong> Load rated wheels and tyres with a 1650kg tyre load rating are required from this stage up.</li></ul>"
-          }
-        }
-      },
-      "block_order": [
-        "subheading_ram6g_s4",
-        "heading_ram6g_s4",
-        "text_ram6g_s4"
-      ],
-      "name": "t:sections.image-with-text.presets.name",
-      "settings": {
-        "container": "container",
-        "color_schema": "",
-        "image": "shopify://shop_images/STAGE_4_RAM_2500_6th_GEN_ALL_PRODUCTS_72d57a9c-c8b7-42e8-a97b-be75feec7c61.png",
-        "enable_lightbox": true,
-        "image_width": "50%",
-        "image_position": "right",
-        "vertical_alignment": "center",
-        "align_content_container": "none",
-        "show_image_padding": true,
-        "column_gap": "medium",
-        "row_gap": "medium",
-        "padding_left": 0,
-        "padding_right": 0,
-        "mobile_padding_left": 15,
-        "mobile_padding_right": 15,
-        "padding_top": 40,
-        "padding_bottom": 40,
-        "padding_top_mobile": 60,
-        "padding_bottom_mobile": 60,
-        "show_section_divider": false,
-        "divider_width": "container",
-        "custom_id": "",
-        "custom_class": "",
-        "animations": "inherit"
-      }
-    },
-    "image_with_text_qBLYdb": {
-      "type": "image-with-text",
-      "blocks": {
-        "subheading_4Q9WFD": {
-          "type": "subheading",
-          "settings": {
-            "subheading": "Stage 5: Installed & Engineered — Contact for Pricing",
-            "subheading_size": "h5"
-          }
-        },
-        "heading_ybK7q8": {
-          "type": "heading",
-          "settings": {
-            "heading": "<strong>Stage 5: The Six Inch Build — 6\" Lift on 37s</strong>",
-            "highlight_style": "none",
-            "enable_highlight_text_color": false,
-            "heading_size": "h2"
-          }
-        },
-        "text_mfadnR": {
-          "type": "text",
-          "settings": {
-            "text": "<p><em>The full six inches, engineered and certified as one package rather than stacked together.</em></p><ul><li><strong>GVM:</strong> 5890kg | <strong>GCM:</strong> 12,474kg | <strong>Braked Towing:</strong> 4500kg</li><li><strong>Lift &amp; Tyres:</strong> 6\" lift, running up to 37x12.5 R18 or 37x12.5 R20.</li><li><strong>Key Features:</strong> BDS 6\" radius arm kit, Logic IQ air bag coil delete, Husky Extenda flares, ORI mud flap brackets.</li><li><strong>Best For:</strong> Owners who want the biggest lift in the range with the payload and towing left intact.</li><li><strong>NOTE:</strong> Load rated wheels and tyres with a 1650kg tyre load rating are required for this stage.</li></ul>"
-          }
-        }
-      },
-      "block_order": [
-        "subheading_4Q9WFD",
-        "heading_ybK7q8",
-        "text_mfadnR"
-      ],
-      "name": "t:sections.image-with-text.presets.name",
-      "settings": {
-        "container": "container",
-        "color_schema": "",
-        "image": "shopify://shop_images/STAGE_5_RAM_2500_6th_GEN_ALL_PRODUCTS_ef45a17e-84e4-448d-a5bc-0f60668bbabc.png",
+        "image": "shopify://shop_images/STAGE_3_RAM_2500_5th_GEN_all_products.png",
         "enable_lightbox": true,
         "image_width": "50%",
         "image_position": "left",
@@ -487,7 +369,7 @@
         "heading_ram6g_spec": {
           "type": "heading",
           "settings": {
-            "heading": "RAM 2500 6TH GEN GVM SPECIFICATIONS",
+            "heading": "RAM 2500 5TH GEN GVM SPECIFICATIONS",
             "highlight_style": "underline",
             "enable_highlight_text_color": true,
             "heading_size": "h1",
@@ -1346,65 +1228,6 @@
         "custom_class": "",
         "animations": "inherit"
       }
-    },
-    "image_with_text_ram6g_s6": {
-      "type": "image-with-text",
-      "blocks": {
-        "block_ram6g_s6_0": {
-          "type": "subheading",
-          "settings": {
-            "subheading": "Stage 6: Installed & Engineered — Contact for Pricing",
-            "subheading_size": "h5"
-          }
-        },
-        "block_ram6g_s6_1": {
-          "type": "heading",
-          "settings": {
-            "heading": "<strong>Stage 6: The Six Inch Build — Top of the Range</strong>",
-            "highlight_style": "none",
-            "enable_highlight_text_color": false,
-            "heading_size": "h2"
-          }
-        },
-        "block_ram6g_s6_2": {
-          "type": "text",
-          "settings": {
-            "text": "<p><em>The peak of the 6th Gen programme, on the same six inch platform as Stage 5.</em></p><ul><li><strong>GVM:</strong> 5890kg | <strong>GCM:</strong> 12,474kg | <strong>Braked Towing:</strong> 4500kg</li><li><strong>Lift &amp; Tyres:</strong> 6\" lift, running up to 37x12.5 R18 or 37x12.5 R20.</li><li><strong>Key Features:</strong> BDS 6\" radius arm kit, Logic IQ air bag coil delete, Husky Extenda flares, ORI mud flap brackets.</li><li><strong>Best For:</strong> The most heavily built rigs in the range, fully compliant and federally engineered.</li><li><strong>NOTE:</strong> Load rated wheels and tyres with a 1650kg tyre load rating are required for this stage.</li></ul>"
-          }
-        }
-      },
-      "block_order": [
-        "block_ram6g_s6_0",
-        "block_ram6g_s6_1",
-        "block_ram6g_s6_2"
-      ],
-      "name": "t:sections.image-with-text.presets.name",
-      "settings": {
-        "container": "container",
-        "color_schema": "",
-        "image": "shopify://shop_images/STAGE_6_RAM_2500_6th_GEN_ALL_PRODUCTS-2_3d5c1939-e505-49f8-965a-8401cce2fd12.png",
-        "enable_lightbox": true,
-        "image_width": "50%",
-        "image_position": "right",
-        "vertical_alignment": "center",
-        "align_content_container": "none",
-        "show_image_padding": true,
-        "column_gap": "medium",
-        "row_gap": "medium",
-        "padding_left": 0,
-        "padding_right": 0,
-        "mobile_padding_left": 15,
-        "mobile_padding_right": 15,
-        "padding_top": 40,
-        "padding_bottom": 40,
-        "padding_top_mobile": 60,
-        "padding_bottom_mobile": 60,
-        "show_section_divider": false,
-        "divider_width": "container",
-        "custom_id": "",
-        "custom_class": "",
-        "animations": "inherit"
-      }
     }
   },
   "order": [
@@ -1416,9 +1239,6 @@
     "image_with_text_ram6g_s1",
     "image_with_text_ram6g_s2",
     "image_with_text_ram6g_s3",
-    "image_with_text_ram6g_s4",
-    "image_with_text_qBLYdb",
-    "image_with_text_ram6g_s6",
     "rich_text_ram6g_spec_heading",
     "gvm_comparison_ram6g_specs",
     "gvm_comparison_ram6g_components",
