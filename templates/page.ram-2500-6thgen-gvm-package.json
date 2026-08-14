@@ -959,22 +959,6 @@
             "value_10": ""
           }
         },
-        "row_fox_2_5_performance_seri": {
-          "type": "row",
-          "settings": {
-            "label": "Fox 2.5 Performance Series HTO (Front)",
-            "value_1": "987-24-045",
-            "value_2": "✔",
-            "value_3": "",
-            "value_4": "",
-            "value_5": "",
-            "value_6": "",
-            "value_7": "",
-            "value_8": "",
-            "value_9": "",
-            "value_10": ""
-          }
-        },
         "row_husky_drt_flare": {
           "type": "row",
           "settings": {
@@ -990,11 +974,44 @@
             "value_9": "",
             "value_10": ""
           }
+        },
+        "row_fox_hto_front": {
+          "type": "row",
+          "settings": {
+            "label": "Fox 2.5 Performance Series HTO (Front)",
+            "value_1": "987-24-045",
+            "value_2": "✔",
+            "value_3": "",
+            "value_4": "",
+            "value_5": "",
+            "value_6": "",
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
+          }
+        },
+        "row_fox_hto_rear": {
+          "type": "row",
+          "settings": {
+            "label": "Fox 2.5 Performance Series HTO (Rear)",
+            "value_1": "987-24-005",
+            "value_2": "✔",
+            "value_3": "",
+            "value_4": "",
+            "value_5": "",
+            "value_6": "",
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
+          }
         }
       },
       "block_order": [
         "row_part_01",
-        "row_fox_2_5_performance_seri",
+        "row_fox_hto_front",
+        "row_fox_hto_rear",
         "row_part_02",
         "row_part_03",
         "row_part_04",
