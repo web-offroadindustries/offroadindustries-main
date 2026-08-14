@@ -567,8 +567,8 @@
           "type": "row",
           "settings": {
             "label": "Kerb Weight",
-            "value_1": "3609 KG",
-            "value_2": "3620 KG",
+            "value_1": "3710 KG",
+            "value_2": "3760 KG",
             "value_3": "3639 KG",
             "value_4": "3645 KG",
             "value_5": "3639 KG",
@@ -584,7 +584,7 @@
           "settings": {
             "label": "Payload (based on kerb weight)",
             "value_1": "886 KG",
-            "value_2": "",
+            "value_2": "1740 KG",
             "value_3": "",
             "value_4": "",
             "value_5": "",
@@ -772,8 +772,8 @@
           "settings": {
             "label": "Fox 2.5 Performance Elite Series (Front)",
             "value_1": "883-26-062",
-            "value_2": "✔",
-            "value_3": "",
+            "value_2": "",
+            "value_3": "✔",
             "value_4": "",
             "value_5": "",
             "value_6": "",
@@ -788,8 +788,8 @@
           "settings": {
             "label": "Fox 2.5 Performance Elite Series (Rear)",
             "value_1": "883-26-065",
-            "value_2": "✔",
-            "value_3": "",
+            "value_2": "",
+            "value_3": "✔",
             "value_4": "",
             "value_5": "",
             "value_6": "",
@@ -836,8 +836,8 @@
           "settings": {
             "label": "BDS 3\" Radius Arm Kit",
             "value_1": "BDS1624FPE",
-            "value_2": "✔",
-            "value_3": "✔",
+            "value_2": "",
+            "value_3": "",
             "value_4": "✔",
             "value_5": "",
             "value_6": "",
@@ -931,7 +931,7 @@
           "type": "row",
           "settings": {
             "label": "Fox Steering Stabiliser (optional)",
-            "value_1": "",
+            "value_1": "983-02-158",
             "value_2": "O",
             "value_3": "O",
             "value_4": "O",
@@ -947,8 +947,40 @@
           "type": "row",
           "settings": {
             "label": "BDS Twin Steering Stabiliser (optional)",
-            "value_1": "",
+            "value_1": "BDS2031DF",
             "value_2": "",
+            "value_3": "",
+            "value_4": "O",
+            "value_5": "O",
+            "value_6": "O",
+            "value_7": "O",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
+          }
+        },
+        "row_fox_2_5_performance_seri": {
+          "type": "row",
+          "settings": {
+            "label": "Fox 2.5 Performance Series HTO (Front)",
+            "value_1": "987-24-045",
+            "value_2": "✔",
+            "value_3": "",
+            "value_4": "",
+            "value_5": "",
+            "value_6": "",
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
+          }
+        },
+        "row_husky_drt_flare": {
+          "type": "row",
+          "settings": {
+            "label": "Husky DRT Flare",
+            "value_1": "2805938",
+            "value_2": "O",
             "value_3": "O",
             "value_4": "O",
             "value_5": "O",
@@ -962,6 +994,7 @@
       },
       "block_order": [
         "row_part_01",
+        "row_fox_2_5_performance_seri",
         "row_part_02",
         "row_part_03",
         "row_part_04",
@@ -970,6 +1003,7 @@
         "row_part_07",
         "row_part_08",
         "row_part_09",
+        "row_husky_drt_flare",
         "row_part_10",
         "row_part_11",
         "row_part_12",
