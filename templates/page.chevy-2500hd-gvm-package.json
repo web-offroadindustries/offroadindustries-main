@@ -1173,7 +1173,7 @@
         "row_Xm7nMe": {
           "type": "row",
           "settings": {
-            "label": "Fox 2.5 Peformance Elite Coilover (Front)",
+            "label": "Fox 2.5 Performance Elite Coilover (Front)",
             "value_1": "884-06-337",
             "value_2": "",
             "value_3": "",
@@ -1221,7 +1221,7 @@
         "row_ViUDYJ": {
           "type": "row",
           "settings": {
-            "label": "Fox 2.5 Peformance Elite Coilover (Front)",
+            "label": "Fox 2.5 Performance Elite Coilover (Front)",
             "value_1": "884-06-339",
             "value_2": "",
             "value_3": "",
@@ -1749,7 +1749,7 @@
       "disabled": true,
       "name": "Contact Form v2",
       "settings": {
-        "heading": "Questions? We’re Hereto Help",
+        "heading": "Questions? We’re Here to Help",
         "body": "<p>Add your intro text here.</p>",
         "form_title": "Send us a message",
         "form_banner_image": "shopify://shop_images/contact-form-banner.webp",
@@ -1772,7 +1772,7 @@
         "heading_fRrLKd": {
           "type": "heading",
           "settings": {
-            "heading": "Ori's Suspension Collection",
+            "heading": "ORI's Suspension Collection",
             "highlight_style": "underline",
             "enable_highlight_text_color": true,
             "heading_size": "h1",

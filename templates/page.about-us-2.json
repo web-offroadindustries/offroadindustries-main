@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main": {
@@ -78,7 +87,7 @@
         "23738779-93a8-4a1b-aa4a-382808fc8419": {
           "type": "column",
           "settings": {
-            "title": "Sustability",
+            "title": "Sustainability",
             "heading_size": "h4",
             "text": "<p>From using recycled materials to reducing energy consumption, we're constantly seeking innovative ways to make our brand sustainable.</p>",
             "text_size": "medium",
