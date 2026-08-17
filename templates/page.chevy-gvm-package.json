@@ -1463,14 +1463,38 @@
             "field_width": "100",
             "hide_label": true
           }
+        },
+        "step_your_enquiry_x8r3EB": {
+          "type": "step",
+          "settings": {
+            "title": "Your enquiry",
+            "caption": "Anything else we should know."
+          }
+        },
+        "step_your_vehicle_x8r3EB": {
+          "type": "step",
+          "settings": {
+            "title": "Your vehicle",
+            "caption": "Helps us match the right GVM package."
+          }
+        },
+        "step_your_details_x8r3EB": {
+          "type": "step",
+          "settings": {
+            "title": "Your details",
+            "caption": "So we know who to send the quote to."
+          }
         }
       },
       "block_order": [
+        "step_your_details_x8r3EB",
         "name_8kii3W",
         "email_pEVk6j",
         "phone_atX8MW",
+        "step_your_vehicle_x8r3EB",
         "rego_status_YKHXBe",
         "custom_select_rebt6m",
+        "step_your_enquiry_x8r3EB",
         "location_FiKmdb",
         "message_rpD3xU"
       ],

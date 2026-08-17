@@ -995,15 +995,39 @@
             "field_width": "100",
             "hide_label": true
           }
+        },
+        "step_your_enquiry__ram6g": {
+          "type": "step",
+          "settings": {
+            "title": "Your enquiry",
+            "caption": "Anything else we should know."
+          }
+        },
+        "step_your_vehicle__ram6g": {
+          "type": "step",
+          "settings": {
+            "title": "Your vehicle",
+            "caption": "Helps us match the right GVM package."
+          }
+        },
+        "step_your_details__ram6g": {
+          "type": "step",
+          "settings": {
+            "title": "Your details",
+            "caption": "So we know who to send the quote to."
+          }
         }
       },
       "block_order": [
+        "step_your_details__ram6g",
         "name_ram6g",
         "email_ram6g",
         "phone_ram6g",
+        "step_your_vehicle__ram6g",
         "rego_ram6g",
         "vehicle_ram6g",
         "stage_ram6g",
+        "step_your_enquiry__ram6g",
         "location_ram6g",
         "message_ram6g"
       ],
