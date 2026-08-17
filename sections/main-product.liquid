@@ -1,7 +1,25 @@
 {% comment %}theme-check-disable TemplateLength{% endcomment %}
 {{ 'product.css' | asset_url | stylesheet_tag }}
 {{ 'so-special-order.css' | asset_url | stylesheet_tag }}
+{{ 'ori-preorder.css' | asset_url | stylesheet_tag }}
 <script src="{{ 'bold-options-position-fix.js' | asset_url }}" defer></script>
+
+{%- comment -%}
+  Set the pre-order marker from Liquid before anything renders, so the bundle
+  widget never gets a frame on screen. ori-preorder.js takes over afterwards to
+  follow variant changes and to catch the Timesact case, which Liquid cannot
+  see because that app renders nothing server side.
+{%- endcomment -%}
+{%- capture ori_preorder_state -%}
+  {%- render 'ori-preorder-state',
+    product: product,
+    variant: product.selected_or_first_available_variant
+  -%}
+{%- endcapture -%}
+{%- assign ori_preorder_state = ori_preorder_state | strip -%}
+{%- if ori_preorder_state == 'pre' -%}
+  <script>document.body.setAttribute('data-ori-preorder', 'true');</script>
+{%- endif -%}
 {%- liquid
   assign enable_image_zoom = section.settings.enable_image_zoom | default: false
 
@@ -122,6 +140,7 @@
 <script src="{{ 'notify-me-form.js' | asset_url }}" defer></script>
 
 <script src="{{ 'so-special-order.js' | asset_url }}" defer></script>
+<script src="{{ 'ori-preorder.js' | asset_url }}" defer></script>
 
 {%- if product.media.size > 0 -%}
   <script src="{{ 'product-media.js' | asset_url }}" defer="defer"></script>

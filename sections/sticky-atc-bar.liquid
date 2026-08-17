@@ -30,7 +30,30 @@
   if template.suffix == 'gvm-stage'
     assign is_gvm_stage = true
   endif
+
+  # This bar had no pre-order awareness of any kind, so a product that showed a
+  # Pre-Order button in the main form still offered a working Add to cart down
+  # here as soon as the customer scrolled. Both states are mirrored below so the
+  # page only ever presents one action.
+  assign so_type = ''
+  for t in product.tags
+    assign td = t | downcase | strip
+    if td == 'pre-order' or td == 'preorder' or td == 'pre order'
+      assign so_type = 'pre'
+    elsif td == 'special order' or td == 'special-order'
+      if so_type == ''
+        assign so_type = 'special'
+      endif
+    endif
+  endfor
 -%}
+{%- capture ori_preorder -%}
+  {%- render 'ori-preorder-state',
+    product: product,
+    variant: product.selected_or_first_available_variant
+  -%}
+{%- endcapture -%}
+{%- assign ori_preorder = ori_preorder | strip -%}
 <script src="{{ 'sticky-atc-bar.js' | asset_url }}" defer="defer"></script>
 {%- unless b2b_user -%}
 <div
@@ -153,27 +176,51 @@
             {% endif %}
             <div class="f-product-form__buttons flex items-center">
               {% if show_atc_button %}
-                <button
-                  type="submit"
-                  name="add"
-                  class="f-product-form__submit btn {% if show_dynamic_checkout_buttons and product.selling_plan_groups == empty %}btn--secondary{% else %}btn--primary{% endif %} w-full"
-                  {% if product.selected_or_first_available_variant.available == false %}
-                    disabled
-                  {% endif %}
-                >
-                  <span>
-                    {%- if product.selected_or_first_available_variant.available -%}
-                      {{ 'products.product.add_to_cart' | t }}
-                    {%- else -%}
-                      {{ 'products.product.sold_out' | t }}
-                    {%- endif -%}
-                  </span>
-                  {% comment %} theme-check-disable {% endcomment %}
-                  {{ 'icon-spinner.svg' | inline_asset_content }}
-                  {% comment %} theme-check-enable {% endcomment %}
-                </button>
+                {%- if so_type != '' -%}
+                  {%- comment -%}
+                    Matches the main form's tagged special order button. The
+                    click handler in so-special-order.js is delegated from the
+                    document and reads the variant from the enclosing form, so
+                    this needs no extra JS.
+                  {%- endcomment -%}
+                  <button
+                    type="button"
+                    class="f-product-form__submit btn btn--primary w-full"
+                    data-so-trigger
+                    data-order-type="{{ so_type }}"
+                    data-product-title="{{ product.title | escape }}"
+                    data-product-url="{{ shop.url }}{{ product.url }}"
+                    data-variant-id="{{ product.selected_or_first_available_variant.id }}"
+                  >
+                    <span>
+                      {%- if so_type == 'pre' -%}Pre-Order{%- else -%}Special Order{%- endif -%}
+                    </span>
+                  </button>
+                {%- else -%}
+                  <button
+                    type="submit"
+                    name="add"
+                    class="f-product-form__submit btn {% if show_dynamic_checkout_buttons and product.selling_plan_groups == empty %}btn--secondary{% else %}btn--primary{% endif %} w-full"
+                    {% if product.selected_or_first_available_variant.available == false %}
+                      disabled
+                    {% endif %}
+                  >
+                    <span>
+                      {%- if ori_preorder == 'pre' -%}
+                        Pre-Order
+                      {%- elsif product.selected_or_first_available_variant.available -%}
+                        {{ 'products.product.add_to_cart' | t }}
+                      {%- else -%}
+                        {{ 'products.product.sold_out' | t }}
+                      {%- endif -%}
+                    </span>
+                    {% comment %} theme-check-disable {% endcomment %}
+                    {{ 'icon-spinner.svg' | inline_asset_content }}
+                    {% comment %} theme-check-enable {% endcomment %}
+                  </button>
+                {%- endif -%}
               {% endif %}
-              {%- if show_dynamic_checkout_buttons -%}
+              {%- if show_dynamic_checkout_buttons and so_type == '' and ori_preorder == '' -%}
                 <div class="f-product-form__button-dynamic hidden md:block">
                   {{ form | payment_button }}
                 </div>
