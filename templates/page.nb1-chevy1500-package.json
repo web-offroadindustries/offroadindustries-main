@@ -1174,22 +1174,6 @@
             "value_10": ""
           }
         },
-        "row_part_09": {
-          "type": "row",
-          "settings": {
-            "label": "GVM Part Numbers",
-            "value_1": "",
-            "value_2": "CHV-NB1-Stage1-LTZ",
-            "value_3": "CHV-NB1-Stage2-ZR2",
-            "value_4": "CHV-NB1-Stage3-LTZ",
-            "value_5": "CHV-NB1-Stage4-ZR2",
-            "value_6": "CHV-NB1-Stage4-ZR2",
-            "value_7": "",
-            "value_8": "",
-            "value_9": "",
-            "value_10": ""
-          }
-        },
         "row_speedo_correction": {
           "type": "row",
           "settings": {
@@ -1216,6 +1200,22 @@
             "value_4": "O",
             "value_5": "O",
             "value_6": "",
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
+          }
+        },
+        "row_part_09": {
+          "type": "row",
+          "settings": {
+            "label": "GVM Part Numbers",
+            "value_1": "",
+            "value_2": "CHV-NB1-Stage1-LTZ",
+            "value_3": "CHV-NB1-Stage2-ZR2",
+            "value_4": "CHV-NB1-Stage3-LTZ",
+            "value_5": "CHV-NB1-Stage4-ZR2",
+            "value_6": "CHV-NB1-Stage4-ZR2",
             "value_7": "",
             "value_8": "",
             "value_9": "",
@@ -1279,6 +1279,7 @@
       "block_order": [
         "heading_PHJcdq"
       ],
+      "disabled": true,
       "name": "t:sections.rich-text.presets.name",
       "settings": {
         "container": "container",
@@ -1341,6 +1342,7 @@
         "row_wKR3CU",
         "row_rCcK78"
       ],
+      "disabled": true,
       "name": "Wheel Comparison",
       "settings": {
         "anchor_id": "",
@@ -1363,6 +1365,13 @@
     "contact_form_v4_YzWJbE": {
       "type": "contact-form-v4",
       "blocks": {
+        "step_your_details_YzWJbE": {
+          "type": "step",
+          "settings": {
+            "title": "Your details",
+            "caption": "So we know who to send the quote to."
+          }
+        },
         "name_GV7LzQ": {
           "type": "name",
           "settings": {
@@ -1391,6 +1400,13 @@
             "field_width": "full",
             "hide_label": true,
             "required": false
+          }
+        },
+        "step_your_vehicle_YzWJbE": {
+          "type": "step",
+          "settings": {
+            "title": "Your vehicle",
+            "caption": "Helps us match the right GVM package."
           }
         },
         "rego_status_GHUeAg": {
@@ -1435,6 +1451,13 @@
             "required": false
           }
         },
+        "step_your_enquiry_YzWJbE": {
+          "type": "step",
+          "settings": {
+            "title": "Your enquiry",
+            "caption": "Anything else we should know."
+          }
+        },
         "location_TLebdV": {
           "type": "location",
           "settings": {
@@ -1454,27 +1477,6 @@
             "rows": 3,
             "field_width": "100",
             "hide_label": true
-          }
-        },
-        "step_your_enquiry_YzWJbE": {
-          "type": "step",
-          "settings": {
-            "title": "Your enquiry",
-            "caption": "Anything else we should know."
-          }
-        },
-        "step_your_vehicle_YzWJbE": {
-          "type": "step",
-          "settings": {
-            "title": "Your vehicle",
-            "caption": "Helps us match the right GVM package."
-          }
-        },
-        "step_your_details_YzWJbE": {
-          "type": "step",
-          "settings": {
-            "title": "Your details",
-            "caption": "So we know who to send the quote to."
           }
         }
       },
