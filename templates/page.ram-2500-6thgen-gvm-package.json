@@ -525,7 +525,7 @@
             "value_4": "5890 KG",
             "value_5": "5890 KG",
             "value_6": "5890 KG",
-            "value_7": "5890 KG",
+            "value_7": "5800 KG",
             "value_8": "",
             "value_9": "",
             "value_10": ""
@@ -551,13 +551,13 @@
           "type": "row",
           "settings": {
             "label": "Gross Combined Mass (GCM)",
-            "value_1": "12,474 KG",
-            "value_2": "12,474 KG",
-            "value_3": "12,474 KG",
-            "value_4": "12,474 KG",
-            "value_5": "12,474 KG",
-            "value_6": "12,474 KG",
-            "value_7": "12,474 KG",
+            "value_1": "12,750 KG",
+            "value_2": "12,750 KG",
+            "value_3": "12,750 KG",
+            "value_4": "12,750 KG",
+            "value_5": "12,750 KG",
+            "value_6": "12,750 KG",
+            "value_7": "12,750 KG",
             "value_8": "",
             "value_9": "",
             "value_10": ""
@@ -569,11 +569,11 @@
             "label": "Kerb Weight",
             "value_1": "3710 KG",
             "value_2": "3760 KG",
-            "value_3": "3639 KG",
-            "value_4": "3645 KG",
-            "value_5": "3639 KG",
-            "value_6": "3645 KG",
-            "value_7": "3645 KG",
+            "value_3": "3770 KG",
+            "value_4": "3830 KG",
+            "value_5": "3830 KG",
+            "value_6": "3830 KG",
+            "value_7": "3830 KG",
             "value_8": "",
             "value_9": "",
             "value_10": ""
@@ -585,11 +585,11 @@
             "label": "Payload (based on kerb weight)",
             "value_1": "886 KG",
             "value_2": "1740 KG",
-            "value_3": "",
-            "value_4": "",
-            "value_5": "",
-            "value_6": "",
-            "value_7": "",
+            "value_3": "2120 KG",
+            "value_4": "2060 KG",
+            "value_5": "2060 KG",
+            "value_6": "2060 KG",
+            "value_7": "2060 KG",
             "value_8": "",
             "value_9": "",
             "value_10": ""
@@ -621,7 +621,7 @@
             "value_4": "3175 KG",
             "value_5": "3175 KG",
             "value_6": "3175 KG",
-            "value_7": "3175 KG",
+            "value_7": "3075 KG",
             "value_8": "",
             "value_9": "",
             "value_10": ""
@@ -637,7 +637,7 @@
             "value_4": "Pos 18",
             "value_5": "Pos 18",
             "value_6": "Pos 18",
-            "value_7": "Pos 18",
+            "value_7": "Pos 12 | Zero | -11",
             "value_8": "",
             "value_9": "",
             "value_10": ""
@@ -662,14 +662,14 @@
         "row_spec_10": {
           "type": "row",
           "settings": {
-            "label": "Tyre Load Rating",
+            "label": "Minimum Tyre Load Rating",
             "value_1": "",
-            "value_2": "1600 KG",
-            "value_3": "1600 KG",
-            "value_4": "1600 KG",
-            "value_5": "1650 KG",
-            "value_6": "1650 KG",
-            "value_7": "1650 KG",
+            "value_2": "124 Q",
+            "value_3": "124 Q",
+            "value_4": "124 Q",
+            "value_5": "124 Q",
+            "value_6": "124 Q",
+            "value_7": "124 Q",
             "value_8": "",
             "value_9": "",
             "value_10": ""
@@ -679,10 +679,10 @@
           "type": "row",
           "settings": {
             "label": "Requires Wheel/ Tyre Upgrade",
-            "value_1": "",
-            "value_2": "N/A",
-            "value_3": "N/A",
-            "value_4": "N/A",
+            "value_1": "OEM",
+            "value_2": "Yes",
+            "value_3": "Yes",
+            "value_4": "Yes",
             "value_5": "Yes",
             "value_6": "Yes",
             "value_7": "Yes",
@@ -701,7 +701,7 @@
             "value_4": "37x12.5xR18\n37x12.5xR20",
             "value_5": "37x12.5xR18\n37x12.5xR20",
             "value_6": "37x12.5xR18\n37x12.5xR20",
-            "value_7": "37x12.5xR18\n37x12.5xR20",
+            "value_7": "40x13.5R17 | 40x13.5R18 | 40x13.5R20",
             "value_8": "",
             "value_9": "",
             "value_10": ""
@@ -873,7 +873,7 @@
             "value_4": "",
             "value_5": "",
             "value_6": "✔",
-            "value_7": "✔",
+            "value_7": "",
             "value_8": "",
             "value_9": "",
             "value_10": ""
@@ -1006,6 +1006,38 @@
             "value_9": "",
             "value_10": ""
           }
+        },
+        "row_aev_highmark": {
+          "type": "row",
+          "settings": {
+            "label": "AEV HighMark Fender Flares",
+            "value_1": "40408003AC",
+            "value_2": "",
+            "value_3": "",
+            "value_4": "",
+            "value_5": "",
+            "value_6": "",
+            "value_7": "✔",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
+          }
+        },
+        "row_gvm_part_number_6g": {
+          "type": "row",
+          "settings": {
+            "label": "GVM Part Number",
+            "value_1": "",
+            "value_2": "RAM62500Stage1GVM",
+            "value_3": "RAM62500Stage2GVM",
+            "value_4": "RAM62500Stage3GVM",
+            "value_5": "RAM62500Stage4GVM",
+            "value_6": "RAM62500Stage5GVM",
+            "value_7": "RAM62500Stage6GVM",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
+          }
         }
       },
       "block_order": [
@@ -1021,10 +1053,12 @@
         "row_part_08",
         "row_part_09",
         "row_husky_drt_flare",
+        "row_aev_highmark",
         "row_part_10",
         "row_part_11",
         "row_part_12",
-        "row_part_13"
+        "row_part_13",
+        "row_gvm_part_number_6g"
       ],
       "name": "GVM Comparison",
       "settings": {

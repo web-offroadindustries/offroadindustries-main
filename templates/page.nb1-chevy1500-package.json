@@ -738,10 +738,10 @@
           "settings": {
             "label": "Requires Wheel/ Tyre Upgrade",
             "value_1": "OEM",
-            "value_2": "Yes",
-            "value_3": "Yes",
-            "value_4": "Yes",
-            "value_5": "Yes",
+            "value_2": "✔",
+            "value_3": "✔",
+            "value_4": "✔",
+            "value_5": "✔",
             "value_6": "",
             "value_7": "",
             "value_8": "",
@@ -975,10 +975,10 @@
           "settings": {
             "label": "Requires Wheel/ Tyre Upgrade",
             "value_1": "OEM",
-            "value_2": "Yes",
-            "value_3": "Yes",
-            "value_4": "Yes",
-            "value_5": "Yes",
+            "value_2": "✔",
+            "value_3": "✔",
+            "value_4": "✔",
+            "value_5": "✔",
             "value_6": "",
             "value_7": "",
             "value_8": "",
@@ -1113,7 +1113,7 @@
         "row_part_05": {
           "type": "row",
           "settings": {
-            "label": "Rough Country SF1 Flares (ZR2 & LTZ)",
+            "label": "Rough Country SF1 Flares (ZR2)",
             "value_1": "F-C319201A-ZR2",
             "value_2": "✔",
             "value_3": "✔",
@@ -1146,11 +1146,11 @@
           "type": "row",
           "settings": {
             "label": "ORI rear mud flap",
-            "value_1": "ORI-SIL-Rear",
+            "value_1": "ORI-SIL-1500-Rear",
             "value_2": "✔",
             "value_3": "✔",
-            "value_4": "✔",
-            "value_5": "✔",
+            "value_4": "",
+            "value_5": "",
             "value_6": "",
             "value_7": "",
             "value_8": "",
@@ -1162,26 +1162,10 @@
           "type": "row",
           "settings": {
             "label": "ORI Front and Rear Mud flaps",
-            "value_1": "ORI-Sil1500-MUD",
+            "value_1": "ORI-SIL-1500-FR&RR",
             "value_2": "",
             "value_3": "",
-            "value_4": "",
-            "value_5": "",
-            "value_6": "",
-            "value_7": "",
-            "value_8": "",
-            "value_9": "",
-            "value_10": ""
-          }
-        },
-        "row_part_08": {
-          "type": "row",
-          "settings": {
-            "label": "After Market Wheels Required",
-            "value_1": "",
-            "value_2": "",
-            "value_3": "",
-            "value_4": "",
+            "value_4": "✔",
             "value_5": "✔",
             "value_6": "",
             "value_7": "",
@@ -1205,6 +1189,38 @@
             "value_9": "",
             "value_10": ""
           }
+        },
+        "row_speedo_correction": {
+          "type": "row",
+          "settings": {
+            "label": "Speedo Correction Tool",
+            "value_1": "90050",
+            "value_2": "",
+            "value_3": "",
+            "value_4": "✔",
+            "value_5": "✔",
+            "value_6": "",
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
+          }
+        },
+        "row_bds_recoil_bars": {
+          "type": "row",
+          "settings": {
+            "label": "BDS Recoil Traction Bars",
+            "value_1": "BDS2303",
+            "value_2": "O",
+            "value_3": "O",
+            "value_4": "O",
+            "value_5": "O",
+            "value_6": "",
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
+          }
         }
       },
       "block_order": [
@@ -1216,7 +1232,8 @@
         "row_part_06",
         "row_part_07",
         "row_ori_front_and_rear_mud_f",
-        "row_part_08",
+        "row_speedo_correction",
+        "row_bds_recoil_bars",
         "row_part_09"
       ],
       "name": "GVM Comparison",

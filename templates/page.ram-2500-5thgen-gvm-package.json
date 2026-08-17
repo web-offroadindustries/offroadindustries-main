@@ -208,7 +208,7 @@
         "text_ram6g_s1": {
           "type": "text",
           "settings": {
-            "text": "<p><em>RAM 2500 HD 5th generation 2019 - 2024. NB2 truck licence.</em></p><ul><li><strong>GVM:</strong> 5300kg | <strong>GCM:</strong> 12,474kg | <strong>Braked Towing:</strong> 4500kg</li><li><strong>Payload:</strong> 1680kg, a 90% increase on the factory 886kg.</li><li><strong>Lift:</strong> 2\" lift.</li><li><strong>Included:</strong> Fox 2.5 HTO Performance Series shocks, ORI load rated coils, Husky flares colour coded to suit your vehicle.</li><li><strong>NOTE:</strong> Load rated wheels and tyres are required for this stage.</li><li><strong>Compliance:</strong> SSM federally approved Australia wide, Pre and Post rego only (VTA-064942).</li></ul><p><em><strong>Wheels and tyres not included.</strong></em></p>"
+            "text": "<p><em>RAM 2500 HD 5th generation 2019 - 2024. NB2 truck licence.</em></p><ul><li><strong>GVM:</strong> 5300kg | <strong>GCM:</strong> 12,695kg | <strong>Braked Towing:</strong> 4500kg</li><li><strong>Payload:</strong> 1680kg, a 90% increase on the factory 886kg.</li><li><strong>Lift:</strong> 2\" lift.</li><li><strong>Included:</strong> Fox 2.5 HTO Performance Series shocks, ORI load rated coils, Husky flares colour coded to suit your vehicle.</li><li><strong>NOTE:</strong> Load rated wheels and tyres are required for this stage.</li><li><strong>Compliance:</strong> SSM federally approved Australia wide, Pre and Post rego only (VTA-064942).</li></ul><p><em><strong>Wheels and tyres not included.</strong></em></p>"
           }
         }
       },
@@ -267,7 +267,7 @@
         "text_ram6g_s2": {
           "type": "text",
           "settings": {
-            "text": "<p><em>RAM 2500 HD 5th generation 2019 - 2024. NB2 truck licence.</em></p><ul><li><strong>GVM:</strong> 5550kg | <strong>GCM:</strong> 12,474kg | <strong>Braked Towing:</strong> 4500kg</li><li><strong>Payload:</strong> 1661kg, an 87.5% increase on the factory 886kg.</li><li><strong>Lift & Tyres:</strong> 2\" lift, 35\" tyres legal.</li><li><strong>Included:</strong> Fox 2.5 Performance Elite Series reservoir shocks, ORI load rated coils, Husky flares colour coded to suit your vehicle.</li><li><strong>NOTE:</strong> Load rated wheels and tyres are required for this stage.</li><li><strong>Compliance:</strong> SSM federally approved Australia wide, Pre and Post rego only (VTA-064942).</li></ul><p><em>Wheels and tyres not included.</em></p>"
+            "text": "<p><em>RAM 2500 HD 5th generation 2019 - 2024. NB2 truck licence.</em></p><ul><li><strong>GVM:</strong> 5550kg | <strong>GCM:</strong> 12,695kg | <strong>Braked Towing:</strong> 4500kg</li><li><strong>Payload:</strong> 1661kg, an 87.5% increase on the factory 886kg.</li><li><strong>Lift & Tyres:</strong> 2\" lift, 35\" tyres legal.</li><li><strong>Included:</strong> Fox 2.5 Performance Elite Series reservoir shocks, ORI load rated coils, Husky flares colour coded to suit your vehicle.</li><li><strong>NOTE:</strong> Load rated wheels and tyres are required for this stage.</li><li><strong>Compliance:</strong> SSM federally approved Australia wide, Pre and Post rego only (VTA-064942).</li></ul><p><em>Wheels and tyres not included.</em></p>"
           }
         }
       },
@@ -326,7 +326,7 @@
         "text_ram6g_s3": {
           "type": "text",
           "settings": {
-            "text": "<p><em>RAM 2500 HD 5th generation 2019 - 2024. NB2 truck licence.</em></p><ul><li><strong>GVM:</strong> 5550kg | <strong>GCM:</strong> 12,474kg | <strong>Braked Towing:</strong> 4500kg</li><li><strong>Payload:</strong> 1655kg, an 86.8% increase on the factory 886kg.</li><li><strong>Lift &amp; Tyres:</strong> 3\" BDS lift, 35\" tyres legal.</li><li><strong>Included:</strong> Fox 2.5 Performance Elite Series reservoir shocks, BDS 3\" lift kit with radius arms, ORI load rated coils, Husky flares colour coded to suit your vehicle.</li><li><strong>NOTE:</strong> Load rated wheels and tyres are required for this stage.</li><li><strong>Compliance:</strong> SSM federally approved Australia wide, Fox and BDS Suspension components, Pre and Post rego only (VTA-064942).</li></ul><p><em>Wheels and tyres not included.</em></p>"
+            "text": "<p><em>RAM 2500 HD 5th generation 2019 - 2024. NB2 truck licence.</em></p><ul><li><strong>GVM:</strong> 5550kg | <strong>GCM:</strong> 12,695kg | <strong>Braked Towing:</strong> 4500kg</li><li><strong>Payload:</strong> 1655kg, an 86.8% increase on the factory 886kg.</li><li><strong>Lift &amp; Tyres:</strong> 3\" BDS lift, 35\" tyres legal.</li><li><strong>Included:</strong> Fox 2.5 Performance Elite Series reservoir shocks, BDS 3\" lift kit with radius arms, ORI load rated coils, Husky flares colour coded to suit your vehicle.</li><li><strong>NOTE:</strong> Load rated wheels and tyres are required for this stage.</li><li><strong>Compliance:</strong> SSM federally approved Australia wide, Fox and BDS Suspension components, Pre and Post rego only (VTA-064942).</li></ul><p><em>Wheels and tyres not included.</em></p>"
           }
         }
       },
@@ -434,9 +434,9 @@
           "settings": {
             "label": "Gross Combined Mass (GCM)",
             "value_1": "12,695 KG",
-            "value_2": "12,474 KG",
-            "value_3": "12,474 KG",
-            "value_4": "12,474 KG",
+            "value_2": "12,695 KG",
+            "value_3": "12,695 KG",
+            "value_4": "12,695 KG",
             "value_5": "",
             "value_6": "",
             "value_7": "",
@@ -546,9 +546,9 @@
           "settings": {
             "label": "Wheel Load Rating",
             "value_1": "1587 KG",
-            "value_2": "1600 KG",
-            "value_3": "1600 KG",
-            "value_4": "1600 KG",
+            "value_2": "1450 KG",
+            "value_3": "1450 KG",
+            "value_4": "1450 KG",
             "value_5": "",
             "value_6": "",
             "value_7": "",
@@ -561,10 +561,10 @@
           "type": "row",
           "settings": {
             "label": "Tyre Load Rating",
-            "value_1": "",
-            "value_2": "1600 KG",
-            "value_3": "1600 KG",
-            "value_4": "1600 KG",
+            "value_1": "OEM",
+            "value_2": "124 Q",
+            "value_3": "124 Q",
+            "value_4": "124 Q",
             "value_5": "",
             "value_6": "",
             "value_7": "",
@@ -825,6 +825,22 @@
             "value_9": "",
             "value_10": ""
           }
+        },
+        "row_gvm_part_number_5g": {
+          "type": "row",
+          "settings": {
+            "label": "GVM Part Number",
+            "value_1": "",
+            "value_2": "RAM52500Stage1GVM",
+            "value_3": "RAM52500Stage2GVM",
+            "value_4": "RAM52500Stage3GVM",
+            "value_5": "",
+            "value_6": "",
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
+          }
         }
       },
       "block_order": [
@@ -837,6 +853,7 @@
         "row_part_07",
         "row_part_08",
         "row_part_09",
+        "row_gvm_part_number_5g",
         "row_part_10",
         "row_part_11"
       ],

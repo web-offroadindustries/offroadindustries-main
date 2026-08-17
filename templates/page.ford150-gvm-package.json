@@ -623,7 +623,7 @@
             "value_4": "8800 KG",
             "value_5": "8800 KG",
             "value_6": "8500 KG",
-            "value_7": "8200 KG",
+            "value_7": "7720 KG",
             "value_8": "",
             "value_9": "",
             "value_10": ""
@@ -744,14 +744,14 @@
         "row_aDFEfG": {
           "type": "row",
           "settings": {
-            "label": "Tyre Load Rating",
+            "label": "Minimum Tyre Rating",
             "value_1": "1050 KG",
-            "value_2": "1050 KG",
-            "value_3": "1074.5 KG",
-            "value_4": "1250 KG",
-            "value_5": "1250 KG",
-            "value_6": "1250 KG",
-            "value_7": "1074.5 KG",
+            "value_2": "110 Q",
+            "value_3": "110 Q",
+            "value_4": "116 Q",
+            "value_5": "116 Q",
+            "value_6": "116 Q",
+            "value_7": "116 Q",
             "value_8": "",
             "value_9": "",
             "value_10": ""
@@ -761,7 +761,7 @@
           "type": "row",
           "settings": {
             "label": "Requires Wheel/ Tyre Upgrade",
-            "value_1": "N/A",
+            "value_1": "OEM",
             "value_2": "OEM",
             "value_3": "OEM",
             "value_4": "✔",
