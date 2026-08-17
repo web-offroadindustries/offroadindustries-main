@@ -1,0 +1,21 @@
+/* ─── ORI pre-order ────────────────────────────────────────────────────────
+   When the page is marked as a pre-order, the Selleasy "complete kit" bundle
+   is taken off the page.
+
+   It has to be handled here rather than in Liquid because the widget is
+   injected at runtime and posts straight to /cart/add with its own AJAX call,
+   so it never passes through the theme's product form. Neither the theme nor
+   Timesact can reach it. Its own gate is product.available, which stays true
+   under "Sell when out of stock" - the same reason the theme was rendering a
+   live Add to cart on a product with nothing left.
+
+   The condition lives on <body> and is set by the theme, so only the target
+   selector belongs to the app. If Selleasy ever renames the element the widget
+   simply comes back, which is cosmetic. Nothing here can hide the theme's own
+   buy button.
+
+   The whole widget goes, not just its button: a bundle showing checkboxes and
+   a total with no way to act on it reads as broken. */
+[data-ori-preorder='true'] lb-product-page-cross-sell-ew {
+  display: none !important;
+}
