@@ -78,13 +78,33 @@
       {%- endif -%}
 
       <div class="ori-gvm-hero__ctas">
+        {%- comment -%}
+          Button 1 is the primary call to action. When "opens the quote form" is
+          ticked it opens the contact-form-v4 section that is sitting on the same
+          page in popup mode, using the same modal-opener wiring as the product
+          page and the sticky bar, rather than navigating anywhere. That keeps the
+          visitor on the collection they just landed on, and it is also how the
+          dead /pages/contact link gets retired.
+
+          If the popup section is ever removed from the template the button falls
+          back to its URL, so the worst case is the old behaviour rather than a
+          button that does nothing.
+        {%- endcomment -%}
         {%- if section.settings.btn_1_text != blank -%}
-          <a
-            href="{{ section.settings.btn_1_url | default: '#' }}"
-            class="btn {{ section.settings.btn_1_style }}"
-          >
-            {{- section.settings.btn_1_text -}}
-          </a>
+          {%- if section.settings.btn_1_opens_quote -%}
+            <modal-opener data-modal="#PopupModal-{{ section.settings.quote_popup_id | handle }}">
+              <button type="button" class="btn {{ section.settings.btn_1_style }}">
+                {{- section.settings.btn_1_text -}}
+              </button>
+            </modal-opener>
+          {%- else -%}
+            <a
+              href="{{ section.settings.btn_1_url | default: '#' }}"
+              class="btn {{ section.settings.btn_1_style }}"
+            >
+              {{- section.settings.btn_1_text -}}
+            </a>
+          {%- endif -%}
         {%- endif -%}
         {%- if section.settings.btn_2_text != blank -%}
           <a
@@ -113,9 +133,21 @@
       {%- endcomment -%}
       {%- if section.settings.btn_3_text != blank -%}
         <div class="ori-gvm-hero__calc-cta">
+          {%- comment -%}
+            The quiet style deliberately drops the .btn class rather than adding
+            a modifier to it. .btn paints its hover fill with ::before/::after
+            and the :not() guard on that rule does not cover a custom modifier,
+            so anything that stays a .btn ends up with the fill showing through.
+            Leaving .btn off entirely sidesteps that completely.
+          {%- endcomment -%}
+          {%- if section.settings.btn_3_style == 'quiet' -%}
+            {%- assign calc_class = 'ori-gvm-hero__calc-btn ori-gvm-hero__calc-btn--quiet' -%}
+          {%- else -%}
+            {%- assign calc_class = 'btn ' | append: section.settings.btn_3_style | append: ' ori-gvm-hero__calc-btn' -%}
+          {%- endif -%}
           <a
             href="{{ section.settings.btn_3_url | default: '#' }}"
-            class="btn {{ section.settings.btn_3_style }} ori-gvm-hero__calc-btn"
+            class="{{ calc_class }}"
           >
             {%- if section.settings.btn_3_show_icon -%}
               <svg class="ori-gvm-hero__calc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
@@ -191,7 +223,22 @@
     {
       "type": "url",
       "id": "btn_1_url",
-      "label": "Button 1 URL"
+      "label": "Button 1 URL",
+      "info": "Ignored when the button opens the quote form."
+    },
+    {
+      "type": "checkbox",
+      "id": "btn_1_opens_quote",
+      "label": "Button 1 opens the quote form",
+      "info": "Opens the Contact form v4 section on this page that is set to Popup, instead of following the URL.",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "quote_popup_id",
+      "label": "Quote popup ID",
+      "info": "Must match the Popup ID on that Contact form v4 section.",
+      "default": "gvm-quote"
     },
     {
       "type": "select",
@@ -244,9 +291,10 @@
       "options": [
         { "value": "btn--primary", "label": "Primary" },
         { "value": "btn--secondary", "label": "Secondary" },
-        { "value": "btn--outline", "label": "Outline" }
+        { "value": "btn--outline", "label": "Outline" },
+        { "value": "quiet", "label": "Quiet link (keeps the two buttons above dominant)" }
       ],
-      "default": "btn--primary"
+      "default": "quiet"
     },
     {
       "type": "checkbox",

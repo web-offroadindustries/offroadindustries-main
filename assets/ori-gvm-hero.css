@@ -152,3 +152,52 @@
     width: 100%;
   }
 }
+
+/* ─── Calculator call to action, quiet variant ─────────────────────────────
+   Te's feedback was that Request a Quote and View All GVM Upgrades were
+   getting lost next to the calculator. They were: the calculator was set to
+   btn--primary, the same weight as Request a Quote, and it sits on its own
+   line where nothing competes with it.
+
+   This variant keeps the calculator easy to find without letting it outrank
+   the two buttons above. It is not a .btn at all, so none of the theme's
+   button fill or hover machinery applies to it. */
+.ori-gvm-hero__calc-btn--quiet {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 2px;
+  border: 0;
+  background: none;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.3;
+  color: currentColor;
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+  opacity: 0.92;
+  transition: opacity 0.15s ease;
+}
+
+.ori-gvm-hero__calc-btn--quiet:hover,
+.ori-gvm-hero__calc-btn--quiet:focus-visible {
+  opacity: 1;
+}
+
+/* The two priority buttons should read as a matched pair, so neither one looks
+   like an afterthought beside the other. */
+.ori-gvm-hero__ctas .btn {
+  min-width: 210px;
+  justify-content: center;
+}
+
+@media (max-width: 749px) {
+  /* Underline only, so it never looks like a third full width button. */
+  .ori-gvm-hero__calc-cta .ori-gvm-hero__calc-btn--quiet {
+    width: auto;
+    flex: 0 0 auto;
+  }
+  .ori-gvm-hero__ctas .btn {
+    min-width: 0;
+  }
+}

@@ -54,14 +54,14 @@
         "heading_size": "h1",
         "subheading": "<p>Federally approved GVM upgrade packages for the Chevrolet Silverado 1500. Every stage is ADR-tested, SSM-certified, and installed by our national network of approved specialists.</p>",
         "btn_1_text": "Request a Quote",
-        "btn_1_url": "/pages/contact",
+        "btn_1_url": "/pages/contact-us",
         "btn_1_style": "btn--primary",
         "btn_2_text": "View All GVM Upgrades",
         "btn_2_url": "/pages/ori-gvm-upgrades",
         "btn_2_style": "btn--outline",
         "btn_3_text": "Know Your Weight? Try the GVM Calculator",
         "btn_3_url": "#gvm-calculator",
-        "btn_3_style": "btn--primary",
+        "btn_3_style": "quiet",
         "btn_3_show_icon": true,
         "overlay_opacity": 45,
         "container": "container",
@@ -69,7 +69,9 @@
         "padding_top": 64,
         "padding_bottom": 48,
         "custom_id": "",
-        "custom_class": ""
+        "custom_class": "",
+        "btn_1_opens_quote": true,
+        "quote_popup_id": "gvm-quote"
       }
     },
     "packages": {
@@ -334,6 +336,308 @@
         "slideshow_animation": "fade",
         "slideshow_interval": 4
       }
+    },
+    "gvm_quote_popup": {
+      "type": "contact-form-v4",
+      "blocks": {
+        "q_step1": {
+          "type": "step",
+          "settings": {
+            "title": "Your details",
+            "caption": "So we know who to send the quote to."
+          }
+        },
+        "q_name": {
+          "type": "name",
+          "settings": {
+            "label": "Name",
+            "field_name": "Name",
+            "placeholder": "Enter your name",
+            "field_width": "full",
+            "hide_label": true,
+            "required": true
+          }
+        },
+        "q_email": {
+          "type": "email",
+          "settings": {
+            "label": "Email",
+            "placeholder": "Enter your email",
+            "field_width": "full",
+            "hide_label": true
+          }
+        },
+        "q_phone": {
+          "type": "phone",
+          "settings": {
+            "label": "Phone number",
+            "placeholder": "Enter your phone number",
+            "field_width": "full",
+            "hide_label": true,
+            "required": true
+          }
+        },
+        "q_step2": {
+          "type": "step",
+          "settings": {
+            "title": "Your vehicle",
+            "caption": "Helps us match the right GVM package."
+          }
+        },
+        "q_rego": {
+          "type": "rego_status",
+          "settings": {
+            "label": "Pre or Post rego",
+            "field_name": "Pre or Post rego",
+            "placeholder": "Select one",
+            "options": "Pre rego, Post rego",
+            "field_width": "full",
+            "hide_label": true,
+            "required": true
+          }
+        },
+        "q_vehicle": {
+          "type": "custom_select",
+          "settings": {
+            "label": "Which Vehicle",
+            "field_name": "Which Vehicle",
+            "placeholder": "Which Vehicle",
+            "options": "Ford F150, Chevy 1500, Chevy 2500HD, Toyota Tundra, RAM 2500 (5th Gen), RAM 2500 (6th Gen), Toyota LC300",
+            "field_width": "100",
+            "hide_label": true,
+            "required": true
+          }
+        },
+        "q_stage": {
+          "type": "custom_select",
+          "settings": {
+            "label": "What Stage GVM Package",
+            "field_name": "What Stage GVM Package",
+            "placeholder": "What Stage GVM Package",
+            "options": "Stage 1, Stage 2, Stage 3, Stage 3.5, Stage 4, Stage 5, Stage 6, Stage 6.5",
+            "field_width": "100",
+            "hide_label": true,
+            "required": true,
+            "depends_on": "Which Vehicle",
+            "options_map": "Ford F150 | Stage 1, Stage 2, Stage 3, Stage 4, Stage 5, Stage 6\nChevy 1500 | Stage 1, Stage 2, Stage 3, Stage 4, Stage 5\nChevy 2500HD | Stage 1, Stage 2, Stage 3, Stage 3.5, Stage 4, Stage 5, Stage 6, Stage 6.5\nToyota Tundra | Stage 1, Stage 2, Stage 3, Stage 4\nRAM 2500 (5th Gen) | Stage 1, Stage 2, Stage 3\nRAM 2500 (6th Gen) | Stage 1, Stage 2, Stage 3, Stage 4, Stage 5, Stage 6\nToyota LC300 | Stage 1, Stage 2",
+            "empty_text": "Choose your vehicle first"
+          }
+        },
+        "q_step3": {
+          "type": "step",
+          "settings": {
+            "title": "Your enquiry",
+            "caption": "Anything else we should know."
+          }
+        },
+        "q_location": {
+          "type": "location",
+          "settings": {
+            "label": "What is your location",
+            "field_name": "Location",
+            "placeholder": "What is your location?",
+            "field_width": "full",
+            "hide_label": true,
+            "required": true
+          }
+        },
+        "q_message": {
+          "type": "message",
+          "settings": {
+            "label": "Message",
+            "placeholder": "Which GVM package do you want further information on?",
+            "rows": 3,
+            "field_width": "100",
+            "hide_label": true
+          }
+        }
+      },
+      "block_order": [
+        "q_step1",
+        "q_name",
+        "q_email",
+        "q_phone",
+        "q_step2",
+        "q_rego",
+        "q_vehicle",
+        "q_stage",
+        "q_step3",
+        "q_location",
+        "q_message"
+      ],
+      "name": "Quote form (popup)",
+      "settings": {
+        "container": "container",
+        "color_schema": "",
+        "subheading": "",
+        "description": "",
+        "form_design": "design-1",
+        "form_width": 560,
+        "form_alignment": "center",
+        "button_label": "Send my quote request",
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "show_section_divider": false,
+        "divider_width": "container",
+        "custom_class": "",
+        "animations": "inherit",
+        "heading": "Request a Quote",
+        "display_mode": "popup",
+        "popup_id": "gvm-quote",
+        "popup_width": 620,
+        "custom_id": ""
+      }
+    },
+    "gvm_quote_form": {
+      "type": "contact-form-v4",
+      "blocks": {
+        "b_step1": {
+          "type": "step",
+          "settings": {
+            "title": "Your details",
+            "caption": "So we know who to send the quote to."
+          }
+        },
+        "b_name": {
+          "type": "name",
+          "settings": {
+            "label": "Name",
+            "field_name": "Name",
+            "placeholder": "Enter your name",
+            "field_width": "full",
+            "hide_label": true,
+            "required": true
+          }
+        },
+        "b_email": {
+          "type": "email",
+          "settings": {
+            "label": "Email",
+            "placeholder": "Enter your email",
+            "field_width": "full",
+            "hide_label": true
+          }
+        },
+        "b_phone": {
+          "type": "phone",
+          "settings": {
+            "label": "Phone number",
+            "placeholder": "Enter your phone number",
+            "field_width": "full",
+            "hide_label": true,
+            "required": true
+          }
+        },
+        "b_step2": {
+          "type": "step",
+          "settings": {
+            "title": "Your vehicle",
+            "caption": "Helps us match the right GVM package."
+          }
+        },
+        "b_rego": {
+          "type": "rego_status",
+          "settings": {
+            "label": "Pre or Post rego",
+            "field_name": "Pre or Post rego",
+            "placeholder": "Select one",
+            "options": "Pre rego, Post rego",
+            "field_width": "full",
+            "hide_label": true,
+            "required": true
+          }
+        },
+        "b_vehicle": {
+          "type": "custom_select",
+          "settings": {
+            "label": "Which Vehicle",
+            "field_name": "Which Vehicle",
+            "placeholder": "Which Vehicle",
+            "options": "Ford F150, Chevy 1500, Chevy 2500HD, Toyota Tundra, RAM 2500 (5th Gen), RAM 2500 (6th Gen), Toyota LC300",
+            "field_width": "100",
+            "hide_label": true,
+            "required": true
+          }
+        },
+        "b_stage": {
+          "type": "custom_select",
+          "settings": {
+            "label": "What Stage GVM Package",
+            "field_name": "What Stage GVM Package",
+            "placeholder": "What Stage GVM Package",
+            "options": "Stage 1, Stage 2, Stage 3, Stage 3.5, Stage 4, Stage 5, Stage 6, Stage 6.5",
+            "field_width": "100",
+            "hide_label": true,
+            "required": true,
+            "depends_on": "Which Vehicle",
+            "options_map": "Ford F150 | Stage 1, Stage 2, Stage 3, Stage 4, Stage 5, Stage 6\nChevy 1500 | Stage 1, Stage 2, Stage 3, Stage 4, Stage 5\nChevy 2500HD | Stage 1, Stage 2, Stage 3, Stage 3.5, Stage 4, Stage 5, Stage 6, Stage 6.5\nToyota Tundra | Stage 1, Stage 2, Stage 3, Stage 4\nRAM 2500 (5th Gen) | Stage 1, Stage 2, Stage 3\nRAM 2500 (6th Gen) | Stage 1, Stage 2, Stage 3, Stage 4, Stage 5, Stage 6\nToyota LC300 | Stage 1, Stage 2",
+            "empty_text": "Choose your vehicle first"
+          }
+        },
+        "b_step3": {
+          "type": "step",
+          "settings": {
+            "title": "Your enquiry",
+            "caption": "Anything else we should know."
+          }
+        },
+        "b_location": {
+          "type": "location",
+          "settings": {
+            "label": "What is your location",
+            "field_name": "Location",
+            "placeholder": "What is your location?",
+            "field_width": "full",
+            "hide_label": true,
+            "required": true
+          }
+        },
+        "b_message": {
+          "type": "message",
+          "settings": {
+            "label": "Message",
+            "placeholder": "Which GVM package do you want further information on?",
+            "rows": 3,
+            "field_width": "100",
+            "hide_label": true
+          }
+        }
+      },
+      "block_order": [
+        "b_step1",
+        "b_name",
+        "b_email",
+        "b_phone",
+        "b_step2",
+        "b_rego",
+        "b_vehicle",
+        "b_stage",
+        "b_step3",
+        "b_location",
+        "b_message"
+      ],
+      "name": "Quote form (bottom of page)",
+      "settings": {
+        "container": "container",
+        "color_schema": "",
+        "subheading": "",
+        "description": "",
+        "form_design": "design-1",
+        "form_width": 560,
+        "form_alignment": "center",
+        "button_label": "Send my quote request",
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "show_section_divider": false,
+        "divider_width": "container",
+        "custom_class": "",
+        "animations": "inherit",
+        "heading": "Request a Quote",
+        "display_mode": "inline",
+        "popup_id": "gvm-quote-inline",
+        "popup_width": 560,
+        "custom_id": "request-a-quote"
+      }
     }
   },
   "order": [
@@ -344,6 +648,8 @@
     "benefits",
     "ori_gvm_approved_zjDzaH",
     "faq",
-    "related"
+    "gvm_quote_form",
+    "related",
+    "gvm_quote_popup"
   ]
 }
