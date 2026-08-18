@@ -133,7 +133,7 @@
         "text_ram6g_intro": {
           "type": "text",
           "settings": {
-            "text": "<p>The RAM 2500 6th Gen is already one of the most capable heavy-duty trucks ever built — but if you're loading up with accessories, towing a serious trailer, or running a tray and canopy conversion, Australia's road rules can hold you back. That changes with an ORI GVM upgrade.</p><p>Offroad Industries (ORI) is a Federally Approved Second Stage Manufacturer (SSM), offering Australia's most comprehensive GVM upgrade packages for the RAM 2500 6th Gen. Every kit is fully engineered, LS16 certified, and compliant with Australian Design Rules — whether you're registering Pre-Rego (Federal) or Post-Rego (State-based). Our packages are designed specifically for the RAM 2500 6th Gen platform, giving you a massive payload increase, improved suspension performance, and complete legal peace of mind.</p>"
+            "text": "<p>While the RAM 2500 6th Gen is an absolute powerhouse straight from the factory, adding heavy accessories, towing large trailers, or installing a custom tray and canopy can easily push you past Australia's strict road limits. An ORI GVM upgrade is the ultimate solution.</p><p>Offroad Industries (ORI) is a Federally Approved Second Stage Manufacturer (SSM) delivering the most comprehensive GVM upgrade packages available for the RAM 2500 6th Gen. Fully engineered and completely compliant with Australian Design Rules, our kits have you covered for both Pre-Rego (Federal) and Post-Rego (State-based) applications. Designed specifically to maximize the 6th Gen platform, our upgrades unlock massive payload capacity, elevate your suspension handling, and keep your rig 100% legal on the road.</p><p>Our packages are currently going through federal approval a with view to be approved September 2026. This only applies for Ram Australia delivered vehicles.</p>"
           }
         }
       },
@@ -258,7 +258,7 @@
         "heading_ram6g_s2": {
           "type": "heading",
           "settings": {
-            "heading": "<strong>Stage 2: ORI Coil Upgrade — 2\" Lift on 35s</strong>",
+            "heading": "<strong>Stage 2: Apex Series — 2\" Lift on 35s</strong>",
             "highlight_style": "none",
             "enable_highlight_text_color": false,
             "heading_size": "h2"
