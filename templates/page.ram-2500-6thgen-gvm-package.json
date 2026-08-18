@@ -133,7 +133,7 @@
         "text_ram6g_intro": {
           "type": "text",
           "settings": {
-            "text": ""
+            "text": "<p>The RAM 2500 6th Gen is already one of the most capable heavy-duty trucks ever built — but if you're loading up with accessories, towing a serious trailer, or running a tray and canopy conversion, Australia's road rules can hold you back. That changes with an ORI GVM upgrade.</p><p>Offroad Industries (ORI) is a Federally Approved Second Stage Manufacturer (SSM), offering Australia's most comprehensive GVM upgrade packages for the RAM 2500 6th Gen. Every kit is fully engineered, LS16 certified, and compliant with Australian Design Rules — whether you're registering Pre-Rego (Federal) or Post-Rego (State-based). Our packages are designed specifically for the RAM 2500 6th Gen platform, giving you a massive payload increase, improved suspension performance, and complete legal peace of mind.</p>"
           }
         }
       },
@@ -192,7 +192,7 @@
         "subheading_ram6g_s1": {
           "type": "subheading",
           "settings": {
-            "subheading": "Stage 1: Installed & Engineered — Contact for Pricing",
+            "subheading": "Stage 1: Installed & Engineered — $14,499",
             "subheading_size": "h5"
           }
         },
@@ -208,7 +208,7 @@
         "text_ram6g_s1": {
           "type": "text",
           "settings": {
-            "text": "<p><em>The entry point to the 6th Gen programme, lifting GVM to 5500kg on a modest two inch lift.</em></p><ul><li><strong>GVM:</strong> 5500kg | <strong>GCM:</strong> 12,474kg | <strong>Braked Towing:</strong> 4500kg</li><li><strong>Lift &amp; Tyres:</strong> 2\" lift, running up to 35x12.5 R18 or 35x12.5 R20.</li><li><strong>Key Features:</strong> Fox 2.5 Performance Elite Series front and rear, BDS 3\" radius arm kit, Husky Extenda flares, ORI mud flap brackets.</li><li><strong>Best For:</strong> Daily drivers and light tourers who want a legal capacity lift without moving to load rated wheels.</li></ul>"
+            "text": "<p><em>The entry point to the 6th Gen programme, lifting GVM to 5500kg on a modest two inch lift.</em></p><ul><li><strong>GVM:</strong> 5500kg | <strong>GCM:</strong> 12,474kg | <strong>Braked Towing:</strong> 4500kg</li><li><strong>Lift & Tyres:</strong> 2\" lift, running up to 35x12.5 R18 or 35x12.5 R20.</li><li><strong>Key Features:</strong> Fox 2.5 Performance Series HTO shocks, Husky Colour coded leaf packs.</li><li><strong>Best For:</strong> Daily drivers and light tourers who want a legal capacity lift without moving to load rated wheels.</li></ul>"
           }
         }
       },
@@ -221,7 +221,7 @@
       "settings": {
         "container": "container",
         "color_schema": "",
-        "image": "shopify://shop_images/STAGE_1_RAM_2500_6th_GEN_all_products_3ad69cba-5afe-42c5-8b67-c10ff68b3cff.png",
+        "image": "shopify://shop_images/STAGE_1-2_RAM_2500_6th_GEN_all_products.png",
         "enable_lightbox": true,
         "image_width": "50%",
         "image_position": "left",
@@ -251,7 +251,7 @@
         "subheading_ram6g_s2": {
           "type": "subheading",
           "settings": {
-            "subheading": "Stage 2: Installed & Engineered — Contact for Pricing",
+            "subheading": "Stage 2: Installed & Engineered — $19, 499",
             "subheading_size": "h5"
           }
         },
@@ -267,7 +267,7 @@
         "text_ram6g_s2": {
           "type": "text",
           "settings": {
-            "text": "<p><em>The same two inch stance, stepping up to ORI coils front and rear and the full 5890kg GVM.</em></p><ul><li><strong>GVM:</strong> 5890kg | <strong>GCM:</strong> 12,474kg | <strong>Braked Towing:</strong> 4500kg</li><li><strong>Lift &amp; Tyres:</strong> 2\" lift, running up to 35x12.5 R18 or 35x12.5 R20.</li><li><strong>Key Features:</strong> ORI front coils, ORI rear coils, BDS 3\" radius arm kit, Husky Extenda flares, ORI mud flap brackets.</li><li><strong>Best For:</strong> Owners carrying weight day to day who want maximum legal capacity while keeping factory rated wheels.</li></ul>"
+            "text": "<p><em>The same two inch stance, stepping up to ORI coils front and rear and the full 5890kg GVM.</em></p><ul><li><strong>GVM:</strong> 5890kg | <strong>GCM:</strong> 12,474kg | <strong>Braked Towing:</strong> 4500kg</li><li><strong>Lift & Tyres:</strong> 2\" lift, running up to 35x12.5 R18 or 35x12.5 R20.</li><li><strong>Key Features:</strong> ORI front coils, ORI rear coils, BDS 3\" radius arm kit, Husky Extenda flares, ORI mud flap brackets.</li><li><strong>Best For:</strong> Owners carrying weight day to day who want maximum legal capacity while keeping factory rated wheels.</li></ul>"
           }
         }
       },
@@ -280,7 +280,7 @@
       "settings": {
         "container": "container",
         "color_schema": "",
-        "image": "shopify://shop_images/STAGE_2_RAM_2500_6th_GEN_all_products_e350224b-66fa-400f-8882-29b3c5b4ac48.png",
+        "image": "shopify://shop_images/STAGE_2_RAM_2500_6th_GEN_all_products_7f5caf72-ca58-483a-85f4-b087add3452b.png",
         "enable_lightbox": true,
         "image_width": "50%",
         "image_position": "right",
@@ -310,7 +310,7 @@
         "subheading_ram6g_s3": {
           "type": "subheading",
           "settings": {
-            "subheading": "Stage 3: Installed & Engineered — Contact for Pricing",
+            "subheading": "Stage 3: Installed & Engineered  $22,999",
             "subheading_size": "h5"
           }
         },
@@ -369,7 +369,7 @@
         "subheading_ram6g_s4": {
           "type": "subheading",
           "settings": {
-            "subheading": "Stage 4: Installed & Engineered — Contact for Pricing",
+            "subheading": "Stage 4: Installed & Engineered —$26,999",
             "subheading_size": "h5"
           }
         },
@@ -428,7 +428,7 @@
         "subheading_4Q9WFD": {
           "type": "subheading",
           "settings": {
-            "subheading": "Stage 5: Installed & Engineered — Contact for Pricing",
+            "subheading": "Stage 5: Installed & Engineered — $26,999",
             "subheading_size": "h5"
           }
         },
@@ -487,7 +487,7 @@
         "block_ram6g_s6_0": {
           "type": "subheading",
           "settings": {
-            "subheading": "Stage 6: Installed & Engineered — Contact for Pricing",
+            "subheading": "Stage 6: Installed & Engineered — $32,999",
             "subheading_size": "h5"
           }
         },
