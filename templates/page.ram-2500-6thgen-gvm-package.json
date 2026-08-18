@@ -133,7 +133,7 @@
         "text_ram6g_intro": {
           "type": "text",
           "settings": {
-            "text": "<p>The RAM 2500 6th Gen is already one of the most capable heavy-duty trucks ever built — but if you're loading up with accessories, towing a serious trailer, or running a tray and canopy conversion, Australia's road rules can hold you back. That changes with an ORI GVM upgrade.</p><p>Offroad Industries (ORI) is a Federally Approved Second Stage Manufacturer (SSM), offering Australia's most comprehensive GVM upgrade packages for the RAM 2500 6th Gen. Every kit is fully engineered, LS16 certified, and compliant with Australian Design Rules — whether you're registering Pre-Rego (Federal) or Post-Rego (State-based). Our packages are designed specifically for the RAM 2500 6th Gen platform, giving you a massive payload increase, improved suspension performance, and complete legal peace of mind.</p>"
+            "text": ""
           }
         }
       },
@@ -481,6 +481,65 @@
         "animations": "inherit"
       }
     },
+    "image_with_text_ram6g_s6": {
+      "type": "image-with-text",
+      "blocks": {
+        "block_ram6g_s6_0": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "Stage 6: Installed & Engineered — Contact for Pricing",
+            "subheading_size": "h5"
+          }
+        },
+        "block_ram6g_s6_1": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>Stage 6: The Six Inch Build — Top of the Range</strong>",
+            "highlight_style": "none",
+            "enable_highlight_text_color": false,
+            "heading_size": "h2"
+          }
+        },
+        "block_ram6g_s6_2": {
+          "type": "text",
+          "settings": {
+            "text": "<p><em>The peak of the 6th Gen programme, on the same six inch platform as Stage 5.</em></p><ul><li><strong>GVM:</strong> 5890kg | <strong>GCM:</strong> 12,474kg | <strong>Braked Towing:</strong> 4500kg</li><li><strong>Lift &amp; Tyres:</strong> 6\" lift, running up to 37x12.5 R18 or 37x12.5 R20.</li><li><strong>Key Features:</strong> BDS 6\" radius arm kit, Logic IQ air bag coil delete, Husky Extenda flares, ORI mud flap brackets.</li><li><strong>Best For:</strong> The most heavily built rigs in the range, fully compliant and federally engineered.</li><li><strong>NOTE:</strong> Load rated wheels and tyres with a 1650kg tyre load rating are required for this stage.</li></ul>"
+          }
+        }
+      },
+      "block_order": [
+        "block_ram6g_s6_0",
+        "block_ram6g_s6_1",
+        "block_ram6g_s6_2"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "container": "container",
+        "color_schema": "",
+        "image": "shopify://shop_images/STAGE_6_RAM_2500_6th_GEN_ALL_PRODUCTS-2_3d5c1939-e505-49f8-965a-8401cce2fd12.png",
+        "enable_lightbox": true,
+        "image_width": "50%",
+        "image_position": "right",
+        "vertical_alignment": "center",
+        "align_content_container": "none",
+        "show_image_padding": true,
+        "column_gap": "medium",
+        "row_gap": "medium",
+        "padding_left": 0,
+        "padding_right": 0,
+        "mobile_padding_left": 15,
+        "mobile_padding_right": 15,
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "padding_top_mobile": 60,
+        "padding_bottom_mobile": 60,
+        "show_section_divider": false,
+        "divider_width": "container",
+        "custom_id": "",
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
     "rich_text_ram6g_spec_heading": {
       "type": "rich-text",
       "blocks": {
@@ -767,6 +826,38 @@
             "value_10": ""
           }
         },
+        "row_fox_hto_front": {
+          "type": "row",
+          "settings": {
+            "label": "Fox 2.5 Performance Series HTO (Front)",
+            "value_1": "987-24-045",
+            "value_2": "✔",
+            "value_3": "",
+            "value_4": "",
+            "value_5": "",
+            "value_6": "",
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
+          }
+        },
+        "row_fox_hto_rear": {
+          "type": "row",
+          "settings": {
+            "label": "Fox 2.5 Performance Series HTO (Rear)",
+            "value_1": "987-24-005",
+            "value_2": "✔",
+            "value_3": "",
+            "value_4": "",
+            "value_5": "",
+            "value_6": "",
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
+          }
+        },
         "row_part_02": {
           "type": "row",
           "settings": {
@@ -895,6 +986,38 @@
             "value_10": ""
           }
         },
+        "row_husky_drt_flare": {
+          "type": "row",
+          "settings": {
+            "label": "Husky DRT Flare",
+            "value_1": "2805938",
+            "value_2": "O",
+            "value_3": "O",
+            "value_4": "O",
+            "value_5": "O",
+            "value_6": "O",
+            "value_7": "O",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
+          }
+        },
+        "row_aev_highmark": {
+          "type": "row",
+          "settings": {
+            "label": "AEV HighMark Fender Flares",
+            "value_1": "40408003AC",
+            "value_2": "",
+            "value_3": "",
+            "value_4": "",
+            "value_5": "",
+            "value_6": "",
+            "value_7": "✔",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
+          }
+        },
         "row_part_10": {
           "type": "row",
           "settings": {
@@ -954,70 +1077,6 @@
             "value_5": "O",
             "value_6": "O",
             "value_7": "O",
-            "value_8": "",
-            "value_9": "",
-            "value_10": ""
-          }
-        },
-        "row_husky_drt_flare": {
-          "type": "row",
-          "settings": {
-            "label": "Husky DRT Flare",
-            "value_1": "2805938",
-            "value_2": "O",
-            "value_3": "O",
-            "value_4": "O",
-            "value_5": "O",
-            "value_6": "O",
-            "value_7": "O",
-            "value_8": "",
-            "value_9": "",
-            "value_10": ""
-          }
-        },
-        "row_fox_hto_front": {
-          "type": "row",
-          "settings": {
-            "label": "Fox 2.5 Performance Series HTO (Front)",
-            "value_1": "987-24-045",
-            "value_2": "✔",
-            "value_3": "",
-            "value_4": "",
-            "value_5": "",
-            "value_6": "",
-            "value_7": "",
-            "value_8": "",
-            "value_9": "",
-            "value_10": ""
-          }
-        },
-        "row_fox_hto_rear": {
-          "type": "row",
-          "settings": {
-            "label": "Fox 2.5 Performance Series HTO (Rear)",
-            "value_1": "987-24-005",
-            "value_2": "✔",
-            "value_3": "",
-            "value_4": "",
-            "value_5": "",
-            "value_6": "",
-            "value_7": "",
-            "value_8": "",
-            "value_9": "",
-            "value_10": ""
-          }
-        },
-        "row_aev_highmark": {
-          "type": "row",
-          "settings": {
-            "label": "AEV HighMark Fender Flares",
-            "value_1": "40408003AC",
-            "value_2": "",
-            "value_3": "",
-            "value_4": "",
-            "value_5": "",
-            "value_6": "",
-            "value_7": "✔",
             "value_8": "",
             "value_9": "",
             "value_10": ""
@@ -1442,65 +1501,6 @@
         "column_mobile": "1",
         "padding_top": 0,
         "padding_bottom": 40,
-        "show_section_divider": false,
-        "divider_width": "container",
-        "custom_id": "",
-        "custom_class": "",
-        "animations": "inherit"
-      }
-    },
-    "image_with_text_ram6g_s6": {
-      "type": "image-with-text",
-      "blocks": {
-        "block_ram6g_s6_0": {
-          "type": "subheading",
-          "settings": {
-            "subheading": "Stage 6: Installed & Engineered — Contact for Pricing",
-            "subheading_size": "h5"
-          }
-        },
-        "block_ram6g_s6_1": {
-          "type": "heading",
-          "settings": {
-            "heading": "<strong>Stage 6: The Six Inch Build — Top of the Range</strong>",
-            "highlight_style": "none",
-            "enable_highlight_text_color": false,
-            "heading_size": "h2"
-          }
-        },
-        "block_ram6g_s6_2": {
-          "type": "text",
-          "settings": {
-            "text": "<p><em>The peak of the 6th Gen programme, on the same six inch platform as Stage 5.</em></p><ul><li><strong>GVM:</strong> 5890kg | <strong>GCM:</strong> 12,474kg | <strong>Braked Towing:</strong> 4500kg</li><li><strong>Lift &amp; Tyres:</strong> 6\" lift, running up to 37x12.5 R18 or 37x12.5 R20.</li><li><strong>Key Features:</strong> BDS 6\" radius arm kit, Logic IQ air bag coil delete, Husky Extenda flares, ORI mud flap brackets.</li><li><strong>Best For:</strong> The most heavily built rigs in the range, fully compliant and federally engineered.</li><li><strong>NOTE:</strong> Load rated wheels and tyres with a 1650kg tyre load rating are required for this stage.</li></ul>"
-          }
-        }
-      },
-      "block_order": [
-        "block_ram6g_s6_0",
-        "block_ram6g_s6_1",
-        "block_ram6g_s6_2"
-      ],
-      "name": "t:sections.image-with-text.presets.name",
-      "settings": {
-        "container": "container",
-        "color_schema": "",
-        "image": "shopify://shop_images/STAGE_6_RAM_2500_6th_GEN_ALL_PRODUCTS-2_3d5c1939-e505-49f8-965a-8401cce2fd12.png",
-        "enable_lightbox": true,
-        "image_width": "50%",
-        "image_position": "right",
-        "vertical_alignment": "center",
-        "align_content_container": "none",
-        "show_image_padding": true,
-        "column_gap": "medium",
-        "row_gap": "medium",
-        "padding_left": 0,
-        "padding_right": 0,
-        "mobile_padding_left": 15,
-        "mobile_padding_right": 15,
-        "padding_top": 40,
-        "padding_bottom": 40,
-        "padding_top_mobile": 60,
-        "padding_bottom_mobile": 60,
         "show_section_divider": false,
         "divider_width": "container",
         "custom_id": "",
