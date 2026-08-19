@@ -1178,7 +1178,7 @@
             "placeholder": "Enter your name",
             "field_width": "full",
             "hide_label": true,
-            "required": false
+            "required": true
           }
         },
         "email_HUrGXX": {
@@ -1197,7 +1197,7 @@
             "placeholder": "Enter your phone number",
             "field_width": "full",
             "hide_label": true,
-            "required": false
+            "required": true
           }
         },
         "rego_status_9grEMG": {
@@ -1209,7 +1209,7 @@
             "options": "Pre rego, Post rego",
             "field_width": "full",
             "hide_label": true,
-            "required": false
+            "required": true
           }
         },
         "custom_select_ax9a9h": {
@@ -1224,7 +1224,7 @@
             "empty_text": "Select the field above first",
             "field_width": "100",
             "hide_label": true,
-            "required": false
+            "required": true
           }
         },
         "custom_select_zttPUQ": {
@@ -1239,7 +1239,7 @@
             "empty_text": "Select the field above first",
             "field_width": "100",
             "hide_label": true,
-            "required": false
+            "required": true
           }
         },
         "location_tt8Bqm": {
@@ -1250,7 +1250,7 @@
             "placeholder": "What is your location?",
             "field_width": "full",
             "hide_label": true,
-            "required": false
+            "required": true
           }
         },
         "message_HVJGxF": {

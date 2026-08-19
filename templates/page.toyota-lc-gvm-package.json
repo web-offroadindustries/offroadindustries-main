@@ -834,7 +834,7 @@
             "placeholder": "Enter your name",
             "field_width": "full",
             "hide_label": true,
-            "required": false
+            "required": true
           }
         },
         "email_kXx4nz": {
@@ -853,7 +853,7 @@
             "placeholder": "Enter your phone number",
             "field_width": "full",
             "hide_label": true,
-            "required": false
+            "required": true
           }
         },
         "rego_status_JfYJVA": {
@@ -865,7 +865,7 @@
             "options": "Pre rego, Post rego",
             "field_width": "full",
             "hide_label": true,
-            "required": false
+            "required": true
           }
         },
         "custom_select_UKYT7U": {
@@ -877,7 +877,7 @@
             "options": "Ford F150, Chevy 1500, Chevy 2500HD, Toyota Tundra, RAM 2500 (5th Gen), RAM 2500 (6th Gen), Toyota LC300",
             "field_width": "100",
             "hide_label": true,
-            "required": false
+            "required": true
           }
         },
         "custom_select_f9qRJM": {
@@ -889,7 +889,7 @@
             "options": "Stage 1, Stage 2, Stage 3, Stage 4, Stage 5, Stage 6",
             "field_width": "100",
             "hide_label": true,
-            "required": false
+            "required": true
           }
         },
         "location_iimVrq": {
@@ -900,7 +900,7 @@
             "placeholder": "What is your location?",
             "field_width": "full",
             "hide_label": true,
-            "required": false
+            "required": true
           }
         },
         "message_EFG6zc": {

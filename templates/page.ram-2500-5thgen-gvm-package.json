@@ -928,7 +928,7 @@
             "placeholder": "Enter your name",
             "field_width": "full",
             "hide_label": true,
-            "required": false
+            "required": true
           }
         },
         "email_ram6g": {
@@ -947,7 +947,7 @@
             "placeholder": "Enter your phone number",
             "field_width": "full",
             "hide_label": true,
-            "required": false
+            "required": true
           }
         },
         "rego_ram6g": {
@@ -959,7 +959,7 @@
             "options": "Pre rego, Post rego",
             "field_width": "full",
             "hide_label": true,
-            "required": false
+            "required": true
           }
         },
         "vehicle_ram6g": {
@@ -974,7 +974,7 @@
             "empty_text": "Select the field above first",
             "field_width": "100",
             "hide_label": true,
-            "required": false
+            "required": true
           }
         },
         "stage_ram6g": {
@@ -989,7 +989,7 @@
             "empty_text": "Choose your vehicle first",
             "field_width": "100",
             "hide_label": true,
-            "required": false
+            "required": true
           }
         },
         "location_ram6g": {
@@ -1000,7 +1000,7 @@
             "placeholder": "What is your location?",
             "field_width": "full",
             "hide_label": true,
-            "required": false
+            "required": true
           }
         },
         "message_ram6g": {

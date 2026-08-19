@@ -1380,7 +1380,7 @@
             "placeholder": "Enter your name",
             "field_width": "full",
             "hide_label": true,
-            "required": false
+            "required": true
           }
         },
         "email_CnB7aV": {
@@ -1399,7 +1399,7 @@
             "placeholder": "Enter your phone number",
             "field_width": "full",
             "hide_label": true,
-            "required": false
+            "required": true
           }
         },
         "step_your_vehicle_YzWJbE": {
@@ -1418,7 +1418,7 @@
             "options": "Pre rego, Post rego",
             "field_width": "full",
             "hide_label": true,
-            "required": false
+            "required": true
           }
         },
         "custom_select_4BAt7V": {
@@ -1433,7 +1433,7 @@
             "empty_text": "Select the field above first",
             "field_width": "100",
             "hide_label": true,
-            "required": false
+            "required": true
           }
         },
         "custom_select_d7bihk": {
@@ -1448,7 +1448,7 @@
             "empty_text": "Choose your vehicle first",
             "field_width": "100",
             "hide_label": true,
-            "required": false
+            "required": true
           }
         },
         "step_your_enquiry_YzWJbE": {
@@ -1466,7 +1466,7 @@
             "placeholder": "What is your location?",
             "field_width": "full",
             "hide_label": true,
-            "required": false
+            "required": true
           }
         },
         "message_QFCAgC": {

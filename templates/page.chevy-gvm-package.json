@@ -1394,7 +1394,7 @@
             "placeholder": "Enter your name",
             "field_width": "full",
             "hide_label": true,
-            "required": false
+            "required": true
           }
         },
         "email_pEVk6j": {
@@ -1413,7 +1413,7 @@
             "placeholder": "Enter your phone number",
             "field_width": "full",
             "hide_label": true,
-            "required": false
+            "required": true
           }
         },
         "rego_status_YKHXBe": {
@@ -1425,7 +1425,7 @@
             "options": "Pre rego, Post rego",
             "field_width": "full",
             "hide_label": true,
-            "required": false
+            "required": true
           }
         },
         "custom_select_rebt6m": {
@@ -1440,7 +1440,7 @@
             "empty_text": "Select the field above first",
             "field_width": "100",
             "hide_label": true,
-            "required": false
+            "required": true
           }
         },
         "location_FiKmdb": {
@@ -1451,7 +1451,7 @@
             "placeholder": "What is your location?",
             "field_width": "full",
             "hide_label": true,
-            "required": false
+            "required": true
           }
         },
         "message_rpD3xU": {
@@ -1484,6 +1484,21 @@
             "title": "Your details",
             "caption": "So we know who to send the quote to."
           }
+        },
+        "custom_select_stage_x8r3EB": {
+          "type": "custom_select",
+          "settings": {
+            "label": "What Stage GVM Package",
+            "field_name": "What Stage GVM Package",
+            "placeholder": "What Stage GVM Package",
+            "options": "Stage 1, Stage 2, Stage 3, Stage 3.5, Stage 4, Stage 5, Stage 6, Stage 6.5",
+            "field_width": "100",
+            "hide_label": true,
+            "required": true,
+            "depends_on": "Which Vehicle",
+            "options_map": "Ford F150 | Stage 1, Stage 2, Stage 3, Stage 4, Stage 5, Stage 6\nChevy 1500 | Stage 1, Stage 2, Stage 3, Stage 4, Stage 5\nChevy 2500HD | Stage 1, Stage 2, Stage 3, Stage 3.5, Stage 4, Stage 5, Stage 6, Stage 6.5\nToyota Tundra | Stage 1, Stage 2, Stage 3, Stage 4\nRAM 2500 (5th Gen) | Stage 1, Stage 2, Stage 3\nRAM 2500 (6th Gen) | Stage 1, Stage 2, Stage 3, Stage 4, Stage 5, Stage 6\nToyota LC300 | Stage 1, Stage 2",
+            "empty_text": "Choose your vehicle first"
+          }
         }
       },
       "block_order": [
@@ -1494,6 +1509,7 @@
         "step_your_vehicle_x8r3EB",
         "rego_status_YKHXBe",
         "custom_select_rebt6m",
+        "custom_select_stage_x8r3EB",
         "step_your_enquiry_x8r3EB",
         "location_FiKmdb",
         "message_rpD3xU"
