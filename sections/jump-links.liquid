@@ -74,7 +74,14 @@
     display: flex;
     align-items: stretch;
     width: 100%;
-    overflow: hidden; /* desktop */
+    /* Was overflow: hidden. Items are flex: 1 1 0 and white-space: nowrap, so a
+       label longer than its equal share cannot shrink and was being cut off
+       with no way to reach it, most visibly at 768px where the mobile swipe
+       rules below stop applying. auto shows no scrollbar while they fit. */
+    overflow-x: auto;
+    /* Kept from the original overflow: hidden. Leaving the vertical axis
+       to compute to auto could surface a stray vertical scrollbar. */
+    overflow-y: hidden;
   }
 
   /* Each item takes equal width automatically (based on number of items) */

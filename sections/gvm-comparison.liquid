@@ -19,6 +19,41 @@
 
   assign container_width = section.settings.container_width | default: '1200px'
   assign anchor_id = section.settings.anchor_id | strip
+
+  comment
+    Build the desktop track list here rather than with
+    repeat(var(--gvm-cols), ...) in CSS. Safari < 16 does not accept a custom
+    property as the repeat() count, which is the same reason
+    wheel-comparison-grid.liquid builds its own string, and the total width has
+    to be known in Liquid so the scroll wrapper can be given a matching
+    min-width. The thresholds below are the ones the CSS already used.
+  endcomment
+  if cols >= 8
+    assign label_w = 200
+    assign col_min = 95
+    assign gap = 18
+  elsif cols >= 6
+    assign label_w = 220
+    assign col_min = 110
+    assign gap = 24
+  else
+    assign label_w = 240
+    assign col_min = 140
+    assign gap = 40
+  endif
+
+  assign col_widths = ''
+  for i in (1..cols)
+    assign col_widths = col_widths | append: ' minmax(' | append: col_min | append: 'px, 1fr)'
+  endfor
+
+  comment
+    Tracks are the label column plus one per comparison column, so the number
+    of gaps equals cols.
+  endcomment
+  assign table_min_width = col_min | times: cols | plus: label_w
+  assign gaps_total = gap | times: cols
+  assign table_min_width = table_min_width | plus: gaps_total
 -%}
 
 <section
@@ -40,6 +75,7 @@
       <h2 class="gvm-compare__heading">{{ section.settings.heading }}</h2>
     {% endif %}
 
+    <div class="gvm-compare__table-scroll">
     <div class="gvm-compare__table" data-cols="{{ cols }}" style="--gvm-cols: {{ cols }};">
       <!-- Header Row (hidden on mobile via CSS) -->
       <div class="gvm-compare__row gvm-compare__row--head">
@@ -98,6 +134,7 @@
         {%- endcase -%}
       {%- endfor -%}
     </div>
+    </div>
 
   </div>
 </section>
@@ -121,32 +158,48 @@
 
   .gvm-compare__table { width: 100%; }
 
-  /* Default desktop grid */
+  /* Desktop grid. Track list and gap come from Liquid above. */
   .gvm-compare__row {
     display: grid;
-    grid-template-columns: 240px repeat(var(--gvm-cols), minmax(140px, 1fr));
-    column-gap: 40px;
     padding: 18px 0;
     border-bottom: 1px solid var(--gvm-line);
   }
 
-  /* Tighten desktop spacing as columns increase (prevents ugly overflow/squish) */
-  .gvm-compare__table[data-cols="6"] .gvm-compare__row,
-  .gvm-compare__table[data-cols="7"] .gvm-compare__row {
-    grid-template-columns: 220px repeat(var(--gvm-cols), minmax(110px, 1fr));
-    column-gap: 24px;
+  .gvm-compare--{{ section.id }} .gvm-compare__row {
+    grid-template-columns: {{ label_w }}px{{ col_widths }};
+    column-gap: {{ gap }}px;
   }
 
-  .gvm-compare__table[data-cols="8"] .gvm-compare__row,
-  .gvm-compare__table[data-cols="9"] .gvm-compare__row,
-  .gvm-compare__table[data-cols="10"] .gvm-compare__row {
-    grid-template-columns: 200px repeat(var(--gvm-cols), minmax(95px, 1fr));
-    column-gap: 18px;
+  /* Let the table scroll inside its own box.
+
+     .site-wrapper sets overflow-x: clip, so without this an oversized table
+     produced no scrollbar and simply lost its right-hand columns. This table
+     needs {{ table_min_width }}px, so on tablet landscape and 1366px laptops the last
+     stage columns were being cut off with no way to reach them.
+
+     Desktop only: below 990px the rows become stacked cards, and a min-width
+     there would push them straight back off the screen. */
+  @media (min-width: 990px) {
+    .gvm-compare__table-scroll {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .gvm-compare--{{ section.id }} .gvm-compare__table {
+      min-width: {{ table_min_width }}px;
+    }
   }
 
   .gvm-compare__row--head { padding-top: 0; padding-bottom: 14px; }
 
-  .gvm-compare__cell { font-size: 16px; line-height: 1.5; }
+  .gvm-compare__cell {
+    font-size: 16px;
+    line-height: 1.5;
+    /* Grid items default to min-width: auto, so one long unbroken value could
+       widen its track past the computed min-width above. */
+    min-width: 0;
+    overflow-wrap: break-word;
+  }
 
   .gvm-compare__table[data-cols="8"] .gvm-compare__cell,
   .gvm-compare__table[data-cols="9"] .gvm-compare__cell,

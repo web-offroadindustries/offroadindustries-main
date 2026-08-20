@@ -121,6 +121,14 @@
       align-items: center;
     }
     #DealerConversionHeroForm-{{ section_id }} .dealer-conversion-hero-form__content { max-width: 720px; }
+    #DealerConversionHeroForm-{{ section_id }} .dealer-conversion-hero-form__content,
+    #DealerConversionHeroForm-{{ section_id }} .dealer-conversion-hero-form__form-card {
+      /* Grid children default to min-width: auto, so the embedded Klaviyo form
+         (494px min-content) was widening the single mobile track to 536px on a
+         375px screen and pushing the card off the side, where .site-wrapper
+         clips rather than scrolls. Letting the track shrink is the whole fix. */
+      min-width: 0;
+    }
     #DealerConversionHeroForm-{{ section_id }} .dealer-conversion-hero-form__eyebrow {
       margin: 0 0 10px;
       font-family: var(--brand-body-font, sans-serif);
