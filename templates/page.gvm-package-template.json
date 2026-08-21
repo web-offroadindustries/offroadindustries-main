@@ -569,7 +569,7 @@
         "text_aW8UUa": {
           "type": "text",
           "settings": {
-            "text": "<p><em>Ever wondered how these monsters get around legally? ORI Stage 6 makes the dream a reality.</em></p><ul><li><strong>GVM Rating:</strong> 6000kg | <strong>GCM:</strong> 12,474kg</li><li><strong>Key Features:</strong> Fox 2.5 Performance Elite with BDS Lift Kit Technology (6.5-Inch Coil-Over Suspension Lift engineered for up to 37\" Tyres), and ORI 500kg heavy-duty leaf packs. Engineered for up to 37” Tyres.</li><li><strong>Best For:</strong> The absolute hardcore enthusiast who demands a monster of a truck that still delivers heavy-duty NB2 payload limits and 4.5T towing capacity.</li><li><strong>Benefit:</strong> Fully engineered for ultimate comfort and control. Equipped with a 6.5” BDS Coil-Over lift kit, this setup is 100% legal Australia-wide exclusively via ORI's Pre-Rego packages under our SSM approval. Drive anywhere knowing your monster build is completely legal and safe.</li><li><strong>Part Number:</strong> VEH-STAGE6-GVM<br/></li></ul>"
+            "text": "<p><em>Ever wondered how these monsters get around legally? ORI Stage 6 makes the dream a reality.</em></p><ul><li><strong>GVM Rating:</strong> 6000 KG | <strong>GCM:</strong> 12,474 KG</li><li><strong>Key Features:</strong> Fox 2.5 Performance Elite with BDS Lift Kit Technology (6.5-Inch Coil-Over Suspension Lift engineered for up to 37\" Tyres), and ORI 500 KG heavy-duty leaf packs. Engineered for up to 37” Tyres.</li><li><strong>Best For:</strong> The absolute hardcore enthusiast who demands a monster of a truck that still delivers heavy-duty NB2 payload limits and 4.5T towing capacity.</li><li><strong>Benefit:</strong> Fully engineered for ultimate comfort and control. Equipped with a 6.5” BDS Coil-Over lift kit, this setup is 100% legal Australia-wide exclusively via ORI's Pre-Rego packages under our SSM approval. Drive anywhere knowing your monster build is completely legal and safe.</li><li><strong>Part Number:</strong> VEH-STAGE6-GVM<br/></li></ul>"
           }
         }
       },
@@ -628,7 +628,7 @@
         "text_Ktnecb": {
           "type": "text",
           "settings": {
-            "text": "<p><em>The undisputed King of the Off-Road. Front Coil-Over performance meets Kelderman 4-Link rear air suspension.</em></p><ul><li><strong>GVM Rating:</strong> 6000kg | <strong>GCM:</strong> 12,474kg</li><li><strong>Key Features:</strong> Fox 2.5 Performance Elite with BDS Lift Kit Technology (6.5-Inch Coil-Over Suspension Lift engineered for up to 37\" Tyres), featuring a <strong>Kelderman 4-Link full air rear suspension setup</strong>.</li><li><strong>Best For:</strong> The ultimate enthusiast who demands Super Tourer status without compromise.</li><li><strong>Benefit:</strong> This is the absolute pinnacle of suspension engineering. Combining the benefit of a BDS Coil-Over front end with the payload flexibility of a Kelderman 4-Link rear air setup, this package makes the ultimate dream a reality. 100% federally approved Pre-Rego, safe, insured, and ready to dominate any terrain in total luxury.</li><li><strong>Part Number:</strong> VEH-STAGE6-GVM-K<br/></li></ul><p></p>"
+            "text": "<p><em>The undisputed King of the Off-Road. Front Coil-Over performance meets Kelderman 4-Link rear air suspension.</em></p><ul><li><strong>GVM Rating:</strong> 6000 KG | <strong>GCM:</strong> 12,474 KG</li><li><strong>Key Features:</strong> Fox 2.5 Performance Elite with BDS Lift Kit Technology (6.5-Inch Coil-Over Suspension Lift engineered for up to 37\" Tyres), featuring a <strong>Kelderman 4-Link full air rear suspension setup</strong>.</li><li><strong>Best For:</strong> The ultimate enthusiast who demands Super Tourer status without compromise.</li><li><strong>Benefit:</strong> This is the absolute pinnacle of suspension engineering. Combining the benefit of a BDS Coil-Over front end with the payload flexibility of a Kelderman 4-Link rear air setup, this package makes the ultimate dream a reality. 100% federally approved Pre-Rego, safe, insured, and ready to dominate any terrain in total luxury.</li><li><strong>Part Number:</strong> VEH-STAGE6-GVM-K<br/></li></ul><p></p>"
           }
         }
       },
@@ -723,7 +723,7 @@
           "settings": {
             "icon": "none",
             "title": "Will upgrading my GVM reduce my towing capacity?",
-            "content": "<p>Not with an ORI package. Some GVM upgrades force you to sacrifice towing capacity to carry more weight in the tub. Our [VEHICLE] packages retain your factory 12,474kg GCM (Gross Combination Mass), meaning you keep your full 4.5T braked towing capacity while maximizing your truck's payload.</p>",
+            "content": "<p>Not with an ORI package. Some GVM upgrades force you to sacrifice towing capacity to carry more weight in the tub. Our [VEHICLE] packages retain your factory 12,474 KG GCM (Gross Combination Mass), meaning you keep your full 4.5T braked towing capacity while maximizing your truck's payload.</p>",
             "custom_liquid": "",
             "content_page": "",
             "open": false
@@ -734,7 +734,7 @@
           "settings": {
             "icon": "none",
             "title": "What does the NB1 to NB2 category upgrade mean?",
-            "content": "<p>By federal standards, NB1 vehicles are \"Light Goods Vehicles\" (under 4.5 tonnes). Our SSM packages legally reclassify your [VEHICLE] as an NB2 \"Medium Goods Vehicle\" (over 4.5 tonnes). This reclassification is the secret to legally unlocking that massive 5500kg–6000kg GVM.</p>",
+            "content": "<p>By federal standards, NB1 vehicles are \"Light Goods Vehicles\" (under 4.5 tonnes). Our SSM packages legally reclassify your [VEHICLE] as an NB2 \"Medium Goods Vehicle\" (over 4.5 tonnes). This reclassification is the secret to legally unlocking that massive 5500 KG–6000 KG GVM.</p>",
             "custom_liquid": "",
             "content_page": "",
             "open": false

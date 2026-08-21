@@ -208,7 +208,7 @@
         "text_ram6g_s1": {
           "type": "text",
           "settings": {
-            "text": "<p><em>The entry point to the 6th Gen programme, lifting GVM to 5500kg on a modest two inch lift.</em></p><ul><li><strong>GVM:</strong> 5500kg | <strong>GCM:</strong> 12,750kg | <strong>Braked Towing:</strong> 4500kg</li><li><strong>Lift & Tyres:</strong> 2\" lift, running up to 35x12.5 R18 or 35x12.5 R20.</li><li><strong>Key Features:</strong> Fox 2.5 Performance Series HTO shocks, Husky Colour coded leaf packs.</li><li><strong>Best For:</strong> Daily drivers and light tourers who want a legal capacity lift without moving to load rated wheels.</li></ul>"
+            "text": "<p><em>The entry point to the 6th Gen programme, lifting GVM to 5500 KG on a modest two inch lift.</em></p><ul><li><strong>GVM:</strong> 5500 KG | <strong>GCM:</strong> 12,750 KG | <strong>Braked Towing:</strong> 4500 KG</li><li><strong>Lift & Tyres:</strong> 2\" lift, running up to 35x12.5 R18 or 35x12.5 R20.</li><li><strong>Key Features:</strong> Fox 2.5 Performance Series HTO shocks, Husky Colour coded leaf packs.</li><li><strong>Best For:</strong> Daily drivers and light tourers who want a legal capacity lift without moving to load rated wheels.</li></ul>"
           }
         }
       },
@@ -267,7 +267,7 @@
         "text_ram6g_s2": {
           "type": "text",
           "settings": {
-            "text": "<p><em>The same two inch stance, stepping up to ORI coils front and rear and the full 5890kg GVM.</em></p><ul><li><strong>GVM:</strong> 5890kg | <strong>GCM:</strong> 12,750kg | <strong>Braked Towing:</strong> 4500kg</li><li><strong>Lift & Tyres:</strong> 2\" lift, running up to 35x12.5 R18 or 35x12.5 R20.</li><li><strong>Key Features:</strong> ORI front coils, ORI rear coils, BDS 3\" radius arm kit, Husky Extenda flares, ORI mud flap brackets.</li><li><strong>Best For:</strong> Owners carrying weight day to day who want maximum legal capacity while keeping factory rated wheels.</li></ul>"
+            "text": "<p><em>The same two inch stance, stepping up to ORI coils front and rear and the full 5890 KG GVM.</em></p><ul><li><strong>GVM:</strong> 5890 KG | <strong>GCM:</strong> 12,750 KG | <strong>Braked Towing:</strong> 4500 KG</li><li><strong>Lift & Tyres:</strong> 2\" lift, running up to 35x12.5 R18 or 35x12.5 R20.</li><li><strong>Key Features:</strong> ORI front coils, ORI rear coils, BDS 3\" radius arm kit, Husky Extenda flares, ORI mud flap brackets.</li><li><strong>Best For:</strong> Owners carrying weight day to day who want maximum legal capacity while keeping factory rated wheels.</li></ul>"
           }
         }
       },
@@ -326,7 +326,7 @@
         "text_ram6g_s3": {
           "type": "text",
           "settings": {
-            "text": "<p><em>Three inches of lift with the geometry corrected, and the first stage to run 37 inch tyres.</em></p><ul><li><strong>GVM:</strong> 5890kg | <strong>GCM:</strong> 12,750kg | <strong>Braked Towing:</strong> 4500kg</li><li><strong>Lift & Tyres:</strong> 3\" lift, running up to 37x12.5 R18 or 37x12.5 R20.</li><li><strong>Key Features:</strong> BDS 3\" radius arm kit, Husky Extenda flares, ORI mud flap brackets.</li><li><strong>Best For:</strong> Tourers who want genuine clearance and a 37 inch tyre while staying on factory rated wheels.</li></ul>"
+            "text": "<p><em>Three inches of lift with the geometry corrected, and the first stage to run 37 inch tyres.</em></p><ul><li><strong>GVM:</strong> 5890 KG | <strong>GCM:</strong> 12,750 KG | <strong>Braked Towing:</strong> 4500 KG</li><li><strong>Lift & Tyres:</strong> 3\" lift, running up to 37x12.5 R18 or 37x12.5 R20.</li><li><strong>Key Features:</strong> BDS 3\" radius arm kit, Husky Extenda flares, ORI mud flap brackets.</li><li><strong>Best For:</strong> Tourers who want genuine clearance and a 37 inch tyre while staying on factory rated wheels.</li></ul>"
           }
         }
       },
@@ -385,7 +385,7 @@
         "text_ram6g_s4": {
           "type": "text",
           "settings": {
-            "text": "<p><em>Four inches of lift with the rear air bags deleted in favour of a coil setup built to carry.</em></p><ul><li><strong>GVM:</strong> 5890kg | <strong>GCM:</strong> 12,750kg | <strong>Braked Towing:</strong> 4500kg</li><li><strong>Lift &amp; Tyres:</strong> 4\" lift, running up to 37x12.5 R18 or 37x12.5 R20.</li><li><strong>Key Features:</strong> BDS 4\" radius arm kit, Logic IQ air bag coil delete, Husky Extenda flares, ORI mud flap brackets.</li><li><strong>Best For:</strong> Tray and canopy builds, long range tanks, and anyone running permanent weight over the rear axle.</li><li><strong>NOTE:</strong> Load rated wheels and tyres with a 1650kg tyre load rating are required from this stage up.</li></ul>"
+            "text": "<p><em>Four inches of lift with the rear air bags deleted in favour of a coil setup built to carry.</em></p><ul><li><strong>GVM:</strong> 5890 KG | <strong>GCM:</strong> 12,750 KG | <strong>Braked Towing:</strong> 4500 KG</li><li><strong>Lift &amp; Tyres:</strong> 4\" lift, running up to 37x12.5 R18 or 37x12.5 R20.</li><li><strong>Key Features:</strong> BDS 4\" radius arm kit, Logic IQ air bag coil delete, Husky Extenda flares, ORI mud flap brackets.</li><li><strong>Best For:</strong> Tray and canopy builds, long range tanks, and anyone running permanent weight over the rear axle.</li><li><strong>NOTE:</strong> Load rated wheels and tyres with a 1650 KG tyre load rating are required from this stage up.</li></ul>"
           }
         }
       },
@@ -444,7 +444,7 @@
         "text_mfadnR": {
           "type": "text",
           "settings": {
-            "text": "<p><em>The full six inches, engineered and certified as one package rather than stacked together.</em></p><ul><li><strong>GVM:</strong> 5890kg | <strong>GCM:</strong> 12,750kg | <strong>Braked Towing:</strong> 4500kg</li><li><strong>Lift &amp; Tyres:</strong> 6\" lift, running up to 37x12.5 R18 or 37x12.5 R20.</li><li><strong>Key Features:</strong> BDS 6\" radius arm kit, Logic IQ air bag coil delete, Husky Extenda flares, ORI mud flap brackets.</li><li><strong>Best For:</strong> Owners who want the biggest lift in the range with the payload and towing left intact.</li><li><strong>NOTE:</strong> Load rated wheels and tyres with a 1650kg tyre load rating are required for this stage.</li></ul>"
+            "text": "<p><em>The full six inches, engineered and certified as one package rather than stacked together.</em></p><ul><li><strong>GVM:</strong> 5890 KG | <strong>GCM:</strong> 12,750 KG | <strong>Braked Towing:</strong> 4500 KG</li><li><strong>Lift &amp; Tyres:</strong> 6\" lift, running up to 37x12.5 R18 or 37x12.5 R20.</li><li><strong>Key Features:</strong> BDS 6\" radius arm kit, Logic IQ air bag coil delete, Husky Extenda flares, ORI mud flap brackets.</li><li><strong>Best For:</strong> Owners who want the biggest lift in the range with the payload and towing left intact.</li><li><strong>NOTE:</strong> Load rated wheels and tyres with a 1650 KG tyre load rating are required for this stage.</li></ul>"
           }
         }
       },
@@ -503,7 +503,7 @@
         "block_ram6g_s6_2": {
           "type": "text",
           "settings": {
-            "text": "<p><em>The peak of the 6th Gen programme, on the same six inch platform as Stage 5.</em></p><ul><li><strong>GVM:</strong> 5890kg | <strong>GCM:</strong> 12,750kg | <strong>Braked Towing:</strong> 4500kg</li><li><strong>Lift & Tyres:</strong> 6\" lift, running up to 40x13.5R17</li><li><strong>Key Features:</strong> BDS 6\" radius arm kit, Logic IQ air bag coil delete, AEV Flares, ORI mud flap brackets.</li><li><strong>Best For:</strong> The most heavily built rigs in the range, fully compliant and federally engineered.</li><li><strong>NOTE:</strong> Load rated wheels and tyres with a 1650kg tyre load rating are required for this stage.</li></ul>"
+            "text": "<p><em>The peak of the 6th Gen programme, on the same six inch platform as Stage 5.</em></p><ul><li><strong>GVM:</strong> 5890 KG | <strong>GCM:</strong> 12,750 KG | <strong>Braked Towing:</strong> 4500 KG</li><li><strong>Lift & Tyres:</strong> 6\" lift, running up to 40x13.5R17</li><li><strong>Key Features:</strong> BDS 6\" radius arm kit, Logic IQ air bag coil delete, AEV Flares, ORI mud flap brackets.</li><li><strong>Best For:</strong> The most heavily built rigs in the range, fully compliant and federally engineered.</li><li><strong>NOTE:</strong> Load rated wheels and tyres with a 1650 KG tyre load rating are required for this stage.</li></ul>"
           }
         }
       },
@@ -1087,12 +1087,12 @@
           "settings": {
             "label": "GVM Part Number",
             "value_1": "",
-            "value_2": "RAM62500Stage1GVM",
-            "value_3": "RAM62500Stage2GVM",
-            "value_4": "RAM62500Stage3GVM",
-            "value_5": "RAM62500Stage4GVM",
-            "value_6": "RAM62500Stage5GVM",
-            "value_7": "RAM62500Stage6GVM",
+            "value_2": "RAM-2500-6G-Stage1-GVM",
+            "value_3": "RAM-2500-6G-Stage2-GVM",
+            "value_4": "RAM-2500-6G-Stage3-GVM",
+            "value_5": "RAM-2500-6G-Stage4-GVM",
+            "value_6": "RAM-2500-6G-Stage5-GVM",
+            "value_7": "RAM-2500-6G-Stage6-GVM",
             "value_8": "",
             "value_9": "",
             "value_10": ""
@@ -1364,7 +1364,7 @@
           "settings": {
             "icon": "none",
             "title": "How to Choose the Right GVM Stage for Your RAM 2500 6th Gen",
-            "content": "<p>Choosing the right GVM stage comes down to what you carry, what you tow, and what you plan to do with your truck. Stages 1, 2 and 3 all take GVM to 5300kg on your factory wheels and tyres, so the choice between them is really about the suspension package and how much lift you want, with Stage 3 adding a 3-inch lift and a BDS radius arm kit to keep the front geometry correct.</p><p>Stage 4 and Stage 5 take GVM to 5550kg for the biggest legal payload in the range, 1914kg and 1905kg respectively. Both need load-rated wheels and tyres, and both hold the full 4500kg braked towing capacity, which makes them the pick for tray conversions, permanent canopies, long-range fuel systems, and heavy towing.</p><p>Not sure which stage suits you? Contact our GVM experts and we’ll help you find the right fit.</p>",
+            "content": "<p>Choosing the right GVM stage comes down to what you carry, what you tow, and what you plan to do with your truck. Stages 1, 2 and 3 all take GVM to 5300 KG on your factory wheels and tyres, so the choice between them is really about the suspension package and how much lift you want, with Stage 3 adding a 3-inch lift and a BDS radius arm kit to keep the front geometry correct.</p><p>Stage 4 and Stage 5 take GVM to 5550 KG for the biggest legal payload in the range, 1914 KG and 1905 KG respectively. Both need load-rated wheels and tyres, and both hold the full 4500 KG braked towing capacity, which makes them the pick for tray conversions, permanent canopies, long-range fuel systems, and heavy towing.</p><p>Not sure which stage suits you? Contact our GVM experts and we’ll help you find the right fit.</p>",
             "custom_liquid": "",
             "content_page": "",
             "open": false

@@ -578,7 +578,7 @@
           "type": "faq_item",
           "settings": {
             "question": "How much payload can I legally gain?",
-            "answer": "<p>Payload gains vary by vehicle and stage. Typical Stage 1 packages add 300–600 kg of legal payload. Contact ORI for vehicle-specific figures.</p>"
+            "answer": "<p>Payload gains vary by vehicle and stage. Typical Stage 1 packages add 300–600 KG of legal payload. Contact ORI for vehicle-specific figures.</p>"
           }
         },
         "faq_3": {

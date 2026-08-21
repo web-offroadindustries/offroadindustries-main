@@ -64,7 +64,7 @@
           "settings": {
             "text": "Increased legal payload capacity",
             "icon": "weight",
-            "note": "The ORI 3650kg GVM Package legally increases your vehicle's weight limit, ensuring your heavy-duty build stays safe, secure, and fully insured.\n\nMassive Payload Boost: Adds roughly 450–550kg of legal carrying capacity—essential for heavy canopies, bull bars, winches, and towing."
+            "note": "The ORI 3650 KG GVM Package legally increases your vehicle's weight limit, ensuring your heavy-duty build stays safe, secure, and fully insured.\n\nMassive Payload Boost: Adds roughly 450–550 KG of legal carrying capacity—essential for heavy canopies, bull bars, winches, and towing."
           }
         },
         "benefit_suspension": {
@@ -135,7 +135,7 @@
             "logo": "shopify://shop_images/420_x_420px_MEGA_MENU_ICON__ORI.jpg",
             "icon": "check",
             "brand": "",
-            "note": "ORI Leaf Packs, 200kg with Bushes & Ubolts.",
+            "note": "ORI Leaf Packs, 200 KG with Bushes & Ubolts.",
             "sku": "ORI-CHV-200KG x 2"
           }
         },
@@ -527,9 +527,9 @@
             "image": "shopify://shop_images/Chevy-Silverado-1500--tile-ad---20260505-4_753e16ce-f09c-454c-8683-7edc168f4eae.png",
             "vehicle_label": "Chevrolet Silverado 1500",
             "title": "Stage 1 GVM Upgrade",
-            "gvm_figure": "3,650 kg",
-            "gcm_figure": "8,150 kg",
-            "payload_gain": "8,150 kg",
+            "gvm_figure": "3,650 KG",
+            "gcm_figure": "8,150 KG",
+            "payload_gain": "8,150 KG",
             "stage_label": "Stage 1",
             "badge": "",
             "btn_text": "View Package",
@@ -543,9 +543,9 @@
             "image": "shopify://shop_images/Chevy-2500--tile-ad---20260505-4_7ce36d9a-1565-4823-b14a-b3e36018df11.png",
             "vehicle_label": "Chevrolet Silverado 2500HD",
             "title": "Stage 1 GVM Upgrade",
-            "gvm_figure": "5,500 kg",
-            "gcm_figure": "12,474 kg",
-            "payload_gain": "+1,708 kg",
+            "gvm_figure": "5,500 KG",
+            "gcm_figure": "12,474 KG",
+            "payload_gain": "+1,708 KG",
             "stage_label": "Stage 1",
             "badge": "",
             "btn_text": "View Package",
@@ -559,9 +559,9 @@
             "image": "shopify://shop_images/FORD-F150---tile-ad---20260505-4-1_9dcaeba0-a747-4777-a6b3-eb3685b3b98f.png",
             "vehicle_label": "Ford F-150",
             "title": "Stage 1 GVM Upgrade",
-            "gvm_figure": "3,700 kg",
-            "gcm_figure": "8,200 kg",
-            "payload_gain": "+455 kg",
+            "gvm_figure": "3,700 KG",
+            "gcm_figure": "8,200 KG",
+            "payload_gain": "+455 KG",
             "stage_label": "Stage 1",
             "badge": "",
             "btn_text": "View Package",
@@ -575,8 +575,8 @@
             "image": "shopify://shop_images/Toyota-Tundra--tile-ad---20260505-4-1.png",
             "vehicle_label": "Toyota Tundra",
             "title": "Stage 2 GVM Upgrade",
-            "gvm_figure": "3,850 kg",
-            "gcm_figure": "8,350 kg",
+            "gvm_figure": "3,850 KG",
+            "gcm_figure": "8,350 KG",
             "payload_gain": "",
             "stage_label": "Stage 1",
             "badge": "Most Popular",

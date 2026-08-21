@@ -206,7 +206,7 @@
         "text_fRRw7g": {
           "type": "text",
           "settings": {
-            "text": "<ul><li>Fox 2.5 Performance Series Suspension</li><li>BDS Upper Control Arms</li><li>ORI 200kg Leaf Packs</li><li>EO Wheels & Tyres Approved</li><li>Federally Approved GVM & GCM</li><li>Increase your payload to 1077kg</li></ul>"
+            "text": "<ul><li>Fox 2.5 Performance Series Suspension</li><li>BDS Upper Control Arms</li><li>ORI 200 KG Leaf Packs</li><li>EO Wheels & Tyres Approved</li><li>Federally Approved GVM & GCM</li><li>Increase your payload to 1077 KG</li></ul>"
           }
         }
       },
@@ -262,7 +262,7 @@
         "text_eiTTm6": {
           "type": "text",
           "settings": {
-            "text": "<ul><li>Retain the Factory Multimatic Suspension</li><li>BDS Upper Control Arms</li><li>ORI 200kg Leaf Packs</li><li>OE Wheels & Tyres Approved</li><li>Federally Approved GVM & GCM</li><li>Increase Payload to 1087kg</li></ul>"
+            "text": "<ul><li>Retain the Factory Multimatic Suspension</li><li>BDS Upper Control Arms</li><li>ORI 200 KG Leaf Packs</li><li>OE Wheels & Tyres Approved</li><li>Federally Approved GVM & GCM</li><li>Increase Payload to 1087 KG</li></ul>"
           }
         }
       },
@@ -318,7 +318,7 @@
         "text_aVwiWh": {
           "type": "text",
           "settings": {
-            "text": "<ul><li>Fox 2.5 Performance Elite Suspension</li><li>BDS Upper Control Arms</li><li>ORI 200kg Leaf Packs</li><li>OE Wheels & Tyres Approved</li><li>Federally Approved GVM & GCM</li><li>Increase Payload to 1272kg</li></ul>"
+            "text": "<ul><li>Fox 2.5 Performance Elite Suspension</li><li>BDS Upper Control Arms</li><li>ORI 200 KG Leaf Packs</li><li>OE Wheels & Tyres Approved</li><li>Federally Approved GVM & GCM</li><li>Increase Payload to 1272 KG</li></ul>"
           }
         }
       },
@@ -374,7 +374,7 @@
         "text_giGN6b": {
           "type": "text",
           "settings": {
-            "text": "<ul><li>Fox 2.5 Performance Elite Suspension</li><li>BDS Upper Control Arms</li><li>ORI 200kg or 400kg Leaf Packs</li><li>Engineered for 35\" Tyres</li><li>Federally Approved GVM & GCM</li><li>Increase your payload to 1672kg to meet tax purposes.</li></ul>"
+            "text": "<ul><li>Fox 2.5 Performance Elite Suspension</li><li>BDS Upper Control Arms</li><li>ORI 200 KG or 400 KG Leaf Packs</li><li>Engineered for 35\" Tyres</li><li>Federally Approved GVM & GCM</li><li>Increase your payload to 1672 KG to meet tax purposes.</li></ul>"
           }
         }
       },
@@ -430,7 +430,7 @@
         "text_AHtUHA": {
           "type": "text",
           "settings": {
-            "text": "<ul><li>Fox 3.0 Factory Bypass Suspension</li><li>Upgraded to BDS Control Arms</li><li>ORI 200kg or 400kg Leaf Packs</li><li>Engineered for 35\" Tyres</li><li>Federally Approved GVM & GCM</li><li>Increase your payload to 1672kg</li></ul>"
+            "text": "<ul><li>Fox 3.0 Factory Bypass Suspension</li><li>Upgraded to BDS Control Arms</li><li>ORI 200 KG or 400 KG Leaf Packs</li><li>Engineered for 35\" Tyres</li><li>Federally Approved GVM & GCM</li><li>Increase your payload to 1672 KG</li></ul>"
           }
         }
       },
@@ -771,7 +771,7 @@
         "row_MQ9Uxh": {
           "type": "row",
           "settings": {
-            "label": "ORI 200kg Leaf Spring Pack",
+            "label": "ORI 200 KG Leaf Spring Pack",
             "value_1": "ORI-CHV-200KG",
             "value_2": "✔",
             "value_3": "✔",
@@ -783,7 +783,7 @@
         "row_ViUDYJ": {
           "type": "row",
           "settings": {
-            "label": "ORI 400kg Leaf Spring Pack",
+            "label": "ORI 400 KG Leaf Spring Pack",
             "value_1": "ORI-CHV-400KG",
             "value_2": "",
             "value_3": "",

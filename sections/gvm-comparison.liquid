@@ -44,10 +44,16 @@
 
   comment
     Widen the value columns to fit their longest unbreakable run of text.
-    Browsers break at spaces and at hyphens, so ORI-RAM2500-Mudflaps wraps by
-    itself, but a part number like RAM62500Stage1GVM is one 17 character run
-    with neither and cannot break anywhere sensible. Too narrow a column then
-    either collides with the next one or splits the value mid-token.
+    Browsers break at spaces and at hyphens, so ORI-RAM2500-Mudflaps and
+    CHV-2500-Stage1-GVM wrap cleanly by themselves. A value with neither has
+    nowhere to break, and in too narrow a column it either collides with the
+    next one or splits mid-token.
+
+    This began as a fix for the RAM part numbers, which were written
+    RAM62500Stage1GVM: a single 17 character run. Those have since been
+    hyphenated to match every other vehicle, so nothing currently needs the
+    extra width, and this now stands as the safety net that stops any future
+    unbreakable value from breaking the table.
 
     Roughly 10px per character, measured on the live table: 17 characters
     rendered 169px at the size these tables use. Capped so one freak value
