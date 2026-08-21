@@ -42,6 +42,54 @@
     assign gap = 40
   endif
 
+  comment
+    Widen the value columns to fit their longest unbreakable run of text.
+    Browsers break at spaces and at hyphens, so ORI-RAM2500-Mudflaps wraps by
+    itself, but a part number like RAM62500Stage1GVM is one 17 character run
+    with neither and cannot break anywhere sensible. Too narrow a column then
+    either collides with the next one or splits the value mid-token.
+
+    Roughly 10px per character, measured on the live table: 17 characters
+    rendered 169px at the size these tables use. Capped so one freak value
+    cannot blow the whole table out, and only applied where it is needed, so
+    tables of short values keep their existing width.
+  endcomment
+  assign longest_token = 0
+
+  for i in (1..cols)
+    assign tkey = 'col_title_' | append: i
+    assign t_words = section.settings[tkey] | default: '' | strip_html | replace: '-', ' ' | split: ' '
+    for w in t_words
+      assign wl = w | size
+      if wl > longest_token
+        assign longest_token = wl
+      endif
+    endfor
+  endfor
+
+  for block in section.blocks
+    if block.type == 'row'
+      for i in (1..cols)
+        assign vkey = 'value_' | append: i
+        assign v_words = block.settings[vkey] | default: '' | strip_html | replace: '-', ' ' | split: ' '
+        for w in v_words
+          assign wl = w | size
+          if wl > longest_token
+            assign longest_token = wl
+          endif
+        endfor
+      endfor
+    endif
+  endfor
+
+  assign needed = longest_token | times: 10
+  if needed > col_min
+    assign col_min = needed
+  endif
+  if col_min > 200
+    assign col_min = 200
+  endif
+
   assign col_widths = ''
   for i in (1..cols)
     assign col_widths = col_widths | append: ' minmax(' | append: col_min | append: 'px, 1fr)'
