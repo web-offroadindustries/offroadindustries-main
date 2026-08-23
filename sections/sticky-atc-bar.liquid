@@ -31,10 +31,13 @@
     assign is_gvm_stage = true
   endif
 
-  # This bar had no pre-order awareness of any kind, so a product that showed a
-  # Pre-Order button in the main form still offered a working Add to cart down
-  # here as soon as the customer scrolled. Both states are mirrored below so the
-  # page only ever presents one action.
+  # Mirror the tagged Pre-Order / Special Order flow from the main product form.
+  # Without this the bar offered a working Add to cart as soon as the customer
+  # scrolled, on a product whose main form deliberately opens an enquiry modal
+  # instead of taking money, so the page presented two contradictory actions.
+  #
+  # This is the tag driven flow only. The inventory driven one that used to sit
+  # beside it was reverted on 23 Aug 2026 at the client's request.
   assign so_type = ''
   for t in product.tags
     assign td = t | downcase | strip
@@ -47,13 +50,6 @@
     endif
   endfor
 -%}
-{%- capture ori_preorder -%}
-  {%- render 'ori-preorder-state',
-    product: product,
-    variant: product.selected_or_first_available_variant
-  -%}
-{%- endcapture -%}
-{%- assign ori_preorder = ori_preorder | strip -%}
 <script src="{{ 'sticky-atc-bar.js' | asset_url }}" defer="defer"></script>
 {%- unless b2b_user -%}
 <div
@@ -206,9 +202,7 @@
                     {% endif %}
                   >
                     <span>
-                      {%- if ori_preorder == 'pre' -%}
-                        Pre-Order
-                      {%- elsif product.selected_or_first_available_variant.available -%}
+                      {%- if product.selected_or_first_available_variant.available -%}
                         {{ 'products.product.add_to_cart' | t }}
                       {%- else -%}
                         {{ 'products.product.sold_out' | t }}
@@ -220,7 +214,7 @@
                   </button>
                 {%- endif -%}
               {% endif %}
-              {%- if show_dynamic_checkout_buttons and so_type == '' and ori_preorder == '' -%}
+              {%- if show_dynamic_checkout_buttons and so_type == '' -%}
                 <div class="f-product-form__button-dynamic hidden md:block">
                   {{ form | payment_button }}
                 </div>

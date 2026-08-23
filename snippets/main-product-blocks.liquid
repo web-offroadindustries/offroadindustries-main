@@ -885,23 +885,6 @@
                   <div class="f-product-form__vehicle-selector">
                     <div class="bold_options" data-product-id="{{ product.id }}" data-product-form-id="{{ product_form_id }}"></div>
                   </div>
-                  {%- comment -%}
-                    Inventory driven pre-order, computed outside the
-                    show_atc_button branch so the Buy it now check below can
-                    still see it. Deliberately separate from so_type: a tagged
-                    product opens the ORI enquiry modal, whereas a product that
-                    has merely run out still takes a real order through
-                    Timesact, so its button has to stay a working Add to cart
-                    that only reads as Pre-Order.
-                  {%- endcomment -%}
-                  {%- capture ori_preorder -%}
-                    {%- render 'ori-preorder-state',
-                      product: product,
-                      variant: product.selected_or_first_available_variant
-                    -%}
-                  {%- endcapture -%}
-                  {%- assign ori_preorder = ori_preorder | strip -%}
-
                   <div class="f-product-form__buttons{% if show_dynamic_checkout and product.selling_plan_groups == empty %} f-product-form__buttons--show-buynow{% endif %}">
                     {% if block.settings.show_atc_button %}
                       {%- liquid
@@ -966,16 +949,7 @@
                           {% endif %}
                         >
                           <span>
-                            {%- comment -%}
-                              Label only. The button stays a real submit so
-                              Timesact can relabel it with its own wording and
-                              take the pre-order through checkout; if Timesact
-                              is not running on this product the customer still
-                              gets a working button that says the right thing.
-                            {%- endcomment -%}
-                            {%- if ori_preorder == 'pre' -%}
-                              Pre-Order
-                            {%- elsif product.selected_or_first_available_variant.available -%}
+                            {%- if product.selected_or_first_available_variant.available -%}
                               {{ 'products.product.add_to_cart' | t }}
                             {%- else -%}
                               {{ 'products.product.sold_out' | t }}
@@ -988,13 +962,7 @@
                       {%- endif -%}
 
                     {% endif %}
-                    {%- comment -%}
-                      Buy it now goes straight to checkout, skipping the cart and
-                      with it any pre-order terms or dispatch date, so it is
-                      suppressed on pre-orders the same way it already is for
-                      tagged special orders.
-                    {%- endcomment -%}
-                    {%- if show_dynamic_checkout and so_type == '' and ori_preorder == '' -%}
+                    {%- if show_dynamic_checkout and so_type == '' -%}
                       <div class="f-product-form__button-dynamic">
                         {{ form | payment_button }}
                       </div>

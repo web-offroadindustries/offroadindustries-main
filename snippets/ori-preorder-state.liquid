@@ -1,21 +1,29 @@
 {%- comment -%}
   ORI pre-order state
   ===================
-  Outputs 'pre' when a variant should be sold as a pre-order rather than an
-  ordinary add to cart, and nothing at all otherwise. Capture it:
+  Outputs 'pre' when a variant is being sold past zero stock, and nothing at
+  all otherwise. Capture it:
 
     {%- capture ori_preorder -%}
       {%- render 'ori-preorder-state', product: product, variant: some_variant -%}
     {%- endcapture -%}
     {%- assign ori_preorder = ori_preorder | strip -%}
 
-  Why this exists rather than reading variant.available:
+  Scope, as of 23 Aug 2026
+  ------------------------
+  One caller: snippets/product-inventory.liquid, which uses it to keep the
+  stock line off pre-orders. It no longer touches the buy buttons. It used to,
+  and that was reverted at the client's request, because hiding the Selleasy
+  "Make it a complete Kit" add-ons alongside the second button cost them the
+  upsell. If you are reintroducing anything here, that is the constraint to
+  design around: the add-ons have to stay on the page.
 
-  With "Sell when out of stock" switched on (inventory_policy 'continue')
-  Shopify keeps reporting a variant as available no matter how far past zero it
-  goes. Every buy button in this theme gated on .available, so a product sitting
-  at -1 rendered a live, enabled Add to cart. Checking the tracked quantity is
-  the only thing that actually answers "has this run out".
+  Why this exists rather than reading variant.available
+  -----------------------------------------------------
+  With "Sell when out of stock" on (inventory_policy 'continue') Shopify keeps
+  reporting a variant as available no matter how far past zero it goes, so
+  .available cannot answer "has this run out" and the stock line would promise
+  "In stock, ready to ship" with an empty shelf.
 
   quantity_rule_soldout is not reusable for this: it switches itself off under
   'continue', which is the exact case we care about.
@@ -23,15 +31,22 @@
   All three conditions matter:
 
   - inventory_management == 'shopify'. Untracked variants have a meaningless
-    quantity, so they are never pre-order and keep their normal Add to cart.
+    quantity, so they are never pre-order.
   - inventory_quantity <= 0. There is nothing on the shelf.
   - inventory_policy == 'continue'. This is the one that separates a pre-order
-    from a plain sell out. "Sell when out of stock" being switched on is the
-    merchant saying orders past zero are still wanted, which is what a pre-order
-    is. With 'deny' at zero stock Shopify refuses the add anyway, so the product
-    is simply sold out and must keep saying so. Timesact draws the same line: its
-    isVariantOutOfStock() returns true for DENY at zero and shows out of stock
-    rather than a pre-order.
+    from a plain sell out. "Sell when out of stock" being on is the merchant
+    saying orders past zero are still wanted. With 'deny' at zero Shopify
+    refuses the add anyway, so the product is simply sold out and must keep
+    saying so. Timesact draws the same line: its isVariantOutOfStock() returns
+    true for DENY at zero.
+
+  Note on Timesact
+  ----------------
+  Timesact does NOT create Shopify selling plans. Checked on live against
+  ori-electric-steps-chevy-silverado-zr2-ltz-2023, where the app reports the
+  variant as ACTIVE while selling_plan_groups is []. So any check of the form
+  "product.selling_plan_groups.size > 0" will never fire on this shop and is
+  not a way to detect a Timesact pre-order. The quantity rule above is.
 
   Deliberately NOT covered here:
 
@@ -39,8 +54,7 @@
     open an enquiry modal instead of taking money, so they stay on their own
     so_type path. This is only about stock running out.
 
-  Anything unexpected has to land on "sell it as normal", never on "hide the
-  button".
+  Anything unexpected has to land on "sell it as normal", never on "hide it".
 {%- endcomment -%}
 
 {%- liquid

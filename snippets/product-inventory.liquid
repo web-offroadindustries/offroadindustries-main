@@ -37,16 +37,19 @@
 
 {%- comment -%}
   The stock line is suppressed on pre-orders, where "In stock, ready to ship"
-  sitting next to a Pre-Order button contradicts it. A product can be a
-  pre-order in two ways and both have to be covered:
+  would contradict the pre-order the customer is actually being offered.
 
-  - Timesact holds a selling plan on it. That app renders nothing server side,
-    so the selling plan group is the only trace Liquid can see.
-  - The variant has run out under "Sell when out of stock", which is what
-    ori-preorder-state answers. This one matters because such a variant still
-    reports .available == true, so the available check further down does not
-    catch it, and the block would otherwise promise ready to ship with nothing
-    on the shelf.
+  The rule that does the work is ori-preorder-state: the variant has run out
+  under "Sell when out of stock". It matters because such a variant still
+  reports .available == true, so the available check further down does not
+  catch it, and the block would otherwise promise ready to ship with nothing on
+  the shelf.
+
+  The selling_plan_groups check is a second, wider net for a genuine Shopify
+  selling plan. Be aware it does nothing for Timesact: that app reports a
+  variant as ACTIVE while leaving selling_plan_groups empty, checked on live
+  against ori-electric-steps-chevy-silverado-zr2-ltz-2023. It is kept only so
+  a real subscription or deposit plan added later is handled.
 
   B2B users are exempt and keep their counts either way.
 
