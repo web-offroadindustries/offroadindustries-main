@@ -43,7 +43,6 @@
       "blocks": {
         "slide_MpjByF": {
           "type": "slide",
-          "disabled": true,
           "settings": {
             "background": "shopify://shop_images/Melbourne-Show-Save-the-Date---Website-hero-tile.png",
             "image_overlay_opacity": 0,
