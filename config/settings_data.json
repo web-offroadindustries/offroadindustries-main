@@ -63,7 +63,7 @@
       "baja-designs"
     ],
     "cart_default_country": "Australia",
-    "show_free_shipping_message": true,
+    "show_free_shipping_message": false,
     "pcard_show_second_img": true,
     "pcard_show_color_swatch": true,
     "pcard_show_vendor": true,
