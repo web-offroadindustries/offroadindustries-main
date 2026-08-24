@@ -208,7 +208,7 @@
         "text_ram6g_s1": {
           "type": "text",
           "settings": {
-            "text": "<p><em>The entry point to the 6th Gen programme, lifting GVM to 5500 KG on a modest two inch lift.</em></p><ul><li><strong>GVM:</strong> 5500 KG | <strong>GCM:</strong> 12,750 KG | <strong>Braked Towing:</strong> 4500 KG</li><li><strong>Lift & Tyres:</strong> 2\" lift, running up to 35x12.5 R18 or 35x12.5 R20.</li><li><strong>Key Features:</strong> Fox 2.5 Performance Series HTO shocks, Husky Colour coded leaf packs.</li><li><strong>Best For:</strong> Daily drivers and light tourers who want a legal capacity lift without moving to load rated wheels.</li></ul>"
+            "text": "<p><em>The entry point to the 6th Gen programme, lifting GVM to 5500 KG on a modest two inch lift.</em></p><ul><li><strong>GVM:</strong> 5500 KG | <strong>GCM:</strong> 12,750 KG | <strong>Braked Towing:</strong> 4500 KG</li><li><strong>Lift & Tyres:</strong> 2\" lift, running up to 35x12.5 R18 or 35x12.5 R20.</li><li><strong>Key Features:</strong> Fox 2.5 Performance Series HTO shocks, Husky Colour coded leaf packs.</li><li><strong>Best For:</strong> Daily drivers and light tourers who safe payload.</li></ul>"
           }
         }
       },
@@ -267,7 +267,7 @@
         "text_ram6g_s2": {
           "type": "text",
           "settings": {
-            "text": "<p><em>The same two inch stance, stepping up to ORI coils front and rear and the full 5890 KG GVM.</em></p><ul><li><strong>GVM:</strong> 5890 KG | <strong>GCM:</strong> 12,750 KG | <strong>Braked Towing:</strong> 4500 KG</li><li><strong>Lift & Tyres:</strong> 2\" lift, running up to 35x12.5 R18 or 35x12.5 R20.</li><li><strong>Key Features:</strong> ORI front coils, ORI rear coils, BDS 3\" radius arm kit, Husky Extenda flares, ORI mud flap brackets.</li><li><strong>Best For:</strong> Owners carrying weight day to day who want maximum legal capacity while keeping factory rated wheels.</li></ul>"
+            "text": "<p><em>The same two inch stance, stepping up to ORI coils front and rear and the full 5890 KG GVM.</em></p><ul><li><strong>GVM:</strong> 5890 KG | <strong>GCM:</strong> 12,750 KG | <strong>Braked Towing:</strong> 4500 KG</li><li><strong>Lift & Tyres:</strong> 2\" lift, running up to 35x12.5 R18 or 35x12.5 R20.</li><li><strong>Key Features:</strong> ORI front coils, ORI rear coils,  Husky Extenda flares, ORI mud flap brackets.</li><li><strong>Best For:</strong> Owners carrying weight day to day who want maximum legal capacity.</li></ul>"
           }
         }
       },
@@ -385,7 +385,7 @@
         "text_ram6g_s4": {
           "type": "text",
           "settings": {
-            "text": "<p><em>Four inches of lift with the rear air bags deleted in favour of a coil setup built to carry.</em></p><ul><li><strong>GVM:</strong> 5890 KG | <strong>GCM:</strong> 12,750 KG | <strong>Braked Towing:</strong> 4500 KG</li><li><strong>Lift &amp; Tyres:</strong> 4\" lift, running up to 37x12.5 R18 or 37x12.5 R20.</li><li><strong>Key Features:</strong> BDS 4\" radius arm kit, Logic IQ air bag coil delete, Husky Extenda flares, ORI mud flap brackets.</li><li><strong>Best For:</strong> Tray and canopy builds, long range tanks, and anyone running permanent weight over the rear axle.</li><li><strong>NOTE:</strong> Load rated wheels and tyres with a 1650 KG tyre load rating are required from this stage up.</li></ul>"
+            "text": "<p><em>Four inches of lift with the rear air bags deleted in favour of a coil setup built to carry.</em></p><ul><li><strong>GVM:</strong> 5890 KG | <strong>GCM:</strong> 12,750 KG | <strong>Braked Towing:</strong> 4500 KG</li><li><strong>Lift & Tyres:</strong> 4\" lift, running up to 37x12.5 R18 or 37x12.5 R20.</li><li><strong>Key Features:</strong> BDS 4\" radius arm kit, Logic IQ air bag coil delete, Husky Extenda flares, ORI mud flap brackets.</li><li><strong>Best For:</strong> Tray and canopy builds, long range tanks, and anyone running permanent weight over the rear axle.</li></ul><p></p>"
           }
         }
       },
@@ -444,7 +444,7 @@
         "text_mfadnR": {
           "type": "text",
           "settings": {
-            "text": "<p><em>The full six inches, engineered and certified as one package rather than stacked together.</em></p><ul><li><strong>GVM:</strong> 5890 KG | <strong>GCM:</strong> 12,750 KG | <strong>Braked Towing:</strong> 4500 KG</li><li><strong>Lift &amp; Tyres:</strong> 6\" lift, running up to 37x12.5 R18 or 37x12.5 R20.</li><li><strong>Key Features:</strong> BDS 6\" radius arm kit, Logic IQ air bag coil delete, Husky Extenda flares, ORI mud flap brackets.</li><li><strong>Best For:</strong> Owners who want the biggest lift in the range with the payload and towing left intact.</li><li><strong>NOTE:</strong> Load rated wheels and tyres with a 1650 KG tyre load rating are required for this stage.</li></ul>"
+            "text": "<p><em>The full six inches, engineered and certified as one package rather than stacked together.</em></p><ul><li><strong>GVM:</strong> 5890 KG | <strong>GCM:</strong> 12,750 KG | <strong>Braked Towing:</strong> 4500 KG</li><li><strong>Lift & Tyres:</strong> 6\" lift, running up to 37x12.5 R18 or 37x12.5 R20.</li><li><strong>Key Features:</strong> BDS 6\" radius arm kit, Logic IQ air bag coil delete, Husky Extenda flares, ORI mud flap brackets.</li><li><strong>Best For:</strong> Owners who want the biggest lift in the range with the payload and towing left intact.</li></ul>"
           }
         }
       },
@@ -1182,6 +1182,13 @@
     "contact_form_v4_ram6g": {
       "type": "contact-form-v4",
       "blocks": {
+        "step_your_details_ram6g": {
+          "type": "step",
+          "settings": {
+            "title": "Your details",
+            "caption": "So we know who to send the quote to."
+          }
+        },
         "name_ram6g": {
           "type": "name",
           "settings": {
@@ -1210,6 +1217,13 @@
             "field_width": "full",
             "hide_label": true,
             "required": true
+          }
+        },
+        "step_your_vehicle_ram6g": {
+          "type": "step",
+          "settings": {
+            "title": "Your vehicle",
+            "caption": "Helps us match the right GVM package."
           }
         },
         "rego_ram6g": {
@@ -1254,6 +1268,13 @@
             "required": true
           }
         },
+        "step_your_enquiry_ram6g": {
+          "type": "step",
+          "settings": {
+            "title": "Your enquiry",
+            "caption": "Anything else we should know."
+          }
+        },
         "location_ram6g": {
           "type": "location",
           "settings": {
@@ -1273,27 +1294,6 @@
             "rows": 3,
             "field_width": "100",
             "hide_label": true
-          }
-        },
-        "step_your_enquiry_ram6g": {
-          "type": "step",
-          "settings": {
-            "title": "Your enquiry",
-            "caption": "Anything else we should know."
-          }
-        },
-        "step_your_vehicle_ram6g": {
-          "type": "step",
-          "settings": {
-            "title": "Your vehicle",
-            "caption": "Helps us match the right GVM package."
-          }
-        },
-        "step_your_details_ram6g": {
-          "type": "step",
-          "settings": {
-            "title": "Your details",
-            "caption": "So we know who to send the quote to."
           }
         }
       },
