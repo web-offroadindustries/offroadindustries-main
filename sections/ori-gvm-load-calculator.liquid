@@ -4,7 +4,7 @@
 
 {%- liquid
   assign section_id = section.settings.custom_id | default: section.id
-  assign fallback_quote_url = section.settings.fallback_quote_url | default: '/pages/contact'
+  assign fallback_quote_url = section.settings.fallback_quote_url | default: '/pages/contact-us'
   assign warning_threshold = section.settings.warning_threshold | divided_by: 100.0
 -%}
 

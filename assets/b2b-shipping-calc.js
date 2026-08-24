@@ -131,7 +131,7 @@ if (!customElements.get('b2b-shipping-calc')) {
           }).join('');
           this.resultEl.innerHTML = `<div class="b2b-calc__rates">${rows}</div>`;
         } else {
-          this.resultEl.innerHTML = '<p class="b2b-calc__no-rates">Shipping for this product must be quoted. Please <a href="/pages/contact">contact us</a> for a freight estimate.</p>';
+          this.resultEl.innerHTML = '<p class="b2b-calc__no-rates">Shipping for this product must be quoted. Please <a href="/pages/contact-us">contact us</a> for a freight estimate.</p>';
         }
       } else if (data.shipping_rates) {
         this.resultEl.innerHTML = '<p class="b2b-calc__no-rates">No shipping options available for this address.</p>';

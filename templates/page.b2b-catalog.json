@@ -28,7 +28,7 @@
         "show_cta": true,
         "cta_text": "Ready to place an order? Get in touch with our team.",
         "cta_label": "Contact Us to Order",
-        "cta_link": "/pages/contact",
+        "cta_link": "/pages/contact-us",
         "padding_top": 40,
         "padding_bottom": 60
       }

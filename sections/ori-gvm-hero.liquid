@@ -83,8 +83,12 @@
           ticked it opens the contact-form-v4 section that is sitting on the same
           page in popup mode, using the same modal-opener wiring as the product
           page and the sticky bar, rather than navigating anywhere. That keeps the
-          visitor on the collection they just landed on, and it is also how the
-          dead /pages/contact link gets retired.
+          visitor on the collection they just landed on.
+
+          This popup was originally added to route around /pages/contact, which
+          did not exist and returned 404. That link has since been repointed at
+          /pages/contact-us store wide, so the fallback below is a working page
+          now rather than a dead end.
 
           If the popup section is ever removed from the template the button falls
           back to its URL, so the worst case is the old behaviour rather than a

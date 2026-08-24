@@ -272,11 +272,11 @@
                   </button>
                 </modal-opener>
               {%- else -%}
-                <a href="{{ section.settings.quote_url | default: '/pages/contact' }}" class="btn btn--primary ori-gvm-product__cta">{{ section.settings.quote_label }}</a>
+                <a href="{{ section.settings.quote_url | default: '/pages/contact-us' }}" class="btn btn--primary ori-gvm-product__cta">{{ section.settings.quote_label }}</a>
               {%- endif -%}
             {%- endif -%}
             {%- if section.settings.book_label != blank -%}
-              <a href="{{ section.settings.book_url | default: '/pages/contact' }}" class="btn btn--outline ori-gvm-product__cta">{{ section.settings.book_label }}</a>
+              <a href="{{ section.settings.book_url | default: '/pages/contact-us' }}" class="btn btn--outline ori-gvm-product__cta">{{ section.settings.book_label }}</a>
             {%- endif -%}
           </div>
 

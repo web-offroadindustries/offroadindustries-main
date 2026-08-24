@@ -25,7 +25,7 @@
         "price": "",
         "price_note": "Installed & engineered",
         "quote_label": "Request Quote",
-        "quote_url": "/pages/contact",
+        "quote_url": "/pages/contact-us",
         "quote_popup_id": "gvm-quote",
         "book_label": "Find Installers",
         "book_url": "#approved-installer",

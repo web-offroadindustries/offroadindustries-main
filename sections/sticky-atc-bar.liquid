@@ -93,9 +93,9 @@
               <button type="button" class="btn btn--primary" aria-haspopup="dialog">Request Quote</button>
             </modal-opener>
           {%- else -%}
-            <a href="{{ section.settings.gvm_quote_url | default: '/pages/contact' }}" class="btn btn--primary">Request Quote</a>
+            <a href="{{ section.settings.gvm_quote_url | default: '/pages/contact-us' }}" class="btn btn--primary">Request Quote</a>
           {%- endif -%}
-          <a href="{{ section.settings.gvm_book_url | default: '/pages/contact' }}" class="btn btn--outline">Book Installation</a>
+          <a href="{{ section.settings.gvm_book_url | default: '/pages/contact-us' }}" class="btn btn--outline">Book Installation</a>
         </div>
         {%- else -%}
         {%- assign product_form_id = 'product-form-' | append: section.id -%}

@@ -136,7 +136,7 @@
       this.showAccessories = toBoolean(this.dataset.showAccessories);
       this.useDefaultAccessories = toBoolean(this.dataset.useDefaultAccessories);
       this.showQuoteButton = toBoolean(this.dataset.showQuoteButton);
-      this.fallbackQuoteUrl = safeUrl(this.dataset.fallbackQuoteUrl, '/pages/contact');
+      this.fallbackQuoteUrl = safeUrl(this.dataset.fallbackQuoteUrl, '/pages/contact-us');
       this.quoteLabel = this.dataset.quoteLabel || '';
       this.translations = this.parseTranslations();
       this.customData = this.parseCustomData();

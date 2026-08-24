@@ -48,7 +48,7 @@
         "btn_1_url": "/collections/gvm-upgrades",
         "btn_1_style": "btn--primary",
         "btn_2_text": "Request a Quote",
-        "btn_2_url": "/pages/contact",
+        "btn_2_url": "/pages/contact-us",
         "btn_2_style": "btn--outline",
         "overlay_opacity": 45,
         "container": "container",

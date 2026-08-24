@@ -142,7 +142,7 @@
         "disclaimer": "<p><strong>Planning guide only.</strong> Results use published ORI package specifications plus estimated axle splits from kerb weight. Confirm your exact vehicle, compliance paperwork and weighbridge weights before modifying, loading or towing.</p>",
         "image": "shopify://shop_images/dv8-2024-2026-chevy-silverado-25003500-spec-series-front-bumperdv8fbcs2-04-5467357.png",
         "image_alt": "Vehicle load and towing calculator",
-        "fallback_quote_url": "/pages/contact",
+        "fallback_quote_url": "/pages/contact-us",
         "quote_button_label": "View ORI GVM package",
         "show_quote_button": true,
         "warning_threshold": 95,
