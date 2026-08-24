@@ -1335,10 +1335,10 @@
           "settings": {
             "label": "ORI ADR Compliance Lights",
             "value_1": "ORI-LED-Comp",
-            "value_2": "✔",
-            "value_3": "✔",
-            "value_4": "✔",
-            "value_5": "✔",
+            "value_2": "",
+            "value_3": "",
+            "value_4": "",
+            "value_5": "",
             "value_6": "✔",
             "value_7": "✔",
             "value_8": "✔",
@@ -1542,6 +1542,13 @@
     "contact_form_v4_YzWJbE": {
       "type": "contact-form-v4",
       "blocks": {
+        "step_your_details_YzWJbE": {
+          "type": "step",
+          "settings": {
+            "title": "Your details",
+            "caption": "So we know who to send the quote to."
+          }
+        },
         "name_GV7LzQ": {
           "type": "name",
           "settings": {
@@ -1570,6 +1577,13 @@
             "field_width": "full",
             "hide_label": true,
             "required": true
+          }
+        },
+        "step_your_vehicle_YzWJbE": {
+          "type": "step",
+          "settings": {
+            "title": "Your vehicle",
+            "caption": "Helps us match the right GVM package."
           }
         },
         "rego_status_GHUeAg": {
@@ -1614,6 +1628,13 @@
             "required": true
           }
         },
+        "step_your_enquiry_YzWJbE": {
+          "type": "step",
+          "settings": {
+            "title": "Your enquiry",
+            "caption": "Anything else we should know."
+          }
+        },
         "location_TLebdV": {
           "type": "location",
           "settings": {
@@ -1633,27 +1654,6 @@
             "rows": 3,
             "field_width": "100",
             "hide_label": true
-          }
-        },
-        "step_your_enquiry_YzWJbE": {
-          "type": "step",
-          "settings": {
-            "title": "Your enquiry",
-            "caption": "Anything else we should know."
-          }
-        },
-        "step_your_vehicle_YzWJbE": {
-          "type": "step",
-          "settings": {
-            "title": "Your vehicle",
-            "caption": "Helps us match the right GVM package."
-          }
-        },
-        "step_your_details_YzWJbE": {
-          "type": "step",
-          "settings": {
-            "title": "Your details",
-            "caption": "So we know who to send the quote to."
           }
         }
       },
