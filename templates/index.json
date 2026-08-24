@@ -11,7 +11,6 @@
   "sections": {
     "video_68tQqM": {
       "type": "video",
-      "disabled": true,
       "name": "t:sections.video.presets.name",
       "settings": {
         "container": "container-full",
@@ -43,6 +42,7 @@
       "blocks": {
         "slide_MpjByF": {
           "type": "slide",
+          "disabled": true,
           "settings": {
             "background": "shopify://shop_images/Melbourne-Show-Save-the-Date---Website-hero-tile.png",
             "image_overlay_opacity": 0,
@@ -206,6 +206,7 @@
         "show_dots": true,
         "show_nav": true,
         "autoplay": true,
+        "defer_autoplay_until_interaction": false,
         "autorotate_speed": 5,
         "pagination_background": "none",
         "controls_position": "center",
@@ -222,7 +223,7 @@
       "type": "apps",
       "blocks": {
         "tinyseo_heading_one_block_dgpt3L": {
-          "type": "shopify://apps/tinyseo/blocks/heading-one-block/0605268f-f7c4-4e95-b560-e43df7d59ae4",
+          "type": "shopify://apps/tinyseo-seo-speed/blocks/heading-one-block/0605268f-f7c4-4e95-b560-e43df7d59ae4",
           "settings": {
             "heading_one": "Choose Your OFFRoad Vehicle",
             "text_align": "center",
@@ -311,6 +312,7 @@
     },
     "video_kUd8dq": {
       "type": "video",
+      "disabled": true,
       "name": "t:sections.video.presets.name",
       "settings": {
         "container": "container",
