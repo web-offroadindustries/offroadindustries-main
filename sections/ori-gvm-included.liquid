@@ -179,6 +179,12 @@
               <div
                 class="ori-gvm-incl__media"
                 data-count="{{ img_count }}"
+                {%- comment -%}
+                  Which source filled the grid, so "why is this product still
+                  showing the shared photos" can be answered from the page
+                  itself rather than by guessing at the metafield.
+                {%- endcomment -%}
+                data-image-source="{% if use_mf_images %}metafield{% else %}blocks{% endif %}"
                 data-gallery-track
                 role="group"
                 aria-label="{{ section.settings.heading | default: "What's included" | escape }} images"
