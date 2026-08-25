@@ -13,6 +13,12 @@
   Under 750px the columns stack (content first, then images) and the image grid
   becomes a scroll-snap carousel driven by assets/ori-gvm-included.js.
 
+  The Image blocks are section settings, so every product on the template shares
+  them. A product that needs its own photos gets them from a File list product
+  metafield instead, named by the "Per-product image metafield" setting. The
+  blocks are the fallback: they are what shows for every product that has no
+  files in that metafield, which is why they should stay filled in.
+
   The outer wrapper keeps the .ori-gvm-product and layout classes so the band
   background and typography match the sections above and below it. The list and
   media use their own .ori-gvm-incl namespace, deliberately not the shared
@@ -38,6 +44,31 @@
       assign img_count = img_count | plus: 1
     endif
   endfor
+
+  # Per-product images. Every product sharing this template also shares the one
+  # set of Image blocks, so a product metafield holding its own image files
+  # takes over the grid for that product, and the blocks stay as the fallback
+  # for every product that has not been given any.
+  #
+  # The metafield wants to be a File list restricted to images. Anything in it
+  # that is not an image has no width, so it is skipped rather than rendered as
+  # an empty frame, and if nothing usable survives the blocks are used instead.
+  # Capped at four to match the block limit and the grid shapes in the CSS.
+  assign use_mf_images = false
+  assign incl_mf = section.settings.images_metafield | default: 'custom.included_images' | split: '.'
+  if product != blank and incl_mf.size == 2
+    assign mf_images = product.metafields[incl_mf[0]][incl_mf[1]].value
+    assign mf_count = 0
+    for file in mf_images
+      if file.width > 0 and mf_count < 4
+        assign mf_count = mf_count | plus: 1
+      endif
+    endfor
+    if mf_count > 0
+      assign use_mf_images = true
+      assign img_count = mf_count
+    endif
+  endif
 
   assign autoplay_ms = section.settings.autoplay_seconds | times: 1000
 
@@ -152,37 +183,39 @@
                 role="group"
                 aria-label="{{ section.settings.heading | default: "What's included" | escape }} images"
               >
-                {%- for block in images -%}
-                  {%- if block.settings.image != blank -%}
-                    <figure class="ori-gvm-incl__frame" data-gallery-slide {{ block.shopify_attributes }}>
-                      {{-
-                        block.settings.image
-                        | image_url: width: 1200
-                        | image_tag:
-                          loading: 'lazy',
-                          class: 'ori-gvm-incl__img',
-                          widths: '360,540,720,960,1200',
-                          sizes: '(min-width: 990px) 34vw, (min-width: 750px) 46vw, 90vw',
-                          alt: block.settings.alt | default: block.settings.image.alt | escape
-                      -}}
-                    </figure>
-                  {%- endif -%}
-                {%- endfor -%}
+                {%- if use_mf_images -%}
+                  {%- assign incl_n = 0 -%}
+                  {%- for file in mf_images -%}
+                    {%- if file.width > 0 and incl_n < 4 -%}
+                      {%- render 'ori-gvm-incl-image', image: file -%}
+                      {%- assign incl_n = incl_n | plus: 1 -%}
+                    {%- endif -%}
+                  {%- endfor -%}
+                {%- else -%}
+                  {%- for block in images -%}
+                    {%- render 'ori-gvm-incl-image',
+                      image: block.settings.image,
+                      alt: block.settings.alt,
+                      attrs: block.shopify_attributes
+                    -%}
+                  {%- endfor -%}
+                {%- endif -%}
               </div>
 
               {%- if img_count > 1 -%}
                 <div class="ori-gvm-incl__dots" data-gallery-dots>
-                  {%- assign dot_n = 0 -%}
-                  {%- for block in images -%}
-                    {%- if block.settings.image != blank -%}
-                      <button
-                        type="button"
-                        class="ori-gvm-incl__dot{% if dot_n == 0 %} is-active{% endif %}"
-                        data-gallery-dot="{{ dot_n }}"
-                        aria-label="Show image {{ dot_n | plus: 1 }} of {{ img_count }}"
-                      ></button>
-                      {%- assign dot_n = dot_n | plus: 1 -%}
-                    {%- endif -%}
+                  {%- comment -%}
+                    One dot per rendered frame. Counted off img_count rather
+                    than the blocks, so it stays right whichever source filled
+                    the grid.
+                  {%- endcomment -%}
+                  {%- for i in (1..img_count) -%}
+                    <button
+                      type="button"
+                      class="ori-gvm-incl__dot{% if forloop.first %} is-active{% endif %}"
+                      data-gallery-dot="{{ forloop.index0 }}"
+                      aria-label="Show image {{ forloop.index }} of {{ img_count }}"
+                    ></button>
                   {%- endfor -%}
                 </div>
               {%- endif -%}
@@ -257,6 +290,14 @@
         { "value": "left", "label": "Left of the list" }
       ],
       "default": "right"
+    },
+    { "type": "header", "content": "Images" },
+    {
+      "type": "text",
+      "id": "images_metafield",
+      "label": "Per-product image metafield",
+      "info": "namespace.key of a product metafield of type File (list, images only). Any product with files in it shows those instead of the Image blocks below. Every other product falls back to the Image blocks, so this only needs filling in for products that want their own photos. Leave as custom.included_images unless the metafield was created under another name.",
+      "default": "custom.included_images"
     },
     { "type": "header", "content": "Image carousel (mobile)" },
     {

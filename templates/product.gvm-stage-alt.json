@@ -184,6 +184,7 @@
         "heading": "What's included",
         "layout": "editorial",
         "media_position": "right",
+        "images_metafield": "custom.included_images",
         "autoplay_seconds": 5,
         "row_spacing": 8,
         "item_logo_height": 88,

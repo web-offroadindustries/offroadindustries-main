@@ -179,6 +179,7 @@
         "custom_id": "",
         "color_schema": "",
         "media_position": "right",
+        "images_metafield": "custom.included_images",
         "autoplay_seconds": 5,
         "logo_frame": true,
         "item_logo_scale": 160,
