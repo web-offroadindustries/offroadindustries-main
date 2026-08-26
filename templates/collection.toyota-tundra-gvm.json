@@ -264,7 +264,7 @@
             "image": "shopify://shop_images/Chevy-2500--tile-ad---20260505-4_7ce36d9a-1565-4823-b14a-b3e36018df11.png",
             "name": "Chevrolet Silverado 2500HD",
             "btn_label": "View Packages",
-            "btn_url": "/collections/chevrolet-silverado-2500hd-gvm-upgrades",
+            "btn_url": "/pages/chevy-silverado-2500hd-gvm-packages",
             "pdf_url": ""
           }
         },
@@ -274,7 +274,7 @@
             "image": "shopify://shop_images/FORD-F150---tile-ad---20260505-4-1.png",
             "name": "Ford F-150",
             "btn_label": "View Packages",
-            "btn_url": "/collections/ford-f150-gvm-upgrades",
+            "btn_url": "/pages/ford-150-gvm-packages",
             "pdf_url": ""
           }
         },
@@ -284,7 +284,7 @@
             "image": "shopify://shop_images/Toyota-Tundra--tile-ad---20260505-4-1.png",
             "name": "Toyota Tundra",
             "btn_label": "View Packages",
-            "btn_url": "/collections/toyota-tundra-gvm-upgrades",
+            "btn_url": "/pages/toyota-tundra",
             "pdf_url": ""
           }
         },
@@ -294,7 +294,7 @@
             "image": "shopify://shop_images/RAM_2500_TILE.webp",
             "name": "RAM 2500",
             "btn_label": "View Packages",
-            "btn_url": "/collections/ram-2500-gvm-upgrades",
+            "btn_url": "/pages/ram-2500-6th-gen-gvm",
             "pdf_url": ""
           }
         }
