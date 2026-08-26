@@ -164,13 +164,13 @@
   grid-template-columns: minmax(0, 1fr);
 }
 
-.ori-gvm-incl__frame {
+/* .ori-gvm-incl__frame {
   margin: 0;
   border: 1px solid var(--incl-frame-line);
   background: var(--incl-frame-bg);
   overflow: hidden;
   aspect-ratio: 4 / 3;
-}
+} */
 .ori-gvm-incl__img {
   width: 100%;
   height: 100%;
