@@ -369,7 +369,7 @@
         "subheading_ram6g_s4": {
           "type": "subheading",
           "settings": {
-            "subheading": "Stage 4: Installed & Engineered —$26,999",
+            "subheading": "Stage 4: Installed & Engineered —$28,999",
             "subheading_size": "h5"
           }
         },
@@ -428,7 +428,7 @@
         "subheading_4Q9WFD": {
           "type": "subheading",
           "settings": {
-            "subheading": "Stage 5: Installed & Engineered — $26,999",
+            "subheading": "Stage 5: Installed & Engineered — $28,999",
             "subheading_size": "h5"
           }
         },
@@ -487,7 +487,7 @@
         "block_ram6g_s6_0": {
           "type": "subheading",
           "settings": {
-            "subheading": "Stage 6: Installed & Engineered — $32,999",
+            "subheading": "Stage 6: Installed & Engineered — $33,999",
             "subheading_size": "h5"
           }
         },
@@ -1151,16 +1151,13 @@
       "settings": {
         "heading": "Frequently Bought With",
         "product_list": [
-          "addictive-desert-designs-toyota-tundra-stealth-fighter-winch-bar-2022-2025",
-          "afe-momentum-gt-orange-edition-cold-air-intake-system-toyota-tundra-limited-platinum",
-          "afe-scorcher-blue-bluetooth-power-module-to-suit-toyota-tundra-22-limited-platinum",
-          "amp-research-bedstep-toyota-tundra-limited-platinum-22",
-          "ori-toyota-tundra-roller-shutter-22",
-          "amp-research-bedstep2-toyota-tundra-limited-platinum-22",
-          "bajakits-rear-sway-bar-end-links-22-toyota-tundra",
-          "bajakits-rear-shock-guards-22-toyota-tundra",
-          "realtruck-amp-research-powerstep-vision-toyota-tundra-22",
-          "realtruck-avs-weather-shield-toyota-tundra-2022"
+          "amp-research-xl-power-steps-ram-2500-3500-hd-crew-2025-6th-gen",
+          "ori-ram-2500-roller-shutter-with-rambox",
+          "dual-steering-stabilizer-kit-w-fox-2-0-performance-shocks-t-style-steering-ram-2500-19-25-and-3500-19-24-4wd",
+          "fox-factory-race-series-2-0-ats-stabilizer-ram-2500-3500",
+          "amp-research-bedstep-2019-ram-2500-3500-75324-01a",
+          "amp-research-power-steps-ram-2500-3500-hd-amp-powerstep-25",
+          "titan-gen-7-xxl-fuel-tank-2025-ram-cummins-short-bed-4x4"
         ],
         "collection": "",
         "heading_size_mobile": 22,
