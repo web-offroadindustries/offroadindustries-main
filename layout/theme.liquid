@@ -152,10 +152,13 @@
 
     {% render 'meta-tags' %}
     {% render 'critical-css' %}
-    {{ 'theme.css' | asset_url | stylesheet_tag }}
-    {{ 'base.css' | asset_url | stylesheet_tag }}
-    {{ 'grid.css' | asset_url | stylesheet_tag }}
-    {{ 'components.css' | asset_url | stylesheet_tag }}
+    {%- comment -%}
+      theme.css + base.css + grid.css + components.css, in that order, as one
+      request instead of four. All four are needed before first paint, so they
+      cannot be deferred without causing a flash of unstyled content.
+      Regenerate with: node tools/build-css-bundles.js
+    {%- endcomment -%}
+    {{ 'critical-bundle.css' | asset_url | stylesheet_tag }}
 
     {% comment %}theme-check-disable{% endcomment %}
     <link
@@ -305,8 +308,12 @@
     <noscript>{{ 'brand-guidelines.css' | asset_url | stylesheet_tag }}</noscript>
 
     {% comment %}theme-check-disable{% endcomment %}
-    <link rel="preload" href="{{ 'header.css' | asset_url }}" as="style">
-    <link rel="preload" href="{{ 'site-nav.css' | asset_url }}" as="style">
+    {%- comment -%}
+      Warms the header bundle before sections/header.liquid asks for it.
+      Must name the same file the header section loads, or this preload is
+      wasted and the browser fetches twice.
+    {%- endcomment -%}
+    <link rel="preload" href="{{ 'header-bundle.css' | asset_url }}" as="style">
     {%- if template.name == 'product' -%}
       <link rel="preconnect" href="https://options.shopapps.site" crossorigin>
       <link

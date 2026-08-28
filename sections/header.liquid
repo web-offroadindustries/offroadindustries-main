@@ -1,5 +1,9 @@
-{{ 'header.css' | asset_url | stylesheet_tag }}
-{{ 'site-nav.css' | asset_url | stylesheet_tag }}
+{%- comment -%}
+  header.css + site-nav.css as one request. Both are above the fold, so they
+  stay render blocking rather than being deferred, which would flash an
+  unstyled nav. Regenerate with: node tools/build-css-bundles.js
+{%- endcomment -%}
+{{ 'header-bundle.css' | asset_url | stylesheet_tag }}
 {%- liquid
   assign layout = section.settings.layout
   assign sticky_type = section.settings.sticky_type | default: 'on-scroll-up'

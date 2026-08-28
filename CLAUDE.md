@@ -130,7 +130,19 @@ Key JS files:
 **No preprocessor** — plain CSS with custom properties.
 
 Asset loading in `theme.liquid`:
-- **Critical** (render-blocking): `base.css`, `theme.css`, `grid.css`, `components.css`
+- **Critical** (render-blocking): `base.css`, `theme.css`, `grid.css`, `components.css` — served to the storefront as one file, `critical-bundle.css` (see below). The source files are still what you edit, and are still loaded individually by `password.liquid` and `theme.pagefly.liquid`.
+- **Header** (render-blocking): `header.css`, `site-nav.css` — likewise served as `header-bundle.css` from `sections/header.liquid`.
+
+**Generated CSS bundles.** `assets/critical-bundle.css` and `assets/header-bundle.css` are build output, not source. PageSpeed flagged eight render-blocking stylesheets; all are above the fold so none can be deferred without a flash of unstyled content, and combining them keeps the same bytes and cascade in fewer requests.
+
+After editing any source file above, **and after any FoxEcom Zest theme update**, run:
+
+```bash
+node tools/build-css-bundles.js          # rebuild
+node tools/build-css-bundles.js --check  # exits 1 if stale
+```
+
+A Zest update overwrites the source files and the bundle would then silently serve the old CSS with nothing erroring, so the `--check` run is worth doing before any push that touches these files. This is the theme's only build step; nothing else requires one.
 - **Deferred** (preload + swap): `non-critical.css`, `modal-component.css`, `drawer-component.css`, `flickity-component.css`
 - **B2B**: `b2b-portal.css` — B2B catalog table, stock badges, and pagination styles
 - **RTL**: `rtl.css` conditionally loaded when `settings.rtl_enable` is true
