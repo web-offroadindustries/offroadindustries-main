@@ -68,24 +68,29 @@
                 {%- if block.settings.image != blank -%}
                   {%- liquid
                     assign image = block.settings.image
-
-                    # The old sizes here described a four-across grid, which this
-                    # section is not. It is a marquee whose items are sized by
-                    # height: scrolling-promotion.css sets height to image_height,
-                    # and to image_height * 0.75 below 768px, with width auto.
-                    #
-                    # So the rendered width is the height times the aspect ratio,
-                    # and telling the browser that lets it pick a far smaller
-                    # source. A 150px logo was declaring 302px and pulling a 360w
-                    # file to fill 113px on a phone.
-                    assign promo_h = block.settings.image_height | default: 100
-                    assign promo_ar = image.aspect_ratio | default: 1.0
-                    assign promo_w = promo_h | times: promo_ar | round
-                    if promo_w < 1
-                      assign promo_w = promo_h
-                    endif
-                    assign promo_w_mobile = promo_w | times: 0.75 | round
                   -%}
+                  {%- comment -%}
+                    Do not "fix" the sizes attribute below to match the rendered
+                    width. It looks wrong and it is: this is a marquee sized by
+                    height, not a four-across grid, so a 150px logo declaring
+                    302px is overstating its slot. Correcting it measurably makes
+                    the page HEAVIER, because of a Shopify CDN defect.
+
+                    For these JPEG sources the CDN returns a broken AVIF below
+                    about 300px wide, larger than the JPEG it serves above that:
+
+                      BDS  ?width=165 -> avif 30.5 KB
+                      BDS  ?width=360 -> jpeg 16.8 KB
+
+                    Accurate sizes push the browser into that band. Measured
+                    across these five logos it cost 38 KB, 55 KB becoming 93 KB.
+                    The overstated sizes accidentally keep every request at 340px
+                    or wider, where the CDN behaves.
+
+                    format=pjpg dodges it, but forcing JPEG would flatten the
+                    transparent PNG logos onto a background, so that is not a
+                    fix either. Revisit only if Shopify's encoder is corrected.
+                  {%- endcomment -%}
                   <div class="f-image">
                     <img
                       srcset="
@@ -98,7 +103,7 @@
                         {{ image.src | image_url }} {{ image.src.width }}w
                       "
                       src="{{ image.src | image_url: width: 533 }}"
-                      sizes="(min-width: 768px) {{ promo_w }}px, {{ promo_w_mobile }}px"
+                      sizes="(min-width: {{ settings.container_width }}px) {{ settings.container_width | minus: 130 | divided_by: 4 }}px, (min-width: 990px) calc((100vw - 130px) / 4), (min-width: 750px) calc((100vw - 120px) / 3), calc((100vw - 35px) / 2)"
                       alt="{{ image.src.alt | escape }}"
                       loading="lazy"
                       width="{{ image.width }}"
