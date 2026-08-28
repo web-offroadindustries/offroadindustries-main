@@ -68,6 +68,23 @@
                 {%- if block.settings.image != blank -%}
                   {%- liquid
                     assign image = block.settings.image
+
+                    # The old sizes here described a four-across grid, which this
+                    # section is not. It is a marquee whose items are sized by
+                    # height: scrolling-promotion.css sets height to image_height,
+                    # and to image_height * 0.75 below 768px, with width auto.
+                    #
+                    # So the rendered width is the height times the aspect ratio,
+                    # and telling the browser that lets it pick a far smaller
+                    # source. A 150px logo was declaring 302px and pulling a 360w
+                    # file to fill 113px on a phone.
+                    assign promo_h = block.settings.image_height | default: 100
+                    assign promo_ar = image.aspect_ratio | default: 1.0
+                    assign promo_w = promo_h | times: promo_ar | round
+                    if promo_w < 1
+                      assign promo_w = promo_h
+                    endif
+                    assign promo_w_mobile = promo_w | times: 0.75 | round
                   -%}
                   <div class="f-image">
                     <img
@@ -81,7 +98,7 @@
                         {{ image.src | image_url }} {{ image.src.width }}w
                       "
                       src="{{ image.src | image_url: width: 533 }}"
-                      sizes="(min-width: {{ settings.container_width }}px) {{ settings.container_width | minus: 130 | divided_by: 4 }}px, (min-width: 990px) calc((100vw - 130px) / 4), (min-width: 750px) calc((100vw - 120px) / 3), calc((100vw - 35px) / 2)"
+                      sizes="(min-width: 768px) {{ promo_w }}px, {{ promo_w_mobile }}px"
                       alt="{{ image.src.alt | escape }}"
                       loading="lazy"
                       width="{{ image.width }}"
