@@ -62,19 +62,19 @@
         "eyebrow": "Client review directory",
         "heading": "All GVM Upgrade Packages",
         "subheading": "<p>Open any package or stage below to review its product page.</p>",
-        "collection": "gvm-upgrades",
+        "collection": "ram-2500-gvm-upgrades",
         "show_count": true,
         "show_stage_links": true,
         "show_skus": true,
         "products_limit": 50,
         "container": "container",
-        "color_schema": "",
         "background_color": "#f4fbfb",
         "line_color": "#d8e6e7",
         "link_color": "#1f1f1f",
         "padding_top": 52,
         "padding_bottom": 52,
-        "custom_id": "gvm-review-directory"
+        "custom_id": "gvm-review-directory",
+        "color_schema": ""
       }
     },
     "gvm_benefits": {
