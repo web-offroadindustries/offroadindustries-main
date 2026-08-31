@@ -63,3 +63,31 @@ test('gvm review directory can list product and stage links from a selected coll
   assert.match(liquid, /directory_collection\.products_count > products_limit/);
   assert.doesNotMatch(liquid, /<(?:ol|ul)[^>]*role="list"/);
 });
+
+test('gvm stage links use a professional responsive card hierarchy', () => {
+  const liquid = read('sections/ori-gvm-review-directory.liquid');
+
+  assert.match(liquid, /class="ori-gvm-directory__stage-name"/);
+  assert.match(
+    liquid,
+    /\.ori-gvm-directory__stages\s*\{[^}]*display:\s*grid;[^}]*grid-template-columns:\s*repeat\(auto-fit,\s*minmax\(160px,\s*1fr\)\);/s
+  );
+  assert.match(
+    liquid,
+    /\.ori-gvm-directory__stages a\s*\{[^}]*flex-direction:\s*column;[^}]*padding:\s*12px 14px;[^}]*border:\s*1px solid var\(--gvm-directory-line\);[^}]*border-radius:\s*8px;/s
+  );
+  assert.match(liquid, /\.ori-gvm-directory__stages li\s*\{[^}]*display:\s*flex;[^}]*\}/s);
+  assert.match(liquid, /\.ori-gvm-directory__stages a\s*\{[^}]*flex:\s*1;[^}]*\}/s);
+  assert.match(
+    liquid,
+    /\.ori-gvm-directory__review-link\s*\{[^}]*padding:\s*0 14px;[^}]*border:\s*1px solid var\(--gvm-directory-line\);[^}]*border-radius:\s*999px;/s
+  );
+  assert.match(
+    liquid,
+    /@media \(max-width:\s*639px\)[\s\S]*\.ori-gvm-directory__stages\s*\{[^}]*grid-template-columns:\s*1fr;/
+  );
+  assert.match(
+    liquid,
+    /@media \(prefers-reduced-motion:\s*reduce\)[\s\S]*transition:\s*none;[\s\S]*transform:\s*none;/
+  );
+});

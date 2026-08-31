@@ -66,7 +66,7 @@
                   {%- for variant in directory_product.variants -%}
                     <li>
                       <a href="{{ directory_product.url }}?variant={{ variant.id }}">
-                        <span>{{ variant.title | escape }}</span>
+                        <span class="ori-gvm-directory__stage-name">{{ variant.title | escape }}</span>
                         {%- if section.settings.show_skus and variant.sku != blank -%}
                           <span class="ori-gvm-directory__sku">SKU {{ variant.sku | escape }}</span>
                         {%- endif -%}
@@ -199,9 +199,7 @@
   }
 
   .ori-gvm-directory__product-link:hover,
-  .ori-gvm-directory__product-link:focus-visible,
-  .ori-gvm-directory__stages a:hover,
-  .ori-gvm-directory__stages a:focus-visible {
+  .ori-gvm-directory__product-link:focus-visible {
     text-decoration: underline;
     text-underline-offset: 3px;
   }
@@ -216,39 +214,81 @@
   .ori-gvm-directory__review-link {
     display: inline-flex;
     align-items: center;
-    gap: 7px;
-    min-height: 36px;
+    justify-content: center;
+    gap: 8px;
+    min-height: 38px;
+    padding: 0 14px;
+    border: 1px solid var(--gvm-directory-line);
+    border-radius: 999px;
+    background: #fff;
     font-size: 13px;
     font-weight: 700;
     text-decoration: none;
+    transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
   }
 
   .ori-gvm-directory__review-link:hover,
   .ori-gvm-directory__review-link:focus-visible {
-    gap: 10px;
+    background: var(--gvm-directory-bg);
+    border-color: var(--gvm-directory-link);
+    transform: translateY(-1px);
+  }
+
+  .ori-gvm-directory__review-link:focus-visible,
+  .ori-gvm-directory__stages a:focus-visible {
+    outline: 2px solid var(--gvm-directory-link);
+    outline-offset: 2px;
   }
 
   .ori-gvm-directory__stages {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px 18px;
-    margin: 14px 0 0 46px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 10px;
+    max-width: 720px;
+    margin: 16px 0 0 46px;
     padding: 0;
     list-style: none;
   }
 
+  .ori-gvm-directory__stages li {
+    display: flex;
+    min-width: 0;
+  }
+
   .ori-gvm-directory__stages a {
-    display: inline-flex;
-    flex-wrap: wrap;
-    gap: 6px;
-    font-size: 13px;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 3px;
+    min-height: 64px;
+    padding: 12px 14px;
+    border: 1px solid var(--gvm-directory-line);
+    border-radius: 8px;
+    background: #fff;
     text-decoration: none;
+    transition: background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+  }
+
+  .ori-gvm-directory__stage-name {
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.25;
+  }
+
+  .ori-gvm-directory__stages a:hover,
+  .ori-gvm-directory__stages a:focus-visible {
+    background: var(--gvm-directory-bg);
+    border-color: var(--gvm-directory-link);
+    box-shadow: 0 5px 14px rgba(20, 42, 44, 0.09);
+    transform: translateY(-1px);
   }
 
   .ori-gvm-directory__sku,
   .ori-gvm-directory__single-sku {
     color: #697476;
     font-size: 11px;
+    line-height: 1.35;
     letter-spacing: 0.03em;
   }
 
@@ -260,6 +300,20 @@
   .ori-gvm-directory__empty {
     padding-top: 20px;
     font-size: 13px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .ori-gvm-directory__review-link,
+    .ori-gvm-directory__stages a {
+      transition: none;
+    }
+
+    .ori-gvm-directory__review-link:hover,
+    .ori-gvm-directory__review-link:focus-visible,
+    .ori-gvm-directory__stages a:hover,
+    .ori-gvm-directory__stages a:focus-visible {
+      transform: none;
+    }
   }
 
   @media (max-width: 639px) {
@@ -282,6 +336,10 @@
     .ori-gvm-directory__stages,
     .ori-gvm-directory__single-sku {
       margin-left: 34px;
+    }
+
+    .ori-gvm-directory__stages {
+      grid-template-columns: 1fr;
     }
   }
 {% endstyle %}
