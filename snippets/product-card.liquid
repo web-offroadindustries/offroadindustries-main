@@ -242,7 +242,7 @@
           {% endfor %}
         </div>
       {% endif %}
-      {% unless list_layout or b2b_user %}
+      {% unless list_layout %}
         {% if enable_quick_add or enable_quick_view %}
           <div class="product-card__actions{{ actions_class }}">
             {% if enable_quick_add %}
@@ -454,7 +454,7 @@
           %}
         </div>
       {% endif %}
-      {% unless b2b_user %}{% if list_layout or is_lookbook %}
+      {% if list_layout or is_lookbook %}
         {% if enable_quick_add or enable_quick_view %}
           {%- liquid
             assign button_class = 'btn--white'
@@ -596,7 +596,7 @@
             {% endif %}
           </div>
         {% endif %}
-      {% endif %}{% endunless %}
+      {% endif %}
       {% if is_lookbook and show_product_option %}
         <div class="product-card__options relative text-center block md:hidden">
           {% render 'product-card-swatch',

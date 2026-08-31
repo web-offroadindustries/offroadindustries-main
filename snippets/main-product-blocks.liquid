@@ -315,15 +315,6 @@
             {% endcase %}
           </div>
         {%- when 'quantity_selector' -%}
-          {%- liquid
-            assign b2b_user_qs = false
-            if customer
-              if customer.b2b? or customer.tags contains 'b2b'
-                assign b2b_user_qs = true
-              endif
-            endif
-          -%}
-          {%- unless b2b_user_qs -%}
           <div class="f-product-single__info-quantity">
             {%- assign cart_qty = cart | item_count_for_variant: product.selected_or_first_available_variant.id -%}  
             <div class="f-quantity__wrapper {{ class }}" id="QuantityForm-{{ section.id }}">
@@ -523,7 +514,6 @@
               </volume-pricing>
             {%- endif -%}
           </div>
-          {%- endunless -%}
         {%- when 'addons' -%}
           {% liquid
             assign show_share = block.settings.show_share
@@ -732,131 +722,6 @@
                   An ORI specialist will respond within one business day.
                 </p>
               </div>
-            {%- elsif b2b_user -%}
-              <div class="b2b-order-cta">
-                <div class="b2b-order-cta__notice">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-                  <span>Orders are fulfilled through our inventory management system. Please contact us to place an order.</span>
-                </div>
-                <a href="/pages/contact-us" class="btn btn--primary b2b-order-cta__btn">Contact Us to Order</a>
-              </div>
-
-              {%- liquid
-                assign b2b_unit_price = product.selected_or_first_available_variant.price
-              -%}
-              <div class="b2b-qty-discount" data-unit-price="{{ b2b_unit_price }}">
-                <h3 class="b2b-qty-discount__title">Quantity Pricing</h3>
-                <div class="b2b-qty-discount__tiers">
-                  <div class="b2b-qty-discount__tier">
-                    <span class="b2b-qty-discount__tier-range">1–9 units</span>
-                    <span class="b2b-qty-discount__tier-rate">Standard price</span>
-                  </div>
-                  <div class="b2b-qty-discount__tier">
-                    <span class="b2b-qty-discount__tier-range">10–19 units</span>
-                    <span class="b2b-qty-discount__tier-rate b2b-qty-discount__tier-rate--active">5% off</span>
-                  </div>
-                  <div class="b2b-qty-discount__tier">
-                    <span class="b2b-qty-discount__tier-range">20–49 units</span>
-                    <span class="b2b-qty-discount__tier-rate b2b-qty-discount__tier-rate--active">10% off</span>
-                  </div>
-                  <div class="b2b-qty-discount__tier">
-                    <span class="b2b-qty-discount__tier-range">50+ units</span>
-                    <span class="b2b-qty-discount__tier-rate b2b-qty-discount__tier-rate--active">15% off</span>
-                  </div>
-                </div>
-                <div class="b2b-qty-discount__calc">
-                  <label for="b2b-qty-{{ product.id }}" class="b2b-qty-discount__label">Calculate price for quantity</label>
-                  <div class="b2b-qty-discount__input-row">
-                    <input
-                      id="b2b-qty-{{ product.id }}"
-                      type="number"
-                      min="1"
-                      value="1"
-                      class="form-control b2b-qty-discount__input"
-                      data-qty-input
-                      placeholder="Enter qty"
-                    >
-                  </div>
-                  <div class="b2b-qty-discount__result" data-qty-result>
-                    <div class="b2b-qty-discount__result-row">
-                      <span>Unit price</span>
-                      <span data-unit-display></span>
-                    </div>
-                    <div class="b2b-qty-discount__result-row b2b-qty-discount__result-row--saving" data-discount-row style="display:none;">
-                      <span data-discount-label></span>
-                      <span class="b2b-qty-discount__saving" data-saving-display></span>
-                    </div>
-                    <div class="b2b-qty-discount__result-row b2b-qty-discount__result-row--total">
-                      <span>Estimated total</span>
-                      <strong data-total-display></strong>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <script>
-              (function () {
-                var TIERS = [
-                  { min: 50, pct: 15 },
-                  { min: 20, pct: 10 },
-                  { min: 10, pct:  5 }
-                ];
-
-                function fmtMoney(cents) {
-                  var fmt = window.FoxThemeSettings && window.FoxThemeSettings.money_format;
-                  if (window.Shopify && window.Shopify.formatMoney) {
-                    return window.Shopify.formatMoney(cents, fmt || '${{amount}} AUD');
-                  }
-                  return '$' + (cents / 100).toFixed(2);
-                }
-
-                function getTier(qty) {
-                  for (var i = 0; i < TIERS.length; i++) {
-                    if (qty >= TIERS[i].min) return TIERS[i];
-                  }
-                  return null;
-                }
-
-                function initQtyDiscount(widget) {
-                  var unitPrice  = parseInt(widget.dataset.unitPrice, 10) || 0;
-                  var input      = widget.querySelector('[data-qty-input]');
-                  var resultEl   = widget.querySelector('[data-qty-result]');
-                  var unitDisp   = widget.querySelector('[data-unit-display]');
-                  var discRow    = widget.querySelector('[data-discount-row]');
-                  var discLabel  = widget.querySelector('[data-discount-label]');
-                  var savingDisp = widget.querySelector('[data-saving-display]');
-                  var totalDisp  = widget.querySelector('[data-total-display]');
-
-                  function update() {
-                    var qty   = Math.max(1, parseInt(input.value, 10) || 1);
-                    var tier  = getTier(qty);
-                    var pct   = tier ? tier.pct : 0;
-                    var discUnit = Math.round(unitPrice * (1 - pct / 100));
-                    var saving   = (unitPrice - discUnit) * qty;
-                    var total    = discUnit * qty;
-
-                    unitDisp.textContent  = fmtMoney(discUnit) + (pct > 0 ? ' (' + pct + '% off)' : '');
-                    totalDisp.textContent = fmtMoney(total);
-
-                    if (pct > 0) {
-                      discLabel.textContent  = 'You save (' + pct + '% discount)';
-                      savingDisp.textContent = '−' + fmtMoney(saving);
-                      discRow.style.display  = '';
-                    } else {
-                      discRow.style.display  = 'none';
-                    }
-                  }
-
-                  input.addEventListener('input',  update);
-                  input.addEventListener('change', update);
-                  update();
-                }
-
-                document.querySelectorAll('.b2b-qty-discount').forEach(initQtyDiscount);
-              }());
-              </script>
-
-              {%- render 'b2b-shipping-calc', product: product, section: section -%}
             {%- else -%}
             {%- liquid
               assign gift_card_recipient_feature_active = false
@@ -974,6 +839,18 @@
             {% endif %}
             {%- render 'notify-me-form', product: product, section: section -%}
             {%- endif -%}
+
+            {%- comment -%}
+              Wholesale customers order through the normal buy buttons above,
+              the same as anyone else, so the only thing left that is specific
+              to them here is the freight estimator. It sits outside the
+              if/else so it appears alongside Add to cart rather than instead
+              of it.
+            {%- endcomment -%}
+            {%- if b2b_user and is_gvm_package == false -%}
+              {%- render 'b2b-shipping-calc', product: product, section: section -%}
+            {%- endif -%}
+
             <link
               rel="stylesheet"
               href="{{ 'pickup-availability.css' | asset_url }}"

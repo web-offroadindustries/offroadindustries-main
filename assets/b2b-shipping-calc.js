@@ -1,7 +1,6 @@
 if (!customElements.get('b2b-shipping-calc')) {
   customElements.define('b2b-shipping-calc', class B2BShippingCalc extends HTMLElement {
     connectedCallback() {
-      this.variantId   = this.dataset.variantId;
       this.countryEl   = this.querySelector('[data-country]');
       this.provinceEl  = this.querySelector('[data-province]');
       this.provinceWrap = this.querySelector('[data-province-wrapper]');
@@ -14,6 +13,20 @@ if (!customElements.get('b2b-shipping-calc')) {
       this._initCountries();
       this.calcBtn.addEventListener('click', this._handleCalc.bind(this));
       this.countryEl.addEventListener('change', this._handleCountryChange.bind(this));
+
+      /* A quote is only true for the cart it was priced against, and the
+       * result states an item count. Change the cart and both go stale, so
+       * clear the panel and make them press Calculate again rather than leave
+       * a wrong number sitting under a wrong count. */
+      /* PUB_SUB_EVENTS is a top-level const in global.js, so it is a global
+       * binding but NOT a property of window. Reach it by name, the way
+       * cart-goal.js and cart.js do, and typeof-guard it in case global.js
+       * has not parsed yet. */
+      if (window.FoxThemeEvents && typeof PUB_SUB_EVENTS !== 'undefined') {
+        window.FoxThemeEvents.subscribe(PUB_SUB_EVENTS.cartUpdate, () => {
+          if (this.resultEl) this.resultEl.innerHTML = '';
+        });
+      }
     }
 
     _initCountries() {
@@ -41,6 +54,24 @@ if (!customElements.get('b2b-shipping-calc')) {
       }
     }
 
+    /* Prices the real cart, and never modifies it.
+     *
+     * This used to add the product to the cart, read the rates, then remove it
+     * again. That was the only way to get a number before wholesale customers
+     * could add to cart at all, but it was always wrong in two ways and both
+     * get worse now that they have real carts:
+     *
+     *   1. /cart/shipping_rates.json prices the WHOLE cart, so the "estimate
+     *      for this product" silently included everything already in it.
+     *   2. The removal was fire-and-forget (.catch(() => {})), so a failed
+     *      remove left a product in the customer's cart that they never added.
+     *
+     * Carrier rates depend on the whole consignment anyway - weight, cubic,
+     * and which shipping profile each item belongs to - so a single-item
+     * number could never match checkout for a multi-item order. Pricing the
+     * actual cart is both safer and the only version that can agree with what
+     * Machship quotes at checkout.
+     */
     async _handleCalc(e) {
       e.preventDefault();
       const country  = this.countryEl.value;
@@ -57,18 +88,15 @@ if (!customElements.get('b2b-shipping-calc')) {
       this.calcBtn.classList.add('btn--loading');
       this.resultEl.innerHTML = '';
 
-      let itemKey = null;
       try {
-        if (this.variantId) {
-          const addResp = await fetch('/cart/add.js', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ id: parseInt(this.variantId), quantity: 1 })
-          });
-          if (addResp.ok) {
-            const addData = await addResp.json();
-            if (addData.key) itemKey = addData.key;
-          }
+        const cartResp = await fetch('/cart.js', { headers: { Accept: 'application/json' } });
+        const cart = cartResp.ok ? await cartResp.json() : null;
+
+        if (!cart || !cart.item_count) {
+          this.resultEl.innerHTML =
+            '<p class="b2b-calc__no-rates">Add this product to your cart first, then estimate shipping. '
+            + 'Freight is priced on the whole order, so the quote has to be for everything you are buying.</p>';
+          return;
         }
 
         const qs = new URLSearchParams({
@@ -80,31 +108,21 @@ if (!customElements.get('b2b-shipping-calc')) {
         const ratesResp = await fetch(`/cart/shipping_rates.json?${qs}`);
         const ratesData = await ratesResp.json();
 
-        if (itemKey) {
-          await fetch('/cart/change.js', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ id: itemKey, quantity: 0 })
-          }).catch(() => {});
-        }
-
-        this._showRates(ratesData);
-      } catch(err) {
+        this._showRates(ratesData, cart.item_count);
+      } catch (err) {
         this.resultEl.innerHTML = '<p class="b2b-calc__error">Unable to calculate shipping. Please try again.</p>';
-        if (itemKey) {
-          fetch('/cart/change.js', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ id: itemKey, quantity: 0 })
-          }).catch(() => {});
-        }
       } finally {
         this.calcBtn.disabled = false;
         this.calcBtn.classList.remove('btn--loading');
       }
     }
 
-    _showRates(data) {
+    _showRates(data, itemCount) {
+      /* Printed on every outcome, not just the happy path. The whole point of
+       * the line is to stop a freight number being read as the cost of the one
+       * product on screen, and the "must be quoted" branch is the easiest one
+       * to misread. */
+      const scope = `<p class="b2b-calc__scope">For the ${itemCount} item${itemCount === 1 ? '' : 's'} currently in your cart.</p>`;
       if (data.shipping_rates && data.shipping_rates.length > 0) {
         const fmt = window.FoxThemeSettings && window.FoxThemeSettings.money_format;
 
@@ -119,9 +137,14 @@ if (!customElements.get('b2b-shipping-calc')) {
             if (priceNum === 0) {
               priceHtml = '<strong>Free</strong>';
             } else {
+              /* formatMoney is the theme's own global from assets/global.js and
+               * already handles the "22.50" string this endpoint returns.
+               * The previous Shopify.formatMoney call could never run: that
+               * comes from shopify_common.js, which this theme never loads, so
+               * every quote fell through to an unformatted $1240.00. */
               let priceStr;
-              if (typeof Shopify !== 'undefined' && Shopify.formatMoney && fmt) {
-                priceStr = Shopify.formatMoney(Math.round(priceNum * 100), fmt);
+              if (typeof formatMoney === 'function') {
+                priceStr = formatMoney(r.price, fmt);
               } else {
                 priceStr = '$' + priceNum.toFixed(2);
               }
@@ -129,12 +152,12 @@ if (!customElements.get('b2b-shipping-calc')) {
             }
             return `<div class="b2b-calc__rate"><span>${r.name}</span>${priceHtml}</div>`;
           }).join('');
-          this.resultEl.innerHTML = `<div class="b2b-calc__rates">${rows}</div>`;
+          this.resultEl.innerHTML = `<div class="b2b-calc__rates">${rows}</div>${scope}`;
         } else {
-          this.resultEl.innerHTML = '<p class="b2b-calc__no-rates">Shipping for this product must be quoted. Please <a href="/pages/contact-us">contact us</a> for a freight estimate.</p>';
+          this.resultEl.innerHTML = '<p class="b2b-calc__no-rates">Shipping for this order must be quoted. Please <a href="/pages/contact-us">contact us</a> for a freight estimate.</p>' + scope;
         }
       } else if (data.shipping_rates) {
-        this.resultEl.innerHTML = '<p class="b2b-calc__no-rates">No shipping options available for this address.</p>';
+        this.resultEl.innerHTML = '<p class="b2b-calc__no-rates">No shipping options available for this address.</p>' + scope;
       } else {
         const msgs = Object.values(data).flat().join(' ');
         this.resultEl.innerHTML = `<p class="b2b-calc__error">${msgs || 'Could not retrieve rates.'}</p>`;

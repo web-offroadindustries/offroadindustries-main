@@ -98,10 +98,18 @@
       </a>
     </div>
   {%- endif -%}
-  {%- unless customer -%}
-    <div class="site-header__element {{ cart_class }}">
-      {% render 'cart-link', block: block, link_class: 'site-header__link', color_schema: color_schema %}
-    </div>
-  {%- endunless -%}
+  {%- comment -%}
+    This is the only cart link in the theme, and the mobile sticky bar that
+    carried the other one is disabled in footer-group.json. It used to be
+    wrapped in {%- unless customer -%}, added by bda6ff0 "hide cart for
+    logged-in customers" back when wholesale customers could not order and
+    logged-in meant wholesale. The effect was that every logged-in customer,
+    retail included, lost the cart icon and had no way back to their cart once
+    the drawer closed. Wholesale customers are logged in by definition, so
+    leaving it would have made this whole change unusable.
+  {%- endcomment -%}
+  <div class="site-header__element {{ cart_class }}">
+    {% render 'cart-link', block: block, link_class: 'site-header__link', color_schema: color_schema %}
+  </div>
 </div>
 
