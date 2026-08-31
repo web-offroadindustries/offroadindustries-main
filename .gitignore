@@ -6,6 +6,9 @@ config/settings_data.json
 
 # Playwright tests and related files
 tests/
+!tests/
+tests/*
+!tests/gvm-review-directory.test.cjs
 node_modules/
 
 # Claude Code files
