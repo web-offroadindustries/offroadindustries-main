@@ -913,7 +913,6 @@
         },
         "row_HVhPzj": {
           "type": "row",
-          "disabled": true,
           "settings": {
             "label": "Payload Increase (%)",
             "value_1": "",
@@ -1054,7 +1053,9 @@
         "col_title_4": "Stage 3",
         "col_title_5": "Stage 4",
         "col_title_6": "Stage 5",
-        "col_title_7": "Stage 6"
+        "col_title_7": "Stage 6",
+        "compact_values": true,
+        "literal_yes_no": true
       }
     },
     "gvm_comparison_RXeVcA": {

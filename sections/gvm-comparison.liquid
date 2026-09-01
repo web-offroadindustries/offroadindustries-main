@@ -178,8 +178,20 @@
                   {%- assign raw = block.settings[vkey] | default: '' -%}
                   {%- assign val = raw | strip -%}
 
-                  <div class="gvm-compare__cell gvm-compare__cell--val" data-label="{{ col_title | escape }}">
-                    {% render 'gvm-compare-value', value: val %}
+                  {%- comment -%}
+                    Only the paired values need the compact treatment, so the
+                    marker goes on those cells rather than the whole column. A
+                    pipe is what makes a value a pair here: "37x12.5R18 |
+                    37x12.5R20", "Pos 12 | 18 | Zero". Everything else already
+                    fits and keeps the table's normal size.
+                  {%- endcomment -%}
+                  {%- assign dense = false -%}
+                  {%- if section.settings.compact_values and val contains '|' -%}
+                    {%- assign dense = true -%}
+                  {%- endif -%}
+
+                  <div class="gvm-compare__cell gvm-compare__cell--val{% if dense %} gvm-compare__cell--dense{% endif %}" data-label="{{ col_title | escape }}">
+                    {% render 'gvm-compare-value', value: val, literal_text: section.settings.literal_yes_no %}
                   </div>
                 {%- endif -%}
               {%- endfor -%}
@@ -341,6 +353,27 @@
       text-align: left;
     }
   }
+  {%- if section.settings.compact_values -%}
+    {% comment %}
+      Opt-in, for tables whose values are long paired strings: the tyre sizes on
+      the SSM pages are written "37x12.5R18 | 37x12.5R20", about 195px wide at
+      16px. That is right on the 200px column cap computed above, so the browser
+      takes the break opportunity at the space beside the pipe and one cell
+      renders as four stacked lines where the source sheet shows two pairs on
+      two lines. It reads as different data even though the characters match.
+
+      Smaller text puts a pair back inside the column. nowrap holds one together
+      if a longer pair ever turns up; the explicit newlines are <br> so they
+      still break between pairs, and the table already scrolls sideways if it
+      has to. Desktop only, so the stacked mobile cards are untouched.
+    {% endcomment %}
+    @media (min-width: 990px) {
+      .gvm-compare--{{ section.id }} .gvm-compare__cell--dense {
+        font-size: 13px;
+        white-space: nowrap;
+      }
+    }
+  {%- endif -%}
 {% endstyle %}
 
 {% schema %}
@@ -382,6 +415,21 @@
     { "type": "text", "id": "col_title_10", "label": "Column 10 title", "default": "STAGE 9" },
 
     { "type": "text", "id": "container_width", "label": "Container width (e.g. 1200px or 100%)", "default": "1200px" },
+
+    {
+      "type": "checkbox",
+      "id": "compact_values",
+      "label": "Compact wide values",
+      "info": "Smaller desktop text so long paired values like \"37x12.5R18 | 37x12.5R20\" stay on one line instead of splitting in two.",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "literal_yes_no",
+      "label": "Show Yes / No as written",
+      "info": "Off, a cell reading Yes or No is drawn as a tick or a cross. On, the word is shown as typed, for tables that must read exactly like the source spec sheet.",
+      "default": false
+    },
 
     { "type": "color", "id": "heading_color", "label": "Heading color", "default": "#111111" },
     { "type": "color", "id": "text_color", "label": "Desktop text color", "default": "#111111" },

@@ -3,7 +3,15 @@
   assign low = v | downcase
 -%}
 
-{%- if low == 'x' or low == '✕' or low == 'no' or low == 'false' -%}
+{%- comment -%}
+  literal_text opts a table out of the yes/no glyph substitution below, for
+  tables that have to read exactly like the source spec sheet they came from.
+  Off by default: seven other vehicle templates store the word "Yes" and rely
+  on getting a tick back.
+{%- endcomment -%}
+{%- if literal_text -%}
+  {{ value | newline_to_br }}
+{%- elsif low == 'x' or low == '✕' or low == 'no' or low == 'false' -%}
   <span class="gvm-compare__icon gvm-compare__icon--cross" aria-label="No">✕</span>
 {%- elsif low == 'check' or low == '✓' or low == 'yes' or low == 'true' -%}
   <span class="gvm-compare__icon gvm-compare__icon--check" aria-label="Yes">✓</span>
