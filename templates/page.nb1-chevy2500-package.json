@@ -1192,10 +1192,9 @@
         },
         "row_KnhHzc": {
           "type": "row",
-          "disabled": true,
           "settings": {
             "label": "500 KG ORI Rear Leaf Packs",
-            "value_1": "ORI-CHVHD-500KG",
+            "value_1": "ORI-CHVHD-500 KG",
             "value_2": "✔",
             "value_3": "✔",
             "value_4": "✔",
@@ -1208,7 +1207,7 @@
           "type": "row",
           "settings": {
             "label": "ORI MUD Flaps Kit",
-            "value_1": "CHV-2500-FLR-BRK",
+            "value_1": "CHV-2500-MUD-FR&RR",
             "value_2": "✔",
             "value_3": "✔",
             "value_4": "✔",
@@ -1221,7 +1220,7 @@
           "type": "row",
           "settings": {
             "label": "ORI ADR Compliance Lights",
-            "value_1": "ORI-LED-Comp",
+            "value_1": "ORI-ADR-Lights",
             "value_2": "✔",
             "value_3": "✔",
             "value_4": "✔",
@@ -1232,16 +1231,67 @@
         },
         "row_ft3LzT": {
           "type": "row",
-          "disabled": true,
           "settings": {
             "label": "GVM Part Number",
             "value_1": "",
-            "value_2": "CHV-2500-Stage1-GVM",
-            "value_3": "CHV-2500-Stage2-GVM",
-            "value_4": "CHV-2500-Stage3-GVM",
-            "value_5": "CHV-2500-Stage4-GVM",
-            "value_6": "CHV-2500-Stage5-GVM",
-            "value_7": "CHV-2500-Stage6-GVM"
+            "value_2": "CHV-2500-STAGE-1-NB1",
+            "value_3": "CHV-2500-STAGE-2-NB1",
+            "value_4": "CHV-2500-STAGE-3-NB1",
+            "value_5": "CHV-2500-STAGE-4-NB1",
+            "value_6": "CHV-2500-STAGE-5-NB1",
+            "value_7": "CHV-2500-STAGE-6-NB1"
+          }
+        },
+        "row_Bd31Kq": {
+          "type": "row",
+          "settings": {
+            "label": "BDS 3\" Coilover Kit",
+            "value_1": "BDS1831FPE",
+            "value_2": "",
+            "value_3": "",
+            "value_4": "✔",
+            "value_5": "",
+            "value_6": "",
+            "value_7": ""
+          }
+        },
+        "row_Bd50Tn": {
+          "type": "row",
+          "settings": {
+            "label": "BDS 5\" Torsion Kit",
+            "value_1": "BDS1822FPE",
+            "value_2": "",
+            "value_3": "",
+            "value_4": "",
+            "value_5": "✔",
+            "value_6": "",
+            "value_7": ""
+          }
+        },
+        "row_Bd65Tn": {
+          "type": "row",
+          "settings": {
+            "label": "BDS 6.5 Torsion Kit",
+            "value_1": "BDS1823FPE",
+            "value_2": "",
+            "value_3": "",
+            "value_4": "",
+            "value_5": "",
+            "value_6": "✔",
+            "value_7": ""
+          }
+        },
+        "row_Bd65Cv": {
+          "type": "row",
+          "settings": {
+            "label": "BDS 6.5 Coilover Kit",
+            "value_1": "BDS792FPE",
+            "value_2": "",
+            "value_3": "",
+            "value_4": "",
+            "value_5": "",
+            "value_6": "",
+            "value_7": "✔"
           }
         }
       },
@@ -1254,6 +1304,10 @@
         "row_PyCLYV",
         "row_MQ9Uxh",
         "row_ViUDYJ",
+        "row_Bd31Kq",
+        "row_Bd50Tn",
+        "row_Bd65Tn",
+        "row_Bd65Cv",
         "row_YaJzWt",
         "row_MDY7qw",
         "row_KnhHzc",
@@ -1280,8 +1334,8 @@
         "col_title_3": "Stage 2",
         "col_title_4": "Stage 3",
         "col_title_5": "Stage 4",
-        "col_title_6": "STAGE 5",
-        "col_title_7": "STAGE 6"
+        "col_title_6": "Stage 5",
+        "col_title_7": "Stage 6"
       }
     },
     "rich_text_4AxLyp": {
