@@ -122,7 +122,8 @@
         "padding_top": 60,
         "padding_bottom": 60,
         "custom_id": "gvm-calculator",
-        "custom_class": ""
+        "custom_class": "",
+        "heading_tag": "h2"
       }
     },
     "benefits": {

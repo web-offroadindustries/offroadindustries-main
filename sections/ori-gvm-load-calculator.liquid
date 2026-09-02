@@ -30,7 +30,16 @@
       <div class="ori-gvm-calculator__intro{% if section.settings.image != blank %} ori-gvm-calculator__intro--with-media{% endif %}" data-gvm-intro>
         <div class="ori-gvm-calculator__intro-content">
           {%- if section.settings.heading != blank -%}
-            <h1 class="ori-gvm-calculator__heading h1">{{ section.settings.heading | escape }}</h1>
+            {%- comment -%}
+              Tag, not size. This section sits on the vehicle collection pages
+              underneath ori-gvm-hero, which already renders the page h1, so a
+              second h1 here gave every one of those pages two. Defaults to h2;
+              the standalone calculator page and the 1500 landing page set it
+              back to h1 because nothing else on them provides one. The `h1`
+              class stays either way, so the heading looks unchanged.
+            {%- endcomment -%}
+            {%- assign heading_tag = section.settings.heading_tag | default: 'h2' -%}
+            <{{ heading_tag }} class="ori-gvm-calculator__heading h1">{{ section.settings.heading | escape }}</{{ heading_tag }}>
           {%- endif -%}
 
           {%- if section.settings.intro != blank -%}
@@ -210,6 +219,17 @@
       "id": "heading",
       "label": "Heading",
       "default": "ORI GVM load calculator"
+    },
+    {
+      "type": "select",
+      "id": "heading_tag",
+      "label": "Heading level",
+      "info": "Use H2 on any page that already has its own H1, such as the vehicle collection pages. Only the tag changes, not the text size.",
+      "default": "h2",
+      "options": [
+        { "value": "h1", "label": "H1 (this is the page's main heading)" },
+        { "value": "h2", "label": "H2 (the page has its own H1)" }
+      ]
     },
     {
       "type": "richtext",
