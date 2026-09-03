@@ -161,7 +161,7 @@
         "heading_mpxUJy": {
           "type": "heading",
           "settings": {
-            "heading": "ORI Chevy Silverado 1500  GVM & GCM PACKAGES",
+            "heading": "ORI Chevy Silverado 1500 GVM & GCM PACKAGES",
             "highlight_style": "underline",
             "enable_highlight_text_color": true,
             "heading_size": "h1",
@@ -510,7 +510,8 @@
         "custom_id": "gvmspecification",
         "custom_class": "",
         "animations": "inherit"
-      }
+      },
+      "disabled": true
     },
     "gvm_comparison_FfmTMw": {
       "type": "gvm-comparison",
@@ -741,8 +742,8 @@
       ],
       "name": "GVM Comparison",
       "settings": {
-        "anchor_id": "compare",
-        "heading": "",
+        "anchor_id": "gvmspecification",
+        "heading": "ORI Chevy Silverado 1500 GVM & GCM Specifications",
         "details_heading": "",
         "columns": "6",
         "col_title_1": "OEM",

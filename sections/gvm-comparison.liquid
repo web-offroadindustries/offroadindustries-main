@@ -18,6 +18,7 @@
   endif
 
   assign container_width = section.settings.container_width | default: '1200px'
+  assign max_cap = section.settings.max_cap | default: '1600px'
   assign anchor_id = section.settings.anchor_id | strip
 
   comment
@@ -115,6 +116,7 @@
   {% if anchor_id != blank %}id="{{ anchor_id | escape }}"{% endif %}
   style="
     --gvm-max-width: {{ container_width }};
+    --gvm-max-cap: {{ max_cap }};
     --gvm-text: {{ section.settings.text_color }};
     --gvm-line: {{ section.settings.line_color }};
     --gvm-heading: {{ section.settings.heading_color }};
@@ -209,7 +211,7 @@
   .gvm-compare { color: var(--gvm-text); }
 
   .gvm-compare__container {
-    max-width: var(--gvm-max-width);
+    max-width: min(var(--gvm-max-width), var(--gvm-max-cap));
     margin: 0 auto;
     padding: 0 20px;
   }
@@ -415,6 +417,7 @@
     { "type": "text", "id": "col_title_10", "label": "Column 10 title", "default": "STAGE 9" },
 
     { "type": "text", "id": "container_width", "label": "Container width (e.g. 1200px or 100%)", "default": "1200px" },
+    { "type": "text", "id": "max_cap", "label": "Maximum width on large screens", "info": "Stops a percentage width stretching on ultra-wide displays. e.g. 1600px", "default": "1600px" },
 
     {
       "type": "checkbox",
