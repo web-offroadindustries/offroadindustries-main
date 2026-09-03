@@ -639,6 +639,259 @@
         "popup_width": 560,
         "custom_id": "request-a-quote"
       }
+    },
+    "gvm_comparison_specs": {
+      "type": "gvm-comparison",
+      "blocks": {
+        "row_M4PVnC": {
+          "type": "row",
+          "settings": {
+            "label": "Gross Vehicle Mass (GVM)",
+            "value_1": "3536 KG",
+            "value_2": "3850 KG",
+            "value_3": "3850 KG",
+            "value_4": "4300 KG",
+            "value_5": "4300 KG",
+            "value_6": "",
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
+          }
+        },
+        "row_7JDfxb": {
+          "type": "row",
+          "settings": {
+            "label": "Braked Towing Capacity (BTC)",
+            "value_1": "4500 KG",
+            "value_2": "4500 KG",
+            "value_3": "4500 KG",
+            "value_4": "4500 KG",
+            "value_5": "4500 KG",
+            "value_6": "4500 KG",
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
+          }
+        },
+        "row_YVwraj": {
+          "type": "row",
+          "settings": {
+            "label": "Gross Combined Mass (GCM)",
+            "value_1": "7825 KG",
+            "value_2": "8350 KG",
+            "value_3": "8350 KG",
+            "value_4": "8800 KG",
+            "value_5": "8800 KG",
+            "value_6": "",
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
+          }
+        },
+        "row_zPKiUF": {
+          "type": "row",
+          "settings": {
+            "label": "Kerb Weight",
+            "value_1": "Limited 2792 KG\nPlatinum 2834 KG",
+            "value_2": "Limited 2822 KG\nPlatinum 2864 KG",
+            "value_3": "Limited 2822 KG\nPlatinum 2864 KG",
+            "value_4": "Limited 2822 KG\nPlatinum 2864 KG",
+            "value_5": "Limited 2822 KG\nPlatinum 2864 KG",
+            "value_6": "",
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
+          }
+        },
+        "row_wywcAp": {
+          "type": "row",
+          "settings": {
+            "label": "Payload (bases on kerb weight)",
+            "value_1": "758 KG",
+            "value_2": "Limited 1028 KG\nPlatinum 986 KG",
+            "value_3": "Limited 1028 KG\nPlatinum 986 KG",
+            "value_4": "Limited 1478 KG\nPlatinum 1436 KG",
+            "value_5": "Limited 1478 KG\nPlatinum 1436 KG",
+            "value_6": "",
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
+          }
+        },
+        "row_VPhYR9": {
+          "type": "row",
+          "settings": {
+            "label": "Payload Increase (%)",
+            "value_1": "",
+            "value_2": "36%",
+            "value_3": "36%",
+            "value_4": "95%",
+            "value_5": "95%",
+            "value_6": "",
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
+          }
+        },
+        "row_bcXE8T": {
+          "type": "row",
+          "settings": {
+            "label": "Front Axle Capacity",
+            "value_1": "1850 KG",
+            "value_2": "1850 KG",
+            "value_3": "1850 KG",
+            "value_4": "1850 KG",
+            "value_5": "1850 KG",
+            "value_6": "",
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
+          }
+        },
+        "row_YJQHKH": {
+          "type": "row",
+          "settings": {
+            "label": "Rear Axle Capacity",
+            "value_1": "1850 KG",
+            "value_2": "2000 KG",
+            "value_3": "2000 KG",
+            "value_4": "2450 KG",
+            "value_5": "2450 KG",
+            "value_6": "",
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
+          }
+        },
+        "row_pqzEiz": {
+          "type": "row",
+          "settings": {
+            "label": "Wheel Offsets",
+            "value_1": "Pos 60",
+            "value_2": "Pos 60",
+            "value_3": "Pos 60",
+            "value_4": "Pos 40, 35, 25, 18",
+            "value_5": "Pos 40, 35, 25, 18",
+            "value_6": "",
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
+          }
+        },
+        "row_NrDzqV": {
+          "type": "row",
+          "settings": {
+            "label": "Wheel Load Rating",
+            "value_1": "OEM",
+            "value_2": "OEM",
+            "value_3": "OEM",
+            "value_4": "1225 KG",
+            "value_5": "1225 KG",
+            "value_6": "",
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
+          }
+        },
+        "row_aDFEfG": {
+          "type": "row",
+          "settings": {
+            "label": "Tyre Load Rating",
+            "value_1": "OEM",
+            "value_2": "110 Q",
+            "value_3": "110 Q",
+            "value_4": "116 Q",
+            "value_5": "116 Q",
+            "value_6": "",
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
+          }
+        },
+        "row_Ei9mfn": {
+          "type": "row",
+          "settings": {
+            "label": "Requires Wheel/ Tyre Upgrade",
+            "value_1": "OEM",
+            "value_2": "OEM",
+            "value_3": "OEM",
+            "value_4": "✔",
+            "value_5": "✔",
+            "value_6": "",
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
+          }
+        },
+        "row_VrmHhK": {
+          "type": "row",
+          "settings": {
+            "label": "Maximum Tyre Size",
+            "value_1": "265/60/r20",
+            "value_2": "265/60/r20",
+            "value_3": "265/60/r20",
+            "value_4": "35x12.5x17\n35x12.5x18\n35x12.5x20",
+            "value_5": "35x12.5x17\n35x12.5x18\n35x12.5x20",
+            "value_6": "",
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
+          }
+        }
+      },
+      "block_order": [
+        "row_M4PVnC",
+        "row_7JDfxb",
+        "row_YVwraj",
+        "row_zPKiUF",
+        "row_wywcAp",
+        "row_VPhYR9",
+        "row_bcXE8T",
+        "row_YJQHKH",
+        "row_pqzEiz",
+        "row_NrDzqV",
+        "row_aDFEfG",
+        "row_Ei9mfn",
+        "row_VrmHhK"
+      ],
+      "name": "GVM Comparison",
+      "settings": {
+        "anchor_id": "specifications",
+        "heading": "ORI Toyota Tundra GVM & GCM Specifications",
+        "details_heading": "",
+        "columns": "5",
+        "col_title_1": "Factory",
+        "col_title_2": "Stage 1",
+        "col_title_3": "Stage 2",
+        "col_title_4": "Stage 3",
+        "col_title_5": "Stage 4",
+        "col_title_6": "Stage 5",
+        "col_title_7": "STAGE 6",
+        "col_title_8": "STAGE 7",
+        "col_title_9": "STAGE 8",
+        "col_title_10": "STAGE 9",
+        "container_width": "90%",
+        "heading_color": "#111111",
+        "text_color": "#111111",
+        "line_color": "#111111",
+        "mobile_card_bg": "#f5f3ee",
+        "mobile_card_text": "#111111",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
     }
   },
   "order": [
@@ -648,6 +901,7 @@
     "payload_calculator",
     "benefits",
     "ori_gvm_approved_zjDzaH",
+    "gvm_comparison_specs",
     "faq",
     "gvm_quote_form",
     "related",
