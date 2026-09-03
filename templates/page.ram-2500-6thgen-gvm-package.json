@@ -221,7 +221,7 @@
       "settings": {
         "container": "container",
         "color_schema": "",
-        "image": "shopify://shop_images/STAGE_1-2_RAM_2500_6th_GEN_all_products.png",
+        "image": "shopify://shop_images/STAGE_1_RAM_2500_6th_GEN_all_products_16f29f83-ce00-4ba8-91fc-3ceef0e5e488.png",
         "enable_lightbox": true,
         "image_width": "50%",
         "image_position": "left",
@@ -280,7 +280,7 @@
       "settings": {
         "container": "container",
         "color_schema": "",
-        "image": "shopify://shop_images/NB2_STAGE_2_RAM_2500_6th_GEN_all_products.png",
+        "image": "shopify://shop_images/STAGE_2_RAM_2500_6th_GEN_all_products_4043c4df-d035-47b7-a9f1-26e8860a9cb3.png",
         "enable_lightbox": true,
         "image_width": "50%",
         "image_position": "right",
@@ -339,7 +339,7 @@
       "settings": {
         "container": "container",
         "color_schema": "",
-        "image": "shopify://shop_images/NB2_STAGE_3_RAM_2500_6th_GEN_all_products.png",
+        "image": "shopify://shop_images/STAGE_3_RAM_2500_6th_GEN_all_products_0e38cef8-5c4e-4da0-8501-e9f1389a5323.png",
         "enable_lightbox": true,
         "image_width": "50%",
         "image_position": "left",
@@ -398,7 +398,7 @@
       "settings": {
         "container": "container",
         "color_schema": "",
-        "image": "shopify://shop_images/NB2_STAGE_4_RAM_2500_6th_GEN_ALL_PRODUCTS.png",
+        "image": "shopify://shop_images/STAGE_4_RAM_2500_6th_GEN_ALL_PRODUCTS_5aa07569-e573-4ef3-bd6a-1803bbcb787c.png",
         "enable_lightbox": true,
         "image_width": "50%",
         "image_position": "right",
@@ -457,7 +457,7 @@
       "settings": {
         "container": "container",
         "color_schema": "",
-        "image": "shopify://shop_images/NB2_STAGE_5_RAM_2500_6th_GEN_ALL_PRODUCTS.png",
+        "image": "shopify://shop_images/STAGE_5_RAM_2500_6th_GEN_ALL_PRODUCTS_4fa72062-f693-41db-84b5-7f057ab36e4f.png",
         "enable_lightbox": true,
         "image_width": "50%",
         "image_position": "left",
@@ -516,7 +516,7 @@
       "settings": {
         "container": "container",
         "color_schema": "",
-        "image": "shopify://shop_images/NB2_STAGE_6_RAM_2500_6th_GEN_ALL_PRODUCTS-2.png",
+        "image": "shopify://shop_images/STAGE_6_RAM_2500_6th_GEN_ALL_PRODUCTS-2_fe22d150-db58-418f-9747-a4c86d4a32fb.png",
         "enable_lightbox": true,
         "image_width": "50%",
         "image_position": "right",
@@ -798,6 +798,7 @@
         "col_title_9": "",
         "col_title_10": "",
         "container_width": "90%",
+        "max_cap": "1600px",
         "compact_values": false,
         "literal_yes_no": false,
         "heading_color": "#111111",
@@ -1138,6 +1139,7 @@
         "col_title_9": "",
         "col_title_10": "",
         "container_width": "90%",
+        "max_cap": "1600px",
         "compact_values": false,
         "literal_yes_no": false,
         "heading_color": "#111111",
