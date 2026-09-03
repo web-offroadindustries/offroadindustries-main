@@ -280,7 +280,7 @@
       "settings": {
         "container": "container",
         "color_schema": "",
-        "image": "shopify://shop_images/STAGE_2_RAM_2500_6th_GEN_all_products_7f5caf72-ca58-483a-85f4-b087add3452b.png",
+        "image": "shopify://shop_images/NB2_STAGE_2_RAM_2500_6th_GEN_all_products.png",
         "enable_lightbox": true,
         "image_width": "50%",
         "image_position": "right",
@@ -339,7 +339,7 @@
       "settings": {
         "container": "container",
         "color_schema": "",
-        "image": "shopify://shop_images/STAGE_3_RAM_2500_6th_GEN_ALL_PRODUCTS_a1479ef9-2441-4b1a-aca3-29aca9f70235.png",
+        "image": "shopify://shop_images/NB2_STAGE_3_RAM_2500_6th_GEN_all_products.png",
         "enable_lightbox": true,
         "image_width": "50%",
         "image_position": "left",
@@ -398,7 +398,7 @@
       "settings": {
         "container": "container",
         "color_schema": "",
-        "image": "shopify://shop_images/STAGE_4_RAM_2500_6th_GEN_ALL_PRODUCTS_72d57a9c-c8b7-42e8-a97b-be75feec7c61.png",
+        "image": "shopify://shop_images/NB2_STAGE_4_RAM_2500_6th_GEN_ALL_PRODUCTS.png",
         "enable_lightbox": true,
         "image_width": "50%",
         "image_position": "right",
@@ -457,7 +457,7 @@
       "settings": {
         "container": "container",
         "color_schema": "",
-        "image": "shopify://shop_images/STAGE_5_RAM_2500_6th_GEN_ALL_PRODUCTS_ef45a17e-84e4-448d-a5bc-0f60668bbabc.png",
+        "image": "shopify://shop_images/NB2_STAGE_5_RAM_2500_6th_GEN_ALL_PRODUCTS.png",
         "enable_lightbox": true,
         "image_width": "50%",
         "image_position": "left",
@@ -516,7 +516,7 @@
       "settings": {
         "container": "container",
         "color_schema": "",
-        "image": "shopify://shop_images/STAGE_6_RAM_2500_6th_GEN_ALL_PRODUCTS-2_3d5c1939-e505-49f8-965a-8401cce2fd12.png",
+        "image": "shopify://shop_images/NB2_STAGE_6_RAM_2500_6th_GEN_ALL_PRODUCTS-2.png",
         "enable_lightbox": true,
         "image_width": "50%",
         "image_position": "right",
@@ -798,6 +798,8 @@
         "col_title_9": "",
         "col_title_10": "",
         "container_width": "90%",
+        "compact_values": false,
+        "literal_yes_no": false,
         "heading_color": "#111111",
         "text_color": "#111111",
         "line_color": "#111111",
@@ -1136,6 +1138,8 @@
         "col_title_9": "",
         "col_title_10": "",
         "container_width": "90%",
+        "compact_values": false,
+        "literal_yes_no": false,
         "heading_color": "#111111",
         "text_color": "#111111",
         "line_color": "#111111",
