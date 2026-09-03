@@ -212,35 +212,35 @@
     {%- endif -%}
 
   </div>
-</div>
 
-<script>
-  (function () {
-    document.querySelectorAll('[data-installer-tabs]').forEach(function (tabs) {
-      var btns = tabs.querySelectorAll('.ori-installer-network__tab-btn');
-      var panels = tabs.querySelectorAll('.ori-installer-network__panel');
-      btns.forEach(function (btn) {
-        btn.addEventListener('click', function () {
-          btns.forEach(function (b) {
-            b.classList.remove('is-active');
-            b.setAttribute('aria-selected', 'false');
+  <script>
+    (function () {
+      document.querySelectorAll('[data-installer-tabs]').forEach(function (tabs) {
+        var btns = tabs.querySelectorAll('.ori-installer-network__tab-btn');
+        var panels = tabs.querySelectorAll('.ori-installer-network__panel');
+        btns.forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            btns.forEach(function (b) {
+              b.classList.remove('is-active');
+              b.setAttribute('aria-selected', 'false');
+            });
+            panels.forEach(function (p) {
+              p.classList.remove('is-active');
+              p.setAttribute('hidden', 'true');
+            });
+            btn.classList.add('is-active');
+            btn.setAttribute('aria-selected', 'true');
+            var panel = document.getElementById(btn.getAttribute('aria-controls'));
+            if (panel) {
+              panel.classList.add('is-active');
+              panel.removeAttribute('hidden');
+            }
           });
-          panels.forEach(function (p) {
-            p.classList.remove('is-active');
-            p.setAttribute('hidden', 'true');
-          });
-          btn.classList.add('is-active');
-          btn.setAttribute('aria-selected', 'true');
-          var panel = tabs.querySelector('#installer-panel-' + btn.dataset.state.toLowerCase() + '-{{ section.id }}');
-          if (panel) {
-            panel.classList.add('is-active');
-            panel.removeAttribute('hidden');
-          }
         });
       });
-    });
-  })();
-</script>
+    })();
+  </script>
+</div>
 
 {% schema %}
 {
