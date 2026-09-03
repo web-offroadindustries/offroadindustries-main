@@ -161,7 +161,7 @@
         "heading_mpxUJy": {
           "type": "heading",
           "settings": {
-            "heading": "ORI GVM & GCM PACKAGES",
+            "heading": "ORI Chevy Silverado 1500  GVM & GCM PACKAGES",
             "highlight_style": "underline",
             "enable_highlight_text_color": true,
             "heading_size": "h1",
@@ -756,6 +756,8 @@
         "col_title_9": "STAGE 8",
         "col_title_10": "STAGE 9",
         "container_width": "90%",
+        "compact_values": false,
+        "literal_yes_no": false,
         "heading_color": "#111111",
         "text_color": "#111111",
         "line_color": "#111111",
@@ -1009,6 +1011,8 @@
         "col_title_9": "STAGE 8",
         "col_title_10": "STAGE 9",
         "container_width": "90%",
+        "compact_values": false,
+        "literal_yes_no": false,
         "heading_color": "#111111",
         "text_color": "#111111",
         "line_color": "#111111",
@@ -1386,6 +1390,13 @@
     "contact_form_v4_x8r3EB": {
       "type": "contact-form-v4",
       "blocks": {
+        "step_your_details_x8r3EB": {
+          "type": "step",
+          "settings": {
+            "title": "Your details",
+            "caption": "So we know who to send the quote to."
+          }
+        },
         "name_8kii3W": {
           "type": "name",
           "settings": {
@@ -1416,6 +1427,13 @@
             "required": true
           }
         },
+        "step_your_vehicle_x8r3EB": {
+          "type": "step",
+          "settings": {
+            "title": "Your vehicle",
+            "caption": "Helps us match the right GVM package."
+          }
+        },
         "rego_status_YKHXBe": {
           "type": "rego_status",
           "settings": {
@@ -1443,6 +1461,28 @@
             "required": true
           }
         },
+        "custom_select_stage_x8r3EB": {
+          "type": "custom_select",
+          "settings": {
+            "label": "What Stage GVM Package",
+            "field_name": "What Stage GVM Package",
+            "placeholder": "What Stage GVM Package",
+            "options": "Stage 1, Stage 2, Stage 3, Stage 3.5, Stage 4, Stage 5, Stage 6, Stage 6.5",
+            "depends_on": "Which Vehicle",
+            "options_map": "Ford F150 | Stage 1, Stage 2, Stage 3, Stage 4, Stage 5, Stage 6\nChevy 1500 | Stage 1, Stage 2, Stage 3, Stage 4, Stage 5\nChevy 2500HD | Stage 1, Stage 2, Stage 3, Stage 3.5, Stage 4, Stage 5, Stage 6, Stage 6.5\nToyota Tundra | Stage 1, Stage 2, Stage 3, Stage 4\nRAM 2500 (5th Gen) | Stage 1, Stage 2, Stage 3\nRAM 2500 (6th Gen) | Stage 1, Stage 2, Stage 3, Stage 4, Stage 5, Stage 6\nToyota LC300 | Stage 1, Stage 2",
+            "empty_text": "Choose your vehicle first",
+            "field_width": "100",
+            "hide_label": true,
+            "required": true
+          }
+        },
+        "step_your_enquiry_x8r3EB": {
+          "type": "step",
+          "settings": {
+            "title": "Your enquiry",
+            "caption": "Anything else we should know."
+          }
+        },
         "location_FiKmdb": {
           "type": "location",
           "settings": {
@@ -1462,42 +1502,6 @@
             "rows": 3,
             "field_width": "100",
             "hide_label": true
-          }
-        },
-        "step_your_enquiry_x8r3EB": {
-          "type": "step",
-          "settings": {
-            "title": "Your enquiry",
-            "caption": "Anything else we should know."
-          }
-        },
-        "step_your_vehicle_x8r3EB": {
-          "type": "step",
-          "settings": {
-            "title": "Your vehicle",
-            "caption": "Helps us match the right GVM package."
-          }
-        },
-        "step_your_details_x8r3EB": {
-          "type": "step",
-          "settings": {
-            "title": "Your details",
-            "caption": "So we know who to send the quote to."
-          }
-        },
-        "custom_select_stage_x8r3EB": {
-          "type": "custom_select",
-          "settings": {
-            "label": "What Stage GVM Package",
-            "field_name": "What Stage GVM Package",
-            "placeholder": "What Stage GVM Package",
-            "options": "Stage 1, Stage 2, Stage 3, Stage 3.5, Stage 4, Stage 5, Stage 6, Stage 6.5",
-            "field_width": "100",
-            "hide_label": true,
-            "required": true,
-            "depends_on": "Which Vehicle",
-            "options_map": "Ford F150 | Stage 1, Stage 2, Stage 3, Stage 4, Stage 5, Stage 6\nChevy 1500 | Stage 1, Stage 2, Stage 3, Stage 4, Stage 5\nChevy 2500HD | Stage 1, Stage 2, Stage 3, Stage 3.5, Stage 4, Stage 5, Stage 6, Stage 6.5\nToyota Tundra | Stage 1, Stage 2, Stage 3, Stage 4\nRAM 2500 (5th Gen) | Stage 1, Stage 2, Stage 3\nRAM 2500 (6th Gen) | Stage 1, Stage 2, Stage 3, Stage 4, Stage 5, Stage 6\nToyota LC300 | Stage 1, Stage 2",
-            "empty_text": "Choose your vehicle first"
           }
         }
       },
