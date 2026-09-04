@@ -639,6 +639,498 @@
         "popup_width": 560,
         "custom_id": "request-a-quote"
       }
+    },
+    "gvm_comparison_specs_6thgen": {
+      "type": "gvm-comparison",
+      "blocks": {
+        "row_spec_01": {
+          "type": "row",
+          "settings": {
+            "label": "Gross Vehicle Mass (GVM)",
+            "value_1": "4495 KG NB1",
+            "value_2": "5500 KG",
+            "value_3": "5890 KG",
+            "value_4": "5890 KG",
+            "value_5": "5890 KG",
+            "value_6": "5890 KG",
+            "value_7": "5800 KG",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
+          }
+        },
+        "row_spec_02": {
+          "type": "row",
+          "settings": {
+            "label": "Braked Towing Capacity (BTC)",
+            "value_1": "4500 KG",
+            "value_2": "4500 KG",
+            "value_3": "4500 KG",
+            "value_4": "4500 KG",
+            "value_5": "4500 KG",
+            "value_6": "4500 KG",
+            "value_7": "4500 KG",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
+          }
+        },
+        "row_spec_03": {
+          "type": "row",
+          "settings": {
+            "label": "Gross Combined Mass (GCM)",
+            "value_1": "12,750 KG",
+            "value_2": "12,750 KG",
+            "value_3": "12,750 KG",
+            "value_4": "12,750 KG",
+            "value_5": "12,750 KG",
+            "value_6": "12,750 KG",
+            "value_7": "12,750 KG",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
+          }
+        },
+        "row_spec_04": {
+          "type": "row",
+          "settings": {
+            "label": "Kerb Weight",
+            "value_1": "3710 KG",
+            "value_2": "3760 KG",
+            "value_3": "3770 KG",
+            "value_4": "3830 KG",
+            "value_5": "3830 KG",
+            "value_6": "3830 KG",
+            "value_7": "3830 KG",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
+          }
+        },
+        "row_spec_05": {
+          "type": "row",
+          "settings": {
+            "label": "Payload (based on kerb weight)",
+            "value_1": "886 KG",
+            "value_2": "1740 KG",
+            "value_3": "2120 KG",
+            "value_4": "2060 KG",
+            "value_5": "2060 KG",
+            "value_6": "2060 KG",
+            "value_7": "2060 KG",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
+          }
+        },
+        "row_spec_06": {
+          "type": "row",
+          "settings": {
+            "label": "Front Axle Capacity",
+            "value_1": "2722 KG",
+            "value_2": "2722 KG",
+            "value_3": "2722 KG",
+            "value_4": "2722 KG",
+            "value_5": "2722 KG",
+            "value_6": "2722 KG",
+            "value_7": "2722 KG",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
+          }
+        },
+        "row_spec_07": {
+          "type": "row",
+          "settings": {
+            "label": "Rear Axle Capacity",
+            "value_1": "2740 KG",
+            "value_2": "3175 KG",
+            "value_3": "3175 KG",
+            "value_4": "3175 KG",
+            "value_5": "3175 KG",
+            "value_6": "3175 KG",
+            "value_7": "3075 KG",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
+          }
+        },
+        "row_spec_08": {
+          "type": "row",
+          "settings": {
+            "label": "Wheel Offsets",
+            "value_1": "POS 47",
+            "value_2": "Pos 18",
+            "value_3": "Pos 18",
+            "value_4": "Pos 18",
+            "value_5": "Pos 18",
+            "value_6": "Pos 18",
+            "value_7": "Pos 12 | Zero | -11",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
+          }
+        },
+        "row_spec_09": {
+          "type": "row",
+          "settings": {
+            "label": "Wheel Load Rating",
+            "value_1": "1587 KG",
+            "value_2": "1600 KG",
+            "value_3": "1600 KG",
+            "value_4": "1600 KG",
+            "value_5": "1600 KG",
+            "value_6": "1600 KG",
+            "value_7": "1600 KG",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
+          }
+        },
+        "row_spec_10": {
+          "type": "row",
+          "settings": {
+            "label": "Minimum Tyre Load Rating",
+            "value_1": "",
+            "value_2": "124 Q",
+            "value_3": "124 Q",
+            "value_4": "124 Q",
+            "value_5": "124 Q",
+            "value_6": "124 Q",
+            "value_7": "124 Q",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
+          }
+        },
+        "row_spec_11": {
+          "type": "row",
+          "settings": {
+            "label": "Requires Wheel/ Tyre Upgrade",
+            "value_1": "OEM",
+            "value_2": "Yes",
+            "value_3": "Yes",
+            "value_4": "Yes",
+            "value_5": "Yes",
+            "value_6": "Yes",
+            "value_7": "Yes",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
+          }
+        },
+        "row_spec_12": {
+          "type": "row",
+          "settings": {
+            "label": "Maximum Tyre Size",
+            "value_1": "",
+            "value_2": "35x12.5xR18\n35x12.5xR20",
+            "value_3": "35x12.5xR18\n35x12.5xR20",
+            "value_4": "37x12.5xR18\n37x12.5xR20",
+            "value_5": "37x12.5xR18\n37x12.5xR20",
+            "value_6": "37x12.5xR18\n37x12.5xR20",
+            "value_7": "40x13.5R17 | 40x13.5R18 | 40x13.5R20",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
+          }
+        }
+      },
+      "block_order": [
+        "row_spec_01",
+        "row_spec_02",
+        "row_spec_03",
+        "row_spec_04",
+        "row_spec_05",
+        "row_spec_06",
+        "row_spec_07",
+        "row_spec_08",
+        "row_spec_09",
+        "row_spec_10",
+        "row_spec_11",
+        "row_spec_12"
+      ],
+      "name": "GVM Comparison",
+      "settings": {
+        "anchor_id": "specifications",
+        "heading": "ORI RAM 2500 6th Gen GVM & GCM Specifications",
+        "details_heading": "",
+        "columns": "7",
+        "col_title_1": "OEM",
+        "col_title_2": "Stage 1",
+        "col_title_3": "Stage 2",
+        "col_title_4": "Stage 3",
+        "col_title_5": "Stage 4",
+        "col_title_6": "Stage 5",
+        "col_title_7": "Stage 6",
+        "col_title_8": "",
+        "col_title_9": "",
+        "col_title_10": "",
+        "container_width": "90%",
+        "max_cap": "1600px",
+        "compact_values": false,
+        "literal_yes_no": false,
+        "heading_color": "#111111",
+        "text_color": "#111111",
+        "line_color": "#111111",
+        "mobile_card_bg": "#f5f3ee",
+        "mobile_card_text": "#111111",
+        "padding_top": 0,
+        "padding_bottom": 40
+      }
+    },
+    "gvm_comparison_specs_5thgen": {
+      "type": "gvm-comparison",
+      "blocks": {
+        "row_spec_01": {
+          "type": "row",
+          "settings": {
+            "label": "Gross Vehicle Mass (GVM)",
+            "value_1": "4495 KG NB1",
+            "value_2": "5300 KG",
+            "value_3": "5550 KG",
+            "value_4": "5550 KG",
+            "value_5": "",
+            "value_6": "",
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
+          }
+        },
+        "row_spec_02": {
+          "type": "row",
+          "settings": {
+            "label": "Braked Towing Capacity (BTC)",
+            "value_1": "4500 KG",
+            "value_2": "4500 KG",
+            "value_3": "4500 KG",
+            "value_4": "4500 KG",
+            "value_5": "",
+            "value_6": "",
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
+          }
+        },
+        "row_spec_03": {
+          "type": "row",
+          "settings": {
+            "label": "Gross Combined Mass (GCM)",
+            "value_1": "12,695 KG",
+            "value_2": "12,695 KG",
+            "value_3": "12,695 KG",
+            "value_4": "12,695 KG",
+            "value_5": "",
+            "value_6": "",
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
+          }
+        },
+        "row_spec_04": {
+          "type": "row",
+          "settings": {
+            "label": "Kerb Weight",
+            "value_1": "3609 KG",
+            "value_2": "3620 KG",
+            "value_3": "3639 KG",
+            "value_4": "3645 KG",
+            "value_5": "",
+            "value_6": "",
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
+          }
+        },
+        "row_spec_05": {
+          "type": "row",
+          "settings": {
+            "label": "Payload (based on kerb weight)",
+            "value_1": "886 KG",
+            "value_2": "1680 KG",
+            "value_3": "1661 KG",
+            "value_4": "1655 KG",
+            "value_5": "",
+            "value_6": "",
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
+          }
+        },
+        "row_spec_06": {
+          "type": "row",
+          "settings": {
+            "label": "Payload Increase (%)",
+            "value_1": "",
+            "value_2": "90%",
+            "value_3": "87.50%",
+            "value_4": "86.80%",
+            "value_5": "",
+            "value_6": "",
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
+          }
+        },
+        "row_spec_07": {
+          "type": "row",
+          "settings": {
+            "label": "Front Axle Capacity",
+            "value_1": "2722 KG",
+            "value_2": "2720 KG",
+            "value_3": "2720 KG",
+            "value_4": "2720 KG",
+            "value_5": "",
+            "value_6": "",
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
+          }
+        },
+        "row_spec_08": {
+          "type": "row",
+          "settings": {
+            "label": "Rear Axle Capacity",
+            "value_1": "2740 KG",
+            "value_2": "2840 KG",
+            "value_3": "2840 KG",
+            "value_4": "2840 KG",
+            "value_5": "",
+            "value_6": "",
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
+          }
+        },
+        "row_spec_09": {
+          "type": "row",
+          "settings": {
+            "label": "Wheel Offsets",
+            "value_1": "POS 47",
+            "value_2": "Pos 18",
+            "value_3": "Pos 18",
+            "value_4": "Pos 18",
+            "value_5": "",
+            "value_6": "",
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
+          }
+        },
+        "row_spec_10": {
+          "type": "row",
+          "settings": {
+            "label": "Wheel Load Rating",
+            "value_1": "1587 KG",
+            "value_2": "1450 KG",
+            "value_3": "1450 KG",
+            "value_4": "1450 KG",
+            "value_5": "",
+            "value_6": "",
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
+          }
+        },
+        "row_spec_11": {
+          "type": "row",
+          "settings": {
+            "label": "Tyre Load Rating",
+            "value_1": "OEM",
+            "value_2": "124 Q",
+            "value_3": "124 Q",
+            "value_4": "124 Q",
+            "value_5": "",
+            "value_6": "",
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
+          }
+        },
+        "row_spec_12": {
+          "type": "row",
+          "settings": {
+            "label": "Requires Wheel/ Tyre Upgrade",
+            "value_1": "",
+            "value_2": "Yes",
+            "value_3": "Yes",
+            "value_4": "Yes",
+            "value_5": "",
+            "value_6": "",
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
+          }
+        },
+        "row_spec_13": {
+          "type": "row",
+          "settings": {
+            "label": "Maximum Tyre Size",
+            "value_1": "",
+            "value_2": "35x12.5xR18\n35x12.5xR20",
+            "value_3": "35x12.5xR18\n35x12.5xR20",
+            "value_4": "35x12.5xR18\n35x12.5xR20",
+            "value_5": "",
+            "value_6": "",
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
+            "value_10": ""
+          }
+        }
+      },
+      "block_order": [
+        "row_spec_01",
+        "row_spec_02",
+        "row_spec_03",
+        "row_spec_04",
+        "row_spec_05",
+        "row_spec_06",
+        "row_spec_07",
+        "row_spec_08",
+        "row_spec_09",
+        "row_spec_10",
+        "row_spec_11",
+        "row_spec_12",
+        "row_spec_13"
+      ],
+      "name": "GVM Comparison",
+      "settings": {
+        "anchor_id": "specifications-5th-gen",
+        "heading": "ORI RAM 2500 5th Gen GVM & GCM Specifications",
+        "details_heading": "",
+        "columns": "4",
+        "col_title_1": "OEM",
+        "col_title_2": "Stage 1",
+        "col_title_3": "Stage 2",
+        "col_title_4": "Stage 3",
+        "col_title_5": "",
+        "col_title_6": "",
+        "col_title_7": "",
+        "col_title_8": "",
+        "col_title_9": "",
+        "col_title_10": "",
+        "container_width": "90%",
+        "heading_color": "#111111",
+        "text_color": "#111111",
+        "line_color": "#111111",
+        "mobile_card_bg": "#f5f3ee",
+        "mobile_card_text": "#111111",
+        "padding_top": 0,
+        "padding_bottom": 40
+      }
     }
   },
   "order": [
@@ -648,6 +1140,8 @@
     "payload_calculator",
     "benefits",
     "ori_gvm_approved_zjDzaH",
+    "gvm_comparison_specs_6thgen",
+    "gvm_comparison_specs_5thgen",
     "faq",
     "related",
     "gvm_quote_popup",
