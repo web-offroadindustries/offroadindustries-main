@@ -326,7 +326,7 @@
         "text_aVwiWh": {
           "type": "text",
           "settings": {
-            "text": "<p><em>Maximum legal capacity for the most demanding builds. Ideal for Tray & Canopy conversions, legally delivering a huge GVM with 4.5T towing capacity.</em></p><ul><li><strong>GVM Rating:</strong> 4300 KG (Approx. 1819 KG payload) | <strong>GCM:</strong> 8800 KG</li><li><strong>Key Features:</strong> Fox 2.5 Performance Elite suspension, ORI 400 KG leaf packs, and required load-rated wheels & tyres.</li><li><strong>Best For:</strong> Fully built rigs with rear drawer systems, rooftop tents, long-range tanks, or heavy permanent canopies.</li><li><strong>The Benefit:</strong> A massive payload increase that transforms the Ford F150 into a true heavy-duty platform while safely retaining its full 4.5T braked towing capacity.</li><li><strong>IMPORTANT:</strong> If you plan to run 35\" Tyres, you will need to run aftermarket flares</li><li>Max Tyre size without flare is 285/75/18 - on Postive 35 Offset.</li><li><strong>Part Number 200 KG Leaf Pack: </strong>FRD-F150-Stage3-GVM-200</li><li><strong>Part Number 400 KG Leaf Pack: </strong>FRD-F150-Stage3-GVM-400<br/><br/></li></ul>"
+            "text": "<p><em>Maximum legal capacity for the most demanding builds. Ideal for Tray & Canopy conversions, legally delivering a huge GVM with 4.5T towing capacity.</em></p><ul><li><strong>GVM Rating:</strong> 4300 KG (Approx. 1819 KG payload) | <strong>GCM:</strong> 8800 KG</li><li><strong>Key Features:</strong> Fox 2.5 Performance Elite suspension, ORI 200 and or 400 KG leaf packs, and will be re required to source load-rated wheels & tyres specifications listed below.</li><li><strong>Best For:</strong> Fully built rigs with rear drawer systems, rooftop tents, long-range tanks, or heavy permanent canopies.</li><li><strong>The Benefit:</strong> A massive payload increase that transforms the Ford F150 into a true heavy-duty platform while safely retaining its full 4.5T braked towing capacity.</li><li><strong>IMPORTANT:</strong> If you plan to run 35\" Tyres, you will need to run aftermarket flares</li><li>Max Tyre size without flare is 285/75/18 - on Postive 35 Offset.</li><li><strong>Part Number 200 KG Leaf Pack: </strong>FRD-F150-Stage3-GVM-200</li><li><strong>Part Number 400 KG Leaf Pack: </strong>FRD-F150-Stage3-GVM-400<br/><br/></li></ul>"
           }
         }
       },
@@ -822,6 +822,9 @@
         "col_title_9": "STAGE 8",
         "col_title_10": "STAGE 9",
         "container_width": "90%",
+        "max_cap": "1600px",
+        "compact_values": false,
+        "literal_yes_no": false,
         "heading_color": "#111111",
         "text_color": "#111111",
         "line_color": "#111111",
@@ -1126,6 +1129,9 @@
         "col_title_9": "STAGE 8",
         "col_title_10": "STAGE 9",
         "container_width": "90%",
+        "max_cap": "1600px",
+        "compact_values": false,
+        "literal_yes_no": false,
         "heading_color": "#111111",
         "text_color": "#111111",
         "line_color": "#111111",
@@ -1170,6 +1176,13 @@
     "contact_form_v4_zJ7mnp": {
       "type": "contact-form-v4",
       "blocks": {
+        "step_your_details_zJ7mnp": {
+          "type": "step",
+          "settings": {
+            "title": "Your details",
+            "caption": "So we know who to send the quote to."
+          }
+        },
         "name_7bhGn4": {
           "type": "name",
           "settings": {
@@ -1198,6 +1211,13 @@
             "field_width": "full",
             "hide_label": true,
             "required": true
+          }
+        },
+        "step_your_vehicle_zJ7mnp": {
+          "type": "step",
+          "settings": {
+            "title": "Your vehicle",
+            "caption": "Helps us match the right GVM package."
           }
         },
         "rego_status_9grEMG": {
@@ -1242,6 +1262,13 @@
             "required": true
           }
         },
+        "step_your_enquiry_zJ7mnp": {
+          "type": "step",
+          "settings": {
+            "title": "Your enquiry",
+            "caption": "Anything else we should know."
+          }
+        },
         "location_tt8Bqm": {
           "type": "location",
           "settings": {
@@ -1261,27 +1288,6 @@
             "rows": 3,
             "field_width": "100",
             "hide_label": true
-          }
-        },
-        "step_your_enquiry_zJ7mnp": {
-          "type": "step",
-          "settings": {
-            "title": "Your enquiry",
-            "caption": "Anything else we should know."
-          }
-        },
-        "step_your_vehicle_zJ7mnp": {
-          "type": "step",
-          "settings": {
-            "title": "Your vehicle",
-            "caption": "Helps us match the right GVM package."
-          }
-        },
-        "step_your_details_zJ7mnp": {
-          "type": "step",
-          "settings": {
-            "title": "Your details",
-            "caption": "So we know who to send the quote to."
           }
         }
       },
