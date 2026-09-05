@@ -64,7 +64,7 @@
           "settings": {
             "text": "Increased legal payload capacity",
             "icon": "weight",
-            "note": "The ORI 3650 KG GVM Package legally increases your vehicle's weight limit, ensuring your heavy-duty build stays safe, secure, and fully insured.\n\nMassive Payload Boost: Adds roughly 450–550 KG of legal carrying capacity—essential for heavy canopies, bull bars, winches, and towing."
+            "note": "The ORI 5550 KG GVM Package legally increases your vehicle's weight limit, ensuring your heavy-duty build stays safe, secure, and fully insured."
           }
         },
         "benefit_suspension": {
@@ -114,7 +114,7 @@
             "icon": "check",
             "brand": "",
             "note": "Fox 2.5 Perfomance Series Suspension",
-            "sku": "987-02-004 x 2 987-24-028 x 2"
+            "sku": ""
           }
         },
         "included_bds": {
@@ -124,7 +124,7 @@
             "logo": "shopify://shop_images/ICONS_FOR_WEBSITE_BDS.png",
             "icon": "none",
             "brand": "",
-            "note": "ADR Approved Upper Control Arms.",
+            "note": "BDS Radius arm and front panhard.",
             "sku": "BDS121260 x 1"
           }
         },
@@ -135,8 +135,8 @@
             "logo": "shopify://shop_images/420_x_420px_MEGA_MENU_ICON__ORI.jpg",
             "icon": "check",
             "brand": "",
-            "note": "ORI Leaf Packs, 200 KG with Bushes & Ubolts.",
-            "sku": "ORI-CHV-200KG x 2"
+            "note": "ORI Heavy duty custom designed rear coils",
+            "sku": ""
           }
         },
         "included_cert": {
@@ -145,7 +145,7 @@
             "text": "Engineering certification",
             "icon": "shield",
             "brand": "",
-            "note": "Federally Approved GVM & GCM Data on OE wheels & tyres.",
+            "note": "Federally Approved GVM data upto 35\" tyres",
             "sku": ""
           }
         },
