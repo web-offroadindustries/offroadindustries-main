@@ -167,6 +167,7 @@
     },
     "payload_calculator": {
       "type": "ori-gvm-load-calculator",
+      "disabled": true,
       "settings": {
         "heading": "Payload & Load Calculator",
         "heading_tag": "h2",

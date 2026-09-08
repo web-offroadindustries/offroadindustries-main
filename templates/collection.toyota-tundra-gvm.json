@@ -62,7 +62,7 @@
         "btn_2_url": "/pages/ori-gvm-upgrades",
         "btn_2_style": "btn--outline",
         "btn_3_text": "Know Your Weight? Try the GVM Calculator",
-        "btn_3_url": "#gvm-calculator",
+        "btn_3_url": "/pages/gvm-calculator",
         "btn_3_style": "quiet",
         "btn_3_show_icon": true,
         "overlay_opacity": 45,
@@ -104,6 +104,7 @@
     },
     "payload_calculator": {
       "type": "ori-gvm-load-calculator",
+      "disabled": true,
       "settings": {
         "heading": "Know Your Weight: GVM & Payload Calculator",
         "heading_tag": "h2",
