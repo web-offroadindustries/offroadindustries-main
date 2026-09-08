@@ -109,7 +109,7 @@
           "type": "card",
           "settings": {
             "heading": "More Legal Payload",
-            "body": "<p>Carry more weight legally with a certified GVM increase.</p>",
+            "body": "<p>GVM from 5500 KG up to 6000 KG, taking payload as high as about 2198 KG.</p>",
             "link_label": "",
             "link_url": ""
           }
@@ -118,7 +118,7 @@
           "type": "card",
           "settings": {
             "heading": "Premium Suspension",
-            "body": "<p>Fox and BDS components tuned for Australian conditions.</p>",
+            "body": "<p>Fox 2.5 HTO and DSC Performance Elite shocks with ORI 500 KG leaf packs, engineered to 37 inch tyres.</p>",
             "link_label": "",
             "link_url": ""
           }
@@ -127,7 +127,7 @@
           "type": "card",
           "settings": {
             "heading": "Federally Certified",
-            "body": "<p>Every package is engineered and approved under the SSM process.</p>",
+            "body": "<p>GCM 12,474 KG, Federally Approved as an SSM upgrade. GMSV vehicles only, private imports are not covered.</p>",
             "link_label": "",
             "link_url": ""
           }
@@ -140,7 +140,7 @@
       ],
       "settings": {
         "eyebrow": "",
-        "heading": "Why Upgrade Your Silverado 2500HD's GVM?",
+        "heading": "Why Upgrade Your Chevy Silverado 2500HD's GVM?",
         "bg_color": "#ffffff",
         "heading_color": "#1f1f1f",
         "heading_size": 36,
@@ -560,7 +560,7 @@
           "type": "faq_item",
           "settings": {
             "question": "How much payload can I legally gain?",
-            "answer": "<p>Gains vary by vehicle and stage. Contact us for figures specific to your Silverado 2500HD.</p>"
+            "answer": "<p>Gains vary by vehicle and stage. Contact us for figures specific to your Chevy Silverado 2500HD.</p>"
           }
         },
         "faq_stages": {

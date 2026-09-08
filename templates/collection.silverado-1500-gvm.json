@@ -133,7 +133,7 @@
           "type": "card",
           "settings": {
             "heading": "More Legal Payload",
-            "body": "<p>Carry more weight legally with a certified GVM increase.</p>",
+            "body": "<p>GVM up to 3650 KG, lifting payload to around 1077 KG across LTZ, Trail Boss and ZR2.</p>",
             "link_label": "",
             "link_url": ""
           }
@@ -142,7 +142,7 @@
           "type": "card",
           "settings": {
             "heading": "Premium Suspension",
-            "body": "<p>Fox and BDS components tuned for Australian conditions.</p>",
+            "body": "<p>Fox 2.5 Performance Series shocks, ORI 200 KG heavy duty leaf packs and BDS control arms.</p>",
             "link_label": "",
             "link_url": ""
           }
@@ -151,7 +151,7 @@
           "type": "card",
           "settings": {
             "heading": "Federally Certified",
-            "body": "<p>Every package is engineered and approved under the SSM process.</p>",
+            "body": "<p>GVM and GCM tested and LS16 certified, so the truck is legal Australia wide.</p>",
             "link_label": "",
             "link_url": ""
           }
@@ -164,7 +164,7 @@
       ],
       "settings": {
         "eyebrow": "",
-        "heading": "Why Upgrade Your Silverado 1500's GVM?",
+        "heading": "Why Upgrade Your Chevy Silverado 1500's GVM?",
         "bg_color": "#ffffff",
         "heading_color": "#1f1f1f",
         "heading_size": 36,

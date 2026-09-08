@@ -133,7 +133,7 @@
           "type": "card",
           "settings": {
             "heading": "More Legal Payload",
-            "body": "<p>Carry more weight legally with a certified GVM increase.</p>",
+            "body": "<p>GVM 3850 KG, taking payload to about 1028 KG on both Limited and Platinum.</p>",
             "link_label": "",
             "link_url": ""
           }
@@ -142,7 +142,7 @@
           "type": "card",
           "settings": {
             "heading": "Premium Suspension",
-            "body": "<p>Fox and BDS components tuned for Australian conditions.</p>",
+            "body": "<p>Fox 2.5 Performance Elite through to Fox 3.0 Race Series, with ORI 150 to 300 KG coil packs and a BDS diff drop.</p>",
             "link_label": "",
             "link_url": ""
           }
@@ -151,7 +151,7 @@
           "type": "card",
           "settings": {
             "heading": "Federally Certified",
-            "body": "<p>Every package is engineered and approved under the SSM process.</p>",
+            "body": "<p>GCM 8350 KG with the full 4.5 tonne braked towing retained, LS16 certified.</p>",
             "link_label": "",
             "link_url": ""
           }
@@ -164,7 +164,7 @@
       ],
       "settings": {
         "eyebrow": "",
-        "heading": "Why Upgrade Your Silverado 1500's GVM?",
+        "heading": "Why Upgrade Your Toyota Tundra's GVM?",
         "bg_color": "#ffffff",
         "heading_color": "#1f1f1f",
         "heading_size": 36,
@@ -481,7 +481,7 @@
           "type": "faq_item",
           "settings": {
             "question": "How much payload can I legally gain?",
-            "answer": "<p>Gains vary by vehicle and stage. Contact us for figures specific to your Silverado 1500.</p>"
+            "answer": "<p>Gains vary by vehicle and stage. Contact us for figures specific to your Toyota Tundra.</p>"
           }
         },
         "faq_stages": {

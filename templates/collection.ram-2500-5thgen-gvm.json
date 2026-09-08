@@ -133,7 +133,7 @@
           "type": "card",
           "settings": {
             "heading": "More Legal Payload",
-            "body": "<p>Carry more weight legally with a certified GVM increase.</p>",
+            "body": "<p>GVM from 5300 KG to 5550 KG, lifting payload to around 1680 KG against the factory 886 KG.</p>",
             "link_label": "",
             "link_url": ""
           }
@@ -142,7 +142,7 @@
           "type": "card",
           "settings": {
             "heading": "Premium Suspension",
-            "body": "<p>Fox and BDS components tuned for Australian conditions.</p>",
+            "body": "<p>Fox 2.5 HTO and Performance Elite shocks with ORI load rated coils, in 2 inch and 3 inch BDS lifts.</p>",
             "link_label": "",
             "link_url": ""
           }
@@ -151,7 +151,7 @@
           "type": "card",
           "settings": {
             "heading": "Federally Certified",
-            "body": "<p>Every package is engineered and approved under the SSM process.</p>",
+            "body": "<p>GCM 12,695 KG and 4500 KG braked towing, recorded on the Federal SSM database.</p>",
             "link_label": "",
             "link_url": ""
           }
@@ -481,7 +481,7 @@
           "type": "faq_item",
           "settings": {
             "question": "How much payload can I legally gain?",
-            "answer": "<p>Gains vary by vehicle and stage. Contact us for figures specific to your RAM 2500.</p>"
+            "answer": "<p>Gains vary by vehicle and stage. Contact us for figures specific to your RAM 2500 5th Gen.</p>"
           }
         },
         "faq_stages": {
