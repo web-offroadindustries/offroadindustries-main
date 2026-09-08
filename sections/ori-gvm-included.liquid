@@ -33,6 +33,25 @@
   assign section_id = section.settings.custom_id | default: section.id
   assign container = section.settings.container | default: 'container'
   assign included = section.blocks | where: 'type', 'included'
+
+  # Per-product rows. The blocks above are the shared default for every product
+  # on this template, which is what most of them want. A product that has its
+  # own items in the metaobject list takes over the list for itself and the
+  # blocks are left alone for everyone else.
+  #
+  # All or nothing per product: a product listing its own rows lists all of
+  # them, the same way the per-product images work below. There is no merging a
+  # product's extra row into the shared set.
+  assign incl_rows = included
+  assign use_mf_items = false
+  assign items_mf = section.settings.items_metafield | default: 'custom.included_items' | split: '.'
+  if product != blank and items_mf.size == 2
+    assign mf_items = product.metafields[items_mf[0]][items_mf[1]].value
+    if mf_items != blank and mf_items.size > 0
+      assign incl_rows = mf_items
+      assign use_mf_items = true
+    endif
+  endif
   assign images = section.blocks | where: 'type', 'image'
   assign brand_logos = section.blocks | where: 'type', 'brand_logo'
 
@@ -120,49 +139,70 @@
               <h2 class="ori-gvm-product__block-title h3">{{ section.settings.heading }}</h2>
             {%- endif -%}
 
-            {%- if included.size > 0 -%}
+            {%- if incl_rows.size > 0 -%}
               <ul class="ori-gvm-incl__list" role="list">
-                {%- for block in included -%}
+                {%- for row in incl_rows -%}
                   {%- liquid
+                    # One set of markup, two sources.
+                    if use_mf_items
+                      assign row_logo = row.logo.value
+                      assign row_icon = 'none'
+                      assign row_brand = ''
+                      assign row_title = row.title.value
+                      assign row_note = row.description.value
+                      assign row_sku = row.part_number.value
+                      assign row_attrs = ''
+                    else
+                      assign row_logo = row.settings.logo
+                      assign row_icon = row.settings.icon
+                      assign row_brand = row.settings.brand
+                      assign row_title = row.settings.text
+                      assign row_note = row.settings.note
+                      assign row_sku = row.settings.sku
+                      assign row_attrs = row.shopify_attributes
+                    endif
+
+                    # A File field can hold something that is not an image, and
+                    # that has no width, so it would draw an empty logo frame.
                     assign has_logo = false
-                    if block.settings.logo != blank
+                    if row_logo != blank and row_logo.width > 0
                       assign has_logo = true
                     endif
                     assign has_icon = false
-                    if has_logo == false and block.settings.icon != 'none'
+                    if has_logo == false and row_icon != 'none' and row_icon != blank
                       assign has_icon = true
                     endif
                   -%}
-                  <li class="ori-gvm-incl__item{% if has_logo == false and has_icon == false %} ori-gvm-incl__item--bare{% endif %}" {{ block.shopify_attributes }}>
+                  <li class="ori-gvm-incl__item{% if has_logo == false and has_icon == false %} ori-gvm-incl__item--bare{% endif %}" {{ row_attrs }}>
                     {%- if has_logo or has_icon -%}
                       <span class="ori-gvm-incl__figure">
                         {%- if has_logo -%}
                           {{-
-                            block.settings.logo
+                            row_logo
                             | image_url: width: 900
                             | image_tag:
                               loading: 'lazy',
                               class: 'ori-gvm-incl__logo',
                               widths: '120,180,240,360,480,720,900',
                               sizes: logo_px_css,
-                              alt: block.settings.brand | default: block.settings.text | escape
+                              alt: row_brand | default: row_title | escape
                           -}}
                         {%- else -%}
-                          {%- render 'ori-gvm-icon', icon: block.settings.icon, class: 'ori-gvm-incl__icon' -%}
+                          {%- render 'ori-gvm-icon', icon: row_icon, class: 'ori-gvm-incl__icon' -%}
                         {%- endif -%}
                       </span>
                     {%- endif -%}
 
                     <span class="ori-gvm-incl__body">
-                      {%- if block.settings.brand != blank -%}
-                        <span class="ori-gvm-incl__eyebrow">{{ block.settings.brand }}</span>
+                      {%- if row_brand != blank -%}
+                        <span class="ori-gvm-incl__eyebrow">{{ row_brand }}</span>
                       {%- endif -%}
-                      <span class="ori-gvm-incl__title">{{ block.settings.text }}</span>
-                      {%- if block.settings.note != blank -%}
-                        <span class="ori-gvm-incl__note">{{ block.settings.note }}</span>
+                      <span class="ori-gvm-incl__title">{{ row_title }}</span>
+                      {%- if row_note != blank -%}
+                        <span class="ori-gvm-incl__note">{{ row_note }}</span>
                       {%- endif -%}
-                      {%- if block.settings.sku != blank -%}
-                        <span class="ori-gvm-incl__sku">{{ block.settings.sku }}</span>
+                      {%- if row_sku != blank -%}
+                        <span class="ori-gvm-incl__sku">{{ row_sku }}</span>
                       {%- endif -%}
                     </span>
                   </li>
@@ -296,6 +336,14 @@
         { "value": "left", "label": "Left of the list" }
       ],
       "default": "right"
+    },
+    { "type": "header", "content": "Per-product items" },
+    {
+      "type": "text",
+      "id": "items_metafield",
+      "label": "Per-product item metafield",
+      "info": "namespace.key of a product metafield holding a list of GVM included item metaobject entries. A product with entries shows those instead of the Included item blocks above, and every other product falls back to those blocks, so this only needs filling in where a product differs. All or nothing per product: a product with its own entries lists every one of its rows.",
+      "default": "custom.included_items"
     },
     { "type": "header", "content": "Images" },
     {
