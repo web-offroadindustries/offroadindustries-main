@@ -1716,3 +1716,24 @@ body:not(.header-pinned) .header-scrolled .header {
 .f-site-nav__nav-columns-wrap--image-right .f-site-nav__nav-col-image {
   order: 1;
 }
+
+/* The desktop nav is revealed at 1024px, because grid.css hides it below
+   1023.98px. It does not fit there: the seven top-level items need 948px and
+   only 912px is available, so the last one runs off the edge. Nothing looks
+   wrong on the way out either - .site-wrapper clips instead of scrolling, so
+   the item is cut off rather than reachable, and design-6 pins the list to
+   one line with flex-wrap: nowrap.
+
+   Padding is set here as a longhand rather than through --nav-item-px. That
+   variable also drives the negative margin on .f-site-nav__list, so moving it
+   shifts the whole list sideways instead of narrowing it.
+
+   Measured on the live menu: 18px padding gives a 948px list, and every 1px
+   trimmed takes 14px off it (seven items, two sides). 12.6px lands at 872px,
+   which clears 912px with room for the menu to grow. */
+@media (min-width: 1024px) and (max-width: 1199.98px) {
+  .f-site-nav__link {
+    padding-left: 1.4rem;
+    padding-right: 1.4rem;
+  }
+}

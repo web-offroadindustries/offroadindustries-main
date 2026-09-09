@@ -12,7 +12,30 @@
     alt   - optional override. Falls back to the image's own alt text.
     attrs - block.shopify_attributes, so the theme editor can still select the
             block. Left empty for metafield images, which are not blocks.
+    span  - true when this frame runs the full width of the gallery rather than
+            sharing a row. The caller knows that from the image count: one image
+            fills the gallery, and in a three-image grid the third spans both
+            columns. Everything else is half a row.
 {%- endcomment -%}
+
+{%- liquid
+  # sizes has to describe the width the frame really renders at, or Shopify
+  # picks a candidate off the widths list that is too small and the browser
+  # scales it up. The old value described a half-row frame at every count, so
+  # a spanning frame asked for 34vw and got roughly half the pixels it needed
+  # - measured 490px of image in a 721px slot at 1440, and 377px in 793px at
+  # 820, which is where the softness came from.
+  #
+  # Measured frame widths, gallery / half-row:
+  #   1440+  721 / 354      1200  596 / 292      1024  537 / 262
+  #   900    873 / 431       820  793 / 391       750  723 / 356
+  # Below 750 the grid becomes a carousel and every frame is the full width.
+  if span
+    assign incl_img_sizes = '(min-width: 1440px) 730px, (min-width: 990px) 56vw, 100vw'
+  else
+    assign incl_img_sizes = '(min-width: 1440px) 360px, (min-width: 990px) 28vw, (min-width: 750px) 50vw, 100vw'
+  endif
+-%}
 
 {%- if image != blank -%}
   {%- assign incl_img_alt = alt | default: image.alt -%}
@@ -24,7 +47,7 @@
         loading: 'lazy',
         class: 'ori-gvm-incl__img',
         widths: '360,540,720,960,1200',
-        sizes: '(min-width: 990px) 34vw, (min-width: 750px) 46vw, 90vw',
+        sizes: incl_img_sizes,
         alt: incl_img_alt
     -}}
   </figure>

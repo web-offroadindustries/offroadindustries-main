@@ -238,20 +238,48 @@
                 role="group"
                 aria-label="{{ section.settings.heading | default: "What's included" | escape }} images"
               >
+                {%- comment -%}
+                  A frame spans the whole gallery when it is the only image, or
+                  when it is the third of three - the grid gives that one
+                  grid-column: 1 / -1. The snippet needs to know, because a
+                  spanning frame is twice as wide and has to ask for a bigger
+                  source image.
+                {%- endcomment -%}
                 {%- if use_mf_images -%}
                   {%- assign incl_n = 0 -%}
                   {%- for file in mf_images -%}
                     {%- if file.width > 0 and incl_n < 4 -%}
-                      {%- render 'ori-gvm-incl-image', image: file -%}
+                      {%- liquid
+                        assign incl_span = false
+                        if img_count == 1
+                          assign incl_span = true
+                        elsif img_count == 3
+                          if incl_n == 2
+                            assign incl_span = true
+                          endif
+                        endif
+                      -%}
+                      {%- render 'ori-gvm-incl-image', image: file, span: incl_span -%}
                       {%- assign incl_n = incl_n | plus: 1 -%}
                     {%- endif -%}
                   {%- endfor -%}
                 {%- else -%}
                   {%- for block in images -%}
+                    {%- liquid
+                      assign incl_span = false
+                      if img_count == 1
+                        assign incl_span = true
+                      elsif img_count == 3
+                        if forloop.index == 3
+                          assign incl_span = true
+                        endif
+                      endif
+                    -%}
                     {%- render 'ori-gvm-incl-image',
                       image: block.settings.image,
                       alt: block.settings.alt,
-                      attrs: block.shopify_attributes
+                      attrs: block.shopify_attributes,
+                      span: incl_span
                     -%}
                   {%- endfor -%}
                 {%- endif -%}
