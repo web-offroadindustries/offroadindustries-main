@@ -52,6 +52,15 @@
       assign use_mf_items = true
     endif
   endif
+
+  # Four is the ceiling. The media column only has grid shapes for one to
+  # four frames, so a fifth row leaves the list running past the images with
+  # nothing beside it. The editor limit stops new blocks being added; this
+  # covers a template already saved with more, and a product pointing at
+  # more than four metaobject entries.
+  if incl_rows.size > 4
+    assign incl_rows = incl_rows | slice: 0, 4
+  endif
   assign images = section.blocks | where: 'type', 'image'
   assign brand_logos = section.blocks | where: 'type', 'brand_logo'
 
@@ -464,6 +473,7 @@
     {
       "type": "included",
       "name": "Included item",
+      "limit": 4,
       "settings": [
         { "type": "text", "id": "text", "label": "Item", "default": "Fox shocks" },
         { "type": "image_picker", "id": "logo", "label": "Brand logo", "info": "Optional. Used instead of the icon below. PNG or WebP with a transparent background (Shopify's picker will not accept an SVG)." },

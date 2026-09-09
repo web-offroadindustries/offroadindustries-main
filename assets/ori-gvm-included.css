@@ -125,6 +125,7 @@
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--incl-soft);
+  overflow-wrap: break-word;
 }
 .ori-gvm-incl__title {
   font-weight: 700;
@@ -145,6 +146,7 @@
   text-transform: uppercase;
   color: var(--incl-soft);
   font-variant-numeric: tabular-nums;
+  overflow-wrap: anywhere;
 }
 
 /* ── Image grid ──
