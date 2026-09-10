@@ -34,24 +34,11 @@
   assign container = section.settings.container | default: 'container'
   assign included = section.blocks | where: 'type', 'included'
 
-  # Per-product rows. The blocks above are the shared default for every product
-  # on this template, which is what most of them want. A product that has its
-  # own items in the metaobject list takes over the list for itself and the
-  # blocks are left alone for everyone else.
-  #
-  # All or nothing per product: a product listing its own rows lists all of
-  # them, the same way the per-product images work below. There is no merging a
-  # product's extra row into the shared set.
+  # The rows come from the blocks above. Each GVM product has its own template
+  # now, so the blocks are per-product already and there is nothing to override
+  # them with - the custom.included_items metafield this used to read has been
+  # deleted.
   assign incl_rows = included
-  assign use_mf_items = false
-  assign items_mf = section.settings.items_metafield | default: 'custom.included_items' | split: '.'
-  if product != blank and items_mf.size == 2
-    assign mf_items = product.metafields[items_mf[0]][items_mf[1]].value
-    if mf_items != blank and mf_items.size > 0
-      assign incl_rows = mf_items
-      assign use_mf_items = true
-    endif
-  endif
 
   # Four is the ceiling. The media column only has grid shapes for one to
   # four frames, so a fifth row leaves the list running past the images with
@@ -152,24 +139,13 @@
               <ul class="ori-gvm-incl__list" role="list">
                 {%- for row in incl_rows -%}
                   {%- liquid
-                    # One set of markup, two sources.
-                    if use_mf_items
-                      assign row_logo = row.logo.value
-                      assign row_icon = 'none'
-                      assign row_brand = ''
-                      assign row_title = row.title.value
-                      assign row_note = row.description.value
-                      assign row_sku = row.part_number.value
-                      assign row_attrs = ''
-                    else
-                      assign row_logo = row.settings.logo
-                      assign row_icon = row.settings.icon
-                      assign row_brand = row.settings.brand
-                      assign row_title = row.settings.text
-                      assign row_note = row.settings.note
-                      assign row_sku = row.settings.sku
-                      assign row_attrs = row.shopify_attributes
-                    endif
+                    assign row_logo = row.settings.logo
+                    assign row_icon = row.settings.icon
+                    assign row_brand = row.settings.brand
+                    assign row_title = row.settings.text
+                    assign row_note = row.settings.note
+                    assign row_sku = row.settings.sku
+                    assign row_attrs = row.shopify_attributes
 
                     # A File field can hold something that is not an image, and
                     # that has no width, so it would draw an empty logo frame.
@@ -373,14 +349,6 @@
         { "value": "left", "label": "Left of the list" }
       ],
       "default": "right"
-    },
-    { "type": "header", "content": "Per-product items" },
-    {
-      "type": "text",
-      "id": "items_metafield",
-      "label": "Per-product item metafield",
-      "info": "namespace.key of a product metafield holding a list of GVM included item metaobject entries. A product with entries shows those instead of the Included item blocks above, and every other product falls back to those blocks, so this only needs filling in where a product differs. All or nothing per product: a product with its own entries lists every one of its rows.",
-      "default": "custom.included_items"
     },
     { "type": "header", "content": "Images" },
     {
