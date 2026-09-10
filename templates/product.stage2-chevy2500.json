@@ -152,21 +152,21 @@
         "incl_image_1": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/987_02_005_P01_70c3f8c3-6944-4a02-a80d-026c568a7ea2.png",
+            "image": "shopify://shop_images/stage2-chevy2500-img1.png",
             "alt": ""
           }
         },
         "incl_image_2": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/product-img2.png",
+            "image": "shopify://shop_images/stage2-chevy2500-img2.png",
             "alt": ""
           }
         },
         "incl_image_3": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/product-img3.png",
+            "image": "shopify://shop_images/stage2-chevy2500-img3.png",
             "alt": ""
           }
         }
