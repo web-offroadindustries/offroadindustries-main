@@ -1,0 +1,1388 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "ori-gvm-product",
+      "settings": {
+        "layout": "editorial",
+        "mobile_slider": true,
+        "hero_media_width": 48,
+        "eyebrow": "GVM Upgrade Package",
+        "fallback_title": "GVM Upgrade Package",
+        "subtitle": "",
+        "gvm_value": "",
+        "gcm_value": "",
+        "payload_value": "",
+        "show_price": true,
+        "price": "",
+        "price_note": "Installed & engineered",
+        "quote_label": "Request Quote",
+        "quote_url": "/pages/contact-us",
+        "quote_popup_id": "gvm-quote",
+        "book_label": "Find Installers",
+        "book_url": "#approved-installer",
+        "calc_label": "Know your weight? Use the GVM calculator",
+        "calc_url": "shopify://pages/gvm-calculator",
+        "benefits_heading": "Key benefits",
+        "included_heading": "What's included",
+        "specs_heading": "Specifications",
+        "install_heading": "Installation process",
+        "stage_cards_heading": "GVM Upgrades by Vehicle",
+        "brands_heading": "Built with",
+        "cards_per_row": 3,
+        "item_logo_height": 40,
+        "brand_logo_height": 72,
+        "acc_heading": "Build Your GVM Upgrade",
+        "acc_subheading": "Add the gear that makes the most of your new payload.",
+        "acc_btn_label": "View product",
+        "acc_columns": 4,
+        "acc_all_label": "",
+        "acc_all_url": "",
+        "spec_original_gvm": "",
+        "spec_upgraded_gvm": "",
+        "spec_payload_gain": "",
+        "spec_gcm": "",
+        "tint_color": "#f4fbfb",
+        "container": "container",
+        "custom_id": "",
+        "color_schema": ""
+      }
+    },
+    "gvm_benefits": {
+      "type": "ori-gvm-benefits",
+      "blocks": {
+        "benefit_payload": {
+          "type": "benefit",
+          "settings": {
+            "text": "Increased legal payload capacity",
+            "icon": "weight",
+            "note": "The ORI GVM Package legally increases your vehicle's weight limit, ensuring your heavy-duty build stays safe, secure, and fully insured."
+          }
+        },
+        "benefit_suspension": {
+          "type": "benefit",
+          "settings": {
+            "text": "Upgraded Fox &  BDS suspension",
+            "icon": "suspension",
+            "note": "You bought a massive American truck, so why insult it with wimpy suspension? Slap some heavy-duty American components under that beast, let freedom ring, and cue the bald eagles!"
+          }
+        },
+        "benefit_approval": {
+          "type": "benefit",
+          "settings": {
+            "text": "Federal engineering approval",
+            "icon": "seal",
+            "note": "Federally Approved (SSM): Fully certified and road-legal nationwide. Zero state-by-state engineering hassles if fitted before first registration.\n\nProtect Your Insurance: Driving over your factory weight limit instantly voids your insurance. This certified upgrade guarantees you are covered in an accident."
+          }
+        }
+      },
+      "block_order": [
+        "benefit_payload",
+        "benefit_suspension",
+        "benefit_approval"
+      ],
+      "settings": {
+        "heading": "Key benefits",
+        "heading_align": "left",
+        "layout": "editorial",
+        "cards_per_row": 3,
+        "alt_background": true,
+        "tint_color": "#f4fbfb",
+        "container": "container",
+        "padding_top": 52,
+        "padding_bottom": 52,
+        "custom_id": "",
+        "color_schema": ""
+      }
+    },
+    "gvm_included": {
+      "type": "ori-gvm-included",
+      "blocks": {
+        "included_fox": {
+          "type": "included",
+          "settings": {
+            "text": "Fox Suspension",
+            "logo": "shopify://shop_images/420_x_420px_MEGA_MENU_ICON__FOX.jpg",
+            "icon": "check",
+            "brand": "",
+            "note": "Fox 2.5 Perfomance Series Suspension",
+            "sku": ""
+          }
+        },
+        "included_bds": {
+          "type": "included",
+          "settings": {
+            "text": "BDS components",
+            "logo": "shopify://shop_images/ICONS_FOR_WEBSITE_BDS.png",
+            "icon": "none",
+            "brand": "",
+            "note": "BDS Radius arm and front panhard.",
+            "sku": ""
+          }
+        },
+        "included_springs": {
+          "type": "included",
+          "settings": {
+            "text": "ORI springs",
+            "logo": "shopify://shop_images/420_x_420px_MEGA_MENU_ICON__ORI.jpg",
+            "icon": "check",
+            "brand": "",
+            "note": "ORI Heavy duty custom designed rear coils",
+            "sku": ""
+          }
+        },
+        "included_cert": {
+          "type": "included",
+          "settings": {
+            "text": "Engineering certification",
+            "icon": "shield",
+            "brand": "",
+            "note": "Federally Approved GVM data upto 37\" tyres",
+            "sku": ""
+          }
+        },
+        "incl_image_1": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/987_02_005_P01_70c3f8c3-6944-4a02-a80d-026c568a7ea2.png",
+            "alt": ""
+          }
+        },
+        "incl_image_2": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/product-img2.png",
+            "alt": ""
+          }
+        },
+        "incl_image_3": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/product-img3.png",
+            "alt": ""
+          }
+        }
+      },
+      "block_order": [
+        "included_fox",
+        "included_bds",
+        "included_springs",
+        "included_cert",
+        "incl_image_1",
+        "incl_image_2",
+        "incl_image_3"
+      ],
+      "settings": {
+        "heading": "What's included",
+        "layout": "editorial",
+        "media_position": "right",
+        "items_metafield": "custom.included_items",
+        "images_metafield": "custom.included_images",
+        "autoplay_seconds": 5,
+        "row_spacing": 8,
+        "item_logo_height": 88,
+        "item_logo_scale": 160,
+        "item_logo_box_padding": 0,
+        "item_logo_box_width": 0,
+        "logo_frame": true,
+        "brand_logo_height": 72,
+        "brands_heading": "Built with",
+        "alt_background": false,
+        "tint_color": "#f4fbfb",
+        "container": "container",
+        "padding_top": 52,
+        "padding_bottom": 52,
+        "custom_id": "",
+        "color_schema": ""
+      }
+    },
+    "scrolling_promotion_iqVp4T": {
+      "type": "scrolling-promotion",
+      "blocks": {
+        "image_V8QxeT": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/ICONS_FOR_WEBSITE_BDS.png",
+            "image_height": 120,
+            "image_link": "shopify://collections/bds-suspension-australian-distributor",
+            "use_custom_spacing": false,
+            "margin_left": 10,
+            "margin_right": 10,
+            "margin_left_mobile": 10,
+            "margin_right_mobile": 10
+          }
+        },
+        "announcement_dFJCAx": {
+          "type": "announcement",
+          "settings": {
+            "text": "BDS Suspension",
+            "font_family": "heading",
+            "text_size": 30,
+            "text_link": "",
+            "use_custom_spacing": true,
+            "margin_left": 0,
+            "margin_right": 30,
+            "margin_left_mobile": 0,
+            "margin_right_mobile": 16
+          }
+        },
+        "divider_ra8kGw": {
+          "type": "divider",
+          "settings": {
+            "width": 64,
+            "use_custom_spacing": false,
+            "margin_left": 10,
+            "margin_right": 10,
+            "margin_left_mobile": 10,
+            "margin_right_mobile": 10
+          }
+        },
+        "image_JkfQc4": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/420_x_420px_MEGA_MENU_ICON__FOX.jpg",
+            "image_height": 120,
+            "image_link": "",
+            "use_custom_spacing": false,
+            "margin_left": 10,
+            "margin_right": 10,
+            "margin_left_mobile": 10,
+            "margin_right_mobile": 10
+          }
+        },
+        "announcement_7NbxBT": {
+          "type": "announcement",
+          "settings": {
+            "text": "Fox Suspension",
+            "font_family": "heading",
+            "text_size": 30,
+            "text_link": "",
+            "use_custom_spacing": true,
+            "margin_left": 0,
+            "margin_right": 20,
+            "margin_left_mobile": 0,
+            "margin_right_mobile": 13
+          }
+        },
+        "divider_HyyX8h": {
+          "type": "divider",
+          "disabled": true,
+          "settings": {
+            "width": 64,
+            "use_custom_spacing": false,
+            "margin_left": 10,
+            "margin_right": 10,
+            "margin_left_mobile": 10,
+            "margin_right_mobile": 10
+          }
+        },
+        "image_CMHfbV": {
+          "type": "image",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/420_x_420px_MEGA_MENU_ICON__BAJA_DESIGNS.jpg",
+            "image_height": 80,
+            "image_link": "shopify://collections/baja-designs",
+            "use_custom_spacing": true,
+            "margin_left": 0,
+            "margin_right": 20,
+            "margin_left_mobile": 0,
+            "margin_right_mobile": 20
+          }
+        },
+        "announcement_Ck9fgL": {
+          "type": "announcement",
+          "disabled": true,
+          "settings": {
+            "text": "Baja Designs",
+            "font_family": "heading",
+            "text_size": 34,
+            "text_link": "",
+            "use_custom_spacing": true,
+            "margin_left": 0,
+            "margin_right": 30,
+            "margin_left_mobile": 0,
+            "margin_right_mobile": 16
+          }
+        },
+        "divider_qMNDMW": {
+          "type": "divider",
+          "disabled": true,
+          "settings": {
+            "width": 64,
+            "use_custom_spacing": true,
+            "margin_left": 0,
+            "margin_right": 30,
+            "margin_left_mobile": 0,
+            "margin_right_mobile": 16
+          }
+        },
+        "image_cqXJGB": {
+          "type": "image",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/ADD-OFFROAD-21-FORD-RAPTOR-Phantom-Rear-Bumper-Installation-Guide-1.png",
+            "image_height": 80,
+            "image_link": "",
+            "use_custom_spacing": true,
+            "margin_left": 0,
+            "margin_right": 20,
+            "margin_left_mobile": 0,
+            "margin_right_mobile": 20
+          }
+        },
+        "announcement_kcKcYP": {
+          "type": "announcement",
+          "disabled": true,
+          "settings": {
+            "text": "Addictive Desert Designs",
+            "font_family": "heading",
+            "text_size": 34,
+            "text_link": "",
+            "use_custom_spacing": true,
+            "margin_left": 0,
+            "margin_right": 30,
+            "margin_left_mobile": 0,
+            "margin_right_mobile": 16
+          }
+        },
+        "divider_nWecrt": {
+          "type": "divider",
+          "disabled": true,
+          "settings": {
+            "width": 64,
+            "use_custom_spacing": true,
+            "margin_left": 0,
+            "margin_right": 30,
+            "margin_left_mobile": 0,
+            "margin_right_mobile": 16
+          }
+        },
+        "image_xj6yaA": {
+          "type": "image",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/huskyliners-logo-fullcolor-24206_4x_68ee4016-c4a6-4e86-b15e-f8f048d6e1d0.png",
+            "image_height": 80,
+            "image_link": "",
+            "use_custom_spacing": true,
+            "margin_left": 0,
+            "margin_right": 20,
+            "margin_left_mobile": 0,
+            "margin_right_mobile": 20
+          }
+        },
+        "announcement_rVDhn4": {
+          "type": "announcement",
+          "disabled": true,
+          "settings": {
+            "text": "Husky Liners",
+            "font_family": "heading",
+            "text_size": 34,
+            "text_link": "",
+            "use_custom_spacing": true,
+            "margin_left": 0,
+            "margin_right": 30,
+            "margin_left_mobile": 0,
+            "margin_right_mobile": 16
+          }
+        },
+        "divider_VyRtkM": {
+          "type": "divider",
+          "disabled": true,
+          "settings": {
+            "width": 64,
+            "use_custom_spacing": true,
+            "margin_left": 0,
+            "margin_right": 30,
+            "margin_left_mobile": 0,
+            "margin_right_mobile": 16
+          }
+        }
+      },
+      "block_order": [
+        "image_V8QxeT",
+        "announcement_dFJCAx",
+        "divider_ra8kGw",
+        "image_JkfQc4",
+        "announcement_7NbxBT",
+        "divider_HyyX8h",
+        "image_CMHfbV",
+        "announcement_Ck9fgL",
+        "divider_qMNDMW",
+        "image_cqXJGB",
+        "announcement_kcKcYP",
+        "divider_nWecrt",
+        "image_xj6yaA",
+        "announcement_rVDhn4",
+        "divider_VyRtkM"
+      ],
+      "settings": {
+        "container": "container-full",
+        "color_schema": "",
+        "section_header_padding_bottom": "medium",
+        "section_header_content_spacing": "medium",
+        "heading": "",
+        "highlight_style": "none",
+        "enable_highlight_text_color": false,
+        "heading_size": "h2",
+        "heading_color": "",
+        "subheading": "",
+        "description": "",
+        "alignment": "center",
+        "direction": "left",
+        "pause_on_hover": true,
+        "speed": 0.2,
+        "item_gap": 0,
+        "item_gap_mobile": 0,
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "use_custom_mobile_padding": true,
+        "padding_top_mobile": 20,
+        "padding_bottom_mobile": 20,
+        "show_section_divider": false,
+        "divider_width": "container-full",
+        "custom_id": "",
+        "custom_class": ""
+      }
+    },
+    "gvm_steps": {
+      "type": "ori-gvm-steps",
+      "blocks": {
+        "step_quote": {
+          "type": "step",
+          "settings": {
+            "heading": "Request a quote",
+            "text": "Send us your vehicle details and we prepare a package quote."
+          }
+        },
+        "step_book": {
+          "type": "step",
+          "settings": {
+            "heading": "Book your install",
+            "text": "Choose an approved installer near you and book a date."
+          }
+        },
+        "step_certify": {
+          "type": "step",
+          "settings": {
+            "heading": "Get certified",
+            "text": "We complete the upgrade and issue engineering certification."
+          }
+        }
+      },
+      "block_order": [
+        "step_quote",
+        "step_book",
+        "step_certify"
+      ],
+      "settings": {
+        "heading": "Installation process",
+        "heading_align": "center",
+        "layout": "editorial",
+        "dot_size": 54,
+        "alt_background": false,
+        "tint_color": "#f4fbfb",
+        "container": "container",
+        "padding_top": 52,
+        "padding_bottom": 52,
+        "custom_id": "",
+        "color_schema": ""
+      }
+    },
+    "ori_gvm_approved_VPhEai": {
+      "type": "ori-gvm-approved",
+      "name": "ORI GVM Approved",
+      "settings": {
+        "source_page": "gvm-approves",
+        "source_section": "[data-section-type=\"ori-installer-network\"]",
+        "custom_selector": "",
+        "heading": "",
+        "fallback_text": "View our approved installers",
+        "full_width": true,
+        "content_gutter": 24,
+        "flush_top_bottom": false,
+        "layout": "classic",
+        "alt_background": false,
+        "tint_color": "#f3f6f7",
+        "container": "container",
+        "padding_top": 52,
+        "padding_bottom": 52,
+        "custom_id": "approved-installer",
+        "color_schema": ""
+      }
+    },
+    "ori_package_grid_RVbeB9": {
+      "type": "ori-package-grid",
+      "blocks": {
+        "package_card_LUGFhE": {
+          "type": "package_card",
+          "settings": {
+            "image": "shopify://shop_images/Chevy-Silverado-1500--tile-ad---20260505-4_753e16ce-f09c-454c-8683-7edc168f4eae.png",
+            "vehicle_label": "Chevrolet Silverado 1500",
+            "title": "Stage 1 GVM Upgrade",
+            "gvm_figure": "3,650 KG",
+            "gcm_figure": "8,150 KG",
+            "payload_gain": "8,150 KG",
+            "stage_label": "Stage 1",
+            "badge": "",
+            "btn_text": "View Package",
+            "btn_url": "shopify://pages/chevrolet-silverado-1500-gvm-package",
+            "btn_style": "btn--primary"
+          }
+        },
+        "package_card_Untxy9": {
+          "type": "package_card",
+          "settings": {
+            "image": "shopify://shop_images/Chevy-2500--tile-ad---20260505-4_7ce36d9a-1565-4823-b14a-b3e36018df11.png",
+            "vehicle_label": "Chevrolet Silverado 2500HD",
+            "title": "Stage 1 GVM Upgrade",
+            "gvm_figure": "5,500 KG",
+            "gcm_figure": "12,474 KG",
+            "payload_gain": "+1,708 KG",
+            "stage_label": "Stage 1",
+            "badge": "",
+            "btn_text": "View Package",
+            "btn_url": "shopify://pages/ori-gvm-upgrade-chevrolet-silverado-2500hd-5-9t-2020",
+            "btn_style": "btn--primary"
+          }
+        },
+        "package_card_zphDTW": {
+          "type": "package_card",
+          "settings": {
+            "image": "shopify://shop_images/FORD-F150---tile-ad---20260505-4-1_9dcaeba0-a747-4777-a6b3-eb3685b3b98f.png",
+            "vehicle_label": "Ford F-150",
+            "title": "Stage 1 GVM Upgrade",
+            "gvm_figure": "3,700 KG",
+            "gcm_figure": "8,200 KG",
+            "payload_gain": "+455 KG",
+            "stage_label": "Stage 1",
+            "badge": "",
+            "btn_text": "View Package",
+            "btn_url": "shopify://pages/ford-150-gvm-packages",
+            "btn_style": "btn--primary"
+          }
+        },
+        "package_card_AXLXAD": {
+          "type": "package_card",
+          "settings": {
+            "image": "shopify://shop_images/Toyota-Tundra--tile-ad---20260505-4-1.png",
+            "vehicle_label": "Toyota Tundra",
+            "title": "Stage 2 GVM Upgrade",
+            "gvm_figure": "3,850 KG",
+            "gcm_figure": "8,350 KG",
+            "payload_gain": "",
+            "stage_label": "Stage 1",
+            "badge": "Most Popular",
+            "btn_text": "View Package",
+            "btn_url": "shopify://pages/toyota-tundra",
+            "btn_style": "btn--primary"
+          }
+        },
+        "package_card_VN4q3N": {
+          "type": "package_card",
+          "settings": {
+            "image": "shopify://shop_images/RAM_2500_TILE.webp",
+            "vehicle_label": "RAM 2500 6th Gen",
+            "title": "Stage 1 GVM Upgrade",
+            "gvm_figure": "TBC",
+            "gcm_figure": "TBC",
+            "payload_gain": "",
+            "stage_label": "Stage 1",
+            "badge": "",
+            "btn_text": "View Package",
+            "btn_url": "shopify://pages/ram-2500-6th-gen-gvm",
+            "btn_style": "btn--primary"
+          }
+        }
+      },
+      "block_order": [
+        "package_card_LUGFhE",
+        "package_card_Untxy9",
+        "package_card_zphDTW",
+        "package_card_AXLXAD",
+        "package_card_VN4q3N"
+      ],
+      "disabled": true,
+      "name": "ORI Package Grid",
+      "settings": {
+        "heading": "GVM & GCM Upgrade Packages",
+        "heading_size": "h2",
+        "subheading": "",
+        "source": "manual",
+        "collection": "",
+        "products_limit": 12,
+        "gvm_metafield": "custom.gvm",
+        "gcm_metafield": "custom.upgraded_gcm",
+        "payload_metafield": "custom.payload_gain",
+        "stage_metafield": "custom.stage",
+        "product_btn_text": "View Package",
+        "product_btn_style": "btn--primary",
+        "view_all_text": "",
+        "view_all_url": "",
+        "view_all_style": "btn--outline",
+        "columns": 5,
+        "container": "container",
+        "color_schema": "",
+        "padding_top": 60,
+        "padding_bottom": 60,
+        "custom_id": "",
+        "custom_class": ""
+      }
+    },
+    "installers": {
+      "type": "ori-installer-network",
+      "blocks": {
+        "installer_01": {
+          "type": "installer",
+          "settings": {
+            "state": "NSW",
+            "name": "Project Overland",
+            "logo": "shopify://shop_images/PROJECT_OVERLANDER_4.png",
+            "platinum": true,
+            "address": "Unit 2, 14 Orielton Rd",
+            "suburb": "Smeaton Grange",
+            "postcode": "2567",
+            "phone": "02 7252 3989",
+            "email": "info@projectoverlander.com.au",
+            "website": "https://www.projectoverlander.com.au/"
+          }
+        },
+        "installer_02": {
+          "type": "installer",
+          "settings": {
+            "state": "VIC",
+            "name": "Get Off Road 4x4 Wodonga",
+            "logo": "shopify://shop_images/image_-_2026-05-26T145509.187.png",
+            "platinum": true,
+            "address": "9 Osburn Street",
+            "suburb": "Wodonga",
+            "postcode": "3690",
+            "phone": "02 6024 3888",
+            "email": "sales@getoffroad4x4.com.au",
+            "website": "https://www.getoffroad4x4.com.au/contact-us"
+          }
+        },
+        "installer_03": {
+          "type": "installer",
+          "settings": {
+            "state": "NSW",
+            "name": "TJM Wagga Wagga",
+            "logo": "shopify://shop_images/Landscape_Alternative_on_Light_2.png",
+            "platinum": true,
+            "address": "3 Rabaul Place",
+            "suburb": "Wagga Wagga",
+            "postcode": "2650",
+            "phone": "02 5954 9955",
+            "email": "sales@tjmwaggawagga.com.au",
+            "website": "https://www.tjmwaggawagga.com.au/"
+          }
+        },
+        "installer_04": {
+          "type": "installer",
+          "settings": {
+            "state": "VIC",
+            "name": "Wangaratta Offroad & Mechanical",
+            "logo": "shopify://shop_images/Wangaratta-OffRoad-Logo_v1_1.png",
+            "platinum": true,
+            "address": "37-39 Hay Ave, IC 3677",
+            "suburb": "Wangaratta",
+            "postcode": "3677",
+            "phone": "(03) 5721 2943",
+            "email": "info@wangarattaoffroad.com.au",
+            "website": "https://www.wangarattaoffroad.com.au/contact"
+          }
+        },
+        "installer_05": {
+          "type": "installer",
+          "settings": {
+            "state": "WA",
+            "name": "Sharp 4x4 Myaree",
+            "logo": "shopify://shop_images/image_-_2026-05-22T092935.065.png",
+            "platinum": true,
+            "address": "94 Norma Road",
+            "suburb": "Myaree",
+            "postcode": "6164",
+            "phone": "(08) 6147 3929",
+            "email": "",
+            "website": "https://sharp4x4.com.au/"
+          }
+        },
+        "installer_06": {
+          "type": "installer",
+          "settings": {
+            "state": "WA",
+            "name": "Sharp 4x4 Cockburn",
+            "logo": "shopify://shop_images/image_-_2026-05-22T092935.065.png",
+            "platinum": true,
+            "address": "11b/816 Beeliar Dr, Cockburn Central WA 6164",
+            "suburb": "Cockburn",
+            "postcode": "6164",
+            "phone": "08 63927049",
+            "email": "",
+            "website": "https://sharp4x4.com.au/contact-us/"
+          }
+        },
+        "installer_07": {
+          "type": "installer",
+          "settings": {
+            "state": "QLD",
+            "name": "Mick Tighe 4x4 & Outdoor",
+            "logo": "shopify://shop_images/MT_STACKED-10SVG_140x_2x_2839bce5-a182-429f-8c3c-8e09d90b109b.svg",
+            "platinum": true,
+            "address": "11 Mort St",
+            "suburb": "Newtown",
+            "postcode": "4350",
+            "phone": "(07) 4632 9782",
+            "email": "",
+            "website": "https://www.micktighe4x4.com.au/"
+          }
+        },
+        "installer_08": {
+          "type": "installer",
+          "settings": {
+            "state": "NSW",
+            "name": "Duffy's Automotive",
+            "logo": "shopify://shop_images/1257_Duffy_s_20Automotive_20Tamworth_20Black_2022.png",
+            "platinum": true,
+            "address": "25 Barnes St,",
+            "suburb": "Taminda",
+            "postcode": "NSW",
+            "phone": "(02) 6766 2774",
+            "email": "",
+            "website": "https://www.duffysautomotivetamworth.repcoservice.net/?utm_source=GMB_listing&utm_medium=organic"
+          }
+        },
+        "installer_09": {
+          "type": "installer",
+          "settings": {
+            "state": "VIC",
+            "name": "ARB Shepparton",
+            "logo": "shopify://shop_images/109-1098596_arb-logo-arb-4x4-accessories.png",
+            "platinum": true,
+            "address": "180 Benalla Rd,",
+            "suburb": "Shepparton",
+            "postcode": "3630",
+            "phone": "(03) 5822 1877",
+            "email": "",
+            "website": "https://www.arb.com.au/arb-stores/arb-shepparton"
+          }
+        },
+        "installer_10": {
+          "type": "installer",
+          "settings": {
+            "state": "QLD",
+            "name": "SNC Automotive",
+            "logo": "shopify://shop_images/logo_1_189edcb0-2c4a-4709-b4ff-d411728c08e9.png",
+            "platinum": true,
+            "address": " 2/25 Kremzow Rd,",
+            "suburb": "Brendale",
+            "postcode": "4500",
+            "phone": "(07) 3205 4315",
+            "email": "",
+            "website": "https://sncautomotive.com.au/"
+          }
+        },
+        "installer_11": {
+          "type": "installer",
+          "settings": {
+            "state": "WA",
+            "name": "ARB Rockingham",
+            "logo": "shopify://shop_images/109-1098596_arb-logo-arb-4x4-accessories.png",
+            "platinum": true,
+            "address": "57 Dixon Rd",
+            "suburb": "Rockingham",
+            "postcode": "6168",
+            "phone": "(08) 9529 2229",
+            "email": "",
+            "website": "https://arbrockingham.com.au/"
+          }
+        },
+        "installer_12": {
+          "type": "installer",
+          "settings": {
+            "state": "TAS",
+            "name": "Fat Builds 4x4",
+            "logo": "shopify://shop_images/Fat_Builds_5_540x_af0b74dc-891e-43cc-aa3f-17febab4f564.png",
+            "platinum": true,
+            "address": "34 Burgess Dr",
+            "suburb": "Shearwater",
+            "postcode": "7307",
+            "phone": "(03) 6428 7240",
+            "email": "",
+            "website": "https://fatbuilds4x4.com.au/"
+          }
+        },
+        "installer_13": {
+          "type": "installer",
+          "settings": {
+            "state": "WA",
+            "name": "Hunter Mechanical Karratha",
+            "logo": "shopify://shop_images/Untitled-Facebook-Ad-1-1024x536.png",
+            "platinum": true,
+            "address": "21 Crane Circle",
+            "suburb": "Pegs Creek",
+            "postcode": "6714",
+            "phone": "(08) 9144 4331",
+            "email": "",
+            "website": ""
+          }
+        },
+        "installer_14": {
+          "type": "installer",
+          "settings": {
+            "state": "WA",
+            "name": "Hunter Mechanical Rockingham",
+            "logo": "shopify://shop_images/Untitled-Facebook-Ad-1-1024x536.png",
+            "platinum": true,
+            "address": "14 Carlston Rd",
+            "suburb": "Rockingham",
+            "postcode": "6168",
+            "phone": "(08) 9279 0664",
+            "email": "",
+            "website": "https://hunter.com.au/?srsltid=ARcRdnqnMBuruhlNnlo8IzFs4q3SCz3yoJuEW2FYz-DhG3aMW5A9H5lz"
+          }
+        },
+        "installer_15": {
+          "type": "installer",
+          "settings": {
+            "state": "WA",
+            "name": "Hunter Mechanical Kenwick",
+            "logo": "shopify://shop_images/Untitled-Facebook-Ad-1-1024x536.png",
+            "platinum": true,
+            "address": "Unit 14/1736 Albany Hwy",
+            "suburb": "Kenwick",
+            "postcode": "6107",
+            "phone": "(08) 9367 0888",
+            "email": "",
+            "website": "https://hunter.com.au/?srsltid=ARcRdnqnMBuruhlNnlo8IzFs4q3SCz3yoJuEW2FYz-DhG3aMW5A9H5lz"
+          }
+        },
+        "installer_16": {
+          "type": "installer",
+          "settings": {
+            "state": "SA",
+            "name": "Jacksons 4x4",
+            "logo": "shopify://shop_images/JA4X4_-_TRANSPARENT_-_WHITE_TEXT_-_HIGHRES.png",
+            "platinum": true,
+            "address": "61 Chris Collins Ct,",
+            "suburb": "Murray Bridge",
+            "postcode": "5253",
+            "phone": " (08) 8532 2550",
+            "email": "",
+            "website": "https://jacksons4x4.com.au/"
+          }
+        },
+        "installer_17": {
+          "type": "installer",
+          "settings": {
+            "state": "VIC",
+            "name": "Ultimate Offroad",
+            "logo": "shopify://shop_images/image_-_2026-05-09T221436.314.png",
+            "platinum": true,
+            "address": "1871 Ferntree Gully Rd",
+            "suburb": "Ferntree Gully",
+            "postcode": "3156",
+            "phone": " (03) 8609 9033",
+            "email": "",
+            "website": "https://ultimateoffroad.com.au/"
+          }
+        },
+        "installer_18": {
+          "type": "installer",
+          "settings": {
+            "state": "VIC",
+            "name": "Opposite Lock Wodonga",
+            "logo": "shopify://shop_images/loog-1920w.webp",
+            "platinum": true,
+            "address": "87 Thomas Mitchell Dr",
+            "suburb": "Wodonga",
+            "postcode": "3690",
+            "phone": "(02) 6056 4414",
+            "email": "",
+            "website": "https://www.oppositelockalburywodonga.com.au/?utm_source=google&utm_medium=organic&utm_campaign=gmb"
+          }
+        },
+        "installer_19": {
+          "type": "installer",
+          "settings": {
+            "state": "VIC",
+            "name": "Echuca Service Centre",
+            "logo": "shopify://shop_images/ESC_LOGO_1_002_002.png",
+            "platinum": true,
+            "address": "1 Northern Hwy,",
+            "suburb": "Echuca",
+            "postcode": "3564",
+            "phone": "(03) 5480 7150",
+            "email": "",
+            "website": "https://www.echucaservicecentre.repcoservice.net/?utm_source=GMB_listing&utm_medium=organic"
+          }
+        },
+        "installer_20": {
+          "type": "installer",
+          "settings": {
+            "state": "ACT",
+            "name": "Garage76 Automotive",
+            "logo": "shopify://shop_images/garage76-logo-generic_230x_2x_75ca580a-0a0e-4ee7-a6e6-64b92f44da1d.webp",
+            "platinum": true,
+            "address": "126 Gilmore Rd,",
+            "suburb": "Queanbeyan",
+            "postcode": "2620",
+            "phone": "(02) 6232 4062",
+            "email": "",
+            "website": "https://garage76.com.au/"
+          }
+        },
+        "installer_21": {
+          "type": "installer",
+          "settings": {
+            "state": "QLD",
+            "name": "Pro 4x4",
+            "logo": "shopify://shop_images/68db4b5f6e52d.png",
+            "platinum": true,
+            "address": "214 Lahrs Rd,",
+            "suburb": "Ormeau",
+            "postcode": "4208",
+            "phone": "(07) 5631 0222",
+            "email": "",
+            "website": "https://www.pro4x4australia.com.au/"
+          }
+        },
+        "installer_22": {
+          "type": "installer",
+          "settings": {
+            "state": "QLD",
+            "name": "ATS Expedition Outfitters",
+            "logo": "shopify://shop_images/ats-eo-logo.webp",
+            "platinum": true,
+            "address": "181/195 Maggiolo Dr,",
+            "suburb": "Mackay",
+            "postcode": "4740",
+            "phone": "(07) 4881 0010",
+            "email": "",
+            "website": "https://atsoutfitters.com.au/"
+          }
+        },
+        "installer_23": {
+          "type": "installer",
+          "settings": {
+            "state": "QLD",
+            "name": "McCormacks 4wd",
+            "logo": "shopify://shop_images/McCormack_Final.png",
+            "platinum": true,
+            "address": "2 Knox Street, Sandgate, QLD 4017",
+            "suburb": "Sandgate",
+            "postcode": "4017",
+            "phone": "07 3269 3294",
+            "email": "",
+            "website": "https://mccormacks4wd.com.au/"
+          }
+        },
+        "installer_24": {
+          "type": "installer",
+          "settings": {
+            "state": "QLD",
+            "name": "BAW Automotive",
+            "logo": "shopify://shop_images/bb1378_4bcb5962094e49ad81e7d2b7a1f0ee3e_mv2.avif",
+            "platinum": true,
+            "address": "Shed 1/477 Newman Rd",
+            "suburb": "Geebung",
+            "postcode": "4034",
+            "phone": "0417 783 415",
+            "email": "",
+            "website": "https://www.bawauto.com.au/"
+          }
+        },
+        "installer_25": {
+          "type": "installer",
+          "settings": {
+            "state": "SA",
+            "name": "Morpowa Auto & Dyno Centre",
+            "logo": "shopify://shop_images/MORPOWA_WEBLOGO.webp",
+            "platinum": true,
+            "address": "Unit 2/14 Famechon Cres,",
+            "suburb": "Modbury North",
+            "postcode": "5092",
+            "phone": "(08) 8264 2077",
+            "email": "",
+            "website": "https://www.morpowa.com/"
+          }
+        },
+        "installer_26": {
+          "type": "installer",
+          "settings": {
+            "state": "WA",
+            "name": "Thor Mechanical",
+            "logo": "shopify://shop_images/TMWA_Logo_012025.png",
+            "platinum": true,
+            "address": "1/6 Dollyup St,",
+            "suburb": "Stake Hill",
+            "postcode": "6181",
+            "phone": "(08) 6243 6965",
+            "email": "",
+            "website": "https://tmwa.com.au/"
+          }
+        },
+        "installer_27": {
+          "type": "installer",
+          "settings": {
+            "state": "NSW",
+            "name": "Truck N Toys",
+            "logo": "shopify://shop_images/GFA-TNT-Logo_1_1.png",
+            "platinum": true,
+            "address": "4/29 Walker St,",
+            "suburb": "South Windsor,",
+            "postcode": "2158",
+            "phone": "(02) 9652 2056",
+            "email": "",
+            "website": "https://trucksntoys.com.au/"
+          }
+        },
+        "installer_28": {
+          "type": "installer",
+          "settings": {
+            "state": "VIC",
+            "name": "Horse Power Factory",
+            "logo": "shopify://shop_images/images_4.png",
+            "platinum": true,
+            "address": "8/14 Amberley Cres,",
+            "suburb": "Dandenong South",
+            "postcode": "3175",
+            "phone": "(03) 9793 1616",
+            "email": "",
+            "website": "https://hp-f.com.au/"
+          }
+        },
+        "installer_29": {
+          "type": "installer",
+          "settings": {
+            "state": "VIC",
+            "name": "Scalzo Automotive",
+            "logo": "shopify://shop_images/NewLogo_1.png",
+            "platinum": true,
+            "address": "13 Ryan Ct,",
+            "suburb": "Warragul",
+            "postcode": "3820",
+            "phone": "(03) 5622 2006",
+            "email": "",
+            "website": "https://www.scalzoautomotive.com.au/"
+          }
+        },
+        "installer_30": {
+          "type": "installer",
+          "settings": {
+            "state": "NSW",
+            "name": "TJM Hunter Valley",
+            "logo": "shopify://shop_images/Landscape_on_Dark_1.png",
+            "platinum": true,
+            "address": "130 Newcastle Rd, Wallsend NSW 2287",
+            "suburb": "Wallsend",
+            "postcode": "2287",
+            "phone": "(02) 4951 1184",
+            "email": "",
+            "website": "https://www.tjmhuntervalley.com.au/"
+          }
+        },
+        "installer_31": {
+          "type": "installer",
+          "settings": {
+            "state": "VIC",
+            "name": "Geelong Performance",
+            "logo": "shopify://shop_images/GPC_Piston_Logo_1.png",
+            "platinum": true,
+            "address": " 26-30 Tarkin Ct, Bell Park VIC 3215",
+            "suburb": "Bell Park",
+            "postcode": "3125",
+            "phone": "(03) 5277 2503",
+            "email": "",
+            "website": "https://www.offroadindustries.com.au/"
+          }
+        },
+        "installer_32": {
+          "type": "installer",
+          "settings": {
+            "state": "VIC",
+            "name": "Autoworks Car Care",
+            "logo": "shopify://shop_images/Autoworks_Logo_REV.png",
+            "platinum": true,
+            "address": "13/71 Frankston Gardens Dr, Carrum Downs VIC",
+            "suburb": "Carrum Downs",
+            "postcode": "3201",
+            "phone": "0483 939 591",
+            "email": "",
+            "website": ""
+          }
+        },
+        "installer_33": {
+          "type": "installer",
+          "settings": {
+            "state": "VIC",
+            "name": "Every Day Offroad",
+            "logo": "shopify://shop_images/EVERYDAY_LOGO_CURSIVE_120_x_120_px_1000_x_1000_px_2.png",
+            "platinum": true,
+            "address": "40 Albemarle St,",
+            "suburb": "Williamstown North",
+            "postcode": "3016",
+            "phone": "1800 519 700",
+            "email": "",
+            "website": ""
+          }
+        }
+      },
+      "block_order": [
+        "installer_01",
+        "installer_02",
+        "installer_03",
+        "installer_04",
+        "installer_05",
+        "installer_06",
+        "installer_07",
+        "installer_08",
+        "installer_09",
+        "installer_10",
+        "installer_11",
+        "installer_12",
+        "installer_13",
+        "installer_14",
+        "installer_15",
+        "installer_16",
+        "installer_17",
+        "installer_18",
+        "installer_19",
+        "installer_20",
+        "installer_21",
+        "installer_22",
+        "installer_23",
+        "installer_24",
+        "installer_25",
+        "installer_26",
+        "installer_27",
+        "installer_28",
+        "installer_29",
+        "installer_30",
+        "installer_31",
+        "installer_32",
+        "installer_33"
+      ],
+      "disabled": true,
+      "settings": {
+        "heading": "Approved Installers",
+        "heading_size": "h2",
+        "subheading": "This package is fitted by certified specialists across Australia.",
+        "cta_text": "",
+        "cta_url": "",
+        "cta_style": "btn--outline",
+        "container": "container",
+        "color_schema": "",
+        "bg_color": "#f3f6f7",
+        "padding_top": 60,
+        "padding_bottom": 60,
+        "custom_id": "approved-installer",
+        "custom_class": ""
+      }
+    },
+    "product_recently_viewed_4ecpYd": {
+      "type": "product-recently-viewed",
+      "name": "t:sections.product-recently-viewed.name",
+      "settings": {
+        "section_header_padding_bottom": "medium",
+        "section_header_content_spacing": "medium",
+        "heading": "Recently viewed products",
+        "highlight_style": "none",
+        "enable_highlight_text_color": false,
+        "heading_size": "h2",
+        "heading_color": "",
+        "description": "",
+        "container": "container",
+        "color_schema": "",
+        "columns": 4,
+        "column_gap": "medium",
+        "row_gap": "medium",
+        "enable_slider": true,
+        "show_nav": true,
+        "show_dots": false,
+        "enable_swipe_mobile": true,
+        "column_mobile": "1",
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "show_section_divider": false,
+        "divider_width": "container",
+        "animations": "inherit"
+      }
+    },
+    "gvm_quote_popup": {
+      "type": "contact-form-v4",
+      "blocks": {
+        "s1": {
+          "type": "step",
+          "settings": {
+            "title": "Your details",
+            "caption": "So we know who to send the quote to."
+          }
+        },
+        "f_name": {
+          "type": "name",
+          "settings": {
+            "label": "Name",
+            "field_name": "Name",
+            "placeholder": "Enter your name",
+            "field_width": "full",
+            "hide_label": true,
+            "required": true
+          }
+        },
+        "f_email": {
+          "type": "email",
+          "settings": {
+            "label": "Email",
+            "placeholder": "Enter your email",
+            "field_width": "full",
+            "hide_label": true
+          }
+        },
+        "f_phone": {
+          "type": "phone",
+          "settings": {
+            "label": "Phone number",
+            "placeholder": "Enter your phone number",
+            "field_width": "full",
+            "hide_label": true,
+            "required": true
+          }
+        },
+        "s2": {
+          "type": "step",
+          "settings": {
+            "title": "Your vehicle",
+            "caption": "Helps us match the right GVM package."
+          }
+        },
+        "f_rego": {
+          "type": "rego_status",
+          "settings": {
+            "label": "Pre or Post rego",
+            "field_name": "Pre or Post rego",
+            "placeholder": "Select one",
+            "options": "Pre rego, Post rego",
+            "field_width": "full",
+            "hide_label": true,
+            "required": true
+          }
+        },
+        "f_vehicle": {
+          "type": "custom_select",
+          "settings": {
+            "label": "Which Vehicle",
+            "field_name": "Which Vehicle",
+            "placeholder": "Which Vehicle",
+            "options": "Ford F150, Chevy 1500, Chevy 2500HD, Toyota Tundra, RAM 2500 (5th Gen), RAM 2500 (6th Gen), Toyota LC300",
+            "depends_on": "",
+            "options_map": "",
+            "empty_text": "Select the field above first",
+            "field_width": "100",
+            "hide_label": true,
+            "required": true
+          }
+        },
+        "f_stage": {
+          "type": "custom_select",
+          "settings": {
+            "label": "What Stage GVM Package",
+            "field_name": "What Stage GVM Package",
+            "placeholder": "What Stage GVM Package",
+            "options": "Stage 1, Stage 2, Stage 3, Stage 3.5, Stage 4, Stage 5, Stage 6, Stage 6.5",
+            "depends_on": "Which Vehicle",
+            "options_map": "Ford F150 | Stage 1, Stage 2, Stage 3, Stage 4, Stage 5, Stage 6\nChevy 1500 | Stage 1, Stage 2, Stage 3, Stage 4, Stage 5\nChevy 2500HD | Stage 1, Stage 2, Stage 3, Stage 3.5, Stage 4, Stage 5, Stage 6, Stage 6.5\nToyota Tundra | Stage 1, Stage 2, Stage 3, Stage 4\nRAM 2500 (5th Gen) | Stage 1, Stage 2, Stage 3, Stage 4, Stage 5\nRAM 2500 (6th Gen) | Stage 1, Stage 2, Stage 3, Stage 4, Stage 5\nToyota LC300 | Stage 1, Stage 2",
+            "empty_text": "Choose your vehicle first",
+            "field_width": "100",
+            "hide_label": true,
+            "required": true
+          }
+        },
+        "s3": {
+          "type": "step",
+          "settings": {
+            "title": "Your enquiry",
+            "caption": "Anything else we should know."
+          }
+        },
+        "f_location": {
+          "type": "location",
+          "settings": {
+            "label": "What is your location",
+            "field_name": "Location",
+            "placeholder": "What is your location?",
+            "field_width": "full",
+            "hide_label": true,
+            "required": true
+          }
+        },
+        "f_message": {
+          "type": "message",
+          "settings": {
+            "label": "Message",
+            "placeholder": "Which GVM Package do you want further information on?",
+            "rows": 3,
+            "field_width": "100",
+            "hide_label": true
+          }
+        }
+      },
+      "block_order": [
+        "s1",
+        "f_name",
+        "f_email",
+        "f_phone",
+        "s2",
+        "f_rego",
+        "f_vehicle",
+        "f_stage",
+        "s3",
+        "f_location",
+        "f_message"
+      ],
+      "settings": {
+        "container": "container",
+        "color_schema": "",
+        "heading": "GVM Enquiry? Contact us Now",
+        "subheading": "",
+        "description": "",
+        "display_mode": "popup",
+        "popup_id": "gvm-quote",
+        "popup_width": 560,
+        "form_design": "design-1",
+        "form_width": 500,
+        "form_alignment": "center",
+        "button_label": "Send",
+        "button_style": "btn--primary",
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "show_section_divider": false,
+        "divider_width": "container",
+        "custom_id": "",
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "gvm_benefits",
+    "gvm_included",
+    "scrolling_promotion_iqVp4T",
+    "gvm_steps",
+    "ori_gvm_approved_VPhEai",
+    "ori_package_grid_RVbeB9",
+    "installers",
+    "product_recently_viewed_4ecpYd",
+    "gvm_quote_popup"
+  ]
+}
