@@ -226,8 +226,13 @@
     </div>
 
   </div>
-</section>
 
+  {%- comment -%}
+    The filter script belongs inside the section. ORI GVM Approved lifts this
+    element out of the page and re-runs only the scripts it finds within it,
+    so a script placed after the closing tag would be left behind and the
+    state buttons would render dead on every page that pulls this list.
+  {%- endcomment -%}
 <script>
 (function () {
   var sid    = {{ section_id | json }};
@@ -283,6 +288,7 @@
   });
 })();
 </script>
+</section>
 
 {% schema %}
 {
