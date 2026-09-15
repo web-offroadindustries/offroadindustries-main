@@ -22,30 +22,9 @@
   {% endif %}
 >
   <head>
-    {%- comment -%}
-      /collections (the "list collections" page) has no collection of its own, so it
-      can't mirror /collections/all's product grid + filters. Per merchant request,
-      send /collections visitors to /collections/all so both URLs show the same page.
-      Scoped to the list-collections template only, evaluated server-side in Liquid,
-      and skipped inside the theme editor (request.design_mode) so the template stays
-      editable. Shopify admin URL Redirects can't cover /collections (reserved route),
-      so this is the theme-side equivalent. Delete this block to restore the default
-      all-collections listing at /collections. /collections/all never redirects back,
-      so there is no loop.
-    {%- endcomment -%}
     {%- if template.name == 'list-collections' and request.design_mode == false -%}
       <script>window.location.replace('/collections/all?sort_by=best-selling');</script>
     {%- endif -%}
-    {%- comment -%}
-      Default the /collections/all sort order to "best selling". Shopify's built-in
-      "all" collection has no admin sort setting, and this theme sorts server-side from
-      the sort_by URL param (falling back to the collection default). So when a visitor
-      lands on /collections/all with no sort chosen, add sort_by=best-selling (keeping
-      any active filters), which the normal grid then honors. Scoped to the all
-      collection; skipped in the theme editor; the JS guard on the existing sort_by
-      param means it fires at most once (no loop) and never overrides a shopper's
-      manual sort choice.
-    {%- endcomment -%}
     {%- if template.name == 'collection' and collection.handle == 'all' and request.design_mode == false -%}
       <script>
         (function () {
