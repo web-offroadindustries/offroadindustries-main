@@ -133,6 +133,7 @@
 .ori-gvm-approved__band--bleed .ori-gvm-approved__intro {
   padding-left: var(--approved-gutter, 24px);
   padding-right: var(--approved-gutter, 24px);
+  text-align: center;
 }
 .ori-gvm-approved__intro-text {
   margin: 8px 0 0;
