@@ -87,6 +87,22 @@
             var found = doc.querySelector(this.selector);
             if (!found) throw new Error('selector not found on source page');
 
+            /* Data only: take the installer cards but not the source page's
+               own heading or backdrop, so the section around them supplies the
+               heading, description and background instead. The source section
+               carries those as inline styles, which is why they are cleared
+               here rather than in the stylesheet. */
+            if (this.dataset.dataOnly === '1') {
+              var head = found.querySelector(
+                '.dealer-locator__header, .ori-installer-network__header'
+              );
+              if (head) head.parentNode.removeChild(head);
+
+              found.style.background = 'transparent';
+              found.style.setProperty('--dl-pt', '0px');
+              found.style.setProperty('--dl-pb', '0px');
+            }
+
             this.target.innerHTML = '';
             this.target.appendChild(document.importNode(found, true));
             runScripts(this.target);

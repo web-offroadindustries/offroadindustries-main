@@ -119,3 +119,24 @@
     animation: none;
   }
 }
+
+/* Heading and description shown when the section supplies its own, rather
+   than taking the ones on the source page. */
+.ori-gvm-approved__intro {
+  margin-bottom: 28px;
+}
+
+/* In a full-bleed band the wrapper has no gutter of its own, which is fine
+   for the pulled cards because they bring their own inner element. The intro
+   has nothing of the sort, so it would sit against the screen edge without
+   this - matched to the gutter the cards get just above. */
+.ori-gvm-approved__band--bleed .ori-gvm-approved__intro {
+  padding-left: var(--approved-gutter, 24px);
+  padding-right: var(--approved-gutter, 24px);
+}
+.ori-gvm-approved__intro-text {
+  margin: 8px 0 0;
+  max-width: 62ch;
+  opacity: 0.75;
+  overflow-wrap: break-word;
+}

@@ -196,8 +196,11 @@
       "settings": {
         "source_page": "ori-gvm-upgrades",
         "source_section": ".dealer-locator",
+        "data_only": true,
+        "description": "This package is fitted by certified specialists across Australia.",
+        "bg_color": "#f3f6f7",
         "custom_selector": "",
-        "heading": "",
+        "heading": "Approved Installers",
         "fallback_text": "View our approved installers",
         "full_width": true,
         "content_gutter": 24,
