@@ -195,7 +195,7 @@
       "name": "ORI GVM Approved",
       "settings": {
         "source_page": "ori-gvm-upgrades",
-        "source_section": "[data-section-type=\"ori-installer-network\"]",
+        "source_section": ".dealer-locator",
         "custom_selector": "",
         "heading": "",
         "fallback_text": "View our approved installers",
