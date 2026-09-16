@@ -248,9 +248,6 @@
     {% comment %} Custom metafield for head tag like GTag tracking {% endcomment %}
     {{ shop.metafields.foxtheme.code_head.value }}
 
-    {{ 'Evogria.woff2' | asset_url | preload_tag: as: 'font', type: 'font/woff2', crossorigin: 'anonymous' }}
-    {{ 'Geomanist-Regular.woff2' | asset_url | preload_tag: as: 'font', type: 'font/woff2', crossorigin: 'anonymous' }}
-
     {%- comment -%}
       Stand-in faces, loaded on every page so the whole store shares one set.
       Evogria and Geomanist are declared in brand-guidelines.css.liquid but
@@ -539,7 +536,7 @@
         "sku": {{ product.selected_or_first_available_variant.sku | json }},
         "description": {{ product.description | strip_html | truncatewords: 50 | json }},
         "url": {{ canonical_url | json }},
-        "image": "{{ product.featured_image | image_url: width: 1024 }}",
+        {% if product.featured_image %}"image": "{{ product.featured_image | image_url: width: 1024 }}",{% endif %}
         "brand": {
           "@type": "Brand",
           "name": {{ product.vendor | json }},
