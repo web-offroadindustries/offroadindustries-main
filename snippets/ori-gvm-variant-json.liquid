@@ -1,13 +1,9 @@
 {%- comment -%}
-  Emits a single variant's resolved GVM/GCM figures as a JSON object, used by
-  ori-gvm-product.liquid to switch the page content per Step variant with JS.
+  One variant's resolved GVM/GCM figures as JSON, used by ori-gvm-product.liquid
+  to switch page content per Step variant.
 
-  Accepts:
-    variant - the product variant
-    s       - section.settings (for fallbacks)
-
-  Resolution order for each figure: variant metafield (custom then ori), then
-  product metafield (custom then ori), then the section setting fallback.
+  Accepts: variant, and s (section.settings, for fallbacks).
+  Resolution: variant metafield (custom then ori), product metafield, setting.
 {%- endcomment -%}
 {%- liquid
   assign vmf = variant.metafields.custom

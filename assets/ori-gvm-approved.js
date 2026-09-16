@@ -1,16 +1,9 @@
-/* ─── ORI GVM Approved ────────────────────────────────────────────────────
-   Pulls a section out of another page and shows it here, so the installer
-   list is maintained in exactly one place.
-
-   Why client side. Liquid cannot read another page's section blocks; a page
-   object exposes its title and body, not the sections built on top of it. So
-   the source page is fetched and the wanted section lifted out of it. The
-   trade is that the list is not in this page's initial HTML, which is fine
-   for a list that already has a canonical home of its own.
-
-   Progressive enhancement. If the fetch fails, or the script never runs, the
-   section falls back to a plain link to the source page rather than an empty
-   gap. */
+/* ORI GVM Approved.
+ *
+ * Lifts a section out of another page so the installer list has one home.
+ * Liquid cannot read another page's section blocks, hence the client-side
+ * fetch. Falls back to a plain link if the fetch or the script never lands.
+ */
 (function () {
   'use strict';
 

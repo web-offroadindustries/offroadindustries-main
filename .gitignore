@@ -11,8 +11,6 @@ tests/*
 !tests/gvm-review-directory.test.cjs
 node_modules/
 
-# Claude Code files
-.claude/
 .worktrees/
 
 # Generated/local files

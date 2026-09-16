@@ -29,9 +29,8 @@
 
     {% if settings.share_pinterest %}
       {%- liquid
-        # image_url on a blank image raises a Liquid error that ends up
-        # printed inside the href, so resolve it first and leave the
-        # media parameter empty for a product with no image.
+        # image_url on a blank image raises a Liquid error that prints inside
+        # the href, so resolve it first and leave media empty when there is none.
         assign share_media = ''
         if share_image != blank
           assign share_media = share_image | image_url: width: 1024, height: 1024

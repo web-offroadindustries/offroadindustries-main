@@ -1,28 +1,10 @@
 {%- comment -%}
-  ORI GVM What's Included.
+  ORI GVM What's Included: item list one side, up to four images the other.
+  The grid reshapes by image count (1 wide, 2 across, 3 with one spanning,
+  4 as a square) and becomes a scroll-snap carousel under 750px.
 
-  Two columns: the item list on one side, up to four images on the other. The
-  image grid changes shape with how many images are added, so the block always
-  fills its column without letterboxing:
-
-    1 image  - one wide frame
-    2 images - one row of two
-    3 images - two on top, one spanning underneath
-    4 images - two by two
-
-  Under 750px the columns stack (content first, then images) and the image grid
-  becomes a scroll-snap carousel driven by assets/ori-gvm-included.js.
-
-  The Image blocks are section settings, so every product on the template shares
-  them. A product that needs its own photos gets them from a File list product
-  metafield instead, named by the "Per-product image metafield" setting. The
-  blocks are the fallback: they are what shows for every product that has no
-  files in that metafield, which is why they should stay filled in.
-
-  The outer wrapper keeps the .ori-gvm-product and layout classes so the band
-  background and typography match the sections above and below it. The list and
-  media use their own .ori-gvm-incl namespace, deliberately not the shared
-  __cards / __card classes, so the old single-section styling cannot reach in.
+  Image blocks are section settings, so every product on the template shares
+  them. A product with its own File list metafield overrides them.
 {%- endcomment -%}
 
 {{ 'ori-gvm-product.css' | asset_url | stylesheet_tag }}
@@ -60,15 +42,10 @@
     endif
   endfor
 
-  # Per-product images. Every product sharing this template also shares the one
-  # set of Image blocks, so a product metafield holding its own image files
-  # takes over the grid for that product, and the blocks stay as the fallback
-  # for every product that has not been given any.
-  #
-  # The metafield wants to be a File list restricted to images. Anything in it
-  # that is not an image has no width, so it is skipped rather than rendered as
-  # an empty frame, and if nothing usable survives the blocks are used instead.
-  # Capped at four to match the block limit and the grid shapes in the CSS.
+  # Per-product images override the shared Image blocks for one product; the
+  # blocks stay as the fallback. Wants a File list of images - anything with
+  # no width is skipped rather than drawn as an empty frame. Capped at four
+  # to match the block limit and the grid shapes in the CSS.
   assign use_mf_images = false
   assign incl_mf = section.settings.images_metafield | default: 'custom.included_images' | split: '.'
   if product != blank and incl_mf.size == 2

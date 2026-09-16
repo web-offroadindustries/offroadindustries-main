@@ -47,15 +47,9 @@
   assign m_upgraded_gcm = vmf.upgraded_gcm.value | default: vmfo.upgraded_gcm.value | default: mf.upgraded_gcm.value | default: mfo.upgraded_gcm.value
   assign m_payload_gain = vmf.payload_gain.value | default: vmfo.payload_gain.value | default: mf.payload_gain.value | default: mfo.payload_gain.value
 
-  # Hero blurb. The stage_summary metafield wins where it is set, then the
-  # section's Subtitle setting, then the product's Shopify description. That
-  # last fallback is here because the description is the field the client
-  # actually fills in on the product, and a product carrying only a
-  # description used to render nothing at all in this spot.
-  #
-  # newline_to_br applies to the metafield only - it is plain text. The
-  # description is already HTML and would pick up a stray break after every
-  # closing tag.
+  # Hero blurb: stage_summary metafield, then the Subtitle setting, then the
+  # product's Shopify description - the field the client actually fills in.
+  # newline_to_br applies to the metafield only; the description is already HTML.
   assign summary_html = ''
   if m_stage_summary != blank
     assign summary_html = m_stage_summary | newline_to_br
@@ -295,12 +289,8 @@
           </div>
 
           {%- comment -%}
-            Sits under the buttons rather than beside them: it answers the doubt
-            someone has right after reading the payload figure, without becoming
-            a third thing competing with Request Quote.
-
-            Rendered only when a URL is set. The calculator has no published
-            page yet, so defaulting one here would ship a link straight to a 404.
+            Under the buttons rather than beside them, so it does not compete
+            with Request Quote. Rendered only when a URL is set.
           {%- endcomment -%}
           {%- if section.settings.calc_url != blank and section.settings.calc_label != blank -%}
             <p class="ori-gvm-product__calc-link">

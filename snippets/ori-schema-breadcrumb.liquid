@@ -1,12 +1,8 @@
 {%- comment -%}
-  ori-schema-breadcrumb.liquid
-  Outputs BreadcrumbList JSON-LD.
-  Usage: {%- render 'ori-schema-breadcrumb', crumbs: crumbs_array -%}
-  crumbs_array format (build in the calling template/section):
-    assign crumbs = 'Home|/,GVM Upgrades|/collections/gvm-upgrades,Toyota Tundra GVM|/collections/toyota-tundra-gvm-upgrades' | split: ','
+  BreadcrumbList JSON-LD.
 
-  For product pages, pass product + collection so it auto-builds the crumbs.
-  Usage (product): {%- render 'ori-schema-breadcrumb', product: product, collection: collection -%}
+  Pass crumbs: a 'Label|/url' list split on commas, or pass product and
+  collection on a product page and it builds the crumbs itself.
 {%- endcomment -%}
 
 {%- liquid

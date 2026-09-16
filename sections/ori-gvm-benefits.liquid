@@ -1,16 +1,7 @@
 {%- comment -%}
-  ORI GVM Key Benefits.
-
-  A row of outlined cards, each with an icon, an uppercase title and supporting
-  copy, matching the approved design. Icons come from the shared ori-gvm-icon
-  snippet so this section and What's Included draw on one set.
-
-  Three across on desktop, two on tablet, one on mobile. Cards stretch to equal
-  height so the row keeps a straight baseline whatever the copy length.
-
-  The outer wrapper keeps the .ori-gvm-product and layout classes so the band
-  background matches its neighbours; everything inside uses .ori-gvm-bnf, well
-  away from the shared __card rules.
+  ORI GVM Key Benefits. Outlined icon cards, three across on desktop, two on
+  tablet, one on mobile, stretched to equal height. Icons come from the shared
+  ori-gvm-icon snippet. Uses the .ori-gvm-bnf namespace, away from __card.
 {%- endcomment -%}
 
 {{ 'ori-gvm-product.css' | asset_url | stylesheet_tag }}

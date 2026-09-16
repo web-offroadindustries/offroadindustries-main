@@ -1,6 +1,6 @@
-# CLAUDE.md
+# Theme guide
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+Developer notes for working on this theme: architecture, commands and the conventions worth knowing before changing anything.
 
 ## Theme Overview
 

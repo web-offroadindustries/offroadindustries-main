@@ -14,14 +14,10 @@ if (!customElements.get('b2b-shipping-calc')) {
       this.calcBtn.addEventListener('click', this._handleCalc.bind(this));
       this.countryEl.addEventListener('change', this._handleCountryChange.bind(this));
 
-      /* A quote is only true for the cart it was priced against, and the
-       * result states an item count. Change the cart and both go stale, so
-       * clear the panel and make them press Calculate again rather than leave
-       * a wrong number sitting under a wrong count. */
-      /* PUB_SUB_EVENTS is a top-level const in global.js, so it is a global
-       * binding but NOT a property of window. Reach it by name, the way
-       * cart-goal.js and cart.js do, and typeof-guard it in case global.js
-       * has not parsed yet. */
+      /* A quote is only true for the cart it was priced against, so clear the
+       * panel on any cart change rather than leave a stale number on screen. */
+      /* PUB_SUB_EVENTS is a top-level const in global.js: a global binding but
+       * not a property of window. Reach it by name and typeof-guard it. */
       if (window.FoxThemeEvents && typeof PUB_SUB_EVENTS !== 'undefined') {
         window.FoxThemeEvents.subscribe(PUB_SUB_EVENTS.cartUpdate, () => {
           if (this.resultEl) this.resultEl.innerHTML = '';
@@ -54,24 +50,10 @@ if (!customElements.get('b2b-shipping-calc')) {
       }
     }
 
-    /* Prices the real cart, and never modifies it.
-     *
-     * This used to add the product to the cart, read the rates, then remove it
-     * again. That was the only way to get a number before wholesale customers
-     * could add to cart at all, but it was always wrong in two ways and both
-     * get worse now that they have real carts:
-     *
-     *   1. /cart/shipping_rates.json prices the WHOLE cart, so the "estimate
-     *      for this product" silently included everything already in it.
-     *   2. The removal was fire-and-forget (.catch(() => {})), so a failed
-     *      remove left a product in the customer's cart that they never added.
-     *
-     * Carrier rates depend on the whole consignment anyway - weight, cubic,
-     * and which shipping profile each item belongs to - so a single-item
-     * number could never match checkout for a multi-item order. Pricing the
-     * actual cart is both safer and the only version that can agree with what
-     * Machship quotes at checkout.
-     */
+    /* Prices the real cart, and never modifies it. An earlier version added
+     * the product, read the rates and removed it again, which mispriced any
+     * multi-item cart (/cart/shipping_rates.json prices the whole cart) and
+     * could strand an item when the fire-and-forget removal failed. */
     async _handleCalc(e) {
       e.preventDefault();
       const country  = this.countryEl.value;

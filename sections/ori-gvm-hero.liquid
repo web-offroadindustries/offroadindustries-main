@@ -79,20 +79,9 @@
 
       <div class="ori-gvm-hero__ctas">
         {%- comment -%}
-          Button 1 is the primary call to action. When "opens the quote form" is
-          ticked it opens the contact-form-v4 section that is sitting on the same
-          page in popup mode, using the same modal-opener wiring as the product
-          page and the sticky bar, rather than navigating anywhere. That keeps the
-          visitor on the collection they just landed on.
-
-          This popup was originally added to route around /pages/contact, which
-          did not exist and returned 404. That link has since been repointed at
-          /pages/contact-us store wide, so the fallback below is a working page
-          now rather than a dead end.
-
-          If the popup section is ever removed from the template the button falls
-          back to its URL, so the worst case is the old behaviour rather than a
-          button that does nothing.
+          Primary call to action. With "opens the quote form" ticked it opens the
+          contact-form-v4 popup already on the page instead of navigating away.
+          Falls back to its URL if that section is ever removed.
         {%- endcomment -%}
         {%- if section.settings.btn_1_text != blank -%}
           {%- if section.settings.btn_1_opens_quote -%}
@@ -121,19 +110,11 @@
       </div>
 
       {%- comment -%}
-        Third call to action, for the link through to the load calculator. Blank
-        by default, so every hero that does not set it is unchanged.
-
-        In its own row rather than a third item in the flex list above: giving it
-        flex-basis 100% inside that row stretched it into a full width bar. A
-        wrapper keeps it a normal, content width button that simply sits on its
-        own line.
-
-        Note for anyone changing the style: do not use btn--link here. The theme
-        paints its button hover fill with .btn::before/::after, and the :not()
-        guard on that rule excludes btn--plain and btn--underline but not
-        btn--link, so a btn--link inside .btn ends up with the fill showing as a
-        solid block.
+        Third call to action, through to the load calculator. Blank by default.
+        In its own row because flex-basis 100% in the row above stretched it
+        into a full width bar. Do not use btn--link: the theme paints its hover
+        fill with .btn::before/::after and the :not() guard misses btn--link,
+        so the fill shows as a solid block.
       {%- endcomment -%}
       {%- if section.settings.btn_3_text != blank -%}
         <div class="ori-gvm-hero__calc-cta">

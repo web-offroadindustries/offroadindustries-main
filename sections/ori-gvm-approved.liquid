@@ -1,15 +1,9 @@
 {%- comment -%}
-  ORI GVM Approved.
+  ORI GVM Approved. Shows a section that lives on another page, so the
+  installer list is edited in one place and every page carrying this follows.
 
-  Shows a section that lives on another page, so the installer list is edited
-  in one place and every page that carries this section follows.
-
-  Point "Source page" at ORI GVM Upgrades and leave the source set to Dealer
-  locator. Editing that page is then the only thing anyone has to do.
-
-  Liquid cannot reach another page's section blocks, so the lifting is done in
-  the browser by assets/ori-gvm-approved.js. Until it lands, and if it never
-  does, a link to the source page is shown in its place.
+  Liquid cannot reach another page's section blocks, so assets/
+  ori-gvm-approved.js lifts it in the browser. Falls back to a link.
 {%- endcomment -%}
 
 {{ 'ori-gvm-approved.css' | asset_url | stylesheet_tag }}

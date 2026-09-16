@@ -1,18 +1,7 @@
 {%- comment -%}
-  ORI GVM Installation Process.
-
-  A numbered row of steps: teal counter disc, title, description, joined by a
-  connector line that runs from one disc edge to the next. Numbers come from a
-  CSS counter, so adding or reordering steps renumbers them automatically.
-
-  Under 750px it becomes a single centred column and the connector rotates to
-  run vertically between the discs. The connector is drawn on each step except
-  the last, and its length is derived from the grid gap, so it never leaves the
-  stub of a line hanging off the end of the row.
-
-  The outer wrapper keeps the .ori-gvm-product and layout classes so the band
-  background matches the sections around it. Everything inside uses its own
-  .ori-gvm-steps namespace.
+  ORI GVM Installation Process. Numbered steps joined by a connector line;
+  numbers come from a CSS counter so reordering renumbers automatically.
+  Single centred column under 750px with the connector running vertically.
 {%- endcomment -%}
 
 {{ 'ori-gvm-product.css' | asset_url | stylesheet_tag }}

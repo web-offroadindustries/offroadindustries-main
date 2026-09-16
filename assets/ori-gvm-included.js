@@ -1,13 +1,9 @@
 /* ORI GVM What's Included gallery.
  *
- * The image row is a CSS scroll-snap carousel on mobile, so swiping is native
- * and needs no JS. This element adds the parts CSS cannot do: autoplay, the
- * dot indicators, and knowing when to stay out of the way.
- *
- * Autoplay is skipped entirely when the delay is 0, when the viewport is wide
- * enough that the images are a static grid, when the user prefers reduced
- * motion, when the section is off screen, or once the visitor has scrolled the
- * row themselves.
+ * The row is a CSS scroll-snap carousel on mobile, so swiping needs no JS.
+ * This adds autoplay and the dot indicators. Autoplay is skipped when the
+ * delay is 0, on wide viewports, under reduced motion, while off screen, or
+ * once the visitor has scrolled the row themselves.
  */
 class OriGvmGallery extends HTMLElement {
   connectedCallback() {

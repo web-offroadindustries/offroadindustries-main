@@ -357,17 +357,10 @@
   }
   {%- if section.settings.compact_values -%}
     {% comment %}
-      Opt-in, for tables whose values are long paired strings: the tyre sizes on
-      the SSM pages are written "37x12.5R18 | 37x12.5R20", about 195px wide at
-      16px. That is right on the 200px column cap computed above, so the browser
-      takes the break opportunity at the space beside the pipe and one cell
-      renders as four stacked lines where the source sheet shows two pairs on
-      two lines. It reads as different data even though the characters match.
-
-      Smaller text puts a pair back inside the column. nowrap holds one together
-      if a longer pair ever turns up; the explicit newlines are <br> so they
-      still break between pairs, and the table already scrolls sideways if it
-      has to. Desktop only, so the stacked mobile cards are untouched.
+      Opt-in, for tables whose values are long paired strings. Tyre sizes like
+      "37x12.5R18 | 37x12.5R20" sit right on the 200px column cap, so the
+      browser breaks beside the pipe and one cell becomes four stacked lines.
+      Smaller text plus nowrap keeps a pair together. Desktop only.
     {% endcomment %}
     @media (min-width: 990px) {
       .gvm-compare--{{ section.id }} .gvm-compare__cell--dense {

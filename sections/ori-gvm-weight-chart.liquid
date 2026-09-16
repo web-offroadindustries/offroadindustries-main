@@ -1,17 +1,10 @@
 {{ 'ori-gvm-weight-chart.css' | asset_url | stylesheet_tag }}
 {%- comment -%}
-  ORI GVM Weight Breakdown
-  ------------------------
-  A donut chart showing where a vehicle's GVM is spent (kerb weight, passengers,
-  accessories, remaining payload). Part-to-whole at a glance, capped at 6
-  segments, which is the one case a donut is the right form.
-
-  Colours come from a fixed, validated categorical order and are assigned by
-  block index. They are never cycled or merchant-picked, because the ordering is
-  what keeps adjacent segments distinguishable for colour-blind readers.
-
-  Every value is readable three ways (segment label, legend, table view) so no
-  meaning is carried by colour alone.
+  ORI GVM Weight Breakdown. Donut showing where a vehicle's GVM is spent,
+  capped at 6 segments. Colours follow a fixed categorical order by block
+  index, never cycled or merchant-picked, so adjacent segments stay legible
+  for colour-blind readers. Every value is also readable in the legend and
+  table view, so nothing is carried by colour alone.
 {%- endcomment -%}
 {%- liquid
   assign section_id = section.settings.custom_id | default: section.id

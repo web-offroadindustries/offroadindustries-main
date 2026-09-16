@@ -249,15 +249,10 @@
     {{ shop.metafields.foxtheme.code_head.value }}
 
     {%- comment -%}
-      Stand-in faces, loaded on every page so the whole store shares one set.
-      Evogria and Geomanist are declared in brand-guidelines.css.liquid but
-      their .woff2 files are not on the theme, so text was falling through to
-      the browser default. Saira Condensed and Barlow are the closest freely
-      licensable match to the brand guidelines.
-
-      They sit AFTER the brand names in --brand-display-font / --brand-body-font,
-      so uploading the real files to Assets makes them take over with no change
-      here. fonts.googleapis.com is already preconnected above.
+      Stand-in faces. Evogria and Geomanist are named in brand-guidelines.css
+      but their .woff2 files were never uploaded, so Saira Condensed and Barlow
+      stand in. They sit after the brand names in --brand-display-font /
+      --brand-body-font, so uploading the real files takes over with no change.
     {%- endcomment -%}
     {% comment %}theme-check-disable{% endcomment %}
     <link
@@ -319,15 +314,9 @@
     {{ 'b2b-portal.css' | asset_url | stylesheet_tag }}
   {%- endif -%}
   {%- comment -%}
-    Wholesale customers used to be bounced to /pages/b2b-catalog from the home
-    page and from their account page. That made sense while they could not
-    order, since the catalog was the only thing built for them. Now that they
-    check out through the normal cart it traps them: bounced off the home page
-    on every visit, and unable to reach their own order history at all.
-
-    The catalog is still one click away, from the Product Catalog link that
-    snippets/header__addons.liquid renders for wholesale customers, and they
-    are still returned to it straight after logging in, further down this file.
+    Wholesale customers are no longer bounced to /pages/b2b-catalog. That made
+    sense while they could not order; now it only blocks their order history.
+    The catalog stays one click away from the header link.
   {%- endcomment -%}
 </head>
 
@@ -355,15 +344,10 @@
             return;
           }
           {%- comment -%}
-            Non-SSO return-to-catalog. The b2b-catalog gate arms localStorage.b2b_redirect
-            for LOGGED-OUT visitors; after they log in (email + code) and click back to the
-            store, this consumes the key once and returns them to /pages/b2b-catalog.
-
-            Emitted ONLY for logged-in customers ({% if customer %}), which is the guard the
-            earlier version was missing: logged-out visitors never receive this script, so
-            the old global trap (which bounced ALL traffic + 404s to the catalog) cannot
-            recur. The key is preserved on /account pages, removed on use elsewhere, and the
-            gate only arms it while logged out, so there is no loop.
+            Non-SSO return-to-catalog. The b2b-catalog gate arms
+            localStorage.b2b_redirect while logged OUT; this consumes it once
+            after login. Emitted only for logged-in customers, which is the
+            guard the earlier version missed and why it trapped all traffic.
           {%- endcomment -%}
           {%- if customer -%}
           var raw2 = localStorage.getItem('b2b_redirect');
