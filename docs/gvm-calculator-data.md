@@ -32,7 +32,18 @@ Required fields:
 - Rear axle limit (kg)
 - Towing capacity (kg)
 - TBM limit (kg)
+- Payload (kg) - optional
 - Quote/product page URL - optional
+
+Payload is the figure the specification is rated to carry. It is shown beside GVM,
+GCM, towing capacity and TBM limit, and beside the option itself in the specification
+list. Leave it empty and the line is hidden rather than showing 0 kg, so existing
+specifications are unaffected until someone fills it in.
+
+Payload is display only. It is not part of the axle or GVM maths, which already work
+from kerb weight and the loads entered, so a wrong payload figure cannot skew a
+compliance result. Published payload is normally GVM minus kerb weight; enter the
+figure from the client sheet rather than deriving it.
 
 The block does not change the vehicle dropdown. It adds another selectable rating option after the vehicle is selected.
 
@@ -58,6 +69,8 @@ The calculator assigns the axle position internally:
 ## Editing a vehicle
 
 Each dropdown option is one object in the `vehicles` array. The base/OEM rating is stored under `factory_specs`; landing-page stage ratings are stored under that vehicle's `upgrades` array.
+
+Both `factory_specs` and any entry under `upgrades` accept an optional `payload` number, which behaves exactly as the theme editor field above.
 
 To update the base/OEM rating, edit the values under `factory_specs`:
 

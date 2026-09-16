@@ -79,6 +79,7 @@
       rearAxleLimit: normalizeMass(source.rear_axle_limit),
       towingCapacity: normalizeMass(source.towing_capacity),
       tbmLimit: normalizeMass(source.tbm_limit),
+      payload: normalizeMass(source.payload),
     };
   }
 

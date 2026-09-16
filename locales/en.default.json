@@ -677,6 +677,7 @@
     "combined_gcm": "Combined GCM",
     "towing_capacity": "Towing capacity",
     "tbm_limit": "TBM limit",
+    "payload": "Payload",
     "atm_entered": "ATM entered",
     "tbm_entered": "TBM entered",
     "vehicle_total": "Vehicle total (GVM)",

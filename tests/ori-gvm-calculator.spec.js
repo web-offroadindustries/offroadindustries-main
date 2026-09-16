@@ -188,6 +188,21 @@ test('loads merchant-editable custom specifications and accessories', async ({ p
   await expect(page.getByText('Vehicle total (GVM): 2693 / 4200 kg')).toBeVisible();
 });
 
+test('shows the payload a specification is rated for, and hides it when unset', async ({ page }) => {
+  await page.goto(FIXTURE_URL);
+  await selectVehicle(page, 'chevrolet_silverado_1500');
+
+  // The factory rating carries no payload, so the line stays empty rather
+  // than claiming 0 kg.
+  await expect(page.getByText('Payload: —')).toBeVisible();
+
+  await page.getByLabel(/Client-added 4200kg spec/i).check();
+  await expect(page.getByText('Payload: 1672 kg')).toBeVisible();
+
+  // It also appears against the option itself, before anything is selected.
+  await expect(page.getByText(/Payload 1672/)).toBeVisible();
+});
+
 test('keeps card headings inside containers and uses the requested ORI teal accents', async ({
   page,
 }) => {

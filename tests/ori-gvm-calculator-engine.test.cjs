@@ -157,6 +157,28 @@ test('falls back to factory limits for unknown upgrades', () => {
   assert.equal(engine.getLimits(vehicle, 'missing').gvm, 3500);
 });
 
+test('carries an optional payload rating without making it required', () => {
+  // Payload is a published figure the client types in, not something the
+  // maths needs, so a vehicle without one stays valid and reports zero.
+  assert.equal(engine.getLimits(vehicle).payload, 0);
+  assert.equal(engine.getLimits(vehicle, 'upgrade-4000').payload, 0);
+  assert.equal(engine.validateVehicle(vehicle).valid, true);
+
+  const rated = {
+    ...vehicle,
+    upgrades: [{ ...vehicle.upgrades[0], payload: 1672 }],
+  };
+  assert.equal(engine.getLimits(rated, 'upgrade-4000').payload, 1672);
+  assert.equal(engine.calculate(rated, { selectedUpgradeId: 'upgrade-4000' }).limits.payload, 1672);
+
+  // Junk values collapse to zero so the front end hides the line.
+  const junk = {
+    ...vehicle,
+    upgrades: [{ ...vehicle.upgrades[0], payload: -50 }],
+  };
+  assert.equal(engine.getLimits(junk, 'upgrade-4000').payload, 0);
+});
+
 test('classifies values at warning and over-limit boundaries', () => {
   assert.equal(engine.classifyStatus(94.99, 100, 0.95), 'ok');
   assert.equal(engine.classifyStatus(95, 100, 0.95), 'warning');
@@ -387,9 +409,17 @@ test('exposes merchant-editable calculator data blocks in the section schema', (
       'rear_axle_limit',
       'towing_capacity',
       'tbm_limit',
+      'payload',
       'quote_url',
     ]
   );
+
+  // Payload must stay optional: a default would apply a made-up figure to
+  // every specification block already saved in the customizer.
+  const payloadSetting = customSpec.settings.find((setting) => setting.id === 'payload');
+  assert.equal(payloadSetting.type, 'number');
+  assert.equal('default' in payloadSetting, false);
+  assert.match(payloadSetting.info, /optional/i);
   assert.deepEqual(
     customAccessory.settings.map((setting) => setting.id).filter(Boolean),
     ['enabled', 'target', 'zone', 'label', 'mass_kg']

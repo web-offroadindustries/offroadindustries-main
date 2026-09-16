@@ -117,6 +117,7 @@
           "combined_gcm": {{ 'gvm_calculator.combined_gcm' | t | json }},
           "towing_capacity": {{ 'gvm_calculator.towing_capacity' | t | json }},
           "tbm_limit": {{ 'gvm_calculator.tbm_limit' | t | json }},
+          "payload": {{ 'gvm_calculator.payload' | t | json }},
           "atm_entered": {{ 'gvm_calculator.atm_entered' | t | json }},
           "tbm_entered": {{ 'gvm_calculator.tbm_entered' | t | json }},
           "vehicle_total": {{ 'gvm_calculator.vehicle_total' | t | json }},
@@ -175,6 +176,7 @@
                   "rear_axle_limit": {{ block.settings.rear_axle_limit | json }},
                   "towing_capacity": {{ block.settings.towing_capacity | json }},
                   "tbm_limit": {{ block.settings.tbm_limit | json }},
+                  "payload": {{ block.settings.payload | json }},
                   "quote_url": {{ block.settings.quote_url | json }}
                 }
                 {%- assign first_custom_specification = false -%}
@@ -442,6 +444,12 @@
           "id": "tbm_limit",
           "label": "TBM limit (kg)",
           "default": 450
+        },
+        {
+          "type": "number",
+          "id": "payload",
+          "label": "Payload (kg)",
+          "info": "Optional. The payload this specification is rated for, shown beside GVM and GCM. Leave empty to hide it."
         },
         {
           "type": "url",

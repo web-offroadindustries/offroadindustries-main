@@ -302,6 +302,7 @@
           rear_axle_limit: positiveNumber(specification.rear_axle_limit),
           towing_capacity: positiveNumber(specification.towing_capacity),
           tbm_limit: positiveNumber(specification.tbm_limit),
+          payload: positiveNumber(specification.payload),
         };
 
         if (
@@ -673,6 +674,9 @@
             this.t('tbm', 'TBM') +
             ' ' +
             rounded(upgrade.tbm_limit);
+          if (upgrade.payload) {
+            detail += ' • ' + this.t('payload', 'Payload') + ' ' + rounded(upgrade.payload);
+          }
           if (upgrade.description) {
             detail = upgrade.description + ' • ' + detail;
           }
@@ -788,6 +792,7 @@
         ['combinedGcm', this.t('combined_gcm', 'Combined GCM')],
         ['towingCapacity', this.t('towing_capacity', 'Towing capacity')],
         ['tbmLimit', this.t('tbm_limit', 'TBM limit')],
+        ['payload', this.t('payload', 'Payload')],
         ['atmEntered', this.t('atm_entered', 'ATM entered')],
         ['tbmEntered', this.t('tbm_entered', 'TBM entered')],
       ];
@@ -921,6 +926,7 @@
       this.setSummaryLine('combinedGcm', limits.gcm, true);
       this.setSummaryLine('towingCapacity', limits.towingCapacity, true);
       this.setSummaryLine('tbmLimit', limits.tbmLimit, true);
+      this.setSummaryLine('payload', limits.payload, limits.payload > 0);
       this.setSummaryLine('atmEntered', result.atm, result.atm > 0);
       this.setSummaryLine('tbmEntered', result.tbm, result.tbm > 0);
 
