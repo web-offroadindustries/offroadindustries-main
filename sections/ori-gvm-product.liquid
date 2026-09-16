@@ -47,7 +47,23 @@
   assign m_upgraded_gcm = vmf.upgraded_gcm.value | default: vmfo.upgraded_gcm.value | default: mf.upgraded_gcm.value | default: mfo.upgraded_gcm.value
   assign m_payload_gain = vmf.payload_gain.value | default: vmfo.payload_gain.value | default: mf.payload_gain.value | default: mfo.payload_gain.value
 
-  assign stage_summary = m_stage_summary
+  # Hero blurb. The stage_summary metafield wins where it is set, then the
+  # section's Subtitle setting, then the product's Shopify description. That
+  # last fallback is here because the description is the field the client
+  # actually fills in on the product, and a product carrying only a
+  # description used to render nothing at all in this spot.
+  #
+  # newline_to_br applies to the metafield only - it is plain text. The
+  # description is already HTML and would pick up a stray break after every
+  # closing tag.
+  assign summary_html = ''
+  if m_stage_summary != blank
+    assign summary_html = m_stage_summary | newline_to_br
+  elsif section.settings.subtitle != blank
+    assign summary_html = section.settings.subtitle
+  elsif product.description != blank
+    assign summary_html = product.description
+  endif
   assign sku_display = current_variant.sku
   # Price: use the selected variant's price (for single-variant products this is
   # the product price), falling back to the price metafield / section setting.
@@ -198,10 +214,8 @@
 
           <h1 class="ori-gvm-product__title h2" data-gvm-title>{{ m_title }}</h1>
 
-          {%- if stage_summary != blank or section.settings.subtitle != blank or has_variants -%}
-            <div class="ori-gvm-product__subtitle rte" data-gvm-summary>
-              {%- if stage_summary != blank -%}{{ stage_summary | newline_to_br }}{%- elsif section.settings.subtitle != blank -%}{{ section.settings.subtitle }}{%- endif -%}
-            </div>
+          {%- if summary_html != blank or has_variants -%}
+            <div class="ori-gvm-product__subtitle rte" data-gvm-summary>{{ summary_html }}</div>
           {%- endif -%}
 
           {%- if has_variants -%}

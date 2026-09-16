@@ -68,6 +68,13 @@
     assign r_image = vproduct.featured_image | image_url: width: 1200
   endif
 
-  assign r_summary_html = r_summary | newline_to_br
+  # Matches the section: plain-text summary gets its newlines turned into
+  # breaks, the product description is already HTML and passes straight
+  # through, so switching Step never blanks a description-only product.
+  if r_summary != blank
+    assign r_summary_html = r_summary | newline_to_br
+  else
+    assign r_summary_html = vproduct.description
+  endif
 -%}
 {"title": {{ r_title | json }}, "summary": {{ r_summary_html | json }}, "sku": {{ variant.sku | json }}, "price": {{ r_price | json }}, "image": {{ r_image | json }}, "gvm": {{ r_gvm | json }}, "gvmLabel": {{ r_gvm_label | json }}, "gcm": {{ r_gcm | json }}, "gcmLabel": {{ r_gcm_label | json }}, "payload": {{ r_payload_display | json }}, "specOriginalGvm": {{ r_original_gvm | json }}, "specUpgradedGvm": {{ r_spec_upgraded_gvm | json }}, "specPayload": {{ r_payload | json }}, "specGcm": {{ r_spec_gcm | json }}}
