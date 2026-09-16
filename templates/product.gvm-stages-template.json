@@ -522,8 +522,8 @@
       "type": "ori-gvm-approved",
       "name": "ORI GVM Approved",
       "settings": {
-        "source_page": "ori-gvm-upgrades",
-        "source_section": ".dealer-locator",
+        "source_page": "gvm-approves",
+        "source_section": "[data-section-type=\"ori-installer-network\"]",
         "custom_selector": "",
         "heading": "",
         "fallback_text": "View our approved installers",
