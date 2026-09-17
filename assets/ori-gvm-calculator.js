@@ -3,6 +3,7 @@
 
   var ENGINE = window.ORIGvmCalculatorEngine;
   var TOUR_STORAGE_KEY = 'ori_gvm_tour_seen_v1';
+  var PAYLOAD_CHECK_ENABLED = false;
 
   function element(tagName, className, text) {
     var node = document.createElement(tagName);
@@ -750,38 +751,43 @@
         this.createNumberField('cargoRearKg', this.t('cargo_rear', 'Cargo - rear')),
       ]);
 
-      var payload = element(
-        'section',
-        'ori-gvm-calculator__card ori-gvm-calculator__load-card ori-gvm-calculator__load-card--payload'
-      );
-      var payloadHeading = element(
-        'h3',
-        'ori-gvm-calculator__card-title',
-        this.t('payload_check_title', 'Payload check')
-      );
-      var payloadField = this.createNumberField(
-        'payloadCheckKg',
-        this.t('payload_to_check', 'Payload to check')
-      );
-      var payloadHelp = element(
-        'p',
-        'ori-gvm-calculator__field-help',
-        this.t(
-          'payload_check_help',
-          'Enter a total payload for a standalone check. This does not change the GVM or axle calculations.'
-        )
-      );
-      payloadHelp.id = 'ori-gvm-payload-help-' + this.sectionId;
-      this.numberInputs.payloadCheckKg.setAttribute('aria-describedby', payloadHelp.id);
-      this.payloadLiveStatus = element(
-        'span',
-        'ori-gvm-calculator__payload-status ori-gvm-calculator__sr-only'
-      );
-      this.payloadLiveStatus.setAttribute('role', 'status');
-      this.payloadLiveStatus.setAttribute('aria-live', 'polite');
-      this.payloadLiveStatus.setAttribute('aria-atomic', 'true');
-      append(payload, [payloadHeading, payloadField, payloadHelp, this.payloadLiveStatus]);
-      append(group, [trailer, occupants, payload]);
+      append(group, [trailer, occupants]);
+
+      if (PAYLOAD_CHECK_ENABLED) {
+        var payload = element(
+          'section',
+          'ori-gvm-calculator__card ori-gvm-calculator__load-card ori-gvm-calculator__load-card--payload'
+        );
+        var payloadHeading = element(
+          'h3',
+          'ori-gvm-calculator__card-title',
+          this.t('payload_check_title', 'Payload check')
+        );
+        var payloadField = this.createNumberField(
+          'payloadCheckKg',
+          this.t('payload_to_check', 'Payload to check')
+        );
+        var payloadHelp = element(
+          'p',
+          'ori-gvm-calculator__field-help',
+          this.t(
+            'payload_check_help',
+            'Enter a total payload for a standalone check. This does not change the GVM or axle calculations.'
+          )
+        );
+        payloadHelp.id = 'ori-gvm-payload-help-' + this.sectionId;
+        this.numberInputs.payloadCheckKg.setAttribute('aria-describedby', payloadHelp.id);
+        this.payloadLiveStatus = element(
+          'span',
+          'ori-gvm-calculator__payload-status ori-gvm-calculator__sr-only'
+        );
+        this.payloadLiveStatus.setAttribute('role', 'status');
+        this.payloadLiveStatus.setAttribute('aria-live', 'polite');
+        this.payloadLiveStatus.setAttribute('aria-atomic', 'true');
+        append(payload, [payloadHeading, payloadField, payloadHelp, this.payloadLiveStatus]);
+        group.appendChild(payload);
+      }
+
       return group;
     }
 
@@ -827,11 +833,19 @@
         ['towingCapacity', this.t('towing_capacity', 'Towing capacity')],
         ['tbmLimit', this.t('tbm_limit', 'TBM limit')],
         ['payloadAllowance', this.t('payload_allowance', 'Payload allowance')],
-        ['payloadEntered', this.t('payload_entered', 'Payload entered')],
-        ['payloadRemaining', this.t('payload_remaining', 'Payload remaining')],
-        ['atmEntered', this.t('atm_entered', 'ATM entered')],
-        ['tbmEntered', this.t('tbm_entered', 'TBM entered')],
       ];
+
+      if (PAYLOAD_CHECK_ENABLED) {
+        definitions.push(
+          ['payloadEntered', this.t('payload_entered', 'Payload entered')],
+          ['payloadRemaining', this.t('payload_remaining', 'Payload remaining')]
+        );
+      }
+
+      definitions.push(
+        ['atmEntered', this.t('atm_entered', 'ATM entered')],
+        ['tbmEntered', this.t('tbm_entered', 'TBM entered')]
+      );
 
       definitions.forEach(
         function (definition) {
@@ -958,24 +972,31 @@
       });
       this.lastResult = result;
       var limits = result.limits;
-      var payloadBalance = this.payloadBalance(result.payloadCheck);
 
       this.setSummaryLine('vehicleGvm', limits.gvm, true);
       this.setSummaryLine('combinedGcm', limits.gcm, true);
       this.setSummaryLine('towingCapacity', limits.towingCapacity, true);
       this.setSummaryLine('tbmLimit', limits.tbmLimit, true);
       this.setSummaryLine('payloadAllowance', limits.payload, limits.payload > 0);
-      this.setSummaryLine('payloadEntered', result.payloadCheck.entered, result.payloadCheck.entered > 0);
-      this.setSummaryLine(
-        'payloadRemaining',
-        payloadBalance.value,
-        payloadBalance.hasValue,
-        payloadBalance.label
-      );
       this.setSummaryLine('atmEntered', result.atm, result.atm > 0);
       this.setSummaryLine('tbmEntered', result.tbm, result.tbm > 0);
-      if (this.payloadLiveStatus) {
-        this.payloadLiveStatus.textContent = this.payloadStatusText(result);
+
+      if (PAYLOAD_CHECK_ENABLED) {
+        var payloadBalance = this.payloadBalance(result.payloadCheck);
+        this.setSummaryLine(
+          'payloadEntered',
+          result.payloadCheck.entered,
+          result.payloadCheck.entered > 0
+        );
+        this.setSummaryLine(
+          'payloadRemaining',
+          payloadBalance.value,
+          payloadBalance.hasValue,
+          payloadBalance.label
+        );
+        if (this.payloadLiveStatus) {
+          this.payloadLiveStatus.textContent = this.payloadStatusText(result);
+        }
       }
 
       if (this.numberInputs.atm) {
@@ -1083,7 +1104,6 @@
     buildLoadSummaryText() {
       var result = this.lastResult;
       var selectedAccessories = this.selectedAccessories();
-      var payloadBalance = result ? this.payloadBalance(result.payloadCheck) : null;
 
       if (!this.vehicle || !result) {
         return '';
@@ -1105,14 +1125,19 @@
           rounded(result.cargoMass) +
           ' ' +
           this.t('kg', 'kg'),
-        this.t('payload_to_check', 'Payload to check') +
-          ': ' +
-          rounded(result.payloadCheck.entered) +
-          ' ' +
-          this.t('kg', 'kg'),
-        '',
-        this.t('accessories_title', 'Accessories') + ':',
       ];
+
+      if (PAYLOAD_CHECK_ENABLED) {
+        lines.push(
+          this.t('payload_to_check', 'Payload to check') +
+            ': ' +
+            rounded(result.payloadCheck.entered) +
+            ' ' +
+            this.t('kg', 'kg')
+        );
+      }
+
+      lines.push('', this.t('accessories_title', 'Accessories') + ':');
 
       if (selectedAccessories.length > 0) {
         selectedAccessories.forEach(
@@ -1131,9 +1156,7 @@
         lines.push('- None selected');
       }
 
-      lines.push(
-        '',
-        'Results:',
+      var resultLines = [
         this.formatLimitLine(
           this.t('front_axle', 'Front axle'),
           result.frontAxle,
@@ -1154,19 +1177,32 @@
           result.combinedMass,
           result.limits.gcm
         ),
-        this.formatLimitLine(
-          this.t('payload', 'Payload'),
-          result.payloadCheck.entered,
-          result.limits.payload
-        ),
-        payloadBalance.label +
-          ': ' +
-          (payloadBalance.hasValue
-            ? rounded(payloadBalance.value) + ' ' + this.t('kg', 'kg')
-            : '—'),
+      ];
+
+      if (PAYLOAD_CHECK_ENABLED) {
+        var payloadBalance = this.payloadBalance(result.payloadCheck);
+        resultLines.push(
+          this.formatLimitLine(
+            this.t('payload', 'Payload'),
+            result.payloadCheck.entered,
+            result.limits.payload
+          ),
+          payloadBalance.label +
+            ': ' +
+            (payloadBalance.hasValue
+              ? rounded(payloadBalance.value) + ' ' + this.t('kg', 'kg')
+              : '—')
+        );
+      }
+
+      resultLines.push(
         this.formatLimitLine(this.t('atm', 'ATM'), result.atm, result.limits.towingCapacity),
         this.formatLimitLine(this.t('tbm', 'TBM'), result.tbm, result.limits.tbmLimit)
       );
+      lines.push('', 'Results:');
+      resultLines.forEach(function (line) {
+        lines.push(line);
+      });
 
       return lines.join('\n');
     }
@@ -1282,18 +1318,26 @@
         ),
       ]);
       var bars = element('div', 'ori-gvm-calculator__bar-grid');
-      var payloadBalance = this.payloadBalance(result.payloadCheck);
-      append(bars, [
-        this.createHorizontalGauge(
-          this.t('payload', 'Payload'),
-          result.payloadCheck.entered,
-          result.limits.payload,
-          'ori-gvm-calculator__bar--payload',
-          payloadBalance.detail
-        ),
+      var barItems = [];
+
+      if (PAYLOAD_CHECK_ENABLED) {
+        var payloadBalance = this.payloadBalance(result.payloadCheck);
+        barItems.push(
+          this.createHorizontalGauge(
+            this.t('payload', 'Payload'),
+            result.payloadCheck.entered,
+            result.limits.payload,
+            'ori-gvm-calculator__bar--payload',
+            payloadBalance.detail
+          )
+        );
+      }
+
+      barItems.push(
         this.createHorizontalGauge(this.t('gvm', 'GVM'), result.vehicleMass, result.limits.gvm),
-        this.createHorizontalGauge(this.t('gcm', 'GCM'), result.combinedMass, result.limits.gcm),
-      ]);
+        this.createHorizontalGauge(this.t('gcm', 'GCM'), result.combinedMass, result.limits.gcm)
+      );
+      append(bars, barItems);
       append(this.visualHost, [gauges, bars]);
     }
 
