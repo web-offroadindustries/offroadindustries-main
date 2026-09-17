@@ -49,3 +49,48 @@ test('slideshow offers a 1200px image candidate for high-density mobile screens'
   assert.equal(widths.length, 2, 'desktop and mobile slideshow images define widths');
   assert.deepEqual(widths, [expected, expected]);
 });
+
+test('theme caps speculative preconnects at four critical origins', () => {
+  const theme = read('layout/theme.liquid');
+  const preconnectOrigins = Array.from(
+    theme.matchAll(/<link rel="preconnect" href="([^"]+)"/g),
+    (match) => match[1],
+  );
+
+  assert.ok(
+    preconnectOrigins.length <= 4,
+    `expected no more than four preconnects, found ${preconnectOrigins.length}: ${preconnectOrigins.join(', ')}`,
+  );
+  assert.equal(preconnectOrigins.includes('https://cdn.shopify.com'), false);
+  assert.equal(preconnectOrigins.includes('https://connect.podium.com'), false);
+  assert.equal(preconnectOrigins.includes('https://static.klaviyo.com'), false);
+  assert.equal(preconnectOrigins.includes('https://options.shopapps.site'), false);
+});
+
+test('PageFly avoids duplicate font preconnects only in the main layout', () => {
+  const theme = read('layout/theme.liquid');
+  const pageflySnippet = read('snippets/pagefly-app-header.liquid');
+  const pageflyLayout = read('layout/theme.pagefly.liquid');
+  const passwordLayout = read('layout/password.liquid');
+
+  assert.match(theme, /include 'pagefly-app-header', skip_google_font_preconnects: true/);
+  assert.match(pageflySnippet, /unless skip_google_font_preconnects/);
+  assert.match(pageflySnippet, /echo '<link rel="preconnect" href="https:\/\/fonts\.googleapis\.com">'/);
+  assert.match(pageflySnippet, /echo '<link rel="preconnect" href="https:\/\/fonts\.gstatic\.com" crossorigin>'/);
+  assert.match(pageflyLayout, /include 'pagefly-app-header' %}/);
+  assert.match(passwordLayout, /include 'pagefly-app-header' %}/);
+});
+
+test('DNS-only app hints preserve the deferred commerce runtimes', () => {
+  const theme = read('layout/theme.liquid');
+
+  assert.match(theme, /<link rel="dns-prefetch" href="https:\/\/connect\.podium\.com">/);
+  assert.match(theme, /<link rel="dns-prefetch" href="https:\/\/static\.klaviyo\.com">/);
+  assert.match(theme, /<link rel="dns-prefetch" href="https:\/\/options\.shopapps\.site">/);
+  assert.match(theme, /<script src="\{\{ 'vendor\.js' \| asset_url \}\}" defer="defer"><\/script>/);
+  assert.match(theme, /<script src="\{\{ 'product-form\.js' \| asset_url \}\}" defer="defer"><\/script>/);
+  assert.match(theme, /\{\{ content_for_header \}\}/);
+  assert.match(theme, /\{%- render 'bold-options-hybrid' -%\}/);
+  assert.match(theme, /\{%- render 'bold-common' -%\}/);
+  assert.match(theme, /\{%- render 'sc-includes' -%\}/);
+});

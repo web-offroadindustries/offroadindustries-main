@@ -75,12 +75,10 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="theme-color" content="">
     <link rel="canonical" href="{{ canonical_url }}">
-    <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://connect.podium.com" crossorigin>
+    <link rel="dns-prefetch" href="https://connect.podium.com">
     <link rel="dns-prefetch" href="https://www.googletagmanager.com">
-    <link rel="preconnect" href="https://static.klaviyo.com" crossorigin>
     <link rel="dns-prefetch" href="https://static.klaviyo.com">
     <link rel="dns-prefetch" href="https://a.klaviyo.com">
     <link rel="dns-prefetch" href="https://cdn.roseperl.com">
@@ -284,7 +282,7 @@
     {%- endcomment -%}
     <link rel="preload" href="{{ 'header-bundle.css' | asset_url }}" as="style">
     {%- if template.name == 'product' -%}
-      <link rel="preconnect" href="https://options.shopapps.site" crossorigin>
+      <link rel="dns-prefetch" href="https://options.shopapps.site">
       <link
         rel="preload"
         href="{{ 'bold-options.css' | asset_url }}"
@@ -297,7 +295,7 @@
     <link rel="preload" href="{{ 'slideshow-component.css' | asset_url }}" as="style">
     {% comment %}theme-check-enable{% endcomment %}
 
-  {% include 'pagefly-app-header' %}
+  {% include 'pagefly-app-header', skip_google_font_preconnects: true %}
   {%- liquid
     assign b2b_user = false
     if customer
