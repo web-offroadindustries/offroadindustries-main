@@ -1,7 +1,7 @@
 {
-  "version": 5,
+  "version": 6,
   "source_kind": "ori_published_landing_page_package_specs",
-  "source_note": "Vehicle limits are taken from the current ORI landing page stage/specification tables for Chevrolet Silverado 1500, Chevy Silverado 2500HD, Ford F150, Toyota Tundra, and ORI SSM Chevy Silverado 2500HD. Baseline front and rear axle masses are calculator estimates derived from published kerb weights; confirm exact axle loads by weighbridge for each vehicle.",
+  "source_note": "Vehicle limits and kerb weights are taken from the current ORI landing page stage/specification tables for Chevrolet Silverado 1500, Chevy Silverado 2500HD, Ford F150, Toyota Tundra, RAM 2500 5th and 6th Gen, and Silverado NB1 legal builds. Payload uses the published value where it reconciles and GVM minus the matching kerb baseline where source rows conflict. Baseline front and rear axle masses are calculator estimates; confirm exact axle loads, compliance paperwork and carrying capacity by weighbridge for each vehicle.",
   "accessory_source_note": "Accessory weights use explicit weights published on ORI product pages or public Shopify product JSON. Items with only load ratings, spring ratings, capacity ratings, or apparent placeholder shipping weights are excluded.",
   "vehicles": [
     {
@@ -22,7 +22,8 @@
         "front_axle_limit": 1724,
         "rear_axle_limit": 1724,
         "towing_capacity": 4500,
-        "tbm_limit": 450
+        "tbm_limit": 450,
+        "payload": 757
       },
       "upgrades": [
         {
@@ -36,7 +37,8 @@
           "front_axle_limit": 1724,
           "rear_axle_limit": 1926,
           "towing_capacity": 4500,
-          "tbm_limit": 450
+          "tbm_limit": 450,
+          "payload": 1077
         },
         {
           "id": "chevrolet_silverado_1500_stage_2",
@@ -49,7 +51,8 @@
           "front_axle_limit": 1724,
           "rear_axle_limit": 1926,
           "towing_capacity": 4200,
-          "tbm_limit": 420
+          "tbm_limit": 420,
+          "payload": 1087
         },
         {
           "id": "chevrolet_silverado_1500_stage_3_ltz",
@@ -62,7 +65,8 @@
           "front_axle_limit": 1724,
           "rear_axle_limit": 2126,
           "towing_capacity": 4500,
-          "tbm_limit": 450
+          "tbm_limit": 450,
+          "payload": 1272
         },
         {
           "id": "chevrolet_silverado_1500_stage_3_zr2",
@@ -74,8 +78,9 @@
           "gcm": 8050,
           "front_axle_limit": 1724,
           "rear_axle_limit": 2126,
-          "towing_capacity": 4500,
-          "tbm_limit": 450
+          "towing_capacity": 4200,
+          "tbm_limit": 420,
+          "payload": 1272
         },
         {
           "id": "chevrolet_silverado_1500_stage_4_ltz",
@@ -88,7 +93,8 @@
           "front_axle_limit": 1770,
           "rear_axle_limit": 2480,
           "towing_capacity": 4500,
-          "tbm_limit": 450
+          "tbm_limit": 450,
+          "payload": 1672
         },
         {
           "id": "chevrolet_silverado_1500_stage_4_zr2",
@@ -100,8 +106,9 @@
           "gcm": 8450,
           "front_axle_limit": 1770,
           "rear_axle_limit": 2480,
-          "towing_capacity": 4500,
-          "tbm_limit": 450
+          "towing_capacity": 4200,
+          "tbm_limit": 420,
+          "payload": 1672
         },
         {
           "id": "chevrolet_silverado_1500_stage_5_ltz",
@@ -114,7 +121,8 @@
           "front_axle_limit": 1770,
           "rear_axle_limit": 2480,
           "towing_capacity": 4500,
-          "tbm_limit": 450
+          "tbm_limit": 450,
+          "payload": 1672
         },
         {
           "id": "chevrolet_silverado_1500_stage_5_zr2",
@@ -126,8 +134,9 @@
           "gcm": 8450,
           "front_axle_limit": 1770,
           "rear_axle_limit": 2480,
-          "towing_capacity": 4500,
-          "tbm_limit": 450
+          "towing_capacity": 4200,
+          "tbm_limit": 420,
+          "payload": 1672
         }
       ]
     },
@@ -142,119 +151,128 @@
       "factory_specs": {
         "wheelbase_mm": 4036,
         "hitch_overhang_mm": 1550,
-        "baseline_front_kg": 2197,
-        "baseline_rear_kg": 1464,
+        "baseline_front_kg": 2257,
+        "baseline_rear_kg": 1505,
         "gvm": 4495,
         "gcm": 12474,
         "front_axle_limit": 2540,
         "rear_axle_limit": 2994,
         "towing_capacity": 4500,
-        "tbm_limit": 450
+        "tbm_limit": 450,
+        "payload": 733
       },
       "upgrades": [
         {
           "id": "chevy_silverado_2500hd_stage_1",
           "name": "Stage 1: The Weekender Family Getaway",
           "description": "CHV-2500-Stage1-GVM; 3 inch torsion package",
-          "baseline_front_kg": 2245,
-          "baseline_rear_kg": 1496,
+          "baseline_front_kg": 2275,
+          "baseline_rear_kg": 1517,
           "gvm": 5500,
           "gcm": 12474,
           "front_axle_limit": 2540,
           "rear_axle_limit": 2994,
           "towing_capacity": 4500,
-          "tbm_limit": 450
+          "tbm_limit": 450,
+          "payload": 1708
         },
         {
           "id": "chevy_silverado_2500hd_stage_2",
           "name": "Stage 2: The Tourer Edition",
           "description": "CHV-2500-Stage2-GVM; 3 inch torsion package",
-          "baseline_front_kg": 2245,
-          "baseline_rear_kg": 1496,
+          "baseline_front_kg": 2281,
+          "baseline_rear_kg": 1521,
           "gvm": 6000,
           "gcm": 12474,
           "front_axle_limit": 2722,
           "rear_axle_limit": 3289,
           "towing_capacity": 4500,
-          "tbm_limit": 450
+          "tbm_limit": 450,
+          "payload": 2198
         },
         {
           "id": "chevy_silverado_2500hd_stage_3",
           "name": "Stage 3: The Heavy Hauler",
           "description": "CHV-2500-Stage3-GVM; 3 inch coilover package",
-          "baseline_front_kg": 2245,
-          "baseline_rear_kg": 1496,
+          "baseline_front_kg": 2286,
+          "baseline_rear_kg": 1524,
           "gvm": 6000,
           "gcm": 12474,
           "front_axle_limit": 2722,
           "rear_axle_limit": 3289,
           "towing_capacity": 4500,
-          "tbm_limit": 450
+          "tbm_limit": 450,
+          "payload": 2190
         },
         {
           "id": "chevy_silverado_2500hd_stage_3_5",
           "name": "Stage 3.5: Kelderman Air Edition",
           "description": "CHV-2500-Stage3-GVM-K; 3 inch coilover + Kelderman package",
-          "baseline_front_kg": 2245,
-          "baseline_rear_kg": 1496,
+          "baseline_front_kg": 2286,
+          "baseline_rear_kg": 1524,
           "gvm": 6000,
           "gcm": 12474,
           "front_axle_limit": 2722,
           "rear_axle_limit": 3289,
           "towing_capacity": 4500,
-          "tbm_limit": 450
+          "tbm_limit": 450,
+          "payload": 2190
         },
         {
           "id": "chevy_silverado_2500hd_stage_4",
           "name": "Stage 4: The 5-Inch Lift Build",
           "description": "CHV-2500-Stage4-GVM; 5 inch torsion package",
-          "baseline_front_kg": 2245,
-          "baseline_rear_kg": 1496,
+          "baseline_front_kg": 2317,
+          "baseline_rear_kg": 1545,
           "gvm": 6000,
           "gcm": 12474,
           "front_axle_limit": 2722,
           "rear_axle_limit": 3289,
           "towing_capacity": 4500,
-          "tbm_limit": 450
+          "tbm_limit": 450,
+          "payload": 2138
         },
         {
           "id": "chevy_silverado_2500hd_stage_5",
           "name": "Stage 5: Lifted & Loaded",
           "description": "CHV-2500-Stage5-GVM; 6.5 inch torsion package",
-          "baseline_front_kg": 2245,
-          "baseline_rear_kg": 1496,
+          "baseline_front_kg": 2317,
+          "baseline_rear_kg": 1545,
           "gvm": 6000,
           "gcm": 12474,
           "front_axle_limit": 2722,
           "rear_axle_limit": 3289,
           "towing_capacity": 4500,
-          "tbm_limit": 450
+          "tbm_limit": 450,
+          "payload": 2138
         },
         {
           "id": "chevy_silverado_2500hd_stage_6",
           "name": "Stage 6: The MEGA Build",
           "description": "CHV-2500-Stage6-GVM; 6.5 inch coilover package",
-          "baseline_front_kg": 2245,
-          "baseline_rear_kg": 1496,
+          "baseline_front_kg": 2317,
+          "baseline_rear_kg": 1545,
           "gvm": 6000,
           "gcm": 12474,
           "front_axle_limit": 2722,
           "rear_axle_limit": 3289,
           "towing_capacity": 4500,
-          "tbm_limit": 450
+          "tbm_limit": 450,
+          "payload": 2138
         },
         {
           "id": "chevy_silverado_2500hd_stage_6_5",
           "name": "Stage 6.5: Monster Kelderman Build",
           "description": "CHV-2500-Stage6-GVM-K; 6.5 inch coilover + Kelderman package",
-          "baseline_front_kg": 2245,
-          "baseline_rear_kg": 1496,
+          "baseline_front_kg": 2317,
+          "baseline_rear_kg": 1545,
           "gvm": 6000,
           "gcm": 12474,
           "front_axle_limit": 2722,
           "rear_axle_limit": 3289,
           "towing_capacity": 4500,
-          "tbm_limit": 450
+          "tbm_limit": 450,
+          "payload": 2138
         }
       ]
     },
@@ -276,7 +294,8 @@
         "front_axle_limit": 1565,
         "rear_axle_limit": 1565,
         "towing_capacity": 4500,
-        "tbm_limit": 450
+        "tbm_limit": 450,
+        "payload": 769
       },
       "upgrades": [
         {
@@ -290,7 +309,8 @@
           "front_axle_limit": 1700,
           "rear_axle_limit": 2000,
           "towing_capacity": 4500,
-          "tbm_limit": 450
+          "tbm_limit": 450,
+          "payload": 1224
         },
         {
           "id": "ford_f150_stage_2",
@@ -303,7 +323,8 @@
           "front_axle_limit": 1700,
           "rear_axle_limit": 2000,
           "towing_capacity": 4500,
-          "tbm_limit": 450
+          "tbm_limit": 450,
+          "payload": 1219
         },
         {
           "id": "ford_f150_stage_3",
@@ -316,7 +337,8 @@
           "front_axle_limit": 1850,
           "rear_axle_limit": 2450,
           "towing_capacity": 4500,
-          "tbm_limit": 450
+          "tbm_limit": 450,
+          "payload": 1819
         },
         {
           "id": "ford_f150_stage_4",
@@ -329,7 +351,8 @@
           "front_axle_limit": 1850,
           "rear_axle_limit": 2450,
           "towing_capacity": 4500,
-          "tbm_limit": 450
+          "tbm_limit": 450,
+          "payload": 1819
         },
         {
           "id": "ford_f150_stage_5",
@@ -342,20 +365,22 @@
           "front_axle_limit": 1700,
           "rear_axle_limit": 2300,
           "towing_capacity": 4500,
-          "tbm_limit": 450
+          "tbm_limit": 450,
+          "payload": 1509
         },
         {
           "id": "ford_f150_stage_6",
           "name": "Stage 6: The Monster Build",
-          "description": "FRD-F150-Stage6-GVM; 3700kg GVM + 7800kg GCM from specification table",
+          "description": "FRD-F150-Stage6-GVM; 3700kg GVM + 7720kg GCM from specification table",
           "baseline_front_kg": 1370,
           "baseline_rear_kg": 1121,
           "gvm": 3700,
-          "gcm": 7800,
+          "gcm": 7720,
           "front_axle_limit": 1700,
           "rear_axle_limit": 2000,
           "towing_capacity": 4500,
-          "tbm_limit": 450
+          "tbm_limit": 450,
+          "payload": 1209
         }
       ]
     },
@@ -364,7 +389,7 @@
       "name": "Toyota Tundra",
       "category": "ute",
       "quote_url": "/pages/toyota-tundra",
-      "source_note": "ORI Toyota Tundra Limited & Platinum landing page stage/specification table. Platinum kerb weights are used as the conservative calculator baseline.",
+      "source_note": "ORI Toyota Tundra Limited & Platinum landing page stage/specification table. Platinum kerb weights and the matching GVM-minus-kerb payload are used as the conservative calculator baseline.",
       "factory_option_label": "Factory / OEM rating",
       "factory_option_description": "Factory 3536kg GVM, 7825kg GCM; Platinum kerb baseline used",
       "factory_specs": {
@@ -377,7 +402,8 @@
         "front_axle_limit": 1850,
         "rear_axle_limit": 1850,
         "towing_capacity": 4500,
-        "tbm_limit": 450
+        "tbm_limit": 450,
+        "payload": 702
       },
       "upgrades": [
         {
@@ -391,7 +417,8 @@
           "front_axle_limit": 1850,
           "rear_axle_limit": 2000,
           "towing_capacity": 4500,
-          "tbm_limit": 450
+          "tbm_limit": 450,
+          "payload": 986
         },
         {
           "id": "toyota_tundra_stage_2",
@@ -404,7 +431,8 @@
           "front_axle_limit": 1850,
           "rear_axle_limit": 2000,
           "towing_capacity": 4500,
-          "tbm_limit": 450
+          "tbm_limit": 450,
+          "payload": 986
         },
         {
           "id": "toyota_tundra_stage_3",
@@ -417,7 +445,8 @@
           "front_axle_limit": 1850,
           "rear_axle_limit": 2450,
           "towing_capacity": 4500,
-          "tbm_limit": 450
+          "tbm_limit": 450,
+          "payload": 1436
         },
         {
           "id": "toyota_tundra_stage_4",
@@ -430,108 +459,370 @@
           "front_axle_limit": 1850,
           "rear_axle_limit": 2450,
           "towing_capacity": 4500,
-          "tbm_limit": 450
+          "tbm_limit": 450,
+          "payload": 1436
+        }
+      ]
+    },
+    {
+      "id": "ram_2500hd_5th_gen",
+      "name": "RAM 2500HD 5th Gen",
+      "category": "ute",
+      "quote_url": "/pages/ram-2500hd-5th-gen-gvm",
+      "source_note": "ORI RAM 2500HD 5th Gen landing page specification table for 2019-2024 RAM Australia-delivered vehicles. Stage 2 and 3 payloads use GVM minus published kerb weight because the printed payload row conflicts; baseline axle masses are estimated for calculator planning.",
+      "factory_option_label": "Factory / OEM NB1 rating",
+      "factory_option_description": "OEM 4495kg GVM, 12695kg GCM, 3609kg kerb weight",
+      "factory_specs": {
+        "wheelbase_mm": 3797,
+        "hitch_overhang_mm": 1550,
+        "baseline_front_kg": 2165,
+        "baseline_rear_kg": 1444,
+        "gvm": 4495,
+        "gcm": 12695,
+        "front_axle_limit": 2722,
+        "rear_axle_limit": 2740,
+        "towing_capacity": 4500,
+        "tbm_limit": 450,
+        "payload": 886
+      },
+      "upgrades": [
+        {
+          "id": "ram_2500hd_5th_gen_stage_1",
+          "name": "Stage 1: 2\" Lift | Fox 2.5 | 5300 GVM",
+          "description": "RAM-2500-5G-Stage1-GVM; 2 inch lift with Fox 2.5",
+          "baseline_front_kg": 2172,
+          "baseline_rear_kg": 1448,
+          "gvm": 5300,
+          "gcm": 12695,
+          "front_axle_limit": 2720,
+          "rear_axle_limit": 2840,
+          "towing_capacity": 4500,
+          "tbm_limit": 450,
+          "payload": 1680
+        },
+        {
+          "id": "ram_2500hd_5th_gen_stage_2",
+          "name": "Stage 2: 2\" Lift | Fox 2.5 | 5550 GVM",
+          "description": "RAM-2500-5G-Stage2-GVM; 2 inch lift with Fox 2.5",
+          "baseline_front_kg": 2183,
+          "baseline_rear_kg": 1456,
+          "gvm": 5550,
+          "gcm": 12695,
+          "front_axle_limit": 2720,
+          "rear_axle_limit": 2840,
+          "towing_capacity": 4500,
+          "tbm_limit": 450,
+          "payload": 1911
+        },
+        {
+          "id": "ram_2500hd_5th_gen_stage_3",
+          "name": "Stage 3: 3\" BDS | Fox 2.5 | 5550 GVM",
+          "description": "RAM-2500-5G-Stage3-GVM; 3 inch BDS lift with Fox 2.5",
+          "baseline_front_kg": 2187,
+          "baseline_rear_kg": 1458,
+          "gvm": 5550,
+          "gcm": 12695,
+          "front_axle_limit": 2720,
+          "rear_axle_limit": 2840,
+          "towing_capacity": 4500,
+          "tbm_limit": 450,
+          "payload": 1905
+        }
+      ]
+    },
+    {
+      "id": "ram_2500_6th_gen",
+      "name": "RAM 2500 6th Gen",
+      "category": "ute",
+      "quote_url": "/pages/ram-2500-6th-gen-gvm",
+      "source_note": "ORI RAM 2500 6th Gen landing page specification table for RAM Australia-delivered vehicles. ORI states federal approval is in progress, so final compliance paperwork must be confirmed. Factory payload uses GVM minus published kerb weight, and Stage 6 uses the client-approved 5890kg GVM and 2060kg payload resolution.",
+      "factory_option_label": "Factory / OEM NB1 rating",
+      "factory_option_description": "OEM 4495kg GVM, 12750kg GCM, 3710kg kerb weight",
+      "factory_specs": {
+        "wheelbase_mm": 3797,
+        "hitch_overhang_mm": 1550,
+        "baseline_front_kg": 2226,
+        "baseline_rear_kg": 1484,
+        "gvm": 4495,
+        "gcm": 12750,
+        "front_axle_limit": 2722,
+        "rear_axle_limit": 2740,
+        "towing_capacity": 4500,
+        "tbm_limit": 450,
+        "payload": 785
+      },
+      "upgrades": [
+        {
+          "id": "ram_2500_6th_gen_stage_1",
+          "name": "Stage 1: The Weekender — 2\" Lift on 35s",
+          "description": "RAM-2500-6G-Stage1-GVM; 2 inch lift on 35 inch tyres",
+          "baseline_front_kg": 2256,
+          "baseline_rear_kg": 1504,
+          "gvm": 5500,
+          "gcm": 12750,
+          "front_axle_limit": 2722,
+          "rear_axle_limit": 3175,
+          "towing_capacity": 4500,
+          "tbm_limit": 450,
+          "payload": 1740
+        },
+        {
+          "id": "ram_2500_6th_gen_stage_2",
+          "name": "Stage 2: Apex Series — 2\" Lift on 35s",
+          "description": "RAM-2500-6G-Stage2-GVM; 2 inch lift on 35 inch tyres",
+          "baseline_front_kg": 2262,
+          "baseline_rear_kg": 1508,
+          "gvm": 5890,
+          "gcm": 12750,
+          "front_axle_limit": 2722,
+          "rear_axle_limit": 3175,
+          "towing_capacity": 4500,
+          "tbm_limit": 450,
+          "payload": 2120
+        },
+        {
+          "id": "ram_2500_6th_gen_stage_3",
+          "name": "Stage 3: The Tourer — 3\" Lift on 37s",
+          "description": "RAM-2500-6G-Stage3-GVM; 3 inch lift on 37 inch tyres",
+          "baseline_front_kg": 2298,
+          "baseline_rear_kg": 1532,
+          "gvm": 5890,
+          "gcm": 12750,
+          "front_axle_limit": 2722,
+          "rear_axle_limit": 3175,
+          "towing_capacity": 4500,
+          "tbm_limit": 450,
+          "payload": 2060
+        },
+        {
+          "id": "ram_2500_6th_gen_stage_4",
+          "name": "Stage 4: The Heavy Hauler — 4\" Lift on 37s",
+          "description": "RAM-2500-6G-Stage4-GVM; 4 inch lift on 37 inch tyres",
+          "baseline_front_kg": 2298,
+          "baseline_rear_kg": 1532,
+          "gvm": 5890,
+          "gcm": 12750,
+          "front_axle_limit": 2722,
+          "rear_axle_limit": 3175,
+          "towing_capacity": 4500,
+          "tbm_limit": 450,
+          "payload": 2060
+        },
+        {
+          "id": "ram_2500_6th_gen_stage_5",
+          "name": "Stage 5: The Six Inch Build — 6\" Lift on 37s",
+          "description": "RAM-2500-6G-Stage5-GVM; 6 inch lift on 37 inch tyres",
+          "baseline_front_kg": 2298,
+          "baseline_rear_kg": 1532,
+          "gvm": 5890,
+          "gcm": 12750,
+          "front_axle_limit": 2722,
+          "rear_axle_limit": 3175,
+          "towing_capacity": 4500,
+          "tbm_limit": 450,
+          "payload": 2060
+        },
+        {
+          "id": "ram_2500_6th_gen_stage_6",
+          "name": "Stage 6: The Six Inch Build — Top of the Range",
+          "description": "RAM-2500-6G-Stage6-GVM; 6 inch lift on 40 inch tyres",
+          "baseline_front_kg": 2298,
+          "baseline_rear_kg": 1532,
+          "gvm": 5890,
+          "gcm": 12750,
+          "front_axle_limit": 2722,
+          "rear_axle_limit": 3075,
+          "towing_capacity": 4500,
+          "tbm_limit": 450,
+          "payload": 2060
         }
       ]
     },
     {
       "id": "ori_ssm_chevy_silverado_2500hd",
-      "name": "ORI SSM Chevy Silverado 2500HD",
+      "name": "Silverado 2500 NB1 Legal Builds",
       "category": "ute",
       "quote_url": "/pages/ssm-legal-nb1-chevy-2500hd",
-      "source_note": "ORI SSM Chevy Silverado 2500HD landing page lists SSM stages, 4.5T braked towing, kerb weights and axle capacities, but does not expose separate GVM/GCM rows. Calculator stages use the NB1 under-4.5T GVM context from the page and the Silverado 2500HD 12474kg GCM table value for continuity.",
+      "source_note": "ORI Silverado 2500 NB1 legal-build landing page specification table. These pre-registration SSM builds retain the 4495kg NB1 GVM and published axle ratings; payloads are based on kerb weight.",
       "factory_option_label": "Factory / OEM NB1 rating",
-      "factory_option_description": "NB1 base rating used for the SSM legal package context",
+      "factory_option_description": "OEM 4495kg NB1 GVM, 12474kg GCM, 3762kg kerb weight",
       "factory_specs": {
         "wheelbase_mm": 4036,
         "hitch_overhang_mm": 1550,
-        "baseline_front_kg": 2197,
-        "baseline_rear_kg": 1464,
+        "baseline_front_kg": 2257,
+        "baseline_rear_kg": 1505,
         "gvm": 4495,
         "gcm": 12474,
         "front_axle_limit": 2540,
         "rear_axle_limit": 2994,
         "towing_capacity": 4500,
-        "tbm_limit": 450
+        "tbm_limit": 450,
+        "payload": 733
       },
       "upgrades": [
         {
           "id": "ori_ssm_chevy_silverado_2500hd_stage_1",
           "name": "Stage 1: The Weekend Warrior 3 inch Upgrade",
           "description": "CHV-2500-STAGE-1-NB1; torsion SSM package",
-          "baseline_front_kg": 2245,
-          "baseline_rear_kg": 1496,
+          "baseline_front_kg": 2275,
+          "baseline_rear_kg": 1517,
           "gvm": 4495,
           "gcm": 12474,
           "front_axle_limit": 2540,
           "rear_axle_limit": 2994,
           "towing_capacity": 4500,
-          "tbm_limit": 450
+          "tbm_limit": 450,
+          "payload": 703
         },
         {
           "id": "ori_ssm_chevy_silverado_2500hd_stage_2",
           "name": "Stage 2: The Heavy Hitter 3 inch Upgrade",
           "description": "CHV-2500-STAGE-2-NB1; torsion SSM package",
-          "baseline_front_kg": 2245,
-          "baseline_rear_kg": 1496,
+          "baseline_front_kg": 2281,
+          "baseline_rear_kg": 1521,
           "gvm": 4495,
           "gcm": 12474,
-          "front_axle_limit": 2722,
-          "rear_axle_limit": 3289,
+          "front_axle_limit": 2540,
+          "rear_axle_limit": 2994,
           "towing_capacity": 4500,
-          "tbm_limit": 450
+          "tbm_limit": 450,
+          "payload": 693
         },
         {
           "id": "ori_ssm_chevy_silverado_2500hd_stage_3",
           "name": "Stage 3: Premium Comfort 3 inch Coilover Conversion",
           "description": "CHV-2500-STAGE-3-NB1; coilover SSM package",
-          "baseline_front_kg": 2245,
-          "baseline_rear_kg": 1496,
+          "baseline_front_kg": 2286,
+          "baseline_rear_kg": 1524,
           "gvm": 4495,
           "gcm": 12474,
-          "front_axle_limit": 2722,
-          "rear_axle_limit": 3289,
+          "front_axle_limit": 2540,
+          "rear_axle_limit": 2994,
           "towing_capacity": 4500,
-          "tbm_limit": 450
+          "tbm_limit": 450,
+          "payload": 685
         },
         {
           "id": "ori_ssm_chevy_silverado_2500hd_stage_4",
           "name": "Stage 4: The Outlaw 5 inch Legal Monster",
           "description": "CHV-2500-STAGE-4-NB1; torsion SSM package",
-          "baseline_front_kg": 2245,
-          "baseline_rear_kg": 1496,
+          "baseline_front_kg": 2317,
+          "baseline_rear_kg": 1545,
           "gvm": 4495,
           "gcm": 12474,
-          "front_axle_limit": 2722,
-          "rear_axle_limit": 3289,
+          "front_axle_limit": 2540,
+          "rear_axle_limit": 2994,
           "towing_capacity": 4500,
-          "tbm_limit": 450
+          "tbm_limit": 450,
+          "payload": 633
         },
         {
           "id": "ori_ssm_chevy_silverado_2500hd_stage_5",
           "name": "Stage 5: 6.5 inch Summit Spec",
           "description": "CHV-2500-STAGE-5-NB1; torsion SSM package",
-          "baseline_front_kg": 2245,
-          "baseline_rear_kg": 1496,
+          "baseline_front_kg": 2317,
+          "baseline_rear_kg": 1545,
           "gvm": 4495,
           "gcm": 12474,
-          "front_axle_limit": 2722,
-          "rear_axle_limit": 3289,
+          "front_axle_limit": 2540,
+          "rear_axle_limit": 2994,
           "towing_capacity": 4500,
-          "tbm_limit": 450
+          "tbm_limit": 450,
+          "payload": 633
         },
         {
           "id": "ori_ssm_chevy_silverado_2500hd_stage_6",
           "name": "Stage 6: The Ultimate 6.5 inch Goliath",
           "description": "CHV-2500-STAGE-6-NB1; coilover SSM package",
-          "baseline_front_kg": 2245,
-          "baseline_rear_kg": 1496,
+          "baseline_front_kg": 2317,
+          "baseline_rear_kg": 1545,
           "gvm": 4495,
           "gcm": 12474,
-          "front_axle_limit": 2722,
-          "rear_axle_limit": 3289,
+          "front_axle_limit": 2540,
+          "rear_axle_limit": 2994,
           "towing_capacity": 4500,
-          "tbm_limit": 450
+          "tbm_limit": 450,
+          "payload": 633
+        }
+      ]
+    },
+    {
+      "id": "ori_ssm_chevy_silverado_1500",
+      "name": "Silverado 1500 4\" & 6\" Legal Builds",
+      "category": "ute",
+      "quote_url": "/pages/ssm-legal-nb1-chevy-1500",
+      "source_note": "ORI Silverado 1500 pre-registration legal-build landing page specification table under VTA-064440. Published payloads are based on kerb weight; the ZR2 stages retain the factory 4200kg towing limit.",
+      "factory_option_label": "Factory / OEM rating",
+      "factory_option_description": "OEM 3300kg GVM, 7160kg GCM, 2543kg kerb weight",
+      "factory_specs": {
+        "wheelbase_mm": 3745,
+        "hitch_overhang_mm": 1450,
+        "baseline_front_kg": 1399,
+        "baseline_rear_kg": 1144,
+        "gvm": 3300,
+        "gcm": 7160,
+        "front_axle_limit": 1724,
+        "rear_axle_limit": 1724,
+        "towing_capacity": 4500,
+        "tbm_limit": 450,
+        "payload": 757
+      },
+      "upgrades": [
+        {
+          "id": "ori_ssm_chevy_silverado_1500_stage_1_ltz",
+          "name": "Stage 1 LTZ: 4\" BDS Lift | 3650 GVM | 35\" Tyres Legal",
+          "description": "CHV-NB1-Stage1-LTZ; pre-registration legal build under ORI SSM approval",
+          "baseline_front_kg": 1497,
+          "baseline_rear_kg": 1224,
+          "gvm": 3650,
+          "gcm": 8150,
+          "front_axle_limit": 1724,
+          "rear_axle_limit": 1926,
+          "towing_capacity": 4500,
+          "tbm_limit": 450,
+          "payload": 929
+        },
+        {
+          "id": "ori_ssm_chevy_silverado_1500_stage_2_zr2",
+          "name": "Stage 2 ZR2: 2\" BDS Lift | 3650 GVM | 35\" Tyres Legal",
+          "description": "CHV-NB1-Stage2-ZR2; pre-registration legal build under ORI SSM approval",
+          "baseline_front_kg": 1497,
+          "baseline_rear_kg": 1224,
+          "gvm": 3650,
+          "gcm": 7850,
+          "front_axle_limit": 1724,
+          "rear_axle_limit": 1926,
+          "towing_capacity": 4200,
+          "tbm_limit": 420,
+          "payload": 929
+        },
+        {
+          "id": "ori_ssm_chevy_silverado_1500_stage_3_ltz",
+          "name": "Stage 3 LTZ: 6\" BDS Lift | 3650 GVM | 37\" Tyres Legal",
+          "description": "CHV-NB1-Stage3-LTZ; pre-registration legal build under ORI SSM approval",
+          "baseline_front_kg": 1497,
+          "baseline_rear_kg": 1224,
+          "gvm": 3650,
+          "gcm": 7160,
+          "front_axle_limit": 1724,
+          "rear_axle_limit": 1926,
+          "towing_capacity": 4500,
+          "tbm_limit": 450,
+          "payload": 929
+        },
+        {
+          "id": "ori_ssm_chevy_silverado_1500_stage_4_zr2",
+          "name": "Stage 4 ZR2: 4\" BDS Lift | 3650 GVM | 37\" Tyres Legal",
+          "description": "CHV-NB1-Stage4-ZR2; pre-registration legal build under ORI SSM approval",
+          "baseline_front_kg": 1497,
+          "baseline_rear_kg": 1224,
+          "gvm": 3650,
+          "gcm": 7160,
+          "front_axle_limit": 1724,
+          "rear_axle_limit": 1926,
+          "towing_capacity": 4200,
+          "tbm_limit": 420,
+          "payload": 929
         }
       ]
     }

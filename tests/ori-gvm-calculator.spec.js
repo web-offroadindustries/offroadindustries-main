@@ -37,7 +37,10 @@ test('loads a vehicle and recalculates every dependent mass', async ({ page }) =
     'Chevy Silverado 2500HD',
     'Ford F150',
     'Toyota Tundra',
-    'ORI SSM Chevy Silverado 2500HD',
+    'RAM 2500HD 5th Gen',
+    'RAM 2500 6th Gen',
+    'Silverado 2500 NB1 Legal Builds',
+    'Silverado 1500 4" & 6" Legal Builds',
   ]);
 
   await selectVehicle(page);
@@ -94,14 +97,24 @@ test('links the quote button to the selected vehicle landing page', async ({ pag
   await page.goto(FIXTURE_URL);
   await selectVehicle(page, 'chevrolet_silverado_1500');
 
+  const vehicleSelect = page.getByLabel('Select ORI vehicle package');
   const quoteLink = page.getByRole('link', { name: /view ori gvm package/i });
   await expect(quoteLink).toHaveAttribute('href', '/pages/chevrolet-silverado-1500-gvm-package');
 
-  await page.getByLabel('Select ORI vehicle package').selectOption('toyota_tundra');
+  await vehicleSelect.selectOption('toyota_tundra');
   await expect(quoteLink).toHaveAttribute('href', '/pages/toyota-tundra');
 
-  await page.getByLabel('Select ORI vehicle package').selectOption('ori_ssm_chevy_silverado_2500hd');
+  await vehicleSelect.selectOption('ram_2500hd_5th_gen');
+  await expect(quoteLink).toHaveAttribute('href', '/pages/ram-2500hd-5th-gen-gvm');
+
+  await vehicleSelect.selectOption('ram_2500_6th_gen');
+  await expect(quoteLink).toHaveAttribute('href', '/pages/ram-2500-6th-gen-gvm');
+
+  await vehicleSelect.selectOption('ori_ssm_chevy_silverado_2500hd');
   await expect(quoteLink).toHaveAttribute('href', '/pages/ssm-legal-nb1-chevy-2500hd');
+
+  await vehicleSelect.selectOption('ori_ssm_chevy_silverado_1500');
+  await expect(quoteLink).toHaveAttribute('href', '/pages/ssm-legal-nb1-chevy-1500');
 });
 
 test('shows functional merchant-editable accessories without static progress copy', async ({
@@ -188,19 +201,45 @@ test('loads merchant-editable custom specifications and accessories', async ({ p
   await expect(page.getByText('Vehicle total (GVM): 2693 / 4200 kg')).toBeVisible();
 });
 
-test('shows the payload a specification is rated for, and hides it when unset', async ({ page }) => {
+test('updates the published payload when the selected stage changes', async ({ page }) => {
+  await page.goto(FIXTURE_URL);
+  await selectVehicle(page, 'ram_2500_6th_gen');
+
+  await expect(page.getByText('Payload: 785 kg')).toBeVisible();
+  await page.getByLabel(/Stage 1: The Weekender/i).check();
+  await expect(page.getByText('Payload: 1740 kg')).toBeVisible();
+  await page.getByLabel(/Stage 2: Apex Series/i).check();
+  await expect(page.getByText('Payload: 2120 kg')).toBeVisible();
+  await page.getByLabel(/Stage 6: The Six Inch Build/i).check();
+  await expect(page.getByText('Payload: 2060 kg')).toBeVisible();
+});
+
+test('hides an optional payload when a specification does not provide one', async ({ page }) => {
+  await page.route('**/assets/ori-gvm-calculator-data.json', async (route) => {
+    const response = await route.fetch();
+    const data = await response.json();
+    delete data.vehicles[0].factory_specs.payload;
+    await route.fulfill({ response, json: data });
+  });
+
   await page.goto(FIXTURE_URL);
   await selectVehicle(page, 'chevrolet_silverado_1500');
-
-  // The factory rating carries no payload, so the line stays empty rather
-  // than claiming 0 kg.
   await expect(page.getByText('Payload: —')).toBeVisible();
+});
 
-  await page.getByLabel(/Client-added 4200kg spec/i).check();
-  await expect(page.getByText('Payload: 1672 kg')).toBeVisible();
+test('keeps every RAM 5th Gen stage at the published towing limit', async ({ page }) => {
+  await page.goto(FIXTURE_URL);
+  await selectVehicle(page, 'ram_2500hd_5th_gen');
 
-  // It also appears against the option itself, before anything is selected.
-  await expect(page.getByText(/Payload 1672/)).toBeVisible();
+  for (const stageName of [
+    /Stage 1: 2" Lift/i,
+    /Stage 2: 2" Lift/i,
+    /Stage 3: 3" BDS/i,
+  ]) {
+    await page.getByLabel(stageName).check();
+    await expect(page.getByText('Towing capacity: 4500 kg')).toBeVisible();
+    await expect(page.getByText('TBM limit: 450 kg')).toBeVisible();
+  }
 });
 
 test('keeps card headings inside containers and uses the requested ORI teal accents', async ({

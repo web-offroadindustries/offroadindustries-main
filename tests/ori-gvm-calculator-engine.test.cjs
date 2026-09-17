@@ -203,9 +203,9 @@ test('validates the required vehicle calculation fields', () => {
 test('ships a complete versioned reference dataset', () => {
   const data = require('../assets/ori-gvm-calculator-data.json');
 
-  assert.equal(data.version, 5);
+  assert.equal(data.version, 6);
   assert.equal(data.source_kind, 'ori_published_landing_page_package_specs');
-  assert.equal(data.vehicles.length, 5);
+  assert.equal(data.vehicles.length, 8);
   assert.deepEqual(
     data.vehicles.map((item) => item.id),
     [
@@ -213,7 +213,10 @@ test('ships a complete versioned reference dataset', () => {
       'chevy_silverado_2500hd',
       'ford_f150',
       'toyota_tundra',
+      'ram_2500hd_5th_gen',
+      'ram_2500_6th_gen',
       'ori_ssm_chevy_silverado_2500hd',
+      'ori_ssm_chevy_silverado_1500',
     ]
   );
 
@@ -223,6 +226,15 @@ test('ships a complete versioned reference dataset', () => {
     assert.ok(item.upgrades.length > 0, item.id);
     assert.ok(item.quote_url.startsWith('/'), item.id);
     assert.ok(item.source_note.includes('ORI'), item.id);
+    assert.ok(item.factory_specs.payload > 0, `${item.id} factory has payload`);
+    assert.equal(engine.getLimits(item).payload, item.factory_specs.payload);
+    assert.equal(
+      item.factory_specs.baseline_front_kg +
+        item.factory_specs.baseline_rear_kg +
+        item.factory_specs.payload,
+      item.factory_specs.gvm,
+      `${item.id} factory payload matches GVM minus kerb baseline`
+    );
 
     for (const upgrade of item.upgrades) {
       assert.ok(upgrade.gvm > 0, `${item.id} ${upgrade.id} has GVM`);
@@ -231,6 +243,13 @@ test('ships a complete versioned reference dataset', () => {
       assert.ok(upgrade.rear_axle_limit > 0, `${item.id} ${upgrade.id} has rear axle`);
       assert.ok(upgrade.towing_capacity > 0, `${item.id} ${upgrade.id} has tow rating`);
       assert.ok(upgrade.tbm_limit > 0, `${item.id} ${upgrade.id} has TBM limit`);
+      assert.ok(upgrade.payload > 0, `${item.id} ${upgrade.id} has payload`);
+      assert.equal(engine.getLimits(item, upgrade.id).payload, upgrade.payload);
+      assert.equal(
+        upgrade.baseline_front_kg + upgrade.baseline_rear_kg + upgrade.payload,
+        upgrade.gvm,
+        `${item.id} ${upgrade.id} payload matches GVM minus kerb baseline`
+      );
     }
   }
 
@@ -239,17 +258,96 @@ test('ships a complete versioned reference dataset', () => {
     (upgrade) => upgrade.id === 'chevrolet_silverado_1500_stage_4_ltz'
   );
   assert.equal(silverado1500.factory_specs.gvm, 3300);
+  assert.equal(silverado1500.factory_specs.payload, 757);
   assert.equal(silverado1500Stage4.gvm, 4250);
   assert.equal(silverado1500Stage4.gcm, 8750);
+  assert.equal(silverado1500Stage4.payload, 1672);
+
+  const silverado2500 = data.vehicles.find((item) => item.id === 'chevy_silverado_2500hd');
+  assert.deepEqual(
+    [
+      silverado2500.factory_specs,
+      ...silverado2500.upgrades,
+    ].map((specification) => specification.baseline_front_kg + specification.baseline_rear_kg),
+    [3762, 3792, 3802, 3810, 3810, 3862, 3862, 3862, 3862]
+  );
 
   const fordF150 = data.vehicles.find((item) => item.id === 'ford_f150');
-  assert.equal(fordF150.upgrades.find((upgrade) => upgrade.id === 'ford_f150_stage_6').gcm, 7800);
+  assert.equal(fordF150.upgrades.find((upgrade) => upgrade.id === 'ford_f150_stage_6').gcm, 7720);
+  assert.equal(fordF150.upgrades.find((upgrade) => upgrade.id === 'ford_f150_stage_3').payload, 1819);
 
   const tundra = data.vehicles.find((item) => item.id === 'toyota_tundra');
   assert.equal(tundra.upgrades.find((upgrade) => upgrade.id === 'toyota_tundra_stage_3').gvm, 4300);
+  assert.equal(tundra.upgrades.find((upgrade) => upgrade.id === 'toyota_tundra_stage_3').payload, 1436);
+
+  const ram5 = data.vehicles.find((item) => item.id === 'ram_2500hd_5th_gen');
+  assert.equal(ram5.upgrades.find((upgrade) => upgrade.id === 'ram_2500hd_5th_gen_stage_2').payload, 1911);
+  assert.ok(ram5.upgrades.every((upgrade) => upgrade.towing_capacity === 4500));
+  assert.ok(ram5.upgrades.every((upgrade) => upgrade.tbm_limit === 450));
+
+  const ram6 = data.vehicles.find((item) => item.id === 'ram_2500_6th_gen');
+  assert.deepEqual(
+    ram6.upgrades.find((upgrade) => upgrade.id === 'ram_2500_6th_gen_stage_6'),
+    {
+      id: 'ram_2500_6th_gen_stage_6',
+      name: 'Stage 6: The Six Inch Build — Top of the Range',
+      description: 'RAM-2500-6G-Stage6-GVM; 6 inch lift on 40 inch tyres',
+      baseline_front_kg: 2298,
+      baseline_rear_kg: 1532,
+      gvm: 5890,
+      gcm: 12750,
+      front_axle_limit: 2722,
+      rear_axle_limit: 3075,
+      towing_capacity: 4500,
+      tbm_limit: 450,
+      payload: 2060,
+    }
+  );
 
   const ssm = data.vehicles.find((item) => item.id === 'ori_ssm_chevy_silverado_2500hd');
-  assert.ok(ssm.source_note.includes('does not expose separate GVM/GCM rows'));
+  assert.equal(ssm.name, 'Silverado 2500 NB1 Legal Builds');
+  assert.equal(ssm.factory_specs.payload, 733);
+  assert.equal(ssm.upgrades.find((upgrade) => upgrade.id.endsWith('stage_2')).payload, 693);
+  assert.equal(ssm.upgrades.find((upgrade) => upgrade.id.endsWith('stage_2')).front_axle_limit, 2540);
+  assert.equal(ssm.upgrades.find((upgrade) => upgrade.id.endsWith('stage_2')).rear_axle_limit, 2994);
+
+  const ssm1500 = data.vehicles.find((item) => item.id === 'ori_ssm_chevy_silverado_1500');
+  assert.equal(ssm1500.name, 'Silverado 1500 4" & 6" Legal Builds');
+  assert.deepEqual(
+    ssm1500.upgrades.find((upgrade) => upgrade.id === 'ori_ssm_chevy_silverado_1500_stage_4_zr2'),
+    {
+      id: 'ori_ssm_chevy_silverado_1500_stage_4_zr2',
+      name: 'Stage 4 ZR2: 4" BDS Lift | 3650 GVM | 37" Tyres Legal',
+      description: 'CHV-NB1-Stage4-ZR2; pre-registration legal build under ORI SSM approval',
+      baseline_front_kg: 1497,
+      baseline_rear_kg: 1224,
+      gvm: 3650,
+      gcm: 7160,
+      front_axle_limit: 1724,
+      rear_axle_limit: 1926,
+      towing_capacity: 4200,
+      tbm_limit: 420,
+      payload: 929,
+    }
+  );
+
+  const payloadSequence = (item) => [
+    item.factory_specs.payload,
+    ...item.upgrades.map((upgrade) => upgrade.payload),
+  ];
+
+  assert.deepEqual(payloadSequence(silverado1500), [
+    757, 1077, 1087, 1272, 1272, 1672, 1672, 1672, 1672,
+  ]);
+  assert.deepEqual(payloadSequence(silverado2500), [
+    733, 1708, 2198, 2190, 2190, 2138, 2138, 2138, 2138,
+  ]);
+  assert.deepEqual(payloadSequence(fordF150), [769, 1224, 1219, 1819, 1819, 1509, 1209]);
+  assert.deepEqual(payloadSequence(tundra), [702, 986, 986, 1436, 1436]);
+  assert.deepEqual(payloadSequence(ram5), [886, 1680, 1911, 1905]);
+  assert.deepEqual(payloadSequence(ram6), [785, 1740, 2120, 2060, 2060, 2060, 2060]);
+  assert.deepEqual(payloadSequence(ssm), [733, 703, 693, 685, 633, 633, 633]);
+  assert.deepEqual(payloadSequence(ssm1500), [757, 929, 929, 929, 929]);
 
   assert.ok(data.accessory_source_note.includes('ORI product pages'));
   assert.ok(data.accessories.front.length > 0);
@@ -264,6 +362,15 @@ test('ships a complete versioned reference dataset', () => {
     data.accessories.front.find((item) => item.id === 'stealth_driving_lights_pair').mass_kg,
     4.4
   );
+});
+
+test('returns the published payload for each selected RAM 6th Gen stage', () => {
+  const data = require('../assets/ori-gvm-calculator-data.json');
+  const ram6 = data.vehicles.find((item) => item.id === 'ram_2500_6th_gen');
+
+  assert.equal(engine.getLimits(ram6, 'ram_2500_6th_gen_stage_1').payload, 1740);
+  assert.equal(engine.getLimits(ram6, 'ram_2500_6th_gen_stage_2').payload, 2120);
+  assert.equal(engine.getLimits(ram6, 'ram_2500_6th_gen_stage_6').payload, 2060);
 });
 
 test('uses trim-specific Chevrolet Silverado 1500 GCM ratings for stages 3 to 5', () => {
@@ -295,6 +402,12 @@ test('uses trim-specific Chevrolet Silverado 1500 GCM ratings for stages 3 to 5'
   assert.equal(upgradesById.chevrolet_silverado_1500_stage_4_zr2.gcm, 8450);
   assert.equal(upgradesById.chevrolet_silverado_1500_stage_5_ltz.gcm, 8750);
   assert.equal(upgradesById.chevrolet_silverado_1500_stage_5_zr2.gcm, 8450);
+  assert.equal(upgradesById.chevrolet_silverado_1500_stage_3_zr2.towing_capacity, 4200);
+  assert.equal(upgradesById.chevrolet_silverado_1500_stage_3_zr2.tbm_limit, 420);
+  assert.equal(upgradesById.chevrolet_silverado_1500_stage_4_zr2.towing_capacity, 4200);
+  assert.equal(upgradesById.chevrolet_silverado_1500_stage_4_zr2.tbm_limit, 420);
+  assert.equal(upgradesById.chevrolet_silverado_1500_stage_5_zr2.towing_capacity, 4200);
+  assert.equal(upgradesById.chevrolet_silverado_1500_stage_5_zr2.tbm_limit, 420);
 
   const zr2Stage4 = engine.calculate(silverado1500, {
     selectedUpgradeId: 'chevrolet_silverado_1500_stage_4_zr2',
@@ -369,6 +482,11 @@ test('enables the selected vehicle package link on the dedicated calculator page
   assert.match(fallbackQuoteSetting.info, /selected vehicle/i);
 });
 
+test('keeps the calculator template and section free of comments', () => {
+  assert.doesNotMatch(readText('templates/page.gvm-calculator.json'), /\/\*/);
+  assert.doesNotMatch(readText('sections/ori-gvm-load-calculator.liquid'), /{%-?\s*comment\b/);
+});
+
 test('exposes merchant-editable accessory column labels while the accessory selector is parked', () => {
   const schema = readSectionSchema('sections/ori-gvm-load-calculator.liquid');
   const settingIds = schema.settings.map((setting) => setting.id).filter(Boolean);
@@ -436,7 +554,10 @@ test('exposes merchant-editable calculator data blocks in the section schema', (
       'chevy_silverado_2500hd',
       'ford_f150',
       'toyota_tundra',
+      'ram_2500hd_5th_gen',
+      'ram_2500_6th_gen',
       'ori_ssm_chevy_silverado_2500hd',
+      'ori_ssm_chevy_silverado_1500',
     ]
   );
   assert.deepEqual(
@@ -449,7 +570,10 @@ test('exposes merchant-editable calculator data blocks in the section schema', (
       'chevy_silverado_2500hd',
       'ford_f150',
       'toyota_tundra',
+      'ram_2500hd_5th_gen',
+      'ram_2500_6th_gen',
       'ori_ssm_chevy_silverado_2500hd',
+      'ori_ssm_chevy_silverado_1500',
     ]
   );
 });

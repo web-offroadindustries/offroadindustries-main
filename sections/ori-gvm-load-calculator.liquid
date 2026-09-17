@@ -30,11 +30,6 @@
       <div class="ori-gvm-calculator__intro{% if section.settings.image != blank %} ori-gvm-calculator__intro--with-media{% endif %}" data-gvm-intro>
         <div class="ori-gvm-calculator__intro-content">
           {%- if section.settings.heading != blank -%}
-            {%- comment -%}
-              Tag, not size. On the collection pages ori-gvm-hero already renders
-              the h1, so this defaults to h2; the standalone calculator page sets
-              it back to h1. The `h1` class stays either way.
-            {%- endcomment -%}
             {%- assign heading_tag = section.settings.heading_tag | default: 'h2' -%}
             <{{ heading_tag }} class="ori-gvm-calculator__heading h1">{{ section.settings.heading | escape }}</{{ heading_tag }}>
           {%- endif -%}
@@ -390,7 +385,10 @@
             { "value": "chevy_silverado_2500hd", "label": "Chevy Silverado 2500HD" },
             { "value": "ford_f150", "label": "Ford F150" },
             { "value": "toyota_tundra", "label": "Toyota Tundra" },
-            { "value": "ori_ssm_chevy_silverado_2500hd", "label": "ORI SSM Chevy Silverado 2500HD" }
+            { "value": "ram_2500hd_5th_gen", "label": "RAM 2500HD 5th Gen" },
+            { "value": "ram_2500_6th_gen", "label": "RAM 2500 6th Gen" },
+            { "value": "ori_ssm_chevy_silverado_2500hd", "label": "Silverado 2500 NB1 Legal Builds" },
+            { "value": "ori_ssm_chevy_silverado_1500", "label": "Silverado 1500 4 & 6 inch Legal Builds" }
           ],
           "default": "chevrolet_silverado_1500"
         },
@@ -477,7 +475,10 @@
             { "value": "chevy_silverado_2500hd", "label": "Chevy Silverado 2500HD" },
             { "value": "ford_f150", "label": "Ford F150" },
             { "value": "toyota_tundra", "label": "Toyota Tundra" },
-            { "value": "ori_ssm_chevy_silverado_2500hd", "label": "ORI SSM Chevy Silverado 2500HD" }
+            { "value": "ram_2500hd_5th_gen", "label": "RAM 2500HD 5th Gen" },
+            { "value": "ram_2500_6th_gen", "label": "RAM 2500 6th Gen" },
+            { "value": "ori_ssm_chevy_silverado_2500hd", "label": "Silverado 2500 NB1 Legal Builds" },
+            { "value": "ori_ssm_chevy_silverado_1500", "label": "Silverado 1500 4 & 6 inch Legal Builds" }
           ],
           "default": "all"
         },
