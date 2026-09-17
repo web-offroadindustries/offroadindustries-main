@@ -116,6 +116,7 @@
     var cargoRearKg = normalizeMass(safeState.cargoRearKg);
     var atm = normalizeMass(safeState.atm);
     var tbm = normalizeMass(safeState.tbm);
+    var payloadCheckKg = normalizeMass(safeState.payloadCheckKg);
     var selectedAccessories = Array.isArray(safeState.selectedAccessories)
       ? safeState.selectedAccessories
       : [];
@@ -168,6 +169,11 @@
       vehicleMass: roundResult(vehicleMass),
       trailerAxleMass: roundResult(trailerAxleMass),
       combinedMass: roundResult(combinedMass),
+      payloadCheck: {
+        entered: roundResult(payloadCheckKg),
+        allowance: limits.payload,
+        remaining: limits.payload > 0 ? roundResult(limits.payload - payloadCheckKg) : null,
+      },
     };
   }
 

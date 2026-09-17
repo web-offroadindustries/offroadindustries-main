@@ -199,6 +199,7 @@
         tbm: 0,
         passengersKg: 0,
         cargoRearKg: 0,
+        payloadCheckKg: 0,
         selectedAccessoryIds: new Set(),
       };
       this.vehicle = null;
@@ -208,6 +209,7 @@
       this.summaryLines = {};
       this.lastResult = null;
       this.copySummaryStatus = null;
+      this.payloadLiveStatus = null;
     }
 
     async loadData() {
@@ -747,7 +749,39 @@
         this.createNumberField('passengersKg', this.t('passengers', 'Passengers')),
         this.createNumberField('cargoRearKg', this.t('cargo_rear', 'Cargo - rear')),
       ]);
-      append(group, [trailer, occupants]);
+
+      var payload = element(
+        'section',
+        'ori-gvm-calculator__card ori-gvm-calculator__load-card ori-gvm-calculator__load-card--payload'
+      );
+      var payloadHeading = element(
+        'h3',
+        'ori-gvm-calculator__card-title',
+        this.t('payload_check_title', 'Payload check')
+      );
+      var payloadField = this.createNumberField(
+        'payloadCheckKg',
+        this.t('payload_to_check', 'Payload to check')
+      );
+      var payloadHelp = element(
+        'p',
+        'ori-gvm-calculator__field-help',
+        this.t(
+          'payload_check_help',
+          'Enter a total payload for a standalone check. This does not change the GVM or axle calculations.'
+        )
+      );
+      payloadHelp.id = 'ori-gvm-payload-help-' + this.sectionId;
+      this.numberInputs.payloadCheckKg.setAttribute('aria-describedby', payloadHelp.id);
+      this.payloadLiveStatus = element(
+        'span',
+        'ori-gvm-calculator__payload-status ori-gvm-calculator__sr-only'
+      );
+      this.payloadLiveStatus.setAttribute('role', 'status');
+      this.payloadLiveStatus.setAttribute('aria-live', 'polite');
+      this.payloadLiveStatus.setAttribute('aria-atomic', 'true');
+      append(payload, [payloadHeading, payloadField, payloadHelp, this.payloadLiveStatus]);
+      append(group, [trailer, occupants, payload]);
       return group;
     }
 
@@ -792,7 +826,9 @@
         ['combinedGcm', this.t('combined_gcm', 'Combined GCM')],
         ['towingCapacity', this.t('towing_capacity', 'Towing capacity')],
         ['tbmLimit', this.t('tbm_limit', 'TBM limit')],
-        ['payload', this.t('payload', 'Payload')],
+        ['payloadAllowance', this.t('payload_allowance', 'Payload allowance')],
+        ['payloadEntered', this.t('payload_entered', 'Payload entered')],
+        ['payloadRemaining', this.t('payload_remaining', 'Payload remaining')],
         ['atmEntered', this.t('atm_entered', 'ATM entered')],
         ['tbmEntered', this.t('tbm_entered', 'TBM entered')],
       ];
@@ -917,18 +953,30 @@
         tbm: this.state.tbm,
         passengersKg: this.state.passengersKg,
         cargoRearKg: this.state.cargoRearKg,
+        payloadCheckKg: this.state.payloadCheckKg,
         selectedAccessories: this.selectedAccessories(),
       });
       this.lastResult = result;
       var limits = result.limits;
+      var payloadBalance = this.payloadBalance(result.payloadCheck);
 
       this.setSummaryLine('vehicleGvm', limits.gvm, true);
       this.setSummaryLine('combinedGcm', limits.gcm, true);
       this.setSummaryLine('towingCapacity', limits.towingCapacity, true);
       this.setSummaryLine('tbmLimit', limits.tbmLimit, true);
-      this.setSummaryLine('payload', limits.payload, limits.payload > 0);
+      this.setSummaryLine('payloadAllowance', limits.payload, limits.payload > 0);
+      this.setSummaryLine('payloadEntered', result.payloadCheck.entered, result.payloadCheck.entered > 0);
+      this.setSummaryLine(
+        'payloadRemaining',
+        payloadBalance.value,
+        payloadBalance.hasValue,
+        payloadBalance.label
+      );
       this.setSummaryLine('atmEntered', result.atm, result.atm > 0);
       this.setSummaryLine('tbmEntered', result.tbm, result.tbm > 0);
+      if (this.payloadLiveStatus) {
+        this.payloadLiveStatus.textContent = this.payloadStatusText(result);
+      }
 
       if (this.numberInputs.atm) {
         this.numberInputs.atm.max = String(limits.towingCapacity);
@@ -985,9 +1033,57 @@
       );
     }
 
+    payloadBalance(payloadCheck) {
+      var remaining = payloadCheck ? payloadCheck.remaining : null;
+
+      if (remaining === null || remaining === undefined) {
+        return {
+          label: this.t('payload_remaining', 'Payload remaining'),
+          value: 0,
+          hasValue: false,
+          detail: '',
+        };
+      }
+
+      var isOver = remaining < 0;
+      var value = Math.abs(remaining);
+      return {
+        label: isOver
+          ? this.t('payload_over', 'Payload over')
+          : this.t('payload_remaining', 'Payload remaining'),
+        value: value,
+        hasValue: true,
+        detail:
+          rounded(value) +
+          ' ' +
+          (isOver
+            ? this.t('payload_over_suffix', 'kg over')
+            : this.t('payload_remaining_suffix', 'kg remaining')),
+      };
+    }
+
+    payloadStatusText(result) {
+      if (!result || !result.payloadCheck) {
+        return '';
+      }
+
+      if (!result.limits.payload) {
+        return this.t('payload', 'Payload') + ': ' + this.statusLabel('unavailable');
+      }
+
+      var payloadBalance = this.payloadBalance(result.payloadCheck);
+      var text = this.formatLimitLine(
+        this.t('payload', 'Payload'),
+        result.payloadCheck.entered,
+        result.limits.payload
+      );
+      return text + (payloadBalance.detail ? '. ' + payloadBalance.detail : '');
+    }
+
     buildLoadSummaryText() {
       var result = this.lastResult;
       var selectedAccessories = this.selectedAccessories();
+      var payloadBalance = result ? this.payloadBalance(result.payloadCheck) : null;
 
       if (!this.vehicle || !result) {
         return '';
@@ -1007,6 +1103,11 @@
         this.t('cargo_rear', 'Cargo - rear') +
           ': ' +
           rounded(result.cargoMass) +
+          ' ' +
+          this.t('kg', 'kg'),
+        this.t('payload_to_check', 'Payload to check') +
+          ': ' +
+          rounded(result.payloadCheck.entered) +
           ' ' +
           this.t('kg', 'kg'),
         '',
@@ -1053,6 +1154,16 @@
           result.combinedMass,
           result.limits.gcm
         ),
+        this.formatLimitLine(
+          this.t('payload', 'Payload'),
+          result.payloadCheck.entered,
+          result.limits.payload
+        ),
+        payloadBalance.label +
+          ': ' +
+          (payloadBalance.hasValue
+            ? rounded(payloadBalance.value) + ' ' + this.t('kg', 'kg')
+            : '—'),
         this.formatLimitLine(this.t('atm', 'ATM'), result.atm, result.limits.towingCapacity),
         this.formatLimitLine(this.t('tbm', 'TBM'), result.tbm, result.limits.tbmLimit)
       );
@@ -1102,11 +1213,15 @@
       }
     }
 
-    setSummaryLine(key, value, hasValue) {
+    setSummaryLine(key, value, hasValue, labelText) {
       var line = this.summaryLines[key];
 
       if (!line) {
         return;
+      }
+
+      if (labelText) {
+        line.dataset.label = labelText;
       }
 
       line.textContent =
@@ -1167,7 +1282,15 @@
         ),
       ]);
       var bars = element('div', 'ori-gvm-calculator__bar-grid');
+      var payloadBalance = this.payloadBalance(result.payloadCheck);
       append(bars, [
+        this.createHorizontalGauge(
+          this.t('payload', 'Payload'),
+          result.payloadCheck.entered,
+          result.limits.payload,
+          'ori-gvm-calculator__bar--payload',
+          payloadBalance.detail
+        ),
         this.createHorizontalGauge(this.t('gvm', 'GVM'), result.vehicleMass, result.limits.gvm),
         this.createHorizontalGauge(this.t('gcm', 'GCM'), result.combinedMass, result.limits.gcm),
       ]);
@@ -1268,29 +1391,37 @@
       return wrapper;
     }
 
-    createHorizontalGauge(label, value, limit) {
+    createHorizontalGauge(label, value, limit, modifierClass, detailText) {
       var status = ENGINE.classifyStatus(value, limit, this.warningThreshold);
-      var percent = ENGINE.percentage(value, limit);
+      var hasLimit = Number(limit) > 0;
+      var percent = hasLimit ? ENGINE.percentage(value, limit) : 0;
       var visualPercent = Math.max(0, Math.min(100, percent));
+      var wrapperClass = 'ori-gvm-calculator__bar ori-gvm-status--' + status;
+      if (modifierClass) {
+        wrapperClass += ' ' + modifierClass;
+      }
       var wrapper = element(
         'div',
-        'ori-gvm-calculator__bar ori-gvm-status--' + status
+        wrapperClass
       );
       var barLabel = element('span', 'ori-gvm-calculator__bar-label', label);
       var track = element('div', 'ori-gvm-calculator__bar-track');
       track.setAttribute('role', 'img');
       track.setAttribute(
         'aria-label',
-        label +
-          ': ' +
-          rounded(value) +
-          ' of ' +
-          rounded(limit) +
-          ' ' +
-          this.t('kg', 'kg') +
-          ' (' +
-          rounded(percent) +
-          '%)'
+        hasLimit
+          ? label +
+              ': ' +
+              rounded(value) +
+              ' of ' +
+              rounded(limit) +
+              ' ' +
+              this.t('kg', 'kg') +
+              ' (' +
+              rounded(percent) +
+              '%)' +
+              (detailText ? '. ' + detailText : '')
+          : label + ': ' + this.statusLabel(status)
       );
       var fill = element('span', 'ori-gvm-calculator__bar-fill');
       fill.style.width = visualPercent + '%';
@@ -1298,9 +1429,21 @@
       var values = element(
         'span',
         'ori-gvm-calculator__bar-values',
-        rounded(value) + ' / ' + rounded(limit) + ' ' + this.t('kg', 'kg') + ' (' + rounded(percent) + '%)'
+        hasLimit
+          ? rounded(value) +
+              ' / ' +
+              rounded(limit) +
+              ' ' +
+              this.t('kg', 'kg') +
+              ' (' +
+              rounded(percent) +
+              '%)'
+          : this.statusLabel(status)
       );
-      append(wrapper, [barLabel, track, values]);
+      var detail = detailText
+        ? element('span', 'ori-gvm-calculator__bar-detail', detailText)
+        : null;
+      append(wrapper, [barLabel, track, values, detail]);
       return wrapper;
     }
 

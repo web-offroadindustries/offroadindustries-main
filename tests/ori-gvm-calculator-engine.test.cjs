@@ -179,6 +179,43 @@ test('carries an optional payload rating without making it required', () => {
   assert.equal(engine.getLimits(junk, 'upgrade-4000').payload, 0);
 });
 
+test('checks a customer payload against the selected stage allowance', () => {
+  const rated = {
+    ...vehicle,
+    factory_specs: { ...vehicle.factory_specs, payload: 1000 },
+    upgrades: [{ ...vehicle.upgrades[0], payload: 1672 }],
+  };
+  const result = engine.calculate(rated, {
+    ...loadedState,
+    selectedUpgradeId: 'upgrade-4000',
+    payloadCheckKg: '1200',
+  });
+
+  assert.deepEqual(result.payloadCheck, {
+    entered: 1200,
+    allowance: 1672,
+    remaining: 472,
+  });
+});
+
+test('keeps the standalone payload check out of vehicle and axle mass calculations', () => {
+  const rated = {
+    ...vehicle,
+    factory_specs: { ...vehicle.factory_specs, payload: 1000 },
+  };
+  const baseline = engine.calculate(rated, loadedState);
+  const checked = engine.calculate(rated, {
+    ...loadedState,
+    payloadCheckKg: 1400,
+  });
+
+  assert.equal(checked.frontAxle, baseline.frontAxle);
+  assert.equal(checked.rearAxle, baseline.rearAxle);
+  assert.equal(checked.vehicleMass, baseline.vehicleMass);
+  assert.equal(checked.combinedMass, baseline.combinedMass);
+  assert.equal(checked.payloadCheck.remaining, -400);
+});
+
 test('classifies values at warning and over-limit boundaries', () => {
   assert.equal(engine.classifyStatus(94.99, 100, 0.95), 'ok');
   assert.equal(engine.classifyStatus(95, 100, 0.95), 'warning');
