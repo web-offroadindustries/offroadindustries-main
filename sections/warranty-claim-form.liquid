@@ -98,7 +98,7 @@
     row-gap: 1.25rem;
     column-gap: 1.5rem;
   }
-  /* Vertical stepper: numbered sections joined by a connector line */
+
   .f-warranty-claim__steps {
     display: block;
   }
@@ -241,8 +241,8 @@
       min-width: 100%;
     }
   }
-  /* Adjustable font sizes: fluid clamp() between the mobile and desktop settings.
-     Uses px so it is not shrunk by the theme's root font-size. */
+
+
   #{{ section_id }} .section__heading {
     font-size: clamp(calc(var(--wc-heading-min, 28) * 1px), calc(var(--wc-heading-min, 28) * 1px + (var(--wc-heading-max, 40) - var(--wc-heading-min, 28)) * ((100vw - 375px) / 1065)), calc(var(--wc-heading-max, 40) * 1px));
   }
@@ -266,7 +266,7 @@
   #{{ section_id }} .f-warranty-claim__photo-list {
     font-size: clamp(calc(var(--wc-hint-min, 13) * 1px), calc(var(--wc-hint-min, 13) * 1px + (var(--wc-hint-max, 14) - var(--wc-hint-min, 13)) * ((100vw - 375px) / 1065)), calc(var(--wc-hint-max, 14) * 1px));
   }
-  /* Photo uploader */
+
   .f-wc-upload {
     display: block;
   }
@@ -399,7 +399,7 @@
   .f-wc-upload__status.is-error {
     color: #dc2626;
   }
-  /* ---- Wizard mode (added by JS; without JS every step stays visible) ---- */
+
   .f-warranty-claim.is-wizard .f-warranty-claim__step { display: none; }
   .f-warranty-claim.is-wizard .f-warranty-claim__step.is-active { display: block; }
   .f-warranty-claim.is-wizard .f-warranty-claim__step-marker { display: none; }
@@ -539,7 +539,7 @@
 
             <div class="f-warranty-claim__steps">
 
-              <!-- Step 1: Claim -->
+
               <section class="f-warranty-claim__step">
                 <div class="f-warranty-claim__step-marker">
                   <span class="f-warranty-claim__step-num">1</span>
@@ -584,7 +584,7 @@
                 </div>
               </section>
 
-              <!-- Step 2: Vehicle Details -->
+
               <section class="f-warranty-claim__step">
                 <div class="f-warranty-claim__step-marker">
                   <span class="f-warranty-claim__step-num">2</span>
@@ -648,7 +648,7 @@
                 </div>
               </section>
 
-              <!-- Step 3: FOX Authorized Dealer Information -->
+
               <section class="f-warranty-claim__step">
                 <div class="f-warranty-claim__step-marker">
                   <span class="f-warranty-claim__step-num">3</span>
@@ -703,7 +703,7 @@
                 </div>
               </section>
 
-              <!-- Step 4: Installer Details -->
+
               <section class="f-warranty-claim__step">
                 <div class="f-warranty-claim__step-marker">
                   <span class="f-warranty-claim__step-num">4</span>
@@ -732,7 +732,7 @@
                 </div>
               </section>
 
-              <!-- Step 5: Failure Description -->
+
               <section class="f-warranty-claim__step">
                 <div class="f-warranty-claim__step-marker">
                   <span class="f-warranty-claim__step-num">5</span>
@@ -762,7 +762,7 @@
                 </div>
               </section>
 
-              <!-- Step 6: Required photos -->
+
               <section class="f-warranty-claim__step">
                 <div class="f-warranty-claim__step-marker">
                   <span class="f-warranty-claim__step-num">6</span>
@@ -854,12 +854,12 @@
 
 {%- if uploads_enabled -%}
 <script>
-  /* <photo-uploader> - direct browser-to-Cloudinary upload.
-     Shopify's contact form cannot receive files, so photos upload straight to
-     Cloudinary (unsigned preset) and the secure URLs are delivered two ways for
-     reliability: (1) a single contact[Photo Links] field attached DIRECTLY to the
-     <form> (fields nested inside a custom element can be dropped from the POST),
-     and (2) folded into contact[body] on submit, which Shopify always emails. */
+
+
+
+
+
+
   (function () {
     if (customElements.get('photo-uploader')) return;
     class PhotoUploader extends HTMLElement {
@@ -878,12 +878,12 @@
 
         this.seq = 0;
         this.inFlight = 0;
-        this.uploads = {}; // item id -> Cloudinary secure_url
+        this.uploads = {};
 
         if (!this.input || !this.cloudName || !this.preset) return;
 
-        // Post the links through a field attached DIRECTLY to the <form> (not
-        // nested inside this custom element) so it is always included in the POST.
+
+
         this.linksField = document.createElement('input');
         this.linksField.type = 'hidden';
         this.linksField.name = 'contact[Photo Links]';
@@ -993,7 +993,7 @@
           }
         };
         xhr.upload.onload = function () {
-          // all bytes sent; now waiting on Cloudinary to process and respond
+
           barFill.style.width = '95%';
           item.classList.add('is-processing');
           if (self.inFlight > 0) self._setStatus('Processing ' + self.inFlight + ' file(s)...');
@@ -1091,8 +1091,8 @@
           this.scrollIntoView({ behavior: 'smooth', block: 'center' });
           return;
         }
-        // Guaranteed fallback: fold the links into the message body too, which
-        // Shopify always includes in the notification email.
+
+
         var urls = this._urls();
         if (this.form && urls.length) {
           var body = this.form.querySelector('[name="contact[body]"]');
@@ -1110,9 +1110,9 @@
 
 {%- if section.settings.layout_mode == 'wizard' -%}
 <script>
-  /* Multi-step wizard: shows one section at a time with Back/Next, validating
-     each step before advancing. Progressive enhancement — if this script does
-     not run, every section stays visible and the form submits as a single page. */
+
+
+
   (function () {
     var P = 'f-warranty-claim';
     var root = document.getElementById('{{ section_id }}');
@@ -1127,7 +1127,7 @@
     var submitLabel = submitBtn ? (submitBtn.textContent || 'Submit').trim() : 'Submit';
     var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    // Preserve original `required` so hidden steps never block the native submit.
+
     [].slice.call(form.querySelectorAll('[required]')).forEach(function (c) {
       c.setAttribute('data-wizard-req', '1');
     });

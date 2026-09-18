@@ -1,11 +1,11 @@
-{%- comment -%}
-  ORI GVM What's Included: item list one side, up to four images the other.
-  The grid reshapes by image count (1 wide, 2 across, 3 with one spanning,
-  4 as a square) and becomes a scroll-snap carousel under 750px.
 
-  Image blocks are section settings, so every product on the template shares
-  them. A product with its own File list metafield overrides them.
-{%- endcomment -%}
+
+
+
+
+
+
+
 
 {{ 'ori-gvm-product.css' | asset_url | stylesheet_tag }}
 {{ 'ori-gvm-included.css' | asset_url | stylesheet_tag }}
@@ -16,25 +16,14 @@
   assign container = section.settings.container | default: 'container'
   assign included = section.blocks | where: 'type', 'included'
 
-  # The rows come from the blocks above. Each GVM product has its own template
-  # now, so the blocks are per-product already and there is nothing to override
-  # them with - the custom.included_items metafield this used to read has been
-  # deleted.
   assign incl_rows = included
 
-  # Four is the ceiling. The media column only has grid shapes for one to
-  # four frames, so a fifth row leaves the list running past the images with
-  # nothing beside it. The editor limit stops new blocks being added; this
-  # covers a template already saved with more, and a product pointing at
-  # more than four metaobject entries.
   if incl_rows.size > 4
     assign incl_rows = incl_rows | slice: 0, 4
   endif
   assign images = section.blocks | where: 'type', 'image'
   assign brand_logos = section.blocks | where: 'type', 'brand_logo'
 
-  # Only images that actually hold a file count towards the layout, otherwise an
-  # empty block would leave a hole in the grid.
   assign img_count = 0
   for block in images
     if block.settings.image != blank
@@ -42,10 +31,6 @@
     endif
   endfor
 
-  # Per-product images override the shared Image blocks for one product; the
-  # blocks stay as the fallback. Wants a File list of images - anything with
-  # no width is skipped rather than drawn as an empty frame. Capped at four
-  # to match the block limit and the grid shapes in the CSS.
   assign use_mf_images = false
   assign incl_mf = section.settings.images_metafield | default: 'custom.included_images' | split: '.'
   if product != blank and incl_mf.size == 2
@@ -64,9 +49,6 @@
 
   assign autoplay_ms = section.settings.autoplay_seconds | times: 1000
 
-  # Logo box and logo are sized separately. The box is square unless a wider one
-  # is asked for; the scale is how much of that box the artwork fills, and it can
-  # go past 100% to crop the empty margin most supplied logo files carry.
   assign frame_h = section.settings.item_logo_height | default: 64
   assign frame_w = frame_h
   if section.settings.item_logo_box_width > 0
@@ -75,16 +57,12 @@
   assign logo_scale_pct = section.settings.item_logo_scale | default: 100
   assign logo_scale = logo_scale_pct | divided_by: 100.0
 
-  # Padding is inside the border and inside the box size, so the artwork is
-  # scaled against what is left over rather than the full box.
   assign frame_pad = section.settings.item_logo_box_padding | default: 3
   assign frame_inner = frame_w | minus: frame_pad | minus: frame_pad
   if frame_inner < 1
     assign frame_inner = 1
   endif
 
-  # sizes has to describe the real rendered width. It used to be a hardcoded
-  # 40px, which pinned the artwork to 40px however large the box was set.
   assign logo_px = frame_inner | times: logo_scale_pct | divided_by: 100
   if logo_px < 40
     assign logo_px = 40
@@ -124,8 +102,6 @@
                     assign row_sku = row.settings.sku
                     assign row_attrs = row.shopify_attributes
 
-                    # A File field can hold something that is not an image, and
-                    # that has no width, so it would draw an empty logo frame.
                     assign has_logo = false
                     if row_logo != blank and row_logo.width > 0
                       assign has_logo = true
@@ -181,23 +157,23 @@
               <div
                 class="ori-gvm-incl__media"
                 data-count="{{ img_count }}"
-                {%- comment -%}
-                  Which source filled the grid, so "why is this product still
-                  showing the shared photos" can be answered from the page
-                  itself rather than by guessing at the metafield.
-                {%- endcomment -%}
+
+
+
+
+
                 data-image-source="{% if use_mf_images %}metafield{% else %}blocks{% endif %}"
                 data-gallery-track
                 role="group"
                 aria-label="{{ section.settings.heading | default: "What's included" | escape }} images"
               >
-                {%- comment -%}
-                  A frame spans the whole gallery when it is the only image, or
-                  when it is the third of three - the grid gives that one
-                  grid-column: 1 / -1. The snippet needs to know, because a
-                  spanning frame is twice as wide and has to ask for a bigger
-                  source image.
-                {%- endcomment -%}
+
+
+
+
+
+
+
                 {%- if use_mf_images -%}
                   {%- assign incl_n = 0 -%}
                   {%- for file in mf_images -%}
@@ -240,11 +216,11 @@
 
               {%- if img_count > 1 -%}
                 <div class="ori-gvm-incl__dots" data-gallery-dots>
-                  {%- comment -%}
-                    One dot per rendered frame. Counted off img_count rather
-                    than the blocks, so it stays right whichever source filled
-                    the grid.
-                  {%- endcomment -%}
+
+
+
+
+
                   {%- for i in (1..img_count) -%}
                     <button
                       type="button"

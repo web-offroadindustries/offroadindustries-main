@@ -165,6 +165,7 @@ test('copies the selected vehicle load summary for quoting support', async ({ pa
   await page.getByRole('spinbutton', { name: 'TBM', exact: true }).fill('350');
   await page.getByRole('spinbutton', { name: 'Passengers', exact: true }).fill('300');
   await page.getByRole('spinbutton', { name: 'Cargo - rear', exact: true }).fill('500');
+  await page.getByRole('spinbutton', { name: 'Payload to check', exact: true }).fill('1200');
   await page.getByLabel(/Stage 3: The Heavy Hauler/i).check();
 
   await page.getByRole('button', { name: 'Copy load summary' }).click();
@@ -178,10 +179,10 @@ test('copies the selected vehicle load summary for quoting support', async ({ pa
   expect(copiedText).toContain('TBM: 350 kg');
   expect(copiedText).toContain('Passengers: 300 kg');
   expect(copiedText).toContain('Cargo - rear: 500 kg');
-  expect(copiedText).not.toContain('Payload to check:');
+  expect(copiedText).toContain('Payload to check: 1200 kg');
   expect(copiedText).toContain('- Client recovery boards: 18 kg');
-  expect(copiedText).not.toContain('\nPayload:');
-  expect(copiedText).not.toContain('Payload remaining:');
+  expect(copiedText).toContain('Payload: 1200 / 1819 kg (Within limit)');
+  expect(copiedText).toContain('Payload remaining: 619 kg');
   expect(copiedText).toContain('Vehicle total (GVM): 3649 / 4300 kg (Within limit)');
   expect(copiedText).toContain('Combined mass (GCM): 6799 / 8800 kg (Within limit)');
 });
@@ -217,9 +218,7 @@ test('updates the published payload when the selected stage changes', async ({ p
   await expect(page.getByText('Payload allowance: 2060 kg')).toBeVisible();
 });
 
-test('keeps the unfinished payload check hidden while retaining the published allowance', async ({
-  page,
-}) => {
+test('calculates entered payload against the selected stage without changing GVM', async ({ page }) => {
   await page.goto(FIXTURE_URL);
   await selectVehicle(page, 'chevrolet_silverado_1500');
   await page.getByLabel(/Stage 5: The No Compromise Build \(ZR2\)/i).check();
@@ -230,22 +229,35 @@ test('keeps the unfinished payload check hidden while retaining the published al
   });
   const payloadGauge = page.locator('.ori-gvm-calculator__bar--payload');
 
-  await expect(payloadInput).toHaveCount(0);
-  await expect(payloadGauge).toHaveCount(0);
-  await expect(page.getByText(/^Payload entered:/)).toHaveCount(0);
-  await expect(page.getByText(/^Payload remaining:/)).toHaveCount(0);
+  await expect(payloadInput).toBeVisible();
   await expect(page.getByText('Payload allowance: 1672 kg')).toBeVisible();
+  await expect(page.getByText('Vehicle total (GVM): 2578 / 4250 kg')).toBeVisible();
+
+  await payloadInput.fill('1200');
+
+  await expect(payloadGauge).toContainText('1200 / 1672 kg (72%)');
+  await expect(payloadGauge).toContainText('472 kg remaining');
+  await expect(page.getByText('Payload entered: 1200 kg')).toBeVisible();
+  await expect(page.getByText('Payload remaining: 472 kg')).toBeVisible();
+  await expect(page.locator('.ori-gvm-calculator__payload-status')).toHaveText(
+    'Payload: 1200 / 1672 kg (Within limit). 472 kg remaining'
+  );
   await expect(page.getByText('Vehicle total (GVM): 2578 / 4250 kg')).toBeVisible();
 
   await page.getByLabel(/Factory \/ OEM rating/i).check();
 
+  await expect(payloadGauge).toContainText('1200 / 757 kg (159%)');
+  await expect(payloadGauge).toContainText('443 kg over');
+  await expect(payloadGauge).toHaveClass(/ori-gvm-status--danger/);
   await expect(page.getByText('Payload allowance: 757 kg')).toBeVisible();
+  await expect(page.getByText('Payload over: 443 kg')).toBeVisible();
+  await expect(page.locator('.ori-gvm-calculator__payload-status')).toHaveText(
+    'Payload: 1200 / 757 kg (Over limit). 443 kg over'
+  );
   await expect(page.getByText('Vehicle total (GVM): 2543 / 3300 kg')).toBeVisible();
 });
 
-test('shows an unavailable published payload without exposing the unfinished payload check', async ({
-  page,
-}) => {
+test('reports an unavailable payload limit without showing misleading values', async ({ page }) => {
   await page.route('**/assets/ori-gvm-calculator-data.json', async (route) => {
     const response = await route.fetch();
     const data = await response.json();
@@ -256,12 +268,22 @@ test('shows an unavailable published payload without exposing the unfinished pay
   await page.goto(FIXTURE_URL);
   await selectVehicle(page, 'chevrolet_silverado_1500');
   await expect(page.getByText('Payload allowance: —')).toBeVisible();
-  await expect(
-    page.getByRole('spinbutton', { name: 'Payload to check', exact: true })
-  ).toHaveCount(0);
-  await expect(page.locator('.ori-gvm-calculator__bar--payload')).toHaveCount(0);
-  await expect(page.getByText(/^Payload entered:/)).toHaveCount(0);
-  await expect(page.getByText(/^Payload remaining:/)).toHaveCount(0);
+
+  await page.getByRole('spinbutton', { name: 'Payload to check', exact: true }).fill('500');
+
+  const payloadGauge = page.locator('.ori-gvm-calculator__bar--payload');
+  await expect(page.getByText('Payload entered: 500 kg')).toBeVisible();
+  await expect(page.getByText('Payload remaining: —')).toBeVisible();
+  await expect(payloadGauge).toContainText('Limit unavailable');
+  await expect(payloadGauge).not.toContainText('500 / 0 kg');
+  await expect(payloadGauge).not.toContainText('(0%)');
+  await expect(payloadGauge.locator('.ori-gvm-calculator__bar-track')).toHaveAttribute(
+    'aria-label',
+    'Payload: Limit unavailable'
+  );
+  await expect(page.locator('.ori-gvm-calculator__payload-status')).toHaveText(
+    'Payload: Limit unavailable'
+  );
 });
 
 test('keeps every RAM 5th Gen stage at the published towing limit', async ({ page }) => {

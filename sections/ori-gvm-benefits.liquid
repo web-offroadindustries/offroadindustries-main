@@ -1,8 +1,8 @@
-{%- comment -%}
-  ORI GVM Key Benefits. Outlined icon cards, three across on desktop, two on
-  tablet, one on mobile, stretched to equal height. Icons come from the shared
-  ori-gvm-icon snippet. Uses the .ori-gvm-bnf namespace, away from __card.
-{%- endcomment -%}
+
+
+
+
+
 
 {{ 'ori-gvm-product.css' | asset_url | stylesheet_tag }}
 {{ 'ori-gvm-benefits.css' | asset_url | stylesheet_tag }}
@@ -12,11 +12,6 @@
   assign container = section.settings.container | default: 'container'
   assign benefits = section.blocks | where: 'type', 'benefit'
 
-  # Subgrid lines the cards' rows up with each other, which needs every card to
-  # contribute the same number of tracks. So the icon row is either present on
-  # all of them or on none, decided by whether any card actually has an icon
-  # rather than card by card. Without this a single icon-less card would pull
-  # its own title and copy a row higher than its neighbours.
   assign any_icon = false
   for block in benefits
     if block.settings.icon != 'none' and block.settings.icon != blank
@@ -51,11 +46,11 @@
         >
           {%- for block in benefits -%}
             <li class="ori-gvm-bnf__card" {{ block.shopify_attributes }}>
-              {%- comment -%}
-                Title and copy are emitted whether or not they hold anything, so
-                the track count per card stays constant for subgrid. An empty
-                one collapses to nothing; it just holds its place in the row.
-              {%- endcomment -%}
+
+
+
+
+
               {%- if any_icon -%}
                 <span class="ori-gvm-bnf__icon-wrap" {% if block.settings.icon == 'none' %}aria-hidden="true"{% endif %}>
                   {%- if block.settings.icon != 'none' -%}

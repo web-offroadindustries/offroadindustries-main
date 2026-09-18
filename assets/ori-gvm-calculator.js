@@ -3,7 +3,7 @@
 
   var ENGINE = window.ORIGvmCalculatorEngine;
   var TOUR_STORAGE_KEY = 'ori_gvm_tour_seen_v1';
-  var PAYLOAD_CHECK_ENABLED = false;
+  var PAYLOAD_CHECK_ENABLED = true;
 
   function element(tagName, className, text) {
     var node = document.createElement(tagName);

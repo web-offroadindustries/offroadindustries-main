@@ -56,7 +56,7 @@
       </div>
     {%- endif -%}
 
-    {%- comment -%} ── State filter tabs ──────────────────────────────────── {%- endcomment -%}
+
     {%- if total > 0 -%}
       <div class="dealer-locator__filters" id="dl-filters-{{ section_id }}">
         <button class="dealer-locator__filter-btn is-active"
@@ -95,7 +95,7 @@
       </p>
     {%- endif -%}
 
-    {%- comment -%} ── Dealer cards grid ──────────────────────────────────── {%- endcomment -%}
+
     <div class="dealer-locator__grid" id="dl-grid-{{ section_id }}">
 
       {%- if total == 0 -%}
@@ -126,7 +126,7 @@
           {{ block.shopify_attributes }}
         >
 
-          {%- comment -%} Card head — name + logo {%- endcomment -%}
+
           <div class="dealer-locator__card-head">
             <h3 class="dealer-locator__name" style="color:{{ section.settings.heading_color }};">
               {{- block.settings.name | default: 'Dealer Name' -}}
@@ -143,7 +143,7 @@
             {%- endif -%}
           </div>
 
-          {%- comment -%} Card body — address + phone {%- endcomment -%}
+
           <div class="dealer-locator__card-body" style="color:{{ section.settings.text_color }};">
             {%- if has_address -%}
               <div class="dealer-locator__info-row">
@@ -168,7 +168,7 @@
             {%- endif -%}
           </div>
 
-          {%- comment -%} Tags / badges {%- endcomment -%}
+
           {%- if has_tags -%}
             <div class="dealer-locator__tags">
               {%- if block.settings.tag_platinum -%}
@@ -189,7 +189,7 @@
             </div>
           {%- endif -%}
 
-          {%- comment -%} Action buttons {%- endcomment -%}
+
           <div class="dealer-locator__actions">
             {%- if maps_url != blank -%}
               <a href="{{ maps_url }}" target="_blank" rel="noopener noreferrer" class="dealer-locator__btn" style="background:{{ section.settings.btn_primary_bg }};color:{{ section.settings.btn_primary_text }};border-color:{{ section.settings.btn_primary_bg }};">
@@ -227,12 +227,12 @@
 
   </div>
 
-  {%- comment -%}
-    The filter script belongs inside the section. ORI GVM Approved lifts this
-    element out of the page and re-runs only the scripts it finds within it,
-    so a script placed after the closing tag would be left behind and the
-    state buttons would render dead on every page that pulls this list.
-  {%- endcomment -%}
+
+
+
+
+
+
 <script>
 (function () {
   var sid    = {{ section_id | json }};

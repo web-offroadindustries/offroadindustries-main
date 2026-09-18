@@ -126,8 +126,8 @@
     padding-top: 0.9rem;
     padding-bottom: 0.9rem;
   }
-  /* Adjustable font sizes: fluid clamp() between the mobile and desktop settings.
-     Uses px so it is not shrunk by the theme's root font-size. */
+
+
   #{{ section_id }} .section__heading {
     font-size: clamp(calc(var(--st-heading-min, 28) * 1px), calc(var(--st-heading-min, 28) * 1px + (var(--st-heading-max, 40) - var(--st-heading-min, 28)) * ((100vw - 375px) / 1065)), calc(var(--st-heading-max, 40) * 1px));
   }
@@ -187,7 +187,7 @@
 
             <div class="f-flex flex-wrap f-support-ticket__fields">
 
-              <!-- Contact -->
+
               <div class="f-support-ticket__group-header is-first">
                 <span class="f-support-ticket__group-title">Your Details</span>
               </div>
@@ -236,7 +236,7 @@
                 <input class="form-control" type="text" id="{{ form_id }}-company" name="contact[Company Name]">
               </div>
 
-              <!-- Request -->
+
               <div class="f-support-ticket__group-header">
                 <span class="f-support-ticket__group-title">Request Details</span>
               </div>

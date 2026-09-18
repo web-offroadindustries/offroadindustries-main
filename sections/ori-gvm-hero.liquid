@@ -78,11 +78,11 @@
       {%- endif -%}
 
       <div class="ori-gvm-hero__ctas">
-        {%- comment -%}
-          Primary call to action. With "opens the quote form" ticked it opens the
-          contact-form-v4 popup already on the page instead of navigating away.
-          Falls back to its URL if that section is ever removed.
-        {%- endcomment -%}
+
+
+
+
+
         {%- if section.settings.btn_1_text != blank -%}
           {%- if section.settings.btn_1_opens_quote -%}
             <modal-opener data-modal="#PopupModal-{{ section.settings.quote_popup_id | handle }}">
@@ -109,22 +109,22 @@
         {%- endif -%}
       </div>
 
-      {%- comment -%}
-        Third call to action, through to the load calculator. Blank by default.
-        In its own row because flex-basis 100% in the row above stretched it
-        into a full width bar. Do not use btn--link: the theme paints its hover
-        fill with .btn::before/::after and the :not() guard misses btn--link,
-        so the fill shows as a solid block.
-      {%- endcomment -%}
+
+
+
+
+
+
+
       {%- if section.settings.btn_3_text != blank -%}
         <div class="ori-gvm-hero__calc-cta">
-          {%- comment -%}
-            The quiet style deliberately drops the .btn class rather than adding
-            a modifier to it. .btn paints its hover fill with ::before/::after
-            and the :not() guard on that rule does not cover a custom modifier,
-            so anything that stays a .btn ends up with the fill showing through.
-            Leaving .btn off entirely sidesteps that completely.
-          {%- endcomment -%}
+
+
+
+
+
+
+
           {%- if section.settings.btn_3_style == 'quiet' -%}
             {%- assign calc_class = 'ori-gvm-hero__calc-btn ori-gvm-hero__calc-btn--quiet' -%}
           {%- else -%}

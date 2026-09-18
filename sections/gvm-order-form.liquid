@@ -94,7 +94,7 @@
   .f-gvm-order__dep.is-hidden {
     display: none;
   }
-  /* Vertical stepper: numbered sections joined by a connector line */
+
   .f-gvm-order__steps {
     display: block;
   }
@@ -152,7 +152,7 @@
     text-transform: uppercase;
     color: var(--color-text-heading, #111827);
   }
-  /* Prominent header, used on the final Workshop Details step */
+
   .f-gvm-order__step-header--lead {
     min-height: 0;
     align-items: flex-start;
@@ -286,8 +286,8 @@
       min-width: 100%;
     }
   }
-  /* Adjustable font sizes: fluid clamp() between the mobile and desktop settings.
-     Uses px so it is not shrunk by the theme's root font-size. */
+
+
   #{{ section_id }} .section__heading {
     font-size: clamp(calc(var(--gvm-heading-min, 28) * 1px), calc(var(--gvm-heading-min, 28) * 1px + (var(--gvm-heading-max, 40) - var(--gvm-heading-min, 28)) * ((100vw - 375px) / 1065)), calc(var(--gvm-heading-max, 40) * 1px));
   }
@@ -320,7 +320,7 @@
   #{{ section_id }} .f-gvm-order__note-content p {
     font-size: clamp(calc(var(--gvm-note-min, 15) * 1px), calc(var(--gvm-note-min, 15) * 1px + (var(--gvm-note-max, 16) - var(--gvm-note-min, 15)) * ((100vw - 375px) / 1065)), calc(var(--gvm-note-max, 16) * 1px));
   }
-  /* ---- Wizard mode (added by JS; without JS every step stays visible) ---- */
+
   .f-gvm-order.is-wizard .f-gvm-order__step { display: none; }
   .f-gvm-order.is-wizard .f-gvm-order__step.is-active { display: block; }
   .f-gvm-order.is-wizard .f-gvm-order__step-marker { display: none; }
@@ -462,7 +462,7 @@
 
             <div class="f-gvm-order__steps">
 
-              <!-- Step 1: Order details -->
+
               <section class="f-gvm-order__step">
                 <div class="f-gvm-order__step-marker">
                   <span class="f-gvm-order__step-num">1</span>
@@ -524,7 +524,7 @@
                 </div>
               </section>
 
-              <!-- Step 2: Vehicle information -->
+
               <section class="f-gvm-order__step">
                 <div class="f-gvm-order__step-marker">
                   <span class="f-gvm-order__step-num">2</span>
@@ -631,7 +631,7 @@
                 </div>
               </section>
 
-              <!-- Step 3: Your details -->
+
               <section class="f-gvm-order__step">
                 <div class="f-gvm-order__step-marker">
                   <span class="f-gvm-order__step-num">3</span>
@@ -714,7 +714,7 @@
   (function () {
     var form = document.getElementById('{{ form_id }}');
     if (!form) return;
-    // Note links open in a new tab (theme richtext strips the target attribute)
+
     [].slice.call(form.querySelectorAll('.f-gvm-order__note a')).forEach(function (a) {
       a.setAttribute('target', '_blank');
       a.setAttribute('rel', 'noopener noreferrer');
@@ -731,18 +731,18 @@
 </script>
 
 <script>
-  /* Vehicle cascade: Make -> Model -> Trim -> GVM Kit dependent dropdowns.
-     Runs in both the multi-step and single-page layouts. Each menu reveals and
-     populates once the one above it is chosen. Downstream menus stay disabled
-     while hidden, so a hidden required menu can never block submission.
-     Some models (e.g. Ford F150) fold wheelbase into the trim options and
-     relabel that menu via a per-model "trimLabel". */
+
+
+
+
+
+
   (function () {
     var form = document.getElementById('{{ form_id }}');
     if (!form) return;
 
-    // Vehicle list (approved by ORI). A model may set "trimLabel" to rename the
-    // trim menu (used for Ford F150, which combines trim and wheelbase).
+
+
     var VEHICLES = {
       "Ford": {
         "F150": {
@@ -880,9 +880,9 @@
 
 {%- if section.settings.layout_mode == 'wizard' -%}
 <script>
-  /* Multi-step wizard: shows one section at a time with Back/Next, validating
-     each step before advancing. Progressive enhancement — if this script does
-     not run, every section stays visible and the form submits as a single page. */
+
+
+
   (function () {
     var P = 'f-gvm-order';
     var root = document.getElementById('{{ section_id }}');
@@ -897,7 +897,7 @@
     var submitLabel = submitBtn ? (submitBtn.textContent || 'Submit').trim() : 'Submit';
     var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    // Preserve original `required` so hidden steps never block the native submit.
+
     [].slice.call(form.querySelectorAll('[required]')).forEach(function (c) {
       c.setAttribute('data-wizard-req', '1');
     });

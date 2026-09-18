@@ -20,7 +20,7 @@
     {%- endif -%}
 
     {%- if section.blocks.size > 0 -%}
-      {%- comment -%} Collect unique vehicle labels for the first dropdown {%- endcomment -%}
+
       {%- assign vehicles_seen = '' -%}
       {%- assign vehicles_list = '' -%}
       {%- for block in section.blocks -%}
@@ -84,7 +84,7 @@
         </div>
       </div>
 
-      {%- comment -%} Data store — hidden, read by JS {%- endcomment -%}
+
       <script type="application/json" data-opc-data-{{ section.id }}>
         [
           {%- for block in section.blocks -%}

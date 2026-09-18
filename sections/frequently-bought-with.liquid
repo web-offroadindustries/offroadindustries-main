@@ -21,14 +21,6 @@
   assign heading_weight = section.settings.heading_weight
   assign heading_color = section.settings.heading_color
 
-  comment
-    Product source priority:
-    1. Specific products (product_list) win when at least one is chosen.
-    2. Otherwise fall back to the selected collection.
-    3. The two sources are never combined.
-    An unset list/collection is `blank` in Liquid (empty arrays count as blank),
-    so `!= blank` is a reliable "has products" test.
-  endcomment
   assign product_source = null
   if section.settings.product_list != blank
     assign product_source = section.settings.product_list
@@ -38,7 +30,7 @@
 
   assign max_items = 12
 -%}
-{%- comment -%} Build slides first so the empty state can be detected; de-duplicate products. {%- endcomment -%}
+
 {%- capture fbw_slides -%}
   {%- assign seen = '' -%}
   {%- if product_source -%}

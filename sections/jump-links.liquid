@@ -1,9 +1,9 @@
-{% comment %}
-  Section: Jump Links Bar (full-width items + swipe on mobile)
-  - Desktop: items auto-split width based on number of blocks (flex: 1)
-  - Mobile: horizontal swipe row, items don't stack
-  - Smooth scroll to ID with header offset
-{% endcomment %}
+
+
+
+
+
+
 
 {%- liquid
   assign bg = section.settings.bg_color
@@ -64,7 +64,7 @@
     width: 100%;
   }
 
-  /* Fixed-width centered container option */
+
   .jlbar__inner--fixed {
     max-width: var(--jl-maxw);
     margin: 0 auto;
@@ -74,17 +74,17 @@
     display: flex;
     align-items: stretch;
     width: 100%;
-    /* Was overflow: hidden. Items are flex: 1 1 0 and white-space: nowrap, so a
-       label longer than its equal share cannot shrink and was being cut off
-       with no way to reach it, most visibly at 768px where the mobile swipe
-       rules below stop applying. auto shows no scrollbar while they fit. */
+
+
+
+
     overflow-x: auto;
-    /* Kept from the original overflow: hidden. Leaving the vertical axis
-       to compute to auto could surface a stray vertical scrollbar. */
+
+
     overflow-y: hidden;
   }
 
-  /* Each item takes equal width automatically (based on number of items) */
+
   .jlbar__item {
     flex: 1 1 0;
     min-width: 0;
@@ -114,7 +114,7 @@
     color: var(--jl-active);
   }
 
-  /* Mobile swipe instead of stacking */
+
   @media (max-width: 767px) {
     .jlbar__nav {
       overflow-x: auto;
@@ -125,7 +125,7 @@
     .jlbar__nav::-webkit-scrollbar { display: none; }
     .jlbar__nav { scrollbar-width: none; }
 
-    /* Prevent equal split on mobile so it can swipe */
+
     .jlbar__item {
       flex: 0 0 auto;
       scroll-snap-align: start;
@@ -184,7 +184,7 @@
       history.replaceState(null, "", "#" + encodeURIComponent(id));
     }
 
-    // Click handling
+
     container.addEventListener("click", function (e) {
       const link = e.target.closest("[data-target-id]");
       if (!link) return;
@@ -193,14 +193,14 @@
       const id = link.getAttribute("data-target-id");
       if (!id) return;
 
-      // Active state UI
+
       container.querySelectorAll(".jlbar__item").forEach(a => a.classList.remove("is-active"));
       link.classList.add("is-active");
 
       scrollToId(id);
     });
 
-    // Optional: set active based on hash on load
+
     window.addEventListener("load", function () {
       const hash = (location.hash || "").replace("#", "");
       if (!hash) return;

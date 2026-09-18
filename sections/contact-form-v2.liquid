@@ -1,11 +1,11 @@
-{% comment %}
-  Contact Form v2 (Blocks)
-  - Left column: dynamic content + contact info blocks
-  - Right column: Shopify contact form + field blocks (reorderable)
-  - Added: optional banner image on top of the form (only shows if image exists)
-  - Added: Pre/Post rego dropdown + Location field
-  - Updated: Message placeholder for GVM enquiry
-{% endcomment %}
+
+
+
+
+
+
+
+
 
 {% liquid
   assign section_id = section.id
@@ -34,7 +34,7 @@
       {% if mobile_layout == 'form_first' %} cfv2__grid--mobile-reverse{% endif %}
     ">
 
-      <!-- LEFT CONTENT -->
+
       <div class="cfv2__content">
         {% if section.settings.heading != blank %}
           <h2 class="cfv2__heading">{{ section.settings.heading }}</h2>
@@ -88,7 +88,7 @@
         {% endif %}
       </div>
 
-      <!-- RIGHT FORM -->
+
       <div class="cfv2__form">
         {% if section.settings.form_title != blank %}
           <h3 class="cfv2__form-title">{{ section.settings.form_title }}</h3>
@@ -105,7 +105,7 @@
             </div>
           {% endif %}
 
-          <!-- Honeypot (spam protection) -->
+
           <input type="text" name="contact[company]" tabindex="-1" autocomplete="off" class="cfv2__hp" aria-hidden="true">
 
           <div class="cfv2__fields cfv2__fields--cols-{{ section.settings.fields_columns_desktop }}">
@@ -302,7 +302,7 @@
       padding: 24px;
       border: 1px solid rgba(0,0,0,.15);
       min-height: 320px;
-      overflow: hidden; /* for banner */
+      overflow: hidden;
     }
 
     #ContactV2-{{ section_id }} .cfv2__heading{
@@ -446,11 +446,11 @@
 
     #ContactV2-{{ section_id }} .cfv2__hp{ display:none !important; }
 
-    /* Desktop swap (form left) */
+
     #ContactV2-{{ section_id }} .cfv2__grid--desktop-reverse .cfv2__content{ order: 2; }
     #ContactV2-{{ section_id }} .cfv2__grid--desktop-reverse .cfv2__form{ order: 1; }
 
-    /* Mobile stack */
+
     @media (max-width: 900px){
       #ContactV2-{{ section_id }} .cfv2__grid{
         grid-template-columns: 1fr;
@@ -460,7 +460,7 @@
       #ContactV2-{{ section_id }} .cfv2__fields--cols-2{ grid-template-columns: 1fr; }
     }
 
-    /* Mobile swap (form first) */
+
     @media (max-width: 900px){
       #ContactV2-{{ section_id }} .cfv2__grid--mobile-reverse{
         display: flex;

@@ -1,6 +1,6 @@
 # Theme guide
 
-Developer notes for working on this theme: architecture, commands and the conventions worth knowing before changing anything.
+Developer notes for working on this theme: architecture, commands and the conventions worth knowing before changing anything. New maintainers should read `DEVELOPER-HANDOVER.md` first for the full custom-system inventory, repository state, risks, and stabilization plan.
 
 ## Theme Overview
 
@@ -9,7 +9,7 @@ This is the **Zest v9.1.1** Shopify theme by FoxEcom, customized as "Gusto-Theme
 Two layers live side by side, and telling them apart matters:
 
 - **Zest framework files** — stock theme code (`theme.css`, `base.css`, `main-product.liquid`, `cart.js`, …). A FoxEcom theme update overwrites these, so customizations here are fragile.
-- **ORI custom files** — prefixed `ori-`, `gvm-`, `dealer-`, `b2b-`, or `so-`. These are the client work and are safe from theme updates.
+- **ORI custom files** — commonly prefixed `ori-`, `gvm-`, `dealer-`, `b2b-`, or `so-`. These generally survive a theme update, but ORI behavior also exists in modified Zest core files, so every upstream update still requires a manual merge and regression test.
 
 Zest docs: https://docs.foxecom.com/zest-theme/
 
@@ -39,7 +39,7 @@ A Zest update overwrites the source files and the bundle would then silently ser
 
 ### Tests
 
-Tests live in `tests/` with their own `package.json` (Playwright + Lighthouse). **`tests/` is gitignored** except `tests/gvm-review-directory.test.cjs` — treat the suite as a local development tool, not CI.
+The repository currently tracks 14 test/config/fixture files under `tests/`. Additional local dependencies and generated test output remain ignored, so a fresh clone may need Playwright and its browsers installed before the browser suites run. The suite is a developer-run safety net rather than enforced CI.
 
 ```bash
 # Node contract tests — no browser, run from the theme root
@@ -80,14 +80,14 @@ Consequences:
 |-----------|----------|
 | `sections/` | ~121 page sections (main building blocks) |
 | `snippets/` | ~260 partials rendered via `{% render %}` |
-| `templates/` | ~73 templates; JSON except `templates/customers/*.liquid` |
+| `templates/` | ~117 templates; JSON except `templates/customers/*.liquid` |
 | `assets/` | Flat — all CSS, JS, JSON data, images (no subdirectories) |
 | `config/` | `settings_schema.json` (schema) + `settings_data.json` (live values) |
 | `layout/` | `theme.liquid`, `password.liquid`, `theme.pagefly.liquid` |
 | `locales/` | 52 translation files |
 | `tools/` | `build-css-bundles.js` |
 | `scripts/` | One-off Node scripts hitting the Shopify Admin API (product/collection creation, redirect import); need `scripts/.env` |
-| `docs/`, `.ori-audit/` | Data-maintenance docs and audit snapshots (`.ori-audit/` gitignored) |
+| `docs/`, `.ori-audit/` | Data-maintenance docs and local audit snapshots (`.ori-audit/` is gitignored and is not available in a fresh clone) |
 
 ### Section pattern
 

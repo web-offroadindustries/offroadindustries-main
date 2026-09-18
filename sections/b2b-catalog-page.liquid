@@ -25,7 +25,7 @@
 
     {%- if authorized -%}
 
-      {%- comment -%} ── Page header ───────────────────────────────────────────── {%- endcomment -%}
+
       <div class="b2b-catalog__page-header">
         <div class="b2b-catalog__page-header-text">
           <h1 class="b2b-catalog__page-title">{{ section.settings.heading }}</h1>
@@ -50,7 +50,7 @@
         </div>
       </div>
 
-      {%- comment -%} ── Bulk discount banner ─────────────────────────────────── {%- endcomment -%}
+
       {%- if bulk_enabled -%}
         <div class="b2b-catalog__bulk-banner">
           <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><path d="M12 22V7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
@@ -60,7 +60,7 @@
 
 {%- paginate catalog_collection.products by section.settings.per_page -%}
 
-        {%- comment -%} ── Stats bar ────────────────────────────────────────────── {%- endcomment -%}
+
         <div class="b2b-catalog__stats">
           <span>{{ catalog_collection.products_count }} product{{ catalog_collection.products_count | plural: '', 's' }}</span>
           {%- if paginate.pages > 1 -%}
@@ -69,7 +69,7 @@
           {%- endif -%}
         </div>
 
-        {%- comment -%} ── Product grid ──────────────────────────────────────────── {%- endcomment -%}
+
         {%- if catalog_collection.products_count > 0 -%}
           <div class="b2b-catalog__grid" style="--b2b-cols: {{ columns }};">
 
@@ -182,7 +182,7 @@
 
           </div>
 
-          {%- comment -%} ── Pagination ────────────────────────────────────────── {%- endcomment -%}
+
           {%- if paginate.pages > 1 -%}
             <nav class="b2b-catalog__pagination" aria-label="Product catalog pages">
               {%- if paginate.previous -%}
@@ -213,7 +213,7 @@
 
       {%- endpaginate -%}
 
-      {%- comment -%} ── Footer CTA ───────────────────────────────────────────── {%- endcomment -%}
+
       {%- if section.settings.show_cta -%}
         <div class="b2b-catalog__footer-cta">
           <p>{{ section.settings.cta_text }}</p>
@@ -225,12 +225,12 @@
 
     {%- elsif customer -%}
 
-      {%- comment -%} Logged in but not a B2B account — send to account dashboard {%- endcomment -%}
+
       <script>window.location.replace('/account');</script>
 
     {%- else -%}
 
-      {%- comment -%} Not logged in {%- endcomment -%}
+
       <div class="b2b-pending">
         <h1 class="b2b-pending__title">{{ section.settings.gate_heading }}</h1>
         <p class="b2b-pending__body">{{ section.settings.gate_body }}</p>
@@ -302,7 +302,7 @@
 
   document.querySelectorAll('.b2b-catalog__card').forEach(initCard);
 
-  // Move cards with no product image to the end of the grid
+
   var grid = document.querySelector('.b2b-catalog__grid');
   if (grid) {
     var noImage = grid.querySelectorAll('.b2b-catalog__card-img-placeholder');

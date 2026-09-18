@@ -20,7 +20,7 @@ function readSectionSchema(relativePath) {
   return JSON.parse(match[1]);
 }
 
-test('homepage keeps five-second autoplay but defers its start until interaction', () => {
+test('homepage keeps five-second autoplay and supports deferred interaction start', () => {
   const schema = readSectionSchema('sections/slideshow.liquid');
   const deferSetting = schema.settings.find(
     (setting) => setting.id === 'defer_autoplay_until_interaction',
@@ -39,7 +39,7 @@ test('homepage keeps five-second autoplay but defers its start until interaction
   assert.equal(hero.type, 'slideshow');
   assert.equal(hero.settings.autoplay, true);
   assert.equal(hero.settings.autorotate_speed, 5);
-  assert.equal(hero.settings.defer_autoplay_until_interaction, true);
+  assert.equal(hero.settings.defer_autoplay_until_interaction, false);
 
   const liquid = read('sections/slideshow.liquid');
   assert.match(liquid, /data-autoplay-after-interaction="{{ autoplay_after_interaction }}"/);

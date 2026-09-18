@@ -3,15 +3,9 @@
   assign section_id = section.settings.custom_id | default: section.id
   assign container  = section.settings.container
 
-  # ACT is in the list because the dealer network has a Queanbeyan installer;
-  # a state missing here silently drops every installer assigned to it.
   assign states = 'VIC,NSW,QLD,WA,SA,TAS,ACT,NT' | split: ','
   assign first_state = states | first
 
-  # One list, checked in three places below. It used to be three copies of the
-  # same three-term condition, and they had drifted from the wording actually
-  # used: the section's own preset writes "(to be added)", which none of them
-  # matched, so those rows would have rendered on the storefront.
   assign placeholder_terms = 'add via theme editor,to be added,to be confirmed,tbc,tba,coming soon,placeholder,name tbc,xxxx' | split: ','
 -%}
 
@@ -40,12 +34,12 @@
       </div>
     {%- endif -%}
 
-    {%- comment -%}
-      Build a map of state → installers from blocks. Rows whose name still
-      matches one of placeholder_terms are skipped, so unfinished data never
-      reaches the storefront. Checked in three passes below, all reading the
-      one list defined at the top of the file.
-    {%- endcomment -%}
+
+
+
+
+
+
     {%- assign has_installers = false -%}
     {%- for block in section.blocks -%}
       {%- assign nl = block.settings.name | downcase -%}
@@ -62,7 +56,7 @@
     {%- endfor -%}
 
     {%- if has_installers -%}
-      {%- comment -%} Collect which states have at least one installer {%- endcomment -%}
+
       {%- assign active_states = '' -%}
       {%- for state in states -%}
         {%- assign state_has = false -%}
@@ -95,7 +89,7 @@
         class="ori-installer-network__tabs"
         data-installer-tabs
       >
-        {%- comment -%} Tab nav {%- endcomment -%}
+
         <div class="ori-installer-network__tab-nav" role="tablist">
           {%- for state in active_states_arr -%}
             <button
@@ -111,7 +105,7 @@
           {%- endfor -%}
         </div>
 
-        {%- comment -%} Tab panels {%- endcomment -%}
+
         {%- for state in active_states_arr -%}
           <div
             class="ori-installer-network__panel{% if forloop.first %} is-active{% endif %}"
@@ -152,10 +146,10 @@
                       {%- endif -%}
 
                       <div class="ori-installer-card__info">
-                        {%- comment -%}
-                          Street, then suburb / state / postcode on its own line.
-                          Suburb alone still renders if no street is recorded.
-                        {%- endcomment -%}
+
+
+
+
                         {%- if block.settings.address != blank or block.settings.suburb != blank -%}
                           <span class="ori-installer-card__location">
                             {%- render 'icon-map-pin' -%}

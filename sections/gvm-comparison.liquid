@@ -1,9 +1,9 @@
-{% comment %}
-  Section: GVM Comparison / Specification
-  - Desktop: table-style grid with bottom borders only (no outer border)
-  - Mobile: STACKED cards (no horizontal scrolling)
-  - Updated to support up to 10 comparison columns
-{% endcomment %}
+
+
+
+
+
+
 
 {%- liquid
   assign max_cols = 10
@@ -21,14 +21,6 @@
   assign max_cap = section.settings.max_cap | default: '1600px'
   assign anchor_id = section.settings.anchor_id | strip
 
-  comment
-    Build the desktop track list here rather than with
-    repeat(var(--gvm-cols), ...) in CSS. Safari < 16 does not accept a custom
-    property as the repeat() count, which is the same reason
-    wheel-comparison-grid.liquid builds its own string, and the total width has
-    to be known in Liquid so the scroll wrapper can be given a matching
-    min-width. The thresholds below are the ones the CSS already used.
-  endcomment
   if cols >= 8
     assign label_w = 200
     assign col_min = 95
@@ -43,24 +35,6 @@
     assign gap = 40
   endif
 
-  comment
-    Widen the value columns to fit their longest unbreakable run of text.
-    Browsers break at spaces and at hyphens, so ORI-RAM2500-Mudflaps and
-    CHV-2500-Stage1-GVM wrap cleanly by themselves. A value with neither has
-    nowhere to break, and in too narrow a column it either collides with the
-    next one or splits mid-token.
-
-    This began as a fix for the RAM part numbers, which were written
-    RAM62500Stage1GVM: a single 17 character run. Those have since been
-    hyphenated to match every other vehicle, so nothing currently needs the
-    extra width, and this now stands as the safety net that stops any future
-    unbreakable value from breaking the table.
-
-    Roughly 10px per character, measured on the live table: 17 characters
-    rendered 169px at the size these tables use. Capped so one freak value
-    cannot blow the whole table out, and only applied where it is needed, so
-    tables of short values keep their existing width.
-  endcomment
   assign longest_token = 0
 
   for i in (1..cols)
@@ -102,10 +76,6 @@
     assign col_widths = col_widths | append: ' minmax(' | append: col_min | append: 'px, 1fr)'
   endfor
 
-  comment
-    Tracks are the label column plus one per comparison column, so the number
-    of gaps equals cols.
-  endcomment
   assign table_min_width = col_min | times: cols | plus: label_w
   assign gaps_total = gap | times: cols
   assign table_min_width = table_min_width | plus: gaps_total
@@ -133,7 +103,7 @@
 
     <div class="gvm-compare__table-scroll">
     <div class="gvm-compare__table" data-cols="{{ cols }}" style="--gvm-cols: {{ cols }};">
-      <!-- Header Row (hidden on mobile via CSS) -->
+
       <div class="gvm-compare__row gvm-compare__row--head">
         <div class="gvm-compare__cell gvm-compare__cell--label gvm-compare__cell--head">
           {{ section.settings.details_heading }}
@@ -149,7 +119,7 @@
         {%- endfor -%}
       </div>
 
-      <!-- Body Rows -->
+
       {%- for block in section.blocks -%}
         {%- case block.type -%}
 
@@ -161,7 +131,7 @@
               assign label = block.settings.label | strip
             -%}
             <div class="gvm-compare__row" {{ block.shopify_attributes }}>
-              <!-- Row label becomes the "card header" on mobile -->
+
               <div class="gvm-compare__cell gvm-compare__cell--label gvm-compare__cell--rowhead">
                 {% if label != blank %}
                   {{ label | newline_to_br }}
@@ -180,13 +150,13 @@
                   {%- assign raw = block.settings[vkey] | default: '' -%}
                   {%- assign val = raw | strip -%}
 
-                  {%- comment -%}
-                    Only the paired values need the compact treatment, so the
-                    marker goes on those cells rather than the whole column. A
-                    pipe is what makes a value a pair here: "37x12.5R18 |
-                    37x12.5R20", "Pos 12 | 18 | Zero". Everything else already
-                    fits and keeps the table's normal size.
-                  {%- endcomment -%}
+
+
+
+
+
+
+
                   {%- assign dense = false -%}
                   {%- if section.settings.compact_values and val contains '|' -%}
                     {%- assign dense = true -%}
@@ -226,7 +196,7 @@
 
   .gvm-compare__table { width: 100%; }
 
-  /* Desktop grid. Track list and gap come from Liquid above. */
+
   .gvm-compare__row {
     display: grid;
     padding: 18px 0;
@@ -238,15 +208,15 @@
     column-gap: {{ gap }}px;
   }
 
-  /* Let the table scroll inside its own box.
 
-     .site-wrapper sets overflow-x: clip, so without this an oversized table
-     produced no scrollbar and simply lost its right-hand columns. This table
-     needs {{ table_min_width }}px, so on tablet landscape and 1366px laptops the last
-     stage columns were being cut off with no way to reach them.
 
-     Desktop only: below 990px the rows become stacked cards, and a min-width
-     there would push them straight back off the screen. */
+
+
+
+
+
+
+
   @media (min-width: 990px) {
     .gvm-compare__table-scroll {
       overflow-x: auto;
@@ -263,8 +233,8 @@
   .gvm-compare__cell {
     font-size: 16px;
     line-height: 1.5;
-    /* Grid items default to min-width: auto, so one long unbroken value could
-       widen its track past the computed min-width above. */
+
+
     min-width: 0;
     overflow-wrap: break-word;
   }
@@ -304,9 +274,9 @@
   .gvm-compare__icon--check { color: #6b7b2a; }
   .gvm-compare__icon--cross { color: currentColor; }
 
-  /* =========================
-     MOBILE: stacked cards
-  ========================= */
+
+
+
   @media (max-width: 989px) {
     .gvm-compare__row--head { display: none !important; }
 
@@ -356,12 +326,12 @@
     }
   }
   {%- if section.settings.compact_values -%}
-    {% comment %}
-      Opt-in, for tables whose values are long paired strings. Tyre sizes like
-      "37x12.5R18 | 37x12.5R20" sit right on the 200px column cap, so the
-      browser breaks beside the pipe and one cell becomes four stacked lines.
-      Smaller text plus nowrap keeps a pair together. Desktop only.
-    {% endcomment %}
+
+
+
+
+
+
     @media (min-width: 990px) {
       .gvm-compare--{{ section.id }} .gvm-compare__cell--dense {
         font-size: 13px;

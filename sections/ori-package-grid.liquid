@@ -6,22 +6,17 @@
   assign source     = section.settings.source | default: 'products'
   assign products_limit = section.settings.products_limit | default: 12
 
-  # Products source: use the current collection, or an explicitly chosen one.
   assign pkg_collection = collection
   if section.settings.collection != blank
     assign pkg_collection = collections[section.settings.collection]
   endif
 
-  # Metafield keys (namespace.key) for the figures shown on each product card.
   assign gvm_mf = section.settings.gvm_metafield | default: 'custom.gvm' | split: '.'
   assign gcm_mf = section.settings.gcm_metafield | default: 'custom.upgraded_gcm' | split: '.'
   assign payload_mf = section.settings.payload_metafield | default: 'custom.payload_gain' | split: '.'
   assign stage_mf = section.settings.stage_metafield | default: 'custom.stage' | split: '.'
   assign product_btn_text = section.settings.product_btn_text | default: 'View Package'
 
-  # Manual Package card blocks always take priority when present, so cards the
-  # merchant adds show immediately without having to flip the Card source toggle.
-  # With no blocks added, cards are pulled from the collection (products source).
   assign use_manual = false
   if section.blocks.size > 0
     assign use_manual = true

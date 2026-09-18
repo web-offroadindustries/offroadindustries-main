@@ -1,16 +1,16 @@
-{%- comment -%}
-  ORI GVM Approved. Shows a section that lives on another page, so the
-  installer list is edited in one place and every page carrying this follows.
 
-  Liquid cannot reach another page's section blocks, so assets/
-  ori-gvm-approved.js lifts it in the browser. Falls back to a link.
-{%- endcomment -%}
+
+
+
+
+
+
 
 {{ 'ori-gvm-approved.css' | asset_url | stylesheet_tag }}
-{%- comment -%}
-  The injected markup arrives without its stylesheet, so the source section's
-  CSS is enqueued here too. Both are small and Shopify serves them cached.
-{%- endcomment -%}
+
+
+
+
 {{ 'dealer-locator.css' | asset_url | stylesheet_tag }}
 {{ 'ori-installer-network.css' | asset_url | stylesheet_tag }}
 <script src="{{ 'ori-gvm-approved.js' | asset_url }}" defer="defer"></script>
@@ -25,16 +25,9 @@
     assign selector = section.settings.custom_selector
   endif
 
-  # Full width drops this section's own container and band padding so the
-  # pulled section reaches the screen edges. The pulled section keeps its own
-  # internal spacing, which is what stops the heading sitting against the top
-  # edge; adjust that on the source page rather than here.
   assign full_width = section.settings.full_width
   assign pad_top = section.settings.padding_top
   assign pad_bottom = section.settings.padding_bottom
-  # Data only is the exception: the section is drawing its own heading and
-  # background now, and the script strips the padding off the pulled markup,
-  # so zeroing this too would leave the band with no vertical space at all.
   if full_width and section.settings.data_only != true
     assign pad_top = 0
     assign pad_bottom = 0
@@ -51,10 +44,10 @@
     class="ori-gvm-product__band{% if section.settings.alt_background %} ori-gvm-product__band--alt{% endif %}{% if full_width %} ori-gvm-approved__band--bleed{% endif %}{% if full_width and section.settings.flush_top_bottom %} ori-gvm-approved__band--flush{% endif %}"
     style="padding-top: {{ pad_top }}px; padding-bottom: {{ pad_bottom }}px; --approved-gutter: {{ section.settings.content_gutter | default: 24 }}px;{% if section.settings.bg_color != blank %} background: {{ section.settings.bg_color }};{% endif %}"
   >
-    {%- comment -%}
-      A plain full-width div in place of the container, so the pulled section's
-      own background runs edge to edge instead of sitting in a letterbox.
-    {%- endcomment -%}
+
+
+
+
     <div class="{% if full_width %}ori-gvm-approved__full{% else %}{{ container }}{% endif %}">
       {%- if section.settings.heading != blank or section.settings.description != blank -%}
         <div class="ori-gvm-approved__intro">
@@ -68,10 +61,10 @@
       {%- endif -%}
 
       {%- if source_page == blank or selector == blank -%}
-        {%- comment -%}
-          Nothing chosen yet. Say so in the editor rather than rendering an
-          empty band, and stay silent on the storefront.
-        {%- endcomment -%}
+
+
+
+
         {%- if request.design_mode -%}
           <p class="ori-gvm-approved__fallback">
             Pick a source page in the theme editor to show its installer list here.
@@ -88,10 +81,10 @@
             <span class="ori-gvm-approved__spinner" aria-hidden="true"></span>
           </div>
 
-          {%- comment -%}
-            Rendered up front, not injected on failure, so it is in the HTML
-            for search engines and for anyone the script never reaches.
-          {%- endcomment -%}
+
+
+
+
           <p class="ori-gvm-approved__fallback">
             <a href="{{ source_page.url }}">
               {{- section.settings.fallback_text | default: 'View our approved installers' -}}

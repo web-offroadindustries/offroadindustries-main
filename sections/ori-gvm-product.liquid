@@ -25,15 +25,9 @@
   assign accessories = section.blocks | where: 'type', 'accessory'
   assign cards_per_row = section.settings.cards_per_row | default: 3
 
-  # Hero split as a pair of fr values, so the ratio is a setting rather than a
-  # number buried in the stylesheet.
   assign hero_media_w = section.settings.hero_media_width | default: 48
   assign hero_content_w = 100 | minus: hero_media_w
 
-  # Per-figure resolution: variant metafields first (so each Step can differ),
-  # then product metafields, each across the custom and ori namespaces, then
-  # the section settings. current_variant drives the initial server render; the
-  # JSON blob further down carries every variant's values for instant switching.
   assign vmf = current_variant.metafields.custom
   assign vmfo = current_variant.metafields.ori
   assign mf = product.metafields.custom
@@ -47,9 +41,6 @@
   assign m_upgraded_gcm = vmf.upgraded_gcm.value | default: vmfo.upgraded_gcm.value | default: mf.upgraded_gcm.value | default: mfo.upgraded_gcm.value
   assign m_payload_gain = vmf.payload_gain.value | default: vmfo.payload_gain.value | default: mf.payload_gain.value | default: mfo.payload_gain.value
 
-  # Hero blurb: stage_summary metafield, then the Subtitle setting, then the
-  # product's Shopify description - the field the client actually fills in.
-  # newline_to_br applies to the metafield only; the description is already HTML.
   assign summary_html = ''
   if m_stage_summary != blank
     assign summary_html = m_stage_summary | newline_to_br
@@ -59,26 +50,18 @@
     assign summary_html = product.description
   endif
   assign sku_display = current_variant.sku
-  # Price: use the selected variant's price (for single-variant products this is
-  # the product price), falling back to the price metafield / section setting.
   assign price_display = m_price | default: section.settings.price
   if current_variant.price > 0
     assign price_display = current_variant.price | money
   endif
   assign spec_original_gvm = m_original_gvm | default: section.settings.spec_original_gvm
-  # Upgraded figures fall back to the original value when left blank, so the
-  # page still shows a figure instead of an empty stat card / spec row.
   assign spec_upgraded_gvm = m_upgraded_gvm | default: section.settings.spec_upgraded_gvm | default: m_original_gvm
   assign spec_payload_gain = m_payload_gain | default: section.settings.spec_payload_gain
   assign spec_gcm = m_upgraded_gcm | default: section.settings.spec_gcm | default: m_original_gcm
 
-  # Effective upgraded figures: use the upgraded metafield, else fall back to
-  # the original so a missing upgrade value still displays something.
   assign eff_upgraded_gvm = m_upgraded_gvm | default: m_original_gvm
   assign eff_upgraded_gcm = m_upgraded_gcm | default: m_original_gcm
 
-  # Hero "increase" stats: show original → upgraded when a real upgrade exists,
-  # otherwise show whichever single figure is available.
   assign gvm_increase = section.settings.gvm_value
   if m_original_gvm != blank and m_upgraded_gvm != blank
     assign gvm_increase = m_original_gvm | append: ' → ' | append: m_upgraded_gvm
@@ -96,8 +79,6 @@
     assign payload_display = m_payload_gain | prepend: '+'
   endif
 
-  # Stat card labels: "... increase" only when we show an original → upgraded
-  # change, otherwise the plain figure label.
   assign gvm_stat_label = 'GVM'
   if m_original_gvm != blank and m_upgraded_gvm != blank
     assign gvm_stat_label = 'GVM increase'
@@ -125,7 +106,7 @@
   style="--gvm-tint: {{ section.settings.tint_color | default: '#f3f6f7' }}; --gvm-item-logo-h: {{ section.settings.item_logo_height | default: 40 }}px; --gvm-brand-logo-h: {{ section.settings.brand_logo_height | default: 72 }}px; --gvm-hero-media: {{ hero_media_w }}fr; --gvm-hero-content: {{ hero_content_w }}fr;"
 >
 
-  {%- comment -%} Hero band {%- endcomment -%}
+
   <div class="ori-gvm-product__band ori-gvm-product__band--hero">
     <div class="{{ container }}">
       <div class="ori-gvm-product__hero">
@@ -149,11 +130,11 @@
           </div>
 
           {%- if has_variants and product.images.size > 0 -%}
-            {%- comment -%}
-              All product images as thumbnails. A thumbnail tied to a variant
-              switches the whole page on click; other images (e.g. the main
-              product image) just show in the main view.
-            {%- endcomment -%}
+
+
+
+
+
             <div class="ori-gvm-product__gallery-thumbs" data-gvm-var-thumbs>
               {%- for image in product.images -%}
                 {%- assign img_vid = '' -%}
@@ -265,11 +246,11 @@
 
           <div class="ori-gvm-product__ctas">
             {%- if section.settings.quote_label != blank -%}
-              {%- comment -%}
-                With a Popup ID set the button opens the Contact form v4 section
-                configured with the same id, rather than navigating away. Left
-                blank it stays an ordinary link, so existing pages are unchanged.
-              {%- endcomment -%}
+
+
+
+
+
               {%- if section.settings.quote_popup_id != blank -%}
                 <modal-opener
                   class="ori-gvm-product__cta-opener"
@@ -288,10 +269,10 @@
             {%- endif -%}
           </div>
 
-          {%- comment -%}
-            Under the buttons rather than beside them, so it does not compete
-            with Request Quote. Rendered only when a URL is set.
-          {%- endcomment -%}
+
+
+
+
           {%- if section.settings.calc_url != blank and section.settings.calc_label != blank -%}
             <p class="ori-gvm-product__calc-link">
               <a href="{{ section.settings.calc_url }}">
@@ -305,7 +286,7 @@
     </div>
   </div>
 
-  {%- comment -%} Stage / vehicle cards (added as blocks, shown before Key benefits) {%- endcomment -%}
+
   {%- if stage_cards.size > 0 -%}
     <div class="ori-gvm-product__band">
       <div class="{{ container }}">
@@ -351,7 +332,7 @@
     </div>
   {%- endif -%}
 
-  {%- comment -%} Key benefits band {%- endcomment -%}
+
   {%- if benefits.size > 0 -%}
     <div class="ori-gvm-product__band ori-gvm-product__band--alt ori-gvm-product__band--benefits">
       <div class="{{ container }}">
@@ -379,7 +360,7 @@
     </div>
   {%- endif -%}
 
-  {%- comment -%} What's included band {%- endcomment -%}
+
   {%- if included.size > 0 -%}
     <div class="ori-gvm-product__band ori-gvm-product__band--included">
       <div class="{{ container }}">
@@ -461,7 +442,7 @@
     </div>
   {%- endif -%}
 
-  {%- comment -%} Specifications band {%- endcomment -%}
+
   {%- if has_specs or has_variants -%}
     <div class="ori-gvm-product__band ori-gvm-product__band--alt" data-gvm-specs-band{% if has_specs == false %} hidden{% endif %}>
       <div class="{{ container }}">
@@ -488,7 +469,7 @@
     </div>
   {%- endif -%}
 
-  {%- comment -%} Installation process band {%- endcomment -%}
+
   {%- if steps.size > 0 -%}
     <div class="ori-gvm-product__band ori-gvm-product__band--steps">
       <div class="{{ container }}">
@@ -514,11 +495,11 @@
     </div>
   {%- endif -%}
 
-  {%- comment -%}
-    Accessories band. acc_p is deliberately NOT named "product" - assigning to
-    that name would clobber the page product used by the hero, the specs and the
-    variant JSON blob below.
-  {%- endcomment -%}
+
+
+
+
+
   {%- if accessories.size > 0 -%}
     <div class="ori-gvm-product__band ori-gvm-product__band--alt">
       <div class="{{ container }}">
@@ -598,7 +579,7 @@
     var main = root.querySelector('.ori-gvm-product__hero-img');
     var thumbEls = root.querySelectorAll('.ori-gvm-product__gallery-thumbs .ori-gvm-product__thumb');
 
-    // Plain gallery thumbnails (images not tied to a variant) just swap the main image.
+
     var galleryThumbs = root.querySelectorAll('[data-gallery-thumb]');
     if (main && galleryThumbs.length) {
       galleryThumbs.forEach(function (thumb) {
@@ -614,7 +595,7 @@
       });
     }
 
-    // Variant (Step) switching: swap title, summary, stats, specs, price, image.
+
     var stepButtons = root.querySelectorAll('[data-gvm-step]');
     var dataEl = root.querySelector('[data-gvm-variants]');
     if (!stepButtons.length || !dataEl) return;
@@ -699,8 +680,8 @@
       }
     }
 
-    // Highlight the chosen variant across the Step buttons and its thumbnail,
-    // and clear any plain gallery-thumbnail highlight.
+
+
     function setActive(id) {
       stepButtons.forEach(function (b) {
         b.classList.toggle('is-active', b.getAttribute('data-gvm-step') === id);

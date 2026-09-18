@@ -17,8 +17,8 @@ test('vehicle finder reserves its measured mobile and desktop height', () => {
   const home = parseShopifyJson('templates/index.json');
   const apps = home.sections['1770092251a8cb32bd'];
   assert.deepEqual(apps.custom_css, [
-    '.f-apps-wrapper { min-height: 440px; }',
-    '@media (min-width: 768px) { .f-apps-wrapper { min-height: 218px; } }',
+    '.f-apps-wrapper {min-height: 440px;}',
+    '@media (min-width: 768px) {.f-apps-wrapper {min-height: 218px; }}',
   ]);
 });
 

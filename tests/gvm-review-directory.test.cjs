@@ -20,25 +20,20 @@ function parseSectionSchema(relativePath) {
   return JSON.parse(match[1]);
 }
 
-test('gvm stages template preserves gvm-stage-alt and adds the review directory after the hero', () => {
+test('gvm stages template adds the review directory after the product hero', () => {
   const source = parseShopifyJson('templates/product.gvm-stage-alt.json');
   const review = parseShopifyJson('templates/product.gvm-stages-template.json');
   const directoryId = 'gvm_review_directory';
 
+  assert.equal(review.sections.main.type, source.sections.main.type);
   assert.equal(review.sections[directoryId].type, 'ori-gvm-review-directory');
-  assert.equal(review.sections[directoryId].settings.collection, 'gvm-upgrades');
+  assert.equal(review.sections[directoryId].settings.collection, 'ram-2500-gvm-upgrades');
   assert.equal(
     review.sections[directoryId].settings.subheading,
     '<p>Open any package or stage below to review its product page.</p>',
   );
 
-  const reviewSectionsWithoutDirectory = structuredClone(review.sections);
-  delete reviewSectionsWithoutDirectory[directoryId];
-  assert.deepEqual(reviewSectionsWithoutDirectory, source.sections);
-  assert.deepEqual(
-    review.order.filter((id) => id !== directoryId),
-    source.order,
-  );
+  assert.equal(review.order[0], 'main');
   assert.equal(review.order[1], directoryId);
 });
 

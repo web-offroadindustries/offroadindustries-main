@@ -1,20 +1,18 @@
 {{ 'ori-gvm-weight-chart.css' | asset_url | stylesheet_tag }}
-{%- comment -%}
-  ORI GVM Weight Breakdown. Donut showing where a vehicle's GVM is spent,
-  capped at 6 segments. Colours follow a fixed categorical order by block
-  index, never cycled or merchant-picked, so adjacent segments stay legible
-  for colour-blind readers. Every value is also readable in the legend and
-  table view, so nothing is carried by colour alone.
-{%- endcomment -%}
+
+
+
+
+
+
+
 {%- liquid
   assign section_id = section.settings.custom_id | default: section.id
   assign container = section.settings.container | default: 'container'
   assign segments = section.blocks | where: 'type', 'segment'
 
-  # Fixed categorical order, validated light and dark. Index 0-5 only.
   assign palette = '#2a78d6,#eb6834,#1baf7a,#eda100,#e87ba4,#008300' | split: ','
 
-  # Sum the segment weights to get the whole.
   assign total = 0
   for block in segments
     assign w = block.settings.weight | plus: 0
@@ -25,7 +23,6 @@
 
   assign total_f = total | times: 1.0
 
-  # Donut geometry. Arc lengths are computed against this circumference.
   assign radius = 88
   assign circumference = 552.92
   assign gap = 3
@@ -57,7 +54,7 @@
 
       <div class="ori-gvm-weight__layout">
 
-        {%- comment -%} Donut {%- endcomment -%}
+
         <figure class="ori-gvm-weight__figure">
           <svg
             class="ori-gvm-weight__donut"
@@ -117,11 +114,11 @@
           <div class="ori-gvm-weight__tip" data-gvm-weight-tip hidden></div>
         </figure>
 
-        {%- comment -%}
-          Legend. Direct labels are mandatory here: several palette steps sit
-          below 3:1 against a light surface, so the value must never depend on
-          the swatch alone.
-        {%- endcomment -%}
+
+
+
+
+
         <ul class="ori-gvm-weight__legend" role="list">
           {%- for block in segments limit: 6 -%}
             {%- assign w = block.settings.weight | plus: 0 -%}
@@ -149,7 +146,7 @@
         </ul>
       </div>
 
-      {%- comment -%} Table view: the WCAG-clean twin of the chart. {%- endcomment -%}
+
       {%- if section.settings.show_table -%}
         <details class="ori-gvm-weight__tableview">
           <summary>{{ section.settings.table_label | default: 'View as table' }}</summary>

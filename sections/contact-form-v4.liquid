@@ -47,19 +47,12 @@
 
   assign form_id = 'ContactForm-' | append: section.id
 
-  # Popup mode. The section still lives in the template and is still edited in
-  # the same place, it just renders inside a modal instead of in the page flow.
-  # Triggers elsewhere open it by id, so the field list stays configured here
-  # rather than being duplicated into whichever section owns the button.
   assign is_popup = false
   if section.settings.display_mode == 'popup'
     assign is_popup = true
   endif
   assign popup_id = section.settings.popup_id | default: 'gvm-quote' | handle
 
-  # Step blocks turn the flat field list into groups. Two or more of them also
-  # let the wizard take over. Detected up front because the markup has to know
-  # before the first block is rendered whether it is opening a grouped layout.
   assign step_blocks = section.blocks | where: 'type', 'step'
   assign has_steps = false
   if step_blocks.size > 0
@@ -72,8 +65,6 @@
     endif
   endif
 
-  # The container setting adds page gutters, which fight the modal's own
-  # padding, so inside the popup it is swapped for a plain full-width wrapper.
   assign wrapper_container = container
   if is_popup
     assign wrapper_container = 'cfv4-popup__body'
@@ -88,13 +79,13 @@
 {%- endunless -%}
 
 {%- if is_popup -%}
-  {%- comment -%}
-    data-no-append keeps the dialog inside its own section wrapper. ModalDialog
-    otherwise relocates itself to document.body, which leaves an orphaned copy
-    behind every time the theme editor re-renders the section and ends up with
-    duplicate ids. Staying put is safe here because .f-modal is position:fixed
-    and nothing above it in this section creates a containing block.
-  {%- endcomment -%}
+
+
+
+
+
+
+
   <modal-dialog
     id="PopupModal-{{ popup_id }}"
     class="f-modal hidden cfv4-popup"
@@ -115,9 +106,9 @@
           class="f-modal__close"
           aria-label="{{ 'accessibility.close' | t }}"
         >
-          {% comment %} theme-check-disable {% endcomment %}
+
           {{ 'icon-close.svg' | inline_asset_content }}
-          {% comment %} theme-check-enable {% endcomment %}
+
         </button>
         <div class="f-modal__inner">
 {%- endif -%}
@@ -145,17 +136,17 @@
         style="width: {{ section.settings.form_width }}px;max-width: 100%;"
       >
         {%- form 'contact', id: form_id -%}
-          {%- comment -%}
-            Step blocks split the field list into groups. The markup has to be
-            opened and closed around the same single pass over section.blocks,
-            so the two flags below track what is currently open:
 
-              fields_open - a .f-contact-form__fields row is awaiting its </div>
-              step_open   - that row is also inside a <section>
 
-            Fields placed before the first Step block are still rendered, in an
-            ungrouped row, rather than being swallowed.
-          {%- endcomment -%}
+
+
+
+
+
+
+
+
+
           {%- if has_steps -%}<div class="cfv4-steps" data-cfv4-steps>{%- endif -%}
 
           {%- liquid
@@ -366,12 +357,12 @@
                       {%- if required -%}<span aria-hidden="true">*</span>{%- endif -%}
                     </label>
 
-                    {%- comment -%}
-                      With both "Depends on" and "Options per choice" filled in,
-                      the list below is rebuilt by JS whenever the controlling
-                      field changes. The full static list is still rendered so
-                      the field works if the script never runs.
-                    {%- endcomment -%}
+
+
+
+
+
+
                     {%- liquid
                       assign is_linked = false
                       if block.settings.depends_on != blank and block.settings.options_map != blank
@@ -404,11 +395,11 @@
                     </select>
 
                     {%- if is_linked -%}
-                      {%- comment -%}
-                        Carried as JSON in a script tag rather than an attribute:
-                        the map is multi-line and full of commas and quotes, and
-                        attribute escaping mangles it.
-                      {%- endcomment -%}
+
+
+
+
+
                       <script type="application/json" id="cfv4map-{{ block.id }}">{{ block.settings.options_map | json }}</script>
                     {%- endif -%}
 
@@ -447,14 +438,14 @@
               </div>
             {%- endfor -%}
 
-            {%- comment -%}
-              Without steps the submit button stays inside the field row exactly
-              where it has always been, so the eleven pages already using this
-              section keep their current layout. With steps it moves out to its
-              own footer, because the wizard has to hide it and put Back/Next
-              in its place, and it cannot do that while it is a flex child of
-              the last step's field row.
-            {%- endcomment -%}
+
+
+
+
+
+
+
+
             {%- if section.blocks.size > 0 and has_steps == false -%}
               <div class="form-field w-full f-column form-submit flex justify-{{- section.settings.form_alignment -}}">
                 {% assign default_submit = 'templates.contact.form.send' | t %}
@@ -481,12 +472,12 @@
 
           {% render 'form-status', form: form %}
 
-          {%- comment -%}
-            Shopify handles a contact form with a full page reload, so in popup
-            mode the modal would be shut by the time the visitor came back and
-            the success or error message would never be seen. Reopen it when
-            the reloaded page is the result of a submission.
-          {%- endcomment -%}
+
+
+
+
+
+
           {%- liquid
             assign reopen_popup = false
             if is_popup
@@ -517,7 +508,7 @@
 {%- endif -%}
 
 <style>
-  /* width control per field (mobile = 100%, desktop uses dropdown %) */
+
   #{{ section_id }} .cfv4-field{
     flex: 0 0 100%;
     max-width: 100%;
@@ -529,15 +520,15 @@
     }
   }
 
-  /* Popup mode. The modal supplies its own padding and width, so the section
-     drops the page container and the form stops fighting it for the space. */
+
+
   .cfv4-popup .cfv4-popup__body{
     width: 100%;
   }
   .cfv4-popup #{{ section_id }} .f-contact-form__wrapper{
     width: 100% !important;
   }
-  /* The close button sits in the top right, so the heading needs to clear it. */
+
   .cfv4-popup #{{ section_id }} .f-section-header{
     padding-right: 32px;
   }

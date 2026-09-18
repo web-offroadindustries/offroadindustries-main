@@ -115,7 +115,7 @@
     cards[0].classList.add('is-active');
     if (cards.length < 2) return;
 
-    /* ── Pagination dots ── */
+
     var dotsEl = document.createElement('div');
     dotsEl.className = 'why-choose__dots';
     grid.parentNode.insertBefore(dotsEl, grid.nextSibling);
@@ -163,7 +163,7 @@
     function startTimer() { timer = setInterval(advance, intervalSec * 1000); }
     startTimer();
 
-    /* Pause auto-advance while user touches the section */
+
     sectionEl.addEventListener('touchstart', function () { clearInterval(timer); }, { passive: true });
     sectionEl.addEventListener('touchend',   function () { startTimer(); },        { passive: true });
   }
@@ -179,7 +179,7 @@
     run();
   }
 
-  /* Re-init after Shopify section editor reload */
+
   document.addEventListener('shopify:section:load', function (e) {
     var el = e.target.id === ('WhyChoose-' + SECTION_ID)
       ? e.target
