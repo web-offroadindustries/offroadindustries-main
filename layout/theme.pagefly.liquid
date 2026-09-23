@@ -179,9 +179,6 @@ If you plan to remove PageFly, please see the guide in our help center first: ht
     {% comment %} Custom metafield for head tag like GTag tracking {% endcomment %}
     {{ shop.metafields.foxtheme.code_head.value }}
 
-    {{ 'Evogria.woff2' | asset_url | preload_tag: as: 'font', type: 'font/woff2', crossorigin: 'anonymous' }}
-    {{ 'Geomanist-Regular.woff2' | asset_url | preload_tag: as: 'font', type: 'font/woff2', crossorigin: 'anonymous' }}
-    {{ 'Geomanist-Medium.woff2' | asset_url | preload_tag: as: 'font', type: 'font/woff2', crossorigin: 'anonymous' }}
     {{ 'brand-guidelines.css' | asset_url | stylesheet_tag }}
 
   

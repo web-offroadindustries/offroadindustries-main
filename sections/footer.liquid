@@ -25,15 +25,29 @@
     if footer_bg_size == 'auto'
       assign footer_bg_repeat = 'repeat'
     endif
+
+    assign footer_bg_width_small = 1000
+    if footer_bg_repeat == 'repeat'
+      assign footer_bg_width_small = 2400
+    endif
   -%}
   <style>
     /* Footer background image (sits on top of the selected color scheme background) */
     #shopify-section-{{ section.id }} .site-footer{
-      background-image: url({{ section.settings.footer_bg_image | image_url: width: 2400 }});
+      background-image: url({{ section.settings.footer_bg_image | image_url: width: footer_bg_width_small }});
       background-size: {{ footer_bg_size }};
       background-position: {{ footer_bg_position }};
       background-repeat: {{ footer_bg_repeat }};
     }
+    {%- if footer_bg_repeat == 'no-repeat' -%}
+    /* A phone never needs the 2400px file, and a background image inside a
+       media query that does not match is not downloaded. */
+    @media (min-width: 1024px){
+      #shopify-section-{{ section.id }} .site-footer{
+        background-image: url({{ section.settings.footer_bg_image | image_url: width: 2400 }});
+      }
+    }
+    {%- endif -%}
     /* Prevent inner footer wrappers from overriding the section background */
     #shopify-section-{{ section.id }} .site-footer__top,
     #shopify-section-{{ section.id }} .site-footer__bottom{
